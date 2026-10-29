@@ -1,0 +1,110 @@
+{
+  "student/index.csv": {
+    "sha256": "6e3998f9f13ba95d58c4f72d6c14eeaff1c4da79c34153277921de06621106b9",
+    "bytes": 1296272
+  },
+  "student/laion_pool_student_000.zip": {
+    "sha256": "eb56dba548562191db7a48fdd59fd21e9b45e2c58ed33e60183912fde9b56747",
+    "bytes": 90346171
+  },
+  "student/laion_pool_student_001.zip": {
+    "sha256": "f17b025e697e4a025a21fc161113159ac5db8869117a655fb720d3b1c5b24102",
+    "bytes": 90383235
+  },
+  "student/laion_pool_student_002.zip": {
+    "sha256": "f75d12f152a410c9cdfaedc29909d44f7448231707a028e80698a266840929d0",
+    "bytes": 90368773
+  },
+  "student/laion_pool_student_003.zip": {
+    "sha256": "de50eb51f2c4a2d3cfbaf4f463c956e339c2c55bafda71144c5c05ca8717203a",
+    "bytes": 90372310
+  },
+  "student/laion_pool_student_004.zip": {
+    "sha256": "52a1329d1bfcf5fe837fcf600351722fd37bf3d0e4a33806ea0716b061bae15e",
+    "bytes": 90376516
+  },
+  "student/laion_pool_student_005.zip": {
+    "sha256": "aec7aeb368b7efe761d8d22ba2e11257b0ca3dbb8d29a6b7ec8937b1502943ed",
+    "bytes": 90391935
+  },
+  "student/laion_pool_student_006.zip": {
+    "sha256": "7a44a7251280b6d12ceeb9abda3087ff8cf20585549967e602bdf724455ea642",
+    "bytes": 90389927
+  },
+  "student/laion_pool_student_007.zip": {
+    "sha256": "bacdb8af4598fd592d01cb2c373a85adc28749b412e8a147361bee2ef35923b9",
+    "bytes": 90375254
+  },
+  "student/laion_pool_student_008.zip": {
+    "sha256": "6c6f9f64914be64cc6175f5edd32df84dbb1a28115ba9c8607a11c3131689854",
+    "bytes": 90386077
+  },
+  "student/laion_pool_student_009.zip": {
+    "sha256": "4e33a9b1515cb59eb821f3ff75d66e8f04d010f780ff0f756b5591dea4b316f8",
+    "bytes": 90386797
+  },
+  "student/laion_pool_student_010.zip": {
+    "sha256": "5a9065506f609372e1d158a1c4149151d35e5030a484a501a847db6b664eccd8",
+    "bytes": 90382093
+  },
+  "student/laion_pool_student_011.zip": {
+    "sha256": "96ce15a592877b6cd5a79045763864cada3bf9c78064d57dea88cbae966ec47d",
+    "bytes": 90380902
+  },
+  "student/laion_pool_student_012.zip": {
+    "sha256": "0bea118b7a1f682099b157d2fddca67b5f11b0fc2784c4b2e3c70fbcf8babe4d",
+    "bytes": 90390606
+  },
+  "student/laion_pool_student_013.zip": {
+    "sha256": "9f5c009f1408a22e6c4a5ccd73136482c6e52f983cb09f415af1a725672e1795",
+    "bytes": 90398318
+  },
+  "student/laion_pool_student_014.zip": {
+    "sha256": "97a02699a7bd7652a91a8f70f574b5df96e4dceb68b3eea5889f5f661c2c7739",
+    "bytes": 90366615
+  },
+  "student/laion_pool_student_015.zip": {
+    "sha256": "7d500d13aa17e8f20d3f1f2768420bcf40ff2b0ca0611fdc897cc28218e2be17",
+    "bytes": 90382810
+  },
+  "student/laion_pool_student_016.zip": {
+    "sha256": "5d3fec6ba170433e4914ce18e6339def0d775c0686e9df353c9686251864d8ff",
+    "bytes": 90400352
+  },
+  "student/laion_pool_student_017.zip": {
+    "sha256": "c942e9a4862fb45ae60acdae0efdbae8ebf109fb6e6b0abcaf54440ce1f5d7bc",
+    "bytes": 90391395
+  },
+  "student/laion_pool_student_018.zip": {
+    "sha256": "3bfbbae06eadedbf49a2db632ac080a176666a93f9ba6e659ccefd4761bbc8a4",
+    "bytes": 90373121
+  },
+  "student/laion_pool_student_019.zip": {
+    "sha256": "f10c1c07edecb001c5816bea5a778ff29e2f11b5a2e909463c303bb39e627d9d",
+    "bytes": 90382620
+  },
+  "student/laion_pool_student_020.zip": {
+    "sha256": "ac32980bfb4511808bf0cf5b3b97f6509a0ba103b411189e0401ce3fce0f3e1e",
+    "bytes": 90394615
+  },
+  "student/laion_pool_student_021.zip": {
+    "sha256": "36f0280786c245a7b232f51232d9bc219a8e974761eff597a86ab4dc4b38a7c5",
+    "bytes": 28634614
+  },
+  "Course_Project_Resources/dev_set.zip": {
+    "sha256": "36c0b0339370295ea85957a410d6b1f70d91005602b8c42ba2cc93b3d9f4bc83",
+    "bytes": 4835854
+  },
+  "Course_Project_Resources/starter_kit.zip": {
+    "sha256": "1ffc0b7957a0a1d4ac7198bd09a750228e92a22e84da03ff80f96aa7ef9f82ac",
+    "bytes": 95345
+  },
+  "project_handout.pdf": {
+    "sha256": "a4345503f67ab2933b59c477ec7986fed2d4ab81e94b057b76c50773b153b667",
+    "bytes": 111992
+  },
+  "Project Briefing.pptx": {
+    "sha256": "0e99e96cae9247746102a8f0873ad7d848954860c262063003ffcb9ce861004c",
+    "bytes": 66211
+  }
+}

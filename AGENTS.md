@@ -18,3 +18,5 @@ Layout: src/{curation,training,evaluation,release}, configs/, manifests/, annota
 Commands and current state: README.md and EXECUTION_STATUS.md. Before substantial work and periodically during a run, check account usage. Stop at 90% five-hour usage, save a handoff/reset time, and resume after reset as authorized. Do not consume reset credits.
 
 Verification: official tests; crop parity; provenance/cache parity; diffusion math; fixed single-batch 2,000-update diagnostic with >=80% probe-MSE reduction; inference isolation/shape/range/RNG; clean export/offline load; actual archive allowlist check.
+
+Known Windows pitfall: sandbox default temporary folders can reject pytest fixtures. pytest.ini directs fixtures to workspace-local .pytest_tmp. Never change official tests to bypass this environment issue.

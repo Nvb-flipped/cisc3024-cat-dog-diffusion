@@ -1,0 +1,12 @@
+{
+  "indexed_ids": 76250,
+  "entries": 76250,
+  "decoded_ok": 76250,
+  "bad": 0,
+  "missing_ids": [],
+  "duplicate_ids": [],
+  "exact_pixel_duplicate_excess": 0,
+  "elapsed_seconds": 35.63804239989258,
+  "pool_index_sha256": "6e3998f9f13ba95d58c4f72d6c14eeaff1c4da79c34153277921de06621106b9",
+  "scope": "pool only; CRC, full decode, delivered dimensions, RGB hashes; no EXIF reorientation"
+}

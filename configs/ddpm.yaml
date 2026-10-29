@@ -1,5 +1,5 @@
 model:
-  channels: [64, 128, 192, 256]
+  channels: [48, 96, 144, 192]  # Required fallback: original implementation measured 18,318,147 parameters.
   blocks_per_level: 2
   conditioning_dim: 256
   attention_heads: 4

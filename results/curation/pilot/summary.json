@@ -1,0 +1,9 @@
+{
+  "processed_images": 2000,
+  "detector_errors": 0,
+  "proposals": 3352,
+  "geometrically_valid_proposals": 1269,
+  "images_with_valid_proposals": 697,
+  "total_detector_seconds": 502.5254971010145,
+  "status": "Proposals only; no student decisions, no frozen training manifest"
+}

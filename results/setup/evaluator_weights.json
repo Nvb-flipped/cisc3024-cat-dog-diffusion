@@ -1,0 +1,7 @@
+{
+  "files": {
+    "models\\evaluator\\hub\\checkpoints\\pt_inception-2015-12-05-6726825d.pth": "6726825d0af5f729cebd5821db510b11b1cfad8faad88a03f1befd49fb9129b2",
+    "starter_kit\\catdog_eval\\classifier.pt": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa"
+  },
+  "purpose": "official aggregate evaluation only; forbidden in curation/training/generation"
+}

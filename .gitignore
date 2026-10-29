@@ -4,12 +4,15 @@
 data/
 student/
 Course_Project_Resources/
+project_handout.pdf
+Project Briefing.pptx
 checkpoints/
 models/
 tmp/
 private_build/
 __pycache__/
 .pytest_cache/
+.pytest_tmp/
 *.py[cod]
 *.pt
 *.pth

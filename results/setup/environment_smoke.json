@@ -1,0 +1,42 @@
+{
+  "python": "3.11.18",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "torch": "2.9.1+cu128",
+  "cuda": "12.8",
+  "gpu": "NVIDIA GeForce RTX 5060 Ti",
+  "git_commit": "b04acaf54eaf8dbbee75c20de87a65d3ccce67bf",
+  "git_dirty": true,
+  "device_capability": [
+    12,
+    0
+  ],
+  "architectures": [
+    "sm_70",
+    "sm_75",
+    "sm_80",
+    "sm_86",
+    "sm_90",
+    "sm_100",
+    "sm_120"
+  ],
+  "bf16_supported": true,
+  "fp32": {
+    "loss": 0.15670016407966614,
+    "seconds": 15.7725789998658,
+    "output_dtype": "torch.float32"
+  },
+  "bf16": {
+    "loss": 0.10987305641174316,
+    "seconds": 4.701295599807054,
+    "output_dtype": "torch.bfloat16"
+  },
+  "original_proposal_parameters": 18318147,
+  "selected_channels": [
+    48,
+    96,
+    144,
+    192
+  ],
+  "selected_model_parameters": 10664371,
+  "engineering_cap_pass": true
+}
