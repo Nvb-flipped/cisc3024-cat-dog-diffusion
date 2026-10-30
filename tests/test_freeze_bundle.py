@@ -14,17 +14,19 @@ def inputs(tmp_path, monkeypatch):
                  verdict='good', origin='student_browser_review', reviewer='Automated fixture only',
                  timestamp='fixture timestamp', criteria=dict.fromkeys(freeze_module.CRITERIA, True),
                  head_width=42, occupancy=.70, x0=20, y0=20, size=60, angle=0,
-                 preview_sha256=hashlib.sha256(b'fixture pixels').hexdigest()) for i in range(24)]
+                 preview_sha256=hashlib.sha256(f'fixture pixels pool{i}'.encode()).hexdigest()) for i in range(24)]
     decisions.write_text(''.join(json.dumps(row) + '\n' for row in rows))
     groups = tmp_path / 'groups.csv'
     with groups.open('w', newline='') as f:
-        writer = csv.DictWriter(f, ['candidate_id','group_id','keep','reviewer','timestamp'])
+        writer = csv.DictWriter(f, ['candidate_id','group_id','keep','reviewer','timestamp','origin','crop_review_sha256'])
         writer.writeheader()
         writer.writerows(dict(candidate_id=row['candidate_id'], group_id=f'family{i}', keep='yes',
-                              reviewer='Automated fixture only', timestamp='fixture timestamp')
+                              reviewer='Automated fixture only', timestamp='fixture timestamp',
+                              origin='student_duplicate_review', crop_review_sha256=freeze_module.crop_review_identity(row))
                          for i, row in enumerate(rows))
     monkeypatch.setattr(freeze_module, 'Pool', lambda _: object())
-    monkeypatch.setattr(freeze_module, 'rendered_crop', lambda *args: b'fixture pixels')
+    monkeypatch.setattr(freeze_module, 'fingerprint', lambda _: ('synthetic-pool-fingerprint', {}))
+    monkeypatch.setattr(freeze_module, 'rendered_crop', lambda pool, identifier, row: f'fixture pixels {identifier}'.encode())
     return dict(pool='fixture', decisions=str(decisions), validation_fraction=.05, seed=3024), groups
 
 

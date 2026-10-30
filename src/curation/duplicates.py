@@ -72,9 +72,9 @@ def main():
             writer.writerow({'candidate_id': row['candidate_id']})
     write_json(args.out.with_suffix('.json'), {'candidate_count': len(candidates), 'pair_count': len(pairs),
         'radius': args.radius, 'meaning': 'Source dHash is a review aid, not proof of duplicate heads.',
-        'review': 'Confirm candidate pairs visually/aligned pixels; assign one group per duplicate head family, '
-                  'unique groups for confirmed distinct heads. Keep one good crop per family. Fill keep=yes/no, '
-                  'reviewer, actual timestamp and reason in annotations/duplicate_groups.csv. Never prefill human judgments.'})
+        'review': 'Raw proposal diagnostic only. After personal crop approvals, use '
+                  'python -m src.curation.duplicate_review for signature-bound family/keep decisions. '
+                  'Do not use this raw template as the final reviewed-group file. Never prefill human judgments.'})
     print(f'{len(pairs)} candidate pairs; blank group template: {template}')
 
 

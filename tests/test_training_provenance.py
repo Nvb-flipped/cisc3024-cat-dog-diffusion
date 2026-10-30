@@ -6,6 +6,9 @@ import torch
 from src.training.data import load_manifest_data
 from src.training.step import optimizer_step
 from src.training.train import atomic_checkpoint
+from src.training.lineage import reviewed_manifest_provenance
+from src.curation.pool_fingerprint import fingerprint
+from src.common import sha256, write_json
 from submission.diffusion import cosine_alpha_bar
 from submission.model import ConditionalUNet
 
@@ -42,6 +45,27 @@ def test_changed_source_cannot_reuse_a_cache(tmp_path):
     Image.new('RGB', (120, 120), 'red').save(folder / 'images/source.jpg')
     with pytest.raises(ValueError, match='provenance mismatch'):
         load_manifest_data(manifest, folder, tmp_path / 'cache')
+
+
+def test_frozen_review_lineage_rejects_changed_pool_even_without_an_old_cache(tmp_path):
+    folder, manifest = pool_fixture(tmp_path)
+    write_json(manifest.with_suffix('.provenance.json'), {'origin': 'student_reviewed_manifest',
+        'scope': 'SYNTHETIC UNIT FIXTURE', 'pool_content_sha256': fingerprint(folder)[0],
+        'manifests': [{'sha256': sha256(manifest)}]})
+    assert reviewed_manifest_provenance(manifest)
+    load_manifest_data(manifest, folder, tmp_path / 'cache')
+    Image.new('RGB', (120, 120), 'red').save(folder / 'images/source.jpg')
+    with pytest.raises(ValueError, match='Source pool differs'):
+        load_manifest_data(manifest, folder, tmp_path / 'new_cache')
+
+
+def test_baseline_requires_frozen_reviewed_provenance(tmp_path):
+    folder, manifest = pool_fixture(tmp_path)
+    with pytest.raises(ValueError, match='requires the frozen'):
+        reviewed_manifest_provenance(manifest)
+    write_json(manifest.with_suffix('.provenance.json'), {'diagnostic_only': True})
+    with pytest.raises(ValueError, match='diagnostic, changed'):
+        reviewed_manifest_provenance(manifest)
 
 
 @pytest.mark.parametrize('row', [

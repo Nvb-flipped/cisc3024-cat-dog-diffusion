@@ -11,8 +11,8 @@ from src.release.readiness import readiness
 
 ROOT_FILES = {'README.md', 'DATA_CARD.md', 'AGENTS.md', 'AGENT_LOG.md',
               'requirements.txt', 'requirements-lock.txt', 'pytest.ini', '.gitattributes',
-              'THIRD_PARTY_NOTICES.md', 'PROJECT_PLAN.md', 'REQUIREMENTS_TRACE.md'}
-SOURCE_ROOTS = {'src', 'scripts', 'tests', 'configs', 'manifests', 'annotations', 'logs', 'results', 'figures', 'report'}
+              'THIRD_PARTY_NOTICES.md', 'PROJECT_PLAN.md', 'REQUIREMENTS_TRACE.md', 'STUDENT_REVIEW_QUEUE.md'}
+SOURCE_ROOTS = {'src', 'scripts', 'tests', 'configs', 'manifests', 'annotations', 'logs', 'results', 'figures', 'report', 'student_checks'}
 SOURCE_EXTENSIONS = {'.py', '.js', '.html', '.css', '.yaml', '.yml', '.json', '.jsonl', '.csv',
                      '.txt', '.log', '.md', '.tex', '.bib', '.sty', '.cls', '.xml', '.drawio'}
 INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'weights.pt',

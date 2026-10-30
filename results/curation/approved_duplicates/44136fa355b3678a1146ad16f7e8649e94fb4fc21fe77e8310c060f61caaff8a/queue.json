@@ -1,0 +1,10 @@
+{
+  "snapshot_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+  "items": [],
+  "components": [],
+  "edges": [],
+  "source_radius": 8,
+  "crop_radius": 4,
+  "status": "pending_personally_approved_crops",
+  "meaning": "Source/crop/mirrored-crop dHash suggests comparisons. It does not prove duplicates or distinctness. Check across components too."
+}

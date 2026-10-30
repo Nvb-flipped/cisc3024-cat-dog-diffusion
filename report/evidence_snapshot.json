@@ -31,7 +31,7 @@
     },
     "E008": {
       "path": "results/setup/all_fast_tests.xml",
-      "sha256": "d6a5f7c19b433671f819f9abf9e160edfd800d161609378dcf631273d6e6a336"
+      "sha256": "702c668deba35248832cfd0d039f9f73ad3b61a291b47c43b4ac8153e8c29c7b"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",

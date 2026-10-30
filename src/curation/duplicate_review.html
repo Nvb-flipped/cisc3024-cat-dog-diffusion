@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="review-token" content="__TOKEN__"><title>Head study · duplicate families</title>
+<style>
+:root{color-scheme:light;--ink:#183047;--muted:#5c6f80;--line:#c5d0da;--blue:#145d92}*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:var(--ink);font:16px/1.45 'Segoe UI',sans-serif}header,main{max-width:1400px;margin:auto;padding:24px 4vw}header{border-bottom:1px solid var(--line)}h1{font:600 27px Georgia,serif;margin:0}h2{font-size:18px}p{max-width:1000px}.note{color:var(--muted);font-size:14px}.toolbar,.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0}input,select,button{font:inherit;padding:9px;background:white;border:1px solid var(--line);border-radius:4px;color:var(--ink)}button{cursor:pointer}button:disabled{opacity:.5;cursor:wait}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #e3a43a;outline-offset:2px}.primary{background:var(--blue);color:white;border-color:var(--blue)}#cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:16px}.card{background:white;border:1px solid var(--line);padding:16px;max-width:600px}.images{display:flex;align-items:center;gap:18px;min-height:150px}.source{max-width:140px;max-height:160px}.crop{width:128px;height:128px;image-rendering:pixelated}.card input,.card select{width:100%;margin-top:6px}.card label{display:block;font-size:13px;margin-top:12px}.identity{font:13px Consolas,monospace;overflow-wrap:anywhere}.message{font-weight:600;min-height:28px}.error{color:#9e3737}#panel[hidden]{display:none}.check{display:flex;gap:9px;align-items:start;margin-top:20px}.check input{margin-top:6px}a{color:var(--blue)}
+</style></head><body><header><h1>Duplicate families</h1><p class="note">Personal comparison of approved heads · one kept crop per confirmed family</p></header>
+<main><p>Similarity only suggests which crops to compare. Two similar heads can be different animals, and duplicate photos can occur in different comparison sets. Check originals and crops, including mirrored or recropped versions. Confirm the same family ID wherever the same head appears; keep one suitable crop.</p>
+<div class="toolbar"><label>Student reviewer <input id="reviewer" placeholder="Your name" autocomplete="name"></label><button id="refresh">Reload approved crops</button><span id="progress"></span><a href="http://127.0.0.1:8766/">Return to crop review</a></div>
+<div class="message" id="message" role="status" aria-live="polite">Loading personally approved crops…</div>
+<section id="panel" hidden><h2 id="heading"></h2><p class="note" id="suggestions"></p><div id="cards"></div>
+<label class="check"><input id="compared" type="checkbox">I personally compared these source photographs and exact crops, and checked family IDs against other reviewed heads.</label>
+<div class="actions"><button id="distinct">Confirm all distinct; keep each crop</button><button class="primary" id="save">Save the family/keep choices above</button></div>
+<p class="note">To merge a family, enter the same family ID on its crops, keep only one, and give a reason for each exclusion. The suggested distinct IDs are pending until you explicitly save. A saved family decision is invalidated if its crop or species changes.</p>
+<div class="actions"><button id="previous">← Previous set</button><button id="next">Next pending set →</button></div></section></main>
+<script>
+const field = id => document.getElementById(id);
+const token = document.querySelector('meta[name="review-token"]').content;
+let queue = null, position = 0, saving = false, imagesReady = false, imageVersion = 0;
+function message(text, error=false) { field('message').textContent=text; field('message').className=error?'message error':'message'; }
+function element(tag, text) { const node=document.createElement(tag); if(text!==undefined)node.textContent=text; return node; }
+function setBusy(value) { saving=value; document.querySelectorAll('button,input,select').forEach(node=>node.disabled=value); }
+function show() {
+  if(queue.diagnostic_only)document.querySelector('h1').textContent='Duplicate families · synthetic software fixture';
+  const version=++imageVersion;imagesReady=false;
+  const component=queue.components[position];
+  field('panel').hidden=!component;
+  if(!component) { message('No personally approved crops yet. Complete crop review first; no duplicate verdicts have been inferred.'); return; }
+  field('compared').checked=false;
+  field('progress').textContent=`Comparison set ${position+1} / ${queue.components.length} · ${queue.items.filter(item=>item.prior).length} / ${queue.items.length} family decisions saved`;
+  field('heading').textContent=`Compare ${component.length} approved crop${component.length===1?'':'s'}`;
+  const edges=queue.edges.filter(edge=>component.includes(edge.a)&&component.includes(edge.b));
+  field('suggestions').textContent=edges.length?`${edges.length} similarity links suggested this comparison set. Transitive links do not establish one family.`:'No close dHash match was suggested. Personally check distinctness against the wider reviewed set.';
+  field('cards').replaceChildren();
+  for(const identifier of component) {
+    const item=queue.items.find(candidate=>candidate.candidate_id===identifier), card=element('article');
+    card.className='card';card.dataset.id=identifier;
+    const identity=element('p',`${item.pool_id} · ${item.label===0?'cat':'dog'} · ${identifier}`);identity.className='identity';card.append(identity);
+    const images=element('div');images.className='images';
+    const link=element('a');link.href='/source?pool_id='+encodeURIComponent(item.pool_id);link.target='_blank';link.rel='noopener';link.setAttribute('aria-label','Open original '+item.pool_id);
+    const source=element('img');source.className='source';source.alt='Original source '+item.pool_id;source.src=link.href;link.append(source);images.append(link);
+    const crop=element('img');crop.className='crop';crop.alt='Exact 32 by 32 crop, enlarged four times';crop.src='/crop?'+new URLSearchParams({pool_id:item.pool_id,x0:item.x0,y0:item.y0,size:item.size,angle:item.angle});images.append(crop);card.append(images);
+    const groupLabel=element('label','Confirmed family ID');const group=element('input');group.dataset.field='group_id';group.value=item.prior?.group_id||'distinct:'+identifier;groupLabel.append(group);card.append(groupLabel);
+    const keepLabel=element('label','Keep this crop?');const keep=element('select');keep.dataset.field='keep';for(const [value,label] of [['','Choose explicitly'],['yes','Yes — representative crop'],['no','No — exclude this crop']]) { const option=element('option',label);option.value=value;keep.append(option); }keep.value=item.prior?.keep||'';keepLabel.append(keep);card.append(keepLabel);
+    const reasonLabel=element('label','Reason if excluded');const reason=element('input');reason.dataset.field='reason';reason.value=item.prior?.reason||'';reasonLabel.append(reason);card.append(reasonLabel);
+    field('cards').append(card);
+  }
+  message('Loading the original photographs and exact crops…');
+  Promise.all([...field('cards').querySelectorAll('img')].map(image=>image.complete&&image.naturalWidth?Promise.resolve():new Promise((resolve,reject)=>{image.onload=resolve;image.onerror=()=>reject(new Error('An original or crop failed to load. Reload this comparison set before deciding.'));})))
+    .then(()=>{if(version!==imageVersion)return;imagesReady=true;field('compared').checked=false;message(queue.items.every(item=>item.prior)?'All current approved crops have saved family decisions. Reload after approving more crops.':'Images ready. Compare them personally before saving.');})
+    .catch(error=>{if(version===imageVersion)message(error.message,true);});
+}
+async function load() { setBusy(true);try { const response=await fetch('/queue');queue=await response.json();if(!response.ok)throw new Error(queue.error);position=0;show(); }catch(error){message(error.message,true);}finally{setBusy(false);} }
+async function save(distinct=false) {
+  if(saving)return;
+  if(!imagesReady) { message('Wait until every original and crop has loaded before deciding.',true);return; }
+  if(!field('reviewer').value.trim()||!field('compared').checked) { message('Enter your name and confirm personal comparison before saving.',true);return; }
+  const rows=[...field('cards').children].map(card=>{
+    const row={candidate_id:card.dataset.id};card.querySelectorAll('[data-field]').forEach(input=>row[input.dataset.field]=input.value);
+    return distinct?{...row,group_id:'distinct:'+row.candidate_id,keep:'yes',reason:''}:row;
+  });
+  setBusy(true);
+  try { const response=await fetch('/decisions',{method:'POST',headers:{'Content-Type':'application/json','X-Review-Token':token},body:JSON.stringify({reviewer:field('reviewer').value,personally_compared:field('compared').checked,snapshot_sha256:queue.snapshot_sha256,rows})});const result=await response.json();if(!response.ok)throw new Error(result.error);
+    const refreshed=await fetch('/queue');queue=await refreshed.json();if(!refreshed.ok)throw new Error(queue.error);
+    const next=queue.components.findIndex(component=>component.some(id=>!queue.items.find(item=>item.candidate_id===id).prior));
+    if(next>=0)position=next;show();message(`Saved ${result.saved} personal decisions.`);
+  }catch(error){message(error.message,true);}finally{setBusy(false);}
+}
+field('refresh').onclick=load;field('save').onclick=()=>save();field('distinct').onclick=()=>save(true);
+field('previous').onclick=()=>{position=Math.max(0,position-1);show();};
+field('next').onclick=()=>{const next=queue.components.findIndex((component,index)=>index>position&&component.some(id=>!queue.items.find(item=>item.candidate_id===id).prior));if(next<0)message('No later pending comparison set. Review earlier sets or reload newly approved crops.');else{position=next;show();}};
+load();
+</script></body></html>

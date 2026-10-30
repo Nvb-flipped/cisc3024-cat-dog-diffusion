@@ -13,6 +13,9 @@ Execute PROJECT_PLAN.md; the course handout has precedence. This is an individua
 - Any manifest removal after training requires fresh final training. Record manifest/code/checkpoint hashes, seeds, timing, versions and actual commands.
 - No report success claim without full official evaluation including pool reconstruction and memorization. Student-reported slide-generation exemption was in person, not written.
 - Figure work starts with FigGenie; human brief/exemplar and A/B selection remain pending. Keep requested editable formats and source data.
+- Approved-only duplicate review runs separately at http://127.0.0.1:8767. Hash similarity is only a comparison aid. Every family/keep choice needs a personal action; bind it to geometry, species and preview. Exact repeated crop pixels cannot both be kept. Preserve manual CSV edits and reconcile them rather than overwriting.
+- Baseline training requires frozen personal-review provenance and its pool-content fingerprint. Reuse the exact 2e-4/seed-17/50k baseline in LR comparisons. Quantity ablations use exact parent rows, the same holdout, fresh initialization and a matched update budget; omit a meaningless size contrast.
+- Synthetic UI fixtures stay under private_build and use software_fixture origins/diagnostic flags. They are never student judgments, final audit labels or training approvals.
 
 Layout: src/{curation,training,evaluation,release}, configs/, manifests/, annotations/, tests/, results/, logs/, submission/, figures/, report/, presentation/. Local-only: data/, models/, checkpoints/, .venvs/.
 
@@ -21,5 +24,9 @@ Commands and current state: README.md and EXECUTION_STATUS.md. Before substantia
 Verification: official tests; crop parity; provenance/cache parity; diffusion math; fixed single-batch 2,000-update diagnostic with >=80% probe-MSE reduction; inference isolation/shape/range/RNG; clean export/offline load; actual archive allowlist check.
 
 Known Windows pitfall: sandbox default temporary folders can reject pytest fixtures. pytest.ini directs fixtures to workspace-local .pytest_tmp. Never change official tests to bypass this environment issue.
+
+Windows process pitfall: the PID returned by a virtual-environment Python launcher can differ from the listening runtime PID. Read the actual localhost port owner and verify its command line before stopping a service. Sandboxed process inspection may not see the elevated host service; do not infer that a live browser-accessible service has exited from that alone.
+
+Review UI pitfall: overlapping saves can otherwise misattribute a late response or skip a crop; serialize saves and attach each result to its original candidate. Discard stale previews and clear old criteria/measurements when geometry changes. Browser checks must not submit real student verdicts.
 
 Measured inference pitfall: on the actual CUDA U-Net, changing physical batch dimensions amplified floating-point differences near the noisy cosine endpoint (an untrained stress test observed max output difference 0.968). Sampling now pads logical chunks to one serialized execution_batch, keeping arithmetic shape fixed. Test changed logical microbatch sizes and N=1 versus mixed prefixes. Treat a change of execution_batch as a sampler configuration change requiring reevaluation; it is not merely a performance switch.

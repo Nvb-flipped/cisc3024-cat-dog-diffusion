@@ -1,0 +1,10 @@
+{
+  "status": "desktop_compiler_success",
+  "checked": "2026-10-30T02:02:26.434210+00:00",
+  "source": "private_build/latex_smoke/main.tex",
+  "source_sha256": "f529d3c4e972d0a2a56fefe1f530f4c0263d29e0ab371b3057ab90c0cd4dae45",
+  "vector_figure_sha256": "411eb08886e3eccd11078ac510c8f2f148142a7c1511ee9b4d134adeecf6e1ae",
+  "scope": "Local equations plus vector-PDF inclusion smoke only; not the course report, PDF export, page-count evidence or visual acceptance.",
+  "initial_source_failure": "The first smoke source loaded zref-abspage without the user module, so zlabel was undefined. Corrected to usepackage[user,abspage]{zref}; desktop compilation then succeeded.",
+  "reference": "https://ctan.org/pkg/zref"
+}

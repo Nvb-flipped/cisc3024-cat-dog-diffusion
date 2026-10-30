@@ -13,6 +13,7 @@ from src.common import ROOT, environment, read_config, sha256, timestamp, write_
 from src.training.data import load_manifest_data
 from src.training.step import optimizer_step, update_ema
 from src.training.validation import require_disjoint_sources, validation_loss
+from src.training.lineage import reviewed_manifest_provenance
 from submission.diffusion import cosine_alpha_bar
 from submission.model import ConditionalUNet
 
@@ -48,6 +49,7 @@ def main():
     p.add_argument('--device', default='cuda')
     args = p.parse_args()
     config = read_config(args.config)
+    review_provenance_hash = reviewed_manifest_provenance(args.manifest)
     if args.updates is not None:
         config['training']['updates'] = args.updates
     settings = config['training']
@@ -104,6 +106,8 @@ def main():
         state = torch.load(args.resume, map_location=device, weights_only=True)
         if state['manifest_sha256'] != manifest_hash:
             raise ValueError('Resume manifest mismatch: changed training rows require a fresh final run')
+        if state.get('data_review_provenance_sha256') != review_provenance_hash:
+            raise ValueError('Resume changes the frozen personal-review provenance')
         if state['stats']['pool_content_sha256'] != stats['pool_content_sha256']:
             raise ValueError('Source pool content changed since checkpoint')
         if state['seed'] != args.seed or state['config']['model'] != config['model']:
@@ -133,9 +137,11 @@ def main():
     segment_id = f'{start_update:06d}_' + ''.join(c for c in started if c.isalnum())
     code_hashes = {name: sha256(ROOT / name) for name in ['src/training/train.py',
         'src/training/step.py', 'src/training/data.py', 'src/training/validation.py',
+        'src/training/lineage.py', 'src/curation/pool_fingerprint.py',
         'submission/model.py', 'submission/diffusion.py']}
     metadata = {'config': config, 'config_sha256': sha256(args.config),
                 'manifest': str(Path(args.manifest).resolve()), 'manifest_sha256': manifest_hash,
+                'data_review_provenance_sha256': review_provenance_hash,
                 'stats': stats, 'seed': args.seed, 'parameters': parameters,
                 'environment': environment(), 'started': started, 'parent_checkpoint_sha256': parent_hash,
                 'initial_update': start_update, 'precision_used': 'bf16' if bf16 else 'fp32',
@@ -171,6 +177,7 @@ def main():
                 atomic_checkpoint(path, {'model': model.state_dict(), 'ema': ema.state_dict(),
                      'optimizer': optimizer.state_dict(), 'config': config, 'update': update,
                      'seed': args.seed, 'manifest_sha256': manifest_hash, 'stats': stats,
+                     'data_review_provenance_sha256': review_provenance_hash,
                      'source_code_sha256': code_hashes, 'segment_id': segment_id,
                      'validation_manifest_sha256': held_hash if validation else None,
                      'generator_state': generator.get_state(), 'cpu_rng_state': torch.get_rng_state(),

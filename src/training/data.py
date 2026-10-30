@@ -1,11 +1,11 @@
 """Immutable manifest-to-cache reconstruction using the official pool reader."""
 import sys
 import json
-import hashlib
 from pathlib import Path
 import numpy as np
 import torch
 from src.common import ROOT, sha256, write_json
+from src.curation.pool_fingerprint import fingerprint
 
 sys.path.insert(0, str(ROOT / 'starter_kit'))
 from catdog_eval.data import Pool, rebuild
@@ -21,11 +21,17 @@ def load_manifest_data(manifest, pool_path='data/student', cache_dir='data/cache
         raise ValueError(f'Invalid manifest: {checked["errors"]}')
     if not checked['rows']:
         raise ValueError('Empty training manifest')
-    index_hash = sha256(Path(pool_path) / 'index.csv')
-    source_files = sorted(Path(pool_path).glob('*.zip')) + sorted((Path(pool_path) / 'images').glob('*.jpg'))
-    source_hashes = {str(path.relative_to(pool_path)): sha256(path) for path in source_files}
-    source_hashes['index.csv'] = index_hash
-    pool_hash = hashlib.sha256(json.dumps(source_hashes, sort_keys=True).encode()).hexdigest()
+    pool_hash, source_hashes = fingerprint(pool_path)
+    provenance_path = manifest.with_suffix('.provenance.json')
+    if not provenance_path.exists() and manifest.stem.endswith('.validation'):
+        provenance_path = manifest.with_name(manifest.stem.removesuffix('.validation') + '.provenance.json')
+    if provenance_path.exists():
+        provenance = json.loads(provenance_path.read_text())
+        if provenance.get('origin') in ['student_reviewed_manifest', 'subset_of_student_reviewed_manifest']:
+            if digest not in {record['sha256'] for record in provenance.get('manifests', [])}:
+                raise ValueError('Manifest bytes differ from the frozen personal-review lineage')
+            if provenance.get('pool_content_sha256') != pool_hash:
+                raise ValueError('Source pool differs from the frozen personal-review manifest lineage')
     checked['stats']['pool_content_sha256'] = pool_hash
     cache = Path(cache_dir) / f'v2_{digest}.npz'
     if cache.exists():

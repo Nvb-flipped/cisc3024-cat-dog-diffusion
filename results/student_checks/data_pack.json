@@ -1,0 +1,12 @@
+{
+  "diagnostic_only": true,
+  "pairs": 30,
+  "rotated_geometry_probes": 1,
+  "pixel_parity_max_absolute_difference": 0,
+  "manifest_sha256": "caf1f764e42ff6cf8abf1c60a4ff9620356c084eda1bf711ac2148696860dcda",
+  "cases_sha256": "a44681daf02a3bc6fd4500e975c7d889f28bfc15dd25276dd4eda99fd72268b0",
+  "generator_sha256": "787fb2714e1a9c2d2c152cdf767cfb62b6a63c1211c2f85de3e0e499df0d536d",
+  "human_check": "pending",
+  "local_pack": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\student_data_check_v001",
+  "scope": "Agent-prepared engineering study pack; no authentic student check, final audit or accepted training data."
+}

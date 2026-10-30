@@ -54,6 +54,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         'training_update': state['update'], 'training_seed': state['seed'],
         'pool_content_sha256': state.get('stats', {}).get('pool_content_sha256'),
         'training_source_code_sha256': state.get('source_code_sha256'),
+        'data_review_provenance_sha256': state.get('data_review_provenance_sha256'),
         'training_segment_id': state.get('segment_id'),
         'parameters': parameters, 'exported': timestamp(),
         'inference_source_sha256': {name: sha256(out / name) for name in INFERENCE_FILES}})
