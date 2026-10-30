@@ -1,0 +1,37 @@
+{
+  "created": "2026-10-30T06:35:52.051921+00:00",
+  "origin": "agent_visual_advisory",
+  "human_decision": false,
+  "training_approval": false,
+  "proposed_inspected": 200,
+  "remaining_inspected": 126,
+  "prior_inspected": 74,
+  "rejected_sources_inspected": 0,
+  "counts": {
+    "agree_bad": 63,
+    "agree_bad_record_issue": 1,
+    "correction_required": 2,
+    "agree_good_visual": 3,
+    "agree_bad_reason_refinement": 4,
+    "reconsider_bad": 1,
+    "recommend_bad": 97,
+    "uncertain": 3,
+    "needs_correction": 22,
+    "potential_good": 4
+  },
+  "personal_log_unchanged": true,
+  "input_personal_log_sha256": "31a09f8a3051424034e22a456905675f412acf849b764d617605e2900d14d3bf",
+  "files": {
+    "private_build/agent_advisory_20261030/findings.html": "383497c87a33cb63bb5ccc1d75e9b480a1b6fb9407c0ad5c9ec0b1e1826147db",
+    "private_build/agent_advisory_20261030/findings.csv": "5fd07adc32938b22aa03781515aed9e4ccd6188a34e842b19073a99a61076c9d",
+    "private_build/agent_advisory_20261030/findings.json": "6858c0c8734fcb0cb17087240727a84f2f5c6f21b3b1b93cced2f0d20536692b",
+    "private_build/agent_advisory_20261030/SUMMARY.md": "1cae064d26f3257e3096c196aa9e5a1651fe555344c813a8fc0a456c44e9f75a"
+  },
+  "status": "stopped_at_user_request_after_review",
+  "usage_at_user_stop": {
+    "used_percent": 53,
+    "remaining_percent": 47,
+    "resets_at_unix": 1793355424,
+    "reset_credits_consumed": 0
+  }
+}
