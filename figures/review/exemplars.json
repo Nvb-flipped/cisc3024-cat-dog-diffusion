@@ -1,0 +1,166 @@
+{
+  "status": "pending_student_choice",
+  "copyright": "Authors/publishers own reference figures. Study only; excluded from course archive.",
+  "candidates": [
+    {
+      "number": 1,
+      "id": "acl23-0074_fig1",
+      "title": "FluentSpeech: Stutter-Oriented Automatic Speech Editing with Context-Aware Diffusion Models",
+      "paper_url": "https://aclanthology.org/2023.findings-acl.741/",
+      "layout": {
+        "arrangement": "panels-row",
+        "coarse": "row",
+        "panels": 3,
+        "direction": "bottom-up",
+        "width": "full",
+        "ground": "tinted-regions",
+        "legend": "caption-only",
+        "note": "Three lettered panels side by side, captions below: (a) a narrow column flowing upward, (b) a tall green frame with three stacked spectrograms, (c) the widest, two framed regions next to each other, a peach one for the denoiser network and a grey one for the conditioning embeddings, with long wires between them."
+      }
+    },
+    {
+      "number": 2,
+      "id": "iclr26-0034_fig1",
+      "title": "Generating metamers of human scene understanding",
+      "paper_url": "https://openreview.net/forum?id=cSDXx8V6K9",
+      "layout": {
+        "arrangement": "panels-column",
+        "coarse": "stack",
+        "panels": 2,
+        "direction": "mixed",
+        "width": "full",
+        "ground": "tinted-regions",
+        "legend": "none",
+        "note": "A wide top row runs left to right from inputs to the UNet and loss; below it a large pale-cyan panel, tied to the UNet by a translucent wedge, shows one block as three parallel branches between input and output features."
+      }
+    },
+    {
+      "number": 3,
+      "id": "aaai25-0110_fig1",
+      "title": "Denoising Diffusion Variational Inference: Diffusion Models as Expressive Variational Posteriors",
+      "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/34194",
+      "layout": {
+        "arrangement": "pipeline-row",
+        "coarse": "row",
+        "panels": 1,
+        "direction": "left-right",
+        "width": "full",
+        "ground": "white",
+        "legend": "inside",
+        "note": "One row: x with a thumbnail, Enc, a five-state chain, Dec, x\u0302. Two light-blue prior boxes sit above the chain's two ends, a long red dashed arc runs over the chain and a red solid arc under it, a strip of five scatter plots lies below, and the arrow key is in the top-left corner."
+      }
+    },
+    {
+      "number": 4,
+      "id": "icml23-0003_fig1",
+      "title": "AudioLDM: Text-to-Audio Generation with Latent Diffusion Models",
+      "paper_url": "https://proceedings.mlr.press/v202/liu23f.html",
+      "layout": {
+        "arrangement": "panels-grid",
+        "coarse": "grid",
+        "panels": 3,
+        "direction": "mixed",
+        "width": "full",
+        "ground": "white",
+        "legend": "inside",
+        "note": "One large panel (a) fills the left half; (b) and (c) are stacked at the right, each a single left-to-right row of the same coloured blocks; panel titles sit under each panel and a Training/Sampling key sits at the bottom of (a)."
+      }
+    },
+    {
+      "number": 5,
+      "id": "aaai25-0124_fig1",
+      "title": "TechSinger: Technique Controllable Multilingual Singing Voice Synthesis via Flow Matching",
+      "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/34571",
+      "layout": {
+        "arrangement": "panels-row",
+        "coarse": "row",
+        "panels": 3,
+        "direction": "bottom-up",
+        "width": "full",
+        "ground": "white",
+        "legend": "none",
+        "note": "Three panels side by side with bold lettered titles underneath: a wide overall architecture, a narrow postnet column and a medium technique predictor with a tinted block. Every panel flows bottom to top, with input cell strips at the base and outputs at the top."
+      }
+    },
+    {
+      "number": 6,
+      "id": "iclr23-0049_fig1",
+      "title": "Universal Few-shot Learning of Dense Prediction Tasks with Visual Token Matching",
+      "paper_url": "https://openreview.net/forum?id=88nT0j5jAn",
+      "layout": {
+        "arrangement": "panels-grid",
+        "coarse": "grid",
+        "panels": 3,
+        "direction": "mixed",
+        "width": "full",
+        "ground": "tinted-regions",
+        "legend": "none",
+        "note": "A wide left panel holds the whole architecture in four labelled columns and five aligned levels. A right column, ruled off by thin lines, stacks two zoom panels: Token Matching Module above and Fusion Block below."
+      }
+    },
+    {
+      "number": 7,
+      "id": "iclr25-0058_g1",
+      "title": "Diffusion-Based Planning for Autonomous Driving with Flexible Guidance",
+      "paper_url": "https://openreview.net/forum?id=wM2sfVgMDH",
+      "layout": {
+        "arrangement": "grid",
+        "coarse": "grid",
+        "panels": 3,
+        "direction": "left-right",
+        "width": "double",
+        "ground": "tinted-regions",
+        "legend": false,
+        "base": "boxes-and-arrows"
+      }
+    },
+    {
+      "number": 8,
+      "id": "cvpr25-0063_fig1",
+      "title": "Diffusion-based Realistic Listening Head Generation via Hybrid Motion Modeling",
+      "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Wang_Diffusion-based_Realistic_Listening_Head_Generation_via_Hybrid_Motion_Modeling_CVPR_2025_paper.html",
+      "layout": {
+        "arrangement": "grid",
+        "coarse": "grid",
+        "panels": 4,
+        "direction": "mixed",
+        "width": "double",
+        "ground": "tinted-regions",
+        "legend": true,
+        "base": "boxes-and-arrows"
+      }
+    },
+    {
+      "number": 9,
+      "id": "aaai25-0026_fig1",
+      "title": "U-KAN Makes Strong Backbone for Medical Image Segmentation and Generation",
+      "paper_url": "https://ojs.aaai.org/index.php/AAAI/article/view/32491",
+      "layout": {
+        "arrangement": "column",
+        "coarse": "stack",
+        "panels": 4,
+        "direction": "left-right",
+        "width": "double",
+        "ground": "tinted-regions",
+        "legend": true,
+        "base": "boxes-and-arrows"
+      }
+    },
+    {
+      "number": 10,
+      "id": "neurips23-0070_fig1",
+      "title": "Improving Diffusion-Based Image Synthesis with Context Prediction",
+      "paper_url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/7664a7e946a84ac5e97649a967717cf2-Abstract-Conference.html",
+      "layout": {
+        "arrangement": "single",
+        "coarse": "single",
+        "panels": 1,
+        "direction": "mixed",
+        "width": "double",
+        "ground": "white",
+        "legend": false,
+        "base": "boxes-and-arrows"
+      }
+    }
+  ]
+}

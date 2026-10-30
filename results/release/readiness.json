@@ -1,0 +1,25 @@
+{
+  "structural_checks_passed": false,
+  "issues": [
+    "Final inference export: Missing export files: ['weights.pt', 'inference.json', 'manifest.csv', 'provenance.json']",
+    "Personal official audit: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\audit\\\\audit.csv'",
+    "Data card is provisional or lacks audit precision",
+    "Three contemporaneous independent student checks are still pending",
+    "Final seed 0: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_0.json'",
+    "Final seed 101: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_101.json'",
+    "Final seed 202: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_202.json'",
+    "Final seed 303: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_303.json'",
+    "Final seed 404: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_404.json'",
+    "Offline cpu: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\release\\\\offline_cpu.json'",
+    "Offline cuda: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\release\\\\offline_cuda.json'",
+    "Missing final artifact: report/report.pdf",
+    "Missing final artifact: presentation/presentation.pptx",
+    "Missing final artifact: presentation/presentation.tex",
+    "Missing final artifact: presentation/presentation.pdf",
+    "Report page evidence: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\report\\\\page_count.json'"
+  ],
+  "objective_shortfalls": [],
+  "excellent_tier_all_seeds": false,
+  "evidence": {},
+  "scope": "File/protocol completeness and excellent-tier objective only. Does not certify authentic student judgments, scientific interpretation, presentation ability, qualitative marks, hidden-test results or submission approval."
+}

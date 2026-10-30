@@ -1,0 +1,43 @@
+{
+  "status": "implementation_evidence_only_not_final_results",
+  "files": {
+    "E001": {
+      "path": "results/curation/integrity.json",
+      "sha256": "a3be91f283029eae4c849051b4c11f127270383b981e9912ec517f565011eaf2"
+    },
+    "E002": {
+      "path": "results/curation/full/summary.json",
+      "sha256": "4256abbcfa2af7b180806398cf4b2e93d4151d97431e57f3d15b61f1fef0a785"
+    },
+    "E003": {
+      "path": "results/diagnostics/overfit/result.json",
+      "sha256": "55ee848e3c387a57b5ea8927807d1cd66af024618d8ba1988ff4df6c871ac9e3"
+    },
+    "E004": {
+      "path": "results/diagnostics/benchmark/result.json",
+      "sha256": "0aced50c58e5879d702f43a5301e2340747159286b63019a02eb61707883872b"
+    },
+    "E005": {
+      "path": "results/diagnostics/gpu_interface.json",
+      "sha256": "21671197c34937169c2c8e61fbb19dd1f8c3160308852cbe1de41732f14d7311"
+    },
+    "E006": {
+      "path": "configs/ddpm.yaml",
+      "sha256": "c859c1000ad9dc8a3de6c5f93fca573a04e34f8ff9b7f11fe8a90ec8a180f3dc"
+    },
+    "E007": {
+      "path": "submission/model.py",
+      "sha256": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7"
+    },
+    "E008": {
+      "path": "results/setup/all_fast_tests.xml",
+      "sha256": "d6a5f7c19b433671f819f9abf9e160edfd800d161609378dcf631273d6e6a336"
+    }
+  },
+  "verification": "Agent inspected local files; named human source/claim checks remain pending.",
+  "generated_file_sha256": {
+    "source_manifest.json": "40d3c38235ef82de3592b7a98cdd18055efae9c4b59fc80726e05897ac1eb35a",
+    "evidence_outline.md": "d1b1212ac2f2c28de557f64b99504d634dfcc0724d79186e4a6dea7828c98c60",
+    "claims.csv": "11c9c1235d7d419d95d5a00d800e2da6733ee20e01fc67886535a6793c303dbd"
+  }
+}

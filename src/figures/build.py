@@ -58,6 +58,16 @@ def normalized_svg(source, out):
     root.set('font-size', '7')
     root.set('stroke-linecap', 'round')
     root.set('stroke-linejoin', 'round')
+    counters = {}
+    def name_primitives(element, owner='canvas'):
+        owner = element.get('id', owner)
+        tag = element.tag.rsplit('}', 1)[-1]
+        if tag in ['path', 'text', 'line', 'rect', 'circle', 'ellipse', 'polyline', 'polygon']:
+            counters[owner] = counters.get(owner, 0) + 1
+            element.set('id', f'{owner}_{counters[owner]}')
+        for child in element:
+            name_primitives(child, owner)
+    name_primitives(root)
     tree.write(out, encoding='utf-8', xml_declaration=True)
 
 

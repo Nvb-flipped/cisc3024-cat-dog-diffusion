@@ -4,7 +4,9 @@ import csv
 import hashlib
 import json
 import math
+import shutil
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
 from src.common import ROOT, read_config, sha256, write_json
@@ -98,29 +100,44 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
         {r['candidate_id']: groups[r['candidate_id']]['group_id'] for r in accepted},
         config['validation_fraction'], config['seed'])
     out = Path(out)
-    if out.exists() or out.with_suffix('.validation.csv').exists():
+    targets = [out, out.with_suffix('.validation.csv'), out.with_suffix('.provenance.json')]
+    if any(path.exists() for path in targets):
         raise ValueError('Manifest is immutable; choose a new output version')
     out.parent.mkdir(parents=True, exist_ok=True)
     train.sort(key=lambda r: (r['pool_id'], r['label'], r['x0'], r['y0']))
     validation.sort(key=lambda r: (r['pool_id'], r['label']))
-    written = []
-    for path, rows in [(out, train), (out.with_suffix('.validation.csv'), validation)]:
-        with path.open('w', newline='', encoding='utf-8') as f:
-            writer = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction='ignore')
-            writer.writeheader()
-            writer.writerows(rows)
-        checked = check_manifest(path, pool)
-        if checked['errors']:
-            raise ValueError(f'Official manifest check failed: {checked["errors"]}')
-        written.append({'path': str(path), 'sha256': sha256(path), 'stats': checked['stats'],
-                        'warnings': checked['warnings']})
-    write_json(out.with_suffix('.provenance.json'), {'manifests': written,
-        'decision_log_sha256': sha256(source), 'duplicate_review_sha256': sha256(groups_path),
-        'accepted_count': len(accepted), 'train_by_class': dict(Counter(r['label'] for r in train)),
-        'validation_by_class': dict(Counter(r['label'] for r in validation)),
-        'candidate_ids': [r['candidate_id'] for r in train], 'seed': config['seed'],
-        'holdout_fraction': config['validation_fraction'],
-        'policy': 'student reviewed; one head per confirmed duplicate family; pool-only grouped holdout'})
+    # Validate the entire bundle before publishing any immutable output.
+    with tempfile.TemporaryDirectory(prefix='freeze_', dir=out.parent) as temporary:
+        staged = [Path(temporary) / path.name for path in targets]
+        written = []
+        for path, target, rows in zip(staged[:2], targets[:2], [train, validation]):
+            with path.open('w', newline='', encoding='utf-8') as f:
+                writer = csv.DictWriter(f, fieldnames=COLUMNS, extrasaction='ignore')
+                writer.writeheader()
+                writer.writerows(rows)
+            checked = check_manifest(path, pool)
+            if checked['errors']:
+                raise ValueError(f'Official manifest check failed: {checked["errors"]}')
+            written.append({'path': str(target), 'sha256': sha256(path), 'stats': checked['stats'],
+                            'warnings': checked['warnings']})
+        write_json(staged[2], {'manifests': written,
+            'decision_log_sha256': sha256(source), 'duplicate_review_sha256': sha256(groups_path),
+            'accepted_count': len(accepted), 'train_by_class': dict(Counter(r['label'] for r in train)),
+            'validation_by_class': dict(Counter(r['label'] for r in validation)),
+            'candidate_ids': [r['candidate_id'] for r in train], 'seed': config['seed'],
+            'holdout_fraction': config['validation_fraction'],
+            'policy': 'student reviewed; one head per confirmed duplicate family; pool-only grouped holdout'})
+        created = []
+        try:
+            for path, target in zip(staged, targets):
+                with target.open('xb') as destination:
+                    created.append(target)
+                    with path.open('rb') as source_stream:
+                        shutil.copyfileobj(source_stream, destination)
+        except BaseException:
+            for path in created:
+                path.unlink()
+            raise
     return written
 
 

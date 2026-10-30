@@ -17,13 +17,14 @@ def sha256(path):
     return h.hexdigest()
 
 
-def verify_starter():
+def verify_starter(project_root=ROOT):
+    project_root = Path(project_root)
     errors = []
-    with zipfile.ZipFile(ROOT / 'Course_Project_Resources/starter_kit.zip') as z:
+    with zipfile.ZipFile(project_root / 'Course_Project_Resources/starter_kit.zip') as z:
         for item in z.infolist():
             if item.is_dir():
                 continue
-            dest = ROOT / item.filename
+            dest = project_root / item.filename
             if not dest.exists() or hashlib.sha256(z.read(item)).hexdigest() != sha256(dest):
                 errors.append(item.filename)
     if errors:

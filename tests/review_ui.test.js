@@ -1,0 +1,80 @@
+// Synthetic DOM fixtures: no browser, pool, server, or real review log is used.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const test = require('node:test');
+
+function fixture() {
+  const nodes = new Map();
+  function node(id) {
+    if (!nodes.has(id)) nodes.set(id, {value: '', checked: false, disabled: false,
+      dataset: {}, style: {}, classList: {toggle() {}}, replaceChildren() {}});
+    return nodes.get(id);
+  }
+  node('mode').value = 'calibration';
+  const criteria = ['species_correct', 'real_photo'].map(name => ({checked: true, dataset: {criterion: name}}));
+  const buttons = ['good', 'bad'].map(verdict => ({dataset: {verdict}}));
+  const pending = [];
+  const context = vm.createContext({URLSearchParams,
+    URL: {createObjectURL() { throw new Error('Stale preview must not create a blob URL'); }, revokeObjectURL() {}},
+    document: {getElementById: node,
+      querySelector(selector) { return selector.startsWith('meta') ? {content: 'synthetic-token'} : criteria[0]; },
+      querySelectorAll(selector) {
+        if (selector === '[data-criterion]') return criteria;
+        if (selector === '[data-verdict]') return buttons;
+        return [...nodes.values(), ...criteria, ...buttons];
+      }},
+    fetch(url, options) { return new Promise(resolve => pending.push({url, options, resolve})); }});
+  const source = fs.readFileSync(path.join(__dirname, '../src/curation/review.js'), 'utf8')
+    .replace(/\nload\(\)\.catch\(error => message\(error\.message, true\)\);\s*$/, '');
+  vm.runInContext(source, context);
+  vm.runInContext("items = [{candidate_id:'synthetic-a', pool_id:'fixture'}]; loading = false;", context);
+  return {context, pending, node, criteria, run(code) { return vm.runInContext(code, context); }};
+}
+
+function response(data) { return {ok: true, async json() { return data; }}; }
+
+test('two overlapping save calls send only one decision', async () => {
+  const f = fixture();
+  const first = f.run("save('good')");
+  await f.run("save('good')");
+  assert.equal(f.pending.length, 1);
+  assert.equal(f.pending[0].url, '/decision');
+  f.pending[0].resolve(response({candidate_id: 'synthetic-a', verdict: 'good'}));
+  await first;
+  assert.equal(f.run('items[0].prior.candidate_id'), 'synthetic-a');
+  assert.equal(f.run('saving'), false);
+});
+
+test('late save response does not mark a newly displayed crop as reviewed', async () => {
+  const f = fixture();
+  const saving = f.run("save('good')");
+  f.run("items = [{candidate_id:'synthetic-b',pool_id:'other'}]; position=0;");
+  f.pending[0].resolve(response({candidate_id: 'synthetic-a', verdict: 'good'}));
+  await saving;
+  assert.equal(f.run('items[0].prior'), undefined);
+});
+
+test('late preview for an older crop never replaces the current preview', async () => {
+  const f = fixture();
+  const preview = f.run('preview()');
+  f.run('renderVersion++');
+  f.pending[0].resolve({ok: true});
+  assert.equal(await preview, false);
+  assert.equal(f.run('previewHash'), '');
+  assert.equal(f.node('crop').src, undefined);
+});
+
+test('corrected geometry requires new measurements and specification checks', () => {
+  const f = fixture();
+  f.node('head_width').value = '42';
+  f.node('occupancy').value = '.7';
+  f.run("previewHash = 'old-preview';");
+  f.node('size').oninput();
+  assert.equal(f.run('previewHash'), '');
+  assert.equal(f.node('head_width').value, '');
+  assert.equal(f.node('occupancy').value, '');
+  assert(f.criteria.every(item => !item.checked));
+  assert.equal(f.node('crop').style.visibility, 'hidden');
+});

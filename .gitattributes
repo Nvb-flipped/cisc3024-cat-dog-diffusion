@@ -1,8 +1,16 @@
-* text=auto eol=lf
+* text=auto eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Manifest/ledger/evidence hashes identify exact bytes; never convert their line endings.
 *.csv -text
 *.json -text
 *.jsonl -text
+# These are also hashed as executed/exported inputs. Preserve working bytes in Git.
+*.py -text
+*.yaml -text
+*.yml -text
+*.svg -text
+*.xml -text
+*.drawio -text
+*.md -text
 *.pt binary
 *.pth binary
 *.npz binary

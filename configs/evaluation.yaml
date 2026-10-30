@@ -10,6 +10,7 @@ steps: [50, 100, 200]
 guidance: [1.0, 1.5, 2.0, 2.5]
 weights: [ema, model]
 microbatch: 32
+execution_batch: 32
 # Add explicitly selected checkpoint + exact manifest pairs after valid training.
 candidates: []
 output: results/evaluation

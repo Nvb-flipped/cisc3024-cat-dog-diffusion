@@ -29,7 +29,8 @@ def check_files(folder):
     for name, expected in provenance['inference_source_sha256'].items():
         if sha256(folder / name) != expected:
             raise ValueError(f'Inference code changed after export: {name}')
-    return {'submission_bytes': size, 'files': [str(f.relative_to(folder)) for f in files]}
+    return {'submission_bytes': size, 'files': [str(f.relative_to(folder)) for f in files],
+            'file_sha256': {str(f.relative_to(folder)).replace('\\', '/'): sha256(f) for f in files}}
 
 
 def child_check(folder, device, counts):

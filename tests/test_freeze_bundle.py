@@ -1,0 +1,57 @@
+"""A failed official geometry check must not leave a half-published manifest."""
+import csv
+import hashlib
+import json
+import importlib
+import pytest
+
+freeze_module = importlib.import_module('src.curation.freeze')
+
+
+def inputs(tmp_path, monkeypatch):
+    decisions = tmp_path / 'decisions.jsonl'
+    rows = [dict(candidate_id=f'fixture{i}', pool_id=f'pool{i}', label=i % 2,
+                 verdict='good', origin='student_browser_review', reviewer='Automated fixture only',
+                 timestamp='fixture timestamp', criteria=dict.fromkeys(freeze_module.CRITERIA, True),
+                 head_width=42, occupancy=.70, x0=20, y0=20, size=60, angle=0,
+                 preview_sha256=hashlib.sha256(b'fixture pixels').hexdigest()) for i in range(24)]
+    decisions.write_text(''.join(json.dumps(row) + '\n' for row in rows))
+    groups = tmp_path / 'groups.csv'
+    with groups.open('w', newline='') as f:
+        writer = csv.DictWriter(f, ['candidate_id','group_id','keep','reviewer','timestamp'])
+        writer.writeheader()
+        writer.writerows(dict(candidate_id=row['candidate_id'], group_id=f'family{i}', keep='yes',
+                              reviewer='Automated fixture only', timestamp='fixture timestamp')
+                         for i, row in enumerate(rows))
+    monkeypatch.setattr(freeze_module, 'Pool', lambda _: object())
+    monkeypatch.setattr(freeze_module, 'rendered_crop', lambda *args: b'fixture pixels')
+    return dict(pool='fixture', decisions=str(decisions), validation_fraction=.05, seed=3024), groups
+
+
+def test_second_manifest_validation_failure_publishes_nothing(tmp_path, monkeypatch):
+    config, groups = inputs(tmp_path, monkeypatch)
+    calls = []
+    def check(path, pool):
+        calls.append(path)
+        return {'errors': ['synthetic failure'] if len(calls) == 2 else [], 'stats': {}, 'warnings': []}
+    monkeypatch.setattr(freeze_module, 'check_manifest', check)
+    out = tmp_path / 'manifests/v001.csv'
+    with pytest.raises(ValueError, match='Official manifest check failed'):
+        freeze_module.freeze(config, out, groups_path=groups)
+    assert list(out.parent.iterdir()) == []
+
+
+def test_success_publishes_consistent_bundle_and_refuses_existing_provenance(tmp_path, monkeypatch):
+    config, groups = inputs(tmp_path, monkeypatch)
+    monkeypatch.setattr(freeze_module, 'check_manifest', lambda *args: {'errors': [], 'stats': {}, 'warnings': []})
+    out = tmp_path / 'manifests/v001.csv'
+    frozen = freeze_module.freeze(config, out, groups_path=groups)
+    provenance = json.loads(out.with_suffix('.provenance.json').read_text())
+    assert provenance['manifests'] == frozen
+    for item in frozen:
+        assert freeze_module.sha256(item['path']) == item['sha256']
+    # Even provenance by itself reserves the immutable version.
+    out.unlink()
+    out.with_suffix('.validation.csv').unlink()
+    with pytest.raises(ValueError, match='immutable'):
+        freeze_module.freeze(config, out, groups_path=groups)

@@ -1,13 +1,55 @@
 {
-  "matplotlib": "3.10.7",
-  "canvas_pt": [
-    504,
+  "status": "file_structure_and_semantic_parity_passed",
+  "svg_text_count": 31,
+  "objects": 104,
+  "drawio_edges": 26,
+  "png": {
+    "pixels": [
+      2100,
+      795
+    ],
+    "dpi": [
+      299.9994,
+      299.9994
+    ],
+    "mode": "RGBA"
+  },
+  "pptx_canvas_pt": [
+    504.0,
     190.8
   ],
-  "png_dpi": 300,
-  "svg_text_editable": true,
-  "native_pptx": "pending",
-  "drawio": "pending",
-  "human_final_size_review": "pending",
-  "publisher": "Course project using Nature-style restraint; no journal-compliance claim"
+  "actual_powerpoint_edit_save_render": "pending app access",
+  "actual_drawio_edit_save_render": "text/mark edit-save-reopen tested; connected-node test pending",
+  "application_checks": {
+    "checked": "2026-10-30T00:53:17.466142+00:00",
+    "application": "installed draw.io desktop, C:/Program Files/draw.io/draw.io.exe",
+    "reference_drawio_sha256": "d068baca9fbef11282aacef9a05efd7ad5051290295de5212a599fddfef42f16",
+    "test_copy": "private_build/F0_drawio_edit_test.drawio",
+    "saved_test_copy_sha256": "178055959081d9d14cd4474249f23a5cb6d4f4d30a76435dc20c121c1991dd8d",
+    "actions_verified": [
+      "opened diagnostic chart test copy locally",
+      "changed Noise prediction title to Noise prediction (edit test)",
+      "moved native ellipse n:noise_curve_2 from x=74.28,y=47.024536 to x=96.36,y=68.224536",
+      "saved test copy and reopened it; text and moved mark persisted"
+    ],
+    "original_unchanged": true,
+    "observations": "Native text and plot marks editable. Dark application theme inverted the display background and text colors. Original XML color values unchanged. No external upload.",
+    "pending": [
+      "moving a connected diagram node and verifying attached edges",
+      "PowerPoint edit/save/reopen and actual Office render comparison"
+    ],
+    "scope": "Limited native draw.io text/mark persistence check; not a complete final figure acceptance or student design approval."
+  },
+  "scope": "Does not certify native-application appearance, editability operations or journal acceptance",
+  "files": {
+    "figure.svg": "bbaaa71dde3d96badb0a51f3f0f1dc2d649b94cd1de707de57df7432460a1482",
+    "figure.png": "fa98f7380a90b776dab6ad4cface9fbd96358e1148b3ba1e0300860474a086f3",
+    "figure.pdf": "411eb08886e3eccd11078ac510c8f2f148142a7c1511ee9b4d134adeecf6e1ae",
+    "figure.pptx": "23dec3024757f032266a4b421bc8613cb6363f6496f4a29dc03ac5a8dca86f7b",
+    "figure.drawio": "d068baca9fbef11282aacef9a05efd7ad5051290295de5212a599fddfef42f16",
+    "figure.xml": "d068baca9fbef11282aacef9a05efd7ad5051290295de5212a599fddfef42f16",
+    "figure.spec.json": "619c2ad4dc51dba09bc5524b271cb35639b3c67caf3d5c69c78bb8531ac2ece0",
+    "source.csv": "5dc4e5dcc282657184da31fdc736c6a6204814cb06cf471cba96839e4d8295c1",
+    "source_summary.json": "55ee848e3c387a57b5ea8927807d1cd66af024618d8ba1988ff4df6c871ac9e3"
+  }
 }

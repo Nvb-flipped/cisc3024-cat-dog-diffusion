@@ -80,7 +80,7 @@ def svg_scene(svg_path):
                 walk(child, style, matrix, owner)
             return
         counters[owner] = counters.get(owner, 0) + 1
-        identifier = f'{owner}_{counters[owner]}'
+        identifier = element.get('id') or f'{owner}_{counters[owner]}'
         if tag == 'text':
             size = float(style.get('font-size', 7))
             text = ''.join(element.itertext())
@@ -183,6 +183,12 @@ def drawio(svg_path, out):
     out.with_suffix('.xml').write_bytes(data)
     write_json(out.with_suffix('.scene.json'), {'units': 'points', 'canvas': [width, height], 'objects': scene,
         'source': str(svg_path), 'note': 'Draw.io is an editable vector drawing; underlying data remain in source.csv.'})
+    spec_path = out.with_suffix('.spec.json')
+    if spec_path.exists():
+        import json
+        spec = json.loads(spec_path.read_text())
+        spec['objects'] = scene
+        write_json(spec_path, spec)
     return {'objects': len(scene), 'text': sum(s['kind'] == 'text' for s in scene), 'canvas_px': [width*scale, height*scale]}
 
 

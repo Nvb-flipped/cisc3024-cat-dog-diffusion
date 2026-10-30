@@ -1,0 +1,20 @@
+{
+  "checked": "2026-10-30T00:53:17.466142+00:00",
+  "application": "installed draw.io desktop, C:/Program Files/draw.io/draw.io.exe",
+  "reference_drawio_sha256": "d068baca9fbef11282aacef9a05efd7ad5051290295de5212a599fddfef42f16",
+  "test_copy": "private_build/F0_drawio_edit_test.drawio",
+  "saved_test_copy_sha256": "178055959081d9d14cd4474249f23a5cb6d4f4d30a76435dc20c121c1991dd8d",
+  "actions_verified": [
+    "opened diagnostic chart test copy locally",
+    "changed Noise prediction title to Noise prediction (edit test)",
+    "moved native ellipse n:noise_curve_2 from x=74.28,y=47.024536 to x=96.36,y=68.224536",
+    "saved test copy and reopened it; text and moved mark persisted"
+  ],
+  "original_unchanged": true,
+  "observations": "Native text and plot marks editable. Dark application theme inverted the display background and text colors. Original XML color values unchanged. No external upload.",
+  "pending": [
+    "moving a connected diagram node and verifying attached edges",
+    "PowerPoint edit/save/reopen and actual Office render comparison"
+  ],
+  "scope": "Limited native draw.io text/mark persistence check; not a complete final figure acceptance or student design approval."
+}

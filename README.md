@@ -58,6 +58,8 @@ This checks reviewed pixels, duplicate decisions and official geometry, creates 
 
 ```powershell
 & .venvs\training\Scripts\python.exe -m pytest -q -m "not integration"
+# Optional UI race checks with an installed Node.js runtime:
+node --test tests/review_ui.test.js
 # Run once in a fresh results directory; the diagnostic has a fixed 2,000-update budget:
 & .venvs\training\Scripts\python.exe -m pytest -q -s --run-training tests\test_single_batch.py
 & .venvs\training\Scripts\python.exe -m src.training.diagnostics benchmark
@@ -80,6 +82,8 @@ The selected U-Net uses channels 48/96/144/192 and 10,664,371 parameters. The pr
 
 Run metadata records the actual environment, code commit/dirty state, configuration, seed, manifest hash, counts, timing and parent checkpoint hash. Losses, exact optimizer/RNG state and EMA are retained locally. A manifest change requires a fresh final training lineage. Changing a dataset must not silently reuse a cache or checkpoint.
 
+Each attempt has a separate `segment_*.json`, `loss_*.csv` and completion record. Checkpoints cannot be overwritten. Resuming a checkpoint older than an existing later checkpoint requires a fresh `--out`, preserving both branches. The segment records exact training-source hashes as well as the commit. If the matching `.validation.csv` exists, each checkpoint records fixed-noise raw/EMA losses on those disjoint pool sources; the holdout hash is fixed across resume. These are denoising diagnostics, not official quality scores.
+
 ## Export and official evaluation
 
 ```powershell
@@ -88,7 +92,7 @@ Run metadata records the actual environment, code commit/dirty state, configurat
 & .venvs\training\Scripts\python.exe -m src.release.check --submission private_build\candidate_001 --device cpu
 & .venvs\training\Scripts\python.exe -m src.release.check --submission private_build\candidate_001 --device cuda
 $env:TORCH_HOME = Join-Path (Get-Location).Path 'models\evaluator'
-& .venvs\training\Scripts\python.exe starter_kit\evaluate.py --submission private_build\candidate_001 --grading --n-per-class 1000 --seed 0 --out results\final\seed_0.json
+& .venvs\training\Scripts\python.exe -m src.evaluation.run --submission private_build\candidate_001 --seed 0 --out results\final\seed_0.json
 ```
 
 `--run` names an exact checkpoint file; it never silently chooses the latest. Export contains one module's parameters, one weight file, exact manifest, config and inference source. It rejects checkpoint/manifest mismatches and diagnostic weights. Candidate exports are immutable. The offline checker executes from a clean working directory with network disabled and project source removed from the inference import path. Its default counts are 1,2,20,50,500. CPU and GPU bitwise equivalence is not asserted.
@@ -106,9 +110,26 @@ Only `--submission --grading` with the pool present establishes manifest/memoriz
 The final audit is generated only after the final manifest and actual student ID are known:
 
 ```powershell
-& .venvs\training\Scripts\python.exe starter_kit\audit.py --manifest submission\manifest.csv --student-id ACTUAL_ID
+& .venvs\training\Scripts\python.exe -m src.evaluation.audit prepare --manifest submission\manifest.csv --student-id ACTUAL_ID --data-root data --out audit
+# After the student personally completes every verdict and bad-row reason:
+& .venvs\training\Scripts\python.exe -m src.evaluation.audit summarize --manifest submission\manifest.csv --student-id ACTUAL_ID --out audit
 ```
 
 The student must personally label all 200 rows and give a reason for every bad row. DATA_CARD.md remains provisional until this happens. Report, figures, Beamer/PPTX, final packaging and rehearsal remain governed by PROJECT_PLAN.md. FigGenie brief/exemplar and A/B reviews require the student's choices; source counts and performance must be real. The student reports an in-person instructor exemption for AI slide generation and will revise the slides; no written exemption has been supplied.
+
+The audit wrapper invokes the unchanged official script, refuses an existing audit directory, records the manifest/tool hashes and student ID, and recomputes the exact official 200-row sample before summarizing. A manifest change invalidates this audit. Audit intervals are Wilson 95% intervals, with class-specific denominators retained. The wrapper checks file identity/completeness; it cannot certify who supplied the judgments.
+
+`src.evaluation.run` preserves the unchanged evaluator's JSON and records the exact inference-file hashes before and after evaluation. Final release checks require matching sidecars, all five declared generation seeds, complete memorization, CPU/GPU offline checks, and matching report-page evidence. `src.release.package --list` previews the explicit course ZIP allowlist; building the ZIP refuses incomplete structural evidence. Excellent-tier shortfalls are recorded separately so they cannot be hidden by a structural pass.
+
+After final packaging, test the actual ZIP with a new extraction directory. This uses its archived inference and checking code, the separately installed Python environment, and—when requested—the unchanged supplied starter kit, course data and evaluator cache. It does not copy raw course data into the ZIP:
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.release.package --list
+# Only after all structural release gates pass:
+& .venvs\training\Scripts\python.exe -m src.release.package --out private_build\project_submission.zip
+& .venvs\training\Scripts\python.exe -m src.release.verify_archive private_build\project_submission.zip --extract-to private_build\clean_room_v001 --official-seed 0
+```
+
+The clean-room checker validates the archive member allowlist and hashes before extraction, rejects escaping paths or embedded photographs in text sources, and checks CPU/GPU inference from the extracted files. Its receipt binds the exact ZIP hash. The tiny synthetic archive test is software validation only; a final course archive has not yet been built.
 
 No upload, cloud publication or course-data redistribution is performed by these commands.

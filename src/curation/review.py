@@ -18,7 +18,7 @@ from src.curation.geometry import crop, inside
 sys.path.insert(0, str(ROOT / 'starter_kit'))
 from catdog_eval.data import Pool
 
-CRITERIA = ['real_photo', 'one_head', 'ears_visible', 'upright', 'centered', 'occupancy_valid']
+CRITERIA = ['species_correct', 'real_photo', 'one_head', 'ears_visible', 'upright', 'centered', 'occupancy_valid']
 
 
 def parse_geometry(data):
@@ -42,10 +42,33 @@ def rendered_crop(pool, pool_id, geometry):
 
 
 class ReviewStore:
-    def __init__(self, candidates, selection, decisions):
+    def __init__(self, candidates, selection, decisions, full_candidates=None, scores=None):
         with Path(candidates).open(newline='', encoding='utf-8') as f:
             self.candidates = {r['candidate_id']: r for r in csv.DictReader(f)}
+        self.pilot_ids = sorted(self.candidates)
         self.selection = json.loads(Path(selection).read_text(encoding='utf-8'))
+        self.scores = {}
+        if scores and Path(scores).exists():
+            with Path(scores).open(newline='', encoding='utf-8') as f:
+                self.scores = {row['candidate_id']: row for row in csv.DictReader(f)}
+        self.full_queue = []
+        if full_candidates and Path(full_candidates).exists():
+            with Path(full_candidates).open(newline='', encoding='utf-8') as f:
+                full = [row for row in csv.DictReader(f) if row['size']]
+            self.candidates.update({row['candidate_id']: row for row in full})
+            full.sort(key=lambda row: (-float(self.scores.get(row['candidate_id'], {}).get('review_priority_score', -100)),
+                                      row['candidate_id']))
+            by_source = {}
+            for row in full:
+                by_source.setdefault(row['pool_id'], row)
+            balanced = [[], []]
+            for row in by_source.values():
+                hint = self.scores.get(row['candidate_id'], {}).get('crop_species_hint', row['label'])
+                balanced[int(hint)].append(row['candidate_id'])
+            for index in range(max(map(len, balanced), default=0)):
+                for group in balanced:
+                    if index < len(group):
+                        self.full_queue.append(group[index])
         self.path = Path(decisions)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.lock = threading.Lock()
@@ -55,13 +78,17 @@ class ReviewStore:
                 event = json.loads(line)
                 self.latest[event['candidate_id']] = event
 
-    def items(self, mode):
+    def items(self, mode, page=0, page_size=200):
         if mode == 'rejected':
             return [{'candidate_id': f'reject:{pid}', 'pool_id': pid, 'label': 0,
                      'prior': self.latest.get(f'reject:{pid}')}
                     for pid in self.selection['rejected_pool_ids']]
-        keys = self.selection['proposed_candidate_ids'] if mode == 'calibration' else sorted(self.candidates)
-        return [self.candidates[key] | {'prior': self.latest.get(key)} for key in keys
+        if mode == 'full':
+            keys = self.full_queue[page * page_size:(page + 1) * page_size]
+        else:
+            keys = self.selection['proposed_candidate_ids'] if mode == 'calibration' else self.pilot_ids
+        return [self.candidates[key] | {'prior': self.latest.get(key), 'screening_hint':
+            self.scores.get(key, {}).get('crop_species_hint') if mode == 'full' else None} for key in keys
                 if self.candidates[key].get('size')]
 
     def validate(self, data, pool):
@@ -97,6 +124,18 @@ class ReviewStore:
         occupancy = float(data.get('occupancy') or 0)
         if not math.isfinite(head_width) or not math.isfinite(occupancy):
             raise ValueError('Head width and occupancy must be finite numbers')
+        basis = data.get('head_width_basis', 'student_entry')
+        if basis not in ['student_entry', 'source_clicks', 'proposal_confirmed']:
+            raise ValueError('Unknown head-width measurement basis')
+        if basis == 'source_clicks':
+            measurement = data.get('head_measurement')
+            width, height = pool.image(candidate['pool_id']).size
+            if not isinstance(measurement, list) or len(measurement) != 2:
+                raise ValueError('A width measurement needs two source-image points')
+            if any(not 0 <= p['x'] <= width or not 0 <= p['y'] <= height for p in measurement):
+                raise ValueError('Measurement points are outside the delivered source')
+            if abs(abs(measurement[1]['x'] - measurement[0]['x']) - head_width) > .11:
+                raise ValueError('Head width does not match clicked source coordinates')
         if data['verdict'] == 'good':
             if not all(criteria.values()) or head_width < 32 or not 0.60 <= occupancy <= 0.80:
                 raise ValueError('Good requires every criterion, confirmed source head width >=32 px and occupancy 0.60-0.80')
@@ -105,6 +144,8 @@ class ReviewStore:
         return event | {'pool_id': candidate['pool_id'], 'label': label, **geometry,
                         'head_width': head_width, 'occupancy': occupancy, 'criteria': criteria,
                         'preview_sha256': digest, 'proposed_label': int(candidate['label']),
+                        'head_width_basis': basis,
+                        'head_measurement': data.get('head_measurement'),
                         'angle_reason': str(data.get('angle_reason', '')).strip()}
 
     def save(self, event):
@@ -121,8 +162,11 @@ def main():
     p.add_argument('--pool', default='data/student')
     p.add_argument('--decisions', default='annotations/decisions.jsonl', type=Path)
     p.add_argument('--port', default=8765, type=int)
+    p.add_argument('--full-candidates', default='results/curation/full/candidates.csv', type=Path)
+    p.add_argument('--scores', default='results/curation/photo_screen_full/scores.csv', type=Path)
     args = p.parse_args()
-    store = ReviewStore(args.candidates, args.candidates.parent / 'calibration_selection.json', args.decisions)
+    store = ReviewStore(args.candidates, args.candidates.parent / 'calibration_selection.json', args.decisions,
+                        args.full_candidates, args.scores)
     pool = Pool(args.pool)
     csrf = secrets.token_urlsafe(32)
     html = (Path(__file__).parent / 'review.html').read_text(encoding='utf-8').replace('__TOKEN__', csrf)
@@ -145,8 +189,14 @@ def main():
                 query = {k: v[0] for k, v in parse_qs(url.query).items()}
                 if url.path == '/':
                     return self.send(html.encode(), 'text/html; charset=utf-8')
+                if url.path == '/review.js':
+                    return self.send((Path(__file__).parent / 'review.js').read_bytes(), 'application/javascript; charset=utf-8')
                 if url.path == '/items':
-                    return self.send(json.dumps(store.items(query.get('mode', 'calibration'))).encode())
+                    mode = query.get('mode', 'calibration')
+                    page = max(0, int(query.get('page', 0)))
+                    items = store.items(mode, page=page)
+                    total = len(store.full_queue) if mode == 'full' else len(store.items(mode))
+                    return self.send(json.dumps({'items': items, 'total': total, 'page': page}).encode())
                 if url.path in ['/source', '/crop']:
                     pool_id = query['pool_id']
                     if pool_id not in pool:

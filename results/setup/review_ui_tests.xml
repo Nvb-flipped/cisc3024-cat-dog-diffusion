@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+	<testcase name="two overlapping save calls send only one decision" time="0.002236" classname="test" file="C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\tests\review_ui.test.js"/>
+	<testcase name="late save response does not mark a newly displayed crop as reviewed" time="0.002073" classname="test" file="C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\tests\review_ui.test.js"/>
+	<testcase name="late preview for an older crop never replaces the current preview" time="0.001186" classname="test" file="C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\tests\review_ui.test.js"/>
+	<testcase name="corrected geometry requires new measurements and specification checks" time="0.001109" classname="test" file="C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\tests\review_ui.test.js"/>
+	<!-- tests 4 -->
+	<!-- suites 0 -->
+	<!-- pass 4 -->
+	<!-- fail 0 -->
+	<!-- cancelled 0 -->
+	<!-- skipped 0 -->
+	<!-- todo 0 -->
+	<!-- duration_ms 88.8461 -->
+</testsuites>
