@@ -18,10 +18,10 @@
     504.0,
     190.8
   ],
-  "actual_powerpoint_edit_save_render": "pending app access",
-  "actual_drawio_edit_save_render": "text/mark edit-save-reopen tested; connected-node test pending",
+  "actual_powerpoint_edit_save_render": "passed",
+  "actual_drawio_edit_save_render": "text/mark and connected-node edit-save-reopen tested",
   "application_checks": {
-    "checked": "2026-10-30T00:53:17.466142+00:00",
+    "checked": "2026-10-30T05:23:52.453574+00:00",
     "application": "installed draw.io desktop, C:/Program Files/draw.io/draw.io.exe",
     "reference_drawio_sha256": "d068baca9fbef11282aacef9a05efd7ad5051290295de5212a599fddfef42f16",
     "test_copy": "private_build/F0_drawio_edit_test.drawio",
@@ -34,13 +34,98 @@
     ],
     "original_unchanged": true,
     "observations": "Native text and plot marks editable. Dark application theme inverted the display background and text colors. Original XML color values unchanged. No external upload.",
-    "pending": [
-      "moving a connected diagram node and verifying attached edges",
-      "PowerPoint edit/save/reopen and actual Office render comparison"
-    ],
-    "scope": "Limited native draw.io text/mark persistence check; not a complete final figure acceptance or student design approval."
+    "pending": [],
+    "scope": "Native diagnostic figure operations verified by agent. Final human design, final-size preference and acceptance remain pending; no project quality evidence.",
+    "connection_check": {
+      "status": "passed",
+      "checked": "2026-10-30T05:23:52.453574+00:00",
+      "test_copy": "private_build/F0_connection_edit_test.drawio",
+      "saved_test_copy_sha256": "c8d6e6b770ca112641d900482ef9b8a99757eab74e6dcd72473d2eff53051d6b",
+      "source_node": "patch_4_1-start",
+      "edge": "patch_4_1",
+      "target_node": "patch_4_1-end",
+      "initial_geometry": {
+        "x": "66.56",
+        "y": "189.344",
+        "width": "8",
+        "height": "8",
+        "as": "geometry"
+      },
+      "saved_geometry": {
+        "height": "8",
+        "width": "8",
+        "x": "76.56",
+        "y": "199.344",
+        "as": "geometry"
+      },
+      "native_actions": [
+        "Selected exposed anchor, moved right/down ten drawing units using Shift+arrows",
+        "Saved, reopened same file and visually verified slanted axis remains attached"
+      ],
+      "edge_count": 26,
+      "scope": "Instrumented test copy exposing one existing invisible endpoint; not a student design judgment."
+    },
+    "powerpoint_check": {
+      "status": "passed",
+      "checked": "2026-10-30T05:23:52.454581+00:00",
+      "reference_pptx_sha256": "23dec3024757f032266a4b421bc8613cb6363f6496f4a29dc03ac5a8dca86f7b",
+      "test_copy": "private_build/F0_powerpoint_edit_test.pptx",
+      "saved_test_copy_sha256": "43d61133300a0060159d8f8d11d8e67a9401d43d34801bfdae0426ce7e3147f5",
+      "native_object_count": 104,
+      "pictures": 0,
+      "changed_objects": [
+        {
+          "shape_id": "27",
+          "text_before": [],
+          "text_after": [],
+          "position_before_emu": {
+            "x": "707517",
+            "y": "447908"
+          },
+          "position_after_emu": {
+            "x": "710596",
+            "y": "450987"
+          }
+        },
+        {
+          "shape_id": "52",
+          "text_before": [
+            "Noise prediction"
+          ],
+          "text_after": [
+            "Noise prediction (edit test)"
+          ],
+          "position_before_emu": {
+            "x": "1367917",
+            "y": "192798"
+          },
+          "position_after_emu": {
+            "x": "1367917",
+            "y": "192798"
+          }
+        }
+      ],
+      "native_actions": [
+        "Opened local native PPTX in Microsoft PowerPoint",
+        "Edited title text inside group and moved individual vector mark",
+        "Saved, closed, reopened; title and moved mark persisted",
+        "Opened unchanged original, exported PDF using PowerPoint Save As, rendered locally using Poppler and visually inspected"
+      ],
+      "render_pdf": "private_build/F0_office_render.pdf",
+      "render_pdf_sha256": "651dc997dec6f0eb01bbb0c73e2e135d3ed30ecb2a3b63ca7f807f5b2b35a915",
+      "render_png": "private_build/F0_office_render.png",
+      "render_png_sha256": "3fb316724dd97690e39d913f2515d06826bbcd351bdeb011dad7d1242268c9c6",
+      "pdf_creator": "Microsoft\u00ae PowerPoint\u00ae for Microsoft 365",
+      "pdf_pages": 1,
+      "pdf_page_size_pt": [
+        504.0,
+        190.8
+      ],
+      "visual_observations": "Both panels, curves, ticks, labels and diagnostic caption are legible; no visible clipping or overlap in native window or exported PDF. No claim of pixel-identical rendering.",
+      "original_unchanged": true
+    }
   },
-  "scope": "Does not certify native-application appearance, editability operations or journal acceptance",
+  "scope": "File parity plus separately recorded native-operation evidence; final human design acceptance remains pending",
   "files": {
     "figure.svg": "bbaaa71dde3d96badb0a51f3f0f1dc2d649b94cd1de707de57df7432460a1482",
     "figure.png": "fa98f7380a90b776dab6ad4cface9fbd96358e1148b3ba1e0300860474a086f3",

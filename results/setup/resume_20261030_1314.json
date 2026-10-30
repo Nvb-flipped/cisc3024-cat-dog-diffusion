@@ -1,0 +1,38 @@
+{
+  "checked": "2026-10-30T05:26:36.158862+00:00",
+  "status": "independent_checks_complete_waiting_for_personal_review",
+  "usage_at_resume": {
+    "used_percent": 2,
+    "recorded_prior_reset_unix": 1793337131
+  },
+  "latest_usage_check": {
+    "used_percent": 20,
+    "five_hour_reset_unix": 1793355424,
+    "weekly_used_percent": 23,
+    "reset_credits_consumed": 0
+  },
+  "services": [
+    {
+      "port": 8766,
+      "runtime_pid": 3360,
+      "launcher_pid": 23044,
+      "log_prefix": "logs/review_server_20261030_132450"
+    },
+    {
+      "port": 8767,
+      "runtime_pid": 34904,
+      "launcher_pid": 4992,
+      "log_prefix": "logs/duplicate_review_20261030_132450"
+    }
+  ],
+  "human_decisions_saved": false,
+  "native_figure_qa_sha256": "13f86752d1b122cee9dc65db1c83a9c521c5306b5cdb36cafd3641a9c5fa84db",
+  "checks": [
+    "python -m src.figures.validate figures/F0_overfit",
+    "isolated stale-PowerPoint-reference probe rejected",
+    "PowerPoint edit/save/reopen and actual PDF export",
+    "draw.io connected-anchor movement/save/reopen",
+    "git diff --check"
+  ],
+  "scope": "Agent software verification only; no student review, audit or independent check."
+}

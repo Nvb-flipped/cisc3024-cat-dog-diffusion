@@ -60,13 +60,23 @@ def validate(folder):
         application_checks = json.loads(application_path.read_text())
         if application_checks['reference_drawio_sha256'] != sha256(folder / 'figure.drawio'):
             raise ValueError('Native application evidence is stale for the current draw.io figure')
+        powerpoint_check = application_checks.get('powerpoint_check', {})
+        if powerpoint_check and powerpoint_check.get('reference_pptx_sha256') != sha256(folder / 'figure.pptx'):
+            raise ValueError('Native application evidence is stale for the current PowerPoint figure')
+    powerpoint_status = 'pending'
+    drawio_status = 'pending'
+    if application_checks:
+        powerpoint_status = application_checks.get('powerpoint_check', {}).get('status', 'pending')
+        drawio_status = ('text/mark and connected-node edit-save-reopen tested'
+            if application_checks.get('connection_check', {}).get('status') == 'passed'
+            else 'text/mark edit-save-reopen tested; connected-node test pending')
     report = {'status': 'file_structure_and_semantic_parity_passed', 'svg_text_count': len(svg_text),
         'objects': len(objects), 'drawio_edges': sum(cell.get('edge') == '1' for cell in cells),
         'png': png, 'pptx_canvas_pt': [width_pt, height_pt],
-        'actual_powerpoint_edit_save_render': 'pending app access',
-        'actual_drawio_edit_save_render': 'text/mark edit-save-reopen tested; connected-node test pending' if application_checks else 'pending',
+        'actual_powerpoint_edit_save_render': powerpoint_status,
+        'actual_drawio_edit_save_render': drawio_status,
         'application_checks': application_checks,
-        'scope': 'Does not certify native-application appearance, editability operations or journal acceptance',
+        'scope': 'File parity plus separately recorded native-operation evidence; final human design acceptance remains pending',
         'files': {name: sha256(folder / name) for name in ['figure.svg', 'figure.png', 'figure.pdf',
             'figure.pptx', 'figure.drawio', 'figure.xml', 'figure.spec.json', 'source.csv', 'source_summary.json']}}
     write_json(folder / 'export_qa.json', report)
