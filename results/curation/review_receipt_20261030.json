@@ -1,0 +1,41 @@
+{
+  "checked": "2026-10-30T15:42:54.881751+00:00",
+  "events": 279,
+  "saved_proposed": 200,
+  "required_proposed": 200,
+  "verdict_counts": {
+    "bad": 186,
+    "good": 14
+  },
+  "good_by_species": {
+    "dog": 10,
+    "cat": 4
+  },
+  "missing_proposal_numbers": [],
+  "uncertain_proposal_numbers": [],
+  "saved_rejected_sources": 0,
+  "required_rejected_sources": 200,
+  "record_issues": [],
+  "label_corrections": {
+    "10": {
+      "pool_id": "s024966",
+      "label": 1,
+      "verdict": "good",
+      "timestamp": "2026-10-30T13:52:07.121580+00:00"
+    },
+    "42": {
+      "pool_id": "s064396",
+      "label": 0,
+      "verdict": "good",
+      "timestamp": "2026-10-30T13:41:55.121017+00:00"
+    },
+    "58": {
+      "pool_id": "s009261",
+      "label": 0,
+      "verdict": "good",
+      "timestamp": "2026-10-30T13:42:53.344368+00:00"
+    }
+  },
+  "personal_decisions_sha256": "67b4e7e7cfd9474a79da5b3b114552843a97a998fc83f2918496f020ec4a8bf4",
+  "scope": "Receipt and stored-record consistency only; not a new visual judgment or training approval."
+}

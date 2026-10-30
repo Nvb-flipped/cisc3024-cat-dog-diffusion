@@ -1,0 +1,28 @@
+{
+  "checked": "2026-10-30T16:04:40.607306+00:00",
+  "requested_by": "Paco",
+  "reviewed_by": "Codex",
+  "origin": "agent_visual_review",
+  "counts": {
+    "missed_head": 22,
+    "correct_rejection": 177,
+    "uncertain": 1
+  },
+  "inspected": 200,
+  "enlarged_cases": 36,
+  "draft_crops": 22,
+  "max_official_crop_pixel_difference": 0,
+  "student_personally_reviewed": false,
+  "training_approval": false,
+  "personal_log_unchanged": true,
+  "personal_log_sha256": "67b4e7e7cfd9474a79da5b3b114552843a97a998fc83f2918496f020ec4a8bf4",
+  "agent_ledger": "annotations/agent_rejected_review_20261031.jsonl",
+  "agent_ledger_sha256": "e18d9a4546d4b57ca0f30846c7b38d505e1c75afc94204a9cc5da93ac621c4ba",
+  "artifacts": {
+    "private_build/agent_advisory_20261030/rejected_findings.html": "b0bc0e988d4363310bcab91f6de32c809eb830f7c886faf604b8db35038e068b",
+    "private_build/agent_advisory_20261030/rejected_findings.csv": "a0a06a0d14c689822aacf7cf626cd62bc0d1e937a9554e080f30c32bda11051d",
+    "private_build/agent_advisory_20261030/rejected_findings.json": "18fd7296f5cf85325f3b288204b8a12eee91798754de8dccd829814e9cdb773f",
+    "private_build/agent_advisory_20261030/rejected_draft_crops.json": "e089d9544dda57fa659b02638c519cf074ccc295fb81de9faf1bdcdc2b3fee36",
+    "private_build/agent_advisory_20261030/REJECTED_SUMMARY.md": "02146e4d5f0ec98c269aed22afbcf5df9f14c6d59850e0408128468d19d31df0"
+  }
+}
