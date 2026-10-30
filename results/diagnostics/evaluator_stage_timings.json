@@ -1,0 +1,61 @@
+{
+  "purpose": "Official untrained placeholder smoke; 200 generated noise images, two manifest crops; not project quality evidence",
+  "functions": [
+    {
+      "file": "evaluate.py",
+      "line": 165,
+      "function": "dedup",
+      "calls": 1,
+      "self_seconds": 0.0001975,
+      "cumulative_seconds": 0.00045210000000000004
+    },
+    {
+      "file": "evaluate.py",
+      "line": 374,
+      "function": "check_training_data",
+      "calls": 1,
+      "self_seconds": 0.0001253,
+      "cumulative_seconds": 1.3577336
+    },
+    {
+      "file": "evaluate.py",
+      "line": 348,
+      "function": "sample_submission",
+      "calls": 1,
+      "self_seconds": 0.0001156,
+      "cumulative_seconds": 0.0038245
+    },
+    {
+      "file": "evaluate.py",
+      "line": 137,
+      "function": "_reference",
+      "calls": 1,
+      "self_seconds": 6.09e-05,
+      "cumulative_seconds": 0.0860825
+    },
+    {
+      "file": "evaluate.py",
+      "line": 181,
+      "function": "compute_metrics",
+      "calls": 1,
+      "self_seconds": 0.0044435,
+      "cumulative_seconds": 1.9484051000000002
+    },
+    {
+      "file": "features.py",
+      "line": 31,
+      "function": "inception_features",
+      "calls": 2,
+      "self_seconds": 0.00020490000000000002,
+      "cumulative_seconds": 13.026187100000001
+    },
+    {
+      "file": "metrics.py",
+      "line": 94,
+      "function": "memorization_ratio",
+      "calls": 1,
+      "self_seconds": 4.36e-05,
+      "cumulative_seconds": 0.0010632
+    }
+  ]
+}

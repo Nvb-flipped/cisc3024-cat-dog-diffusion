@@ -1,0 +1,10 @@
+{
+  "purpose": "Agent-inspected pool-only integration fixtures; excluded from baseline/final training",
+  "reviewer": "Codex agent, not the student",
+  "student_review": "pending; these observations do not count toward the official audit or AGENT_LOG",
+  "sources": [
+    {"pool_id": "s050917", "observation": "Kitten photograph, corrected species from a dog-labeled detector proposal; source head width approximately 150 pixels", "candidate_id": "caa899156b2b92204468"},
+    {"pool_id": "s031527", "observation": "Puppy photograph, head proposal approximately 119 pixels wide", "candidate_id": "1de1940055dd6b35832a"}
+  ],
+  "restrictions": "Train diagnostics from scratch only; never resume a baseline/final candidate from diagnostic weights. No dev images or evaluator networks."
+}

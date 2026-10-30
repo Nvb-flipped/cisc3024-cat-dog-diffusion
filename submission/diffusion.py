@@ -30,12 +30,12 @@ def ddim_indices(timesteps, steps):
 
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
-           steps=100, guidance=1.5, microbatch=32):
+           steps=100, guidance=1.5, microbatch=32, execution_batch=32):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
         raise ValueError('labels must be a one-dimensional LongTensor containing 0/1')
-    if microbatch < 1 or not math.isfinite(guidance):
+    if microbatch < 1 or execution_batch < 1 or not math.isfinite(guidance):
         raise ValueError('Invalid sampling configuration')
     device = next(model.parameters()).device
     schedule = cosine_alpha_bar(timesteps, cosine_offset).to(device)
@@ -45,14 +45,16 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
     noise = torch.stack([torch.randn(3, 32, 32, generator=generator) for _ in range(len(labels))]) \
         if len(labels) else torch.empty(0, 3, 32, 32)
     outputs = []
-    for start in range(0, len(labels), microbatch):
-        x = noise[start:start + microbatch].to(device)
-        y = labels[start:start + microbatch].to(device)
+    chunk_size = min(microbatch, execution_batch)
+    for start in range(0, len(labels), chunk_size):
+        x = noise[start:start + chunk_size].to(device)
+        y = labels[start:start + chunk_size].to(device)
         count = len(y)
-        # Fixed execution shape keeps a prefix independent of the final partial batch.
-        if count < microbatch:
-            x = torch.cat([x, x.new_zeros(microbatch - count, 3, 32, 32)])
-            y = torch.cat([y, y.new_full((microbatch - count,), 2)])
+        # Keep convolution/attention shapes fixed even if logical chunk boundaries change.
+        # Near the cosine schedule's noisy endpoint, tiny arithmetic differences can grow.
+        if count < execution_batch:
+            x = torch.cat([x, x.new_zeros(execution_batch - count, 3, 32, 32)])
+            y = torch.cat([y, y.new_full((execution_batch - count,), 2)])
         for index, t in enumerate(indices):
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
             if guidance == 1:

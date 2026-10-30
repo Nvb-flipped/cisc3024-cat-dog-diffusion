@@ -1,0 +1,133 @@
+{
+  "id": "F0",
+  "kind": "scientific-line-chart",
+  "units": "points",
+  "width": 504,
+  "height": 190.8,
+  "font": "Arial",
+  "font_file": "C:\\Windows\\Fonts\\arial.ttf",
+  "source_files": {
+    "results/diagnostics/overfit/loss.csv": "5dc4e5dcc282657184da31fdc736c6a6204814cb06cf471cba96839e4d8295c1",
+    "results/diagnostics/overfit/result.json": "55ee848e3c387a57b5ea8927807d1cd66af024618d8ba1988ff4df6c871ac9e3"
+  },
+  "panels": [
+    {
+      "id": "noise",
+      "x": [
+        0,
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000
+      ],
+      "y": [
+        1.1554162502288818,
+        1.0541291236877441,
+        0.14984022080898285,
+        0.1015438362956047,
+        0.0656050369143486,
+        0.048895835876464844,
+        0.05178811401128769,
+        0.04068393632769585,
+        0.023283815011382103,
+        0.02547210082411766,
+        0.022382069379091263,
+        0.0226193368434906,
+        0.022697079926729202,
+        0.0215236097574234,
+        0.018035633489489555,
+        0.019282406195998192,
+        0.018520191311836243,
+        0.014431691728532314,
+        0.015038329176604748,
+        0.017477938905358315,
+        0.013075871393084526,
+        0.01721736416220665
+      ],
+      "ylim": [
+        0,
+        1.2
+      ],
+      "color": "#0072B2"
+    },
+    {
+      "id": "reconstruction",
+      "x": [
+        0,
+        1,
+        100,
+        200,
+        300,
+        400,
+        500,
+        600,
+        700,
+        800,
+        900,
+        1000,
+        1100,
+        1200,
+        1300,
+        1400,
+        1500,
+        1600,
+        1700,
+        1800,
+        1900,
+        2000
+      ],
+      "y": [
+        0.5410223007202148,
+        0.5662103891372681,
+        0.20801880955696106,
+        0.14919130504131317,
+        0.10406924784183502,
+        0.07732595503330231,
+        0.07123323529958725,
+        0.05539722740650177,
+        0.04214293509721756,
+        0.03855467960238457,
+        0.03909839317202568,
+        0.0405452623963356,
+        0.031718529760837555,
+        0.033510155975818634,
+        0.03899884223937988,
+        0.043638925999403,
+        0.03316734358668327,
+        0.028577392920851707,
+        0.02202736958861351,
+        0.03283342719078064,
+        0.02537357434630394,
+        0.02934238314628601
+      ],
+      "ylim": [
+        0,
+        0.6
+      ],
+      "color": "#D55E00"
+    }
+  ],
+  "transformations": [
+    "prepend the measured pre-update baseline to the logged fixed-probe values"
+  ],
+  "caption": "Fixed-budget integration diagnostic on two exact course-pool crops. The tiny randomly initialized U-Net is trained for 2,000 updates; these are not baseline or final-model results. (a) Fixed-probe noise-prediction MSE. (b) Reconstructed normalized-image MSE. Both points average the same two images at timesteps 250 and 750 with a fixed noise seed of 43. No smoothing or uncertainty intervals are applied; one run does not estimate training variability.",
+  "alt_text": "Noise and reconstruction errors decline over a fixed 2000-update, two-image integration check.",
+  "status": "Diagnostic evidence only; final data/model results remain pending."
+}

@@ -8,11 +8,11 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from torch.nn import functional as F
 
 from src.common import environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
-from submission.diffusion import add_noise, cosine_alpha_bar
+from src.training.step import optimizer_step, update_ema
+from submission.diffusion import cosine_alpha_bar
 from submission.model import ConditionalUNet
 
 
@@ -63,7 +63,6 @@ def main():
     effective, micro = settings['effective_batch'], settings['microbatch']
     if effective < 1 or micro < 1 or effective % micro:
         raise ValueError('effective_batch must be a positive multiple of microbatch')
-    accumulation = effective // micro
     bf16 = settings['precision'] == 'bf16' and device.type == 'cuda'
     if bf16 and not torch.cuda.is_bf16_supported():
         raise ValueError('BF16 requested but not supported')
@@ -79,6 +78,8 @@ def main():
         state = torch.load(args.resume, map_location=device, weights_only=True)
         if state['manifest_sha256'] != manifest_hash:
             raise ValueError('Resume manifest mismatch: changed training rows require a fresh final run')
+        if state['stats']['pool_content_sha256'] != stats['pool_content_sha256']:
+            raise ValueError('Source pool content changed since checkpoint')
         if state['seed'] != args.seed or state['config']['model'] != config['model']:
             raise ValueError('Resume seed/architecture mismatch')
         previous_settings = dict(state['config']['training'])
@@ -117,34 +118,13 @@ def main():
         if stream.tell() == 0:
             writer.writeheader()
         for update in range(start_update + 1, settings['updates'] + 1):
-            lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
-            for group in optimizer.param_groups:
-                group['lr'] = lr
-            optimizer.zero_grad(set_to_none=True)
-            losses = []
-            for _ in range(accumulation):
-                indices = torch.randint(len(labels), (micro,), generator=generator, device=device)
-                x0, y = images[indices], labels[indices].clone()
-                t = torch.randint(len(alpha_bar), (micro,), generator=generator, device=device)
-                noise = torch.randn(x0.shape, generator=generator, device=device)
-                y[torch.rand(micro, generator=generator, device=device) < settings['null_probability']] = 2
-                xt = add_noise(x0, noise, t, alpha_bar)
-                with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):
-                    predicted = model(xt, t, y)
-                    loss = F.mse_loss(predicted.float(), noise)
-                if not torch.isfinite(loss):
-                    raise FloatingPointError(f'Nonfinite loss at update {update}')
-                (loss / accumulation).backward()
-                losses.append(loss.detach())
-            norm = torch.nn.utils.clip_grad_norm_(model.parameters(), settings['grad_clip'], error_if_nonfinite=True)
-            optimizer.step()
-            with torch.no_grad():
-                for target, value in zip(ema.parameters(), model.parameters()):
-                    target.lerp_(value, 1 - settings['ema_decay'])
+            loss, norm, lr = optimizer_step(model, optimizer, images, labels, alpha_bar,
+                                            generator, settings, update)
+            update_ema(ema, model, settings['ema_decay'])
             if update % settings['log_every'] == 0 or update == 1:
                 if device.type == 'cuda':
                     torch.cuda.synchronize()
-                row = dict(update=update, loss=torch.stack(losses).mean().item(), grad_norm=norm.item(),
+                row = dict(update=update, loss=loss.item(), grad_norm=norm.item(),
                            lr=lr, elapsed_seconds=time.perf_counter() - begin)
                 writer.writerow(row)
                 stream.flush()

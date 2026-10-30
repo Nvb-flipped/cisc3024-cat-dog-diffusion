@@ -16,11 +16,14 @@ def main():
     model_id = config['model_id']
     revision = config.get('revision') or HfApi().model_info(model_id).sha
     folder = Path(config['model_path'])
+    info = HfApi().model_info(model_id, revision=revision)
+    has_safe = any(item.rfilename.endswith('.safetensors') for item in info.siblings)
+    weights_pattern = '*.safetensors' if has_safe else 'pytorch_model.bin'
     snapshot_download(model_id, revision=revision, local_dir=folder,
-                      allow_patterns=['*.json', '*.txt', '*.safetensors', 'README.md', 'LICENSE*'])
+                      allow_patterns=['*.json', '*.txt', weights_pattern, 'README.md', 'LICENSE*'])
     write_json(folder / 'provenance.json', {
         'model_id': model_id, 'revision': revision, 'downloaded_at': timestamp(),
-        'purpose': 'pool-only head proposals, excluded from training and submission',
+        'purpose': 'pool-only curation research, excluded from generator training and submission',
         'source': f'https://huggingface.co/{model_id}/tree/{revision}',
         'files': {str(f.relative_to(folder)): sha256(f) for f in folder.rglob('*')
                   if f.is_file() and '.cache' not in f.parts and f.name != 'provenance.json'}})

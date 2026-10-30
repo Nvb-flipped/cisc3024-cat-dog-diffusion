@@ -1,0 +1,7 @@
+{
+  "candidate_count": 47855,
+  "pair_count": 419723,
+  "radius": 8,
+  "meaning": "Source dHash is a review aid, not proof of duplicate heads.",
+  "review": "Confirm candidate pairs visually/aligned pixels; assign one group per duplicate head family, unique groups for confirmed distinct heads. Keep one good crop per family. Fill keep=yes/no, reviewer, actual timestamp and reason in annotations/duplicate_groups.csv. Never prefill human judgments."
+}

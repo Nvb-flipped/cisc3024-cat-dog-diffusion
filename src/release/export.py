@@ -1,6 +1,5 @@
 """Export exactly one trained checkpoint and its exact immutable manifest."""
 import argparse
-import json
 import shutil
 from pathlib import Path
 import torch
@@ -13,6 +12,8 @@ INFERENCE_FILES = ['__init__.py', 'generate.py', 'model.py', 'diffusion.py']
 def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None, microbatch=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
+    if state.get('diagnostic_only'):
+        raise ValueError('Diagnostic weights must never become a baseline/final submission')
     digest = sha256(manifest)
     if state['manifest_sha256'] != digest:
         raise ValueError('Checkpoint/manifest mismatch; final model must list all and only its training rows')
@@ -42,6 +43,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         'manifest_sha256': digest, 'weights_sha256': sha256(out / 'weights.pt'),
         'config_sha256': sha256(out / 'inference.json'), 'weights_variant': weights,
         'training_update': state['update'], 'training_seed': state['seed'],
+        'pool_content_sha256': state.get('stats', {}).get('pool_content_sha256'),
         'parameters': parameters, 'exported': timestamp(),
         'inference_source_sha256': {name: sha256(out / name) for name in INFERENCE_FILES}})
     size = sum(f.stat().st_size for f in out.rglob('*') if f.is_file())

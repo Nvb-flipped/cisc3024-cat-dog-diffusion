@@ -1,4 +1,3 @@
-import copy
 import pytest
 from src.evaluation.sweep import score_results
 

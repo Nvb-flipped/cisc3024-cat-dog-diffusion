@@ -1,0 +1,51 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "probe_mse_before": 1.1554162502288818,
+  "probe_mse_after": 0.01721736416220665,
+  "reduction": 0.9850985615281108,
+  "reconstruction_mse_before": 0.5410223007202148,
+  "reconstruction_mse_after": 0.02934238314628601,
+  "seconds": 55.65878259995952,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "c4718b078bd06a0f0c66b0ba34dce083e8e32010",
+    "git_dirty": true
+  },
+  "completed": "2026-10-29T18:05:05.687679+00:00",
+  "passed": true
+}

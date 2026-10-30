@@ -1,0 +1,22 @@
+pool: data/student
+model_id: openai/clip-vit-base-patch32
+model_path: models/clip-photo-screen
+revision: null
+candidates: results/curation/full/candidates.csv
+output: results/curation/photo_screen_full
+batch_size: 64
+source_prompts:
+  - a photograph of a real living cat
+  - a photograph of a real living dog
+  - a cartoon, drawing or painting of a cat or dog
+  - a toy or stuffed animal
+  - a cat or dog printed on a product or package
+  - an animal sculpture or artificial animal
+  - an object or scene without any animal
+crop_prompts:
+  - a close-up photograph of a real cat head with ears
+  - a close-up photograph of a real dog head with ears
+  - a cartoon, drawing or painting of an animal head
+  - the head of a toy or stuffed animal
+  - an animal head printed on a product
+  - an object without a real animal head

@@ -3,10 +3,10 @@ import json
 from pathlib import Path
 import torch
 
-try:
+if __package__:
     from .model import ConditionalUNet
     from .diffusion import sample
-except ImportError:  # Official evaluator imports generate.py as a standalone module.
+else:  # Official evaluator imports generate.py as a standalone module.
     from model import ConditionalUNet
     from diffusion import sample
 

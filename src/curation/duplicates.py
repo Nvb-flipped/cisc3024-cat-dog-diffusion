@@ -1,10 +1,8 @@
 """Prepare near-duplicate candidates for student confirmation; never auto-reject them."""
 import argparse
 import csv
-import json
 from pathlib import Path
 from src.common import write_json
-from src.curation.review import ReviewStore
 
 
 class HammingTree:

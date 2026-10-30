@@ -1,0 +1,13 @@
+{
+  "figures": [
+    {
+      "id": "F0",
+      "kind": "diagnostic_overfit",
+      "output": "figures/F0_overfit",
+      "data": "results/diagnostics/overfit/loss.csv",
+      "summary": "results/diagnostics/overfit/result.json",
+      "status": "implementation diagnostic; not a final model result"
+    }
+  ],
+  "pending": ["F1 curation diagram", "F2 model/sampling diagram", "F3 final audit", "F4 training/quality trajectories", "F5 ablations", "F6 generated samples", "F7 memorization"]
+}

@@ -87,6 +87,7 @@ def main():
     p.add_argument('--out', type=Path)
     p.add_argument('--device', default='cuda')
     p.add_argument('--resume', action='store_true')
+    p.add_argument('--reuse', type=Path, help='Reuse a compatible completed pilot, recording its source hashes')
     args = p.parse_args()
     torch.set_num_threads(8)
     config = read_config(args.config)
@@ -115,10 +116,29 @@ def main():
         write_json(header, expected)
         write_json(out / 'environment.json', environment() | {'started': timestamp()})
     records_path = out / 'detections.jsonl'
+    if args.reuse and not records_path.exists():
+        previous_spec = json.loads((args.reuse / 'pilot_spec.json').read_text())
+        for field in ['detector_revision', 'index_sha256', 'prompt', 'threshold_grid']:
+            if previous_spec[field] != expected[field]:
+                raise ValueError(f'Reused pilot differs in {field}')
+        for field in ['model_id', 'model_path', 'occupancy', 'min_head_width', 'seed', 'box_threshold', 'text_threshold']:
+            if previous_spec['config'][field] != config[field]:
+                raise ValueError(f'Reused pilot differs in {field}')
+        imported_path = args.reuse / 'detections.jsonl'
+        imported = [json.loads(line) for line in imported_path.read_text().splitlines()]
+        imported_ids = [row['pool_id'] for row in imported]
+        if len(set(imported_ids)) != len(imported_ids) or not set(imported_ids).issubset(ids):
+            raise ValueError('Reused pilot has duplicate/unknown pool IDs')
+        if any(row.get('error') for row in imported):
+            raise ValueError('Reused pilot contains errors')
+        records_path.write_bytes(imported_path.read_bytes())
+        write_json(out / 'reused_pilot.json', {'source': str(args.reuse), 'rows': len(imported),
+            'spec_sha256': sha256(args.reuse / 'pilot_spec.json'), 'records_sha256': sha256(imported_path),
+            'note': 'Compatible frozen detector outputs reused; no new decisions or labels inferred.'})
     records = [json.loads(line) for line in records_path.read_text(encoding='utf-8').splitlines()] \
         if records_path.exists() else []
     done = {r['pool_id'] for r in records}
-    processor = AutoProcessor.from_pretrained(folder, local_files_only=True)
+    processor = AutoProcessor.from_pretrained(folder, local_files_only=True, use_fast=False)
     model = AutoModelForZeroShotObjectDetection.from_pretrained(
         folder, local_files_only=True, disable_custom_kernels=True).to(args.device).eval()
     with records_path.open('a', encoding='utf-8') as stream:

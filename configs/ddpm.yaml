@@ -26,3 +26,4 @@ sampling:
   steps: 100
   guidance: 1.5
   microbatch: 32
+  execution_batch: 32

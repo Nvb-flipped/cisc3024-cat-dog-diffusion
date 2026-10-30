@@ -1,0 +1,46 @@
+{
+  "purpose": "exploratory pool-only review-priority aid",
+  "status": "No automatic accepts/rejects or final labels. Student calibration required.",
+  "config": {
+    "pool": "data/student",
+    "model_id": "openai/clip-vit-base-patch32",
+    "model_path": "models/clip-photo-screen",
+    "revision": null,
+    "candidates": "results/curation/pilot/candidates.csv",
+    "output": "results/curation/photo_screen",
+    "batch_size": 64,
+    "source_prompts": [
+      "a photograph of a real living cat",
+      "a photograph of a real living dog",
+      "a cartoon, drawing or painting of a cat or dog",
+      "a toy or stuffed animal",
+      "a cat or dog printed on a product or package",
+      "an animal sculpture or artificial animal",
+      "an object or scene without any animal"
+    ],
+    "crop_prompts": [
+      "a close-up photograph of a real cat head with ears",
+      "a close-up photograph of a real dog head with ears",
+      "a cartoon, drawing or painting of an animal head",
+      "the head of a toy or stuffed animal",
+      "an animal head printed on a product",
+      "an object without a real animal head"
+    ]
+  },
+  "config_sha256": "5a8b682e103f1a4df8d49ffcbda1ffb7c946aef41a2ffbadf539cb68e40489ed",
+  "model_revision": "3d74acf9a28c67741b2f4f2ea7635f0aaf6f0268",
+  "candidate_sha256": "b7fcfd33d323e02b94e6c07cf5ac25507df8b87c02f9ddd0030fdd0ad04e3627",
+  "candidates": 1269,
+  "sources": 697,
+  "seconds": 7.532085300190374,
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "c4718b078bd06a0f0c66b0ba34dce083e8e32010",
+    "git_dirty": true
+  },
+  "rationale": "Initial DINO pilot contains product prints, drawings, toys and conflicting species proposals. Compare source/crop text similarities without using dev images/features or evaluator networks."
+}

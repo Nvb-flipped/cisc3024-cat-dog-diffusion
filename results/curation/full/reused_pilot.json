@@ -1,0 +1,7 @@
+{
+  "source": "results\\curation\\pilot",
+  "rows": 2000,
+  "spec_sha256": "6bae1b02a9ffb0e9e9198a5109a6dbc3c7657cd2c60aead0e5fab76a2a3a2145",
+  "records_sha256": "039af8e62b4c003def0d5b6f1286a0568e2915662e8131a859cb8b75604daeec",
+  "note": "Compatible frozen detector outputs reused; no new decisions or labels inferred."
+}

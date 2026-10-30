@@ -1,0 +1,121 @@
+{
+  "purpose": "compute benchmark on two manifest rows, not a quality baseline",
+  "diagnostic_only": true,
+  "config": {
+    "model": {
+      "channels": [
+        48,
+        96,
+        144,
+        192
+      ],
+      "blocks_per_level": 2,
+      "conditioning_dim": 256,
+      "attention_heads": 4,
+      "dropout": 0.1
+    },
+    "diffusion": {
+      "timesteps": 1000,
+      "cosine_offset": 0.008
+    },
+    "training": {
+      "updates": 50000,
+      "effective_batch": 128,
+      "microbatch": 64,
+      "learning_rate": 0.0002,
+      "betas": [
+        0.9,
+        0.999
+      ],
+      "weight_decay": 0.0001,
+      "warmup": 2000,
+      "grad_clip": 1.0,
+      "ema_decay": 0.9999,
+      "null_probability": 0.1,
+      "checkpoint_every": 10000,
+      "log_every": 100,
+      "precision": "bf16",
+      "threads": 8
+    },
+    "sampling": {
+      "steps": 100,
+      "guidance": 1.5,
+      "microbatch": 32
+    }
+  },
+  "config_sha256": "0f2a7a7fcb1bb22b3bdbc87fd180500e9bd11eff456391e152c15c4052698af7",
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "updates": 500,
+  "seconds": 70.06540660001338,
+  "steady_seconds_per_update": 0.10578744222254803,
+  "estimated_50k_hours": 1.4692700308687228,
+  "peak_allocated_bytes": 1170661376,
+  "peak_reserved_bytes": 1258291200,
+  "records": [
+    {
+      "update": 1,
+      "loss": 1.1241884231567383,
+      "seconds": 16.82401270000264
+    },
+    {
+      "update": 50,
+      "loss": 1.0028250217437744,
+      "seconds": 22.461019499925897
+    },
+    {
+      "update": 100,
+      "loss": 0.8541924357414246,
+      "seconds": 27.717134299920872
+    },
+    {
+      "update": 150,
+      "loss": 0.6272478103637695,
+      "seconds": 32.959608499892056
+    },
+    {
+      "update": 200,
+      "loss": 0.42420047521591187,
+      "seconds": 38.21458259993233
+    },
+    {
+      "update": 250,
+      "loss": 0.32027363777160645,
+      "seconds": 43.41728599998169
+    },
+    {
+      "update": 300,
+      "loss": 0.26319968700408936,
+      "seconds": 48.6582637000829
+    },
+    {
+      "update": 350,
+      "loss": 0.2443871647119522,
+      "seconds": 53.90640480001457
+    },
+    {
+      "update": 400,
+      "loss": 0.1537611335515976,
+      "seconds": 59.33139769989066
+    },
+    {
+      "update": 450,
+      "loss": 0.13512901961803436,
+      "seconds": 64.64020949997939
+    },
+    {
+      "update": 500,
+      "loss": 0.09999952465295792,
+      "seconds": 70.06536850007251
+    }
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "c4718b078bd06a0f0c66b0ba34dce083e8e32010",
+    "git_dirty": true
+  },
+  "weights_retained": false
+}
