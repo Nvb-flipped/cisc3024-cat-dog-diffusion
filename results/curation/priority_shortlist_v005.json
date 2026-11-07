@@ -1,0 +1,4585 @@
+{
+  "batch": "v005",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "annotations/decisions.jsonl": "7dc2cce18a42c66f569401b6b62b8554bd63120eb14a629a0025cd50e44eea9c",
+    "results/curation/full/candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "results/curation/photo_screen_full/scores.csv": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9",
+    "results/curation/priority_shortlist_v001.json": "f30a29486c94dca2be61428f6560f5a34215b6250abd631c7864eb5cb966b95f",
+    "results/curation/priority_shortlist_v002.json": "9b8b3c3a97f87b494ec198f5db9e04f3e80380f7faee5b44ed2199664fe74a1d",
+    "results/curation/priority_shortlist_v003.json": "b8966c7f3181ecd7eaa0c53a9958cb379d06371927f318d17a02c42bcedf49df",
+    "results/curation/priority_shortlist_v004.json": "9e70e0e4978d2fb267fd9361ed77d9edfb10176ec6f8272869c7eefedaac1b37"
+  },
+  "prescreened_ranked_count": 160,
+  "candidate_ids": [
+    "547e1be4bed7778b614c",
+    "297f979730d6c8d86412",
+    "098d64ac69616c4e98da",
+    "8d2bdc3d250ea338bab1",
+    "e88939c66c62e58ccb83",
+    "01dac5792d3d35529714",
+    "4b275532a4670cf12e95",
+    "54fe63c8401e5b3280c4",
+    "ec16ea1b49e14625cf02",
+    "a98996e617b2c2057fbb",
+    "2721082b0f054a362883",
+    "a66209f3230d5365eb6f",
+    "790c5b538fd182eef300",
+    "0e7099554d7ef75d5c03",
+    "138cfc461493726f31c0",
+    "bf6474c118b4de2960e0",
+    "8f2843b995810f4656b4",
+    "375c16a12cd2686c2819",
+    "5e6c35bcbe4fa0a2260e",
+    "c836b4ee3f314f0f68f3",
+    "e61c923c9b73e6be77ef",
+    "619137c9c8a800da0ef6",
+    "9d98ff82d359a8d8401f",
+    "7d874fdcf3998d6df08d",
+    "5f52feb3febd6693924a",
+    "aad83b20c5914020180a",
+    "7e16facf060d00808495",
+    "1de617836f8c9259c0e9",
+    "ec72f09b8715d59add4a",
+    "ed22b38fcdcdce05919d",
+    "5570c99017e715ff7d26",
+    "dc74dc62df2fba2132ea",
+    "62cd55ae1394423b2e50",
+    "92aaa5fc9ba25f24ffaf",
+    "5115048bd9aac5de0065",
+    "e790e0fff2e9d302d940",
+    "597be3ac65dd7dce96a2",
+    "6edee8de57453a631ce2",
+    "2d8b8e7fb32180599e1f",
+    "6db55127d24b53bc19e5",
+    "fb8b84164282c6cea409",
+    "396af38bd11b453d10b1",
+    "5dafdbd95e3ffec38eb9",
+    "fd6bfdc338b5807e585d",
+    "ef2c18def6353f84bae7",
+    "ef7374ecb6064271962f",
+    "5a9f676b16e072e12bec",
+    "4e9b9c4d04018e45c659",
+    "d69e945ee236ff3fd454",
+    "62e9c2279825fb1b6697",
+    "086bbcfeeeb7276e7a53",
+    "878e9259d35e5acd5025",
+    "622ac6aa0057aabc6410",
+    "1f32582a1f59bc2ebe05",
+    "cbc3a88b9387bdf36e3a",
+    "fab799341241a43d9d65",
+    "6e0c527ebce13afc7a4a",
+    "fc84a4cb0b997acfb6b9",
+    "4c5bf1dc0a6169646a9c",
+    "7848a38993beee6500d4",
+    "7883cf7b909d71146a6c",
+    "85da46bd448fbaf32020",
+    "0278c59084d77dd6aaaf",
+    "4c69ca49392e86034863",
+    "c57b9c389f2633e577e2",
+    "9686b932088371afa1a1",
+    "7115c644c72327cc4a8d",
+    "1ef8a178ed5e7b91227f",
+    "4f5a1262f57fa2a8bfeb",
+    "8099ed156059a41c50d7",
+    "9ecd670cca4e0dbd60e2",
+    "109ec84efa6ae1ab3b40",
+    "5ca249dfec31408e09d0",
+    "1988ce609597a3c90c13",
+    "538a99c08852c179723f",
+    "061485471a1e85e81aff",
+    "463c55e54fe82c9c134e",
+    "2226565db0383f9c6790",
+    "95e2f0d6039bbfac2196",
+    "015d1def762feedf8efa",
+    "01dcaa1c99a059845110",
+    "cf50d0aa2d6aa21d8f52",
+    "5d55db72ea6abe400c3d",
+    "81d9057c6e071e874aac",
+    "bb08b90b40b56f0a456a",
+    "408301f5a24ec2cbcdf4",
+    "0d774296eb244986826e",
+    "fcabaa6c1958d09013fc",
+    "2492831544d7ae8adc29",
+    "0250343bcd92e08b5324",
+    "23d14c6498faa3a2adb4",
+    "6b963c2ad829f6ff391a",
+    "cce6bba7c46a3c2251e8",
+    "0a0c37ecbdee4758c73b",
+    "bd3e4b3cb11d26a00508",
+    "d8cc97c109a1c5083129",
+    "1a2fd207ba52268fca67",
+    "9481473abaa7a7b5553c",
+    "0e38b60cbb41c713685a",
+    "270d9504f4075b82e7f7",
+    "54250b2e7e280015ab7c",
+    "46c1c4a79cd3ab43d339",
+    "d9b2b8104345bd1fb6ed",
+    "8a3c6e1c9c42522ee0ec",
+    "c6d1d565a4e5e4a83868",
+    "a07c7612518555ad9651",
+    "2b7be98489e584ae12b8",
+    "05a71afcc624a020882c",
+    "43da62e1d9ee3d39f3bb",
+    "c4def6098e668de762ca",
+    "33cb0f58fb3142b5d77d",
+    "4b175166ba6e3ecce995",
+    "4d8f2d8a93ed79a6810b",
+    "c03222e6b84d8b1292b3",
+    "e17897e5c62988b52fb1",
+    "892330cb3b62f226c8ad",
+    "0bce42a103a39202de4d"
+  ],
+  "recovered_candidates": [],
+  "findings": [
+    {
+      "candidate_id": "547e1be4bed7778b614c",
+      "pool_id": "s074887",
+      "code": "C01",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "0411a4bfce350595ffbf99df7915a70fae2e9f6eddbe33e41954a57df8871645",
+      "geometry": {
+        "x0": 202,
+        "y0": 9,
+        "size": 132,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "297f979730d6c8d86412",
+      "pool_id": "s055172",
+      "code": "D01",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "7e44ce345ee02699c3103606eb9ce7a178eb53df28aad18a89f8ca65a74a72a2",
+      "geometry": {
+        "x0": 283,
+        "y0": 81,
+        "size": 108,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "098d64ac69616c4e98da",
+      "pool_id": "s026211",
+      "code": "D02",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "7a1878d541901ffe07fa63978cb3cc1a2dbd60f3d4f44dfb29149af92d36d87a",
+      "geometry": {
+        "x0": 99,
+        "y0": 21,
+        "size": 204,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8d2bdc3d250ea338bab1",
+      "pool_id": "s063829",
+      "code": "C02",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "26d8f8337a645118b4a1fac838376b66de945cb08f217a7d9259bed7a583a43f",
+      "geometry": {
+        "x0": 86,
+        "y0": 34,
+        "size": 115,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "e88939c66c62e58ccb83",
+      "pool_id": "s000310",
+      "code": "D03",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "dc372818aaa2d8f272a672f4c5d0235a08b345ce4e66fe62f47bbf1720269533",
+      "geometry": {
+        "x0": 82,
+        "y0": 55,
+        "size": 133,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "01dac5792d3d35529714",
+      "pool_id": "s041829",
+      "code": "C03",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "f039478bd6ee201da5d459bb17472a046c28c7fe08920e9ef6b3cf4030796b2d",
+      "geometry": {
+        "x0": 70,
+        "y0": 22,
+        "size": 104,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4b275532a4670cf12e95",
+      "pool_id": "s004821",
+      "code": "D04",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "357806cfcab593cb2dae148f9015e88fe0db3d5383ff7da141d5f6a0ece7acbc",
+      "geometry": {
+        "x0": 72,
+        "y0": 21,
+        "size": 90,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "54fe63c8401e5b3280c4",
+      "pool_id": "s032550",
+      "code": "C04",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "31a56e4ed3367c3334f8a233760ae3f4ca57d7f4f70607da6b2ed780373de5f8",
+      "geometry": {
+        "x0": 37,
+        "y0": 10,
+        "size": 171,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ec16ea1b49e14625cf02",
+      "pool_id": "s015168",
+      "code": "D05",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "The head looks tilted. Check whether it is roughly upright and whether a rotation can preserve the full head.",
+      "crop_sha256": "da52949af1d909350a26ca89858a1f14af4acc434cfab94fb7572eeb0dc1485e",
+      "geometry": {
+        "x0": 146,
+        "y0": 97,
+        "size": 136,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a98996e617b2c2057fbb",
+      "pool_id": "s068164",
+      "code": "C06",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "11ff2e7223d27a800e73a7e92c79fa5c548714e7c40c5e42c02fa8fd978f6455",
+      "geometry": {
+        "x0": 74,
+        "y0": 116,
+        "size": 217,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2721082b0f054a362883",
+      "pool_id": "s046336",
+      "code": "D06",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "604c51ab733a5c4fce3f2c4f44b7d28d6dae784ef2ba1094d8139cc273fea304",
+      "geometry": {
+        "x0": 214,
+        "y0": 19,
+        "size": 100,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a66209f3230d5365eb6f",
+      "pool_id": "s020580",
+      "code": "C07",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "a4199245ce831aa6a202ee27b38d4ee1218a6155dc6aa2a1ccde67ebc8a7a086",
+      "geometry": {
+        "x0": 266,
+        "y0": 7,
+        "size": 144,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "790c5b538fd182eef300",
+      "pool_id": "s036314",
+      "code": "D07",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1638f09aaf18be8c3fe74e4cd048586a1886339febfc1a5c6ad32b012459cc10",
+      "geometry": {
+        "x0": 248,
+        "y0": 59,
+        "size": 152,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0e7099554d7ef75d5c03",
+      "pool_id": "s034771",
+      "code": "C08",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "95eaf32d6ae5b47196347e3fca1a3ad354a7902cd71a89c89a9aeedcd59d5397",
+      "geometry": {
+        "x0": 199,
+        "y0": 8,
+        "size": 156,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "138cfc461493726f31c0",
+      "pool_id": "s030053",
+      "code": "D09",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "488277961e87586bde9323736f681c84e054a77d038e6c0eb62b374569ae884f",
+      "geometry": {
+        "x0": 88,
+        "y0": 85,
+        "size": 143,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bf6474c118b4de2960e0",
+      "pool_id": "s014661",
+      "code": "C09",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "703ae258cb45b9f311fcd3dd41c3b772bb5728dbdf4bbb8bb3f65c0a8e0e2309",
+      "geometry": {
+        "x0": 143,
+        "y0": 185,
+        "size": 117,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8f2843b995810f4656b4",
+      "pool_id": "s014360",
+      "code": "D10",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1bf64e2de699e5957e690858bdf1f9274233106e2284d26de2be73e6ba07fa98",
+      "geometry": {
+        "x0": 66,
+        "y0": 58,
+        "size": 108,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "375c16a12cd2686c2819",
+      "pool_id": "s075498",
+      "code": "C10",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "b0107f0873b68c64d0e8751cfa0582319f752e7fb10729f6e40cfe0b6a0d6af0",
+      "geometry": {
+        "x0": 127,
+        "y0": 5,
+        "size": 70,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5e6c35bcbe4fa0a2260e",
+      "pool_id": "s053826",
+      "code": "D11",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "3af9193a721b2fa446b8333df57bc88375b716e444a703c22c0cbf1e15e0cf8e",
+      "geometry": {
+        "x0": 99,
+        "y0": 114,
+        "size": 101,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c836b4ee3f314f0f68f3",
+      "pool_id": "s022430",
+      "code": "C11",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1607b3dd6e9a1fbd77332e7b8175c9d710cc69f35ed97bb0db8b52bc517193be",
+      "geometry": {
+        "x0": 107,
+        "y0": 3,
+        "size": 75,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "e61c923c9b73e6be77ef",
+      "pool_id": "s042388",
+      "code": "D12",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d07a6801466f4235cbea36691e7856f7e3afcfc28b2e2f842427163699bbf2e5",
+      "geometry": {
+        "x0": 91,
+        "y0": 4,
+        "size": 94,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "619137c9c8a800da0ef6",
+      "pool_id": "s033923",
+      "code": "C12",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "6f51571525bb690b00a08b065b0d90bfff51d29b1041812ec01a1aba79b4547e",
+      "geometry": {
+        "x0": 20,
+        "y0": 0,
+        "size": 82,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9d98ff82d359a8d8401f",
+      "pool_id": "s065442",
+      "code": "D13",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "a55b8477f8fb3b55c0288b823cf92ae15ad800c9946ac4fc4bc477d375898b9d",
+      "geometry": {
+        "x0": 192,
+        "y0": 77,
+        "size": 130,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7d874fdcf3998d6df08d",
+      "pool_id": "s058908",
+      "code": "C13",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "8f2f9b46362e5520aff71b1b2fdf43388ea58bd2a4feb7d8ef2c094a6f381984",
+      "geometry": {
+        "x0": 82,
+        "y0": 0,
+        "size": 96,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5f52feb3febd6693924a",
+      "pool_id": "s048814",
+      "code": "D14",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "57e0b4a2d19803ae6a5dcc7fc4853b10e2091b465999b4a4b4c73f4b9bae1471",
+      "geometry": {
+        "x0": 111,
+        "y0": 0,
+        "size": 178,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "aad83b20c5914020180a",
+      "pool_id": "s071503",
+      "code": "D15",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "crop_sha256": "f628de60ff2289098a3d3894b7f15ba8f266cf3c4260682db9b1eeea838b9302",
+      "geometry": {
+        "x0": 8,
+        "y0": 35,
+        "size": 191,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7e16facf060d00808495",
+      "pool_id": "s051154",
+      "code": "C14",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "fafbcfb5b340b905527bbb00222183468dc9ae3b5e2411f01dd596f4371e94f6",
+      "geometry": {
+        "x0": 11,
+        "y0": 26,
+        "size": 217,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1de617836f8c9259c0e9",
+      "pool_id": "s075469",
+      "code": "D17",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "crop_sha256": "abd4ff7bf303b25068197ae43bd10d7e2c4ed4e3cc320ab340745c6152148714",
+      "geometry": {
+        "x0": 101,
+        "y0": 1,
+        "size": 253,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ec72f09b8715d59add4a",
+      "pool_id": "s066370",
+      "code": "C15",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "fe5810bbab3d1dfe300acf034c14d5b89488505ee7c3b5df6910418172cb1cb1",
+      "geometry": {
+        "x0": 227,
+        "y0": 2,
+        "size": 155,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ed22b38fcdcdce05919d",
+      "pool_id": "s019334",
+      "code": "D18",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "66faac857bc7f3703e9dc80c265aca4bef861c61ec1e9f77e673e40eaba7cd34",
+      "geometry": {
+        "x0": 201,
+        "y0": 45,
+        "size": 89,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5570c99017e715ff7d26",
+      "pool_id": "s038871",
+      "code": "C16",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "8d1dfafdcd802689f75ade5492a9851aeb6892dbf00c3c04c2383c2cb89fe2a5",
+      "geometry": {
+        "x0": 168,
+        "y0": 76,
+        "size": 80,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "dc74dc62df2fba2132ea",
+      "pool_id": "s011271",
+      "code": "D19",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d8834fc91c94ba54cc3615e51400d562a295111a41a1ef1f4852b74c09e8cb3c",
+      "geometry": {
+        "x0": 175,
+        "y0": 118,
+        "size": 139,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "62cd55ae1394423b2e50",
+      "pool_id": "s061279",
+      "code": "C17",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "40a6e3c9f66033dd0cb713f06d1afddee577f867acd4aaa55b075660ca7b73ce",
+      "geometry": {
+        "x0": 15,
+        "y0": 90,
+        "size": 116,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "92aaa5fc9ba25f24ffaf",
+      "pool_id": "s022011",
+      "code": "D22",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "crop_sha256": "b0ace8985510f2614bb1b464195a78e51f62e00d278cd2552512a6b4272eba9d",
+      "geometry": {
+        "x0": 241,
+        "y0": 114,
+        "size": 80,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5115048bd9aac5de0065",
+      "pool_id": "s010020",
+      "code": "C18",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "65d428b6b1c37817ea865c2b648df4cd92c3362a0b6b6ba089d347a5245c05be",
+      "geometry": {
+        "x0": 188,
+        "y0": 108,
+        "size": 86,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "e790e0fff2e9d302d940",
+      "pool_id": "s074486",
+      "code": "D23",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "0894f24e9828f5e06c41a29540ed7529b15bf481a08fcbae29148acf55ba9ea4",
+      "geometry": {
+        "x0": 177,
+        "y0": 127,
+        "size": 143,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "597be3ac65dd7dce96a2",
+      "pool_id": "s072821",
+      "code": "C19",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d645520067d19a71b8bcbbd5025fd2a8479dcf101bc6cfff5e3d6d33532fac72",
+      "geometry": {
+        "x0": 69,
+        "y0": 4,
+        "size": 159,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6edee8de57453a631ce2",
+      "pool_id": "s015259",
+      "code": "D25",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "crop_sha256": "b4730f2212e24784cd678ab7c78061dd873bccd16a9b060093d9aa86d7cbf077",
+      "geometry": {
+        "x0": 71,
+        "y0": 35,
+        "size": 123,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2d8b8e7fb32180599e1f",
+      "pool_id": "s019993",
+      "code": "C20",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "2c26dac8442e04133353d9fa4a5f0c57feb6cb3c46e009f8485fc101d197a106",
+      "geometry": {
+        "x0": 111,
+        "y0": 39,
+        "size": 153,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6db55127d24b53bc19e5",
+      "pool_id": "s019284",
+      "code": "D26",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "64b93a11b4bb568b21ece34664fe7ec38e1296b0f4d8691918e9c70f2e60f558",
+      "geometry": {
+        "x0": 162,
+        "y0": 33,
+        "size": 168,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fb8b84164282c6cea409",
+      "pool_id": "s051494",
+      "code": "C21",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "a21a6d239fde15cfdbe18b1f70f5f3b8ee8125ea95e0591161e19c4e52764512",
+      "geometry": {
+        "x0": 3,
+        "y0": 34,
+        "size": 193,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "396af38bd11b453d10b1",
+      "pool_id": "s006060",
+      "code": "D27",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "9645e7aac31f4a45a8defd6fc53c4d456cf7de218994e0bfcff2f2ce916d6932",
+      "geometry": {
+        "x0": 142,
+        "y0": 14,
+        "size": 99,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5dafdbd95e3ffec38eb9",
+      "pool_id": "s048663",
+      "code": "C24",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "65abcb117b432e903c140408e3a99ea16fe6867278aad9436eb38b82fd09da13",
+      "geometry": {
+        "x0": 189,
+        "y0": 28,
+        "size": 137,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fd6bfdc338b5807e585d",
+      "pool_id": "s055377",
+      "code": "D28",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "9e8b55b9ef8a0a44d89f39e17f87752353d9201d5abb50a56aede699f558cccf",
+      "geometry": {
+        "x0": 206,
+        "y0": 55,
+        "size": 106,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ef2c18def6353f84bae7",
+      "pool_id": "s070313",
+      "code": "C25",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "161920770a32f95aafaa1feb09e64bc34799888c22e04b767c4346bc137344c9",
+      "geometry": {
+        "x0": 195,
+        "y0": 7,
+        "size": 191,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ef7374ecb6064271962f",
+      "pool_id": "s028919",
+      "code": "D29",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "da9f6222ce1bb2d6c4cf09cfa812e3125bd6fdaf9d6055431d0dc85a6f34e1da",
+      "geometry": {
+        "x0": 13,
+        "y0": 52,
+        "size": 68,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5a9f676b16e072e12bec",
+      "pool_id": "s042848",
+      "code": "C26",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "149203bf2ef448f919799f7df6cfa5107b84dcf6991acd5df04260d855853b1c",
+      "geometry": {
+        "x0": 234,
+        "y0": 77,
+        "size": 140,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4e9b9c4d04018e45c659",
+      "pool_id": "s004875",
+      "code": "D30",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "crop_sha256": "b69eee4d7a583b0955c0bd9c8dcf1ad4adb26211503af28a5efffa998571641d",
+      "geometry": {
+        "x0": 120,
+        "y0": 4,
+        "size": 91,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "d69e945ee236ff3fd454",
+      "pool_id": "s053782",
+      "code": "D31",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "4f4161970251771516617ba3d2a7f7ed1a2c58e93d644408bf42b2325c5f8b83",
+      "geometry": {
+        "x0": 122,
+        "y0": 118,
+        "size": 83,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "62e9c2279825fb1b6697",
+      "pool_id": "s033914",
+      "code": "C27",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "83330088e6c4cb863f8e43d319cbc36fc1f3a981ff7c36a5800965b69c9d7a8c",
+      "geometry": {
+        "x0": 33,
+        "y0": 24,
+        "size": 247,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "086bbcfeeeb7276e7a53",
+      "pool_id": "s071655",
+      "code": "D32",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "crop_sha256": "5b806ae366ba76fd83368cf4541d0bc8e9c0ea21a409d2fcf8af91a3a8e2bff1",
+      "geometry": {
+        "x0": 109,
+        "y0": 20,
+        "size": 106,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "878e9259d35e5acd5025",
+      "pool_id": "s067771",
+      "code": "C28",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "32f8bf64d937fac1f4aa847b0afa3864c880013d47d6516e341e6777ad025308",
+      "geometry": {
+        "x0": 90,
+        "y0": 83,
+        "size": 127,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "622ac6aa0057aabc6410",
+      "pool_id": "s008768",
+      "code": "D33",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1e6664d1f542921c32b79fbb532810978ac5dfe6c8076895c7362259a2d776f4",
+      "geometry": {
+        "x0": 332,
+        "y0": 82,
+        "size": 139,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1f32582a1f59bc2ebe05",
+      "pool_id": "s007120",
+      "code": "C30",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "91f45e16bd726d78f4fbda8b6b49d0bb461952e75ec117ba2fbfc83bc810bf09",
+      "geometry": {
+        "x0": 63,
+        "y0": 127,
+        "size": 179,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "cbc3a88b9387bdf36e3a",
+      "pool_id": "s036147",
+      "code": "D36",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "90efec638461d0f43489ce7923d45d9e7d31f93c0fedf344df28feba7664bc36",
+      "geometry": {
+        "x0": 20,
+        "y0": 69,
+        "size": 238,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fab799341241a43d9d65",
+      "pool_id": "s052478",
+      "code": "C32",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "160a77ad51f99739c55ed5fe299204095aa697ae0694b8e8ec0c2de9e657e397",
+      "geometry": {
+        "x0": 23,
+        "y0": 10,
+        "size": 229,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6e0c527ebce13afc7a4a",
+      "pool_id": "s053276",
+      "code": "D37",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "aef22e23e46898c84688b2814f40567874fc69b653710830eac8fc0188d07d6f",
+      "geometry": {
+        "x0": 9,
+        "y0": 2,
+        "size": 170,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fc84a4cb0b997acfb6b9",
+      "pool_id": "s036059",
+      "code": "C36",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "crop_sha256": "440b7f686e99b22af441084b4d4c3c7a7162f6bc00edf1c6bf7a34b6d8084512",
+      "geometry": {
+        "x0": 253,
+        "y0": 14,
+        "size": 109,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4c5bf1dc0a6169646a9c",
+      "pool_id": "s034828",
+      "code": "D39",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "dc5a890fd59ae05e0c013d0455b366e983f5ae0221dcb855e5e0986c80209ac7",
+      "geometry": {
+        "x0": 69,
+        "y0": 113,
+        "size": 86,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7848a38993beee6500d4",
+      "pool_id": "s030211",
+      "code": "C38",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "crop_sha256": "1ec2397beec6be4c9505934ce68a1652833183581ef865c3ebb60c5625a3ea48",
+      "geometry": {
+        "x0": 120,
+        "y0": 111,
+        "size": 129,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7883cf7b909d71146a6c",
+      "pool_id": "s044964",
+      "code": "D40",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "c0cd77ab599f43cdce513c1d4f50585e899993c07c47006bd30c636240803226",
+      "geometry": {
+        "x0": 44,
+        "y0": 15,
+        "size": 95,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "85da46bd448fbaf32020",
+      "pool_id": "s013217",
+      "code": "C39",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d1757d890a99c5f88c7ef541f5f6aeb260fd57f1ee8e4eff5330671375f45830",
+      "geometry": {
+        "x0": 120,
+        "y0": 99,
+        "size": 149,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0278c59084d77dd6aaaf",
+      "pool_id": "s029795",
+      "code": "D41",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "bf0aac0403060c6eb73a8894be81143ef6bae3e06d868b099501de1816e91d3a",
+      "geometry": {
+        "x0": 205,
+        "y0": 33,
+        "size": 125,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4c69ca49392e86034863",
+      "pool_id": "s029409",
+      "code": "C40",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d3b7d22a3562f7d60ea85e8c0a9887822894cabb0b66aa818fbfcae2416a798e",
+      "geometry": {
+        "x0": 188,
+        "y0": 16,
+        "size": 210,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c57b9c389f2633e577e2",
+      "pool_id": "s036019",
+      "code": "D44",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "de66625712a7dcafc98603aad6637716dc9bb1f65ec52f99615ee4a7b20b1d56",
+      "geometry": {
+        "x0": 311,
+        "y0": 56,
+        "size": 103,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9686b932088371afa1a1",
+      "pool_id": "s001408",
+      "code": "C41",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "f422572518823d163e6a24dc664cf98e0cca6a6878b9ba0caa8002191546fe0a",
+      "geometry": {
+        "x0": 156,
+        "y0": 48,
+        "size": 151,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7115c644c72327cc4a8d",
+      "pool_id": "s005273",
+      "code": "D46",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1443f420e403288704d7e2b6bd1fa3ef3e56d6950359e64931184eeb49c74690",
+      "geometry": {
+        "x0": 129,
+        "y0": 35,
+        "size": 152,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1ef8a178ed5e7b91227f",
+      "pool_id": "s031121",
+      "code": "C43",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1f4637ccb37a0fcb9e1f1df6aadff737c26078226c42b9a27ce504fcec1d1588",
+      "geometry": {
+        "x0": 141,
+        "y0": 48,
+        "size": 175,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4f5a1262f57fa2a8bfeb",
+      "pool_id": "s002635",
+      "code": "D48",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "61d987bd39ef9210a89c7d5145b3be79374952db6f08862fbc0d39c8700f0d34",
+      "geometry": {
+        "x0": 17,
+        "y0": 26,
+        "size": 88,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8099ed156059a41c50d7",
+      "pool_id": "s035932",
+      "code": "C44",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "70df30f9453be49172f96bd2f2cf7bfb9d01e393289337ee5ed92ced55537358",
+      "geometry": {
+        "x0": 132,
+        "y0": 113,
+        "size": 67,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9ecd670cca4e0dbd60e2",
+      "pool_id": "s050681",
+      "code": "D51",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "3f988a68b0fa4311a9b805ce2ee32a921f011fadb111a5777177cb4e923ed93a",
+      "geometry": {
+        "x0": 89,
+        "y0": 21,
+        "size": 198,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "109ec84efa6ae1ab3b40",
+      "pool_id": "s063974",
+      "code": "D54",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "adeca0e1ff18e8760ea83d63db74d7e3dfc12e434982b04926cc134b63339b9b",
+      "geometry": {
+        "x0": 127,
+        "y0": 64,
+        "size": 114,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5ca249dfec31408e09d0",
+      "pool_id": "s051605",
+      "code": "C45",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "612fec944ac788946f0aa481c6a244bb7dd9eeed79f12c87af47995080015e78",
+      "geometry": {
+        "x0": 32,
+        "y0": 83,
+        "size": 200,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1988ce609597a3c90c13",
+      "pool_id": "s053261",
+      "code": "D55",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "228e7701a6e38da2f4dc73c6bcdc863941bb9565db8b6266d246780099649fa4",
+      "geometry": {
+        "x0": 84,
+        "y0": 51,
+        "size": 122,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "538a99c08852c179723f",
+      "pool_id": "s070463",
+      "code": "C46",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "3483fda470c08aed2ab7b31e2e93197301bce763ed32817b1a782ce12b014a38",
+      "geometry": {
+        "x0": 58,
+        "y0": 3,
+        "size": 256,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "061485471a1e85e81aff",
+      "pool_id": "s022462",
+      "code": "D56",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "f9783a6eee302efdb17e498010e471bbe628bbb8c80cc151ac7a8beafecdd6f0",
+      "geometry": {
+        "x0": 262,
+        "y0": 75,
+        "size": 144,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "463c55e54fe82c9c134e",
+      "pool_id": "s069046",
+      "code": "C47",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "25dfecc7d201fc960def28a412be485407cc08eb1ed64831f1e48f5d0a38df78",
+      "geometry": {
+        "x0": 183,
+        "y0": 83,
+        "size": 118,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2226565db0383f9c6790",
+      "pool_id": "s026434",
+      "code": "D57",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "161a9637db7f3109886f874c622860a35288fb1b327a75fc1ad8daccb31792b6",
+      "geometry": {
+        "x0": 243,
+        "y0": 125,
+        "size": 88,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "95e2f0d6039bbfac2196",
+      "pool_id": "s064453",
+      "code": "C48",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "ccbbd2dd0427f3ffc315f82cf13813e2f93e10b554d2f33ba213095b8f98cf30",
+      "geometry": {
+        "x0": 73,
+        "y0": 64,
+        "size": 79,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "015d1def762feedf8efa",
+      "pool_id": "s030929",
+      "code": "D58",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "991bbc8cd323a81e64883cb094b5778aee4f65b7bf77213475ca32f8a4fbc739",
+      "geometry": {
+        "x0": 131,
+        "y0": 55,
+        "size": 231,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "01dcaa1c99a059845110",
+      "pool_id": "s075375",
+      "code": "C49",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d93f8a24d3e510e01f5524e094758d0451c7d79ab789e1203a93b5d99de55431",
+      "geometry": {
+        "x0": 130,
+        "y0": 32,
+        "size": 113,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "cf50d0aa2d6aa21d8f52",
+      "pool_id": "s030479",
+      "code": "D59",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "f77c6caff369473f2d6d8606d489e76c24de4b86ffdacc97d54ce33b4940c7be",
+      "geometry": {
+        "x0": 78,
+        "y0": 12,
+        "size": 259,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5d55db72ea6abe400c3d",
+      "pool_id": "s017229",
+      "code": "C51",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "78e5bd1ed08ec2ab528030b87b5f222c17245b01b1723fa8a393e58864707c15",
+      "geometry": {
+        "x0": 36,
+        "y0": 29,
+        "size": 180,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "81d9057c6e071e874aac",
+      "pool_id": "s064741",
+      "code": "D60",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d0ab40ba740c073425588b7f9821585b280c471e166ad71fa79dd60e1537d0ab",
+      "geometry": {
+        "x0": 339,
+        "y0": 172,
+        "size": 84,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bb08b90b40b56f0a456a",
+      "pool_id": "s011127",
+      "code": "C52",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "e774d6033dd0ffada03a8a2f82cb32a7360de7d1416f8e19e2a7d3473d732089",
+      "geometry": {
+        "x0": 148,
+        "y0": 21,
+        "size": 157,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "408301f5a24ec2cbcdf4",
+      "pool_id": "s064887",
+      "code": "D61",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "e2e5c9bfb20658251e0181a543a972cd3e72975578a77dbb2060d42efa91d73a",
+      "geometry": {
+        "x0": 47,
+        "y0": 65,
+        "size": 126,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0d774296eb244986826e",
+      "pool_id": "s036373",
+      "code": "C54",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "e7e624dc498cf3fd711ee616b08fd02b8f74bccc62a1894ce6b58ed8a824842d",
+      "geometry": {
+        "x0": 17,
+        "y0": 11,
+        "size": 207,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fcabaa6c1958d09013fc",
+      "pool_id": "s051247",
+      "code": "D62",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "b1e4e8747d74bb42ac88728155f3a1adce9cb23efc7f44048ab7c310997eb3fc",
+      "geometry": {
+        "x0": 79,
+        "y0": 10,
+        "size": 197,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2492831544d7ae8adc29",
+      "pool_id": "s011834",
+      "code": "C56",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "crop_sha256": "1fe06a79c033058778f9e9d868bef62b7d31476e07e88f6fe2d23a4aae3e81b4",
+      "geometry": {
+        "x0": 224,
+        "y0": 16,
+        "size": 107,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0250343bcd92e08b5324",
+      "pool_id": "s021231",
+      "code": "D63",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "crop_sha256": "c3613a6fb170a475c2768092f3462f472980d6ad800e7f65199620ac4dbca82f",
+      "geometry": {
+        "x0": 62,
+        "y0": 28,
+        "size": 146,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "23d14c6498faa3a2adb4",
+      "pool_id": "s068070",
+      "code": "C58",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "37fad0af2b5a032cc2366f1d6fd5662a2afe32d63911c0aad37313b179f602a7",
+      "geometry": {
+        "x0": 5,
+        "y0": 13,
+        "size": 243,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6b963c2ad829f6ff391a",
+      "pool_id": "s045732",
+      "code": "D64",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "f87e301bbb65ceec936158045f63cff64ac93e0a9b7c7abce64f50ca108fca44",
+      "geometry": {
+        "x0": 39,
+        "y0": 75,
+        "size": 110,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "cce6bba7c46a3c2251e8",
+      "pool_id": "s005823",
+      "code": "C59",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "1abee11c0e180ad5a56a746e1cccc0adcfa29cca71f50f5f897f494a2a2eaec0",
+      "geometry": {
+        "x0": 96,
+        "y0": 7,
+        "size": 221,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0a0c37ecbdee4758c73b",
+      "pool_id": "s070741",
+      "code": "D65",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "5d95e8dbfdf4680472b35010c14a8dcd34998508f352427823a3a14acc2a37ec",
+      "geometry": {
+        "x0": 21,
+        "y0": 32,
+        "size": 197,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bd3e4b3cb11d26a00508",
+      "pool_id": "s057130",
+      "code": "D66",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "cb498735955b20655bee8badfffbbbd193683ff6521b845ac419cdfe20d2e2a0",
+      "geometry": {
+        "x0": 68,
+        "y0": 9,
+        "size": 144,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "d8cc97c109a1c5083129",
+      "pool_id": "s025610",
+      "code": "C62",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "bec1abc78f3dfb565b82c4629d8cdef7b4f7e8e5df140b320546e6056f4a2f7f",
+      "geometry": {
+        "x0": 202,
+        "y0": 2,
+        "size": 124,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1a2fd207ba52268fca67",
+      "pool_id": "s061825",
+      "code": "D67",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "cb82ceadfd2cdea97926e1483b09b873f51282addd13a043844d41b4b371bc77",
+      "geometry": {
+        "x0": 50,
+        "y0": 7,
+        "size": 91,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9481473abaa7a7b5553c",
+      "pool_id": "s043979",
+      "code": "C63",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "5a3d6d7793b0d572e019878093db46453e42bb7be630b5071fb45001afa17a6d",
+      "geometry": {
+        "x0": 135,
+        "y0": 91,
+        "size": 176,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0e38b60cbb41c713685a",
+      "pool_id": "s015046",
+      "code": "D68",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "e86e2e1020461222798e1481919954a77f5c10819428e507836fc3668b856cb1",
+      "geometry": {
+        "x0": 184,
+        "y0": 127,
+        "size": 86,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "270d9504f4075b82e7f7",
+      "pool_id": "s000215",
+      "code": "C66",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "The head span looks above 80% of this square. Try a larger square if it fits the original image.",
+      "crop_sha256": "1fc754af6907d255191f20032e99406bdc4505841ecf44878b0910ec1d87c442",
+      "geometry": {
+        "x0": 191,
+        "y0": 115,
+        "size": 89,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "54250b2e7e280015ab7c",
+      "pool_id": "s040575",
+      "code": "D69",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "cd21aacb6aa01abeeba812731b02e341ffacfd9f7fdfb6c7fd861b702612fdab",
+      "geometry": {
+        "x0": 36,
+        "y0": 20,
+        "size": 186,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "46c1c4a79cd3ab43d339",
+      "pool_id": "s072641",
+      "code": "C67",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "a5dd39b4595cd664e962231f860e511dcba4cb67d524d0bf5cad24f7c48ce17d",
+      "geometry": {
+        "x0": 24,
+        "y0": 2,
+        "size": 90,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "d9b2b8104345bd1fb6ed",
+      "pool_id": "s053401",
+      "code": "D70",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "18f009e211304a0fc6aeb780c3a903a8d401ccd04dc8642fe193dafab6e75a74",
+      "geometry": {
+        "x0": 116,
+        "y0": 67,
+        "size": 205,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8a3c6e1c9c42522ee0ec",
+      "pool_id": "s075856",
+      "code": "C68",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "crop_sha256": "49698245e41713ab3b266ed6438d5fc14a452fd25e113da0aa6ffa82c8e3f94c",
+      "geometry": {
+        "x0": 35,
+        "y0": 111,
+        "size": 222,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c6d1d565a4e5e4a83868",
+      "pool_id": "s052859",
+      "code": "D71",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "858a533a4a2394610ae94ee227a11566bf4134f71b52ac26d823aa67444ecccc",
+      "geometry": {
+        "x0": 101,
+        "y0": 11,
+        "size": 95,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a07c7612518555ad9651",
+      "pool_id": "s007992",
+      "code": "C69",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "dc254aeb3fdddcae8d320dfeec30a89bfd30dcb1ded9aeb0859aad0c0291a7b1",
+      "geometry": {
+        "x0": 97,
+        "y0": 61,
+        "size": 153,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2b7be98489e584ae12b8",
+      "pool_id": "s007538",
+      "code": "D72",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "861dd0751c9db7d46c0ca1d145867ed53a1169c418ee11522b08fcdef81f5e27",
+      "geometry": {
+        "x0": 182,
+        "y0": 86,
+        "size": 99,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "05a71afcc624a020882c",
+      "pool_id": "s026453",
+      "code": "C71",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "c2df0b8eb49fed961a777122d0ccae90ebf8da1ac6f832d72f6ea2e6b90a5d97",
+      "geometry": {
+        "x0": 75,
+        "y0": 111,
+        "size": 99,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "43da62e1d9ee3d39f3bb",
+      "pool_id": "s070261",
+      "code": "D74",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "b4e9edcc2d2f346dad72e4f032bd495a27d21f07f874ac9697855939be5d22bb",
+      "geometry": {
+        "x0": 137,
+        "y0": 70,
+        "size": 165,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c4def6098e668de762ca",
+      "pool_id": "s054989",
+      "code": "C72",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "06dfcbc01094783ba704b4c4676261c2ca78fdb383973c083df2cdba8433a739",
+      "geometry": {
+        "x0": 79,
+        "y0": 20,
+        "size": 101,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "33cb0f58fb3142b5d77d",
+      "pool_id": "s068463",
+      "code": "D75",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "c3958d93d5f5001231bed5945a071e390bcf5e39ae89d8468ced86ac634c6734",
+      "geometry": {
+        "x0": 54,
+        "y0": 49,
+        "size": 134,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4b175166ba6e3ecce995",
+      "pool_id": "s053290",
+      "code": "C74",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "cbb8dd08b9d11e050a4ece564d5b6f3f2c63f5369d0112970dbe662959bc619b",
+      "geometry": {
+        "x0": 273,
+        "y0": 47,
+        "size": 141,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4d8f2d8a93ed79a6810b",
+      "pool_id": "s059321",
+      "code": "D77",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "a1ce1f7ffb95d0f7a8180c368f231266770eeb2f301beaf7ffb4137db4d88186",
+      "geometry": {
+        "x0": 162,
+        "y0": 249,
+        "size": 68,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c03222e6b84d8b1292b3",
+      "pool_id": "s065807",
+      "code": "C75",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "602d0b0b23956a1e7b8759759cb1155fef3a559acf220253f881415082c56267",
+      "geometry": {
+        "x0": 78,
+        "y0": 125,
+        "size": 105,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "e17897e5c62988b52fb1",
+      "pool_id": "s016636",
+      "code": "D78",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "d39a62542a76fdf1986a44e98f958a4209fbb3fcc0353d4de361c0ee9326064a",
+      "geometry": {
+        "x0": 77,
+        "y0": 2,
+        "size": 202,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "892330cb3b62f226c8ad",
+      "pool_id": "s010714",
+      "code": "C78",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "c2e3f0ad52cd01b74155c7f9c9c2dbfa5e21b75cb0bc5307495408cdab1223d4",
+      "geometry": {
+        "x0": 129,
+        "y0": 81,
+        "size": 145,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0bce42a103a39202de4d",
+      "pool_id": "s045712",
+      "code": "D79",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "crop_sha256": "ecba6d3ae247dc648ab2b6e71f14ba54dc58326a5cb43ed2c77be4e12fe76eff",
+      "geometry": {
+        "x0": 138,
+        "y0": 56,
+        "size": 180,
+        "angle": 0.0
+      }
+    }
+  ],
+  "review_drafts": {
+    "547e1be4bed7778b614c": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 86.6,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "0411a4bfce350595ffbf99df7915a70fae2e9f6eddbe33e41954a57df8871645"
+    },
+    "297f979730d6c8d86412": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 74.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "7e44ce345ee02699c3103606eb9ce7a178eb53df28aad18a89f8ca65a74a72a2"
+    },
+    "098d64ac69616c4e98da": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 133.9,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "7a1878d541901ffe07fa63978cb3cc1a2dbd60f3d4f44dfb29149af92d36d87a"
+    },
+    "8d2bdc3d250ea338bab1": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 79.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "26d8f8337a645118b4a1fac838376b66de945cb08f217a7d9259bed7a583a43f"
+    },
+    "e88939c66c62e58ccb83": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 91.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "dc372818aaa2d8f272a672f4c5d0235a08b345ce4e66fe62f47bbf1720269533"
+    },
+    "01dac5792d3d35529714": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 68.2,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "f039478bd6ee201da5d459bb17472a046c28c7fe08920e9ef6b3cf4030796b2d"
+    },
+    "4b275532a4670cf12e95": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 59.1,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "357806cfcab593cb2dae148f9015e88fe0db3d5383ff7da141d5f6a0ece7acbc"
+    },
+    "54fe63c8401e5b3280c4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 117.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "31a56e4ed3367c3334f8a233760ae3f4ca57d7f4f70607da6b2ed780373de5f8"
+    },
+    "ec16ea1b49e14625cf02": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 97.8,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": false,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head looks tilted. Check whether it is roughly upright and whether a rotation can preserve the full head.",
+      "note": "The head looks tilted. Check whether it is roughly upright and whether a rotation can preserve the full head.",
+      "preview_sha256": "da52949af1d909350a26ca89858a1f14af4acc434cfab94fb7572eeb0dc1485e"
+    },
+    "a98996e617b2c2057fbb": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 142.4,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "11ff2e7223d27a800e73a7e92c79fa5c548714e7c40c5e42c02fa8fd978f6455"
+    },
+    "2721082b0f054a362883": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 68.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "604c51ab733a5c4fce3f2c4f44b7d28d6dae784ef2ba1094d8139cc273fea304"
+    },
+    "a66209f3230d5365eb6f": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 99.0,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "a4199245ce831aa6a202ee27b38d4ee1218a6155dc6aa2a1ccde67ebc8a7a086"
+    },
+    "790c5b538fd182eef300": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 99.8,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1638f09aaf18be8c3fe74e4cd048586a1886339febfc1a5c6ad32b012459cc10"
+    },
+    "0e7099554d7ef75d5c03": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 107.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "95eaf32d6ae5b47196347e3fca1a3ad354a7902cd71a89c89a9aeedcd59d5397"
+    },
+    "138cfc461493726f31c0": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 98.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "488277961e87586bde9323736f681c84e054a77d038e6c0eb62b374569ae884f"
+    },
+    "bf6474c118b4de2960e0": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 76.8,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "703ae258cb45b9f311fcd3dd41c3b772bb5728dbdf4bbb8bb3f65c0a8e0e2309"
+    },
+    "8f2843b995810f4656b4": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 77.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1bf64e2de699e5957e690858bdf1f9274233106e2284d26de2be73e6ba07fa98"
+    },
+    "375c16a12cd2686c2819": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 52.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "b0107f0873b68c64d0e8751cfa0582319f752e7fb10729f6e40cfe0b6a0d6af0"
+    },
+    "5e6c35bcbe4fa0a2260e": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 72.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "3af9193a721b2fa446b8333df57bc88375b716e444a703c22c0cbf1e15e0cf8e"
+    },
+    "c836b4ee3f314f0f68f3": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 53.9,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1607b3dd6e9a1fbd77332e7b8175c9d710cc69f35ed97bb0db8b52bc517193be"
+    },
+    "e61c923c9b73e6be77ef": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 67.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d07a6801466f4235cbea36691e7856f7e3afcfc28b2e2f842427163699bbf2e5"
+    },
+    "619137c9c8a800da0ef6": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 56.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "6f51571525bb690b00a08b065b0d90bfff51d29b1041812ec01a1aba79b4547e"
+    },
+    "9d98ff82d359a8d8401f": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 89.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "a55b8477f8fb3b55c0288b823cf92ae15ad800c9946ac4fc4bc477d375898b9d"
+    },
+    "7d874fdcf3998d6df08d": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 63.0,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "8f2f9b46362e5520aff71b1b2fdf43388ea58bd2a4feb7d8ef2c094a6f381984"
+    },
+    "5f52feb3febd6693924a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 122.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "57e0b4a2d19803ae6a5dcc7fc4853b10e2091b465999b4a4b4c73f4b9bae1471"
+    },
+    "aad83b20c5914020180a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 101.5,
+      "head_span_crop_px": [
+        7,
+        24
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "preview_sha256": "f628de60ff2289098a3d3894b7f15ba8f266cf3c4260682db9b1eeea838b9302"
+    },
+    "7e16facf060d00808495": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 149.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "fafbcfb5b340b905527bbb00222183468dc9ae3b5e2411f01dd596f4371e94f6"
+    },
+    "1de617836f8c9259c0e9": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 142.3,
+      "head_span_crop_px": [
+        7,
+        25
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "preview_sha256": "abd4ff7bf303b25068197ae43bd10d7e2c4ed4e3cc320ab340745c6152148714"
+    },
+    "ec72f09b8715d59add4a": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 101.7,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "fe5810bbab3d1dfe300acf034c14d5b89488505ee7c3b5df6910418172cb1cb1"
+    },
+    "ed22b38fcdcdce05919d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 58.4,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "66faac857bc7f3703e9dc80c265aca4bef861c61ec1e9f77e673e40eaba7cd34"
+    },
+    "5570c99017e715ff7d26": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 55.0,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "8d1dfafdcd802689f75ade5492a9851aeb6892dbf00c3c04c2383c2cb89fe2a5"
+    },
+    "dc74dc62df2fba2132ea": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 95.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d8834fc91c94ba54cc3615e51400d562a295111a41a1ef1f4852b74c09e8cb3c"
+    },
+    "62cd55ae1394423b2e50": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 79.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "40a6e3c9f66033dd0cb713f06d1afddee577f867acd4aaa55b075660ca7b73ce"
+    },
+    "92aaa5fc9ba25f24ffaf": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 57.5,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": false,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "More than one head in the crop",
+      "reason": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "preview_sha256": "b0ace8985510f2614bb1b464195a78e51f62e00d278cd2552512a6b4272eba9d"
+    },
+    "5115048bd9aac5de0065": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 59.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "65d428b6b1c37817ea865c2b648df4cd92c3362a0b6b6ba089d347a5245c05be"
+    },
+    "e790e0fff2e9d302d940": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 93.8,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "0894f24e9828f5e06c41a29540ed7529b15bf481a08fcbae29148acf55ba9ea4"
+    },
+    "597be3ac65dd7dce96a2": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 104.3,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d645520067d19a71b8bcbbd5025fd2a8479dcf101bc6cfff5e3d6d33532fac72"
+    },
+    "6edee8de57453a631ce2": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 73.0,
+      "head_span_crop_px": [
+        6,
+        25
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "note": "The head span looks below 60% of this square. Try a tighter crop if the complete head and ears still fit.",
+      "preview_sha256": "b4730f2212e24784cd678ab7c78061dd873bccd16a9b060093d9aa86d7cbf077"
+    },
+    "2d8b8e7fb32180599e1f": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 100.4,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "2c26dac8442e04133353d9fa4a5f0c57feb6cb3c46e009f8485fc101d197a106"
+    },
+    "6db55127d24b53bc19e5": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 110.2,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "64b93a11b4bb568b21ece34664fe7ec38e1296b0f4d8691918e9c70f2e60f558"
+    },
+    "fb8b84164282c6cea409": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 132.7,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "a21a6d239fde15cfdbe18b1f70f5f3b8ee8125ea95e0591161e19c4e52764512"
+    },
+    "396af38bd11b453d10b1": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 71.2,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "9645e7aac31f4a45a8defd6fc53c4d456cf7de218994e0bfcff2f2ce916d6932"
+    },
+    "5dafdbd95e3ffec38eb9": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 94.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "65abcb117b432e903c140408e3a99ea16fe6867278aad9436eb38b82fd09da13"
+    },
+    "fd6bfdc338b5807e585d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 72.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "9e8b55b9ef8a0a44d89f39e17f87752353d9201d5abb50a56aede699f558cccf"
+    },
+    "ef2c18def6353f84bae7": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 131.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "161920770a32f95aafaa1feb09e64bc34799888c22e04b767c4346bc137344c9"
+    },
+    "ef7374ecb6064271962f": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 48.9,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "da9f6222ce1bb2d6c4cf09cfa812e3125bd6fdaf9d6055431d0dc85a6f34e1da"
+    },
+    "5a9f676b16e072e12bec": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 105.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "149203bf2ef448f919799f7df6cfa5107b84dcf6991acd5df04260d855853b1c"
+    },
+    "4e9b9c4d04018e45c659": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 65.4,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": false,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "More than one head in the crop",
+      "reason": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "preview_sha256": "b69eee4d7a583b0955c0bd9c8dcf1ad4adb26211503af28a5efffa998571641d"
+    },
+    "d69e945ee236ff3fd454": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 57.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "4f4161970251771516617ba3d2a7f7ed1a2c58e93d644408bf42b2325c5f8b83"
+    },
+    "62e9c2279825fb1b6697": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 169.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "83330088e6c4cb863f8e43d319cbc36fc1f3a981ff7c36a5800965b69c9d7a8c"
+    },
+    "086bbcfeeeb7276e7a53": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 72.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "preview_sha256": "5b806ae366ba76fd83368cf4541d0bc8e9c0ea21a409d2fcf8af91a3a8e2bff1"
+    },
+    "878e9259d35e5acd5025": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 87.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "32f8bf64d937fac1f4aa847b0afa3864c880013d47d6516e341e6777ad025308"
+    },
+    "622ac6aa0057aabc6410": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 95.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1e6664d1f542921c32b79fbb532810978ac5dfe6c8076895c7362259a2d776f4"
+    },
+    "1f32582a1f59bc2ebe05": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 123.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "91f45e16bd726d78f4fbda8b6b49d0bb461952e75ec117ba2fbfc83bc810bf09"
+    },
+    "cbc3a88b9387bdf36e3a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 163.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "90efec638461d0f43489ce7923d45d9e7d31f93c0fedf344df28feba7664bc36"
+    },
+    "fab799341241a43d9d65": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 157.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "160a77ad51f99739c55ed5fe299204095aa697ae0694b8e8ec0c2de9e657e397"
+    },
+    "6e0c527ebce13afc7a4a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 132.8,
+      "head_span_crop_px": [
+        3,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "aef22e23e46898c84688b2814f40567874fc69b653710830eac8fc0188d07d6f"
+    },
+    "fc84a4cb0b997acfb6b9": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 71.5,
+      "head_span_crop_px": [
+        7,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "preview_sha256": "440b7f686e99b22af441084b4d4c3c7a7162f6bc00edf1c6bf7a34b6d8084512"
+    },
+    "4c5bf1dc0a6169646a9c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 59.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "dc5a890fd59ae05e0c013d0455b366e983f5ae0221dcb855e5e0986c80209ac7"
+    },
+    "7848a38993beee6500d4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 88.7,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "preview_sha256": "1ec2397beec6be4c9505934ce68a1652833183581ef865c3ebb60c5625a3ea48"
+    },
+    "7883cf7b909d71146a6c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 65.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "c0cd77ab599f43cdce513c1d4f50585e899993c07c47006bd30c636240803226"
+    },
+    "85da46bd448fbaf32020": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 107.1,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d1757d890a99c5f88c7ef541f5f6aeb260fd57f1ee8e4eff5330671375f45830"
+    },
+    "0278c59084d77dd6aaaf": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 78.1,
+      "head_span_crop_px": [
+        6,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "bf0aac0403060c6eb73a8894be81143ef6bae3e06d868b099501de1816e91d3a"
+    },
+    "4c69ca49392e86034863": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 137.8,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d3b7d22a3562f7d60ea85e8c0a9887822894cabb0b66aa818fbfcae2416a798e"
+    },
+    "c57b9c389f2633e577e2": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 70.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "de66625712a7dcafc98603aad6637716dc9bb1f65ec52f99615ee4a7b20b1d56"
+    },
+    "9686b932088371afa1a1": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 103.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "f422572518823d163e6a24dc664cf98e0cca6a6878b9ba0caa8002191546fe0a"
+    },
+    "7115c644c72327cc4a8d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 109.2,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1443f420e403288704d7e2b6bd1fa3ef3e56d6950359e64931184eeb49c74690"
+    },
+    "1ef8a178ed5e7b91227f": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 120.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1f4637ccb37a0fcb9e1f1df6aadff737c26078226c42b9a27ce504fcec1d1588"
+    },
+    "4f5a1262f57fa2a8bfeb": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 66.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "61d987bd39ef9210a89c7d5145b3be79374952db6f08862fbc0d39c8700f0d34"
+    },
+    "8099ed156059a41c50d7": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 46.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "70df30f9453be49172f96bd2f2cf7bfb9d01e393289337ee5ed92ced55537358"
+    },
+    "9ecd670cca4e0dbd60e2": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 142.3,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "3f988a68b0fa4311a9b805ce2ee32a921f011fadb111a5777177cb4e923ed93a"
+    },
+    "109ec84efa6ae1ab3b40": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 78.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "adeca0e1ff18e8760ea83d63db74d7e3dfc12e434982b04926cc134b63339b9b"
+    },
+    "5ca249dfec31408e09d0": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 137.5,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "612fec944ac788946f0aa481c6a244bb7dd9eeed79f12c87af47995080015e78"
+    },
+    "1988ce609597a3c90c13": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 87.7,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "228e7701a6e38da2f4dc73c6bcdc863941bb9565db8b6266d246780099649fa4"
+    },
+    "538a99c08852c179723f": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 184.0,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "3483fda470c08aed2ab7b31e2e93197301bce763ed32817b1a782ce12b014a38"
+    },
+    "061485471a1e85e81aff": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 99.0,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "f9783a6eee302efdb17e498010e471bbe628bbb8c80cc151ac7a8beafecdd6f0"
+    },
+    "463c55e54fe82c9c134e": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 81.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "25dfecc7d201fc960def28a412be485407cc08eb1ed64831f1e48f5d0a38df78"
+    },
+    "2226565db0383f9c6790": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 60.5,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "161a9637db7f3109886f874c622860a35288fb1b327a75fc1ad8daccb31792b6"
+    },
+    "95e2f0d6039bbfac2196": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 54.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "ccbbd2dd0427f3ffc315f82cf13813e2f93e10b554d2f33ba213095b8f98cf30"
+    },
+    "015d1def762feedf8efa": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 158.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "991bbc8cd323a81e64883cb094b5778aee4f65b7bf77213475ca32f8a4fbc739"
+    },
+    "01dcaa1c99a059845110": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 77.7,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d93f8a24d3e510e01f5524e094758d0451c7d79ab789e1203a93b5d99de55431"
+    },
+    "cf50d0aa2d6aa21d8f52": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 161.9,
+      "head_span_crop_px": [
+        6,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "f77c6caff369473f2d6d8606d489e76c24de4b86ffdacc97d54ce33b4940c7be"
+    },
+    "5d55db72ea6abe400c3d": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 129.4,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "78e5bd1ed08ec2ab528030b87b5f222c17245b01b1723fa8a393e58864707c15"
+    },
+    "81d9057c6e071e874aac": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 57.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d0ab40ba740c073425588b7f9821585b280c471e166ad71fa79dd60e1537d0ab"
+    },
+    "bb08b90b40b56f0a456a": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 103.0,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "e774d6033dd0ffada03a8a2f82cb32a7360de7d1416f8e19e2a7d3473d732089"
+    },
+    "408301f5a24ec2cbcdf4": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 90.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "e2e5c9bfb20658251e0181a543a972cd3e72975578a77dbb2060d42efa91d73a"
+    },
+    "0d774296eb244986826e": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 142.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "e7e624dc498cf3fd711ee616b08fd02b8f74bccc62a1894ce6b58ed8a824842d"
+    },
+    "fcabaa6c1958d09013fc": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 135.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "b1e4e8747d74bb42ac88728155f3a1adce9cb23efc7f44048ab7c310997eb3fc"
+    },
+    "2492831544d7ae8adc29": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 70.2,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": false,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "More than one head in the crop",
+      "reason": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "preview_sha256": "1fe06a79c033058778f9e9d868bef62b7d31476e07e88f6fe2d23a4aae3e81b4"
+    },
+    "0250343bcd92e08b5324": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 104.9,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": false,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "More than one head in the crop",
+      "reason": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "note": "Other animals are close to this crop. Check whether any part of another head enters the square.",
+      "preview_sha256": "c3613a6fb170a475c2768092f3462f472980d6ad800e7f65199620ac4dbca82f"
+    },
+    "23d14c6498faa3a2adb4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 174.7,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "37fad0af2b5a032cc2366f1d6fd5662a2afe32d63911c0aad37313b179f602a7"
+    },
+    "6b963c2ad829f6ff391a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 72.2,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "f87e301bbb65ceec936158045f63cff64ac93e0a9b7c7abce64f50ca108fca44"
+    },
+    "cce6bba7c46a3c2251e8": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 158.8,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "1abee11c0e180ad5a56a746e1cccc0adcfa29cca71f50f5f897f494a2a2eaec0"
+    },
+    "0a0c37ecbdee4758c73b": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 141.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "5d95e8dbfdf4680472b35010c14a8dcd34998508f352427823a3a14acc2a37ec"
+    },
+    "bd3e4b3cb11d26a00508": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 94.5,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "cb498735955b20655bee8badfffbbbd193683ff6521b845ac419cdfe20d2e2a0"
+    },
+    "d8cc97c109a1c5083129": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 85.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "bec1abc78f3dfb565b82c4629d8cdef7b4f7e8e5df140b320546e6056f4a2f7f"
+    },
+    "1a2fd207ba52268fca67": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 65.4,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "cb82ceadfd2cdea97926e1483b09b873f51282addd13a043844d41b4b371bc77"
+    },
+    "9481473abaa7a7b5553c": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 121.0,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "5a3d6d7793b0d572e019878093db46453e42bb7be630b5071fb45001afa17a6d"
+    },
+    "0e38b60cbb41c713685a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 61.8,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "e86e2e1020461222798e1481919954a77f5c10819428e507836fc3668b856cb1"
+    },
+    "270d9504f4075b82e7f7": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 75.1,
+      "head_span_crop_px": [
+        2,
+        29
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head span looks above 80% of this square. Try a larger square if it fits the original image.",
+      "note": "The head span looks above 80% of this square. Try a larger square if it fits the original image.",
+      "preview_sha256": "1fc754af6907d255191f20032e99406bdc4505841ecf44878b0910ec1d87c442"
+    },
+    "54250b2e7e280015ab7c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 127.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "cd21aacb6aa01abeeba812731b02e341ffacfd9f7fdfb6c7fd861b702612fdab"
+    },
+    "46c1c4a79cd3ab43d339": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 67.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "a5dd39b4595cd664e962231f860e511dcba4cb67d524d0bf5cad24f7c48ce17d"
+    },
+    "d9b2b8104345bd1fb6ed": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 160.2,
+      "head_span_crop_px": [
+        3,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "18f009e211304a0fc6aeb780c3a903a8d401ccd04dc8642fe193dafab6e75a74"
+    },
+    "8a3c6e1c9c42522ee0ec": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 152.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "note": "Part of an ear or the head is difficult to separate from the edge or foreground. Check the original for clipping or occlusion.",
+      "preview_sha256": "49698245e41713ab3b266ed6438d5fc14a452fd25e113da0aa6ffa82c8e3f94c"
+    },
+    "c6d1d565a4e5e4a83868": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 65.3,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "858a533a4a2394610ae94ee227a11566bf4134f71b52ac26d823aa67444ecccc"
+    },
+    "a07c7612518555ad9651": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 100.4,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "dc254aeb3fdddcae8d320dfeec30a89bfd30dcb1ded9aeb0859aad0c0291a7b1"
+    },
+    "2b7be98489e584ae12b8": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 68.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "861dd0751c9db7d46c0ca1d145867ed53a1169c418ee11522b08fcdef81f5e27"
+    },
+    "05a71afcc624a020882c": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 68.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "c2df0b8eb49fed961a777122d0ccae90ebf8da1ac6f832d72f6ea2e6b90a5d97"
+    },
+    "43da62e1d9ee3d39f3bb": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 113.4,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "b4e9edcc2d2f346dad72e4f032bd495a27d21f07f874ac9697855939be5d22bb"
+    },
+    "c4def6098e668de762ca": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 72.6,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "06dfcbc01094783ba704b4c4676261c2ca78fdb383973c083df2cdba8433a739"
+    },
+    "33cb0f58fb3142b5d77d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 100.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "c3958d93d5f5001231bed5945a071e390bcf5e39ae89d8468ced86ac634c6734"
+    },
+    "4b175166ba6e3ecce995": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 96.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "cbb8dd08b9d11e050a4ece564d5b6f3f2c63f5369d0112970dbe662959bc619b"
+    },
+    "4d8f2d8a93ed79a6810b": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 46.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "a1ce1f7ffb95d0f7a8180c368f231266770eeb2f301beaf7ffb4137db4d88186"
+    },
+    "c03222e6b84d8b1292b3": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 72.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "602d0b0b23956a1e7b8759759cb1155fef3a559acf220253f881415082c56267"
+    },
+    "e17897e5c62988b52fb1": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 138.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "d39a62542a76fdf1986a44e98f958a4209fbb3fcc0353d4de361c0ee9326064a"
+    },
+    "892330cb3b62f226c8ad": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 99.7,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One cat head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "c2e3f0ad52cd01b74155c7f9c9c2dbfa5e21b75cb0bc5307495408cdab1223d4"
+    },
+    "0bce42a103a39202de4d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 129.4,
+      "head_span_crop_px": [
+        4,
+        27
+      ],
+      "measurement_method": "Visual span estimated on the exact 32px preview, scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "One dog head appears complete and roughly upright. Check the ear tips, muzzle and centering in the exact preview.",
+      "preview_sha256": "ecba6d3ae247dc648ab2b6e71f14ba54dc58326a5cb43ed2c77be4e12fe76eff"
+    }
+  }
+}

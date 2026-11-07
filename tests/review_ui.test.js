@@ -90,6 +90,23 @@ test('typed source width updates occupancy from current side', () => {
   assert.equal(f.node('occupancy').value, '');
 });
 
+test('editing a drafted crop keeps checklist choices and resets final confirmation', () => {
+  const f = fixture();
+  f.run('items[0].draft = {head_width: 44}; previewHash = "draft-preview";');
+  f.criteria[1].checked = false;
+  f.node('draftConfirmed').checked = true;
+  f.node('head_width').value = '44';
+  f.node('size').oninput();
+  assert.deepEqual(f.criteria.map(criterion => criterion.checked), [true, false]);
+  assert.equal(f.node('draftConfirmed').checked, false);
+  assert.equal(f.run('previewHash'), '');
+  assert.equal(f.node('head_width').value, '');
+  f.node('draftConfirmed').checked = true;
+  f.node('label').onchange();
+  assert.deepEqual(f.criteria.map(criterion => criterion.checked), [true, false]);
+  assert.equal(f.node('draftConfirmed').checked, false);
+});
+
 test('saving an agent draft requires an explicit student check', async () => {
   const f = fixture();
   f.run('items[0].draft = {head_width: 44};');

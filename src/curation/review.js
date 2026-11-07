@@ -250,11 +250,13 @@ for (const key of geometryKeys) field(key).oninput = () => {
   if (draft?.reason && field('reason').value === draft.reason) {
     field('reason').value = field('reasonCategory').value = '';
   }
-  document.querySelectorAll('[data-criterion]').forEach(input => { input.checked = false; });
-  drawRuler(); message('Geometry changed. Preview and check the corrected crop before saving.');
+  if (!draft) document.querySelectorAll('[data-criterion]').forEach(input => { input.checked = false; });
+  drawRuler();
+  message(draft ? 'Geometry changed. Preview the new crop and recheck the retained checklist before saving.' :
+    'Geometry changed. Preview and check the corrected crop before saving.');
 };
 field('label').onchange = () => {
-  document.querySelector('[data-criterion="species_correct"]').checked = false;
+  if (!items[position]?.draft) document.querySelector('[data-criterion="species_correct"]').checked = false;
   field('draftConfirmed').checked = false;
   message('Species changed. Recheck the species criterion using the photograph.');
 };
