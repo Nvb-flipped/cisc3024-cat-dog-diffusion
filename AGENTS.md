@@ -16,6 +16,7 @@ Execute PROJECT_PLAN.md; the course handout has precedence. This is an individua
 - Approved-only duplicate review runs separately at http://127.0.0.1:8767. Hash similarity is only a comparison aid. Every family/keep choice needs a personal action; bind it to geometry, species and preview. Exact repeated crop pixels cannot both be kept. Preserve manual CSV edits and reconcile them rather than overwriting.
 - Baseline training requires frozen personal-review provenance and its pool-content fingerprint. Reuse the exact 2e-4/seed-17/50k baseline in LR comparisons. Quantity ablations use exact parent rows, the same holdout, fresh initialization and a matched update budget; omit a meaningless size contrast.
 - Synthetic UI fixtures stay under private_build and use software_fixture origins/diagnostic flags. They are never student judgments, final audit labels or training approvals.
+- Every new priority shortlist batch includes a visually inspected agent draft for each exact preview: suggested species, estimated source head width, checklist, and a concrete reason wherever a criterion needs attention. Calculate occupancy from width and crop side. Bind drafts to preview hashes and require the student's explicit check before a verdict is saved. Record confirmed agent estimates as such. Publish matching findings for each batch.
 
 Layout: src/{curation,training,evaluation,release}, configs/, manifests/, annotations/, tests/, results/, logs/, submission/, figures/, report/, presentation/. Local-only: data/, models/, checkpoints/, .venvs/.
 

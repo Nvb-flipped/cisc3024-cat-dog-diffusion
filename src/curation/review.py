@@ -83,7 +83,10 @@ class ReviewStore:
                 not self.candidates.get(key, {}).get('size') for key in keys
             ):
                 raise ValueError('Shortlist must contain unique, available crop proposal IDs')
-            for key, draft in batch.get('review_drafts', {}).items():
+            drafts = batch.get('review_drafts', {})
+            if batch['batch'] not in ('v001', 'v002') and set(drafts) != set(keys):
+                raise ValueError(f"Shortlist {batch['batch']} requires a draft for every candidate")
+            for key, draft in drafts.items():
                 if key not in keys or key in self.drafts or draft.get('origin') != 'agent_review_draft':
                     raise ValueError(f'Invalid or repeated review draft: {key}')
                 self.drafts[key] = draft
