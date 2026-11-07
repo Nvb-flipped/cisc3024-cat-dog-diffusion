@@ -78,3 +78,28 @@ test('corrected geometry requires new measurements and specification checks', ()
   assert(f.criteria.every(item => !item.checked));
   assert.equal(f.node('crop').style.visibility, 'hidden');
 });
+
+test('typed source width updates occupancy from current side', () => {
+  const f = fixture();
+  f.node('size').value = '192';
+  f.node('head_width').value = '128';
+  f.node('head_width').oninput();
+  assert.equal(f.node('occupancy').value, '0.667');
+  f.node('head_width').value = '';
+  f.node('head_width').oninput();
+  assert.equal(f.node('occupancy').value, '');
+});
+
+test('saving an agent draft requires an explicit student check', async () => {
+  const f = fixture();
+  f.run('items[0].draft = {head_width: 44};');
+  await f.run("save('good')");
+  assert.equal(f.pending.length, 0);
+  assert.match(f.node('message').textContent, /personally checked/);
+  f.node('draftConfirmed').checked = true;
+  const saving = f.run("save('good')");
+  assert.equal(f.pending.length, 1);
+  assert.equal(JSON.parse(f.pending[0].options.body).draft_confirmed, true);
+  f.pending[0].resolve(response({candidate_id: 'synthetic-a', verdict: 'good'}));
+  await saving;
+});

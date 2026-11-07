@@ -54,6 +54,24 @@ def test_bad_requires_concrete_reason_and_log_preserves_revisions(store):
     assert store.latest['fixture']['verdict'] == 'bad'
 
 
+def test_draft_requires_personal_confirmation_and_retains_measurement_origin(store):
+    data = decision()
+    del data['occupancy']
+    data['head_width'] = 44
+    data['head_width_basis'] = 'agent_draft_confirmed'
+    store.drafts['fixture'] = {'origin': 'agent_review_draft', 'head_width': 44,
+                               'preview_sha256': data['preview_sha256']}
+    with pytest.raises(ValueError, match='personally checked'):
+        store.validate(data, FixturePool())
+    event = store.validate(data | {'draft_confirmed': True}, FixturePool())
+    assert event['occupancy'] == 44 / 60
+    assert event['head_width_basis'] == 'agent_draft_confirmed'
+    assert event['agent_draft_personally_checked'] is True
+    assert len(event['agent_draft_sha256']) == 64
+    with pytest.raises(ValueError, match='original draft crop'):
+        store.validate(data | {'draft_confirmed': True, 'head_width': 45}, FixturePool())
+
+
 def test_fractional_geometry_is_not_silently_truncated():
     with pytest.raises(ValueError):
         parse_geometry(dict(x0=20.5, y0=20, size=60, angle=0))

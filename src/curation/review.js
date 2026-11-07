@@ -22,6 +22,11 @@ function geometry() {
   return Object.fromEntries(geometryKeys.map(key => [key, Number(field(key).value)]));
 }
 
+function updateOccupancy() {
+  const width = Number(field('head_width').value), side = Number(field('size').value);
+  field('occupancy').value = width > 0 && side > 0 ? (width / side).toFixed(3) : '';
+}
+
 function isRejected() { return field('mode').value === 'rejected'; }
 
 function updateProgress() {
@@ -77,9 +82,10 @@ async function show() {
   if (!items.length) { busy(true); message('No proposals available in this review set yet.', true); return; }
   busy(true);
   const item = items[position], prior = item.prior;
+  const draft = item.draft;
   previewHash = '';
   measurement = prior?.head_measurement || [];
-  widthBasis = prior?.head_width_basis || 'student_entry';
+  widthBasis = prior?.head_width_basis || (draft?.head_width ? 'agent_draft_confirmed' : 'student_entry');
   field('source').style.visibility = 'hidden';
   field('ruler').replaceChildren();
   field('crop').style.visibility = field('native').style.visibility = 'hidden';
@@ -102,18 +108,21 @@ async function show() {
   }
   for (const id of ['rejectedNote', 'rejectedActions']) field(id).classList.toggle('hidden', !isRejected());
   field('reviewTitle').textContent = isRejected() ? 'Check for a missed head' : 'Check the complete specification';
-  field('reason').value = prior?.reason || '';
-  field('reasonCategory').value = '';
+  field('reason').value = prior?.reason ?? draft?.reason ?? '';
+  field('reasonCategory').value = prior ? '' : draft?.reason_category ?? '';
+  field('draftReview').classList.toggle('hidden', !draft);
+  field('draftConfirmed').checked = false;
+  field('draftNote').textContent = draft ? draft.note : '';
   field('reviewer').value = field('reviewer').value || prior?.reviewer || '';
   if (!isRejected()) {
     for (const key of geometryKeys) field(key).value = prior?.[key] ?? item[key];
-    field('label').value = prior?.label ?? item.label;
-    field('head_width').value = prior?.head_width ?? '';
-    field('occupancy').value = prior?.occupancy ?? '';
+    field('label').value = prior?.label ?? draft?.label ?? item.label;
+    field('head_width').value = (prior ? prior.head_width : draft?.head_width) || '';
+    updateOccupancy();
     field('proposedWidth').classList.toggle('hidden', !item.head_width);
     field('angle_reason').value = prior?.angle_reason ?? '';
     document.querySelectorAll('[data-criterion]').forEach(input => {
-      input.checked = prior?.criteria?.[input.dataset.criterion] || false;
+      input.checked = (prior ?? draft)?.criteria?.[input.dataset.criterion] || false;
     });
     const hasHint = item.screening_hint !== null && item.screening_hint !== undefined;
     field('screeningHint').classList.toggle('hidden', !hasHint);
@@ -163,11 +172,15 @@ async function next() {
 async function save(verdict) {
   if (!items.length || saving || loading) return;
   const selected = items[position];
+  if (selected.draft && !field('draftConfirmed').checked) {
+    message('Confirm that you personally checked this draft before saving.', true);
+    return;
+  }
   saving = true;
   busy(false);
   const data = { candidate_id: selected.candidate_id, reviewer: field('reviewer').value,
     verdict, reason: field('reason').value, ...geometry(), label: Number(field('label').value),
-    head_width: Number(field('head_width').value), occupancy: Number(field('occupancy').value),
+    head_width: Number(field('head_width').value), draft_confirmed: field('draftConfirmed').checked,
     head_width_basis: widthBasis, head_measurement: measurement.length === 2 ? measurement : null,
     angle_reason: field('angle_reason').value, preview_sha256: previewHash,
     criteria: Object.fromEntries([...document.querySelectorAll('[data-criterion]')]
@@ -199,14 +212,16 @@ field('source').onclick = event => {
     y: (event.clientY - bounds.top) * image.naturalHeight / bounds.height });
   if (measurement.length === 2) {
     field('head_width').value = Math.abs(measurement[1].x - measurement[0].x).toFixed(1);
+    updateOccupancy();
     widthBasis = 'source_clicks';
     message('Measured source width: ' + field('head_width').value + ' px');
   }
   drawRuler();
 };
-field('head_width').oninput = () => { widthBasis = 'student_entry'; measurement = []; drawRuler(); };
+field('head_width').oninput = () => { widthBasis = 'student_entry'; measurement = []; updateOccupancy(); drawRuler(); };
 field('proposedWidth').onclick = () => {
   field('head_width').value = Number(items[position].head_width).toFixed(1);
+  updateOccupancy();
   widthBasis = 'proposal_confirmed'; measurement = []; drawRuler();
   message('Proposed width copied. Confirm that it spans the actual head.');
 };
@@ -230,11 +245,17 @@ for (const key of geometryKeys) field(key).oninput = () => {
   field('crop').style.visibility = field('native').style.visibility = 'hidden';
   measurement = []; widthBasis = 'student_entry';
   field('head_width').value = field('occupancy').value = '';
+  field('draftConfirmed').checked = false;
+  const draft = items[position]?.draft;
+  if (draft?.reason && field('reason').value === draft.reason) {
+    field('reason').value = field('reasonCategory').value = '';
+  }
   document.querySelectorAll('[data-criterion]').forEach(input => { input.checked = false; });
   drawRuler(); message('Geometry changed. Preview and check the corrected crop before saving.');
 };
 field('label').onchange = () => {
   document.querySelector('[data-criterion="species_correct"]').checked = false;
+  field('draftConfirmed').checked = false;
   message('Species changed. Recheck the species criterion using the photograph.');
 };
 document.querySelectorAll('[data-verdict]').forEach(button => button.onclick = () => save(button.dataset.verdict));

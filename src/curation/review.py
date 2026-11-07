@@ -70,6 +70,7 @@ class ReviewStore:
                     if index < len(group):
                         self.full_queue.append(group[index])
         self.shortlists = []
+        self.drafts = {}
         for shortlist in shortlists:
             batch = json.loads(Path(shortlist).read_text(encoding='utf-8'))
             for row in batch['recovered_candidates']:
@@ -82,6 +83,10 @@ class ReviewStore:
                 not self.candidates.get(key, {}).get('size') for key in keys
             ):
                 raise ValueError('Shortlist must contain unique, available crop proposal IDs')
+            for key, draft in batch.get('review_drafts', {}).items():
+                if key not in keys or key in self.drafts or draft.get('origin') != 'agent_review_draft':
+                    raise ValueError(f'Invalid or repeated review draft: {key}')
+                self.drafts[key] = draft
             self.shortlists.append({'id': batch['batch'], 'candidate_ids': keys})
         self.path = Path(decisions)
         self.path.parent.mkdir(parents=True, exist_ok=True)
@@ -103,7 +108,7 @@ class ReviewStore:
             keys = self.shortlists[page]['candidate_ids'] if page < len(self.shortlists) else []
         else:
             keys = self.selection['proposed_candidate_ids'] if mode == 'calibration' else self.pilot_ids
-        return [self.candidates[key] | {'prior': self.latest.get(key), 'screening_hint':
+        return [self.candidates[key] | {'prior': self.latest.get(key), 'draft': self.drafts.get(key), 'screening_hint':
             self.scores.get(key, {}).get('crop_species_hint') if mode in ('full', 'shortlist') else None} for key in keys
                 if self.candidates[key].get('size')]
 
@@ -137,12 +142,26 @@ class ReviewStore:
             raise ValueError('Species must be cat or dog')
         criteria = {name: bool(data.get('criteria', {}).get(name, False)) for name in CRITERIA}
         head_width = float(data.get('head_width') or 0)
-        occupancy = float(data.get('occupancy') or 0)
-        if not math.isfinite(head_width) or not math.isfinite(occupancy):
-            raise ValueError('Head width and occupancy must be finite numbers')
+        if not math.isfinite(head_width) or head_width < 0:
+            raise ValueError('Head width must be a nonnegative finite number')
+        occupancy = head_width / geometry['size']
+        if data.get('occupancy') is not None:
+            supplied = float(data['occupancy'])
+            if not math.isfinite(supplied) or abs(supplied - occupancy) > .00500001:
+                raise ValueError('Occupancy must equal source head width divided by crop side')
+        draft = self.drafts.get(key)
+        if draft:
+            if data.get('draft_confirmed') is not True:
+                raise ValueError('Confirm that you personally checked this draft before saving')
+            event['agent_draft_sha256'] = hashlib.sha256(json.dumps(draft, sort_keys=True).encode()).hexdigest()
+            event['agent_draft_personally_checked'] = True
         basis = data.get('head_width_basis', 'student_entry')
-        if basis not in ['student_entry', 'source_clicks', 'proposal_confirmed']:
+        if basis not in ['student_entry', 'source_clicks', 'proposal_confirmed', 'agent_draft_confirmed']:
             raise ValueError('Unknown head-width measurement basis')
+        if basis == 'agent_draft_confirmed' and (
+            not draft or digest != draft['preview_sha256'] or head_width != draft['head_width']
+        ):
+            raise ValueError('The agent width estimate applies only to its original draft crop')
         if basis == 'source_clicks':
             measurement = data.get('head_measurement')
             width, height = pool.image(candidate['pool_id']).size
