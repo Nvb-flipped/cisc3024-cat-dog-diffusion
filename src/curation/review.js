@@ -134,16 +134,23 @@ async function load() {
   const version = ++loadVersion;
   ++renderVersion;
   busy(true);
-  const full = field('mode').value === 'full';
-  field('pageControl').classList.toggle('hidden', !full);
-  field('shortlistHelp').classList.toggle('hidden', field('mode').value !== 'shortlist');
+  const mode = field('mode').value;
+  const shortlist = mode === 'shortlist';
+  field('pageControl').classList.toggle('hidden', mode !== 'full' && !shortlist);
+  field('shortlistHelp').classList.toggle('hidden', !shortlist);
   const response = await fetch(`/items?mode=${field('mode').value}&page=${page}`);
   const result = await response.json();
   if (version !== loadVersion) return;
   if (!response.ok) throw new Error(result.error || 'Review set could not be loaded');
   items = result.items; total = result.total; position = 0;
+  page = result.page;
   field('page').value = page + 1;
-  field('page').max = Math.max(1, Math.ceil(total / 200));
+  field('page').max = Math.max(1, shortlist ? result.batch_count : Math.ceil(total / 200));
+  if (shortlist) {
+    const batch = result.batch_id;
+    const suffix = batch && batch !== 'v001' && /^v\d{3}$/.test(batch) ? `_${batch}` : '';
+    field('shortlistFindings').href = `http://127.0.0.1:8769/priority_shortlist${suffix}_findings.html`;
+  }
   await show();
 }
 

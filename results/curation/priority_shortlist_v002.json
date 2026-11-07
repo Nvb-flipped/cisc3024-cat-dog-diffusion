@@ -1,0 +1,1057 @@
+{
+  "batch": "v002",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "annotations/decisions.jsonl": "23983b421725f440cbf22835f0a9da870c654d6fdd0f4ef0a2e578a6b9f06cc9",
+    "results/curation/priority_shortlist_v001.json": "f30a29486c94dca2be61428f6560f5a34215b6250abd631c7864eb5cb966b95f",
+    "results/curation/full/candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "results/curation/photo_screen_full/scores.csv": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9"
+  },
+  "prescreened_ranked_count": 108,
+  "candidate_ids": [
+    "034b436abdd1c09ad170",
+    "6694a78b2af8e1a1641e",
+    "ae819ac7d88906b0d9eb",
+    "29df26d5953605895d26",
+    "28683734457a650c4b97",
+    "7b58b101b6deae6b7dfa",
+    "074452a5f15f9f57615b",
+    "0e1873c54094ea1b7245",
+    "c26786d5582236cd897d",
+    "74d45dbf089542845b36",
+    "b6904a80cd1220b97aee",
+    "e4ae53939ae86f31f69d",
+    "3df54dfe5bc0ba37ccb0",
+    "0dca3784f3f29a119180",
+    "42d9eef730be305d32f2",
+    "f55d00bdeb5f84f53e99",
+    "bb3b09194c661260b5c3",
+    "10abda4590ee7a5b4864",
+    "254ba4b92285c22b3628",
+    "512d315324ba9904e638",
+    "2f3ed65f8d650041c591",
+    "998a7bb8e439b441269f",
+    "2d4645f31e85e8cd3832",
+    "2b3f552459680d21bef6",
+    "d267ee35779c9592e494",
+    "fd5cc8250f5185b1503f",
+    "583db4fde6ad1240b964",
+    "0c3532be8325cde954e3",
+    "906937a38df6afb1c74e",
+    "15a2f941bf2dfe5b565d",
+    "330ab359f74c22bfd9d1",
+    "3276d4a9f88d41b792d2",
+    "53ae236f0ae32c37819f",
+    "8797992cbab2bc5914d8",
+    "a10e34933be0cef0f157",
+    "bc3f66b9ef234a4beb1d",
+    "9ff05030cb001f794fa6",
+    "05611fd7ed9e9a6cd2e3",
+    "3e01efc6b4ae22fe5bd3",
+    "bdcc8c6a59b49c3be1ea",
+    "3c727c9b2af98981ac74",
+    "2b9ed634e100cede50ef",
+    "a2bd211baa96376d3c38",
+    "0945670d79390cebda52",
+    "47fb5b4bc2a3227e6deb",
+    "5533bffef25fe914786e",
+    "9b1b950a0ad5312b339f",
+    "94cd7f47e21effeae4c6",
+    "68652cb62a131cb9acf1",
+    "8ed330463cefa2088f1a",
+    "12a8dfb5c306b69ab892",
+    "74e288bca7ee86490b41",
+    "2a579c324121126d6faf",
+    "7f15ad7ed4d856a06523",
+    "f54e3dcabeda83c6b8ce",
+    "fc5bd5ba06ca42751dcf",
+    "619556433bdd97f63be2",
+    "bfb2a1ab795a2bcf2bce",
+    "1524bc7a3acb66c631d8",
+    "323a7b0285b67188943e",
+    "999c608503bc92018659",
+    "6b94e5e2811fe2fed1d6",
+    "dd6a02a8e75588c06e95",
+    "f13d2e8019d96a66b8e1",
+    "56b8108a4a09c23a3f2a"
+  ],
+  "recovered_candidates": [],
+  "findings": [
+    {
+      "candidate_id": "034b436abdd1c09ad170",
+      "pool_id": "s030380",
+      "code": "C01",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Light short-haired cat. Check the pale ear outlines against the gray background.",
+      "crop_sha256": "3f967d7d32a3b7c43f0a7723adc81568b8943a7f837bfd7c94b0f31e5b146bd6",
+      "geometry": {
+        "x0": 143,
+        "y0": 53,
+        "size": 141,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6694a78b2af8e1a1641e",
+      "pool_id": "s048028",
+      "code": "C03",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby in a dark studio portrait. Check its ear tips and detail under the watermark.",
+      "crop_sha256": "6d0850fccab2a48d0e6b07bd6d2e116c97e407b27b792e3d803d071bdcb89e9e",
+      "geometry": {
+        "x0": 158,
+        "y0": 49,
+        "size": 125,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ae819ac7d88906b0d9eb",
+      "pool_id": "s072696",
+      "code": "D01",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small terrier against white. Check both tall ears and whether the watermark obscures the face.",
+      "crop_sha256": "f59643fdcaaac5d9a4d89002cd96285b041e923af066ace39077af08ffb39e1c",
+      "geometry": {
+        "x0": 21,
+        "y0": 7,
+        "size": 175,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "29df26d5953605895d26",
+      "pool_id": "s011655",
+      "code": "C04",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby against a warm outdoor background. Verify ears and lower chin.",
+      "crop_sha256": "b3c99580041b82e68e2bad0f679fdd22b3f3ffb8e2d7017a8d2c64f39e108511",
+      "geometry": {
+        "x0": 45,
+        "y0": 17,
+        "size": 126,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "28683734457a650c4b97",
+      "pool_id": "s045178",
+      "code": "C05",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Black and white cat outdoors. Check both ear tips and that the face stays centered.",
+      "crop_sha256": "6c5cb67597e99f484b39f6d5b6955d6f45194e824e1605577bfe460b538b08f0",
+      "geometry": {
+        "x0": 111,
+        "y0": 77,
+        "size": 130,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7b58b101b6deae6b7dfa",
+      "pool_id": "s033846",
+      "code": "D02",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Pale dog with tall ears. Check both tips and whether the muzzle has enough room.",
+      "crop_sha256": "345cf2368f4079aaddfabe7d079b0dd0bfeee1effa335deffbb1915dd6528eb0",
+      "geometry": {
+        "x0": 53,
+        "y0": 30,
+        "size": 144,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "074452a5f15f9f57615b",
+      "pool_id": "s063302",
+      "code": "C06",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby walking toward camera. Verify the upper ear tips and the chin.",
+      "crop_sha256": "b2c4f4c432c015f8a2c842090edabbbcb0a55568489a1406c52079e12d306fee",
+      "geometry": {
+        "x0": 32,
+        "y0": 53,
+        "size": 234,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0e1873c54094ea1b7245",
+      "pool_id": "s004786",
+      "code": "C07",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby leaning toward the grass. Check tilt and whether the muzzle is clear.",
+      "crop_sha256": "62cd8ae20965b3a60b44203b44d87a2df998ff13b43ff2c62215dd55da0f52b8",
+      "geometry": {
+        "x0": 126,
+        "y0": 14,
+        "size": 263,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c26786d5582236cd897d",
+      "pool_id": "s060585",
+      "code": "D03",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dog beside a yellow disc. Check that the disc does not overlap the head.",
+      "crop_sha256": "2f6d445631e8dbde1152d99acf0dcb2710a7385fe9efed6a46f325ba59cb7e64",
+      "geometry": {
+        "x0": 48,
+        "y0": 40,
+        "size": 88,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "74d45dbf089542845b36",
+      "pool_id": "s062479",
+      "code": "C08",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Large-eared cat against pink. Check whether the crop can be tighter without cutting the ears.",
+      "crop_sha256": "d6ecb30130935dc1adcbe612fc7a960b6c3a860e0b0ca0a6b41c0bd4499ff32c",
+      "geometry": {
+        "x0": 46,
+        "y0": 85,
+        "size": 195,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "b6904a80cd1220b97aee",
+      "pool_id": "s032568",
+      "code": "C10",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark cat beside a doorway. Verify both ears and distinguish the whisker area from the background.",
+      "crop_sha256": "f5e05c18977ef11f681a346052027015b3fba87ca416a5ff45d01713e9da79aa",
+      "geometry": {
+        "x0": 31,
+        "y0": 25,
+        "size": 142,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "e4ae53939ae86f31f69d",
+      "pool_id": "s072384",
+      "code": "D05",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog standing on sand. Inspect the lower muzzle and whether one ear is obscured by the viewing angle.",
+      "crop_sha256": "8c634978c3734ca690ffdd5a87b5dac6226dbfca3c80a3e06d14c8fd69ad2066",
+      "geometry": {
+        "x0": 84,
+        "y0": 17,
+        "size": 137,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3df54dfe5bc0ba37ccb0",
+      "pool_id": "s033298",
+      "code": "C12",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Small tabby on grass. Check the full ears and measure native head width.",
+      "crop_sha256": "d5292f43f3417a19910de36ed3e71e172bdac4a44c2c0518e57f708566b7fac5",
+      "geometry": {
+        "x0": 22,
+        "y0": 23,
+        "size": 128,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0dca3784f3f29a119180",
+      "pool_id": "s027619",
+      "code": "C14",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Gray tabby looking up. Check the darker face and ear tips.",
+      "crop_sha256": "ff45b0d4df24f34e2391fb68967b4df9be8d40360af84c35b9263a5f1ed8bc2d",
+      "geometry": {
+        "x0": 35,
+        "y0": 73,
+        "size": 238,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "42d9eef730be305d32f2",
+      "pool_id": "s035044",
+      "code": "D06",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dog near a person's boot. Verify native head width and facial clarity.",
+      "crop_sha256": "57db200a33849a739a7aa560dd3f8a4f3c7150027990832659f32b88f8fb568f",
+      "geometry": {
+        "x0": 173,
+        "y0": 116,
+        "size": 109,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "f55d00bdeb5f84f53e99",
+      "pool_id": "s044072",
+      "code": "C16",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby with red harness. Keep the full head and assess soft detail at native size.",
+      "crop_sha256": "1b474bbeb13bca3604562ad208f9c8e2afecc589e54dbae688be068f68d132e8",
+      "geometry": {
+        "x0": 169,
+        "y0": 77,
+        "size": 82,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bb3b09194c661260b5c3",
+      "pool_id": "s000185",
+      "code": "C17",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Silver tabby indoors. Check whether the upper edge keeps both ears.",
+      "crop_sha256": "c18b5b798ffa2c187aa572f30d7e358a7a66e54002d922de08fbd4bd6ed0fdc4",
+      "geometry": {
+        "x0": 130,
+        "y0": 24,
+        "size": 100,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "10abda4590ee7a5b4864",
+      "pool_id": "s062260",
+      "code": "D07",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Shepherd with tall ears. Check the upper edge after previewing.",
+      "crop_sha256": "12c71fb7e633481362d52bcfca2eb2dddbc4ac2a191786f918f74b7d8815313d",
+      "geometry": {
+        "x0": 204,
+        "y0": 69,
+        "size": 66,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "254ba4b92285c22b3628",
+      "pool_id": "s032876",
+      "code": "C18",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "White cat with narrowed eyes. Check the pale ear edges and confirm centered framing.",
+      "crop_sha256": "26e2703607adfaa399e2727d6a6228a202b65db30124fd49b54ae7539275c746",
+      "geometry": {
+        "x0": 55,
+        "y0": 107,
+        "size": 191,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "512d315324ba9904e638",
+      "pool_id": "s012594",
+      "code": "C19",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Pale cat in a tree. Check that branches do not overlap the ears or face.",
+      "crop_sha256": "419b8c6f2ede9c1b3c5b59acbc460e9c553583a9796f5b0b5018e1ae8fd14743",
+      "geometry": {
+        "x0": 42,
+        "y0": 21,
+        "size": 65,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2f3ed65f8d650041c591",
+      "pool_id": "s064132",
+      "code": "D08",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Long-eared dog lying in grass. Check how much of the far ear is visible.",
+      "crop_sha256": "fe64dc14b20d9a54a66a7837ab2f12edf4ba2b46baa8b224ddd1b910c59372b9",
+      "geometry": {
+        "x0": 167,
+        "y0": 163,
+        "size": 93,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "998a7bb8e439b441269f",
+      "pool_id": "s028187",
+      "code": "C20",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "White and tabby cat standing outdoors. Check head centering and whether a tighter crop fits.",
+      "crop_sha256": "3ce128d19e4e1c3c69ca85ca6db256805613a213ae0da1b3eeb5511719726998",
+      "geometry": {
+        "x0": 132,
+        "y0": 56,
+        "size": 168,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2d4645f31e85e8cd3832",
+      "pool_id": "s033151",
+      "code": "C22",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Striped tabby. Verify that the lower jaw and both ear tips fit.",
+      "crop_sha256": "ac617a23b01c3123f80990cc78dcae0a74722c3a38705d21d3cffb709c149fc7",
+      "geometry": {
+        "x0": 133,
+        "y0": 22,
+        "size": 130,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2b3f552459680d21bef6",
+      "pool_id": "s027839",
+      "code": "D09",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog on a path facing the camera. The crop looks loose. Check occupancy and source head width.",
+      "crop_sha256": "34250cba6a1f70abe7e7ba5cfafec7486ed0ff387ad018557e5323b3f8c11983",
+      "geometry": {
+        "x0": 54,
+        "y0": 66,
+        "size": 207,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "d267ee35779c9592e494",
+      "pool_id": "s053387",
+      "code": "C23",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Black cat with bright eyes. Check the visible jaw and dark facial detail.",
+      "crop_sha256": "71474d3a91ea187a5adfc0aa296fc853977e592b5d208b2b1e6560e81e2eece0",
+      "geometry": {
+        "x0": 94,
+        "y0": 10,
+        "size": 205,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fd5cc8250f5185b1503f",
+      "pool_id": "s035089",
+      "code": "C24",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger cat in shade. Check eye and ear clarity in the native crop.",
+      "crop_sha256": "c47b9d1aebe3d9a58c147d1a50860814497f1e917c3be29a3bb1c9d259d26378",
+      "geometry": {
+        "x0": 217,
+        "y0": 81,
+        "size": 135,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "583db4fde6ad1240b964",
+      "pool_id": "s034068",
+      "code": "D11",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog in a yard with mouth open. Check the full muzzle, ear tips and source width.",
+      "crop_sha256": "9c0f8ca658452efc200788204387762eb389f5155d9626db27be15f69b62d852",
+      "geometry": {
+        "x0": 156,
+        "y0": 6,
+        "size": 97,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0c3532be8325cde954e3",
+      "pool_id": "s022936",
+      "code": "C25",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Spotted tabby lying down. Check the head outline against the body and background.",
+      "crop_sha256": "3fc81eb4f3fd66b2ca60f068d40781764114e45f834ec9c7f4886ce9d4657e26",
+      "geometry": {
+        "x0": 29,
+        "y0": 8,
+        "size": 240,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "906937a38df6afb1c74e",
+      "pool_id": "s016539",
+      "code": "C26",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Gray cat against white. Verify ear tips and centering.",
+      "crop_sha256": "df06d09f280f196d4eb8f33e72aa51a4cb43cea48c2533e36e21f17879454c71",
+      "geometry": {
+        "x0": 201,
+        "y0": 37,
+        "size": 173,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "15a2f941bf2dfe5b565d",
+      "pool_id": "s056541",
+      "code": "D13",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dog sitting in a chest. Check the native preview for softness and distinguish the head from the background.",
+      "crop_sha256": "58f2f1e9c71a2835fe10e546d53dd3a5fe58f0f6818e01d5cb97072cabb1bf2a",
+      "geometry": {
+        "x0": 34,
+        "y0": 12,
+        "size": 94,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "330ab359f74c22bfd9d1",
+      "pool_id": "s037388",
+      "code": "C27",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger cat on a perch. Check both ears and full chin.",
+      "crop_sha256": "f4054b3f929a40eafcdf716309224ebaf1e2c8bbd7c99dc58b3a2b404151cefd",
+      "geometry": {
+        "x0": 77,
+        "y0": 44,
+        "size": 146,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3276d4a9f88d41b792d2",
+      "pool_id": "s030080",
+      "code": "C29",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger cat looking upward. Check complete ear tips and whether the pose remains roughly upright.",
+      "crop_sha256": "d8b324f070978771e57511d3e37c9b4df67e73211ec4340869febd8d5cab9e8e",
+      "geometry": {
+        "x0": 206,
+        "y0": 4,
+        "size": 121,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "53ae236f0ae32c37819f",
+      "pool_id": "s067703",
+      "code": "D15",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dog outdoors. Check sharpness and visibility of both ears.",
+      "crop_sha256": "07a1e4cd3e941248e6a30ac6430c85e8701fe6d42e98a1f389833e77281fb5d0",
+      "geometry": {
+        "x0": 73,
+        "y0": 33,
+        "size": 149,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8797992cbab2bc5914d8",
+      "pool_id": "s018788",
+      "code": "C30",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby at a ledge. Look for anything obscuring the lower jaw.",
+      "crop_sha256": "e7fbadc2e9b5cfcef5ef28074ece6d9d68e9ca34d73a916ae32128e98f77e813",
+      "geometry": {
+        "x0": 111,
+        "y0": 14,
+        "size": 246,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a10e34933be0cef0f157",
+      "pool_id": "s035434",
+      "code": "C31",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark cat by a window. Check if both ears and muzzle remain distinct against shadows.",
+      "crop_sha256": "ba27b56229bfd62ef21fc9932fff82b4a2f19a80e7eb8a69cdc04ad889b71a31",
+      "geometry": {
+        "x0": 109,
+        "y0": 83,
+        "size": 67,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bc3f66b9ef234a4beb1d",
+      "pool_id": "s047600",
+      "code": "D16",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark dog by a tree. Check the ear outlines against the dark fur and keep the whole chin.",
+      "crop_sha256": "8a78a4b17df7fe5f97304e17d5bbfe5030c4ae1fe0889d4b3c31d8ae78e9dcf5",
+      "geometry": {
+        "x0": 19,
+        "y0": 12,
+        "size": 210,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9ff05030cb001f794fa6",
+      "pool_id": "s026410",
+      "code": "C34",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby against blue sky. Verify both ear tips and that the lower head fits.",
+      "crop_sha256": "3e71f9b77f1e9c0e3b307f7a50cca96fd1672dd1fdff58bfad027d58441f9e63",
+      "geometry": {
+        "x0": 98,
+        "y0": 32,
+        "size": 120,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "05611fd7ed9e9a6cd2e3",
+      "pool_id": "s000027",
+      "code": "C36",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby among leaves. Check whether leaves obscure the far ear or face.",
+      "crop_sha256": "cd4fb783143ffe2e7611e555ebfba0966d893e99acee6d91164722869d2ce75d",
+      "geometry": {
+        "x0": 196,
+        "y0": 61,
+        "size": 100,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3e01efc6b4ae22fe5bd3",
+      "pool_id": "s057104",
+      "code": "D19",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Brown dog in profile. Check the full muzzle and ears.",
+      "crop_sha256": "001c413e567d8dc355f3dd832d4822c881abb1b062327ddd66d75cb254795ffc",
+      "geometry": {
+        "x0": 47,
+        "y0": 5,
+        "size": 148,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bdcc8c6a59b49c3be1ea",
+      "pool_id": "s073982",
+      "code": "C37",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger and white cat in a tree. Check head width and the ear nearest the trunk.",
+      "crop_sha256": "5c77329b46af0775511f49f791b09fe595e158972cf066385654c1f4d56e8b35",
+      "geometry": {
+        "x0": 5,
+        "y0": 23,
+        "size": 251,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3c727c9b2af98981ac74",
+      "pool_id": "s040024",
+      "code": "C39",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark cat looking up from the ground. Check the visible ears and facial detail.",
+      "crop_sha256": "79a8aa5877fb72a8253428c8aadc504695de5fe7be93504dfba42994be1a3d6f",
+      "geometry": {
+        "x0": 167,
+        "y0": 15,
+        "size": 150,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2b9ed634e100cede50ef",
+      "pool_id": "s068619",
+      "code": "D20",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Brown dog among flowers. Verify both floppy ears and that the crop is centered on the head.",
+      "crop_sha256": "c56457c9d2582d39f7ed2bd29cc306b6ca143d969f37c857b48fbc74e97b8db4",
+      "geometry": {
+        "x0": 149,
+        "y0": 51,
+        "size": 261,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a2bd211baa96376d3c38",
+      "pool_id": "s006441",
+      "code": "C40",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby wearing a red harness. Check both ears and keep the full lower jaw.",
+      "crop_sha256": "344fb403c32da2600567f4198ef89eb62864778f8a82a4f118c99f03574e426f",
+      "geometry": {
+        "x0": 102,
+        "y0": 1,
+        "size": 190,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0945670d79390cebda52",
+      "pool_id": "s042545",
+      "code": "C45",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby among purple flowers. Check whether leaves or flowers overlap the head.",
+      "crop_sha256": "783adfb8231dba72bd70a3155931a60c4ce541d432bad81605b804373e58148e",
+      "geometry": {
+        "x0": 115,
+        "y0": 23,
+        "size": 175,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "47fb5b4bc2a3227e6deb",
+      "pool_id": "s020336",
+      "code": "D21",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dark dog with upright ears. Check for any obstruction along the lower head.",
+      "crop_sha256": "9bf07b0a3b04c156fcabb4cd0a522e853b80fc68eeb65ce2f5c681ffa92803d2",
+      "geometry": {
+        "x0": 149,
+        "y0": 0,
+        "size": 194,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5533bffef25fe914786e",
+      "pool_id": "s044373",
+      "code": "C46",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Cat in grass. Check the ear tips and keep only the single head in view.",
+      "crop_sha256": "e48bfd2c857eaa60a2fc260a1b04ae552f88ab081b04fa2e6a55e41c9862d070",
+      "geometry": {
+        "x0": 133,
+        "y0": 14,
+        "size": 200,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "9b1b950a0ad5312b339f",
+      "pool_id": "s062081",
+      "code": "C47",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger cat against pale blue. Check its profile and the ear tips.",
+      "crop_sha256": "cf247ceb929892a91e89fd6c7cc67624a1688eaedb366702d5f5b9897f2f4bfb",
+      "geometry": {
+        "x0": 8,
+        "y0": 0,
+        "size": 122,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "94cd7f47e21effeae4c6",
+      "pool_id": "s039583",
+      "code": "D22",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog next to a seated person. Check whether background and foreground objects stay clear of the ears.",
+      "crop_sha256": "bb28d36e255288897da369043090a19fe0d9bf3155e8920015e96752fdbc01c5",
+      "geometry": {
+        "x0": 243,
+        "y0": 77,
+        "size": 107,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "68652cb62a131cb9acf1",
+      "pool_id": "s073006",
+      "code": "C48",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Large-eared hairless cat. Check both tall ears and the lower jaw.",
+      "crop_sha256": "fffe1f80e9a11d7d5521e2755a0e6599e9c97cf52cc164077454b6d8d7a104d0",
+      "geometry": {
+        "x0": 22,
+        "y0": 68,
+        "size": 271,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8ed330463cefa2088f1a",
+      "pool_id": "s061244",
+      "code": "C49",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "White cat against a muted background. Check pale ear edges and any watermark over the face.",
+      "crop_sha256": "cdaba2a5d5c64996a124e4e0ef6eda69e534bd4d446cf2e5a175e9c63a858ec3",
+      "geometry": {
+        "x0": 198,
+        "y0": 28,
+        "size": 205,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "12a8dfb5c306b69ab892",
+      "pool_id": "s069653",
+      "code": "D25",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small light dog on a city street. Check the dark face and native head width.",
+      "crop_sha256": "2a5dd033d6ce3c61619fd4b9b3c354676a85554d3b079771ee2d97c22130ede1",
+      "geometry": {
+        "x0": 68,
+        "y0": 131,
+        "size": 197,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "74e288bca7ee86490b41",
+      "pool_id": "s065532",
+      "code": "C52",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Black and white cat by an opening. Check its ear edges against the doorway.",
+      "crop_sha256": "cd39a609089649d1a46c02892e3ac1937c427a902a00c6a86a737b802980e351",
+      "geometry": {
+        "x0": 131,
+        "y0": 66,
+        "size": 113,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2a579c324121126d6faf",
+      "pool_id": "s018013",
+      "code": "C54",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby walking toward camera. Check whether the original head has enough resolution.",
+      "crop_sha256": "8dc3756e15303034abc5e3813fdde37e0a4f57f3688985b78632ff974424c454",
+      "geometry": {
+        "x0": 100,
+        "y0": 163,
+        "size": 113,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7f15ad7ed4d856a06523",
+      "pool_id": "s010332",
+      "code": "D27",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Shepherd in grass. Check the tall ears and shadow detail.",
+      "crop_sha256": "4e369b246650f554fa5ae508f57421de8f15132edddd17c85e954b23c42cfd42",
+      "geometry": {
+        "x0": 221,
+        "y0": 43,
+        "size": 141,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "f54e3dcabeda83c6b8ce",
+      "pool_id": "s019607",
+      "code": "C55",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby kitten facing forward. Check image softness and the full ears.",
+      "crop_sha256": "2684c148dd358a7a50dd7649e872450069bc0023a0686c868c1dc207db3dea4b",
+      "geometry": {
+        "x0": 30,
+        "y0": 15,
+        "size": 137,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "fc5bd5ba06ca42751dcf",
+      "pool_id": "s053097",
+      "code": "C57",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Light tabby on dark fabric. Check its tilted pose and the visibility of both ears.",
+      "crop_sha256": "65317e53554555814050e19513a76df01cb5724c844dfd66be1b0e631c7d8322",
+      "geometry": {
+        "x0": 119,
+        "y0": 125,
+        "size": 114,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "619556433bdd97f63be2",
+      "pool_id": "s021310",
+      "code": "D28",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark dog with upright ears. Confirm both tips and keep the open muzzle in frame.",
+      "crop_sha256": "335d896766d67010dabd468c4255a7976ac3c43bd9e50ea992f475464cfb48b5",
+      "geometry": {
+        "x0": 226,
+        "y0": 2,
+        "size": 149,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bfb2a1ab795a2bcf2bce",
+      "pool_id": "s001578",
+      "code": "C62",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger kitten with low, folded ears. Inspect whether the ears are fully visible.",
+      "crop_sha256": "7d9d0f3bd0e4cb67a577c2272b3a2289bab681cf95336b95036608b894853469",
+      "geometry": {
+        "x0": 182,
+        "y0": 24,
+        "size": 178,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1524bc7a3acb66c631d8",
+      "pool_id": "s029775",
+      "code": "C67",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby high in a tree. Measure native head width and inspect the lower jaw.",
+      "crop_sha256": "04571282b94520128588a7b7d5921620a3733520d1c98a869d8b87bd7f50b416",
+      "geometry": {
+        "x0": 146,
+        "y0": 68,
+        "size": 53,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "323a7b0285b67188943e",
+      "pool_id": "s049084",
+      "code": "D30",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark dog on a blue surface. Check the far ear, jaw and face detail.",
+      "crop_sha256": "fc074ba74888cc981e7aa04a5aac77ca1e44d7bde57b73bdfbbd35e15e80608b",
+      "geometry": {
+        "x0": 100,
+        "y0": 24,
+        "size": 154,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "999c608503bc92018659",
+      "pool_id": "s043496",
+      "code": "C70",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Gray cat beside a basket. The crop looks loose. Check whether a tighter square is possible.",
+      "crop_sha256": "aae12573c2111e64668e2a3ec2d0ccbe993153bc735893431e6df0ceeef7cbea",
+      "geometry": {
+        "x0": 66,
+        "y0": 124,
+        "size": 165,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6b94e5e2811fe2fed1d6",
+      "pool_id": "s053432",
+      "code": "C72",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "White and tabby cat lying down. Check both ears and whether the head needs recentering.",
+      "crop_sha256": "8bf21a11f2722b09b72c2f18050fe56a04a5597d130acada8f83ebfc5854bee6",
+      "geometry": {
+        "x0": 200,
+        "y0": 44,
+        "size": 228,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "dd6a02a8e75588c06e95",
+      "pool_id": "s000441",
+      "code": "D31",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Light dog on sandy ground. Check ear outlines and whether the muzzle has enough room.",
+      "crop_sha256": "b32c8ddf42cd3eca0ccd26d011d021cb77c87e07a23763aaf394c2d3413e4a00",
+      "geometry": {
+        "x0": 94,
+        "y0": 20,
+        "size": 237,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "f13d2e8019d96a66b8e1",
+      "pool_id": "s050445",
+      "code": "D32",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog with open mouth outdoors. Check the ear edges and keep the complete jaw.",
+      "crop_sha256": "7bec619a4f9c201aad4e79bb98357706bd4ec5e5f679a4ff20afa628144390ec",
+      "geometry": {
+        "x0": 64,
+        "y0": 3,
+        "size": 173,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "56b8108a4a09c23a3f2a",
+      "pool_id": "s033439",
+      "code": "D35",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "White dog outdoors. Check whether glare or softness hides the head outline.",
+      "crop_sha256": "a0674cd202312a2a8abab0389dabe6dce47830f8e0029fd1f39684a758751d45",
+      "geometry": {
+        "x0": 169,
+        "y0": 74,
+        "size": 108,
+        "angle": 0.0
+      }
+    }
+  ]
+}

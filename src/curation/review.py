@@ -42,7 +42,7 @@ def rendered_crop(pool, pool_id, geometry):
 
 
 class ReviewStore:
-    def __init__(self, candidates, selection, decisions, full_candidates=None, scores=None, shortlist=None):
+    def __init__(self, candidates, selection, decisions, full_candidates=None, scores=None, shortlists=()):
         with Path(candidates).open(newline='', encoding='utf-8') as f:
             self.candidates = {r['candidate_id']: r for r in csv.DictReader(f)}
         self.pilot_ids = sorted(self.candidates)
@@ -69,19 +69,20 @@ class ReviewStore:
                 for group in balanced:
                     if index < len(group):
                         self.full_queue.append(group[index])
-        self.shortlist = []
-        if shortlist and Path(shortlist).is_file():
+        self.shortlists = []
+        for shortlist in shortlists:
             batch = json.loads(Path(shortlist).read_text(encoding='utf-8'))
             for row in batch['recovered_candidates']:
                 key = row['candidate_id']
                 if key in self.candidates or key.startswith('reject:'):
                     raise ValueError(f'Recovery proposal ID conflicts with an existing item: {key}')
                 self.candidates[key] = row
-            self.shortlist = batch['candidate_ids']
-            if len(self.shortlist) != len(set(self.shortlist)) or any(
-                not self.candidates.get(key, {}).get('size') for key in self.shortlist
+            keys = batch['candidate_ids']
+            if len(keys) != len(set(keys)) or any(
+                not self.candidates.get(key, {}).get('size') for key in keys
             ):
                 raise ValueError('Shortlist must contain unique, available crop proposal IDs')
+            self.shortlists.append({'id': batch['batch'], 'candidate_ids': keys})
         self.path = Path(decisions)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.lock = threading.Lock()
@@ -99,7 +100,7 @@ class ReviewStore:
         if mode == 'full':
             keys = self.full_queue[page * page_size:(page + 1) * page_size]
         elif mode == 'shortlist':
-            keys = self.shortlist
+            keys = self.shortlists[page]['candidate_ids'] if page < len(self.shortlists) else []
         else:
             keys = self.selection['proposed_candidate_ids'] if mode == 'calibration' else self.pilot_ids
         return [self.candidates[key] | {'prior': self.latest.get(key), 'screening_hint':
@@ -179,10 +180,11 @@ def main():
     p.add_argument('--port', default=8765, type=int)
     p.add_argument('--full-candidates', default='results/curation/full/candidates.csv', type=Path)
     p.add_argument('--scores', default='results/curation/photo_screen_full/scores.csv', type=Path)
-    p.add_argument('--shortlist', default='results/curation/priority_shortlist_v001.json', type=Path)
+    p.add_argument('--shortlist', action='append', type=Path, help='Load a shortlist file; repeat for multiple batches')
     args = p.parse_args()
+    shortlists = args.shortlist or sorted(Path('results/curation').glob('priority_shortlist_v[0-9][0-9][0-9].json'))
     store = ReviewStore(args.candidates, args.candidates.parent / 'calibration_selection.json', args.decisions,
-                        args.full_candidates, args.scores, args.shortlist)
+                        args.full_candidates, args.scores, shortlists)
     pool = Pool(args.pool)
     csrf = secrets.token_urlsafe(32)
     html = (Path(__file__).parent / 'review.html').read_text(encoding='utf-8').replace('__TOKEN__', csrf)
@@ -210,9 +212,15 @@ def main():
                 if url.path == '/items':
                     mode = query.get('mode', 'calibration')
                     page = max(0, int(query.get('page', 0)))
+                    if mode == 'shortlist':
+                        page = min(page, max(0, len(store.shortlists) - 1))
                     items = store.items(mode, page=page)
-                    total = len(store.full_queue) if mode == 'full' else len(store.items(mode))
-                    return self.send(json.dumps({'items': items, 'total': total, 'page': page}).encode())
+                    total = len(store.full_queue) if mode == 'full' else len(items)
+                    result = {'items': items, 'total': total, 'page': page}
+                    if mode == 'shortlist':
+                        result['batch_count'] = len(store.shortlists)
+                        result['batch_id'] = store.shortlists[page]['id'] if store.shortlists else None
+                    return self.send(json.dumps(result).encode())
                 if url.path in ['/source', '/crop']:
                     pool_id = query['pool_id']
                     if pool_id not in pool:
