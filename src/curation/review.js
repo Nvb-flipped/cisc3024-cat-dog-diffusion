@@ -90,8 +90,12 @@ async function show() {
   // Attach the failure handler immediately, even while awaiting the crop response below.
   sourceLoaded.catch(() => {});
   field('source').src = '/source?pool_id=' + encodeURIComponent(item.pool_id);
-  field('identity').textContent = item.pool_id + (isRejected() ? ' · rejected-source diagnostic' :
-    ` · proposal ${item.candidate_id} · detector ${Number(item.label) === 0 ? 'cat' : 'dog'}`);
+  if (isRejected()) {
+    field('identity').textContent = `${item.pool_id} · rejected-source diagnostic`;
+  } else {
+    const kind = item.proposal_origin === 'agent_recovery_draft' ? 'recovery draft' : 'detector proposal';
+    field('identity').textContent = `${item.pool_id} · ${kind} ${item.candidate_id} · suggested ${Number(item.label) === 0 ? 'cat' : 'dog'}`;
+  }
   updateProgress();
   for (const id of ['cropArea', 'geometryPanel', 'proposalFields', 'proposedActions']) {
     field(id).classList.toggle('hidden', isRejected());
@@ -106,6 +110,7 @@ async function show() {
     field('label').value = prior?.label ?? item.label;
     field('head_width').value = prior?.head_width ?? '';
     field('occupancy').value = prior?.occupancy ?? '';
+    field('proposedWidth').classList.toggle('hidden', !item.head_width);
     field('angle_reason').value = prior?.angle_reason ?? '';
     document.querySelectorAll('[data-criterion]').forEach(input => {
       input.checked = prior?.criteria?.[input.dataset.criterion] || false;
@@ -131,6 +136,7 @@ async function load() {
   busy(true);
   const full = field('mode').value === 'full';
   field('pageControl').classList.toggle('hidden', !full);
+  field('shortlistHelp').classList.toggle('hidden', field('mode').value !== 'shortlist');
   const response = await fetch(`/items?mode=${field('mode').value}&page=${page}`);
   const result = await response.json();
   if (version !== loadVersion) return;

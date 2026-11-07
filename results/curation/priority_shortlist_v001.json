@@ -1,0 +1,1216 @@
+{
+  "batch": "v001",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "annotations/decisions.jsonl": "2e9787da1151c3af62ef563f3c01b74f160267d954a6e560856238157d2708f5",
+    "annotations/agent_rejected_review_20261031.jsonl": "e18d9a4546d4b57ca0f30846c7b38d505e1c75afc94204a9cc5da93ac621c4ba",
+    "results/curation/full/candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "results/curation/photo_screen_full/scores.csv": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9",
+    "results/curation/pilot/calibration_selection.json": "9fdcd0f3edce768f2389a7ffd06d47d3d3749e3cf87d5e5c70ee41f1d59b1411"
+  },
+  "prescreened_ranked_count": 80,
+  "candidate_ids": [
+    "recover-7eaa38eecf6bf1797f",
+    "recover-dc1681a40708bc2c7f",
+    "recover-5f8d02e55332501aae",
+    "recover-400e2f3e43f23529dd",
+    "recover-5eb12412e865a49764",
+    "recover-6de6a92a5624298495",
+    "recover-3298c7ce50a1673c84",
+    "recover-36c6d5ba2c57f435c8",
+    "recover-d8627ccfc56b1126e5",
+    "recover-4a9a8ac4d75d010f68",
+    "recover-8041ff4c6f141c12c8",
+    "recover-1a01f22c564d272493",
+    "recover-c3db7dd5a5a685a427",
+    "recover-d959589f0fe29137c3",
+    "recover-73110a92a6de9e8a93",
+    "recover-f222167f766959e0e8",
+    "recover-e017bdadbfc34069d6",
+    "recover-00c00f65a3d3a25728",
+    "recover-0e12194cdc904980ac",
+    "recover-64cfee6d7ffb47eeec",
+    "recover-c5cf78ba572bdd124f",
+    "recover-fc1fee18a62a1540fc",
+    "recover-61f98f2af78355f371",
+    "92243198c445d74ce261",
+    "86a0cbfb46b0f3cd2421",
+    "7a6fdf59a2a7af7978c4",
+    "c373842787b07298aa8b",
+    "4b95180d66581cc05472",
+    "6239f8aa701956a9bf03",
+    "bda064ab8952a062f9f5",
+    "71eca6ab487a58350e4d",
+    "a1f02c338896c5fa19ad",
+    "3fed43a13817c63af68d",
+    "8842611b1b6fcd56dcf6",
+    "03ce897ad0b0a1444e62",
+    "7292d69605b15db9029c",
+    "a91a9a477e438151c1da",
+    "c4283a5219ce4d1d1ae3",
+    "5aa3e09ce1c9284a1fe6",
+    "b1737d6227ff2d1db94c",
+    "1d8336f476ac2b063039",
+    "4baae55e1ba79a36c6d9",
+    "ffb4ccc878a86245c161",
+    "dc85e56534113029252b",
+    "b9c7c60213bf8dad6a15",
+    "b26bfa6ae0240be47b9e",
+    "54bebe41cf6439b6b09f",
+    "6f93b40a1a3803f2c50a",
+    "4691acd1f34c4ca97c0d",
+    "c0d28983ed867bd7b81d",
+    "442a0cedf84ef489f94f",
+    "2ac53b96f22d2987ce4e",
+    "baa0dbaa9fcb0e588128",
+    "20744495fba22166ff5b",
+    "b7846466313a7ef639a1",
+    "0c990cd8338e58185b67",
+    "3d8e97f32d39098e751e",
+    "f2349ebae79ce4159041",
+    "3b73ce4bc681ec28ed36"
+  ],
+  "recovered_candidates": [
+    {
+      "candidate_id": "recover-7eaa38eecf6bf1797f",
+      "pool_id": "s026257",
+      "label": 0,
+      "x0": 0,
+      "y0": 0,
+      "size": 90,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s026257"
+    },
+    {
+      "candidate_id": "recover-dc1681a40708bc2c7f",
+      "pool_id": "s039520",
+      "label": 1,
+      "x0": 108,
+      "y0": 64,
+      "size": 126,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s039520"
+    },
+    {
+      "candidate_id": "recover-5f8d02e55332501aae",
+      "pool_id": "s032709",
+      "label": 0,
+      "x0": 61,
+      "y0": 8,
+      "size": 260,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s032709"
+    },
+    {
+      "candidate_id": "recover-400e2f3e43f23529dd",
+      "pool_id": "s069135",
+      "label": 0,
+      "x0": 57,
+      "y0": 0,
+      "size": 220,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s069135"
+    },
+    {
+      "candidate_id": "recover-5eb12412e865a49764",
+      "pool_id": "s075436",
+      "label": 0,
+      "x0": 12,
+      "y0": 0,
+      "size": 265,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s075436"
+    },
+    {
+      "candidate_id": "recover-6de6a92a5624298495",
+      "pool_id": "s021962",
+      "label": 0,
+      "x0": 50,
+      "y0": 0,
+      "size": 210,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s021962"
+    },
+    {
+      "candidate_id": "recover-3298c7ce50a1673c84",
+      "pool_id": "s040869",
+      "label": 0,
+      "x0": 82,
+      "y0": 0,
+      "size": 210,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s040869"
+    },
+    {
+      "candidate_id": "recover-36c6d5ba2c57f435c8",
+      "pool_id": "s013308",
+      "label": 1,
+      "x0": 10,
+      "y0": 0,
+      "size": 210,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s013308"
+    },
+    {
+      "candidate_id": "recover-d8627ccfc56b1126e5",
+      "pool_id": "s044900",
+      "label": 1,
+      "x0": 30,
+      "y0": 0,
+      "size": 185,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s044900"
+    },
+    {
+      "candidate_id": "recover-4a9a8ac4d75d010f68",
+      "pool_id": "s035083",
+      "label": 0,
+      "x0": 45,
+      "y0": 0,
+      "size": 190,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s035083"
+    },
+    {
+      "candidate_id": "recover-8041ff4c6f141c12c8",
+      "pool_id": "s001119",
+      "label": 1,
+      "x0": 112,
+      "y0": 35,
+      "size": 124,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s001119"
+    },
+    {
+      "candidate_id": "recover-1a01f22c564d272493",
+      "pool_id": "s028018",
+      "label": 1,
+      "x0": 60,
+      "y0": 0,
+      "size": 264,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s028018"
+    },
+    {
+      "candidate_id": "recover-c3db7dd5a5a685a427",
+      "pool_id": "s064949",
+      "label": 0,
+      "x0": 31,
+      "y0": 32,
+      "size": 134,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s064949"
+    },
+    {
+      "candidate_id": "recover-d959589f0fe29137c3",
+      "pool_id": "s058024",
+      "label": 1,
+      "x0": 174,
+      "y0": 0,
+      "size": 280,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s058024"
+    },
+    {
+      "candidate_id": "recover-73110a92a6de9e8a93",
+      "pool_id": "s039867",
+      "label": 1,
+      "x0": 164,
+      "y0": 0,
+      "size": 170,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s039867"
+    },
+    {
+      "candidate_id": "recover-f222167f766959e0e8",
+      "pool_id": "s027089",
+      "label": 1,
+      "x0": 89,
+      "y0": 0,
+      "size": 152,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s027089"
+    },
+    {
+      "candidate_id": "recover-e017bdadbfc34069d6",
+      "pool_id": "s024084",
+      "label": 1,
+      "x0": 209,
+      "y0": 24,
+      "size": 178,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s024084"
+    },
+    {
+      "candidate_id": "recover-00c00f65a3d3a25728",
+      "pool_id": "s025745",
+      "label": 1,
+      "x0": 169,
+      "y0": 10,
+      "size": 124,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s025745"
+    },
+    {
+      "candidate_id": "recover-0e12194cdc904980ac",
+      "pool_id": "s047857",
+      "label": 1,
+      "x0": 107,
+      "y0": 0,
+      "size": 132,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s047857"
+    },
+    {
+      "candidate_id": "recover-64cfee6d7ffb47eeec",
+      "pool_id": "s074162",
+      "label": 1,
+      "x0": 160,
+      "y0": 28,
+      "size": 160,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s074162"
+    },
+    {
+      "candidate_id": "recover-c5cf78ba572bdd124f",
+      "pool_id": "s071460",
+      "label": 0,
+      "x0": 66,
+      "y0": 0,
+      "size": 290,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s071460"
+    },
+    {
+      "candidate_id": "recover-fc1fee18a62a1540fc",
+      "pool_id": "s002984",
+      "label": 1,
+      "x0": 35,
+      "y0": 0,
+      "size": 235,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s002984"
+    },
+    {
+      "candidate_id": "recover-61f98f2af78355f371",
+      "pool_id": "s062662",
+      "label": 0,
+      "x0": 172,
+      "y0": 35,
+      "size": 180,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "reject:s062662"
+    }
+  ],
+  "findings": [
+    {
+      "candidate_id": "recover-7eaa38eecf6bf1797f",
+      "pool_id": "s026257",
+      "code": "R001",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real cat with complete-looking head and ears; a head-only crop is a recovery candidate. Check left-edge centering in draft crop.",
+      "crop_sha256": "4ea6473f0bb758ee86c93a1b92cc07d5f4354b25e3a45954f22ce4d5e9476629",
+      "geometry": {
+        "x0": 0,
+        "y0": 0,
+        "size": 90,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-dc1681a40708bc2c7f",
+      "pool_id": "s039520",
+      "code": "R007",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real dog with complete ears/head; a head-only crop can remove body/background. Mild head tilt needs checking.",
+      "crop_sha256": "e79a1ed999a77097cf1744f290aed99d94445632ac63feb1327ad52d319dcf70",
+      "geometry": {
+        "x0": 108,
+        "y0": 64,
+        "size": 126,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-5f8d02e55332501aae",
+      "pool_id": "s032709",
+      "code": "R015",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Borderline. The hat overlaps the crown and the far ear near its base. Check whether the full head and ears meet the specification.",
+      "crop_sha256": "1825ff5790d94237cc82983411bf23d531871727962528706511b5a4876bad7b",
+      "geometry": {
+        "x0": 61,
+        "y0": 8,
+        "size": 260,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-400e2f3e43f23529dd",
+      "pool_id": "s069135",
+      "code": "R018",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real black cat with complete upright head and ears above slippers; head can be isolated.",
+      "crop_sha256": "6e8648260580dff0f0ca94695636f75a9de9de1f34f7190b7425bbfb4e87f225",
+      "geometry": {
+        "x0": 57,
+        "y0": 0,
+        "size": 220,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-5eb12412e865a49764",
+      "pool_id": "s075436",
+      "code": "R022",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real tabby cat with complete ears and head; isolate head while retaining sufficient top/bottom margin.",
+      "crop_sha256": "d521046fb5d88d16d4b152d8dd0fa4783c324cbf9379eed5c7f2e80f31a211ff",
+      "geometry": {
+        "x0": 12,
+        "y0": 0,
+        "size": 265,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-6de6a92a5624298495",
+      "pool_id": "s021962",
+      "code": "R035",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real kitten with complete upright ears/head and sufficient source resolution; head-only crop is feasible.",
+      "crop_sha256": "77c6099006e1657d6f46a0986397489f08c5c4fc31b4faa6e3bc90532758f5bd",
+      "geometry": {
+        "x0": 50,
+        "y0": 0,
+        "size": 210,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-3298c7ce50a1673c84",
+      "pool_id": "s040869",
+      "code": "R036",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real cat in chest; complete side-profile head and ears can be isolated.",
+      "crop_sha256": "843f32cefaca31bad704efb8af48358532caf11349bfbef0f959e4c397662e30",
+      "geometry": {
+        "x0": 82,
+        "y0": 0,
+        "size": 210,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-36c6d5ba2c57f435c8",
+      "pool_id": "s013308",
+      "code": "R039",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real white puppy with complete head/ears; a tighter head crop can remove body.",
+      "crop_sha256": "4ef20f2116722203bab92e849d553cd0d2fb9f87821edb49e63b8ac65e1d1001",
+      "geometry": {
+        "x0": 10,
+        "y0": 0,
+        "size": 210,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-d8627ccfc56b1126e5",
+      "pool_id": "s044900",
+      "code": "R052",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real dog with complete long ears and upright head; source resolution is sufficient for a head-only crop.",
+      "crop_sha256": "5516e19758e535f9d2c59e0328623f07c102abc2a6e8a4e0c168b62cabd437e8",
+      "geometry": {
+        "x0": 30,
+        "y0": 0,
+        "size": 185,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-4a9a8ac4d75d010f68",
+      "pool_id": "s035083",
+      "code": "R055",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real cat with complete ears/head and enough surrounding pixels for a centered crop.",
+      "crop_sha256": "c41eed2adb42388686171a083d0c1444d447085a9020b3c6660104d11d1c5611",
+      "geometry": {
+        "x0": 45,
+        "y0": 0,
+        "size": 190,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-8041ff4c6f141c12c8",
+      "pool_id": "s001119",
+      "code": "R058",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real small dog with full head and ears above carrier; a head-only crop is feasible, with a modest rotation if needed.",
+      "crop_sha256": "f846abbf45070ef2f479f96fbe8e658510c6c255d9a0c686b8eb639fd399543a",
+      "geometry": {
+        "x0": 112,
+        "y0": 35,
+        "size": 124,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-1a01f22c564d272493",
+      "pool_id": "s028018",
+      "code": "R065",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real bulldog puppy with complete upright head/ears; suitable head-only crop is feasible.",
+      "crop_sha256": "10afb2755600001db59ea5c94ad168c1dc015df987ac1b67b9ae33942e2ad8d1",
+      "geometry": {
+        "x0": 60,
+        "y0": 0,
+        "size": 264,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-c3db7dd5a5a685a427",
+      "pool_id": "s064949",
+      "code": "R101",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real kitten in Halloween setting; complete head/ears visible and source resolution sufficient.",
+      "crop_sha256": "6d8018789034fa102a7bf26ee553a51be99909b2c0c6a21a1978c25543d27896",
+      "geometry": {
+        "x0": 31,
+        "y0": 32,
+        "size": 134,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-d959589f0fe29137c3",
+      "pool_id": "s058024",
+      "code": "R136",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real dog in upright side profile with full visible head/ear and sufficient source resolution.",
+      "crop_sha256": "bd912dcda151a2a69a1edf3468bff1b123ec9de3a13ec1a5e874e71938159927",
+      "geometry": {
+        "x0": 174,
+        "y0": 0,
+        "size": 280,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-73110a92a6de9e8a93",
+      "pool_id": "s039867",
+      "code": "R139",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real golden puppy with complete head/drooping ears and sufficient pixels around it.",
+      "crop_sha256": "d7c02a1af3baf70012c4c5b06a87a7bffc1464a40857ab6309eea2bdf58aa2f8",
+      "geometry": {
+        "x0": 164,
+        "y0": 0,
+        "size": 170,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-f222167f766959e0e8",
+      "pool_id": "s027089",
+      "code": "R142",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real small dog; full upright head/ears can be isolated from body.",
+      "crop_sha256": "18361f8fc72a1ee556a0cf80fce344fe7975a917498d93aa334fbfeeff92aa70",
+      "geometry": {
+        "x0": 89,
+        "y0": 0,
+        "size": 152,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-e017bdadbfc34069d6",
+      "pool_id": "s024084",
+      "code": "R152",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real dark-coated dog with full visible head and ears; a head crop is feasible without using coat darkness as a reject reason.",
+      "crop_sha256": "abeb1345efb85fcfb47072f728a57f716fbad16e75297dbdbc9b0f7dc86435ef",
+      "geometry": {
+        "x0": 209,
+        "y0": 24,
+        "size": 178,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-00c00f65a3d3a25728",
+      "pool_id": "s025745",
+      "code": "R157",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real running dog with complete visible head and ears; head crop can remove body/background.",
+      "crop_sha256": "f71ae54f4c6a01a610e2dd5a55fcc1b6861b531f0e56f11a86f10e81f280333d",
+      "geometry": {
+        "x0": 169,
+        "y0": 10,
+        "size": 124,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-0e12194cdc904980ac",
+      "pool_id": "s047857",
+      "code": "R167",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real dog head in news still, wide enough in 300x180 source. A crop can avoid lower news text; check softness in exact 32px draft.",
+      "crop_sha256": "8dedb70878984946d0df5dbc59dbb2cfd89499dca0fcb8afb1def5323647ceba",
+      "geometry": {
+        "x0": 107,
+        "y0": 0,
+        "size": 132,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-64cfee6d7ffb47eeec",
+      "pool_id": "s074162",
+      "code": "R171",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Two real dogs; the right dog's complete head/ears can be isolated without the left dog's head.",
+      "crop_sha256": "c000e0f023ffc2b7c029acfe30545db0d71c4c8d33b338254fb4f05d694d77a2",
+      "geometry": {
+        "x0": 160,
+        "y0": 28,
+        "size": 160,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-c5cf78ba572bdd124f",
+      "pool_id": "s071460",
+      "code": "R174",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real calico cat with complete upright head/ears and surrounding source pixels.",
+      "crop_sha256": "9fcb35658b8bdfe97a36623e9cae623f47a7ffb225f02abca664d1cd941247ee",
+      "geometry": {
+        "x0": 66,
+        "y0": 0,
+        "size": 290,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-fc1fee18a62a1540fc",
+      "pool_id": "s002984",
+      "code": "R182",
+      "group": "Recovered source",
+      "suggested_species": "Dog",
+      "note": "Real small puppy with complete head/fur/ears; sufficient original resolution for a head crop.",
+      "crop_sha256": "87e125e51a750811906f88a8ec549b9fd899383e84d80987343b22c97bd06880",
+      "geometry": {
+        "x0": 35,
+        "y0": 0,
+        "size": 235,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "recover-61f98f2af78355f371",
+      "pool_id": "s062662",
+      "code": "R185",
+      "group": "Recovered source",
+      "suggested_species": "Cat",
+      "note": "Real tabby cat with complete upright head/ears; head can be isolated from body.",
+      "crop_sha256": "52c5a3bfb9c2f18189ecf2969fd413860d988ceff9ef9e4ed11fd3cf8d671b72",
+      "geometry": {
+        "x0": 172,
+        "y0": 35,
+        "size": 180,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "92243198c445d74ce261",
+      "pool_id": "s060160",
+      "code": "C02",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Alert gray tabby. Check room below the chin.",
+      "crop_sha256": "f7371b486d8139f758c32c2178cd7237aa2496432fffb61334a38ce0fd842316",
+      "geometry": {
+        "x0": 127,
+        "y0": 37,
+        "size": 160,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "86a0cbfb46b0f3cd2421",
+      "pool_id": "s069847",
+      "code": "D04",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Upright shepherd. Check that both tall ear tips fit.",
+      "crop_sha256": "103b856a09ab1fc47282ff0fc8bebdf2687e07c225df42c5de70168f143a11ad",
+      "geometry": {
+        "x0": 16,
+        "y0": 16,
+        "size": 156,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7a6fdf59a2a7af7978c4",
+      "pool_id": "s074046",
+      "code": "C04",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby in grass. Check the slight tilt and eye clarity.",
+      "crop_sha256": "c8584cd0ac07ebd94fa5ac229e114bd4ad608c088e4a1087a1f7401414d6dd41",
+      "geometry": {
+        "x0": 145,
+        "y0": 35,
+        "size": 209,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c373842787b07298aa8b",
+      "pool_id": "s047750",
+      "code": "D05",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "White dog in a monochrome photo. Check the complete profile and ear tips.",
+      "crop_sha256": "81bd5c9f7fe1fabb1bb782a12523f17b18a60e996c48bfe60e63c7c0e51ec104",
+      "geometry": {
+        "x0": 210,
+        "y0": 151,
+        "size": 97,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4b95180d66581cc05472",
+      "pool_id": "s043318",
+      "code": "C07",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark cat facing camera. Check that the chin is distinct from the body.",
+      "crop_sha256": "8e8cdde790c92af17ca38079116edd40d6f8d6faa83ce3432f721d02f17bce75",
+      "geometry": {
+        "x0": 128,
+        "y0": 27,
+        "size": 186,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6239f8aa701956a9bf03",
+      "pool_id": "s027022",
+      "code": "D06",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small dog with a recognizable profile. Verify the native source head width.",
+      "crop_sha256": "09a9d725a665e34af4396497ace3fd834c3be9755ecff6ca71f7abd4569606a7",
+      "geometry": {
+        "x0": 134,
+        "y0": 198,
+        "size": 65,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "bda064ab8952a062f9f5",
+      "pool_id": "s032749",
+      "code": "C08",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Kitten looking down. Check the chin and whether the pose remains roughly upright.",
+      "crop_sha256": "12955693aaa68411ec1b51a09b8473e27bb2707510f8d51827eb1f253687e504",
+      "geometry": {
+        "x0": 179,
+        "y0": 13,
+        "size": 105,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "71eca6ab487a58350e4d",
+      "pool_id": "s075775",
+      "code": "D07",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Shepherd in profile. Check the muzzle and tall ear while keeping the head centered.",
+      "crop_sha256": "e16c79aabf5f0f7912ae0e863ec78e225cbcf4196d0d0c87a10f6e83e5a974d0",
+      "geometry": {
+        "x0": 55,
+        "y0": 20,
+        "size": 145,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a1f02c338896c5fa19ad",
+      "pool_id": "s074563",
+      "code": "C09",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby by brick wall. Check the ear tips and chin against the background.",
+      "crop_sha256": "4213f476ff3bdc781835ffa7081f5662e615d5ecea3906199ff8863e35637f78",
+      "geometry": {
+        "x0": 90,
+        "y0": 21,
+        "size": 73,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3fed43a13817c63af68d",
+      "pool_id": "s004988",
+      "code": "D08",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Front-facing dark dog. Check both floppy ears and chin.",
+      "crop_sha256": "204b431f2225b8370794238c1126cd18fa806692d41fd2e74ab1ccd7b48bc546",
+      "geometry": {
+        "x0": 40,
+        "y0": 35,
+        "size": 238,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "8842611b1b6fcd56dcf6",
+      "pool_id": "s033961",
+      "code": "C12",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "White cat on a light background. Check that both pale ears and the chin remain distinct.",
+      "crop_sha256": "0e8aa0a4924de0dee4ed988f0cadbff429f7f91c2a17323d7fec1a413d98e358",
+      "geometry": {
+        "x0": 81,
+        "y0": 220,
+        "size": 208,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "03ce897ad0b0a1444e62",
+      "pool_id": "s019854",
+      "code": "D10",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Shepherd in grass. Check both ears and center the head above the shoulders.",
+      "crop_sha256": "d1726b3478aece13f2ad49e00b848fe829d530e9b8b24a3dc1c7f92cef3b6a5e",
+      "geometry": {
+        "x0": 195,
+        "y0": 5,
+        "size": 163,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "7292d69605b15db9029c",
+      "pool_id": "s029532",
+      "code": "C13",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby lying outdoors. Check head occupancy and avoid a loose, body-heavy crop.",
+      "crop_sha256": "b743427f26dfa57d37d39e7470123310fd18145973f6ff049c935907e304c06d",
+      "geometry": {
+        "x0": 5,
+        "y0": 0,
+        "size": 222,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "a91a9a477e438151c1da",
+      "pool_id": "s050770",
+      "code": "D12",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Gray dog seen from below. Check both ears and the bottom of the muzzle.",
+      "crop_sha256": "184d17dfc807b169a327f9cdd584670903f3988ab6a05b9b1408b3a805bceb28",
+      "geometry": {
+        "x0": 116,
+        "y0": 87,
+        "size": 134,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c4283a5219ce4d1d1ae3",
+      "pool_id": "s005933",
+      "code": "C15",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby in foliage. Check ear tips and chin.",
+      "crop_sha256": "aeecbc987f58c102b75948eec530872ccae24db28995cb27bcf1fc88a2239931",
+      "geometry": {
+        "x0": 97,
+        "y0": 10,
+        "size": 106,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "5aa3e09ce1c9284a1fe6",
+      "pool_id": "s076027",
+      "code": "D13",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Brown dog with tall ears. A watermark is visible in the source. Check head detail in the crop.",
+      "crop_sha256": "2f1c83045c977884ab3a7bb88f6ec0ef5bb1eb55abd6cc0af61035db4ec10859",
+      "geometry": {
+        "x0": 32,
+        "y0": 87,
+        "size": 217,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "b1737d6227ff2d1db94c",
+      "pool_id": "s065139",
+      "code": "C18",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark gray cat in grass. Check visibility of the ears and facial detail.",
+      "crop_sha256": "f652538ef97e6f689e6a3e16a015330021d2696b63b7b1756974792d0c8acb64",
+      "geometry": {
+        "x0": 234,
+        "y0": 27,
+        "size": 162,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "1d8336f476ac2b063039",
+      "pool_id": "s031883",
+      "code": "D14",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog looking out of an opening. Inspect whether the opening obscures the lower head.",
+      "crop_sha256": "aa187f77bbdd01fbc625de5848a20e8f4330d53c37b360d0b0bea44ba8da21ad",
+      "geometry": {
+        "x0": 79,
+        "y0": 62,
+        "size": 149,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4baae55e1ba79a36c6d9",
+      "pool_id": "s014441",
+      "code": "C20",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger cat looking downward. Check the far ear tip and head centering.",
+      "crop_sha256": "34094f772090f163dfb620e8ee6cfb10b38f302a9a6618b9404f75247aa941b5",
+      "geometry": {
+        "x0": 8,
+        "y0": 0,
+        "size": 146,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "ffb4ccc878a86245c161",
+      "pool_id": "s051231",
+      "code": "D15",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dog in dark surroundings. Check the ear tips and facial detail in the native crop.",
+      "crop_sha256": "13deb90d75bb2ce9edc4ccfbf6a0d00def3e3836ce98f7807692d04836c4b1fe",
+      "geometry": {
+        "x0": 176,
+        "y0": 20,
+        "size": 126,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "dc85e56534113029252b",
+      "pool_id": "s038685",
+      "code": "C21",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Ginger and white cat in side view. Check the muzzle and lower chin.",
+      "crop_sha256": "80ca282f683fb10f3e9c2415741c03562e1b66f73647d8a640158ac178b125e7",
+      "geometry": {
+        "x0": 215,
+        "y0": 48,
+        "size": 104,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "b9c7c60213bf8dad6a15",
+      "pool_id": "s031647",
+      "code": "D16",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Small gray dog with tall ears. Check full head and sharpness.",
+      "crop_sha256": "c0ae809ba2c420fa8f8aa843573f3395fc86502c486a9c8c7876aad672d613ed",
+      "geometry": {
+        "x0": 86,
+        "y0": 101,
+        "size": 138,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "b26bfa6ae0240be47b9e",
+      "pool_id": "s032305",
+      "code": "C23",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Long-haired tabby. Confirm both pointed ear tips and the lower chin.",
+      "crop_sha256": "4decaf1d3ee871b34e144ad2e7d0e3ed68b39dc4ec677f37304ec48fb99654fe",
+      "geometry": {
+        "x0": 135,
+        "y0": 7,
+        "size": 135,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "54bebe41cf6439b6b09f",
+      "pool_id": "s008251",
+      "code": "D18",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Black dog in profile. Check the ear tips and whole muzzle.",
+      "crop_sha256": "26c2641b2fa4757fae024138cda6d5ade8cd276d50e98a93704e5bd0332c6480",
+      "geometry": {
+        "x0": 130,
+        "y0": 52,
+        "size": 169,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "6f93b40a1a3803f2c50a",
+      "pool_id": "s038057",
+      "code": "C24",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Gray cat walking. Check ear tips and whether the head needs vertical recentering.",
+      "crop_sha256": "57a0f1e6741330f25e54b17aded5b315a0d5d03dd096547b3f0c9db51378f920",
+      "geometry": {
+        "x0": 11,
+        "y0": 13,
+        "size": 192,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "4691acd1f34c4ca97c0d",
+      "pool_id": "s017506",
+      "code": "D19",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark and white dog outdoors. Check both ears and head centering.",
+      "crop_sha256": "7a796069445b679f648c13659d10c118511cdb3cd3ceba62578e718886ea31cc",
+      "geometry": {
+        "x0": 202,
+        "y0": 13,
+        "size": 147,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "c0d28983ed867bd7b81d",
+      "pool_id": "s070006",
+      "code": "C27",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Light cat with dark facial markings. Check muzzle detail and the far ear.",
+      "crop_sha256": "f431c3fad3d8476e8106d01c5a330e9b8d90300f182929ee7a9bfa7774acfe3d",
+      "geometry": {
+        "x0": 160,
+        "y0": 55,
+        "size": 110,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "442a0cedf84ef489f94f",
+      "pool_id": "s008248",
+      "code": "D21",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Black and white dog. Check the lower muzzle and whether the crop includes too much neck.",
+      "crop_sha256": "16e7cd1a7c9259aa25253d56b9f018e3c3244dc604e57d91bcb02bc533099306",
+      "geometry": {
+        "x0": 175,
+        "y0": 162,
+        "size": 78,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "2ac53b96f22d2987ce4e",
+      "pool_id": "s072765",
+      "code": "C28",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Large-eared cat against teal. Check both ear tips and occupancy.",
+      "crop_sha256": "412b546e4ff648151c942d97d03cbe84966ab1594d0e4662ff70484af338a205",
+      "geometry": {
+        "x0": 284,
+        "y0": 16,
+        "size": 190,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "baa0dbaa9fcb0e588128",
+      "pool_id": "s058269",
+      "code": "D22",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Ginger dog by a path. Check the far ear and centering.",
+      "crop_sha256": "b83d83f3924a63f7e67f94752f5f3132466da820b9808cc81828e2b9a754f871",
+      "geometry": {
+        "x0": 59,
+        "y0": 4,
+        "size": 114,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "20744495fba22166ff5b",
+      "pool_id": "s013923",
+      "code": "C29",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Dark tabby facing camera. Check that the shadows preserve the head outline.",
+      "crop_sha256": "599169a7a9a09412a8a89494ed8b88f946e85ba8d69826ceb3ec1d29876b05ea",
+      "geometry": {
+        "x0": 65,
+        "y0": 42,
+        "size": 208,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "b7846466313a7ef639a1",
+      "pool_id": "s007489",
+      "code": "D25",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark dog wearing a red accessory. Check face detail and the visible ears.",
+      "crop_sha256": "81593f4b12504f3f24b0e5ab1b079674192ca16df19b0c020243fe8a4790867e",
+      "geometry": {
+        "x0": 111,
+        "y0": 47,
+        "size": 179,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "0c990cd8338e58185b67",
+      "pool_id": "s015035",
+      "code": "C33",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Black and white cat. The crop looks loose. Try a tighter square if both ears still fit.",
+      "crop_sha256": "bc7a94e29b55f0dea34fe0627a60b1932e6811ce49a415f624b32291728881b9",
+      "geometry": {
+        "x0": 38,
+        "y0": 37,
+        "size": 209,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3d8e97f32d39098e751e",
+      "pool_id": "s070025",
+      "code": "D27",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Dark wrinkled dog. Check ear tips and lower chin at 32 px.",
+      "crop_sha256": "ebcd34e0d6bfbe0309294c25f9620057bd060bacfe66fa1a3e2d340fc72e9556",
+      "geometry": {
+        "x0": 15,
+        "y0": 13,
+        "size": 226,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "f2349ebae79ce4159041",
+      "pool_id": "s004906",
+      "code": "C34",
+      "group": "Ranked candidate",
+      "suggested_species": "Cat",
+      "note": "Tabby on grass. Check tilt, ear tips and the lower chin.",
+      "crop_sha256": "1c89a5d0098b6291cf12771223d5bd6a3f85dafe654c5cf88bda92057f6741e2",
+      "geometry": {
+        "x0": 140,
+        "y0": 42,
+        "size": 181,
+        "angle": 0.0
+      }
+    },
+    {
+      "candidate_id": "3b73ce4bc681ec28ed36",
+      "pool_id": "s014597",
+      "code": "D32",
+      "group": "Ranked candidate",
+      "suggested_species": "Dog",
+      "note": "Light dog with floppy ears. Check both ear edges and native source head width.",
+      "crop_sha256": "ef66e6eb1d6c00bf4628cf643e266fa725e3b3812788c92aa2fd821f324f2cc2",
+      "geometry": {
+        "x0": 67,
+        "y0": 9,
+        "size": 80,
+        "angle": 0.0
+      }
+    }
+  ]
+}
