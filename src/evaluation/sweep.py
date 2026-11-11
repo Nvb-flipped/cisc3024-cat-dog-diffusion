@@ -11,7 +11,7 @@ from src.release.check import check_files
 from src.evaluation.run import run_official
 
 
-def score_results(results):
+def score_results(results, *, n_per_class=1000):
     """Project plan's prespecified lexicographic selection rule, across all selection seeds."""
     if not results:
         raise ValueError('No evaluation evidence')
@@ -34,8 +34,8 @@ def score_results(results):
         if resources['seconds_per_1000'] <= 0 or not 0 <= resources['num_parameters'] <= 20_000_000 or \
            not 0 <= resources['submission_mb'] <= 100:
             return None
-        if result['metrics']['num_samples'] != 2000:
-            raise ValueError('Full selection ranking requires exactly 1000 per class')
+        if result['metrics']['num_samples'] != 2 * n_per_class:
+            raise ValueError(f'Comparison requires exactly {n_per_class} samples per class')
     tier_floor = min(r['marks']['total'] for r in results)
     margin = min(min((r['metrics']['accuracy'] - .90) / .05,
                      (50 - r['metrics']['fid']) / 10,
