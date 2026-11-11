@@ -18,7 +18,7 @@ from src.curation.review import CRITERIA, parse_geometry, rendered_crop
 
 GROUP_FIELDS = ['candidate_id', 'group_id', 'keep', 'reviewer', 'timestamp', 'reason',
                 'origin', 'crop_review_sha256', 'diagnostic_only']
-SINGLETON_PAGE_SIZE = 24
+SINGLETON_PAGE_SIZE = 8
 
 
 def review_pages(components):
