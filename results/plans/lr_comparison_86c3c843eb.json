@@ -1,0 +1,85 @@
+{
+  "manifest": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\manifests\\v001.csv",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "training_by_class": {
+    "0": 583,
+    "1": 614
+  },
+  "base_config_sha256": "c859c1000ad9dc8a3de6c5f93fca573a04e34f8ff9b7f11fe8a90ec8a180f3dc",
+  "training_seed": 17,
+  "updates": 50000,
+  "commands": [
+    {
+      "name": "lr_0.0002_seed17_u050000_86c3c843eb",
+      "learning_rate": 0.0002,
+      "is_reused_baseline": true,
+      "config": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0002_seed17_u050000_86c3c843eb.yaml",
+      "config_sha256": "821d4e95a818c35059c0b95332ed94d74a2b5b2efa88d64070dddb12f3f0afda",
+      "command": [
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+        "-m",
+        "src.training.train",
+        "--config",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0002_seed17_u050000_86c3c843eb.yaml",
+        "--manifest",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\manifests\\v001.csv",
+        "--seed",
+        "17",
+        "--out",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\ddpm_seed17_86c3c843eb"
+      ],
+      "output": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\ddpm_seed17_86c3c843eb",
+      "final_checkpoint": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\ddpm_seed17_86c3c843eb\\update_050000.pt",
+      "images_seen": 6400000
+    },
+    {
+      "name": "lr_0.0001_seed17_u050000_86c3c843eb",
+      "learning_rate": 0.0001,
+      "is_reused_baseline": false,
+      "config": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0001_seed17_u050000_86c3c843eb.yaml",
+      "config_sha256": "dbcf3f5683cfde7a19660e6cb3be69bc3505be05b64a109dfcfa3318ecd847ca",
+      "command": [
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+        "-m",
+        "src.training.train",
+        "--config",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0001_seed17_u050000_86c3c843eb.yaml",
+        "--manifest",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\manifests\\v001.csv",
+        "--seed",
+        "17",
+        "--out",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0001_seed17_u050000_86c3c843eb"
+      ],
+      "output": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0001_seed17_u050000_86c3c843eb",
+      "final_checkpoint": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0001_seed17_u050000_86c3c843eb\\update_050000.pt",
+      "images_seen": 6400000
+    },
+    {
+      "name": "lr_0.0003_seed17_u050000_86c3c843eb",
+      "learning_rate": 0.0003,
+      "is_reused_baseline": false,
+      "config": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0003_seed17_u050000_86c3c843eb.yaml",
+      "config_sha256": "7df862f824b2dbbd0b677de14cf57dccd35e5716bff36ee997882c65d6d0a4ea",
+      "command": [
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+        "-m",
+        "src.training.train",
+        "--config",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\configs\\runs\\86c3c843eb\\lr_0.0003_seed17_u050000_86c3c843eb.yaml",
+        "--manifest",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\manifests\\v001.csv",
+        "--seed",
+        "17",
+        "--out",
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0003_seed17_u050000_86c3c843eb"
+      ],
+      "output": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0003_seed17_u050000_86c3c843eb",
+      "final_checkpoint": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\checkpoints\\lr_0.0003_seed17_u050000_86c3c843eb\\update_050000.pt",
+      "images_seen": 6400000
+    }
+  ],
+  "comparison": "Only learning rate changes; same initialization seed, data and optimizer-update budget",
+  "selection": "Use actual aggregate official metrics; do not infer a winning learning rate from training loss alone.",
+  "created": "2026-11-11T10:22:10.564375+00:00"
+}
