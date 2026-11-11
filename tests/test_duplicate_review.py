@@ -104,3 +104,31 @@ def test_no_approval_or_partial_comparison_cannot_be_saved(store):
         store.save(data | {'personally_compared': False})
     with pytest.raises(ValueError, match='every crop'):
         store.save(data | {'rows': data['rows'][:1]})
+
+
+def test_keep_pending_singletons_preserves_existing_choices(store, monkeypatch):
+    monkeypatch.setattr('src.curation.duplicate_review.suggested_components',
+                        lambda items, features: ([['a'], ['b'], ['c']], []))
+    data = choices(store)
+    queue = store.queue()
+    assert queue['pages'] == [{'ids': ['a', 'b', 'c'], 'singleton': True}]
+    assert store.save(data | {'rows': [data['rows'][1]]})['saved'] == 1
+    prior_exclusion = store.latest['b'].copy()
+    rows = [dict(candidate_id=identifier, group_id=f'distinct:{identifier}', keep='yes', reason='')
+            for identifier in ('a', 'c')]
+    bulk = data | {'keep_pending_singletons': True, 'rows': rows}
+    with pytest.raises(ValueError, match='pending crops changed'):
+        store.save(bulk | {'rows': rows[:1]})
+    assert store.save(bulk)['saved'] == 2
+    assert store.latest['b'] == prior_exclusion
+    with pytest.raises(ValueError, match='pending crops changed'):
+        store.save(bulk)
+
+
+def test_singleton_button_cannot_skip_a_suggested_comparison(store):
+    data = choices(store)
+    rows = [dict(candidate_id=identifier, group_id=f'distinct:{identifier}', keep='yes', reason='')
+            for identifier in ('a', 'b', 'c')]
+    with pytest.raises(ValueError, match='pending crops changed'):
+        store.save(data | {'keep_pending_singletons': True, 'rows': rows})
+    assert not store.log.exists()

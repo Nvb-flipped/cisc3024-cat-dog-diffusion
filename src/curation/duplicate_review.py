@@ -18,6 +18,15 @@ from src.curation.review import CRITERIA, parse_geometry, rendered_crop
 
 GROUP_FIELDS = ['candidate_id', 'group_id', 'keep', 'reviewer', 'timestamp', 'reason',
                 'origin', 'crop_review_sha256', 'diagnostic_only']
+SINGLETON_PAGE_SIZE = 24
+
+
+def review_pages(components):
+    singletons = [component[0] for component in components if len(component) == 1]
+    pages = [{'ids': component, 'singleton': False} for component in components if len(component) > 1]
+    pages.extend({'ids': singletons[start:start + SINGLETON_PAGE_SIZE], 'singleton': True}
+                 for start in range(0, len(singletons), SINGLETON_PAGE_SIZE))
+    return pages
 
 
 def dhash(image):
@@ -113,6 +122,7 @@ class DuplicateReview:
                 write_json(self.output / digest / 'queue.json', self.cached)
             result = json.loads(json.dumps(self.cached))
             result['diagnostic_only'] = self.diagnostic_only
+            result['pages'] = review_pages(result['components'])
             for row in result['items']:
                 prior = self.latest.get(row['candidate_id'])
                 row['prior'] = prior if prior and prior['crop_review_sha256'] == row['crop_review_sha256'] else None
@@ -152,8 +162,17 @@ class DuplicateReview:
             if not isinstance(rows, list) or not rows:
                 raise ValueError('No duplicate decisions supplied')
             identifiers = [row['candidate_id'] for row in rows]
-            if len(set(identifiers)) != len(identifiers) or sorted(identifiers) not in queue['components']:
-                raise ValueError('Review every crop in the displayed comparison component exactly once')
+            requested = sorted(identifiers)
+            pages = queue['pages']
+            if data.get('keep_pending_singletons') is True:
+                pending = {row['candidate_id'] for row in queue['items'] if row['prior'] is None}
+                valid = any(page['singleton'] and requested == sorted(pending.intersection(page['ids']))
+                            for page in pages)
+                if not valid or any(row.get('group_id') != 'distinct:' + row['candidate_id'] or
+                                    row.get('keep') != 'yes' or row.get('reason') for row in rows):
+                    raise ValueError('The pending crops changed or the page choices are invalid. Reload approved crops.')
+            elif requested not in queue['components'] and not any(requested == sorted(page['ids']) for page in pages):
+                raise ValueError('Review every crop in the displayed comparison component or page exactly once')
             approved = {row['candidate_id']: row for row in self.approved()}
             events = []
             now = timestamp()
