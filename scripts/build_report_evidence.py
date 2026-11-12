@@ -8,6 +8,222 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.common import sha256, write_json
+from src.evaluation.select import validated_result
+
+
+def development_claims(paths):
+    manifest = ROOT / 'manifests/v001.csv'
+    holdout = manifest.with_suffix('.validation.csv')
+    provenance = manifest.with_suffix('.provenance.json')
+    baseline = ROOT / 'results/experiments/baseline_v001_seed17/seed_0.json'
+    refinement = ROOT / 'results/experiments/refinement_v001_seed17'
+    selection_path = refinement / 'selection.json'
+    confirmation_path = refinement / 'confirmation.json'
+    if not confirmation_path.exists():
+        return []
+
+    manifest_info = json.loads(provenance.read_text())
+    manifest_hash, holdout_hash = sha256(manifest), sha256(holdout)
+    if manifest_info['origin'] != 'student_reviewed_manifest' or \
+            [manifest_hash, holdout_hash] != [row['sha256'] for row in manifest_info['manifests']]:
+        raise ValueError('Reviewed training or holdout manifest no longer matches provenance')
+
+    baseline_result = validated_result(baseline, 0, ROOT / 'private_build/baseline_v001_seed17')
+    selection = json.loads(selection_path.read_text())
+    confirmation = json.loads(confirmation_path.read_text())
+    if selection['manifest_sha256'] != manifest_hash or \
+            confirmation['selection_sha256'] != sha256(selection_path):
+        raise ValueError('Development confirmation does not bind this selection and manifest')
+    chosen = selection['selected']
+    export = ROOT / chosen['exported']
+    evidence = chosen['trials'] + confirmation['confirmation']['evidence']
+    seeds = [0, 101, 202, 303, 404]
+    if [row['seed'] for row in evidence] != seeds:
+        raise ValueError('Development evidence does not cover the five declared seeds')
+    files = [manifest, holdout, provenance, baseline, baseline.with_suffix('.provenance.json'),
+             selection_path, confirmation_path]
+    results = []
+    for seed, row in zip(seeds, evidence):
+        path = ROOT / row['path']
+        if sha256(path) != row['sha256']:
+            raise ValueError(f'Development evaluation changed: {path}')
+        results.append(validated_result(path, seed, export))
+        files.append(path)
+    paths.update({f'E{index:03d}': str(path.relative_to(ROOT).as_posix())
+                  for index, path in enumerate(files, 9)})
+
+    def metric_range(series, metric, fmt):
+        values = [result['metrics'][metric] for result in series]
+        return f'{min(values):{fmt}}–{max(values):{fmt}}'
+
+    train, validation = (manifest_info[name] for name in ('train_by_class', 'validation_by_class'))
+    metrics = baseline_result['metrics']
+    valid_count = sum(result['marks']['valid'] for result in results)
+    claims = [
+        ('C007', 'Data', 'numeric', f"The personally reviewed v001 split contains {train['0']} cat and {train['1']} dog training crops and a disjoint holdout of {validation['0']} cat and {validation['1']} dog crops.", ['E009', 'E010', 'E011']),
+        ('C008', 'Development results', 'result', f"The full-width seed-17 baseline at 50,000 updates reached {metrics['accuracy']:.2%} accuracy and {metrics['fid']:.2f} FID on evaluator seed 0. Its {metrics['memorization_rate']:.2%} memorization exceeded the 5% limit.", ['E012', 'E013']),
+        ('C009', 'Development results', 'result', f"The 21,000-update EMA development candidate using 50 DDIM steps and CFG {chosen['guidance']:g} passed the hard conditions on {valid_count} of {len(seeds)} seeds. Accuracy was {metric_range(results, 'accuracy', '.2%')}, FID {metric_range(results, 'fid', '.2f')}, recall {metric_range(results, 'recall', '.2%')}, and memorization {metric_range(results, 'memorization_rate', '.2%')}.", [f'E{index:03d}' for index in range(14, 21)]),
+    ]
+    capacity = ROOT / 'results/experiments/capacity_32_seed17'
+    capacity_confirmation_path = capacity / 'confirmation.json'
+    if capacity_confirmation_path.exists():
+        capacity_selection_path = capacity / 'selection.json'
+        capacity_selection = json.loads(capacity_selection_path.read_text())
+        capacity_confirmation = json.loads(capacity_confirmation_path.read_text())
+        if capacity_selection['manifest_sha256'] != manifest_hash or \
+                capacity_confirmation['selection_sha256'] != sha256(capacity_selection_path):
+            raise ValueError('Capacity confirmation does not bind this selection and manifest')
+        small = capacity_selection['selected']
+        small_evidence = small['evidence'] + capacity_confirmation['confirmation']['evidence']
+        if [row['seed'] for row in small_evidence] != seeds:
+            raise ValueError('Capacity evidence does not cover the five declared seeds')
+        small_files = [capacity_selection_path, capacity_confirmation_path]
+        small_results = []
+        for seed, row in zip(seeds, small_evidence):
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError(f'Capacity evaluation changed: {path}')
+            small_results.append(validated_result(path, seed, ROOT / small['exported']))
+            small_files.append(path)
+        paths.update({f'E{index:03d}': path.relative_to(ROOT).as_posix()
+                      for index, path in enumerate(small_files, 21)})
+        small_valid = sum(result['marks']['valid'] for result in small_results)
+        claims.append(('C010', 'Development results', 'result',
+            f"The {small['update']:,}-update smaller EMA candidate passed on {small_valid} of {len(seeds)} seeds. Accuracy was {metric_range(small_results, 'accuracy', '.2%')}, FID {metric_range(small_results, 'fid', '.2f')}, recall {metric_range(small_results, 'recall', '.2%')}, and memorization {metric_range(small_results, 'memorization_rate', '.2%')}.",
+            [f'E{index:03d}' for index in range(21, 28)]))
+    quantity = ROOT / 'results/experiments/quantity_v001_seed17'
+    comparison_path = quantity / 'comparison.json'
+    if comparison_path.exists():
+        comparison = json.loads(comparison_path.read_text())
+        candidate = comparison['candidate']
+        result_path = quantity / 'seed_0.json'
+        if comparison['baseline']['result_sha256'] != sha256(baseline) or \
+                candidate['evidence'][0]['sha256'] != sha256(result_path):
+            raise ValueError('Matched quantity evidence changed after evaluation')
+        measured = validated_result(result_path, 0, ROOT / candidate['exported'])['metrics']
+        files = [comparison_path, result_path, result_path.with_suffix('.provenance.json')]
+        paths.update({f'E{index:03d}': path.relative_to(ROOT).as_posix()
+                      for index, path in enumerate(files, 28)})
+        claims.append(('C011', 'Matched data quantity comparison', 'result',
+            f"At 50,000 updates, the balanced 1,000-crop subset reached {measured['accuracy']:.2%} accuracy, FID {measured['fid']:.2f}, and {measured['recall']:.2%} recall on seed 0. Memorization was {measured['memorization_rate']:.2%} for the subset and {metrics['memorization_rate']:.2%} for the 1,197-crop parent. Both exceeded the 5% limit.",
+            ['E012', 'E028', 'E029', 'E030']))
+    frontier = ROOT / 'results/experiments/capacity_frontier_v001'
+    frontier_selection = frontier / 'selection.json'
+    if frontier_selection.exists():
+        comparison = json.loads(frontier_selection.read_text())
+        longer = next(row for row in comparison['checks'] if row['name'] == 'u032000_ema_s50_g2')
+        files = [frontier_selection]
+        outcomes = []
+        for row in longer['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError(f'Frontier evaluation changed: {path}')
+            files.append(path)
+            outcomes.append(validated_result(path, row['seed'], ROOT / longer['exported']))
+        initial, last = outcomes[0], outcomes[-1]
+        ids = {f'E{index:03d}': path.relative_to(ROOT).as_posix()
+               for index, path in enumerate(files, 31)}
+        paths.update(ids)
+        rate = last['metrics']['memorization_rate']
+        flags = round(rate * last['metrics']['num_samples'])
+        claims.append(('C012', 'Training-length and sampler comparison', 'result',
+            f"The 32,000-update small candidate with 50 DDIM steps and CFG 2.0 reached {initial['metrics']['recall']:.2%} recall on seed 0. Seed {last['protocol']['seed']} had {flags} memorization flags among {last['metrics']['num_samples']:,} generated crops. The official evaluator stored the rate as {rate:.11f} and rejected the candidate.", list(ids)))
+    dropout = ROOT / 'results/experiments/dropout25_wide_seed17'
+    dropout_plan = ROOT / 'results/plans/dropout25_wide_seed17_86c3c843eb.json'
+    dropout_selection = dropout / 'selection.json'
+    if dropout_selection.exists():
+        plan = json.loads(dropout_plan.read_text())
+        decision = json.loads(dropout_selection.read_text())
+        matched = ROOT / plan['matched_22k_reference']
+        if (decision['plan_sha256'], decision['manifest_sha256'], sha256(matched)) != (
+                sha256(dropout_plan), manifest_hash, plan['matched_22k_reference_sha256']):
+            raise ValueError('Dropout comparison no longer matches its plan or reference')
+        variant = 'u022000_ema_s50_g2.5'
+        result_path = dropout / 'full' / variant / 'seed_0.json'
+        reference = validated_result(matched, 0, ROOT / 'private_build/refinement_v001_seed17' / variant)
+        measured = validated_result(result_path, 0, ROOT / 'private_build/dropout25_wide_seed17' / variant)
+        files = [dropout_plan, dropout_selection, matched, result_path, result_path.with_suffix('.provenance.json')]
+        ids = {f'E{index:03d}': path.relative_to(ROOT).as_posix()
+               for index, path in enumerate(files, 34)}
+        paths.update(ids)
+        low, high = reference['metrics'], measured['metrics']
+        claims.append(('C013', 'Matched residual dropout comparison', 'result',
+            f"At 22,000 updates on seed 0, increasing dropout from 0.10 to 0.25 changed memorization from {low['memorization_rate']:.2%} to {high['memorization_rate']:.2%}, FID from {low['fid']:.2f} to {high['fid']:.2f}, and recall from {low['recall']:.2%} to {high['recall']:.2%}. The larger dropout reduced memorization and worsened sample quality at the matched budget.", list(ids)))
+    sampler_source = ROOT / 'figures/F5_sampling_tradeoffs/source_summary.json'
+    if sampler_source.exists():
+        summary = json.loads(sampler_source.read_text())
+        rows = summary['rows']
+        if summary['manifest_sha256'] != manifest_hash or len(rows) != 24 or any(
+                sha256(ROOT / row['source']) != row['source_sha256'] or row['num_samples'] != 500 for row in rows):
+            raise ValueError('Sampler figure sources changed after verification')
+        paths['E039'] = sampler_source.relative_to(ROOT).as_posix()
+        mem = {weights: [r['memorization_rate'] for r in rows if r['weights'] == weights]
+               for weights in ('model', 'ema')}
+        claims.append(('C014', 'Raw and EMA sampler screening', 'result',
+            f"On the fixed {summary['update']:,}-update checkpoint, all {len(mem['model'])} raw-weight sampler screens exceeded the 5% memorization limit. Their rates were {min(mem['model']):.1%} to {max(mem['model']):.1%}, compared with {min(mem['ema']):.1%} to {max(mem['ema']):.1%} for EMA. Each setting generated 500 images on seed 0.", ['E039']))
+    geometry = ROOT / 'results/curation/v001_review_geometry.json'
+    if geometry.exists():
+        receipt = json.loads(geometry.read_text())
+        table = geometry.with_suffix('.csv')
+        source_hashes = {name.replace('\\', '/'): digest for name, digest in receipt['source_hashes'].items()}
+        if source_hashes[manifest.relative_to(ROOT).as_posix()] != manifest_hash or sha256(table) != receipt['table_sha256']:
+            raise ValueError('Frozen reviewed geometry receipt no longer matches the manifest or table')
+        paths.update(E040=geometry.relative_to(ROOT).as_posix(), E041=table.relative_to(ROOT).as_posix())
+        medians = [receipt['training'][name]['head_width_px']['median'] for name in ('cat', 'dog')]
+        count = len(receipt['strict_range_rechecks'])
+        claims.append(('C015', 'Recorded review geometry', 'result',
+            f"The frozen development split recorded median source head widths of {medians[0]:.1f} pixels for cats and {medians[1]:.1f} pixels for dogs. Recomputed width divided by side flagged {count} of {receipt['kept']:,} kept crops for a personal boundary recheck.", ['E040', 'E041']))
+    repeatability = ROOT / 'results/experiments/capacity_repeatability_v001/selection.json'
+    if repeatability.exists():
+        repeat_plan = ROOT / 'results/plans/capacity_repeatability_86c3c843eb.json'
+        decision = json.loads(repeatability.read_text())
+        if sha256(repeat_plan) != decision['plan_sha256']:
+            raise ValueError('Training-seed comparison plan changed')
+        files = [repeat_plan, repeatability]
+        summaries = []
+        for run in [decision['reference'], *decision['alternatives']]:
+            outcomes = []
+            for row in run['evidence']:
+                path = ROOT / row['path']
+                if sha256(path) != row['sha256']:
+                    raise ValueError(f'Training-seed comparison result changed: {path}')
+                files.append(path)
+                outcomes.append(validated_result(path, row['seed'], ROOT / run['exported']))
+            summaries.append(f"Training seed {run['training_seed']} produced FID {metric_range(outcomes, 'fid', '.2f')}, recall {metric_range(outcomes, 'recall', '.2%')}, and memorization {metric_range(outcomes, 'memorization_rate', '.2%')}.")
+        ids = {f'E{index:03d}': path.relative_to(ROOT).as_posix()
+               for index, path in enumerate(files, 42)}
+        paths.update(ids)
+        claims.append(('C016', 'Fresh training-seed comparison', 'result',
+            ' '.join(summaries) + ' Each run used the same 30,000-update recipe and three 2,000-image development evaluations.', list(ids)))
+    corrected = ROOT / 'results/experiments/capacity_32_seed17_v002/comparison.json'
+    if corrected.exists():
+        corrected_manifest = ROOT / 'manifests/v002.csv'
+        plan_path = ROOT / 'results/plans/capacity_32_seed17_63bc3fce35.json'
+        plan = json.loads(plan_path.read_text())
+        comparison = json.loads(corrected.read_text())
+        export = ROOT / comparison['exported']
+        if sha256(plan_path) != comparison['plan_sha256'] or \
+                sha256(corrected_manifest) != sha256(export / 'manifest.csv') or \
+                [row['seed'] for row in comparison['evidence']] != plan['generation_seeds']:
+            raise ValueError('Corrected comparison manifest or protocol changed')
+        files, outcomes = [plan_path, corrected_manifest, corrected], []
+        for row in comparison['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError(f'Corrected comparison result changed: {path}')
+            files.append(path)
+            outcomes.append(validated_result(path, row['seed'], export))
+        ids = {f'E{index:03d}': path.relative_to(ROOT).as_posix()
+               for index, path in enumerate(files, 53)}
+        paths.update(ids)
+        valid = sum(outcome['marks']['valid'] for outcome in outcomes)
+        marks = ', '.join(str(outcome['marks']['total']) for outcome in outcomes)
+        claims.append(('C017', 'Corrected-manifest reference', 'result',
+            f"The fresh 30,000-update v002 reference passed all hard conditions on {valid} of {len(outcomes)} "
+            f"development seeds, with scores {marks} of 15. Accuracy was {metric_range(outcomes, 'accuracy', '.2%')}, "
+            f"FID {metric_range(outcomes, 'fid', '.2f')}, recall {metric_range(outcomes, 'recall', '.2%')}, "
+            f"and memorization {metric_range(outcomes, 'memorization_rate', '.2%')}.", list(ids)))
+    return claims
 
 
 def main():
@@ -27,6 +243,7 @@ def main():
              'E008': 'results/setup/all_fast_tests.xml'}
     records = {key: json.loads((ROOT / path).read_text()) for key, path in paths.items() if path.endswith('.json')}
     integrity, full, overfit, benchmark, interface = [records[f'E{i:03d}'] for i in range(1, 6)]
+    experiments = development_claims(paths)
     sources = []
     for identifier, path in paths.items():
         sources.append({'evidence_id': identifier, 'source_type': 'software' if path.endswith(('.py', '.yaml')) else 'report',
@@ -69,7 +286,7 @@ def main():
             if old and old['verification']['status'] != 'unverified':
                 raise ValueError('Source verification exists; reconcile evidence manually before refreshing')
     write_json(manifest_path, {'schema_version': '1.0', 'sources': sources})
-    write_json(report / 'evidence_snapshot.json', {'status': 'implementation_evidence_only_not_final_results',
+    write_json(report / 'evidence_snapshot.json', {'status': 'development_evidence_only' if experiments else 'implementation_evidence_only_not_final_results',
         'files': {identifier: {'path': path, 'sha256': sha256(ROOT / path)} for identifier, path in paths.items()},
         'verification': 'Agent inspected local files; named human source/claim checks remain pending.'})
     claims = [
@@ -78,9 +295,9 @@ def main():
         ('C003', 'Method', 'numeric', f"The implemented channel fallback has {interface['parameters']:,} parameters.", ['E005','E006','E007']),
         ('C004', 'Verification', 'result', f"The separate two-image diagnostic reduced fixed-probe noise MSE from {overfit['probe_mse_before']:.6f} to {overfit['probe_mse_after']:.6f} in {overfit['updates']:,} updates; it is not evidence of generalization.", ['E003']),
         ('C005', 'Verification', 'result', f"The actual-architecture diagnostic benchmark measured {benchmark['steady_seconds_per_update']:.5f} steady seconds per update; its 50,000-update projection excludes evaluation and full-dataset overhead.", ['E004']),
-        ('C006', 'Verification', 'result', f"The recorded CUDA interface stress test measured a maximum output difference of {interface['microbatch_max_absolute_difference']} when logical microbatch sizes changed while physical execution size stayed fixed.", ['E005'])]
+        ('C006', 'Verification', 'result', f"The recorded CUDA interface stress test measured a maximum output difference of {interface['microbatch_max_absolute_difference']} when logical microbatch sizes changed while physical execution size stayed fixed.", ['E005'])] + experiments
     headings = ['# Evidence outline — incomplete course report', '',
-        'This file organizes existing engineering evidence. No trained baseline, final personal audit, quality result, hidden-test result, or student independent check is claimed. The student must check sources and conclusions before submission.', '',
+        'This outline records engineering and development evidence. The final personal audit, independent checks and final submission results remain pending. The student must check sources and conclusions before submission.', '',
         'Planned main-text allocation: summary/problem 0.5 page; data/audit 1.25; methods 1.25; results/ablations 1.75; limitations 0.5; agent verification/conclusion 0.75. References and appendix are separate.', '']
     rows = []
     for cid, section, kind, sentence, ids in claims:
@@ -89,8 +306,7 @@ def main():
             'claim_text_sha256': hashlib.sha256(sentence.encode()).hexdigest(), 'evidence_ids': ';'.join(ids),
             'verification_status': 'unverified', 'uncertainty': 'not_estimated', 'analysis_intent': 'descriptive'})
     headings.extend(['## Evidence still required', '',
-        '- Personal calibration, duplicate-family judgments, final manifest counts and holdout provenance.',
-        '- Baseline and planned equal-budget ablations with exact checkpoint/manifest/code lineage.',
+        '- Planned equal-budget ablations with exact checkpoint, manifest and code lineage.',
         '- Full official five-seed metric table: accuracy, FID, KID and variability, precision, recall, memorization; parameter count, hardware, measured training/sampling time.',
         '- Personal official 200-row audit with Wilson intervals, concrete errors, and class denominators.',
         '- Predeclared sample grid and nearest-neighbor diagnostics, with no selected best images.',
@@ -106,17 +322,19 @@ def main():
     ids = ['acl23-0074_fig1', 'iclr26-0034_fig1', 'aaai25-0110_fig1', 'icml23-0003_fig1',
            'aaai25-0124_fig1', 'iclr23-0049_fig1', 'iclr25-0058_g1', 'cvpr25-0063_fig1',
            'aaai25-0026_fig1', 'neurips23-0070_fig1']
-    cards = {item['id']: item for item in map(json.loads, (ROOT / '.agents/skills/figgenie-paper-diagram/assets/exemplars/ai/cards.jsonl').read_text(encoding='utf-8').splitlines())}
-    write_json(ROOT / 'figures/review/exemplars.json', {'status': 'pending_student_choice',
-        'copyright': 'Authors/publishers own reference figures. Study only; excluded from course archive.',
-        'candidates': [dict(number=i+1, id=identifier, title=cards[identifier]['title'],
-                            paper_url=cards[identifier]['paper_url'], layout=cards[identifier]['layout'])
-                       for i, identifier in enumerate(ids)]})
+    exemplar_path = ROOT / 'figures/review/exemplars.json'
+    if not exemplar_path.exists():
+        cards = {item['id']: item for item in map(json.loads, (ROOT / '.agents/skills/figgenie-paper-diagram/assets/exemplars/ai/cards.jsonl').read_text(encoding='utf-8').splitlines())}
+        write_json(exemplar_path, {'status': 'pending_student_choice',
+            'copyright': 'Authors/publishers own reference figures. Study only; excluded from course archive.',
+            'candidates': [dict(number=i+1, id=identifier, title=cards[identifier]['title'],
+                                paper_url=cards[identifier]['paper_url'], layout=cards[identifier]['layout'])
+                           for i, identifier in enumerate(ids)]})
     snapshot = json.loads(snapshot_path.read_text())
     snapshot['generated_file_sha256'] = {name: sha256(report / name)
         for name in ['source_manifest.json', 'evidence_outline.md', 'claims.csv']}
     write_json(snapshot_path, snapshot)
-    print('Updated incomplete outline, source/claim registries, hashes and exemplar index.')
+    print('Updated incomplete outline, source/claim registries and evidence hashes.')
 
 
 if __name__ == '__main__':

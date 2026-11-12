@@ -1,0 +1,98 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[hmargin=22mm,vmargin=20mm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,microtype}
+\usepackage[hidelinks]{hyperref}
+\usepackage[user,abspage]{zref}
+
+\title{Conditional Diffusion for $32\times32$ Cat and Dog Head Generation}
+\author{Student name and ID pending}
+\date{CISC3024 development draft}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This project trains a class-conditional pixel-space diffusion model from random initialization on 1,197 personally reviewed crops from the supplied course pool. The 50,000-update baseline exceeded the official 5\% memorization limit. After correcting one crop, we retrained a smaller 30,000-update U-Net from scratch with the same seed and sampler. The corrected run passed all hard checks and scored 11/15 on each of three development seeds. FID ranged from 71.59 to 72.80 and recall from 30.20\% to 32.30\%. The final export, personal audit and independent checks are pending.
+\end{abstract}
+
+\section{Data and curation}
+The target is a real RGB photograph containing one centered, roughly upright cat or dog head, including the ears. The head occupies approximately 60--80\% of the square crop's side and has a source width of at least 32 pixels. We encode cats as 0 and dogs as 1. A manifest row records the source ID, top-left crop coordinates, square side, rotation and species. The unchanged course crop function rotates about the square center when required, takes the square, and resizes it to $32\times32$ with Lanczos interpolation. All training targets use this reconstruction without padding or image augmentation.
+
+All 76,250 indexed pool images decoded successfully. Grounding DINO Tiny proposed head boxes for the pool \cite{liu2023groundingdino}. CLIP scores helped order candidates for review \cite{radford2021clip}. The reviewer personally checked the original photograph and the exact output crop, corrected species or geometry where appropriate, and rejected unsuitable crops. In the 200 proposed calibration crops, 14 received a good verdict. In the separate 200 rejected sources, 23 had a potentially eligible missed head. The best observed unchanged-proposal calibration setting passed 5 of 26 applicable examples (19.23\%, Wilson 95\% interval 8.51--37.88\%). This result motivated personal acceptance checks for all retained crops.
+
+After duplicate review, 1,260 crops remained. The group-disjoint, class-stratified split assigned 583 cat and 614 dog crops to training and reserved 31 cat and 32 dog crops for pool-only denoising diagnostics. The official evaluator rebuilt all 1,197 training crops. The official 200-crop audit will determine audit precision and its class-specific denominators after the final manifest is frozen and the student labels the official sample.
+
+In the corrected split, the recorded source head-width medians were 96.9 pixels for cats and 91.3 for dogs. The width records comprise 333 measurements made with source-image clicks, 13 manual entries and 851 agent estimates that the student reviewed and confirmed. Recalculating occupancy as recorded width divided by crop side identified one original record at 80.32\%. The student's revision brought its occupancy to 76.81\%. Recomputed occupancy for all 1,260 kept crops in the corrected split was between 60\% and 80\%. Development comparisons use the original split unless they specify the corrected manifest.
+
+\section{Generator and sampling}
+The generator is a conditional U-Net operating directly in pixel space. The full-width model uses channel counts $(48,96,144,192)$ at resolutions $32,16,8,4$, two residual blocks per level, eight-group normalization, SiLU, and four-head spatial attention at the $8\times8$ and $4\times4$ levels and in the bottleneck. The model has 10,664,371 parameters. Timestep and class embeddings condition the residual blocks through scale and shift. Training uses only the exact manifest crops, scaled to $[-1,1]$.
+
+The forward process adds standard Gaussian noise $\epsilon$ to a clean crop $x_0$ at a uniformly sampled timestep $t$ \cite{ho2020ddpm,nichol2021improved}. We use 1,000 timesteps with a cosine cumulative schedule and offset 0.008. The network predicts the noise with a mean squared error objective,
+\begin{align}
+    x_t &= \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon, \\
+    \mathcal L &= \mathbb E\bigl[\lVert\epsilon-\epsilon_\theta(x_t,t,\tilde y)\rVert_2^2 / (3\cdot32^2)\bigr].
+\end{align}
+We replace the requested class with a null label on 10\% of training draws. At inference, classifier-free guidance combines the conditional and null-label estimates \cite{ho2022cfg},
+\[
+    \epsilon_s = \epsilon_\theta(x_t,t,\varnothing) + s\bigl[\epsilon_\theta(x_t,t,y)-\epsilon_\theta(x_t,t,\varnothing)\bigr].
+\]
+Thus $s=1$ uses the conditional prediction. In deterministic DDIM sampling, we reconstruct $\hat x_0$, clip it to $[-1,1]$, recompute the corresponding noise, and combine them using the previous timestep's coefficients \cite{song2020ddim}. The final step returns the clipped clean estimate, scaled to $[0,1]$. A private CPU random generator assigns one noise draw to each output position. The fixed physical execution size keeps convolution and attention shapes stable when the logical microbatch size changes.
+
+The full-width baseline uses seed 17, AdamW, an effective batch of 128, BF16 training, learning rate $2\times10^{-4}$ with a 2,000-update warm-up, weight decay $10^{-4}$, gradient norm clipping at 1.0, residual dropout 0.10 and an exponential moving average with decay 0.9999. The same training seed, data and update budget were used for the 50,000-update learning-rate comparison.
+
+\section{Development evaluation}
+The unchanged course evaluator generates 1,000 examples per class and evaluates aggregate quality against the supplied development reference. For memorization it reconstructs the manifest crops, adds their horizontal mirrors, removes near-duplicate reference images, and computes distances to the two nearest training references. A generated crop is flagged when $d_1/d_2<0.5$. The submission limit is 5\% flagged examples.
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Run & Accuracy & FID & Recall & Memorization & Marks \\
+\midrule
+50k, EMA, DDIM100, CFG 1.0 & 90.15\% & 52.90 & 43.03\% & 57.80\% & 0/15 \\
+21k, EMA, DDIM50, CFG 2.5 & 88.75\% & 78.94 & 25.77\% & 4.75\% & 10/15 \\
+30k small, EMA, DDIM50, CFG 2.5 & 89.80\% & 73.57 & 30.75\% & 3.55\% & 11/15 \\
+\bottomrule
+\end{tabular}
+\caption{Seed-0 development results from the original evaluator JSON files. The 50k baseline exceeded the memorization limit. The 21k and 30k rows share a sampler and differ in model width and update budget.}
+\label{tab:development}
+\end{table}
+
+For the three rows in Table~\ref{tab:development}, KID was $0.009499\pm0.000979$, $0.032239\pm0.001660$, and $0.029215\pm0.001592$, respectively, using the evaluator's reported standard deviation. Precision was 77.77\%, 61.62\%, and 65.82\%. The full-width exports used 40.80 MiB each, and the 5,082,147-parameter smaller export used 19.50 MiB. Recorded seed-0 sampling times were 32.73, 83.67, and 33.30 seconds per 1,000 images on the local RTX 5060 Ti. Measured training times were approximately 83.5, 39.0, and 55.4 minutes. These wall-clock measurements reflect the conditions of their individual runs.
+
+The three 50,000-update learning-rate variants all exceeded the limit on seed 0, with memorization ranging from 46.3\% to 61.9\%. A more controlled continuation fixed the 50-step EMA sampler and guidance at 2.5 and compared 21,000 with 22,000 updates from the same training trajectory. On seed 0, FID fell from 78.94 to 72.89, while memorization rose from 4.75\% to 8.05\%, disqualifying the later checkpoint. The full-width 21,000-update candidate passed all five declared generation seeds.
+
+At the 20,000-update full-width checkpoint, the 500-image seed-0 screen evaluated all 24 combinations of raw or EMA weights, DDIM steps 50, 100 or 200, and guidance 1.0, 1.5, 2.0 or 2.5. All 12 raw settings exceeded the memorization limit, with rates of 36.4--57.8\%. The 12 EMA settings ranged from 0.2\% to 2.4\%. Higher guidance improved class accuracy across the EMA settings. This screening result supported evaluating EMA candidates with 2,000 images.
+
+Reducing the channels to $(32,64,96,128)$ while holding the seed, data, optimizer and sampler fixed yielded zero memorization flags among 2,000 generated crops at each of the matched 21k and 22k snapshots. At those budgets the smaller model's FID was 108.41 and 100.83, respectively. It improved with additional updates, reaching FID 73.57 and 3.55\% memorization on seed 0 at 30k (Figure~\ref{fig:checkpoints}). Across all five seeds, its accuracy was 89.65--91.35\%, FID 71.99--74.23, recall 27.43--31.42\%, and memorization 3.45--4.45\%. This was the best-ranked recipe on the original split. The comparison at 30k uses a different update budget from the full-width 21k run.
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=\linewidth]{../figures/F4_checkpoint_metrics/figure.pdf}
+    \caption{Checkpoint metrics with EMA weights, 50 DDIM steps, and guidance 2.5. Both models use training seed 17 and the same 1,197 crops. Each point is an official 2,000-image development evaluation on generation seed 0. The gray line marks the official memorization limit.}
+    \label{fig:checkpoints}
+\end{figure}
+
+The matched data-quantity run used 500 reviewed crops per class drawn from the same parent manifest, the same holdout, and 50,000 updates from random initialization. Its seed-0 FID was 51.75 and recall was 44.47\%. Memorization rose to 73.75\% from 57.80\% in the 1,197-crop parent run. Both failed the memorization limit. The subset also slightly changed the class proportions, from 48.7\% to 50.0\% cats.
+
+The smaller model at 32,000 updates with CFG 2.0 increased seed-0 recall to 36.62\%. At seed 101, the evaluator flagged 100 of 2,000 generated crops and rejected the candidate because its stored floating-point rate was just above 5\%. The 30k version with 100 DDIM steps tied the existing 50-step version on minimum selection marks, with worst-seed FID of 74.64 versus 74.07. The selection rule retained the 50-step export.
+
+On the full-width model, increasing residual dropout from 0.10 to 0.25 at the matched 22,000-update budget reduced seed-0 memorization from 8.05\% to 0.20\%. FID increased from 72.89 to 119.97 and recall fell from 27.32\% to 19.91\%. With higher dropout, training to 26,000 updates recovered some quality. The two promoted guidance settings scored 8 and 9 marks out of 15 on seed 0 and fell below the small model's minimum selection score of 10. The 30,000-update higher-dropout screens flagged more than 10\% of their 500 generated crops. This experiment favored the smaller U-Net with dropout 0.10 for the reviewed pool and settings tested.
+
+The same small-model recipe was trained from random initialization with seeds 29 and 43. We compared each with seed 17 on generation seeds 0, 101 and 202. Seed 29 passed all three evaluations at 10/15, with FID 93.07--93.78 versus 71.99--74.07 for seed 17. Seed 43 produced FID 73.65--74.53 and two valid evaluations. Its remaining evaluation flagged 100 of 2,000 samples and triggered the unchanged floating-point memorization check. The selection retained training seed 17. These three training runs show that both sample quality and the margin to the memorization limit can vary under the same recipe.
+
+The student corrected the side length of one crop from 250 to 260 pixels and renewed its duplicate decision. The holdout bytes were unchanged. A fresh seed-17 run on the corrected manifest took 46.9 minutes and used the same 30,000-update recipe. On seed 0 it reached 89.40\% accuracy, FID 72.80, KID $0.028978\pm0.001514$, precision 65.15\%, recall 30.20\%, and memorization 4.40\%. The 5,082,147-parameter export occupied 19.50 MiB and sampled 1,000 images in 32.90 seconds. Across the three development seeds, accuracy was 89.40--89.95\%, FID 71.59--72.80, recall 30.20--32.30\%, and memorization 4.10--4.60\%. All three scored 11/15. The accuracy, FID and recall excellent-tier thresholds remain unmet.
+
+\section{Independent checks and limitations}
+The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. This test checked whether the implementation could fit a fixed batch. Separate offline inference checks exercised output shape and range, deterministic seed behavior, isolation from other labels, and preservation of caller RNG state. The student will independently verify data reconstruction, model behavior, and the final evaluation and record the resulting evidence in \texttt{AGENT\_LOG.md}.
+
+The final audit will quantify errors in this small reviewed subset. Seed variability describes repeated sampling from the tested export against the development reference. The course hidden evaluation remains unobserved.
+
+Coding assistance supported the curation tooling, experiment orchestration and evidence checks. Scientific Agent Skills informed experiment design and evidence documentation \cite{kassis2026skills}.
+
+\zlabel{maintextend}
+\clearpage
+\bibliographystyle{plainurl}
+\bibliography{references}
+\end{document}

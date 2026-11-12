@@ -1,6 +1,6 @@
 # Evidence outline — incomplete course report
 
-This file organizes existing engineering evidence. No trained baseline, final personal audit, quality result, hidden-test result, or student independent check is claimed. The student must check sources and conclusions before submission.
+This outline records engineering and development evidence. The final personal audit, independent checks and final submission results remain pending. The student must check sources and conclusions before submission.
 
 Planned main-text allocation: summary/problem 0.5 page; data/audit 1.25; methods 1.25; results/ablations 1.75; limitations 0.5; agent verification/conclusion 0.75. References and appendix are separate.
 
@@ -28,10 +28,53 @@ The actual-architecture diagnostic benchmark measured 0.10579 steady seconds per
 
 The recorded CUDA interface stress test measured a maximum output difference of 0.0 when logical microbatch sizes changed while physical execution size stayed fixed. [claim:C006] [evidence:E005]
 
+## Data: C007
+
+The personally reviewed v001 split contains 583 cat and 614 dog training crops and a disjoint holdout of 31 cat and 32 dog crops. [claim:C007] [evidence:E009,E010,E011]
+
+## Development results: C008
+
+The full-width seed-17 baseline at 50,000 updates reached 90.15% accuracy and 52.90 FID on evaluator seed 0. Its 57.80% memorization exceeded the 5% limit. [claim:C008] [evidence:E012,E013]
+
+## Development results: C009
+
+The 21,000-update EMA development candidate using 50 DDIM steps and CFG 2.5 passed the hard conditions on 5 of 5 seeds. Accuracy was 88.75%–89.95%, FID 77.94–79.85, recall 22.35%–28.54%, and memorization 4.45%–4.75%. [claim:C009] [evidence:E014,E015,E016,E017,E018,E019,E020]
+
+## Development results: C010
+
+The 30,000-update smaller EMA candidate passed on 5 of 5 seeds. Accuracy was 89.65%–91.35%, FID 71.99–74.23, recall 27.43%–31.42%, and memorization 3.45%–4.45%. [claim:C010] [evidence:E021,E022,E023,E024,E025,E026,E027]
+
+## Matched data quantity comparison: C011
+
+At 50,000 updates, the balanced 1,000-crop subset reached 93.35% accuracy, FID 51.75, and 44.47% recall on seed 0. Memorization was 73.75% for the subset and 57.80% for the 1,197-crop parent. Both exceeded the 5% limit. [claim:C011] [evidence:E012,E028,E029,E030]
+
+## Training-length and sampler comparison: C012
+
+The 32,000-update small candidate with 50 DDIM steps and CFG 2.0 reached 36.62% recall on seed 0. Seed 101 had 100 memorization flags among 2,000 generated crops. The official evaluator stored the rate as 0.05000000075 and rejected the candidate. [claim:C012] [evidence:E031,E032,E033]
+
+## Matched residual dropout comparison: C013
+
+At 22,000 updates on seed 0, increasing dropout from 0.10 to 0.25 changed memorization from 8.05% to 0.20%, FID from 72.89 to 119.97, and recall from 27.32% to 19.91%. The larger dropout reduced memorization and worsened sample quality at the matched budget. [claim:C013] [evidence:E034,E035,E036,E037,E038]
+
+## Raw and EMA sampler screening: C014
+
+On the fixed 20,000-update checkpoint, all 12 raw-weight sampler screens exceeded the 5% memorization limit. Their rates were 36.4% to 57.8%, compared with 0.2% to 2.4% for EMA. Each setting generated 500 images on seed 0. [claim:C014] [evidence:E039]
+
+## Recorded review geometry: C015
+
+The frozen development split recorded median source head widths of 96.9 pixels for cats and 91.3 pixels for dogs. Recomputed width divided by side flagged 1 of 1,260 kept crops for a personal boundary recheck. [claim:C015] [evidence:E040,E041]
+
+## Fresh training-seed comparison: C016
+
+Training seed 17 produced FID 71.99–74.07, recall 27.43%–31.42%, and memorization 3.55%–4.45%. Training seed 29 produced FID 93.07–93.78, recall 25.00%–28.76%, and memorization 3.20%–3.45%. Training seed 43 produced FID 73.65–74.53, recall 30.53%–31.08%, and memorization 4.00%–5.00%. Each run used the same 30,000-update recipe and three 2,000-image development evaluations. [claim:C016] [evidence:E042,E043,E044,E045,E046,E047,E048,E049,E050,E051,E052]
+
+## Corrected-manifest reference: C017
+
+The fresh 30,000-update v002 reference passed all hard conditions on 3 of 3 development seeds, with scores 11, 11, 11 of 15. Accuracy was 89.40%–89.95%, FID 71.59–72.80, recall 30.20%–32.30%, and memorization 4.10%–4.60%. [claim:C017] [evidence:E053,E054,E055,E056,E057,E058]
+
 ## Evidence still required
 
-- Personal calibration, duplicate-family judgments, final manifest counts and holdout provenance.
-- Baseline and planned equal-budget ablations with exact checkpoint/manifest/code lineage.
+- Planned equal-budget ablations with exact checkpoint, manifest and code lineage.
 - Full official five-seed metric table: accuracy, FID, KID and variability, precision, recall, memorization; parameter count, hardware, measured training/sampling time.
 - Personal official 200-row audit with Wilson intervals, concrete errors, and class denominators.
 - Predeclared sample grid and nearest-neighbor diagnostics, with no selected best images.
