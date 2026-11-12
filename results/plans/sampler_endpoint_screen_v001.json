@@ -1,0 +1,38 @@
+{
+  "created": "2026-11-12T12:20:08.547367+00:00",
+  "development_export": "private_build\\capacity_32_seed17_stable_slots",
+  "export_hashes": {
+    "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+    "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "provenance.json": "c1ee2e4638c164153f61a27abc1ff834d5eaae7309a301dd50f5a0c98fe33a3a",
+    "weights.pt": "46aeaf6542d028691b3ed64d053cfb6377c60c1dcecd712effd4f3b733e99757",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  },
+  "worker_sha256": "1f2462cf5e4369df5e93997872d676ab1c27c9683ba5dd7e9092327b8744d0a6",
+  "seed": 0,
+  "n_per_class": 250,
+  "batch_size": 500,
+  "unchanged_sampler_settings": {
+    "steps": 50,
+    "guidance": 2.5,
+    "execution_batch": 32
+  },
+  "variants": {
+    "control": {},
+    "start_990": {
+      "start_timestep": 990
+    },
+    "guidance_after_849": {
+      "guidance_max_timestep": 849
+    },
+    "guidance_149_to_849": {
+      "guidance_max_timestep": 849,
+      "guidance_min_timestep": 149
+    }
+  },
+  "rule": "Compare valid candidates against the same-sample control using the standard ranking. Consider at most two settings that improve the first two ranking fields or reduce memorization with tied quality, and inspect their grids before promotion on v002. Screening is not release evidence.",
+  "guidance_reference": "https://arxiv.org/abs/2404.07724"
+}

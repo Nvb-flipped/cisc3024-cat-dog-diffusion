@@ -1,6 +1,6 @@
 # CISC3024: conditional cat/dog head generation
 
-This repository implements the pipeline in [PROJECT_PLAN.md](PROJECT_PLAN.md). The generator is a pixel-space conditional diffusion U-Net trained from scratch. **The environment, pilot and implementation checks exist; no baseline/final generator or official quality results exist yet.** Student calibration, the curated training manifest, audit and independent checks remain pending. See [EXECUTION_STATUS.md](EXECUTION_STATUS.md).
+This repository implements the pipeline in [PROJECT_PLAN.md](PROJECT_PLAN.md). The generator is a pixel-space conditional diffusion U-Net trained from scratch. The corrected v002 manifest contains 1,197 personally reviewed training crops and a separate 63-crop holdout. The original v001 manifest and its official results are retained for development comparisons. See [EXECUTION_STATUS.md](EXECUTION_STATUS.md) for the current model comparison and [STUDENT_REVIEW_QUEUE.md](STUDENT_REVIEW_QUEUE.md) for the pending personal checks.
 
 The course pool is restricted to this course. Keep it local; do not push it or redistribute project materials. The supplied handout takes precedence over the starter kit. Labels are cat=0 and dog=1.
 
@@ -62,6 +62,12 @@ After calibration and a reviewed full-pool pass, freeze a new immutable version:
 
 This checks reviewed pixels, duplicate decisions and official geometry, creates a fixed class-stratified/group-disjoint 5% pool holdout, and records decision/manifest hashes. Baseline training requires at least 500 **training** heads per class after holdout. No dev image/feature is used for training or selection of pool images. No image augmentation is applied to the exact training targets.
 
+After training builds its caches, independently compare their labels and pixels with a fresh official reconstruction. Use a fresh output path to preserve prior receipts.
+
+```powershell
+& .venvs\training\Scripts\python.exe -m scripts.verify_manifest_cache manifests\v002.csv manifests\v002.validation.csv --out results\curation\v002_cache_parity.json
+```
+
 ## Correctness and training
 
 ```powershell
@@ -86,7 +92,15 @@ The completed 2,000-update diagnostic reduced fixed-probe noise MSE by 98.51%; r
 & .venvs\training\Scripts\python.exe -m src.training.train --config configs\ddpm.yaml --manifest manifests\v001.csv --seed 17 --resume checkpoints\RUN\update_050000.pt --updates 100000
 ```
 
-The selected U-Net uses channels 48/96/144/192 and 10,664,371 parameters. The proposed 64/128/192/256 implementation measured 18,318,147 parameters, so the plan's channel fallback was applied before the baseline. GroupNorm, timestep/class scale-shift conditioning, two residual blocks per level and low-resolution attention are implemented. Null conditioning is label 2. The cosine schedule has 1,000 steps; the loss predicts Gaussian noise. Guidance is `uncond + s*(cond-uncond)`, so s=1 is conditional prediction. DDIM uses eta=0 and recomputes noise after clipping reconstructed x0.
+The baseline uses channels 48/96/144/192 and 10,664,371 parameters. The leading development candidate uses channels 32/64/96/128 and 5,082,147 parameters, with seed 17, 30,000 updates, EMA weights, 50 DDIM steps and guidance 2.5. The U-Net uses GroupNorm, timestep/class scale-shift conditioning, two residual blocks per level and low-resolution attention. Null conditioning is label 2. The cosine schedule has 1,000 steps and the loss predicts Gaussian noise. Guidance is `uncond + s*(cond-uncond)`, so s=1 is conditional prediction. DDIM uses eta=0 and recomputes noise after clipping reconstructed x0.
+
+Reproduce the corrected v002 noise-prediction reference in a new checkpoint directory:
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.training.train --config configs\runs\86c3c843eb\capacity_32_seed17_u030000.yaml --manifest manifests\v002.csv --validation-manifest manifests\v002.validation.csv --seed 17 --updates 30000 --out checkpoints\capacity_32_v002_reproduction
+```
+
+The predeclared v002 velocity comparison changes the denoising target while holding the data, architecture, training seed, update budget and sampling protocol fixed. Its exact training command and input hashes are in `results/plans/velocity_32_seed17_63bc3fce35.json`. The matching diagnostic can be reproduced with `python -m src.training.diagnostics overfit --prediction-type velocity --out results/diagnostics/velocity_reproduction`.
 
 Run metadata records the actual environment, code commit/dirty state, configuration, seed, manifest hash, counts, timing and parent checkpoint hash. Losses, exact optimizer/RNG state and EMA are retained locally. A manifest change requires a fresh final training lineage. Changing a dataset must not silently reuse a cache or checkpoint.
 
@@ -121,11 +135,23 @@ $env:TORCH_HOME = Join-Path (Get-Location).Path 'models\evaluator'
 
 The initial conditional baseline uses guidance 1.0 as specified in the staged plan. Later sampling comparisons vary guidance explicitly and preserve their own evaluations.
 
-Sampling pads logical chunks to a fixed serialized `execution_batch` (initially 32). The actual CUDA stress test found that varying physical batch dimensions amplified floating-point differences near the noisy cosine endpoint. With fixed execution dimensions, logical chunk sizes 32 and 7 produced exactly identical outputs in the measured test. Changing `execution_batch` is a sampler change requiring reevaluation. `results/diagnostics/gpu_interface_initial.json` preserves the original failure and `gpu_interface.json` records the correction.
+Sampling pads logical chunks to a fixed serialized `execution_batch` (initially 32) and keeps each output in the same physical slot when logical chunks change. Varying physical batch dimensions amplified differences in a CUDA stress test near the noisy cosine endpoint. A trained CPU probe found a maximum difference of 1.58e-5 when regrouping moved an output between slots. The corrected sampler exactly reproduced the trained CPU and CUDA probes with logical chunk sizes 32 and 7. Changing `execution_batch` requires reevaluation.
 
 `configs/evaluation.yaml` has no invented checkpoint paths. Add actual candidates after training. `python -m src.evaluation.sweep --config configs/evaluation.yaml --plan` writes exact commands. Screening uses 250/class; promote at most three frozen sampler combinations to 1,000/class selection seeds 0/101/202. Confirm one frozen winner on 303/404. Keep every original official JSON/grid. Per-image dev features remain exclusively inside the unchanged evaluator.
 
 Only `--submission --grading` with the pool present establishes manifest/memorization evidence. `--samples`, missing-pool runs or small-screening FID cannot certify release. Official result values must be traced to their JSON, and seed-0 is the headline row. No hidden-test performance can be promised.
+
+The pixel-neighbor replay regenerates the exact official seed-0 batch sequence, checks the recorded memorization statistics, and saves the first four examples by requested class and flag status. Keep its training-crop previews local.
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.evaluation.neighbors --submission private_build\refinement_v001_seed17\u021000_ema_s50_g2.5 --result results\experiments\refinement_v001_seed17\u021000_ema_s50_g2.5\seed_0.json --out private_build\memorization_replay_v002\21k_cfg2.5
+```
+
+For the live demo, start the command before presenting and wait for `Model ready`. Enter seed `0` twice, then `1`, to generate the same class layout with repeated and changed seeds. The console prints elapsed generation time and the PNG hash.
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.release.demo --submission submission --out private_build\demo
+```
 
 ## Student ownership and remaining deliverables
 
@@ -157,5 +183,14 @@ After final packaging, test the actual ZIP with a new extraction directory. This
 ```
 
 The clean-room checker validates the archive member allowlist and hashes before extraction, rejects escaping paths or embedded photographs in text sources, and checks CPU/GPU inference from the extracted files. Its receipt binds the exact ZIP hash. The tiny synthetic archive test is software validation only; a final course archive has not yet been built.
+
+The F4 checkpoint curves and F5 sampler sweep can be rebuilt directly from the retained data and official JSON:
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.figures.build --figure F4 --from-source-summary --out private_build\F4_rebuilt
+& .venvs\training\Scripts\python.exe -m src.figures.build --figure F5 --from-source-summary --out private_build\F5_rebuilt
+```
+
+The F6 generated grid and F7 nearest-neighbor figure use the official seed-0 PNG and the corresponding local `src.evaluation.neighbors` replay. Their source tables and summaries record the fixed tile positions and individual image hashes. Use `python -m src.figures.photo_grid --help` to rebuild them from the matching evaluation and export. Photo grids, image tiles, and drawings with embedded course images are local artifacts.
 
 No upload, cloud publication or course-data redistribution is performed by these commands.

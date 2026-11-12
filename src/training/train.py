@@ -53,6 +53,9 @@ def main():
     if args.updates is not None:
         config['training']['updates'] = args.updates
     settings = config['training']
+    prediction_type = settings.get('prediction_type', 'epsilon')
+    if prediction_type not in ('epsilon', 'velocity'):
+        raise ValueError('Unsupported denoising target')
     if settings['updates'] < 1 or settings['checkpoint_every'] < 1 or settings['log_every'] < 1:
         raise ValueError('Update, checkpoint and log intervals must be positive')
     torch.set_num_threads(settings.get('threads', 8))
@@ -148,7 +151,7 @@ def main():
                 'segment_id': segment_id, 'source_code_sha256': code_hashes,
                 'validation': {'manifest': str(validation_manifest.resolve()), 'sha256': held_hash,
                                'stats': held_stats, 'seed': 3024, 'timesteps': [50, 250, 500, 750],
-                               'microbatch': 32} if validation else None,
+                               'microbatch': 32, 'prediction_type': prediction_type} if validation else None,
                 'command_args': vars(args) | {'out': str(out), 'resume': str(args.resume) if args.resume else None}}
     metadata['command_args'] = {k: str(v) if isinstance(v, Path) else v for k, v in metadata['command_args'].items()}
     write_json(out / f'segment_{segment_id}.json', metadata)
@@ -185,7 +188,7 @@ def main():
                 write_json(path.with_suffix('.json'), {'sha256': sha256(path), 'update': update,
                            'manifest_sha256': manifest_hash, 'elapsed_seconds': time.perf_counter() - begin})
                 if validation:
-                    evaluation = {name: validation_loss(network, *validation, alpha_bar)
+                    evaluation = {name: validation_loss(network, *validation, alpha_bar, prediction_type=prediction_type)
                                   for name, network in [('raw', model), ('ema', ema)]}
                     write_json(out / f'validation_{update:06d}.json', {'update': update,
                         'checkpoint_sha256': sha256(path), 'manifest_sha256': held_hash,

@@ -2,7 +2,8 @@ import torch
 import pytest
 from torch import nn
 from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices,
-                                  reconstruct_clean, sample)
+                                  reconstruct_clean, reconstruct_clean_from_velocity,
+                                  sample, velocity_target)
 from submission.model import ConditionalUNet
 
 
@@ -46,6 +47,45 @@ def test_sampler_oracle_reaches_clean_endpoint():
             return (x - a.sqrt() * 0.25) / (1 - a).sqrt()
     images = sample(Oracle().eval(), torch.tensor([0, 1]), 42, steps=10, guidance=1)
     torch.testing.assert_close(images, torch.full_like(images, 0.625), rtol=0, atol=3e-4)
+
+
+def test_velocity_inverse_includes_pure_noise_endpoint():
+    rng = torch.Generator().manual_seed(17)
+    clean = torch.randn(3, 3, 32, 32, generator=rng)
+    noise = torch.randn(clean.shape, generator=rng)
+    alpha = torch.tensor([1., .5, 0.])
+    a = alpha[:, None, None, None]
+    noisy = add_noise(clean, noise, torch.arange(3), alpha)
+    velocity = velocity_target(clean, noise, a)
+    torch.testing.assert_close(reconstruct_clean_from_velocity(noisy, velocity, a), clean)
+
+
+def test_velocity_oracle_reaches_clean_endpoint():
+    class Oracle(ProbeModel):
+        def forward(self, x, t, y):
+            a = cosine_alpha_bar()[t, None, None, None]
+            clean = torch.full_like(x, .25)
+            noise = (x - a.sqrt() * clean) / (1 - a).sqrt()
+            return velocity_target(clean, noise, a)
+    images = sample(Oracle().eval(), torch.tensor([0, 1]), 42, steps=10, guidance=1,
+                    prediction_type='velocity')
+    torch.testing.assert_close(images, torch.full_like(images, .625))
+
+
+def test_guidance_interval_uses_conditional_prediction_outside_bounds():
+    class GuidanceProbe(ProbeModel):
+        def __init__(self):
+            super().__init__()
+            self.unconditional_times = []
+
+        def forward(self, x, t, y):
+            if y.eq(2).all():
+                self.unconditional_times.append(t[0].item())
+            return super().forward(x, t, y)
+    model = GuidanceProbe().eval()
+    sample(model, torch.tensor([0, 1]), 42, timesteps=9, steps=5, start_timestep=8,
+           guidance=2.5, guidance_min_timestep=2, guidance_max_timestep=6)
+    assert model.unconditional_times == [6, 4, 2]
 
 
 @pytest.mark.parametrize('count', [0, 1, 2, 20, 50, 500])
@@ -94,6 +134,20 @@ def test_actual_unet_shape_gradients_and_label_effect():
     assert not torch.equal(first[1], changed[1])
     single = sample(model, labels[:1], 2, steps=2)
     torch.testing.assert_close(first[:1], single, rtol=0, atol=2e-5)
+
+
+def test_microbatch_regrouping_keeps_each_physical_slot():
+    class SlotProbe(ProbeModel):
+        def forward(self, x, t, y):
+            a = cosine_alpha_bar()[t, None, None, None]
+            clean = torch.arange(len(x), dtype=x.dtype)[:, None, None, None] * 0.125
+            return (x - a.sqrt() * clean) / (1 - a).sqrt()
+
+    model = SlotProbe().eval()
+    labels = torch.arange(11) % 2
+    default = sample(model, labels, 5, steps=3, guidance=1, microbatch=4, execution_batch=4)
+    regrouped = sample(model, labels, 5, steps=3, guidance=1, microbatch=3, execution_batch=4)
+    assert torch.equal(default, regrouped)
 
 
 def test_invalid_sampler_inputs_fail():

@@ -1,0 +1,46 @@
+{
+  "created": "2026-11-12T12:15:19.418747+00:00",
+  "inputs": {
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v002.provenance.json": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "submission\\diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+    "submission\\model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "src\\training\\train.py": "1591c1ed9145806370cd85ab4ac87a488d697e21cc8e3ebe0e070b5373c752b8",
+    "src\\training\\step.py": "5fc81f478d09c8d7807c4a92da7e9626f061f3353310edf3a926b7ef3bc78c41",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "private_build\\capacity_v002.py": "2189e1f4ed4ae9852614d51df0da5b34c909dad62fb3672080a3da34cad2888f"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--validation-manifest",
+    "manifests\\v002.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35"
+  ],
+  "generation_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "purpose": "Matched from-scratch reference after the student corrected s007489. Use the declared development seeds to assess the next experiment."
+}

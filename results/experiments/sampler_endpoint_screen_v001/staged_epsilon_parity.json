@@ -1,0 +1,35 @@
+{
+  "prior_sampler_sha256": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+  "staged_sampler_sha256": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+  "scope": "Epsilon path parity on the matched v001 development export",
+  "records": [
+    {
+      "device": "cuda",
+      "n": 1,
+      "exact": true,
+      "max_difference": 0.0,
+      "seconds": 15.730490099995222
+    },
+    {
+      "device": "cuda",
+      "n": 20,
+      "exact": true,
+      "max_difference": 0.0,
+      "seconds": 2.7420830999981263
+    },
+    {
+      "device": "cpu",
+      "n": 1,
+      "exact": true,
+      "max_difference": 0.0,
+      "seconds": 26.495967299997574
+    },
+    {
+      "device": "cpu",
+      "n": 20,
+      "exact": true,
+      "max_difference": 0.0,
+      "seconds": 26.35226110000076
+    }
+  ]
+}

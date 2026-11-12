@@ -10,14 +10,18 @@ from torchvision.utils import save_image
 from src.common import environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
 from src.training.step import optimizer_step, update_ema
-from submission.diffusion import add_noise, cosine_alpha_bar, reconstruct_clean
+from submission.diffusion import (add_noise, cosine_alpha_bar, reconstruct_clean,
+                                  reconstruct_clean_from_velocity, velocity_target)
 from submission.model import ConditionalUNet
 
 OVERFIT_UPDATES = 2000
 BENCHMARK_UPDATES = 500
 
 
-def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit'):
+def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
+            *, prediction_type='epsilon'):
+    if prediction_type not in ('epsilon', 'velocity'):
+        raise ValueError('Unsupported denoising target')
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     if (out / 'result.json').exists():
@@ -37,19 +41,26 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     probe_noise = torch.randn(x.shape, generator=probe_generator).to(device)
     probe_t = torch.linspace(250, 750, len(x), device=device).long()
     probe = add_noise(x, probe_noise, probe_t, schedule)
+    alpha = schedule[probe_t, None, None, None]
+    target = probe_noise
+    reconstruct = reconstruct_clean
+    if prediction_type == 'velocity':
+        target = velocity_target(x, probe_noise, alpha)
+        reconstruct = reconstruct_clean_from_velocity
 
     @torch.no_grad()
     def measure():
         model.eval()
         prediction = model(probe, probe_t, y)
-        clean = reconstruct_clean(probe, prediction, schedule[probe_t, None, None, None]).clamp(-1, 1)
-        return F.mse_loss(prediction, probe_noise).item(), F.mse_loss(clean, x).item(), clean
+        clean = reconstruct(probe, prediction, alpha).clamp(-1, 1)
+        return F.mse_loss(prediction, target).item(), F.mse_loss(clean, x).item(), clean
 
     before_mse, before_clean, before = measure()
     save_image(torch.cat([(x + 1) / 2, (before + 1) / 2]), out / 'before.png', nrow=len(x))
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0)
     settings = dict(effective_batch=len(x), microbatch=len(x), learning_rate=1e-3,
-                    warmup=1, grad_clip=1.0, precision='fp32', null_probability=0)
+                    warmup=1, grad_clip=1.0, precision='fp32', null_probability=0,
+                    prediction_type=prediction_type)
     begin = time.perf_counter()
     losses = []
     for update in range(1, OVERFIT_UPDATES + 1):
@@ -69,7 +80,7 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         writer.writerows(losses)
     record = {'purpose': 'integration correctness only, not generalization or final quality',
         'diagnostic_only': True, 'manifest_sha256': digest, 'stats': stats, 'model': config,
-        'updates': OVERFIT_UPDATES, 'required_reduction': .80,
+        'updates': OVERFIT_UPDATES, 'required_reduction': .80, 'prediction_type': prediction_type,
         'probe_mse_before': before_mse, 'probe_mse_after': after_mse,
         'reduction': 1 - after_mse / before_mse, 'reconstruction_mse_before': before_clean,
         'reconstruction_mse_after': after_clean, 'seconds': time.perf_counter() - begin,
@@ -133,9 +144,11 @@ def main():
     p.add_argument('--manifest', default='manifests/diagnostic_two_heads.csv')
     p.add_argument('--config', default='configs/ddpm.yaml')
     p.add_argument('--out')
+    p.add_argument('--prediction-type', choices=['epsilon', 'velocity'], default='epsilon')
     args = p.parse_args()
     if args.mode == 'overfit':
-        print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit'))
+        print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit',
+                      prediction_type=args.prediction_type))
     else:
         print(benchmark(args.config, args.manifest, args.out or 'results/diagnostics/benchmark'))
 

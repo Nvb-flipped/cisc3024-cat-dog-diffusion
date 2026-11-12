@@ -1,0 +1,197 @@
+{
+  "plan_sha256": "1631d6131ac924fc045e81dc1edd53b7b5ff8b74d9445dfd1629fa4fe6ba79c9",
+  "variants": {
+    "control": {
+      "metrics": {
+        "num_samples": 500,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.8939999938011169,
+        "per_class_accuracy": {
+          "cat": 0.9160000085830688,
+          "dog": 0.871999979019165
+        },
+        "fid": 93.41623911499056,
+        "kid": 0.029447550487647023,
+        "kid_std": 0.0007792335693709146,
+        "precision": 0.6159999966621399,
+        "recall": 0.3540000021457672,
+        "memorization_rate": 0.041999999433755875,
+        "nn_distance_median": 8.170746803283691,
+        "nn_ratio_median": 0.9322912096977234,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Good",
+            "marks": 4
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 10,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "result": "results\\experiments\\sampler_endpoint_screen_v001\\control\\seed_0.json",
+      "sha256": "6be5311a8f1607c9e08688dcadd7c92c2cc5578d99fa4bc5424008b30dc5816e",
+      "score": [
+        10,
+        -4.341623911499056,
+        -0.041999999433755875,
+        -44.07371719999355
+      ]
+    },
+    "start_990": {
+      "metrics": {
+        "num_samples": 500,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.9079999923706055,
+        "per_class_accuracy": {
+          "cat": 0.9240000247955322,
+          "dog": 0.8920000195503235
+        },
+        "fid": 93.68127161770076,
+        "kid": 0.030058928842532254,
+        "kid_std": 0.0007905152604829142,
+        "precision": 0.6359999775886536,
+        "recall": 0.33399999141693115,
+        "memorization_rate": 0.03999999910593033,
+        "nn_distance_median": 8.199954986572266,
+        "nn_ratio_median": 0.9282158613204956,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Excellent",
+            "marks": 5
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 11,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "result": "results\\experiments\\sampler_endpoint_screen_v001\\start_990\\seed_0.json",
+      "sha256": "e46afe5b7cb6af059ad144cb09da14c2be8ab638985d0791645b563a7ab742c0",
+      "score": [
+        11,
+        -4.368127161770076,
+        -0.03999999910593033,
+        -43.482253199996194
+      ]
+    },
+    "guidance_after_849": {
+      "metrics": {
+        "num_samples": 500,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.906000018119812,
+        "per_class_accuracy": {
+          "cat": 0.9359999895095825,
+          "dog": 0.8759999871253967
+        },
+        "fid": 92.31362400069207,
+        "kid": 0.029852115617968175,
+        "kid_std": 0.000796514710353891,
+        "precision": 0.671999990940094,
+        "recall": 0.32199999690055847,
+        "memorization_rate": 0.04399999976158142,
+        "nn_distance_median": 8.100707054138184,
+        "nn_ratio_median": 0.9276175498962402,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Excellent",
+            "marks": 5
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 11,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "result": "results\\experiments\\sampler_endpoint_screen_v001\\guidance_after_849\\seed_0.json",
+      "sha256": "5b431362768de0c7403852ee931c6fcdb1d0a7356b9671e843a7b5445f3c675a",
+      "score": [
+        11,
+        -4.231362400069207,
+        -0.04399999976158142,
+        -39.26009559999511
+      ]
+    },
+    "guidance_149_to_849": {
+      "metrics": {
+        "num_samples": 500,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.8820000290870667,
+        "per_class_accuracy": {
+          "cat": 0.9240000247955322,
+          "dog": 0.8399999737739563
+        },
+        "fid": 97.7559165947801,
+        "kid": 0.034102297450497455,
+        "kid_std": 0.0008711408834198102,
+        "precision": 0.6460000276565552,
+        "recall": 0.33799999952316284,
+        "memorization_rate": 0.03999999910593033,
+        "nn_distance_median": 8.096038818359375,
+        "nn_ratio_median": 0.9299895167350769,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Good",
+            "marks": 4
+          },
+          "fid": {
+            "tier": "Marginal",
+            "marks": 2
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 10,
+        "max": 15,
+        "valid": true
+      },
+      "violations": [],
+      "result": "results\\experiments\\sampler_endpoint_screen_v001\\guidance_149_to_849\\seed_0.json",
+      "sha256": "2560d714fc0b7c208e4679c04d21bc3be50821ee0a56ff8f2135fa279ba2a2ee",
+      "score": [
+        10,
+        -4.77559165947801,
+        -0.03999999910593033,
+        -36.87467760000436
+      ]
+    }
+  }
+}

@@ -10,7 +10,9 @@ from submission.model import ConditionalUNet
 INFERENCE_FILES = ['__init__.py', 'generate.py', 'model.py', 'diffusion.py']
 
 
-def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None, microbatch=None, execution_batch=None):
+def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None,
+                      microbatch=None, execution_batch=None, start_timestep=None,
+                      guidance_min_timestep=None, guidance_max_timestep=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -28,7 +30,18 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     if (out / 'weights.pt').exists() or (out / 'manifest.csv').exists():
         raise FileExistsError('Candidate export already exists; use a new immutable output directory')
     sampling = dict(state['config']['sampling']) | state['config']['diffusion']
-    for key, value in [('steps', steps), ('guidance', guidance), ('microbatch', microbatch), ('execution_batch', execution_batch)]:
+    prediction_type = state['config'].get('training', {}).get('prediction_type', 'epsilon')
+    if prediction_type not in ('epsilon', 'velocity'):
+        raise ValueError('Unsupported checkpoint denoising target')
+    if sampling.get('prediction_type', prediction_type) != prediction_type:
+        raise ValueError('Sampling denoising target differs from the trained target')
+    if prediction_type == 'velocity':
+        sampling['prediction_type'] = prediction_type
+    overrides = [('steps', steps), ('guidance', guidance), ('microbatch', microbatch),
+                 ('execution_batch', execution_batch), ('start_timestep', start_timestep),
+                 ('guidance_min_timestep', guidance_min_timestep),
+                 ('guidance_max_timestep', guidance_max_timestep)]
+    for key, value in overrides:
         if value is not None:
             sampling[key] = value
     sampling.setdefault('execution_batch', 32)
@@ -39,6 +52,14 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
        not math.isfinite(sampling['guidance']) or \
        not math.isfinite(sampling['cosine_offset']) or sampling['cosine_offset'] < 0:
         raise ValueError('Invalid sampler configuration')
+    final_timestep = sampling['timesteps'] - 1
+    start = sampling.get('start_timestep', final_timestep)
+    guidance_min = sampling.get('guidance_min_timestep', 0)
+    guidance_max = sampling.get('guidance_max_timestep', final_timestep)
+    if any(type(value) is not int for value in (start, guidance_min, guidance_max)) or \
+       not sampling['steps'] - 1 <= start <= final_timestep or \
+       not 0 <= guidance_min <= guidance_max <= final_timestep:
+        raise ValueError('Invalid sampler timestep bounds')
     out.mkdir(parents=True, exist_ok=True)
     for name in INFERENCE_FILES:
         source = ROOT / 'submission' / name
@@ -75,10 +96,15 @@ def main():
     p.add_argument('--guidance', type=float)
     p.add_argument('--microbatch', type=int)
     p.add_argument('--execution-batch', type=int)
+    p.add_argument('--start-timestep', type=int)
+    p.add_argument('--guidance-min-timestep', type=int)
+    p.add_argument('--guidance-max-timestep', type=int)
     args = p.parse_args()
     print(export_checkpoint(args.run, args.manifest, args.out, weights=args.weights,
                             steps=args.steps, guidance=args.guidance, microbatch=args.microbatch,
-                            execution_batch=args.execution_batch))
+                            execution_batch=args.execution_batch, start_timestep=args.start_timestep,
+                            guidance_min_timestep=args.guidance_min_timestep,
+                            guidance_max_timestep=args.guidance_max_timestep))
 
 
 if __name__ == '__main__':

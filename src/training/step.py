@@ -1,7 +1,7 @@
 """The same optimizer update is used by training and hardware diagnostics."""
 import torch
 from torch.nn import functional as F
-from submission.diffusion import add_noise
+from submission.diffusion import add_noise, velocity_target
 
 
 def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, settings, update):
@@ -9,6 +9,7 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     effective, micro = settings['effective_batch'], settings['microbatch']
     accumulation = effective // micro
     bf16 = settings['precision'] == 'bf16' and device.type == 'cuda'
+    velocity = settings.get('prediction_type', 'epsilon') == 'velocity'
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
         group['lr'] = lr
@@ -22,9 +23,10 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
         drop = torch.rand(micro, generator=generator, device=device) < settings['null_probability']
         y[drop] = 2
         xt = add_noise(x0, noise, t, alpha_bar)
+        target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) if velocity else noise
         with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):
             predicted = model(xt, t, y)
-            loss = F.mse_loss(predicted.float(), noise)
+            loss = F.mse_loss(predicted.float(), target)
         if not torch.isfinite(loss):
             raise FloatingPointError(f'Nonfinite loss at update {update}')
         (loss / accumulation).backward()
