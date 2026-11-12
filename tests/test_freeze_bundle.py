@@ -57,3 +57,15 @@ def test_success_publishes_consistent_bundle_and_refuses_existing_provenance(tmp
     out.with_suffix('.validation.csv').unlink()
     with pytest.raises(ValueError, match='immutable'):
         freeze_module.freeze(config, out, groups_path=groups)
+
+
+def test_rounded_legacy_occupancy_cannot_mask_out_of_range_width(tmp_path, monkeypatch):
+    config, groups = inputs(tmp_path, monkeypatch)
+    decisions = tmp_path / 'decisions.jsonl'
+    rows = [json.loads(line) for line in decisions.read_text().splitlines()]
+    rows[0].update(head_width=48.2, occupancy=.80)
+    decisions.write_text(''.join(json.dumps(row) + '\n' for row in rows))
+    out = tmp_path / 'manifests/v001.csv'
+    with pytest.raises(ValueError, match='Recheck source width or crop occupancy for fixture0'):
+        freeze_module.freeze(config, out, groups_path=groups)
+    assert not out.exists()

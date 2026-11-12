@@ -88,6 +88,8 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
         if previous_label != item['label']:
             raise ValueError('Duplicate family has contradictory labels')
         if group['keep'] == 'yes':
+            if not 0.60 <= item['head_width'] / item['size'] <= 0.80:
+                raise ValueError(f"Recheck source width or crop occupancy for {item['candidate_id']}")
             accepted.append(item)
     if not accepted:
         raise ValueError('No student-approved crops to freeze')
