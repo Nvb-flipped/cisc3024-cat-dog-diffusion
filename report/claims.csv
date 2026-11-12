@@ -18,3 +18,5 @@ C016,Fresh training-seed comparison,result,e297b1f14ce2c4d0b60f023aedf449a8697ec
 C017,Corrected-manifest reference,result,a795cb2084fa4190fa67216136f938ac2626431845a7a9b7a602c148be88ff07,E053;E054;E055;E056;E057;E058,unverified,not_estimated,descriptive
 C018,Matched velocity target,result,bed480f54b92423419633368ad2ac08989ecba8f3e8411c2369826d445c08852,E059;E060;E061;E062;E063,unverified,not_estimated,descriptive
 C019,Matched sampler endpoint,result,877f49ab0dcbd3b46a57eeb1a1b206081eb00e0ad5685e07c7e0b33f7a2e9f4a,E064;E065;E066;E067;E068,unverified,not_estimated,descriptive
+C020,Matched Min-SNR weighting,result,c11c9af25c490e8cf5a67362623cef5a348b07af74ac0f2519172ab19a354509,E069;E070;E071;E072;E073;E074,unverified,not_estimated,descriptive
+C021,Matched DDIM step count,result,68ea362ecee68d3a27bd7321eeb41faa0ec59098a3bb7846d9ee7186f267df92,E075;E076;E077,unverified,not_estimated,descriptive

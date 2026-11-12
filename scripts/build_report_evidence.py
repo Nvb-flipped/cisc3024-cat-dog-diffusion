@@ -259,6 +259,48 @@ def development_claims(paths):
             f"The matched v002 comparison scored {marks} out of 15 across the three official development seeds, "
             f"with FID {metric_range(outcomes, 'fid', '.2f')}, recall {metric_range(outcomes, 'recall', '.2%')}, "
             f"and memorization {metric_range(outcomes, 'memorization_rate', '.2%')}.", list(ids)))
+    minsnr = ROOT / 'results/experiments/minsnr5_32_seed17_v002/screening.json'
+    if minsnr.exists():
+        plan = ROOT / 'results/plans/minsnr5_32_seed17_63bc3fce35.json'
+        screen = json.loads(minsnr.read_text())
+        if screen['plan_sha256'] != sha256(plan) or \
+                [row['update'] for row in screen['screened']] != json.loads(plan.read_text())['updates']:
+            raise ValueError('Min-SNR checkpoint screen differs from the declared plan')
+        files, summaries = [plan, minsnr], []
+        for trial in screen['screened']:
+            export = ROOT / trial['exported']
+            row, = trial['evidence']
+            path = ROOT / row['path']
+            if sha256(export / 'manifest.csv') != sha256(ROOT / 'manifests/v002.csv') or sha256(path) != row['sha256']:
+                raise ValueError(f'Min-SNR checkpoint evidence changed: {path}')
+            result = validated_result(path, 0, export)
+            files.append(path)
+            metrics = result['metrics']
+            summaries.append(f"At {trial['update']:,} updates, FID was {metrics['fid']:.2f}, memorization was "
+                             f"{metrics['memorization_rate']:.2%}, and the score was {result['marks']['total']}/15.")
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, 69)}
+        paths.update(ids)
+        claims.append(('C020', 'Matched Min-SNR weighting', 'result', ' '.join(summaries), list(ids)))
+    ddim = ROOT / 'results/experiments/v002_ddim_steps/comparison.json'
+    if ddim.exists():
+        plan = ROOT / 'results/plans/v002_ddim_steps.json'
+        comparison = json.loads(ddim.read_text())
+        trial = comparison['seed_zero']
+        row, = trial['evidence']
+        path = ROOT / row['path']
+        export = ROOT / trial['exported']
+        if comparison['plan_sha256'] != sha256(plan) or sha256(path) != row['sha256'] or \
+                sha256(export / 'manifest.csv') != sha256(ROOT / 'manifests/v002.csv'):
+            raise ValueError('DDIM step comparison has changed')
+        result = validated_result(path, 0, export)
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate((plan, ddim, path), 75)}
+        paths.update(ids)
+        metrics = result['metrics']
+        claims.append(('C021', 'Matched DDIM step count', 'result',
+            f"At 100 steps, seed 0 scored {result['marks']['total']}/15 with FID {metrics['fid']:.2f}, "
+            f"recall {metrics['recall']:.2%}, and memorization {metrics['memorization_rate']:.2%}.", list(ids)))
     return claims
 
 
@@ -308,7 +350,10 @@ def main():
          ['Timothy Kassis', 'Vinayak Agarwal', 'Yuhuan He', 'Darshil Patel', 'Aubrey M. Brueckner'],
          2026, 'https://arxiv.org/abs/2609.00065', 'Materially used scientific writing/visualization procedures', 'preprint'),
         ('E108', 'Progressive Distillation for Fast Sampling of Diffusion Models', ['Tim Salimans', 'Jonathan Ho'],
-         2022, 'https://arxiv.org/abs/2202.00512', 'Velocity parameterization used in the matched comparison', 'preprint')]
+         2022, 'https://arxiv.org/abs/2202.00512', 'Velocity parameterization used in the matched comparison', 'preprint'),
+        ('E109', 'Efficient Diffusion Training via Min-SNR Weighting Strategy',
+         ['Tiankai Hang', 'Shuyang Gu', 'Chen Li', 'Jianmin Bao', 'Dong Chen', 'Han Hu', 'Xin Geng', 'Baining Guo'],
+         2023, 'https://arxiv.org/abs/2303.09556', 'Timestep weighting used in the matched epsilon comparison', 'preprint')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',

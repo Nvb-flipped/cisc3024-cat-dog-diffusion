@@ -1,0 +1,16 @@
+{
+  "device": "cuda",
+  "seed": 3024,
+  "prefix_counts": [
+    1,
+    35
+  ],
+  "logical_microbatch_sizes": [
+    32,
+    7
+  ],
+  "execution_batch": 32,
+  "max_abs_difference": 0,
+  "preserves_cpu_and_cuda_rng": true,
+  "export_provenance_sha256": "6e612a237134c188fa3d815e026a31dbea3ab4b94f4a57a23652075c31f3b34d"
+}

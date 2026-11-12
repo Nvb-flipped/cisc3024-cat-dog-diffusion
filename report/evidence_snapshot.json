@@ -272,12 +272,48 @@
     "E068": {
       "path": "results/experiments/v002_sampler_comparison/selection/start_990/seed_202.json",
       "sha256": "f2a0cce1fa0b30c853220dbe3871eead18decbabd52087e70babae1eefb2965e"
+    },
+    "E069": {
+      "path": "results/plans/minsnr5_32_seed17_63bc3fce35.json",
+      "sha256": "03f41faf272b2d7cb71eb292130419b293953d3409191b97057bb767afe77bbe"
+    },
+    "E070": {
+      "path": "results/experiments/minsnr5_32_seed17_v002/screening.json",
+      "sha256": "c581ffc9c3d6a0e0f20ddc3b3a3cfc4204cf7e7b835bbd1a23d4807bbd61298f"
+    },
+    "E071": {
+      "path": "results/experiments/minsnr5_32_seed17_v002/update_020000/seed_0.json",
+      "sha256": "534bc80fbc654e44e1c9a30f2e2a31b107a943a6202a9bcddb4ab5d6d6bee746"
+    },
+    "E072": {
+      "path": "results/experiments/minsnr5_32_seed17_v002/update_024000/seed_0.json",
+      "sha256": "561f0e3ca9103e27dd09af82bdfa89c9786df6d5fe1021666f14fb5653fb6077"
+    },
+    "E073": {
+      "path": "results/experiments/minsnr5_32_seed17_v002/update_028000/seed_0.json",
+      "sha256": "e881908de22a16ee0c57a371290754295bfc6b35995bad73350c94cd1d52486d"
+    },
+    "E074": {
+      "path": "results/experiments/minsnr5_32_seed17_v002/update_030000/seed_0.json",
+      "sha256": "79653e786b7954bfd661b92d45941e07d1ed01760bf0a2ae2ac8d5394d83c3e7"
+    },
+    "E075": {
+      "path": "results/plans/v002_ddim_steps.json",
+      "sha256": "21c9ebf6e039f26e49e452e056618e652f150f4d842caf5d72d612f0a9f680cf"
+    },
+    "E076": {
+      "path": "results/experiments/v002_ddim_steps/comparison.json",
+      "sha256": "58762262d140318364e992d04f61f7e96acbdca3c71fc21be487b753882cfadc"
+    },
+    "E077": {
+      "path": "results/experiments/v002_ddim_steps/seed_0.json",
+      "sha256": "543320437465ed102bb48b21793e05cf063c3c934046d4e0f7a554539c6ac78a"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "0c666db41afd0dcc924225e764bc7d7081dfe9c1b5cd7fecd3ed43a72839f23e",
-    "evidence_outline.md": "b02850400b5bc4596742da721965e05b4459504a46504f5cb35c0a547d5bb4d2",
-    "claims.csv": "ab51222b62bed89e34762cc9d0eaa9446bcdb70e78778b576e684a376cdb4b62"
+    "source_manifest.json": "67682a8cb262b93960a8506141eb9371ad29ac22f0a1b0a711420fdf4ac7b8c8",
+    "evidence_outline.md": "61e0c97d9798a3850fb4a7933ead4dbfd0dd5aa09716d3e3b90142691d360ab9",
+    "claims.csv": "7d22d737253516162ae17c9a468fb535230234eb39f5bad782d49d1b5a5f3afb"
   }
 }

@@ -1,0 +1,55 @@
+{
+  "device": "cpu",
+  "parameters": 5082147,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 36.90844780000043,
+      "sample_sha256": "277ff82f8fe89b25abbd0c4d2ccab08fecf24bab2a87d2a95afe49a70a677730"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 50.13462260000233,
+      "sample_sha256": "39e3961e4cb1349e8b794141bf777ee2e2a947e439bee60e00e7145983f049f5"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 49.08862080000108,
+      "sample_sha256": "9e475a4cc76802a527e61b306b44c53e98d65540fd4bb42aa5c6b7d3e3a7f6e3"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 92.3252738999945,
+      "sample_sha256": "94cf9c143878be76edc1b3a8645689f46262dfc6640631298300558066afa696"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 764.4238794999983,
+      "sample_sha256": "fe3fa9e2c7725d5239b39e4ec77807f27aa9b9093624148c5a76b9c529098dfe"
+    }
+  ],
+  "seconds": 992.9520908999984,
+  "submission_bytes": 20450122,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+    "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "provenance.json": "6e612a237134c188fa3d815e026a31dbea3ab4b94f4a57a23652075c31f3b34d",
+    "weights.pt": "f04585afbcb2f7b57c7f42d397c26e15908f8b3da7e29b670337c96b7c773297",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

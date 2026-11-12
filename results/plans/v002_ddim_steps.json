@@ -1,0 +1,24 @@
+{
+  "created": "2026-11-12T16:32:53.617653+00:00",
+  "inputs": {
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "results\\experiments\\capacity_frontier_v001\\selection.json": "b24f331164fc21b74b4e66df71756974aa04bcac4437f7dc2f80d5588163566e",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "submission\\diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\run_v002_ddim_steps.py": "d1189a4d74acce7235267d93d729692a6261de442fe378c30315761141e2e09a"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 100,
+    "guidance": 2.5
+  },
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "purpose": "The prior v001 comparison obtained a 12/15 seed-0 score at 100 steps and a tied three-seed floor. Test the one changed setting on v002.",
+  "rule": "Advance to seeds 101 and 202 only if valid seed 0 improves the reference by official tier or at least 0.05 normalized margin."
+}

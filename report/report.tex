@@ -84,14 +84,14 @@ The same small-model recipe was trained from random initialization with seeds 29
 
 The student corrected the side length of one crop from 250 to 260 pixels and renewed its duplicate decision. The holdout bytes were unchanged. A fresh seed-17 run on the corrected manifest took 46.9 minutes and used the same 30,000-update recipe. On seed 0 it reached 89.40\% accuracy, FID 72.80, KID $0.028978\pm0.001514$, precision 65.15\%, recall 30.20\%, and memorization 4.40\%. The 5,082,147-parameter export occupied 19.50 MiB and sampled 1,000 images in 32.90 seconds. Across the three development seeds, accuracy was 89.40--89.95\%, FID 71.59--72.80, recall 30.20--32.30\%, and memorization 4.10--4.60\%. All three scored 11/15. The accuracy, FID and recall excellent-tier thresholds remain unmet.
 
-With all other training settings held fixed, predicting velocity $v_t=\sqrt{\bar\alpha_t}\,\epsilon-\sqrt{1-\bar\alpha_t}\,x_0$ changed the fit substantially \cite{salimans2022progressive}. The fresh 30,000-update run reached FID 93.43--95.45 and memorization 37.90--39.00\% across the same three seeds. All three violated the 5\% limit. On the corrected noise-prediction checkpoint, starting DDIM at timestep 990 passed the 500-image screen, then scored 10, 11 and 11 marks in the 2,000-image evaluations. We retained the original sampler under the predeclared comparison rule.
+Replacing the noise target with $v_t=\sqrt{\bar\alpha_t}\,\epsilon-\sqrt{1-\bar\alpha_t}\,x_0$ gave FID 93.43--95.45 and memorization 37.90--39.00\% in the matched 30k run \cite{salimans2022progressive}. The three seeds exceeded the 5\% limit. On the corrected noise-prediction checkpoint, starting DDIM at timestep 990 scored 10, 11 and 11 marks in the full evaluations. At 100 steps, seed 0 scored 10/15 (FID 73.91, recall 29.20\%, memorization 4.35\%). The 50-step reference retained the higher rank.
+
+The matched Min-SNR run used $\operatorname{SNR}_t=\bar\alpha_t/(1-\bar\alpha_t)$ and per-example weight $\min(\operatorname{SNR}_t,5)/\operatorname{SNR}_t$ \cite{hang2023minsnr}. FID on seed 0 fell from 207.06 at 20k updates to 90.97 at 30k. Memorization reached 19.65\% at 28k and 30.60\% at 30k. The best valid snapshot scored 7/15 at 24k, below the matched unweighted reference.
 
 \section{Independent checks and limitations}
-The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. This test checked whether the implementation could fit a fixed batch. Separate offline inference checks exercised output shape and range, deterministic seed behavior, isolation from other labels, and preservation of caller RNG state. The student will independently verify data reconstruction, model behavior, and the final evaluation and record the resulting evidence in \texttt{AGENT\_LOG.md}.
+The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. Offline CPU and CUDA checks covered output shape and range, repeatability, label isolation and preservation of caller RNG. The student will independently verify data reconstruction, model behavior and evaluation in \texttt{AGENT\_LOG.md}. The personal audit will quantify remaining crop errors. Seed variability describes repeated sampling against the development reference.
 
-The final audit will quantify errors in this small reviewed subset. Seed variability describes repeated sampling from the tested export against the development reference. The course hidden evaluation remains unobserved.
-
-Coding assistance supported the curation tooling, experiment orchestration and evidence checks. Scientific Agent Skills informed experiment design and evidence documentation \cite{kassis2026skills}.
+Coding assistance supported curation tools, experiments and verification. Scientific Agent Skills informed experiment design and evidence documentation \cite{kassis2026skills}.
 
 \zlabel{maintextend}
 \clearpage

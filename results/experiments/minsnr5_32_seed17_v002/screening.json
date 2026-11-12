@@ -1,0 +1,323 @@
+{
+  "plan_sha256": "03f41faf272b2d7cb71eb292130419b293953d3409191b97057bb767afe77bbe",
+  "reference": {
+    "seed": 0,
+    "path": "results\\experiments\\capacity_32_seed17_v002\\seed_0.json",
+    "sha256": "9960301dadbb5733b0187ad267ee35bc3616133a5ab1b06acf889179099a58ec",
+    "metrics": {
+      "num_samples": 2000,
+      "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+      "accuracy": 0.8939999938011169,
+      "per_class_accuracy": {
+        "cat": 0.9309999942779541,
+        "dog": 0.8569999933242798
+      },
+      "fid": 72.80356545790374,
+      "kid": 0.028977708066380208,
+      "kid_std": 0.001514169101114227,
+      "precision": 0.6515486836433411,
+      "recall": 0.30199116468429565,
+      "memorization_rate": 0.04399999976158142,
+      "nn_distance_median": 8.287151336669922,
+      "nn_ratio_median": 0.9215861558914185,
+      "training_images_deduplicated": 2394
+    },
+    "marks": {
+      "per_metric": {
+        "accuracy": {
+          "tier": "Good",
+          "marks": 4
+        },
+        "fid": {
+          "tier": "Pass",
+          "marks": 3
+        },
+        "recall": {
+          "tier": "Good",
+          "marks": 4
+        }
+      },
+      "total": 11,
+      "max": 15,
+      "valid": true
+    },
+    "violations": []
+  },
+  "screened": [
+    {
+      "checkpoint": "checkpoints\\minsnr5_32_seed17_u030000_63bc3fce35\\update_020000.pt",
+      "checkpoint_sha256": "9aadc3ee0839624e17ac502fa3e7c9c14a0cfbc1c0a464c6691c8f52d73e49e2",
+      "update": 20000,
+      "exported": "private_build\\minsnr5_32_seed17_v002\\update_020000",
+      "export_hashes": {
+        "diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "a02c4797cdac6f7723e17a3e252eaafc8407bc22487c1c6a6ad75c008ffd1052",
+        "weights.pt": "285240fbbdb01202c9a47bc2df712ac210da14cca5691b19fbd822b8dd56bcda",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\minsnr5_32_seed17_v002\\update_020000\\seed_0.json",
+          "sha256": "534bc80fbc654e44e1c9a30f2e2a31b107a943a6202a9bcddb4ab5d6d6bee746",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.7350000143051147,
+            "per_class_accuracy": {
+              "cat": 0.8519999980926514,
+              "dog": 0.6179999709129333
+            },
+            "fid": 207.06043086192983,
+            "kid": 0.16847094967150697,
+            "kid_std": 0.004470666143448364,
+            "precision": 0.19911503791809082,
+            "recall": 0.0951327458024025,
+            "memorization_rate": 0.0,
+            "nn_distance_median": 7.254519462585449,
+            "nn_ratio_median": 0.9422324299812317,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Pass",
+                "marks": 3
+              },
+              "fid": {
+                "tier": "Fail",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Fail",
+                "marks": 0
+              }
+            },
+            "total": 3,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        3,
+        -15.706043086192983,
+        -0.0,
+        -31.48847594999825
+      ]
+    },
+    {
+      "checkpoint": "checkpoints\\minsnr5_32_seed17_u030000_63bc3fce35\\update_024000.pt",
+      "checkpoint_sha256": "e745d1499a0e4e8ac130b577d071fad91c8eee686c36e195378011321e4f9b37",
+      "update": 24000,
+      "exported": "private_build\\minsnr5_32_seed17_v002\\update_024000",
+      "export_hashes": {
+        "diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "9aa01f3080049362cdb9877c108df049ee35bc40ce424a08e9284edce012c894",
+        "weights.pt": "fa728b11cf4f5106c2ca7bd56d21050f714ff088c86344cc41032483ffb18df5",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\minsnr5_32_seed17_v002\\update_024000\\seed_0.json",
+          "sha256": "561f0e3ca9103e27dd09af82bdfa89c9786df6d5fe1021666f14fb5653fb6077",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8374999761581421,
+            "per_class_accuracy": {
+              "cat": 0.8690000176429749,
+              "dog": 0.8059999942779541
+            },
+            "fid": 139.75980667542734,
+            "kid": 0.09543911225252646,
+            "kid_std": 0.003061754495346735,
+            "precision": 0.34845131635665894,
+            "recall": 0.18805310130119324,
+            "memorization_rate": 0.027499999850988388,
+            "nn_distance_median": 6.763026237487793,
+            "nn_ratio_median": 0.8642044067382812,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 4
+              },
+              "fid": {
+                "tier": "Poor",
+                "marks": 1
+              },
+              "recall": {
+                "tier": "Marginal",
+                "marks": 2
+              }
+            },
+            "total": 7,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        7,
+        -8.975980667542734,
+        -0.027499999850988388,
+        -30.91563760000281
+      ]
+    },
+    {
+      "checkpoint": "checkpoints\\minsnr5_32_seed17_u030000_63bc3fce35\\update_028000.pt",
+      "checkpoint_sha256": "f1ed11a79c21abf1e5a55dd116f893123d92ecd844e9fd82c6043454102adf94",
+      "update": 28000,
+      "exported": "private_build\\minsnr5_32_seed17_v002\\update_028000",
+      "export_hashes": {
+        "diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "8a099ba74ab42f6aa261fc478cfdd61c04ec5fea63f992d2b9b6376bb79580bd",
+        "weights.pt": "cee5bf4cb6664b6211bb10caa681361479bd24fee08c685a7fe8a6ad52e7561e",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\minsnr5_32_seed17_v002\\update_028000\\seed_0.json",
+          "sha256": "e881908de22a16ee0c57a371290754295bfc6b35995bad73350c94cd1d52486d",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8824999928474426,
+            "per_class_accuracy": {
+              "cat": 0.8980000019073486,
+              "dog": 0.8669999837875366
+            },
+            "fid": 101.62759233650723,
+            "kid": 0.0558073318385279,
+            "kid_std": 0.0021612171175014253,
+            "precision": 0.5033186078071594,
+            "recall": 0.2699114978313446,
+            "memorization_rate": 0.1965000033378601,
+            "nn_distance_median": 5.885919094085693,
+            "nn_ratio_median": 0.7051844596862793,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 0
+              },
+              "fid": {
+                "tier": "Poor",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 0
+              }
+            },
+            "total": 0,
+            "max": 15,
+            "valid": false
+          },
+          "violations": [
+            "memorization rate 19.7% exceeds 5%: samples copy training images"
+          ]
+        }
+      ],
+      "score": null
+    },
+    {
+      "checkpoint": "checkpoints\\minsnr5_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "checkpoint_sha256": "c2a5f18f24c6d5af173941a3ed38b04461a7929ffc1674aa2776c5566f72e736",
+      "update": 30000,
+      "exported": "private_build\\minsnr5_32_seed17_v002\\update_030000",
+      "export_hashes": {
+        "diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "bbaad32cbdcf0090563db80fc7c835346b407baaea6fef536b08b0ff0d5f3404",
+        "weights.pt": "a682b59d294e957a2ad6d75a50e2d1e6befaec7c5e65160e7573d3eb3c030a8d",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\minsnr5_32_seed17_v002\\update_030000\\seed_0.json",
+          "sha256": "79653e786b7954bfd661b92d45941e07d1ed01760bf0a2ae2ac8d5394d83c3e7",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.9085000157356262,
+            "per_class_accuracy": {
+              "cat": 0.9269999861717224,
+              "dog": 0.8899999856948853
+            },
+            "fid": 90.97009960642373,
+            "kid": 0.04520376510692637,
+            "kid_std": 0.0018872014375643051,
+            "precision": 0.5508849620819092,
+            "recall": 0.29756638407707214,
+            "memorization_rate": 0.3059999942779541,
+            "nn_distance_median": 5.3679609298706055,
+            "nn_ratio_median": 0.635262131690979,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Excellent",
+                "marks": 0
+              },
+              "fid": {
+                "tier": "Marginal",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 0
+              }
+            },
+            "total": 0,
+            "max": 15,
+            "valid": false
+          },
+          "violations": [
+            "memorization rate 30.6% exceeds 5%: samples copy training images"
+          ]
+        }
+      ],
+      "score": null
+    }
+  ],
+  "promoted": null
+}

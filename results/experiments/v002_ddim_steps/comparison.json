@@ -1,0 +1,75 @@
+{
+  "plan_sha256": "21c9ebf6e039f26e49e452e056618e652f150f4d842caf5d72d612f0a9f680cf",
+  "seed_zero": {
+    "checkpoint": "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+    "checkpoint_sha256": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "update": 30000,
+    "exported": "private_build\\v002_ddim_steps_s100",
+    "export_hashes": {
+      "diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "8b715d0568e7c6cda278f4db6eb07921d26f2c2bc4ecf829b2c1425f4aa68057",
+      "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+      "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+      "provenance.json": "bc8962f4539c740d8cded63ecd0a9456092aaa94e663ca99154ae98285fc68ae",
+      "weights.pt": "f04585afbcb2f7b57c7f42d397c26e15908f8b3da7e29b670337c96b7c773297",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 100,
+    "guidance": 2.5,
+    "evidence": [
+      {
+        "seed": 0,
+        "path": "results\\experiments\\v002_ddim_steps\\seed_0.json",
+        "sha256": "543320437465ed102bb48b21793e05cf063c3c934046d4e0f7a554539c6ac78a",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.8930000066757202,
+          "per_class_accuracy": {
+            "cat": 0.9269999861717224,
+            "dog": 0.859000027179718
+          },
+          "fid": 73.90901225133433,
+          "kid": 0.029780893620009373,
+          "kid_std": 0.0015468417526006944,
+          "precision": 0.653761088848114,
+          "recall": 0.29203540086746216,
+          "memorization_rate": 0.04349999874830246,
+          "nn_distance_median": 8.353860855102539,
+          "nn_ratio_median": 0.9200003743171692,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Good",
+              "marks": 4
+            },
+            "fid": {
+              "tier": "Pass",
+              "marks": 3
+            },
+            "recall": {
+              "tier": "Pass",
+              "marks": 3
+            }
+          },
+          "total": 10,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      }
+    ],
+    "score": [
+      10,
+      -2.390901225133433,
+      -0.04349999874830246,
+      -62.108617650003
+    ]
+  },
+  "candidate": null,
+  "improves_reference": false
+}

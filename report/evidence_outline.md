@@ -80,6 +80,14 @@ The matched v002 comparison scored 0, 0, 0 out of 15 across the three official d
 
 The matched v002 comparison scored 10, 11, 11 out of 15 across the three official development seeds, with FID 71.22–73.19, recall 29.20%–32.74%, and memorization 3.75%–4.35%. [claim:C019] [evidence:E064,E065,E066,E067,E068]
 
+## Matched Min-SNR weighting: C020
+
+At 20,000 updates, FID was 207.06, memorization was 0.00%, and the score was 3/15. At 24,000 updates, FID was 139.76, memorization was 2.75%, and the score was 7/15. At 28,000 updates, FID was 101.63, memorization was 19.65%, and the score was 0/15. At 30,000 updates, FID was 90.97, memorization was 30.60%, and the score was 0/15. [claim:C020] [evidence:E069,E070,E071,E072,E073,E074]
+
+## Matched DDIM step count: C021
+
+At 100 steps, seed 0 scored 10/15 with FID 73.91, recall 29.20%, and memorization 4.35%. [claim:C021] [evidence:E075,E076,E077]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.
