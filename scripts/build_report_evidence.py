@@ -223,6 +223,42 @@ def development_claims(paths):
             f"development seeds, with scores {marks} of 15. Accuracy was {metric_range(outcomes, 'accuracy', '.2%')}, "
             f"FID {metric_range(outcomes, 'fid', '.2f')}, recall {metric_range(outcomes, 'recall', '.2%')}, "
             f"and memorization {metric_range(outcomes, 'memorization_rate', '.2%')}.", list(ids)))
+    late_comparisons = [
+        ('C018', 'Matched velocity target', 'velocity_32_seed17_v002',
+         'velocity_32_seed17_63bc3fce35.json', 59),
+        ('C019', 'Matched sampler endpoint', 'v002_sampler_comparison',
+         'v002_sampler_comparison.json', 64),
+    ]
+    for claim, heading, directory, plan_name, first in late_comparisons:
+        path = ROOT / 'results/experiments' / directory / 'comparison.json'
+        if not path.exists():
+            continue
+        plan = ROOT / 'results/plans' / plan_name
+        comparison = json.loads(path.read_text())
+        if comparison['plan_sha256'] != sha256(plan):
+            raise ValueError(f'Late comparison plan changed: {path}')
+        candidate = comparison if 'evidence' in comparison else comparison.get('candidate')
+        if candidate is None:
+            continue
+        export = ROOT / candidate['exported']
+        if [row['seed'] for row in candidate['evidence']] != [0, 101, 202] or \
+                sha256(export / 'manifest.csv') != sha256(ROOT / 'manifests/v002.csv'):
+            raise ValueError(f'Late comparison has different seeds or training data: {path}')
+        files, outcomes = [plan, path], []
+        for row in candidate['evidence']:
+            result_path = ROOT / row['path']
+            if sha256(result_path) != row['sha256']:
+                raise ValueError(f'Late comparison result changed: {result_path}')
+            files.append(result_path)
+            outcomes.append(validated_result(result_path, row['seed'], export))
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, first)}
+        paths.update(ids)
+        marks = ', '.join(str(result['marks']['total']) for result in outcomes)
+        claims.append((claim, heading, 'result',
+            f"The matched v002 comparison scored {marks} out of 15 across the three official development seeds, "
+            f"with FID {metric_range(outcomes, 'fid', '.2f')}, recall {metric_range(outcomes, 'recall', '.2%')}, "
+            f"and memorization {metric_range(outcomes, 'memorization_rate', '.2%')}.", list(ids)))
     return claims
 
 
@@ -270,7 +306,9 @@ def main():
          2021, 'https://proceedings.mlr.press/v139/radford21a.html', 'CLIP review ranking; bibliographic metadata checked against PMLR', 'conference_paper'),
         ('E107', 'Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents',
          ['Timothy Kassis', 'Vinayak Agarwal', 'Yuhuan He', 'Darshil Patel', 'Aubrey M. Brueckner'],
-         2026, 'https://arxiv.org/abs/2609.00065', 'Materially used scientific writing/visualization procedures', 'preprint')]
+         2026, 'https://arxiv.org/abs/2609.00065', 'Materially used scientific writing/visualization procedures', 'preprint'),
+        ('E108', 'Progressive Distillation for Fast Sampling of Diffusion Models', ['Tim Salimans', 'Jonathan Ho'],
+         2022, 'https://arxiv.org/abs/2202.00512', 'Velocity parameterization used in the matched comparison', 'preprint')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',

@@ -11,7 +11,7 @@ import torch
 
 from src.common import ROOT, environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
-from src.training.step import optimizer_step, update_ema
+from src.training.step import optimizer_step, update_ema, validate_loss_weighting
 from src.training.validation import require_disjoint_sources, validation_loss
 from src.training.lineage import reviewed_manifest_provenance
 from submission.diffusion import cosine_alpha_bar
@@ -56,6 +56,7 @@ def main():
     prediction_type = settings.get('prediction_type', 'epsilon')
     if prediction_type not in ('epsilon', 'velocity'):
         raise ValueError('Unsupported denoising target')
+    validate_loss_weighting(settings)
     if settings['updates'] < 1 or settings['checkpoint_every'] < 1 or settings['log_every'] < 1:
         raise ValueError('Update, checkpoint and log intervals must be positive')
     torch.set_num_threads(settings.get('threads', 8))

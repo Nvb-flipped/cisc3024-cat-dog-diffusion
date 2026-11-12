@@ -232,12 +232,52 @@
     "E058": {
       "path": "results/experiments/capacity_32_seed17_v002/seed_202.json",
       "sha256": "c5716c4f4a4e036999ab36b4b8bca4df7b561f8e963260e7526b7b8b07ce4092"
+    },
+    "E059": {
+      "path": "results/plans/velocity_32_seed17_63bc3fce35.json",
+      "sha256": "77dbb2478e72014c1780e490288d88f9fadb4df59886b0dd26942b3f90564cb7"
+    },
+    "E060": {
+      "path": "results/experiments/velocity_32_seed17_v002/comparison.json",
+      "sha256": "b54ff7c82e59abdd9d0b58ebedf3fa7e53950308ce3f6e7c249f98aa7d1f4882"
+    },
+    "E061": {
+      "path": "results/experiments/velocity_32_seed17_v002/seed_0.json",
+      "sha256": "8a9ebd81a01bd84013b5874e4d9cf378586cdbcb6b6cf09b5131ee1b20656f71"
+    },
+    "E062": {
+      "path": "results/experiments/velocity_32_seed17_v002/seed_101.json",
+      "sha256": "9dc4e8c8a4491aaebaf1ee5d4271787614159cdf609d1a09a1eee6dd43b52473"
+    },
+    "E063": {
+      "path": "results/experiments/velocity_32_seed17_v002/seed_202.json",
+      "sha256": "ce176eb629d9f367c00cafc3f6a0164f35c0eaa1d27586e0339901a536a3dc9f"
+    },
+    "E064": {
+      "path": "results/plans/v002_sampler_comparison.json",
+      "sha256": "69a7ae546e684036f6ed103ac8bffd469cc84ddf64c1f29da4e3b2a0bcdd265e"
+    },
+    "E065": {
+      "path": "results/experiments/v002_sampler_comparison/comparison.json",
+      "sha256": "0f3dcc7517a01b3353cb124e4821efea568ccf226d28c3f28bb7d0bfef54dcb4"
+    },
+    "E066": {
+      "path": "results/experiments/v002_sampler_comparison/selection/start_990/seed_0.json",
+      "sha256": "977689aca59372f2cd1c4343d7451d6523a2693b5b4c93a896d919141609edc8"
+    },
+    "E067": {
+      "path": "results/experiments/v002_sampler_comparison/selection/start_990/seed_101.json",
+      "sha256": "bc722b11d3ad430d5efd9826b25c0aab53d7a6dd671d309e3af12c2edcaa5c7f"
+    },
+    "E068": {
+      "path": "results/experiments/v002_sampler_comparison/selection/start_990/seed_202.json",
+      "sha256": "f2a0cce1fa0b30c853220dbe3871eead18decbabd52087e70babae1eefb2965e"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "25e474c4efab115a51e85f9f70f767c7c46a74e3feba117b9fa2ad484aef975d",
-    "evidence_outline.md": "f909619fe9e29a776e05f7126434e0d79579c53ba05d5a8182aa26dab8408002",
-    "claims.csv": "6cef5d20b09405ffa2015c87ddcf0bb007168c231d40d8348c0632c62dd140ec"
+    "source_manifest.json": "0c666db41afd0dcc924225e764bc7d7081dfe9c1b5cd7fecd3ed43a72839f23e",
+    "evidence_outline.md": "b02850400b5bc4596742da721965e05b4459504a46504f5cb35c0a547d5bb4d2",
+    "claims.csv": "ab51222b62bed89e34762cc9d0eaa9446bcdb70e78778b576e684a376cdb4b62"
   }
 }

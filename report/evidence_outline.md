@@ -72,6 +72,14 @@ Training seed 17 produced FID 71.99–74.07, recall 27.43%–31.42%, and memoriz
 
 The fresh 30,000-update v002 reference passed all hard conditions on 3 of 3 development seeds, with scores 11, 11, 11 of 15. Accuracy was 89.40%–89.95%, FID 71.59–72.80, recall 30.20%–32.30%, and memorization 4.10%–4.60%. [claim:C017] [evidence:E053,E054,E055,E056,E057,E058]
 
+## Matched velocity target: C018
+
+The matched v002 comparison scored 0, 0, 0 out of 15 across the three official development seeds, with FID 93.43–95.45, recall 24.12%–24.45%, and memorization 37.90%–39.00%. [claim:C018] [evidence:E059,E060,E061,E062,E063]
+
+## Matched sampler endpoint: C019
+
+The matched v002 comparison scored 10, 11, 11 out of 15 across the three official development seeds, with FID 71.22–73.19, recall 29.20%–32.74%, and memorization 3.75%–4.35%. [claim:C019] [evidence:E064,E065,E066,E067,E068]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

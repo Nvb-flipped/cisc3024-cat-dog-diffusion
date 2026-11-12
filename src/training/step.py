@@ -1,7 +1,24 @@
 """The same optimizer update is used by training and hardware diagnostics."""
+import math
+
 import torch
 from torch.nn import functional as F
 from submission.diffusion import add_noise, velocity_target
+
+
+def validate_loss_weighting(settings):
+    gamma = settings.get('min_snr_gamma')
+    if gamma is None:
+        return
+    if type(gamma) not in (int, float) or not math.isfinite(gamma) or gamma <= 0:
+        raise ValueError('min_snr_gamma must be positive and finite')
+    if settings.get('prediction_type', 'epsilon') != 'epsilon':
+        raise ValueError('Min-SNR weighting is implemented for the epsilon target')
+
+
+def epsilon_min_snr_weights(alpha_bar, gamma):
+    # min(SNR, gamma) / SNR with SNR = alpha_bar / (1 - alpha_bar).
+    return (gamma * (1 - alpha_bar) / alpha_bar.clamp_min(torch.finfo(alpha_bar.dtype).tiny)).clamp_max(1)
 
 
 def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, settings, update):
@@ -10,6 +27,7 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     accumulation = effective // micro
     bf16 = settings['precision'] == 'bf16' and device.type == 'cuda'
     velocity = settings.get('prediction_type', 'epsilon') == 'velocity'
+    gamma = settings.get('min_snr_gamma')
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
         group['lr'] = lr
@@ -26,7 +44,11 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
         target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) if velocity else noise
         with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):
             predicted = model(xt, t, y)
-            loss = F.mse_loss(predicted.float(), target)
+            if gamma is None:
+                loss = F.mse_loss(predicted.float(), target)
+            else:
+                errors = F.mse_loss(predicted.float(), target, reduction='none').mean(dim=(1, 2, 3))
+                loss = (errors * epsilon_min_snr_weights(alpha_bar[t], gamma)).mean()
         if not torch.isfinite(loss):
             raise FloatingPointError(f'Nonfinite loss at update {update}')
         (loss / accumulation).backward()

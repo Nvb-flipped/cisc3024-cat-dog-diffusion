@@ -1,0 +1,54 @@
+{
+  "created": "2026-11-12T15:41:23.097028+00:00",
+  "inputs": {
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v002.provenance.json": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "results\\diagnostics\\minsnr_overfit_v002\\result.json": "8552bbea71b07aef7842d0b9454fc21c6e46183076217b15db09de4b492b427f",
+    "configs\\runs\\63bc3fce35\\minsnr5_32_seed17_u030000.yaml": "5d95c8e53b495a33ac546e05d0ffafe22eb7da8ac13c43ad3f4a3f1e7a5b3f10",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "src\\training\\step.py": "8e44ba5eaf14a46b98ba079454b7f94dfbb820b96d529319d9fb2abfe5a31951",
+    "src\\training\\train.py": "5ac022b0be0f76ba6f2dc4ad635660a45741c4a5d59964e36733adab88c58a4e",
+    "submission\\diffusion.py": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+    "scripts\\run_minsnr_comparison.py": "a18d8b6e5b3e7736e331d35275b290a7e723423578482b485bb231c03f7d02d9"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\63bc3fce35\\minsnr5_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--validation-manifest",
+    "manifests\\v002.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\minsnr5_32_seed17_u030000_63bc3fce35"
+  ],
+  "hypothesis": "Bounded timestep weighting can improve distribution coverage without the memorization observed with an unweighted velocity target.",
+  "paper": "https://arxiv.org/abs/2303.09556",
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "updates": [
+    20000,
+    24000,
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "rule": "Compare each predeclared checkpoint to the matched full seed-0 reference. Advance at most one valid improvement to the two remaining seeds. Select it only if it improves the full reference by the usual tier or margin rule."
+}

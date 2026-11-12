@@ -9,7 +9,7 @@ from torch.nn import functional as F
 from torchvision.utils import save_image
 from src.common import environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
-from src.training.step import optimizer_step, update_ema
+from src.training.step import optimizer_step, update_ema, validate_loss_weighting
 from submission.diffusion import (add_noise, cosine_alpha_bar, reconstruct_clean,
                                   reconstruct_clean_from_velocity, velocity_target)
 from submission.model import ConditionalUNet
@@ -19,9 +19,11 @@ BENCHMARK_UPDATES = 500
 
 
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
-            *, prediction_type='epsilon'):
+            *, prediction_type='epsilon', min_snr_gamma=None):
     if prediction_type not in ('epsilon', 'velocity'):
         raise ValueError('Unsupported denoising target')
+    weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
+    validate_loss_weighting(weighting)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
     if (out / 'result.json').exists():
@@ -60,7 +62,7 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=0)
     settings = dict(effective_batch=len(x), microbatch=len(x), learning_rate=1e-3,
                     warmup=1, grad_clip=1.0, precision='fp32', null_probability=0,
-                    prediction_type=prediction_type)
+                    **weighting)
     begin = time.perf_counter()
     losses = []
     for update in range(1, OVERFIT_UPDATES + 1):
@@ -80,7 +82,7 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         writer.writerows(losses)
     record = {'purpose': 'integration correctness only, not generalization or final quality',
         'diagnostic_only': True, 'manifest_sha256': digest, 'stats': stats, 'model': config,
-        'updates': OVERFIT_UPDATES, 'required_reduction': .80, 'prediction_type': prediction_type,
+        'updates': OVERFIT_UPDATES, 'required_reduction': .80, **weighting,
         'probe_mse_before': before_mse, 'probe_mse_after': after_mse,
         'reduction': 1 - after_mse / before_mse, 'reconstruction_mse_before': before_clean,
         'reconstruction_mse_after': after_clean, 'seconds': time.perf_counter() - begin,
@@ -145,10 +147,11 @@ def main():
     p.add_argument('--config', default='configs/ddpm.yaml')
     p.add_argument('--out')
     p.add_argument('--prediction-type', choices=['epsilon', 'velocity'], default='epsilon')
+    p.add_argument('--min-snr-gamma', type=float)
     args = p.parse_args()
     if args.mode == 'overfit':
         print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit',
-                      prediction_type=args.prediction_type))
+                      prediction_type=args.prediction_type, min_snr_gamma=args.min_snr_gamma))
     else:
         print(benchmark(args.config, args.manifest, args.out or 'results/diagnostics/benchmark'))
 

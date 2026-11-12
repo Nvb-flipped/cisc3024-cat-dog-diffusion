@@ -1,0 +1,54 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0,
+    "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4"
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "prediction_type": "epsilon",
+  "min_snr_gamma": 5.0,
+  "probe_mse_before": 1.1554162502288818,
+  "probe_mse_after": 0.006732625421136618,
+  "reduction": 0.9941729870773387,
+  "reconstruction_mse_before": 0.5410223007202148,
+  "reconstruction_mse_after": 0.015920622274279594,
+  "seconds": 57.22543399999995,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "5e811253a8054fe8c1d67440435a5e855527bcc1",
+    "git_dirty": true
+  },
+  "completed": "2026-11-12T15:40:46.730498+00:00",
+  "passed": true
+}

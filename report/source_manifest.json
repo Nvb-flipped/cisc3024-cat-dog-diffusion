@@ -1278,6 +1278,226 @@
       }
     },
     {
+      "evidence_id": "E059",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/velocity_32_seed17_63bc3fce35.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/velocity_32_seed17_63bc3fce35.json"
+      },
+      "locator": "results/plans/velocity_32_seed17_63bc3fce35.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E060",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/velocity_32_seed17_v002/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/velocity_32_seed17_v002/comparison.json"
+      },
+      "locator": "results/experiments/velocity_32_seed17_v002/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E061",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/velocity_32_seed17_v002/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/velocity_32_seed17_v002/seed_0.json"
+      },
+      "locator": "results/experiments/velocity_32_seed17_v002/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E062",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/velocity_32_seed17_v002/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/velocity_32_seed17_v002/seed_101.json"
+      },
+      "locator": "results/experiments/velocity_32_seed17_v002/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E063",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/velocity_32_seed17_v002/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/velocity_32_seed17_v002/seed_202.json"
+      },
+      "locator": "results/experiments/velocity_32_seed17_v002/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E064",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v002_sampler_comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v002_sampler_comparison.json"
+      },
+      "locator": "results/plans/v002_sampler_comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E065",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_sampler_comparison/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_sampler_comparison/comparison.json"
+      },
+      "locator": "results/experiments/v002_sampler_comparison/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E066",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_sampler_comparison/selection/start_990/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_sampler_comparison/selection/start_990/seed_0.json"
+      },
+      "locator": "results/experiments/v002_sampler_comparison/selection/start_990/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E067",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_sampler_comparison/selection/start_990/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_sampler_comparison/selection/start_990/seed_101.json"
+      },
+      "locator": "results/experiments/v002_sampler_comparison/selection/start_990/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E068",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_sampler_comparison/selection/start_990/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_sampler_comparison/selection/start_990/seed_202.json"
+      },
+      "locator": "results/experiments/v002_sampler_comparison/selection/start_990/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E101",
       "source_type": "preprint",
       "title": "Denoising Diffusion Probabilistic Models",
@@ -1469,6 +1689,31 @@
         "isbn": ""
       },
       "locator": "Materially used scientific writing/visualization procedures",
+      "confidentiality": "public",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E108",
+      "source_type": "preprint",
+      "title": "Progressive Distillation for Fast Sampling of Diffusion Models",
+      "authors": [
+        "Tim Salimans",
+        "Jonathan Ho"
+      ],
+      "year": 2022,
+      "identifiers": {
+        "url": "https://arxiv.org/abs/2202.00512",
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": ""
+      },
+      "locator": "Velocity parameterization used in the matched comparison",
       "confidentiality": "public",
       "verification": {
         "status": "unverified",

@@ -16,3 +16,5 @@ C014,Raw and EMA sampler screening,result,6f743ab7eac63ade39c18f2c30cecd5735b350
 C015,Recorded review geometry,result,53a5d3709e5f29f6d85618dd645ac4a7ee469ba11cf13e701035a23d299c82f9,E040;E041,unverified,not_estimated,descriptive
 C016,Fresh training-seed comparison,result,e297b1f14ce2c4d0b60f023aedf449a8697ecbd057bd37ab8e4c233331d6ca3a,E042;E043;E044;E045;E046;E047;E048;E049;E050;E051;E052,unverified,not_estimated,descriptive
 C017,Corrected-manifest reference,result,a795cb2084fa4190fa67216136f938ac2626431845a7a9b7a602c148be88ff07,E053;E054;E055;E056;E057;E058,unverified,not_estimated,descriptive
+C018,Matched velocity target,result,bed480f54b92423419633368ad2ac08989ecba8f3e8411c2369826d445c08852,E059;E060;E061;E062;E063,unverified,not_estimated,descriptive
+C019,Matched sampler endpoint,result,877f49ab0dcbd3b46a57eeb1a1b206081eb00e0ad5685e07c7e0b33f7a2e9f4a,E064;E065;E066;E067;E068,unverified,not_estimated,descriptive

@@ -1,0 +1,32 @@
+{
+  "created": "2026-11-12T15:33:35.951318+00:00",
+  "reference_sha256": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+  "prior_screen_sha256": "41a3a5d37456777d7dc97d21389c76f426a9a734fff8f811098b69a69a9a3459",
+  "manifest_sha256": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+  "checkpoint_sha256": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+  "inference_source_sha256": "322c5a7faa26d3528fcba5339cdbd7c597e81848aebf0f2f4ab3c7f18c53266e",
+  "worker_sha256": "df45d9d9e545d97bf7fc20f9676ac1be0896b60794c4e32a8e2df3ee2af223db",
+  "settings": {
+    "reference": {},
+    "start_990": {
+      "start_timestep": 990
+    },
+    "guidance_after_849": {
+      "guidance_max_timestep": 849
+    }
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "screen_n_per_class": 250,
+  "screen_seed": 0,
+  "selection_n_per_class": 1000,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "rule": "Advance at most one valid setting that improves on the matched screen by official tier floor or at least 0.05 worst normalized margin. Advance it only if it also improves the three-seed reference by that rule."
+}
