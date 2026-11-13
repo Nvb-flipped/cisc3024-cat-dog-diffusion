@@ -1,0 +1,47 @@
+{
+  "created": "2026-11-13T14:39:47.035221+00:00",
+  "inputs": {
+    "results\\plans\\v006_coverage.json": "161c8c78b2c1d21b707894816a53ef1bf239ed2d6b47d26104a1c2f58563ded3",
+    "results\\experiments\\v006_coverage\\screening.json": "b275371814ffcc22a711f57f187fc2c02a6650d907683ffbcebbbbcf4115a07a",
+    "results\\experiments\\v006_coverage\\comparison.json": "e8934451c1a963cec1362ce5398aa1795016c3723023ffa6495fffb37880ad6b",
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "checkpoints\\capacity_32_seed17_u030000_123aac91c9\\update_030000.pt": "0c849a27275b36a5df84566c9b516e5ef2c745328ec07754376ed041c50f9480",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v006_continuation.py": "f3fbf969a0da93c3bf36220d1b6267a41685e87b1a0d428193c1b58d2e4faf1e"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v006.csv",
+    "--validation-manifest",
+    "manifests\\v006.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_u030000_123aac91c9",
+    "--resume",
+    "checkpoints\\capacity_32_seed17_u030000_123aac91c9\\update_030000.pt",
+    "--updates",
+    "32000"
+  ],
+  "target_update": 32000,
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "rationale": "The 28k to 30k comparison improved FID and recall while memorization remained at 2.55%. Test one additional 2,000-update interval.",
+  "rule": "One continuation. Advance only if seed 0 improves the existing v002 score or margin, then require the same three-seed improvement."
+}

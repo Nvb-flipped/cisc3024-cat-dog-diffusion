@@ -412,12 +412,40 @@
     "E127": {
       "path": "results/experiments/v002_dpmpp/seed_0.json",
       "sha256": "b1afd51aaf15f91db75f35bd8c1adce247aaef1bc418a53e2711d916e4393824"
+    },
+    "E129": {
+      "path": "results/plans/v006_coverage.json",
+      "sha256": "161c8c78b2c1d21b707894816a53ef1bf239ed2d6b47d26104a1c2f58563ded3"
+    },
+    "E130": {
+      "path": "results/experiments/v006_coverage/screening.json",
+      "sha256": "b275371814ffcc22a711f57f187fc2c02a6650d907683ffbcebbbbcf4115a07a"
+    },
+    "E131": {
+      "path": "results/experiments/v006_coverage/update_028000/seed_0.json",
+      "sha256": "d76f721f6dd6f3817e5b1dc139fc30dce9d131db0648b72f98b8ce53bfd2e6ad"
+    },
+    "E132": {
+      "path": "results/experiments/v006_coverage/update_030000/seed_0.json",
+      "sha256": "82a163004ffe8067aafa5a7e2345fd8e4c44931d28e952fcddf52c52859914b1"
+    },
+    "E134": {
+      "path": "results/plans/v006_continuation.json",
+      "sha256": "cf96d5ec8e252d70b01edb4dbd9fadd65d22d1a40c46cb757865924e722b9fcf"
+    },
+    "E135": {
+      "path": "results/experiments/v006_coverage/continuation_032000/comparison.json",
+      "sha256": "97f3ab46441de1ccd19d0b821561bd71ac1c484887705cf8d86dee13ad3e844f"
+    },
+    "E136": {
+      "path": "results/experiments/v006_coverage/continuation_032000/seed_0.json",
+      "sha256": "10ed8c09edfb9e2e83cf86db86166778327527056f209078873491d37836c411"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "bc89823ed8a752b332915565a95ba66e0ed49d2aed09b831d4bed16b173f172c",
-    "evidence_outline.md": "c43eaa4519d4ce4cd76b097ba0ad403134556052d325d557a61a4452d237a37d",
-    "claims.csv": "135b69727c387b76969e9933a6ecbfae41a74443bdebe5c6d14e45858206c2ca"
+    "source_manifest.json": "6f4e5634d65650681107eef9ab53eadbac27e96d3f41bfdcf343ab188a355f1a",
+    "evidence_outline.md": "0bf4becaa95ac17f2c0df2cb5abfa45c772ca71d9d6120f8c8f0302ca79e7e13",
+    "claims.csv": "d7473fd1c7395852cc01e67c8a9f1d66fd3cb5a8fe30edbd4aa4a1ad338db5fc"
   }
 }

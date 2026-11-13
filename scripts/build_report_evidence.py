@@ -408,6 +408,10 @@ def development_claims(paths):
     comparison_specs = (
         (coverage_screen, 'v004_coverage', 'C027', 'Matched pool coverage comparison', 120),
         (solver_comparison, 'v002_dpmpp', 'C028', 'Matched DPM-Solver++ comparison', 125),
+        (ROOT / 'results/experiments/v006_coverage/screening.json',
+         'v006_coverage', 'C029', 'Larger matched pool coverage comparison', 129),
+        (ROOT / 'results/experiments/v006_coverage/continuation_032000/comparison.json',
+         'v006_continuation', 'C030', 'Bounded v006 continuation', 134),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -426,8 +430,11 @@ def development_claims(paths):
             result = validated_result(path, 0, ROOT / trial['exported'])
             metrics = result['metrics']
             files.append(path)
+            accuracy = f"{metrics['accuracy']:.2%}"
+            if metrics['accuracy'] < .90 and accuracy == '90.00%':
+                accuracy += ' after rounding (below the official 90% threshold)'
             summaries.append(f"At {trial['update']:,} training updates, generation seed 0 scored "
-                             f"{result['marks']['total']}/15 with {metrics['accuracy']:.2%} accuracy, "
+                             f"{result['marks']['total']}/15 with accuracy {accuracy}, "
                              f"FID {metrics['fid']:.2f}, {metrics['recall']:.2%} recall, and "
                              f"{metrics['memorization_rate']:.2%} memorization.")
         ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()

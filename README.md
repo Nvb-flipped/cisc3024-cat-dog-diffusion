@@ -114,6 +114,8 @@ Run `python -m scripts.run_edm_comparison` to execute the frozen comparison or r
 
 The [patch comparison](results/plans/patch_grid_v002.json) evaluates 4×4 and 8×8 packing with the same pixel-resolution refinement branch. It keeps the full-image epsilon objective, exact v002 targets, holdout and DDIM sampler. Run `python -m scripts.run_patch_comparison` to execute the frozen protocol or resume from its verified receipts. The diagnostic command is `python -m src.training.diagnostics overfit --patch-size 4 --patch-detail --out results/diagnostics/patch4_detail_reproduction`. Change `4` to `8` and use a fresh output folder for the other variant.
 
+The [v006 coverage comparison](results/plans/v006_coverage.json) adds 99 personally approved, distinct crops to the exact v002 manifest and preserves the 63-row holdout. It reuses the seed-17, 30,000-update U-Net recipe and EMA/DDIM50/CFG 2.5. Reproduce the matched fit with the training command in that plan and a fresh `--out` directory. Export the 28k and 30k EMA checkpoints with `--steps 50 --guidance 2.5` and run the official wrapper with seed 0. The official results are under `results/experiments/v006_coverage/`. The 30,000-update result is the primary matched comparison. The original run directory's latest completion is now at 32k, with the matched 30k completion retained as its own segment receipt.
+
 Rebuild the v002 development report grid from the first 16 official seed-0 outputs per class:
 
 ```powershell

@@ -110,11 +110,19 @@ At 24,000 updates with 4×4 patches, accuracy was 66.85%, FID 283.17, recall 0.0
 
 ## Matched pool coverage comparison: C027
 
-At 28,000 training updates, generation seed 0 scored 11/15 with 86.85% accuracy, FID 79.22, 31.31% recall, and 2.05% memorization. At 30,000 training updates, generation seed 0 scored 11/15 with 88.10% accuracy, FID 74.42, 33.52% recall, and 3.95% memorization. [claim:C027] [evidence:E120,E121,E122,E123]
+At 28,000 training updates, generation seed 0 scored 11/15 with accuracy 86.85%, FID 79.22, 31.31% recall, and 2.05% memorization. At 30,000 training updates, generation seed 0 scored 11/15 with accuracy 88.10%, FID 74.42, 33.52% recall, and 3.95% memorization. [claim:C027] [evidence:E120,E121,E122,E123]
 
 ## Matched DPM-Solver++ comparison: C028
 
-At 30,000 training updates, generation seed 0 scored 10/15 with 88.10% accuracy, FID 79.46, 29.20% recall, and 4.25% memorization. [claim:C028] [evidence:E125,E126,E127,E111]
+At 30,000 training updates, generation seed 0 scored 10/15 with accuracy 88.10%, FID 79.46, 29.20% recall, and 4.25% memorization. [claim:C028] [evidence:E125,E126,E127,E111]
+
+## Larger matched pool coverage comparison: C029
+
+At 28,000 training updates, generation seed 0 scored 10/15 with accuracy 88.70%, FID 75.62, 24.67% recall, and 1.35% memorization. At 30,000 training updates, generation seed 0 scored 10/15 with accuracy 89.50%, FID 72.13, 25.88% recall, and 2.55% memorization. [claim:C029] [evidence:E129,E130,E131,E132]
+
+## Bounded v006 continuation: C030
+
+At 32,000 training updates, generation seed 0 scored 10/15 with accuracy 90.00% after rounding (below the official 90% threshold), FID 70.85, 28.43% recall, and 4.05% memorization. [claim:C030] [evidence:E134,E135,E136]
 
 ## Evidence still required
 
