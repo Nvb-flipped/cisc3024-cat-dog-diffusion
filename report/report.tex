@@ -108,6 +108,8 @@ Introducing trajectory noise with DDIM $\eta=0.35$ and $0.70$ on the corrected r
 
 An EDM experiment kept the small U-Net, optimizer, EMA, seed and exact v002 crops. It changed the noise distribution, denoiser preconditioning and loss, and used 26 deterministic Heun noise levels \cite{karras2022edm}. At 24k updates it scored 5/15 on seed 0 with FID 147.67, recall 6.86\% and memorization 1.10\%. The 28k and 30k snapshots exceeded the 5\% cap, with rates of 8.55\% and 14.75\%. The 30k snapshot reached 90.85\% accuracy, FID 103.11 and 18.14\% recall. The comparison retained the original v002 DDIM reference.
 
+We also packed each noisy image into either 64 patches of $4\times4$ pixels or 16 patches of $8\times8$ pixels. This rearranged pixels into channels and preserved a full-image noise target. Both variants used the same conditioned pixel-resolution refinement branch and the reference training and sampling settings. At the matched 30k budget, the 4-pixel variant scored 2/15 with FID 220.25 and recall 0.22\%. The 8-pixel variant scored 1/15 with FID 237.26 and recall 0.00\%. Both had zero memorization flags and substantially worse distribution coverage than the v002 reference. The 4-pixel variant had lower mean noise MSE over the four routine pool holdout timesteps, yet at timestep 990 its guided noise MSE was 0.02459 versus 0.00406 for the reference. The high-noise probe and full generation results together show the limits of using routine denoising loss to rank these models.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

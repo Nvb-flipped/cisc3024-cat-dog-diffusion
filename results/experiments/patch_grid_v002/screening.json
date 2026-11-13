@@ -1,0 +1,340 @@
+{
+  "plan_sha256": "0df4de9130cfcf1c09e7a9bc9de3a9dfac9584e78416f516d1bccd44b5134fe5",
+  "reference": {
+    "seed": 0,
+    "path": "results\\experiments\\capacity_32_seed17_v002\\seed_0.json",
+    "sha256": "9960301dadbb5733b0187ad267ee35bc3616133a5ab1b06acf889179099a58ec",
+    "metrics": {
+      "num_samples": 2000,
+      "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+      "accuracy": 0.8939999938011169,
+      "per_class_accuracy": {
+        "cat": 0.9309999942779541,
+        "dog": 0.8569999933242798
+      },
+      "fid": 72.80356545790374,
+      "kid": 0.028977708066380208,
+      "kid_std": 0.001514169101114227,
+      "precision": 0.6515486836433411,
+      "recall": 0.30199116468429565,
+      "memorization_rate": 0.04399999976158142,
+      "nn_distance_median": 8.287151336669922,
+      "nn_ratio_median": 0.9215861558914185,
+      "training_images_deduplicated": 2394
+    },
+    "marks": {
+      "per_metric": {
+        "accuracy": {
+          "tier": "Good",
+          "marks": 4
+        },
+        "fid": {
+          "tier": "Pass",
+          "marks": 3
+        },
+        "recall": {
+          "tier": "Good",
+          "marks": 4
+        }
+      },
+      "total": 11,
+      "max": 15,
+      "valid": true
+    },
+    "violations": []
+  },
+  "screened": [
+    {
+      "checkpoint": "checkpoints\\patch4_detail_seed17_u030000_63bc3fce35\\update_024000.pt",
+      "checkpoint_sha256": "6fe73f55cbf8d0122a5039f97176472bf92d4deccc622a65e77efd2a1940b10d",
+      "update": 24000,
+      "exported": "private_build\\patch_grid_v002\\patch4_detail_u024000",
+      "export_hashes": {
+        "diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "d361e3d38fbb05b8fcfc19761dd31fe4baf531e4955d4c1c8a1a095b1926550f",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18",
+        "provenance.json": "27ae1891b12843d491d758f89b86034884d0a57b45393c0bd192d33405560fc4",
+        "weights.pt": "42113fe1beeabe5847c6420746f6657a50d463801bcfae697b582f3f3bbee34d",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\patch_grid_v002\\patch4_detail_u024000\\seed_0.json",
+          "sha256": "db5be0fe4ca0065222f975bc6fd1af22a5f6643c25fd83dd0c97c76346452fbe",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.6685000061988831,
+            "per_class_accuracy": {
+              "cat": 0.5699999928474426,
+              "dog": 0.7670000195503235
+            },
+            "fid": 283.16854746074193,
+            "kid": 0.3022439018606151,
+            "kid_std": 0.004090791027842731,
+            "precision": 0.3595132827758789,
+            "recall": 0.0,
+            "memorization_rate": 0.0,
+            "nn_distance_median": 10.20382022857666,
+            "nn_ratio_median": 0.9697363376617432,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Marginal",
+                "marks": 2
+              },
+              "fid": {
+                "tier": "Fail",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Fail",
+                "marks": 0
+              }
+            },
+            "total": 2,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        2,
+        -23.316854746074192,
+        -0.0,
+        -35.10093059999781
+      ],
+      "name": "patch4_detail_u024000",
+      "variant": "patch4_detail",
+      "patch_size": 4
+    },
+    {
+      "checkpoint": "checkpoints\\patch4_detail_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "checkpoint_sha256": "91916695076aa4121f9c099962bfa18ed3ba4d0c4d86c80a5242181975bcf77e",
+      "update": 30000,
+      "exported": "private_build\\patch_grid_v002\\patch4_detail_u030000",
+      "export_hashes": {
+        "diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "d361e3d38fbb05b8fcfc19761dd31fe4baf531e4955d4c1c8a1a095b1926550f",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18",
+        "provenance.json": "002d5e74e102582cca2b7f23796d758a5568828012d41ec96a8a17d9c172c028",
+        "weights.pt": "e280e503f5e1dccba27dba6c3183a5862cfa106093df082b8bd0005ead3feff9",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\patch_grid_v002\\patch4_detail_u030000\\seed_0.json",
+          "sha256": "62e37dec6d07047ad347173bba4edb362683cddc3a992418f71fa215efb756ea",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.656499981880188,
+            "per_class_accuracy": {
+              "cat": 0.593999981880188,
+              "dog": 0.718999981880188
+            },
+            "fid": 220.25460455600023,
+            "kid": 0.21183504999053457,
+            "kid_std": 0.0035988145723502307,
+            "precision": 0.528761088848114,
+            "recall": 0.0022123893722891808,
+            "memorization_rate": 0.0,
+            "nn_distance_median": 8.902618408203125,
+            "nn_ratio_median": 0.9457842707633972,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Marginal",
+                "marks": 2
+              },
+              "fid": {
+                "tier": "Fail",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Fail",
+                "marks": 0
+              }
+            },
+            "total": 2,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        2,
+        -17.025460455600022,
+        -0.0,
+        -36.36626789999718
+      ],
+      "name": "patch4_detail_u030000",
+      "variant": "patch4_detail",
+      "patch_size": 4
+    },
+    {
+      "checkpoint": "checkpoints\\patch8_detail_seed17_u030000_63bc3fce35\\update_024000.pt",
+      "checkpoint_sha256": "92e5c32e4f02251066bb9f701772052626cfaeaf48393caadea9a9138ca217a4",
+      "update": 24000,
+      "exported": "private_build\\patch_grid_v002\\patch8_detail_u024000",
+      "export_hashes": {
+        "diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "222633500f6cd5c27e06b2242383319c55a921818bb67b280eaec49b67d964b3",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18",
+        "provenance.json": "6dbb29b51b778df25058fac134e43d4fb8a05f9b12e0ceb2d806721f61cc0d2b",
+        "weights.pt": "e283f9937e2a8f5880a7aa9d6356a0b563b1e4fecc28534d3acda1100dcde32f",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\patch_grid_v002\\patch8_detail_u024000\\seed_0.json",
+          "sha256": "ae1ea7bd6f27bdfe21809f6ffe47339e63e858d419fe788aa7b25768500d1b2d",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.5379999876022339,
+            "per_class_accuracy": {
+              "cat": 0.8740000128746033,
+              "dog": 0.20200000703334808
+            },
+            "fid": 276.4517660930229,
+            "kid": 0.2704280326697968,
+            "kid_std": 0.004260064682103039,
+            "precision": 0.19579645991325378,
+            "recall": 0.0,
+            "memorization_rate": 0.0,
+            "nn_distance_median": 9.421550750732422,
+            "nn_ratio_median": 0.9757664203643799,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Poor",
+                "marks": 1
+              },
+              "fid": {
+                "tier": "Fail",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Fail",
+                "marks": 0
+              }
+            },
+            "total": 1,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        1,
+        -22.64517660930229,
+        -0.0,
+        -34.37843319999229
+      ],
+      "name": "patch8_detail_u024000",
+      "variant": "patch8_detail",
+      "patch_size": 8
+    },
+    {
+      "checkpoint": "checkpoints\\patch8_detail_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "checkpoint_sha256": "f2ddfebe941fc1a517ede4ac6d433266d3da405664a8e4f5c859d02923ecab70",
+      "update": 30000,
+      "exported": "private_build\\patch_grid_v002\\patch8_detail_u030000",
+      "export_hashes": {
+        "diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "222633500f6cd5c27e06b2242383319c55a921818bb67b280eaec49b67d964b3",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18",
+        "provenance.json": "4f267c01e81c40bed3ee57208c78b5f4e2990ffd891917197d026b9c65c805e2",
+        "weights.pt": "7585f701e5e2079c733dc7a639e9b34ae44a0237bed2c8b991c4149f8f001390",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\patch_grid_v002\\patch8_detail_u030000\\seed_0.json",
+          "sha256": "ecbb1a719d95591494737a9e628418cad5cd7b6b24ab5cd099c6e47e8b989450",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.565500020980835,
+            "per_class_accuracy": {
+              "cat": 0.6759999990463257,
+              "dog": 0.45500001311302185
+            },
+            "fid": 237.25906181269536,
+            "kid": 0.2122871850142886,
+            "kid_std": 0.003526874385895808,
+            "precision": 0.32743361592292786,
+            "recall": 0.0,
+            "memorization_rate": 0.0,
+            "nn_distance_median": 8.92336654663086,
+            "nn_ratio_median": 0.969951868057251,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Poor",
+                "marks": 1
+              },
+              "fid": {
+                "tier": "Fail",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Fail",
+                "marks": 0
+              }
+            },
+            "total": 1,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        1,
+        -18.725906181269536,
+        -0.0,
+        -34.68614304999937
+      ],
+      "name": "patch8_detail_u030000",
+      "variant": "patch8_detail",
+      "patch_size": 8
+    }
+  ]
+}

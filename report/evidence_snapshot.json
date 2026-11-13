@@ -356,12 +356,40 @@
     "E089": {
       "path": "results/experiments/edm_32_seed17_v002/update_030000/seed_0.json",
       "sha256": "779cf9e93bee62fd702b497974f8452494724cc341841d5e9f599b3093b68b11"
+    },
+    "E090": {
+      "path": "results/plans/patch_grid_v002.json",
+      "sha256": "0df4de9130cfcf1c09e7a9bc9de3a9dfac9584e78416f516d1bccd44b5134fe5"
+    },
+    "E091": {
+      "path": "results/experiments/patch_grid_v002/screening.json",
+      "sha256": "58cd4d422ce6044f286178aecebb93e368332746e708410f5fba7f62ad8cc61a"
+    },
+    "E092": {
+      "path": "results/experiments/patch_grid_v002/comparison.json",
+      "sha256": "f4f3469b93c7a8353a0e2b5c26699094d06e032edd1aa0bcf13264307f2e3d34"
+    },
+    "E093": {
+      "path": "results/experiments/patch_grid_v002/patch4_detail_u024000/seed_0.json",
+      "sha256": "db5be0fe4ca0065222f975bc6fd1af22a5f6643c25fd83dd0c97c76346452fbe"
+    },
+    "E094": {
+      "path": "results/experiments/patch_grid_v002/patch4_detail_u030000/seed_0.json",
+      "sha256": "62e37dec6d07047ad347173bba4edb362683cddc3a992418f71fa215efb756ea"
+    },
+    "E095": {
+      "path": "results/experiments/patch_grid_v002/patch8_detail_u024000/seed_0.json",
+      "sha256": "ae1ea7bd6f27bdfe21809f6ffe47339e63e858d419fe788aa7b25768500d1b2d"
+    },
+    "E096": {
+      "path": "results/experiments/patch_grid_v002/patch8_detail_u030000/seed_0.json",
+      "sha256": "ecbb1a719d95591494737a9e628418cad5cd7b6b24ab5cd099c6e47e8b989450"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "73fdd385788f9ce5e9ee1d22f4a70404b9e474bb63713745ee1c9f34b1b2341f",
-    "evidence_outline.md": "1e64905add7617555e9fd648606fc4a33aecbffb79a3f6903ca76f0545cd8196",
-    "claims.csv": "67dbb25abd762d54debbd4d27015b90f550f63816a720bd4195455a27bf917ac"
+    "source_manifest.json": "d9c78934b5ef52c023b88a19c154c77cbd0c9763f9d345cdb4158c187aa52285",
+    "evidence_outline.md": "ce0b93927f4bd7a05d7eac2ac1056bffe8f7bf6313561950f4fb4359241062ee",
+    "claims.csv": "4fc2f273d2b202bb239c3ff1be5e6d01d65d94aa41a37b79195403b29aa424cc"
   }
 }

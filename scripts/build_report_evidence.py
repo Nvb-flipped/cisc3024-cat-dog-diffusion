@@ -372,6 +372,37 @@ def development_claims(paths):
                for index, file in enumerate(files, 85)}
         paths.update(ids)
         claims.append(('C025', 'Matched EDM comparison', 'result', ' '.join(summaries), list(ids)))
+    patch_screen = ROOT / 'results/experiments/patch_grid_v002/screening.json'
+    patch_decision = patch_screen.with_name('comparison.json')
+    if patch_decision.exists():
+        plan = ROOT / 'results/plans/patch_grid_v002.json'
+        plan_hash = sha256(plan)
+        record = json.loads(patch_screen.read_text())
+        decision = json.loads(patch_decision.read_text())
+        trials = record['screened']
+        if (record['plan_sha256'], decision['plan_sha256']) != (plan_hash, plan_hash) or \
+                [(row['patch_size'], row['update']) for row in trials] != [
+                    (4, 24000), (4, 30000), (8, 24000), (8, 30000)]:
+            raise ValueError('Patch comparison is incomplete or differs from its plan')
+        files = [plan, patch_screen, patch_decision]
+        summaries = []
+        for trial in trials:
+            row, = trial['evidence']
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('Patch evaluation changed')
+            result = validated_result(path, 0, ROOT / trial['exported'])
+            metrics = result['metrics']
+            size = trial['patch_size']
+            files.append(path)
+            summaries.append(f"At {trial['update']:,} updates with {size}×{size} patches, accuracy was "
+                             f"{metrics['accuracy']:.2%}, FID {metrics['fid']:.2f}, recall "
+                             f"{metrics['recall']:.2%}, memorization {metrics['memorization_rate']:.2%}, "
+                             f"and the score {result['marks']['total']}/15.")
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, 90)}
+        paths.update(ids)
+        claims.append(('C026', 'Matched patch-grid comparison', 'result', ' '.join(summaries), list(ids)))
     return claims
 
 

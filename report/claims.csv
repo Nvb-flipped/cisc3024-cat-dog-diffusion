@@ -24,3 +24,4 @@ C022,Stochastic DDIM comparison,result,b9d73c0d4224dd87941a85eab53b1efb9549fe378
 C023,Reviewed data expansion,result,ce7db9afd6a55098cc979e95ea034c94b67e1057041342db1515f721dc211fbf,E081;E082;E083,unverified,not_estimated,descriptive
 C024,EDM integration diagnostic,result,d43322567880107e8d9021d88df1ab3bfa71aaffbdeb34d527189cd71aec1b7b,E084;E110,unverified,not_estimated,descriptive
 C025,Matched EDM comparison,result,2139e63571c1ff50d66dfa7739f50d4bf6c1f0ee5894f806bafb78f7b812c931,E085;E086;E087;E088;E089,unverified,not_estimated,descriptive
+C026,Matched patch-grid comparison,result,b5ad6f6acd63f0307c4f72b450aa2da242162bec584f9694d946921866b9811c,E090;E091;E092;E093;E094;E095;E096,unverified,not_estimated,descriptive

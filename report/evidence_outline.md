@@ -104,6 +104,10 @@ The two-crop EDM diagnostic reduced fixed-probe MSE from 1.19148 to 0.01261 in 2
 
 At 24,000 updates, accuracy was 87.05%, FID 147.67, recall 6.86%, memorization 1.10%, and the score 5/15. At 28,000 updates, accuracy was 89.95%, FID 116.20, recall 14.27%, memorization 8.55%, and the score 0/15. At 30,000 updates, accuracy was 90.85%, FID 103.11, recall 18.14%, memorization 14.75%, and the score 0/15. [claim:C025] [evidence:E085,E086,E087,E088,E089]
 
+## Matched patch-grid comparison: C026
+
+At 24,000 updates with 4×4 patches, accuracy was 66.85%, FID 283.17, recall 0.00%, memorization 0.00%, and the score 2/15. At 30,000 updates with 4×4 patches, accuracy was 65.65%, FID 220.25, recall 0.22%, memorization 0.00%, and the score 2/15. At 24,000 updates with 8×8 patches, accuracy was 53.80%, FID 276.45, recall 0.00%, memorization 0.00%, and the score 1/15. At 30,000 updates with 8×8 patches, accuracy was 56.55%, FID 237.26, recall 0.00%, memorization 0.00%, and the score 1/15. [claim:C026] [evidence:E090,E091,E092,E093,E094,E095,E096]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.
