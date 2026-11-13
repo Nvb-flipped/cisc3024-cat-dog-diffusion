@@ -49,11 +49,19 @@ def dpmpp_2m_coefficients(schedule, indices):
     return torch.stack((sigma[1:] / sigma[:-1], -alpha[1:] * (-h).expm1(), correction), dim=1).float()
 
 
+def rescale_guidance(prediction, conditional, strength):
+    axes = tuple(range(1, prediction.ndim))
+    conditional_std = conditional.std(dim=axes, keepdim=True)
+    guided_std = prediction.std(dim=axes, keepdim=True)
+    ratio = torch.where(guided_std > 0, conditional_std / guided_std.clamp_min(1e-12), 1)
+    return prediction.lerp(prediction * ratio, strength)
+
+
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            steps=100, guidance=1.5, microbatch=32, execution_batch=32,
            prediction_type='epsilon', start_timestep=None,
-           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim'):
+           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
@@ -63,6 +71,8 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         raise ValueError('Invalid sampling configuration')
     if solver not in ('ddim', 'dpmpp_2m') or (solver == 'dpmpp_2m' and (prediction_type != 'epsilon' or eta or steps < 2)):
         raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
+    if not 0 <= guidance_rescale <= 1 or (guidance_rescale and prediction_type != 'epsilon'):
+        raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
     device = next(model.parameters()).device
     if prediction_type == 'edm':
         if eta or start_timestep is not None or guidance_min_timestep or guidance_max_timestep is not None:
@@ -128,7 +138,10 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 prediction = model(x, time, y)
             else:
                 unconditional = model(x, time, torch.full_like(y, 2))
-                prediction = unconditional + guidance * (model(x, time, y) - unconditional)
+                conditional = model(x, time, y)
+                prediction = unconditional + guidance * (conditional - unconditional)
+                if guidance_rescale:
+                    prediction = rescale_guidance(prediction, conditional, guidance_rescale)
             a = schedule[t]
             clean = reconstruct(x, prediction, a).clamp(-1, 1)
             previous = indices[index + 1] if index + 1 < len(indices) else -1

@@ -4,7 +4,7 @@ from torch import nn
 from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices, dpmpp_2m_coefficients,
                                   ddim_step_variance,
                                   reconstruct_clean, reconstruct_clean_from_velocity,
-                                  sample, velocity_target)
+                                  rescale_guidance, sample, velocity_target)
 from submission.model import ConditionalUNet
 from submission.edm import precondition
 
@@ -40,6 +40,15 @@ class ProbeModel(nn.Module):
 
     def forward(self, x, t, y):
         return x * 0.1 + y[:, None, None, None] * 0.02 + self.anchor
+
+
+def test_guidance_rescale_matches_each_conditional_scale_independently():
+    conditional = torch.tensor([[0., 1., 2.], [1., 3., 5.]]).reshape(2, 1, 1, 3)
+    guided = conditional * torch.tensor([2., 5.]).reshape(2, 1, 1, 1)
+    torch.testing.assert_close(rescale_guidance(guided, conditional, 1.), conditional)
+    torch.testing.assert_close(rescale_guidance(guided, conditional, .5), (guided + conditional) / 2)
+    assert torch.equal(rescale_guidance(guided, conditional, 0.), guided)
+    assert torch.isfinite(rescale_guidance(torch.ones_like(guided), conditional, 1.)).all()
 
 
 def test_dpmpp_first_order_matches_deterministic_ddim_and_uses_positive_step_ratios():

@@ -1,0 +1,85 @@
+{
+  "submission": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\v002_guidance_rescale",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 202,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.9100000262260437,
+    "single_class_batch_accuracy": 0.9100000262260437
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 1197,
+      "valid_rows": 1197,
+      "cat": 583,
+      "dog": 614,
+      "distinct_pool_images": 1197,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+    "accuracy": 0.8955000042915344,
+    "per_class_accuracy": {
+      "cat": 0.9359999895095825,
+      "dog": 0.8550000190734863
+    },
+    "fid": 69.7071035775748,
+    "kid": 0.02686560189132156,
+    "kid_std": 0.0012470111347411105,
+    "precision": 0.6626105904579163,
+    "recall": 0.3340708017349243,
+    "memorization_rate": 0.05050000175833702,
+    "nn_distance_median": 7.99052619934082,
+    "nn_ratio_median": 0.9212031960487366,
+    "training_images_deduplicated": 2394
+  },
+  "resources": {
+    "num_parameters": 5082147,
+    "submission_mb": 19.50924587249756,
+    "seconds_per_1000": 32.47912324999925
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [
+    "memorization rate 5.1% exceeds 5%: samples copy training images"
+  ],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Good",
+        "marks": 0
+      },
+      "fid": {
+        "tier": "Pass",
+        "marks": 0
+      },
+      "recall": {
+        "tier": "Good",
+        "marks": 0
+      }
+    },
+    "total": 0,
+    "max": 15,
+    "valid": false
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.18",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}
