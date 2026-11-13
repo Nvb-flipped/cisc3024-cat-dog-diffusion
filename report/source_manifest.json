@@ -1696,6 +1696,160 @@
       }
     },
     {
+      "evidence_id": "E078",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_ddim_eta/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_ddim_eta/comparison.json"
+      },
+      "locator": "results/experiments/v002_ddim_eta/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E079",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_ddim_eta/eta_35/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_ddim_eta/eta_35/seed_0.json"
+      },
+      "locator": "results/experiments/v002_ddim_eta/eta_35/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E080",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_ddim_eta/eta_70/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_ddim_eta/eta_70/seed_0.json"
+      },
+      "locator": "results/experiments/v002_ddim_eta/eta_70/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E081",
+      "source_type": "report",
+      "title": "Local project evidence: manifests/v003.csv",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/manifests/v003.csv"
+      },
+      "locator": "manifests/v003.csv",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E082",
+      "source_type": "report",
+      "title": "Local project evidence: manifests/v003.validation.csv",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/manifests/v003.validation.csv"
+      },
+      "locator": "manifests/v003.validation.csv",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E083",
+      "source_type": "report",
+      "title": "Local project evidence: results/curation/v003_cache_parity.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/curation/v003_cache_parity.json"
+      },
+      "locator": "results/curation/v003_cache_parity.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E084",
+      "source_type": "report",
+      "title": "Local project evidence: results/diagnostics/edm_v002_shared/result.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/diagnostics/edm_v002_shared/result.json"
+      },
+      "locator": "results/diagnostics/edm_v002_shared/result.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E101",
       "source_type": "preprint",
       "title": "Denoising Diffusion Probabilistic Models",
@@ -1943,6 +2097,33 @@
         "isbn": ""
       },
       "locator": "Timestep weighting used in the matched epsilon comparison",
+      "confidentiality": "public",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E110",
+      "source_type": "preprint",
+      "title": "Elucidating the Design Space of Diffusion-Based Generative Models",
+      "authors": [
+        "Tero Karras",
+        "Miika Aittala",
+        "Timo Aila",
+        "Samuli Laine"
+      ],
+      "year": 2022,
+      "identifiers": {
+        "url": "https://arxiv.org/abs/2206.00364",
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": ""
+      },
+      "locator": "EDM preconditioning, weighted denoising loss and Heun sampler",
       "confidentiality": "public",
       "verification": {
         "status": "unverified",

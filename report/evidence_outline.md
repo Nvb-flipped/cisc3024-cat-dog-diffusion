@@ -88,6 +88,18 @@ At 20,000 updates, FID was 207.06, memorization was 0.00%, and the score was 3/1
 
 At 100 steps, seed 0 scored 10/15 with FID 73.91, recall 29.20%, and memorization 4.35%. [claim:C021] [evidence:E075,E076,E077]
 
+## Stochastic DDIM comparison: C022
+
+At eta 0.35, accuracy was 90.80%, FID 76.47, recall 34.29%, and memorization 5.15%. At eta 0.70, accuracy was 92.00%, FID 78.44, recall 31.42%, and memorization 7.60%. [claim:C022] [evidence:E078,E079,E080]
+
+## Reviewed data expansion: C023
+
+The v003 freeze contains 1,205 training crops (587 cats and 618 dogs) and preserves the same 63 holdout crops. All cached labels and crop pixels matched the official reconstruction. [claim:C023] [evidence:E081,E082,E083]
+
+## EDM integration diagnostic: C024
+
+The two-crop EDM diagnostic reduced fixed-probe MSE from 1.19148 to 0.01261 in 2,000 updates (98.94% reduction). [claim:C024] [evidence:E084,E110]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

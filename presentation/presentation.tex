@@ -1,0 +1,114 @@
+\documentclass[aspectratio=169,11pt]{beamer}
+\usepackage{booktabs,graphicx}
+\setbeamertemplate{navigation symbols}{}
+\definecolor{ink}{HTML}{162A2D}
+\definecolor{muted}{HTML}{516263}
+\definecolor{accent}{HTML}{187269}
+\definecolor{paper}{HTML}{FAF9F6}
+\setbeamercolor{normal text}{fg=ink,bg=paper}
+\setbeamercolor{frametitle}{fg=ink}
+\setbeamercolor{structure}{fg=accent}
+\setbeamersize{text margin left=9mm,text margin right=9mm}
+\graphicspath{{../private_build/presentation_development/tiles/}}
+\newcommand{\tile}[2]{\includegraphics[width=#2]{#1.png}}
+
+\begin{document}
+\begin{frame}[plain]
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{.55\textwidth}
+      {\color{accent}\bfseries CISC3024 / Development results}\par\medskip
+      {\Huge\bfseries Generating cat and dog heads}\par\medskip
+      {\large\color{muted} Class-conditional diffusion on $32\times32$ photographs}
+    \end{column}
+    \begin{column}{.39\textwidth}
+      \tile{cat_00}{.48\linewidth}\hfill\tile{cat_01}{.48\linewidth}\par\smallskip
+      \tile{dog_00}{.48\linewidth}\hfill\tile{dog_01}{.48\linewidth}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{From source photos to exact crops}
+  \begin{columns}[c,onlytextwidth]
+    \begin{column}{.44\textwidth}
+      {\Huge\color{accent}\bfseries 1,197}\par\smallskip
+      {\large\bfseries Exact crops used by the v002 model}\par\medskip
+      583 cats and 614 dogs\par
+      63 separate pool holdout crops
+    \end{column}
+    \begin{column}{.49\textwidth}
+      \textbf{60--80\% head width in the crop}\par\smallskip
+      One centered, roughly upright head with ears. Source head width at least 32 px.\par\medskip
+      \textbf{Personal crop and duplicate review}\par\smallskip
+      The reviewer confirmed the species, exact geometry and one kept crop per family.
+    \end{column}
+  \end{columns}
+  \vspace{8mm}
+  {\color{muted} v003 has 1,205 training crops and the same holdout.}
+\end{frame}
+
+\begin{frame}{Class-conditional pixel diffusion}
+  \begin{columns}[t,onlytextwidth]
+    \begin{column}{.46\textwidth}
+      \textbf{Training}\par\smallskip
+      Add Gaussian noise to an exact crop and learn to predict it. The network sees the class or a null label.
+    \end{column}
+    \begin{column}{.46\textwidth}
+      \textbf{Sampling}\par\smallskip
+      Start from seeded noise. CFG combines both predictions, then DDIM removes noise in 50 deterministic steps.
+    \end{column}
+  \end{columns}
+  \vspace{7mm}
+  {\large\color{accent}\bfseries Guided noise $=$ null $+\,2.5\times(\text{conditional}-\text{null})$}\par\medskip
+  {\color{muted} 5.08M parameters, 30,000 updates, EMA weights}
+\end{frame}
+
+\begin{frame}{Live generation}
+  \begin{columns}[t,onlytextwidth]
+    \begin{column}{.47\textwidth}
+      \textbf{Cat, label 0}\par\smallskip
+      \tile{cat_02}{.24\linewidth}\hfill\tile{cat_03}{.24\linewidth}\hfill
+      \tile{cat_04}{.24\linewidth}\hfill\tile{cat_05}{.24\linewidth}\par\smallskip
+      \tile{cat_06}{.24\linewidth}\hfill\tile{cat_07}{.24\linewidth}\hfill
+      \tile{cat_08}{.24\linewidth}\hfill\tile{cat_09}{.24\linewidth}
+    \end{column}
+    \begin{column}{.47\textwidth}
+      \textbf{Dog, label 1}\par\smallskip
+      \tile{dog_02}{.24\linewidth}\hfill\tile{dog_03}{.24\linewidth}\hfill
+      \tile{dog_04}{.24\linewidth}\hfill\tile{dog_05}{.24\linewidth}\par\smallskip
+      \tile{dog_06}{.24\linewidth}\hfill\tile{dog_07}{.24\linewidth}\hfill
+      \tile{dog_08}{.24\linewidth}\hfill\tile{dog_09}{.24\linewidth}
+    \end{column}
+  \end{columns}
+  \medskip
+  {\color{accent}\bfseries Repeat seed 0, then switch to seed 1.}\par\smallskip
+  {\small\color{muted} Shown here are official seed-0 development outputs at $32\times32$.}
+\end{frame}
+
+\begin{frame}{Official development evaluation}
+  \begin{center}
+    \begin{tabular}{lrrrr}
+      \toprule
+      Seed & Accuracy & FID & Recall & Memorization \\
+      \midrule
+      0 & 89.40\% & 72.80 & 30.20\% & 4.40\% \\
+      101 & 89.95\% & 72.01 & 32.30\% & 4.10\% \\
+      202 & 89.60\% & 71.59 & 30.53\% & 4.60\% \\
+      \midrule
+      Excellent & $\ge90$\% & $\le50$ & $\ge40$\% & $\le5$\% cap \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \medskip
+  {\large\color{accent}\bfseries 11/15 on each of three generation seeds}\par\smallskip
+  {\color{muted} The 50k full-width baseline flagged 57.80\% of its outputs as copies.}
+\end{frame}
+
+\begin{frame}{Verification and remaining checks}
+  \textbf{Fixed two-crop diagnostic}\par\smallskip
+  Probe noise MSE fell from 1.15542 to 0.01722 in 2,000 updates.\par\bigskip
+  \textbf{Offline CPU and CUDA checks}\par\smallskip
+  Fixed seeds repeat. Changing other labels leaves each output intact. Caller RNG is preserved.\par\bigskip
+  \textbf{Personal audit and independent checks}\par\smallskip
+  Pending final review and documentation.
+\end{frame}
+\end{document}

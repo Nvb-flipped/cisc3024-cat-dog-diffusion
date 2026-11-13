@@ -308,12 +308,40 @@
     "E077": {
       "path": "results/experiments/v002_ddim_steps/seed_0.json",
       "sha256": "543320437465ed102bb48b21793e05cf063c3c934046d4e0f7a554539c6ac78a"
+    },
+    "E078": {
+      "path": "results/experiments/v002_ddim_eta/comparison.json",
+      "sha256": "c065ff175125db205b6240f31a75eccea8b813dbe660c077132740eb69a4cc96"
+    },
+    "E079": {
+      "path": "results/experiments/v002_ddim_eta/eta_35/seed_0.json",
+      "sha256": "f8e58521eb7608f7660e400de5971f361db685ed174f8587a4c4701d7ec7ad35"
+    },
+    "E080": {
+      "path": "results/experiments/v002_ddim_eta/eta_70/seed_0.json",
+      "sha256": "13f0abef6d0eab47bb66a551e3984b27dd669d2581cae01225328eb8abd2fe53"
+    },
+    "E081": {
+      "path": "manifests/v003.csv",
+      "sha256": "b3e6e90a9eddee3d201ef715219ed4323a85073600b25bc0eeaffbc57174ea1c"
+    },
+    "E082": {
+      "path": "manifests/v003.validation.csv",
+      "sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd"
+    },
+    "E083": {
+      "path": "results/curation/v003_cache_parity.json",
+      "sha256": "401fe79f1d48c786fd92e78aa0050501b8ca9c158dd306a01a8d8ec74c4dbc88"
+    },
+    "E084": {
+      "path": "results/diagnostics/edm_v002_shared/result.json",
+      "sha256": "47e28e2358adcd13b09971a8564e53cece8b5058c9370a49c63749d412ed9564"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "67682a8cb262b93960a8506141eb9371ad29ac22f0a1b0a711420fdf4ac7b8c8",
-    "evidence_outline.md": "61e0c97d9798a3850fb4a7933ead4dbfd0dd5aa09716d3e3b90142691d360ab9",
-    "claims.csv": "7d22d737253516162ae17c9a468fb535230234eb39f5bad782d49d1b5a5f3afb"
+    "source_manifest.json": "409d3bbff8526524e94f24151e5f67347d90450937f64dec775568d0e1c44886",
+    "evidence_outline.md": "ca98d0b2578927c5317a1bcee846fdfffe8b9daf3655ab3bcc380f127f2cfde0",
+    "claims.csv": "286ca35e98f89ea645cc5e6434de6e8f400833f3c2fb4a8fe583b659a329fbeb"
   }
 }

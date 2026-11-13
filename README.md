@@ -112,6 +112,14 @@ The [v002 EDM plan](results/plans/edm_32_seed17_63bc3fce35.json) compares EDM pr
 
 Run `python -m scripts.run_edm_comparison` to execute the frozen comparison or resume its verified checkpoints. The official results and decision receipt are under `results/experiments/edm_32_seed17_v002/`.
 
+Rebuild the v002 development report grid from the first 16 official seed-0 outputs per class:
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.figures.photo_grid --result results/experiments/capacity_32_seed17_v002/seed_0.json --submission private_build/capacity_32_seed17_u030000_63bc3fce35 --out private_build/report_v002_reference_grid
+```
+
+The six-slide development talk has editable PowerPoint source in `presentation/build_development.mjs` and matching Beamer source in `presentation/presentation.tex`. The PowerPoint builder takes the bundled Node runtime directory containing `node_modules`, prepares exact seed-0 tiles locally, and exports into `private_build/presentation_development`. Compile the Beamer source from `presentation/` after building those tiles. Use the final model and verified personal checks when updating both versions for submission.
+
 The follow-up Min-SNR experiment keeps the epsilon target and applies bounded timestep weights with gamma 5. Use the exact training command in `results/plans/minsnr5_32_seed17_63bc3fce35.json` and a fresh output directory. The 2,000-update correctness probe is `python -m src.training.diagnostics overfit --min-snr-gamma 5 --out results/diagnostics/minsnr_reproduction`. This probe records unweighted epsilon MSE on fixed noise and never exports weights.
 
 Run metadata records the actual environment, code commit/dirty state, configuration, seed, manifest hash, counts, timing and parent checkpoint hash. Losses, exact optimizer/RNG state and EMA are retained locally. A manifest change requires a fresh final training lineage. Changing a dataset must not silently reuse a cache or checkpoint.

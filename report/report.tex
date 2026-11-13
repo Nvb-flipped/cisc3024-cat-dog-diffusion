@@ -2,7 +2,6 @@
 \usepackage[hmargin=22mm,vmargin=20mm]{geometry}
 \usepackage{amsmath,amssymb,booktabs,graphicx,microtype}
 \usepackage[hidelinks]{hyperref}
-\usepackage[user,abspage]{zref}
 
 \title{Conditional Diffusion for $32\times32$ Cat and Dog Head Generation}
 \author{Student name and ID pending}
@@ -23,6 +22,8 @@ All 76,250 indexed pool images decoded successfully. Grounding DINO Tiny propose
 After duplicate review, 1,260 crops remained. The group-disjoint, class-stratified split assigned 583 cat and 614 dog crops to training and reserved 31 cat and 32 dog crops for pool-only denoising diagnostics. The official evaluator rebuilt all 1,197 training crops. The official 200-crop audit will determine audit precision and its class-specific denominators after the final manifest is frozen and the student labels the official sample.
 
 In the corrected split, the recorded source head-width medians were 96.9 pixels for cats and 91.3 for dogs. The width records comprise 333 measurements made with source-image clicks, 13 manual entries and 851 agent estimates that the student reviewed and confirmed. Recalculating occupancy as recorded width divided by crop side identified one original record at 80.32\%. The student's revision brought its occupancy to 76.81\%. Recomputed occupancy for all 1,260 kept crops in the corrected split was between 60\% and 80\%. Development comparisons use the original split unless they specify the corrected manifest.
+
+The subsequent v003 data freeze adds four cats and four dogs, giving 1,205 training crops with the same 63 holdout rows. All 1,268 labels and cached crops matched a fresh official reconstruction. The development models described here use the earlier 1,197-crop splits.
 
 \section{Generator and sampling}
 The generator is a conditional U-Net operating directly in pixel space. The full-width model uses channel counts $(48,96,144,192)$ at resolutions $32,16,8,4$, two residual blocks per level, eight-group normalization, SiLU, and four-head spatial attention at the $8\times8$ and $4\times4$ levels and in the bottleneck. The model has 10,664,371 parameters. Timestep and class embeddings condition the residual blocks through scale and shift. Training uses only the exact manifest crops, scaled to $[-1,1]$.
@@ -82,19 +83,47 @@ On the full-width model, increasing residual dropout from 0.10 to 0.25 at the ma
 
 The same small-model recipe was trained from random initialization with seeds 29 and 43. We compared each with seed 17 on generation seeds 0, 101 and 202. Seed 29 passed all three evaluations at 10/15, with FID 93.07--93.78 versus 71.99--74.07 for seed 17. Seed 43 produced FID 73.65--74.53 and two valid evaluations. Its remaining evaluation flagged 100 of 2,000 samples and triggered the unchanged floating-point memorization check. The selection retained training seed 17. These three training runs show that both sample quality and the margin to the memorization limit can vary under the same recipe.
 
-The student corrected the side length of one crop from 250 to 260 pixels and renewed its duplicate decision. The holdout bytes were unchanged. A fresh seed-17 run on the corrected manifest took 46.9 minutes and used the same 30,000-update recipe. On seed 0 it reached 89.40\% accuracy, FID 72.80, KID $0.028978\pm0.001514$, precision 65.15\%, recall 30.20\%, and memorization 4.40\%. The 5,082,147-parameter export occupied 19.50 MiB and sampled 1,000 images in 32.90 seconds. Across the three development seeds, accuracy was 89.40--89.95\%, FID 71.59--72.80, recall 30.20--32.30\%, and memorization 4.10--4.60\%. All three scored 11/15. The accuracy, FID and recall excellent-tier thresholds remain unmet.
+The student corrected the side length of one crop from 250 to 260 pixels and renewed its duplicate decision. The holdout bytes were unchanged. A fresh seed-17 run on the corrected manifest took 46.9 minutes and used the same 30,000-update recipe. The 5,082,147-parameter export occupied 19.50 MiB and sampled 1,000 images in 32.90 seconds on seed 0. Table~\ref{tab:corrected} reports the three full evaluations. Each scored 11/15. The accuracy, FID and recall excellent-tier thresholds remain unmet.
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{rrrrrrr}
+\toprule
+Seed & Accuracy & FID & KID $\pm$ SD & Precision & Recall & Memorization \\
+\midrule
+0   & 89.40\% & 72.80 & $0.028978\pm0.001514$ & 65.15\% & 30.20\% & 4.40\% \\
+101 & 89.95\% & 72.01 & $0.028275\pm0.001349$ & 65.27\% & 32.30\% & 4.10\% \\
+202 & 89.60\% & 71.59 & $0.028385\pm0.001260$ & 64.60\% & 30.53\% & 4.60\% \\
+\bottomrule
+\end{tabular}
+\caption{Corrected v002 reference against the supplied development set. Each run generated 2,000 crops with EMA, 50 DDIM steps and guidance 2.5. The standard deviation is the official evaluator's KID estimate for that run.}
+\label{tab:corrected}
+\end{table}
 
 Replacing the noise target with $v_t=\sqrt{\bar\alpha_t}\,\epsilon-\sqrt{1-\bar\alpha_t}\,x_0$ gave FID 93.43--95.45 and memorization 37.90--39.00\% in the matched 30k run \cite{salimans2022progressive}. The three seeds exceeded the 5\% limit. On the corrected noise-prediction checkpoint, starting DDIM at timestep 990 scored 10, 11 and 11 marks in the full evaluations. At 100 steps, seed 0 scored 10/15 (FID 73.91, recall 29.20\%, memorization 4.35\%). The 50-step reference retained the higher rank.
 
 The matched Min-SNR run used $\operatorname{SNR}_t=\bar\alpha_t/(1-\bar\alpha_t)$ and per-example weight $\min(\operatorname{SNR}_t,5)/\operatorname{SNR}_t$ \cite{hang2023minsnr}. FID on seed 0 fell from 207.06 at 20k updates to 90.97 at 30k. Memorization reached 19.65\% at 28k and 30.60\% at 30k. The best valid snapshot scored 7/15 at 24k, below the matched unweighted reference.
 
+Introducing trajectory noise with DDIM $\eta=0.35$ and $0.70$ on the corrected reference raised seed-0 accuracy to 90.80\% and 92.00\%. FID increased to 76.47 and 78.44, and memorization reached 5.15\% and 7.60\%. Both settings exceeded the limit.
+
+\IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.90\linewidth]{../private_build/report_v002_reference_grid/figure.pdf}
+  \caption{The first 16 outputs per class from the corrected v002 reference on generation seed 0. Each image is a $32\times32$ output displayed with nearest-neighbor enlargement.}
+  \label{fig:corrected-grid}
+\end{figure}
+}{}
+
 \section{Independent checks and limitations}
-The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. Offline CPU and CUDA checks covered output shape and range, repeatability, label isolation and preservation of caller RNG. The student will independently verify data reconstruction, model behavior and evaluation in \texttt{AGENT\_LOG.md}. The personal audit will quantify remaining crop errors. Seed variability describes repeated sampling against the development reference.
+The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. A separate EDM preconditioning diagnostic on two reviewed crops reduced its own fixed-probe MSE from 1.19148 to 0.01261 in 2,000 updates \cite{karras2022edm}. Offline CPU and CUDA checks covered output shape and range, repeatability, label isolation and preservation of caller RNG. The student will independently verify data reconstruction, model behavior and evaluation in \texttt{AGENT\_LOG.md}. The personal audit will quantify remaining crop errors. Seed variability describes repeated sampling against the development reference.
 
 Coding assistance supported curation tools, experiments and verification. Scientific Agent Skills informed experiment design and evidence documentation \cite{kassis2026skills}.
 
-\zlabel{maintextend}
 \clearpage
-\bibliographystyle{plainurl}
+\makeatletter
+\immediate\write\@auxout{\string\newlabel{maintextend}{{}{\number\numexpr\value{page}-1\relax}}}
+\makeatother
+\bibliographystyle{plain}
 \bibliography{references}
 \end{document}

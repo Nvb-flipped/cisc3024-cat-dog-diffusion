@@ -301,6 +301,53 @@ def development_claims(paths):
         claims.append(('C021', 'Matched DDIM step count', 'result',
             f"At 100 steps, seed 0 scored {result['marks']['total']}/15 with FID {metrics['fid']:.2f}, "
             f"recall {metrics['recall']:.2%}, and memorization {metrics['memorization_rate']:.2%}.", list(ids)))
+    eta = ROOT / 'results/experiments/v002_ddim_eta/comparison.json'
+    if eta.exists():
+        comparison = json.loads(eta.read_text())
+        files = [eta]
+        summaries = []
+        for trial in comparison['trials']:
+            row, = trial['evidence']
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('Stochastic DDIM evaluation changed')
+            result = validated_result(path, row['seed'], ROOT / trial['exported'])
+            metrics = result['metrics']
+            files.append(path)
+            summaries.append(f"At eta {trial['eta']:.2f}, accuracy was {metrics['accuracy']:.2%}, "
+                             f"FID {metrics['fid']:.2f}, recall {metrics['recall']:.2%}, and "
+                             f"memorization {metrics['memorization_rate']:.2%}.")
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, 78)}
+        paths.update(ids)
+        claims.append(('C022', 'Stochastic DDIM comparison', 'result', ' '.join(summaries), list(ids)))
+    expansion = ROOT / 'results/curation/v003_cache_parity.json'
+    if expansion.exists():
+        record = json.loads(expansion.read_text())
+        train, holdout = record['checks']
+        manifest = ROOT / 'manifests/v003.csv'
+        validation = manifest.with_suffix('.validation.csv')
+        if (train['manifest_sha256'], holdout['manifest_sha256']) != (sha256(manifest), sha256(validation)) or \
+                sha256(validation) != sha256(ROOT / 'manifests/v002.validation.csv') or \
+                not all(row['labels_equal'] and row['pixels_equal'] for row in record['checks']):
+            raise ValueError('Expansion manifest or official reconstruction changed')
+        paths.update(E081=manifest.relative_to(ROOT).as_posix(),
+                     E082=validation.relative_to(ROOT).as_posix(), E083=expansion.relative_to(ROOT).as_posix())
+        claims.append(('C023', 'Reviewed data expansion', 'result',
+            f"The v003 freeze contains {train['rows']:,} training crops ({train['cat']} cats and "
+            f"{train['dog']} dogs) and preserves the same {holdout['rows']} holdout crops. "
+            "All cached labels and crop pixels matched the official reconstruction.", ['E081', 'E082', 'E083']))
+    edm = ROOT / 'results/diagnostics/edm_v002_shared/result.json'
+    if edm.exists():
+        record = json.loads(edm.read_text())
+        if (record['manifest_sha256'], record['updates'], record['passed']) != (
+                sha256(ROOT / 'manifests/v002.csv'), 2000, True):
+            raise ValueError('EDM diagnostic does not match the declared manifest and budget')
+        paths['E084'] = edm.relative_to(ROOT).as_posix()
+        claims.append(('C024', 'EDM integration diagnostic', 'result',
+            f"The two-crop EDM diagnostic reduced fixed-probe MSE from {record['initial']['probe_mse']:.5f} "
+            f"to {record['final']['probe_mse']:.5f} in {record['updates']:,} updates "
+            f"({record['reduction']:.2%} reduction).", ['E084', 'E110']))
     return claims
 
 
@@ -353,7 +400,11 @@ def main():
          2022, 'https://arxiv.org/abs/2202.00512', 'Velocity parameterization used in the matched comparison', 'preprint'),
         ('E109', 'Efficient Diffusion Training via Min-SNR Weighting Strategy',
          ['Tiankai Hang', 'Shuyang Gu', 'Chen Li', 'Jianmin Bao', 'Dong Chen', 'Han Hu', 'Xin Geng', 'Baining Guo'],
-         2023, 'https://arxiv.org/abs/2303.09556', 'Timestep weighting used in the matched epsilon comparison', 'preprint')]
+         2023, 'https://arxiv.org/abs/2303.09556', 'Timestep weighting used in the matched epsilon comparison', 'preprint'),
+        ('E110', 'Elucidating the Design Space of Diffusion-Based Generative Models',
+         ['Tero Karras', 'Miika Aittala', 'Timo Aila', 'Samuli Laine'],
+         2022, 'https://arxiv.org/abs/2206.00364', 'EDM preconditioning, weighted denoising loss and Heun sampler',
+         'preprint')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',
