@@ -1,0 +1,61 @@
+{
+  "created": "2026-11-13T10:57:48.547197+00:00",
+  "source_hashes": {
+    "manifests\\v004.csv": "200d0f7e3f98da907c4229813b61df6830803eb8ac6a6994442a1dcd856cc1f9",
+    "manifests\\v004.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v004.provenance.json": "f2f892cb81c60e7c5aa89a70a5baf1b93456fd2ee6cec078e2e9ff75caf8bb9a",
+    "annotations\\decisions.jsonl": "dc37a4d652abafa4ffb5126d9382dd4f4d3586762518d0e185733fe0c8304ad9",
+    "annotations\\duplicate_groups.csv": "3a20542ae766b6aca889990b97c855934e0c94eff71e765a1bbb57307c2ecfae"
+  },
+  "kept": 1284,
+  "training": {
+    "cat": {
+      "n": 595,
+      "head_width_px": {
+        "minimum": 32.8,
+        "q1": 71.0,
+        "median": 97.0,
+        "q3": 130.5,
+        "maximum": 218.2
+      },
+      "head_width_basis": {
+        "source_clicks": 174,
+        "agent_draft_confirmed": 415,
+        "student_entry": 6
+      },
+      "occupancy": {
+        "minimum": 0.6,
+        "q1": 0.6868421052631579,
+        "median": 0.6881818181818182,
+        "q3": 0.7188017094017094,
+        "maximum": 0.8
+      }
+    },
+    "dog": {
+      "n": 626,
+      "head_width_px": {
+        "minimum": 36.0,
+        "q1": 69.47500000000001,
+        "median": 92.05,
+        "q3": 123.95,
+        "maximum": 230.0
+      },
+      "head_width_basis": {
+        "agent_draft_confirmed": 452,
+        "source_clicks": 167,
+        "student_entry": 7
+      },
+      "occupancy": {
+        "minimum": 0.6,
+        "q1": 0.6873579007199697,
+        "median": 0.7185753317720531,
+        "q3": 0.7191176470588235,
+        "maximum": 0.8
+      }
+    }
+  },
+  "legacy_occupancy_difference_above_0_005": 27,
+  "strict_range_rechecks": [],
+  "scope": "Recomputed from recorded widths. Human remeasurement and the official audit are separate.",
+  "table_sha256": "a5e21aa01fe39498a159735ba73eba14fb913a31c77cf1e60af58b19c510b63f"
+}
