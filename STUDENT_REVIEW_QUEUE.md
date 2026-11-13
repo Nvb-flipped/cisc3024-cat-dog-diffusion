@@ -2,7 +2,7 @@
 
 Your usual review window is **12:00–13:00 GMT+8**. Calibration and priority Batches 1–14 and their duplicate reviews are complete. Batch 14 added eight personally approved, distinct crops. The `v002` reference has 1,197 training crops. The `v003` data freeze has 1,205 training crops and the same holdout.
 
-**Next personal review window:** November 13, 12:00–13:00 GMT+8.
+**Next regular review window:** November 14, 12:00–13:00 GMT+8. The pages are available earlier as well.
 
 1. **Do the independent data check.** Open the [data worksheet](student_checks/01_data_check.md) and the contact sheet at `private_build/student_data_check_v001/contact_sheet.png`. Work through the 30 diagnostic source/crop pairs. Enter your own judgments and selected measurements in `personal_measurements.csv` in the same folder. Rebuild the diagnostic sample using the worksheet command, then record your procedure and observations in [AGENT_LOG.md](AGENT_LOG.md).
 2. **Review Batch 15 (eight crops).** Open [Head study](http://127.0.0.1:8766/), select **Priority shortlist**, set **Batch** to **15**, and click **Next unreviewed**. Use the [Batch 15 findings](http://127.0.0.1:8769/priority_shortlist_v015_findings.html) as a reference. Personally verify the draft, adjust it if needed, and save your verdict.

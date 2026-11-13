@@ -100,6 +100,10 @@ The v003 freeze contains 1,205 training crops (587 cats and 618 dogs) and preser
 
 The two-crop EDM diagnostic reduced fixed-probe MSE from 1.19148 to 0.01261 in 2,000 updates (98.94% reduction). [claim:C024] [evidence:E084,E110]
 
+## Matched EDM comparison: C025
+
+At 24,000 updates, accuracy was 87.05%, FID 147.67, recall 6.86%, memorization 1.10%, and the score 5/15. At 28,000 updates, accuracy was 89.95%, FID 116.20, recall 14.27%, memorization 8.55%, and the score 0/15. At 30,000 updates, accuracy was 90.85%, FID 103.11, recall 18.14%, memorization 14.75%, and the score 0/15. [claim:C025] [evidence:E085,E086,E087,E088,E089]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

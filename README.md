@@ -112,6 +112,8 @@ The [v002 EDM plan](results/plans/edm_32_seed17_63bc3fce35.json) compares EDM pr
 
 Run `python -m scripts.run_edm_comparison` to execute the frozen comparison or resume its verified checkpoints. The official results and decision receipt are under `results/experiments/edm_32_seed17_v002/`.
 
+The [patch comparison](results/plans/patch_grid_v002.json) evaluates 4×4 and 8×8 packing with the same pixel-resolution refinement branch. It keeps the full-image epsilon objective, exact v002 targets, holdout and DDIM sampler. Run `python -m scripts.run_patch_comparison` to execute the frozen protocol or resume from its verified receipts. The diagnostic command is `python -m src.training.diagnostics overfit --patch-size 4 --patch-detail --out results/diagnostics/patch4_detail_reproduction`. Change `4` to `8` and use a fresh output folder for the other variant.
+
 Rebuild the v002 development report grid from the first 16 official seed-0 outputs per class:
 
 ```powershell

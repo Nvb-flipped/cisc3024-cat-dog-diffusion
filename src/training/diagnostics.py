@@ -19,7 +19,7 @@ BENCHMARK_UPDATES = 500
 
 
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
-            *, prediction_type='epsilon', min_snr_gamma=None):
+            *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False):
     if prediction_type not in ('epsilon', 'velocity'):
         raise ValueError('Unsupported denoising target')
     weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
@@ -36,6 +36,8 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     x, y = x.to(device), y.to(device)
     config = dict(channels=[16, 32, 48, 64], blocks_per_level=1,
                   conditioning_dim=64, attention_heads=4, dropout=0)
+    if patch_size != 1:
+        config.update(patch_size=patch_size, patch_detail=patch_detail)
     model = ConditionalUNet(**config).to(device)
     schedule = cosine_alpha_bar().to(device)
     generator = torch.Generator(device=device).manual_seed(29)
@@ -88,6 +90,8 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         'reconstruction_mse_after': after_clean, 'seconds': time.perf_counter() - begin,
         'training_seed': 17, 'noise_seed': 29, 'probe_seed': 43,
         'probe_timesteps': probe_t.tolist(), 'environment': environment(), 'completed': timestamp()}
+    if patch_size != 1:
+        record['model_source_sha256'] = sha256('submission/model.py')
     record['passed'] = record['reduction'] >= .80 and after_clean < before_clean
     write_json(out / 'result.json', record)
     if not record['passed']:
@@ -148,10 +152,13 @@ def main():
     p.add_argument('--out')
     p.add_argument('--prediction-type', choices=['epsilon', 'velocity'], default='epsilon')
     p.add_argument('--min-snr-gamma', type=float)
+    p.add_argument('--patch-size', type=int, choices=[1, 4, 8], default=1)
+    p.add_argument('--patch-detail', action='store_true')
     args = p.parse_args()
     if args.mode == 'overfit':
         print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit',
-                      prediction_type=args.prediction_type, min_snr_gamma=args.min_snr_gamma))
+                      prediction_type=args.prediction_type, min_snr_gamma=args.min_snr_gamma,
+                      patch_size=args.patch_size, patch_detail=args.patch_detail))
     else:
         print(benchmark(args.config, args.manifest, args.out or 'results/diagnostics/benchmark'))
 

@@ -106,6 +106,8 @@ The matched Min-SNR run used $\operatorname{SNR}_t=\bar\alpha_t/(1-\bar\alpha_t)
 
 Introducing trajectory noise with DDIM $\eta=0.35$ and $0.70$ on the corrected reference raised seed-0 accuracy to 90.80\% and 92.00\%. FID increased to 76.47 and 78.44, and memorization reached 5.15\% and 7.60\%. Both settings exceeded the limit.
 
+An EDM experiment kept the small U-Net, optimizer, EMA, seed and exact v002 crops. It changed the noise distribution, denoiser preconditioning and loss, and used 26 deterministic Heun noise levels \cite{karras2022edm}. At 24k updates it scored 5/15 on seed 0 with FID 147.67, recall 6.86\% and memorization 1.10\%. The 28k and 30k snapshots exceeded the 5\% cap, with rates of 8.55\% and 14.75\%. The 30k snapshot reached 90.85\% accuracy, FID 103.11 and 18.14\% recall. The comparison retained the original v002 DDIM reference.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

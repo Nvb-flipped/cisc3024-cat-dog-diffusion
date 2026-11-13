@@ -348,6 +348,30 @@ def development_claims(paths):
             f"The two-crop EDM diagnostic reduced fixed-probe MSE from {record['initial']['probe_mse']:.5f} "
             f"to {record['final']['probe_mse']:.5f} in {record['updates']:,} updates "
             f"({record['reduction']:.2%} reduction).", ['E084', 'E110']))
+    edm_screen = ROOT / 'results/experiments/edm_32_seed17_v002/screening.json'
+    if edm_screen.exists():
+        record = json.loads(edm_screen.read_text())
+        plan = ROOT / 'results/plans/edm_32_seed17_63bc3fce35.json'
+        if record['plan_sha256'] != sha256(plan):
+            raise ValueError('EDM comparison plan changed')
+        files = [plan, edm_screen]
+        summaries = []
+        for trial in record['screened']:
+            row, = trial['evidence']
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('EDM evaluation changed')
+            result = validated_result(path, row['seed'], ROOT / trial['exported'])
+            metrics = result['metrics']
+            files.append(path)
+            summaries.append(f"At {trial['update']:,} updates, accuracy was {metrics['accuracy']:.2%}, "
+                             f"FID {metrics['fid']:.2f}, recall {metrics['recall']:.2%}, "
+                             f"memorization {metrics['memorization_rate']:.2%}, and the score "
+                             f"{result['marks']['total']}/15.")
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, 85)}
+        paths.update(ids)
+        claims.append(('C025', 'Matched EDM comparison', 'result', ' '.join(summaries), list(ids)))
     return claims
 
 

@@ -28,6 +28,10 @@ No reliable adoption survey ranks these approaches for 1,197 reviewed crops, so 
 
 Primary references: [Improved DDPM](https://arxiv.org/abs/2102.09672), [CFG](https://arxiv.org/abs/2207.12598), [EDM](https://arxiv.org/abs/2206.00364), [DiT and pretrained VAE](https://arxiv.org/html/2212.09748), [Rectified Flow Transformers](https://arxiv.org/abs/2403.03206), [Qwen-Image-2.0](https://arxiv.org/abs/2605.10730), [Flow Matching](https://arxiv.org/abs/2210.02747), [JiT](https://arxiv.org/abs/2511.13720).
 
+## TA patch-size comparison
+
+Pack the noisy full image into 64 4×4 RGB patches or 16 8×8 RGB patches. Packing is an exact spatial-to-channel permutation. Both models denoise the whole patch grid and return a 32×32 pixel prediction for the original loss and DDIM. Simple packing missed the two-crop integration gate for both sizes. A shared pixel-resolution refinement branch passed the same gate. The refinement is an architectural change. Comparing the two patch sizes controls for that shared branch, while the original pixel U-Net comparison tests the whole patch recipe. The [frozen plan](patch_grid_v002.json) fixes the reviewed v002 crops and holdout, seed, optimizer, EMA, sampling and update budget, with actual model sizes within 4% of the pixel control. The branch tests a local design motivated by published pixel diffusion architectures that combine global patch representations with high-frequency pixel refinement. [DiP, CVPR 2026](https://openaccess.thecvf.com/content/CVPR2026/html/Chen_DiP_Taming_Diffusion_Models_in_Pixel_Space_CVPR_2026_paper.html)
+
 ## Pilot and quota controls
 
 - First-pass geometry recovery reviewed 18 unique previously rejected sources with measured width ≥32 px whose recorded checklist flagged occupancy alone. Several still showed other visual issues. Exact trial previews for five sources were retained locally. The strongest trial is one potential re-review, insufficient for a new training run.

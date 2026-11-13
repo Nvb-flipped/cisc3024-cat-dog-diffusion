@@ -27,7 +27,7 @@
     },
     "E007": {
       "path": "submission/model.py",
-      "sha256": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7"
+      "sha256": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18"
     },
     "E008": {
       "path": "results/setup/all_fast_tests.xml",
@@ -336,12 +336,32 @@
     "E084": {
       "path": "results/diagnostics/edm_v002_shared/result.json",
       "sha256": "47e28e2358adcd13b09971a8564e53cece8b5058c9370a49c63749d412ed9564"
+    },
+    "E085": {
+      "path": "results/plans/edm_32_seed17_63bc3fce35.json",
+      "sha256": "2a018f762fda48fb5e486cd997e8ddd5b79ba5ce4099b33f84bef6b88a83de52"
+    },
+    "E086": {
+      "path": "results/experiments/edm_32_seed17_v002/screening.json",
+      "sha256": "c3b9f736570f8a64f962a4ea445f47a5af82b42942893d65813631612e78adbc"
+    },
+    "E087": {
+      "path": "results/experiments/edm_32_seed17_v002/update_024000/seed_0.json",
+      "sha256": "d24c7cb8c0414de9c1427928a98d520904683c60a7f8cd735a69db19032e94a8"
+    },
+    "E088": {
+      "path": "results/experiments/edm_32_seed17_v002/update_028000/seed_0.json",
+      "sha256": "6a0dab71e0eb45e1b662da9a1a2e55e34e6c4bd57f55aa3d9a08df5dc247762e"
+    },
+    "E089": {
+      "path": "results/experiments/edm_32_seed17_v002/update_030000/seed_0.json",
+      "sha256": "779cf9e93bee62fd702b497974f8452494724cc341841d5e9f599b3093b68b11"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "409d3bbff8526524e94f24151e5f67347d90450937f64dec775568d0e1c44886",
-    "evidence_outline.md": "ca98d0b2578927c5317a1bcee846fdfffe8b9daf3655ab3bcc380f127f2cfde0",
-    "claims.csv": "286ca35e98f89ea645cc5e6434de6e8f400833f3c2fb4a8fe583b659a329fbeb"
+    "source_manifest.json": "73fdd385788f9ce5e9ee1d22f4a70404b9e474bb63713745ee1c9f34b1b2341f",
+    "evidence_outline.md": "1e64905add7617555e9fd648606fc4a33aecbffb79a3f6903ca76f0545cd8196",
+    "claims.csv": "67dbb25abd762d54debbd4d27015b90f550f63816a720bd4195455a27bf917ac"
   }
 }

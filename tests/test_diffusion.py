@@ -9,6 +9,30 @@ from submission.model import ConditionalUNet
 from submission.edm import precondition
 
 
+@pytest.mark.parametrize('patch_size', [4, 8])
+@pytest.mark.parametrize('patch_detail', [False, True])
+def test_patch_denoiser_geometry_and_seeded_sampling(patch_size, patch_detail):
+    x = torch.arange(2 * 3 * 32 * 32).reshape(2, 3, 32, 32).float()
+    packed = torch.nn.functional.pixel_unshuffle(x, patch_size)
+    assert packed.shape == (2, 3 * patch_size ** 2, 32 // patch_size, 32 // patch_size)
+    assert torch.equal(torch.nn.functional.pixel_shuffle(packed, patch_size), x)
+
+    model = ConditionalUNet(channels=(8, 16, 24, 32), blocks_per_level=1,
+                            conditioning_dim=32, patch_size=patch_size, patch_detail=patch_detail).eval()
+    labels = torch.tensor([0, 1, 0])
+    state = torch.get_rng_state().clone()
+    options = dict(steps=3, execution_batch=2, guidance=2.5)
+    first = sample(model, labels, 17, **options)
+    assert first.shape == (3, 3, 32, 32)
+    assert torch.isfinite(first).all() and (first >= 0).all() and (first <= 1).all()
+    assert torch.equal(first[:1], sample(model, labels[:1], 17, **options))
+    assert torch.equal(first, sample(model, labels, 17, microbatch=1, **options))
+    changed_labels = labels.clone()
+    changed_labels[1:] = 1 - changed_labels[1:]
+    assert torch.equal(first[0], sample(model, changed_labels, 17, **options)[0])
+    assert torch.equal(state, torch.get_rng_state())
+
+
 class ProbeModel(nn.Module):
     def __init__(self):
         super().__init__()
