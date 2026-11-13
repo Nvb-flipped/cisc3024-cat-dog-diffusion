@@ -1,0 +1,436 @@
+{
+  "batch": "v015",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "private_build/coverage_recovery_extension_v002/plan.json": "efbe2dd0d3bb4690cb92dabc69030e047ee71b3a17113c254a6121d216325188",
+    "private_build/coverage_recovery_extension_v002/recovery/scores.csv": "83d261a695894864e8fc6987ae7f585fa65edb19a626578958583bb56e369950",
+    "private_build/coverage_recovery_extension_v002/next_inspected_index.json": "54e9f5ee5cad071ab22cb78cec798639d22594028f7fc2d3bb78bc752a4759b8",
+    "annotations/decisions.jsonl": "720f0dfc4ef17e266dd8b769abf1f1866f88eceda01396a7ffbcb7c87e3dd316"
+  },
+  "prescreened_ranked_count": 32,
+  "candidate_ids": [
+    "recovery-60aea9cd8e0d12834949",
+    "recovery-8d3833dae6103cababda",
+    "recovery-d8829dda0769076f71f2",
+    "recovery-0ed9911293e2f49b4342",
+    "recovery-02d3dd24fd5f1c22f330",
+    "recovery-44165ebf6edc1e340ac8",
+    "recovery-dfa6fe3e79557fbd83a2",
+    "recovery-10f559ef74704d6aed58"
+  ],
+  "recovered_candidates": [
+    {
+      "candidate_id": "recovery-60aea9cd8e0d12834949",
+      "pool_id": "s068694",
+      "label": 0,
+      "x0": 28,
+      "y0": 0,
+      "size": 253,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s068694"
+    },
+    {
+      "candidate_id": "recovery-8d3833dae6103cababda",
+      "pool_id": "s024602",
+      "label": 1,
+      "x0": 48,
+      "y0": 0,
+      "size": 235,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s024602"
+    },
+    {
+      "candidate_id": "recovery-d8829dda0769076f71f2",
+      "pool_id": "s038556",
+      "label": 0,
+      "x0": 13,
+      "y0": 0,
+      "size": 303,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s038556"
+    },
+    {
+      "candidate_id": "recovery-0ed9911293e2f49b4342",
+      "pool_id": "s015407",
+      "label": 1,
+      "x0": 91,
+      "y0": 0,
+      "size": 206,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s015407"
+    },
+    {
+      "candidate_id": "recovery-02d3dd24fd5f1c22f330",
+      "pool_id": "s039768",
+      "label": 0,
+      "x0": 69,
+      "y0": 0,
+      "size": 233,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s039768"
+    },
+    {
+      "candidate_id": "recovery-44165ebf6edc1e340ac8",
+      "pool_id": "s072800",
+      "label": 1,
+      "x0": 66,
+      "y0": 8,
+      "size": 199,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s072800"
+    },
+    {
+      "candidate_id": "recovery-dfa6fe3e79557fbd83a2",
+      "pool_id": "s060416",
+      "label": 0,
+      "x0": 106,
+      "y0": 0,
+      "size": 174,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s060416"
+    },
+    {
+      "candidate_id": "recovery-10f559ef74704d6aed58",
+      "pool_id": "s043070",
+      "label": 1,
+      "x0": 46,
+      "y0": 0,
+      "size": 228,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s043070"
+    }
+  ],
+  "findings": [
+    {
+      "candidate_id": "recovery-60aea9cd8e0d12834949",
+      "pool_id": "s068694",
+      "code": "R01",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Light-coated cat against a white background. Check the width across the outer ear/head span.",
+      "crop_sha256": "e1d79799ace4169c30f7e012609594bf8e1af171017cc52a36d2167961cf4afb",
+      "geometry": {
+        "x0": 28,
+        "y0": 0,
+        "size": 253,
+        "angle": 0
+      },
+      "estimated_head_width": 166.0,
+      "estimated_occupancy": 0.6561264822134387
+    },
+    {
+      "candidate_id": "recovery-8d3833dae6103cababda",
+      "pool_id": "s024602",
+      "code": "R02",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "Golden puppy against straw. The head appears slightly right of center. Check centering before saving.",
+      "crop_sha256": "48ffd1c75a63e32350cce9bab2ce03e91a8c6313a925d00b574beab403f827b2",
+      "geometry": {
+        "x0": 48,
+        "y0": 0,
+        "size": 235,
+        "angle": 0
+      },
+      "estimated_head_width": 154.2,
+      "estimated_occupancy": 0.6561702127659574
+    },
+    {
+      "candidate_id": "recovery-d8829dda0769076f71f2",
+      "pool_id": "s038556",
+      "code": "R03",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Ginger kitten with an open mouth. Both ears and chin appear inside the crop.",
+      "crop_sha256": "37e91b73efc92b640d05936b1b88bfff0273c885e39ef7eb5b1978ad34b50384",
+      "geometry": {
+        "x0": 13,
+        "y0": 0,
+        "size": 303,
+        "angle": 0
+      },
+      "estimated_head_width": 198.8,
+      "estimated_occupancy": 0.6561056105610561
+    },
+    {
+      "candidate_id": "recovery-0ed9911293e2f49b4342",
+      "pool_id": "s015407",
+      "code": "R04",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "Front-facing dachshund. Check the bottom edges of both drooping ears.",
+      "crop_sha256": "22b7db15006e21aa1c0a93c1746282bf8eba20db3cfdb0900eb2481c5254aa4c",
+      "geometry": {
+        "x0": 91,
+        "y0": 0,
+        "size": 206,
+        "angle": 0
+      },
+      "estimated_head_width": 141.6,
+      "estimated_occupancy": 0.687378640776699
+    },
+    {
+      "candidate_id": "recovery-02d3dd24fd5f1c22f330",
+      "pool_id": "s039768",
+      "code": "R05",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Hairless cat with large ears. Check the small tilt and full chin.",
+      "crop_sha256": "f613b9005effb328bf72e10f8068f66568b42a36ab16a99b53329b87b8e9d7e1",
+      "geometry": {
+        "x0": 69,
+        "y0": 0,
+        "size": 233,
+        "angle": 0
+      },
+      "estimated_head_width": 152.9,
+      "estimated_occupancy": 0.6562231759656653
+    },
+    {
+      "candidate_id": "recovery-44165ebf6edc1e340ac8",
+      "pool_id": "s072800",
+      "code": "R06",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "Dark shepherd puppy. One ear naturally folds over. Check that the visible outline and muzzle fit.",
+      "crop_sha256": "aaefa95976d08bedd2823067921868444d133f6ce320fa88f2952e7ae93a2782",
+      "geometry": {
+        "x0": 66,
+        "y0": 8,
+        "size": 199,
+        "angle": 0
+      },
+      "estimated_head_width": 124.4,
+      "estimated_occupancy": 0.6251256281407035
+    },
+    {
+      "candidate_id": "recovery-dfa6fe3e79557fbd83a2",
+      "pool_id": "s060416",
+      "code": "R07",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Long-haired tabby. Check the lower head boundary where it blends into the neck fur.",
+      "crop_sha256": "4bd4ec464beb37a80b0eaae2fe1f24f62ec629ca5d27953adca7b8e52dabb70a",
+      "geometry": {
+        "x0": 106,
+        "y0": 0,
+        "size": 174,
+        "angle": 0
+      },
+      "estimated_head_width": 108.8,
+      "estimated_occupancy": 0.6252873563218391
+    },
+    {
+      "candidate_id": "recovery-10f559ef74704d6aed58",
+      "pool_id": "s043070",
+      "code": "R08",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "White dog with an open mouth. Confirm both ear edges against the white background.",
+      "crop_sha256": "4ce8e6527c831a8610cb2d67704e5ffdff1d2ba5bf7204b2c53d7e8ee47ee7f8",
+      "geometry": {
+        "x0": 46,
+        "y0": 0,
+        "size": 228,
+        "angle": 0
+      },
+      "estimated_head_width": 156.8,
+      "estimated_occupancy": 0.6877192982456141
+    }
+  ],
+  "review_drafts": {
+    "recovery-60aea9cd8e0d12834949": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 166.0,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Light-coated cat against a white background. Check the width across the outer ear/head span.",
+      "preview_sha256": "e1d79799ace4169c30f7e012609594bf8e1af171017cc52a36d2167961cf4afb"
+    },
+    "recovery-8d3833dae6103cababda": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 154.2,
+      "head_span_crop_px": [
+        8,
+        29
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": false,
+        "occupancy_valid": true
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Golden puppy against straw. The head appears slightly right of center. Check centering before saving.",
+      "note": "Golden puppy against straw. The head appears slightly right of center. Check centering before saving.",
+      "preview_sha256": "48ffd1c75a63e32350cce9bab2ce03e91a8c6313a925d00b574beab403f827b2"
+    },
+    "recovery-d8829dda0769076f71f2": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 198.8,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Ginger kitten with an open mouth. Both ears and chin appear inside the crop.",
+      "preview_sha256": "37e91b73efc92b640d05936b1b88bfff0273c885e39ef7eb5b1978ad34b50384"
+    },
+    "recovery-0ed9911293e2f49b4342": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 141.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Front-facing dachshund. Check the bottom edges of both drooping ears.",
+      "preview_sha256": "22b7db15006e21aa1c0a93c1746282bf8eba20db3cfdb0900eb2481c5254aa4c"
+    },
+    "recovery-02d3dd24fd5f1c22f330": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 152.9,
+      "head_span_crop_px": [
+        6,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Hairless cat with large ears. Check the small tilt and full chin.",
+      "preview_sha256": "f613b9005effb328bf72e10f8068f66568b42a36ab16a99b53329b87b8e9d7e1"
+    },
+    "recovery-44165ebf6edc1e340ac8": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 124.4,
+      "head_span_crop_px": [
+        6,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dark shepherd puppy. One ear naturally folds over. Check that the visible outline and muzzle fit.",
+      "preview_sha256": "aaefa95976d08bedd2823067921868444d133f6ce320fa88f2952e7ae93a2782"
+    },
+    "recovery-dfa6fe3e79557fbd83a2": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 108.8,
+      "head_span_crop_px": [
+        7,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired tabby. Check the lower head boundary where it blends into the neck fur.",
+      "preview_sha256": "4bd4ec464beb37a80b0eaae2fe1f24f62ec629ca5d27953adca7b8e52dabb70a"
+    },
+    "recovery-10f559ef74704d6aed58": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 156.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White dog with an open mouth. Confirm both ear edges against the white background.",
+      "preview_sha256": "4ce8e6527c831a8610cb2d67704e5ffdff1d2ba5bf7204b2c53d7e8ee47ee7f8"
+    }
+  }
+}

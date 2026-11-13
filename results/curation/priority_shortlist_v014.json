@@ -1,0 +1,420 @@
+{
+  "batch": "v014",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "private_build/coverage_recovery_extension_v002/plan.json": "efbe2dd0d3bb4690cb92dabc69030e047ee71b3a17113c254a6121d216325188",
+    "private_build/coverage_recovery_extension_v002/recovery/scores.csv": "83d261a695894864e8fc6987ae7f585fa65edb19a626578958583bb56e369950",
+    "private_build/coverage_recovery_extension_v002/inspected_index.json": "7e8250fb081215c317d44da3ffb1153b9018106cc0c64250b175b866405ef33a",
+    "annotations/decisions.jsonl": "20f9e0b16e3bea04b4a1d053aa015d13579b21e266bceb54a4dd884c05ae9a4a"
+  },
+  "prescreened_ranked_count": 48,
+  "candidate_ids": [
+    "recovery-36ce2905d82a0ad51696",
+    "recovery-6ef8eff592199c95a373",
+    "recovery-f9a99677cef790e0b44b",
+    "recovery-b8f8e2bdf38720fdc102",
+    "recovery-d32ce34f0250ccf1b0b7",
+    "recovery-b0c6340a7bf381b47dea",
+    "recovery-434504ee79a485f8edad",
+    "recovery-3c63a7fe38356121a1fa"
+  ],
+  "recovered_candidates": [
+    {
+      "candidate_id": "recovery-36ce2905d82a0ad51696",
+      "pool_id": "s002556",
+      "label": 0,
+      "x0": 208,
+      "y0": 0,
+      "size": 179,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s002556"
+    },
+    {
+      "candidate_id": "recovery-6ef8eff592199c95a373",
+      "pool_id": "s075939",
+      "label": 1,
+      "x0": 24,
+      "y0": 22,
+      "size": 173,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s075939"
+    },
+    {
+      "candidate_id": "recovery-f9a99677cef790e0b44b",
+      "pool_id": "s047200",
+      "label": 0,
+      "x0": 18,
+      "y0": 0,
+      "size": 242,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s047200"
+    },
+    {
+      "candidate_id": "recovery-b8f8e2bdf38720fdc102",
+      "pool_id": "s075657",
+      "label": 1,
+      "x0": 109,
+      "y0": 0,
+      "size": 155,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s075657"
+    },
+    {
+      "candidate_id": "recovery-d32ce34f0250ccf1b0b7",
+      "pool_id": "s021032",
+      "label": 0,
+      "x0": 162,
+      "y0": 0,
+      "size": 131,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s021032"
+    },
+    {
+      "candidate_id": "recovery-b0c6340a7bf381b47dea",
+      "pool_id": "s023414",
+      "label": 1,
+      "x0": 20,
+      "y0": 0,
+      "size": 251,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s023414"
+    },
+    {
+      "candidate_id": "recovery-434504ee79a485f8edad",
+      "pool_id": "s005080",
+      "label": 0,
+      "x0": 140,
+      "y0": 0,
+      "size": 124,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s005080"
+    },
+    {
+      "candidate_id": "recovery-3c63a7fe38356121a1fa",
+      "pool_id": "s073721",
+      "label": 1,
+      "x0": 49,
+      "y0": 0,
+      "size": 215,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s073721"
+    }
+  ],
+  "findings": [
+    {
+      "candidate_id": "recovery-36ce2905d82a0ad51696",
+      "pool_id": "s002556",
+      "code": "R01",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Cat",
+      "note": "Gray cat facing camera. Check the visible cheeks and both ear tips in the source.",
+      "crop_sha256": "6c391c7d7592a5c80ef301e448ba5d4beee8ec18d908334b0e79c6f5be421c55",
+      "geometry": {
+        "x0": 208,
+        "y0": 0,
+        "size": 179,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-6ef8eff592199c95a373",
+      "pool_id": "s075939",
+      "code": "R02",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Dog",
+      "note": "Upright black-and-tan dog on leaves. Check the full muzzle, upright ear tips and centering.",
+      "crop_sha256": "6dffa9e24892ddb2796581b24006b50fd25312425e09d83e824fc41f22217b53",
+      "geometry": {
+        "x0": 24,
+        "y0": 22,
+        "size": 173,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-f9a99677cef790e0b44b",
+      "pool_id": "s047200",
+      "code": "R03",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Cat",
+      "note": "White cat on a table. Check the upper ear margin and the visible head outline beneath the watermark.",
+      "crop_sha256": "a7b5dd6d59d2e9f33b502a701eab2e1766239cebf19bc4d49e4456ed694ba3ab",
+      "geometry": {
+        "x0": 18,
+        "y0": 0,
+        "size": 242,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-b8f8e2bdf38720fdc102",
+      "pool_id": "s075657",
+      "code": "R04",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Dog",
+      "note": "Upright dog with a black muzzle. Check whether the upper ear tips and lower muzzle have adequate clearance.",
+      "crop_sha256": "78deb7e5307f019aaa58a3bec1ecd1badc2035af6ab50a3b3501ecec31c45944",
+      "geometry": {
+        "x0": 109,
+        "y0": 0,
+        "size": 155,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-d32ce34f0250ccf1b0b7",
+      "pool_id": "s021032",
+      "code": "R05",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Cat",
+      "note": "Ginger cat facing forward. Check width from the visible head outline and confirm centering.",
+      "crop_sha256": "cdab9d5913241354444f73f70edd5dd9ee07f2a50442b5e07ede91b558c5005c",
+      "geometry": {
+        "x0": 162,
+        "y0": 0,
+        "size": 131,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-b0c6340a7bf381b47dea",
+      "pool_id": "s023414",
+      "code": "R06",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Dog",
+      "note": "Front-facing Chihuahua. Check both ear tips and whether the head is centered vertically.",
+      "crop_sha256": "ac740fc8b6848c3238f86e4bd2145568e00b9416ed8df492bb3686342bae15f3",
+      "geometry": {
+        "x0": 20,
+        "y0": 0,
+        "size": 251,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-434504ee79a485f8edad",
+      "pool_id": "s005080",
+      "code": "R07",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Cat",
+      "note": "Tabby kitten with both ears visible. Check that the complete chin remains inside the square.",
+      "crop_sha256": "a37ce3b1b36895e21fc33d262d3566515f7905784aac2b8543f156ce719093b6",
+      "geometry": {
+        "x0": 140,
+        "y0": 0,
+        "size": 124,
+        "angle": 0
+      }
+    },
+    {
+      "candidate_id": "recovery-3c63a7fe38356121a1fa",
+      "pool_id": "s073721",
+      "code": "R08",
+      "group": "Boundary recovery pilot",
+      "suggested_species": "Dog",
+      "note": "Small dark dog with two upright ears. Check both ear tips, chin and centering.",
+      "crop_sha256": "10f62709f590f9c8234536fca7a2b2cd107782dbfa1d3ac8aae6137de9c5cb46",
+      "geometry": {
+        "x0": 49,
+        "y0": 0,
+        "size": 215,
+        "angle": 0
+      }
+    }
+  ],
+  "review_drafts": {
+    "recovery-36ce2905d82a0ad51696": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 123.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Gray cat facing camera. Check the visible cheeks and both ear tips in the source.",
+      "preview_sha256": "6c391c7d7592a5c80ef301e448ba5d4beee8ec18d908334b0e79c6f5be421c55"
+    },
+    "recovery-6ef8eff592199c95a373": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 118.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Upright black-and-tan dog on leaves. Check the full muzzle, upright ear tips and centering.",
+      "preview_sha256": "6dffa9e24892ddb2796581b24006b50fd25312425e09d83e824fc41f22217b53"
+    },
+    "recovery-f9a99677cef790e0b44b": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 173.9,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White cat on a table. Check the upper ear margin and the visible head outline beneath the watermark.",
+      "preview_sha256": "a7b5dd6d59d2e9f33b502a701eab2e1766239cebf19bc4d49e4456ed694ba3ab"
+    },
+    "recovery-b8f8e2bdf38720fdc102": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 111.4,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Upright dog with a black muzzle. Check whether the upper ear tips and lower muzzle have adequate clearance.",
+      "preview_sha256": "78deb7e5307f019aaa58a3bec1ecd1badc2035af6ab50a3b3501ecec31c45944"
+    },
+    "recovery-d32ce34f0250ccf1b0b7": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 81.9,
+      "head_span_crop_px": [
+        6,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Ginger cat facing forward. Check width from the visible head outline and confirm centering.",
+      "preview_sha256": "cdab9d5913241354444f73f70edd5dd9ee07f2a50442b5e07ede91b558c5005c"
+    },
+    "recovery-b0c6340a7bf381b47dea": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 172.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Front-facing Chihuahua. Check both ear tips and whether the head is centered vertically.",
+      "preview_sha256": "ac740fc8b6848c3238f86e4bd2145568e00b9416ed8df492bb3686342bae15f3"
+    },
+    "recovery-434504ee79a485f8edad": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 81.4,
+      "head_span_crop_px": [
+        6,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tabby kitten with both ears visible. Check that the complete chin remains inside the square.",
+      "preview_sha256": "a37ce3b1b36895e21fc33d262d3566515f7905784aac2b8543f156ce719093b6"
+    },
+    "recovery-3c63a7fe38356121a1fa": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 147.8,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small dark dog with two upright ears. Check both ear tips, chin and centering.",
+      "preview_sha256": "10f62709f590f9c8234536fca7a2b2cd107782dbfa1d3ac8aae6137de9c5cb46"
+    }
+  }
+}

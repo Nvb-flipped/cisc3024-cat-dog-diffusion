@@ -1,0 +1,436 @@
+{
+  "batch": "v016",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "private_build/coverage_recovery_extension_v003/plan.json": "59734dcc8a23421dd07c9439ac19e7e935c6898daa486b9be4a2db74080056ae",
+    "private_build/coverage_recovery_extension_v003/recovery/scores.csv": "8947f9fabd702e727b030b0c3e902f2e1f47a53de068c4d3d9f8a5fa5cdfac77",
+    "private_build/coverage_recovery_extension_v003/inspected_index.json": "2b04b4622d2b1e9cebb42e522caf1875fb62d4da4013de8b898b600dbb2ae1e9",
+    "annotations/decisions.jsonl": "720f0dfc4ef17e266dd8b769abf1f1866f88eceda01396a7ffbcb7c87e3dd316"
+  },
+  "prescreened_ranked_count": 48,
+  "candidate_ids": [
+    "recovery-b32e64cb917468121ee0",
+    "recovery-60abacdd166a17d70324",
+    "recovery-c0115a478a15807ea155",
+    "recovery-45e7eb79a604d519966d",
+    "recovery-b24fa30a8937b38e1b7a",
+    "recovery-d71aa61b5980ffec0f31",
+    "recovery-a6aff00fcbe2709777fd",
+    "recovery-7e9a8c40f2e7460eef2c"
+  ],
+  "recovered_candidates": [
+    {
+      "candidate_id": "recovery-b32e64cb917468121ee0",
+      "pool_id": "s051690",
+      "label": 0,
+      "x0": 94,
+      "y0": 0,
+      "size": 214,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s051690"
+    },
+    {
+      "candidate_id": "recovery-60abacdd166a17d70324",
+      "pool_id": "s040012",
+      "label": 1,
+      "x0": 34,
+      "y0": 0,
+      "size": 245,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s040012"
+    },
+    {
+      "candidate_id": "recovery-c0115a478a15807ea155",
+      "pool_id": "s039763",
+      "label": 0,
+      "x0": 19,
+      "y0": 0,
+      "size": 272,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s039763"
+    },
+    {
+      "candidate_id": "recovery-45e7eb79a604d519966d",
+      "pool_id": "s041182",
+      "label": 1,
+      "x0": 80,
+      "y0": 0,
+      "size": 233,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s041182"
+    },
+    {
+      "candidate_id": "recovery-b24fa30a8937b38e1b7a",
+      "pool_id": "s062541",
+      "label": 0,
+      "x0": 102,
+      "y0": 0,
+      "size": 258,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s062541"
+    },
+    {
+      "candidate_id": "recovery-d71aa61b5980ffec0f31",
+      "pool_id": "s013468",
+      "label": 1,
+      "x0": 89,
+      "y0": 0,
+      "size": 201,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s013468"
+    },
+    {
+      "candidate_id": "recovery-a6aff00fcbe2709777fd",
+      "pool_id": "s027647",
+      "label": 0,
+      "x0": 116,
+      "y0": 0,
+      "size": 283,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s027647"
+    },
+    {
+      "candidate_id": "recovery-7e9a8c40f2e7460eef2c",
+      "pool_id": "s038361",
+      "label": 1,
+      "x0": 61,
+      "y0": 0,
+      "size": 171,
+      "angle": 0,
+      "proposal_origin": "agent_recovery_draft",
+      "recovery_source_id": "s038361"
+    }
+  ],
+  "findings": [
+    {
+      "candidate_id": "recovery-b32e64cb917468121ee0",
+      "pool_id": "s051690",
+      "code": "R01",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Tabby on a dark background. Check both ear tips and the lower jaw.",
+      "crop_sha256": "e43910270d82726243a620060c080fb6475383f52ed5564a161783d02075fcf1",
+      "geometry": {
+        "x0": 94,
+        "y0": 0,
+        "size": 214,
+        "angle": 0
+      },
+      "estimated_head_width": 147.1,
+      "estimated_occupancy": 0.6873831775700935
+    },
+    {
+      "candidate_id": "recovery-60abacdd166a17d70324",
+      "pool_id": "s040012",
+      "code": "R02",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "White dog in profile. Check the visible ear edges and whether the head is roughly upright and centered.",
+      "crop_sha256": "68b70fcf536410ef4079ad0f1c7e60d2aa06be075679170e41503b7d19bc075c",
+      "geometry": {
+        "x0": 34,
+        "y0": 0,
+        "size": 245,
+        "angle": 0
+      },
+      "estimated_head_width": 160.8,
+      "estimated_occupancy": 0.656326530612245
+    },
+    {
+      "candidate_id": "recovery-c0115a478a15807ea155",
+      "pool_id": "s039763",
+      "code": "R03",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Black-and-white kitten. Verify the ear tips and full chin against the original photograph.",
+      "crop_sha256": "bc1c18b6994c63b6ee5dde5196f3be2fb6f04a3a205d8869f8169731e4dcce23",
+      "geometry": {
+        "x0": 19,
+        "y0": 0,
+        "size": 272,
+        "angle": 0
+      },
+      "estimated_head_width": 178.5,
+      "estimated_occupancy": 0.65625
+    },
+    {
+      "candidate_id": "recovery-45e7eb79a604d519966d",
+      "pool_id": "s041182",
+      "code": "R04",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "The head may be slightly below 60% of this square. Check the source head width and preview a tighter square if needed.",
+      "crop_sha256": "ddc5bdddb2fd6d9d1625761503f118a2c8a34a7d713b7471953264235a883aa0",
+      "geometry": {
+        "x0": 80,
+        "y0": 0,
+        "size": 233,
+        "angle": 0
+      },
+      "estimated_head_width": 138.3,
+      "estimated_occupancy": 0.5935622317596567
+    },
+    {
+      "candidate_id": "recovery-b24fa30a8937b38e1b7a",
+      "pool_id": "s062541",
+      "code": "R05",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Cream kitten against a blue background. The visible head may be below 60% of this square. Check width and try a tighter preview if needed.",
+      "crop_sha256": "7d715b019080ba153738af6979024f4cfb89d57ac240e3b20e63e1d74d727127",
+      "geometry": {
+        "x0": 102,
+        "y0": 0,
+        "size": 258,
+        "angle": 0
+      },
+      "estimated_head_width": 145.1,
+      "estimated_occupancy": 0.5624031007751937
+    },
+    {
+      "candidate_id": "recovery-d71aa61b5980ffec0f31",
+      "pool_id": "s013468",
+      "code": "R06",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "The taller ear is very close to the top of the source and crop. Check that its tip is complete before saving.",
+      "crop_sha256": "7be12a63f8539f4442b23f8de8a0ab4ead8e0e0c70b7bc4b564e6b1076a74770",
+      "geometry": {
+        "x0": 89,
+        "y0": 0,
+        "size": 201,
+        "angle": 0
+      },
+      "estimated_head_width": 138.2,
+      "estimated_occupancy": 0.6875621890547263
+    },
+    {
+      "candidate_id": "recovery-a6aff00fcbe2709777fd",
+      "pool_id": "s027647",
+      "code": "R07",
+      "group": "Boundary recovery",
+      "suggested_species": "Cat",
+      "note": "Black cat with distinct ears. Check the outline of the lower head where it blends into the neck.",
+      "crop_sha256": "25201e75d67ec831889d3e0c6fc2f9fa81e28f0a8e58613802e108fc5b4ecf1b",
+      "geometry": {
+        "x0": 116,
+        "y0": 0,
+        "size": 283,
+        "angle": 0
+      },
+      "estimated_head_width": 194.6,
+      "estimated_occupancy": 0.6876325088339222
+    },
+    {
+      "candidate_id": "recovery-7e9a8c40f2e7460eef2c",
+      "pool_id": "s038361",
+      "code": "R08",
+      "group": "Boundary recovery",
+      "suggested_species": "Dog",
+      "note": "The costume partly surrounds the ears. Check that both natural ears and the full head can be verified.",
+      "crop_sha256": "111d4e672cfffa408fd3f7868b07d617f4da541411e08d5be11f93b4a19fa29e",
+      "geometry": {
+        "x0": 61,
+        "y0": 0,
+        "size": 171,
+        "angle": 0
+      },
+      "estimated_head_width": 122.9,
+      "estimated_occupancy": 0.7187134502923977
+    }
+  ],
+  "review_drafts": {
+    "recovery-b32e64cb917468121ee0": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 147.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tabby on a dark background. Check both ear tips and the lower jaw.",
+      "preview_sha256": "e43910270d82726243a620060c080fb6475383f52ed5564a161783d02075fcf1"
+    },
+    "recovery-60abacdd166a17d70324": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 160.8,
+      "head_span_crop_px": [
+        6,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White dog in profile. Check the visible ear edges and whether the head is roughly upright and centered.",
+      "preview_sha256": "68b70fcf536410ef4079ad0f1c7e60d2aa06be075679170e41503b7d19bc075c"
+    },
+    "recovery-c0115a478a15807ea155": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 178.5,
+      "head_span_crop_px": [
+        6,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black-and-white kitten. Verify the ear tips and full chin against the original photograph.",
+      "preview_sha256": "bc1c18b6994c63b6ee5dde5196f3be2fb6f04a3a205d8869f8169731e4dcce23"
+    },
+    "recovery-45e7eb79a604d519966d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 138.3,
+      "head_span_crop_px": [
+        7,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "The head may be slightly below 60% of this square. Check the source head width and preview a tighter square if needed.",
+      "note": "The head may be slightly below 60% of this square. Check the source head width and preview a tighter square if needed.",
+      "preview_sha256": "ddc5bdddb2fd6d9d1625761503f118a2c8a34a7d713b7471953264235a883aa0"
+    },
+    "recovery-b24fa30a8937b38e1b7a": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 145.1,
+      "head_span_crop_px": [
+        7,
+        25
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Cream kitten against a blue background. The visible head may be below 60% of this square. Check width and try a tighter preview if needed.",
+      "note": "Cream kitten against a blue background. The visible head may be below 60% of this square. Check width and try a tighter preview if needed.",
+      "preview_sha256": "7d715b019080ba153738af6979024f4cfb89d57ac240e3b20e63e1d74d727127"
+    },
+    "recovery-d71aa61b5980ffec0f31": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 138.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "The taller ear is very close to the top of the source and crop. Check that its tip is complete before saving.",
+      "note": "The taller ear is very close to the top of the source and crop. Check that its tip is complete before saving.",
+      "preview_sha256": "7be12a63f8539f4442b23f8de8a0ab4ead8e0e0c70b7bc4b564e6b1076a74770"
+    },
+    "recovery-a6aff00fcbe2709777fd": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 194.6,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black cat with distinct ears. Check the outline of the lower head where it blends into the neck.",
+      "preview_sha256": "25201e75d67ec831889d3e0c6fc2f9fa81e28f0a8e58613802e108fc5b4ecf1b"
+    },
+    "recovery-7e9a8c40f2e7460eef2c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 122.9,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "The costume partly surrounds the ears. Check that both natural ears and the full head can be verified.",
+      "note": "The costume partly surrounds the ears. Check that both natural ears and the full head can be verified.",
+      "preview_sha256": "111d4e672cfffa408fd3f7868b07d617f4da541411e08d5be11f93b4a19fa29e"
+    }
+  }
+}

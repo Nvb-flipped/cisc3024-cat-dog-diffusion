@@ -48,7 +48,8 @@ def split_by_group(rows, group_map, fraction, seed):
     return train, validation
 
 
-def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_groups.csv'):
+def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_groups.csv',
+           *, preserve_split_from=None):
     pool = Pool(config['pool'])
     source = Path(decisions_path or config['decisions'])
     decisions = latest_decisions(source)
@@ -104,13 +105,45 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
         source_group = by_source.setdefault(item['pool_id'], groups[item['candidate_id']]['group_id'])
         if source_group != groups[item['candidate_id']]['group_id']:
             raise ValueError('Multiple kept crops from one source require one source family; keep one for this baseline')
-    train, validation = split_by_group(accepted,
-        {r['candidate_id']: groups[r['candidate_id']]['group_id'] for r in accepted},
-        config['validation_fraction'], config['seed'])
+    pool_hash, _ = fingerprint(config['pool'])
+    split_metadata = {}
+    validation_source = None
+    if preserve_split_from is None:
+        train, validation = split_by_group(accepted,
+            {r['candidate_id']: groups[r['candidate_id']]['group_id'] for r in accepted},
+            config['validation_fraction'], config['seed'])
+    else:
+        parent = Path(preserve_split_from)
+        parent_record = parent.with_suffix('.provenance.json')
+        validation_source = parent.with_suffix('.validation.csv')
+        lineage = json.loads(parent_record.read_text(encoding='utf-8'))
+        digests = [sha256(path) for path in (parent, validation_source)]
+        if lineage.get('origin') != 'student_reviewed_manifest' or lineage.get('diagnostic_only') or \
+                lineage.get('pool_content_sha256') != pool_hash or \
+                digests != [row['sha256'] for row in lineage['manifests']]:
+            raise ValueError('The parent must be a verified review freeze on this exact pool')
+        by_source = {row['pool_id']: row for row in accepted}
+        parent_splits = []
+        for path in (parent, validation_source):
+            checked = check_manifest(path, pool)
+            if checked['errors']:
+                raise ValueError(f'Invalid parent split: {path}')
+            parent_splits.append(checked['rows'])
+        for row in parent_splits[0] + parent_splits[1]:
+            current = by_source.get(row['pool_id'])
+            if current is None or any(row[key] != current[key] for key in COLUMNS):
+                raise ValueError(f'Parent row changed or is no longer kept: {row["pool_id"]}')
+        holdout_sources = {row['pool_id'] for row in parent_splits[1]}
+        if holdout_sources & {row['pool_id'] for row in parent_splits[0]}:
+            raise ValueError('The parent splits share sources')
+        train = [row for row in accepted if row['pool_id'] not in holdout_sources]
+        validation = [by_source[row['pool_id']] for row in parent_splits[1]]
+        split_metadata = {'parent_manifest_sha256': digests[0], 'parent_holdout_sha256': digests[1],
+                          'parent_provenance_sha256': sha256(parent_record),
+                          'split_policy': 'Retain every parent training row and the byte-identical parent holdout'}
     out = Path(out)
     train.sort(key=lambda r: (r['pool_id'], r['label'], r['x0'], r['y0']))
     validation.sort(key=lambda r: (r['pool_id'], r['label']))
-    pool_hash, _ = fingerprint(config['pool'])
     return publish_bundle(out, train, validation, {
             'origin': 'student_reviewed_manifest',
             'pool_content_sha256': pool_hash,
@@ -119,8 +152,10 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
             'validation_by_class': dict(Counter(r['label'] for r in validation)),
             'candidate_ids': [r['candidate_id'] for r in train], 'seed': config['seed'],
             'holdout_fraction': config['validation_fraction'],
-            'policy': 'student reviewed; one head per confirmed duplicate family; pool-only grouped holdout'},
-            columns=COLUMNS, check=lambda path: check_manifest(path, pool))
+            'policy': 'student reviewed; one head per confirmed duplicate family; pool-only grouped holdout',
+            **split_metadata},
+            columns=COLUMNS, check=lambda path: check_manifest(path, pool),
+            validation_source=validation_source)
 
 
 def main():
@@ -129,8 +164,10 @@ def main():
     p.add_argument('--out', default='manifests/final.csv')
     p.add_argument('--decisions')
     p.add_argument('--duplicate-groups', default='annotations/duplicate_groups.csv')
+    p.add_argument('--preserve-split-from', type=Path)
     args = p.parse_args()
-    print(freeze(read_config(args.config), args.out, args.decisions, args.duplicate_groups))
+    print(freeze(read_config(args.config), args.out, args.decisions, args.duplicate_groups,
+                 preserve_split_from=args.preserve_split_from))
 
 
 if __name__ == '__main__':

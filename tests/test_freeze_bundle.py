@@ -69,3 +69,32 @@ def test_rounded_legacy_occupancy_cannot_mask_out_of_range_width(tmp_path, monke
     with pytest.raises(ValueError, match='Recheck source width or crop occupancy for fixture0'):
         freeze_module.freeze(config, out, groups_path=groups)
     assert not out.exists()
+
+
+def test_expansion_keeps_exact_parent_rows_and_holdout(tmp_path, monkeypatch):
+    config, groups = inputs(tmp_path, monkeypatch)
+
+    def check(path, pool):
+        with path.open(newline='') as stream:
+            rows = list(csv.DictReader(stream))
+        for row in rows:
+            for key in ('x0', 'y0', 'size', 'label'):
+                row[key] = int(row[key])
+            row['angle'] = float(row['angle'])
+        return {'errors': [], 'rows': rows, 'stats': {}, 'warnings': []}
+
+    monkeypatch.setattr(freeze_module, 'check_manifest', check)
+    decisions = tmp_path / 'decisions.jsonl'
+    records = decisions.read_text().splitlines()
+    decisions.write_text('\n'.join(records[:-2]) + '\n')
+    parent, expanded = tmp_path / 'parent.csv', tmp_path / 'expanded.csv'
+    freeze_module.freeze(config, parent, groups_path=groups)
+    decisions.write_text('\n'.join(records) + '\n')
+    freeze_module.freeze(config, expanded, groups_path=groups, preserve_split_from=parent)
+    assert parent.with_suffix('.validation.csv').read_bytes() == expanded.with_suffix('.validation.csv').read_bytes()
+    assert set(expanded.read_text().splitlines()) - set(parent.read_text().splitlines()) == {
+        'pool22,20,20,60,0,0', 'pool23,20,20,60,0,1'}
+    assert set(parent.read_text().splitlines()).issubset(expanded.read_text().splitlines())
+    decisions.write_text('\n'.join(records[1:]) + '\n')
+    with pytest.raises(ValueError, match='Parent row changed or is no longer kept'):
+        freeze_module.freeze(config, tmp_path / 'invalid.csv', groups_path=groups, preserve_split_from=parent)
