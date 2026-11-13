@@ -1,0 +1,48 @@
+{
+  "created": "2026-11-13T13:32:32.595583+00:00",
+  "scope": "Local generated-to-pool diagnostic. No dev inputs.",
+  "seed": 0,
+  "n_per_class": 1000,
+  "shared_manifest_sha256": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+  "expanded_manifest_sha256": "200d0f7e3f98da907c4229813b61df6830803eb8ac6a6994442a1dcd856cc1f9",
+  "results": {
+    "v002": {
+      "shared_v002": {
+        "rate": 0.04399999976158142,
+        "count": 88,
+        "cat_count": 47,
+        "dog_count": 41,
+        "median_ratio": 0.9215861558914185,
+        "reference_rows": 2394
+      },
+      "expanded_v004": {
+        "rate": 0.04399999976158142,
+        "count": 88,
+        "cat_count": 47,
+        "dog_count": 41,
+        "median_ratio": 0.9224680662155151,
+        "reference_rows": 2442
+      },
+      "official_receipt_sha256": "9960301dadbb5733b0187ad267ee35bc3616133a5ab1b06acf889179099a58ec"
+    },
+    "v004": {
+      "shared_v002": {
+        "rate": 0.03750000149011612,
+        "count": 75,
+        "cat_count": 35,
+        "dog_count": 40,
+        "median_ratio": 0.9322617650032043,
+        "reference_rows": 2394
+      },
+      "expanded_v004": {
+        "rate": 0.039500001817941666,
+        "count": 79,
+        "cat_count": 39,
+        "dog_count": 40,
+        "median_ratio": 0.9306652545928955,
+        "reference_rows": 2442
+      },
+      "official_receipt_sha256": "a9577199d2becbd32fbbd0538b9724421e6d358a01f54e891179ba5e3249aab6"
+    }
+  }
+}
