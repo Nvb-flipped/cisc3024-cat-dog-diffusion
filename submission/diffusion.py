@@ -40,11 +40,20 @@ def ddim_step_variance(alpha, previous_alpha, eta):
     return eta ** 2 * (1 - previous_alpha) / (1 - alpha) * (1 - alpha / previous_alpha)
 
 
+def dpmpp_2m_coefficients(schedule, indices):
+    """Second-order DPM-Solver++ midpoint coefficients for discrete VP times."""
+    alpha = schedule[indices].double().sqrt()
+    sigma = (1 - schedule[indices].double()).sqrt()
+    h = (alpha.log() - sigma.log()).diff()
+    correction = torch.cat((h.new_zeros(1), 0.5 * h[1:] / h[:-1]))[:len(h)]
+    return torch.stack((sigma[1:] / sigma[:-1], -alpha[1:] * (-h).expm1(), correction), dim=1).float()
+
+
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            steps=100, guidance=1.5, microbatch=32, execution_batch=32,
            prediction_type='epsilon', start_timestep=None,
-           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0):
+           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim'):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
@@ -52,6 +61,8 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
     if microbatch < 1 or execution_batch < 1 or not math.isfinite(guidance) or not 0 <= eta <= 1 or \
             prediction_type not in ('epsilon', 'velocity', 'edm'):
         raise ValueError('Invalid sampling configuration')
+    if solver not in ('ddim', 'dpmpp_2m') or (solver == 'dpmpp_2m' and (prediction_type != 'epsilon' or eta or steps < 2)):
+        raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
     device = next(model.parameters()).device
     if prediction_type == 'edm':
         if eta or start_timestep is not None or guidance_min_timestep or guidance_max_timestep is not None:
@@ -70,6 +81,10 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 not 0 <= guidance_min_timestep <= guidance_max < timesteps:
             raise ValueError('Invalid sampling timestep')
         indices = ddim_indices(last + 1, steps)
+        if solver == 'dpmpp_2m':
+            if len(set(indices)) != len(indices):
+                raise ValueError('DPM-Solver++ requires distinct timesteps')
+            solver_coefficients = dpmpp_2m_coefficients(schedule, indices)
     reconstruct = reconstruct_clean if prediction_type == 'epsilon' else reconstruct_clean_from_velocity
     generator = torch.Generator(device='cpu').manual_seed(int(seed))
     # One CPU draw per output position: independent of labels and microbatch boundaries.
@@ -106,6 +121,7 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         if eta:
             streams = [torch.Generator(device='cpu').manual_seed(value)
                        for value in stream_seeds[start:start + count]]
+        preceding_clean = None
         for index, t in enumerate(indices):
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
             if guidance == 1 or not guidance_min_timestep <= t <= guidance_max:
@@ -115,9 +131,18 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 prediction = unconditional + guidance * (model(x, time, y) - unconditional)
             a = schedule[t]
             clean = reconstruct(x, prediction, a).clamp(-1, 1)
+            previous = indices[index + 1] if index + 1 < len(indices) else -1
+            if solver == 'dpmpp_2m':
+                if previous < 0:
+                    x = clean
+                else:
+                    carry, weight, correction = solver_coefficients[index]
+                    extrapolated = clean if preceding_clean is None else clean + correction * (clean - preceding_clean)
+                    x = carry * x + weight * extrapolated
+                    preceding_clean = clean
+                continue
             # Recompute epsilon after clipping x0, matching the documented clipped DDIM convention.
             corrected_noise = (x - a.sqrt() * clean) / (1 - a).sqrt()
-            previous = indices[index + 1] if index + 1 < len(indices) else -1
             if previous < 0:
                 x = clean
             else:

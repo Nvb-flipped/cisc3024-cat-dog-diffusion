@@ -403,6 +403,38 @@ def development_claims(paths):
                for index, file in enumerate(files, 90)}
         paths.update(ids)
         claims.append(('C026', 'Matched patch-grid comparison', 'result', ' '.join(summaries), list(ids)))
+    coverage_screen = ROOT / 'results/experiments/v004_coverage/screening.json'
+    solver_comparison = ROOT / 'results/experiments/v002_dpmpp/comparison.json'
+    comparison_specs = (
+        (coverage_screen, 'v004_coverage', 'C027', 'Matched pool coverage comparison', 120),
+        (solver_comparison, 'v002_dpmpp', 'C028', 'Matched DPM-Solver++ comparison', 125),
+    )
+    for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
+        if not record_path.exists():
+            continue
+        record = json.loads(record_path.read_text())
+        plan = ROOT / f'results/plans/{plan_name}.json'
+        if record['plan_sha256'] != sha256(plan):
+            raise ValueError(f'{title} plan changed')
+        trials = record['screened']
+        files, summaries = [plan, record_path], []
+        for trial in trials if isinstance(trials, list) else [trials]:
+            row, = trial['evidence']
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError(f'{title} evaluation changed')
+            result = validated_result(path, 0, ROOT / trial['exported'])
+            metrics = result['metrics']
+            files.append(path)
+            summaries.append(f"At {trial['update']:,} training updates, generation seed 0 scored "
+                             f"{result['marks']['total']}/15 with {metrics['accuracy']:.2%} accuracy, "
+                             f"FID {metrics['fid']:.2f}, {metrics['recall']:.2%} recall, and "
+                             f"{metrics['memorization_rate']:.2%} memorization.")
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, first_evidence_id)}
+        paths.update(ids)
+        sources = list(ids) + (['E111'] if plan_name == 'v002_dpmpp' else [])
+        claims.append((claim_id, title, 'result', ' '.join(summaries), sources))
     return claims
 
 
@@ -459,7 +491,10 @@ def main():
         ('E110', 'Elucidating the Design Space of Diffusion-Based Generative Models',
          ['Tero Karras', 'Miika Aittala', 'Timo Aila', 'Samuli Laine'],
          2022, 'https://arxiv.org/abs/2206.00364', 'EDM preconditioning, weighted denoising loss and Heun sampler',
-         'preprint')]
+         'preprint'),
+        ('E111', 'DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models',
+         ['Cheng Lu', 'Yuhao Zhou', 'Fan Bao', 'Jianfei Chen', 'Chongxuan Li', 'Jun Zhu'],
+         2022, 'https://arxiv.org/abs/2211.01095', 'Algorithm 2 and midpoint two-step update', 'preprint')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',

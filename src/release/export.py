@@ -12,7 +12,7 @@ INFERENCE_FILES = ['__init__.py', 'generate.py', 'model.py', 'diffusion.py']
 
 def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None,
                       microbatch=None, execution_batch=None, start_timestep=None,
-                      guidance_min_timestep=None, guidance_max_timestep=None, eta=None):
+                      guidance_min_timestep=None, guidance_max_timestep=None, eta=None, solver=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -40,7 +40,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     overrides = [('steps', steps), ('guidance', guidance), ('microbatch', microbatch),
                  ('execution_batch', execution_batch), ('start_timestep', start_timestep),
                  ('guidance_min_timestep', guidance_min_timestep),
-                 ('guidance_max_timestep', guidance_max_timestep), ('eta', eta)]
+                 ('guidance_max_timestep', guidance_max_timestep), ('eta', eta), ('solver', solver)]
     for key, value in overrides:
         if value is not None:
             sampling[key] = value
@@ -65,6 +65,10 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                                      'start_timestep' in sampling or guidance_min or
                                      'guidance_max_timestep' in sampling):
         raise ValueError('Invalid EDM sampler configuration')
+    solver = sampling.get('solver', 'ddim')
+    if solver not in ('ddim', 'dpmpp_2m') or (solver == 'dpmpp_2m' and (
+            prediction_type != 'epsilon' or sampling.get('eta', 0) or sampling['steps'] < 2)):
+        raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
     inference_files = INFERENCE_FILES + ['edm.py'] if prediction_type == 'edm' else INFERENCE_FILES
     out.mkdir(parents=True, exist_ok=True)
     for name in inference_files:
@@ -106,12 +110,13 @@ def main():
     p.add_argument('--guidance-min-timestep', type=int)
     p.add_argument('--guidance-max-timestep', type=int)
     p.add_argument('--eta', type=float)
+    p.add_argument('--solver', choices=('ddim', 'dpmpp_2m'))
     args = p.parse_args()
     print(export_checkpoint(args.run, args.manifest, args.out, weights=args.weights,
                             steps=args.steps, guidance=args.guidance, microbatch=args.microbatch,
                             execution_batch=args.execution_batch, start_timestep=args.start_timestep,
                             guidance_min_timestep=args.guidance_min_timestep,
-                            guidance_max_timestep=args.guidance_max_timestep, eta=args.eta))
+                            guidance_max_timestep=args.guidance_max_timestep, eta=args.eta, solver=args.solver))
 
 
 if __name__ == '__main__':

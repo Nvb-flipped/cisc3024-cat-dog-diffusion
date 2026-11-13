@@ -2114,6 +2114,160 @@
       }
     },
     {
+      "evidence_id": "E120",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v004_coverage.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v004_coverage.json"
+      },
+      "locator": "results/plans/v004_coverage.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E121",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v004_coverage/screening.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v004_coverage/screening.json"
+      },
+      "locator": "results/experiments/v004_coverage/screening.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E122",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v004_coverage/update_028000/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v004_coverage/update_028000/seed_0.json"
+      },
+      "locator": "results/experiments/v004_coverage/update_028000/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E123",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v004_coverage/update_030000/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v004_coverage/update_030000/seed_0.json"
+      },
+      "locator": "results/experiments/v004_coverage/update_030000/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E125",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v002_dpmpp.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v002_dpmpp.json"
+      },
+      "locator": "results/plans/v002_dpmpp.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E126",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_dpmpp/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_dpmpp/comparison.json"
+      },
+      "locator": "results/experiments/v002_dpmpp/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E127",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_dpmpp/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_dpmpp/seed_0.json"
+      },
+      "locator": "results/experiments/v002_dpmpp/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E101",
       "source_type": "preprint",
       "title": "Denoising Diffusion Probabilistic Models",
@@ -2388,6 +2542,35 @@
         "isbn": ""
       },
       "locator": "EDM preconditioning, weighted denoising loss and Heun sampler",
+      "confidentiality": "public",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E111",
+      "source_type": "preprint",
+      "title": "DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models",
+      "authors": [
+        "Cheng Lu",
+        "Yuhao Zhou",
+        "Fan Bao",
+        "Jianfei Chen",
+        "Chongxuan Li",
+        "Jun Zhu"
+      ],
+      "year": 2022,
+      "identifiers": {
+        "url": "https://arxiv.org/abs/2211.01095",
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": ""
+      },
+      "locator": "Algorithm 2 and midpoint two-step update",
       "confidentiality": "public",
       "verification": {
         "status": "unverified",

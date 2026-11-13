@@ -1,7 +1,7 @@
 import torch
 import pytest
 from torch import nn
-from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices,
+from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices, dpmpp_2m_coefficients,
                                   ddim_step_variance,
                                   reconstruct_clean, reconstruct_clean_from_velocity,
                                   sample, velocity_target)
@@ -40,6 +40,23 @@ class ProbeModel(nn.Module):
 
     def forward(self, x, t, y):
         return x * 0.1 + y[:, None, None, None] * 0.02 + self.anchor
+
+
+def test_dpmpp_first_order_matches_deterministic_ddim_and_uses_positive_step_ratios():
+    schedule = cosine_alpha_bar()
+    indices = [999, 980, 500, 0]
+    coefficients = dpmpp_2m_coefficients(schedule, indices)
+    alpha = schedule[indices].double().sqrt()
+    sigma = (1 - schedule[indices].double()).sqrt()
+    h = (alpha / sigma).log().diff()
+    torch.testing.assert_close(coefficients[:, 0], (sigma[1:] / sigma[:-1]).float())
+    torch.testing.assert_close(coefficients[:, 1], (alpha[1:] - sigma[1:] / sigma[:-1] * alpha[:-1]).float())
+    torch.testing.assert_close(coefficients[:, 2], torch.cat((h.new_zeros(1), h[1:] / (2 * h[:-1]))).float())
+    assert torch.isfinite(coefficients).all()
+    labels = torch.tensor([0, 1])
+    model = ProbeModel().eval()
+    torch.testing.assert_close(sample(model, labels, 17, steps=2, solver='dpmpp_2m'),
+                               sample(model, labels, 17, steps=2, solver='ddim'))
 
 
 def test_forward_inversion_at_endpoints_and_middle():

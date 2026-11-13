@@ -108,6 +108,14 @@ At 24,000 updates, accuracy was 87.05%, FID 147.67, recall 6.86%, memorization 1
 
 At 24,000 updates with 4×4 patches, accuracy was 66.85%, FID 283.17, recall 0.00%, memorization 0.00%, and the score 2/15. At 30,000 updates with 4×4 patches, accuracy was 65.65%, FID 220.25, recall 0.22%, memorization 0.00%, and the score 2/15. At 24,000 updates with 8×8 patches, accuracy was 53.80%, FID 276.45, recall 0.00%, memorization 0.00%, and the score 1/15. At 30,000 updates with 8×8 patches, accuracy was 56.55%, FID 237.26, recall 0.00%, memorization 0.00%, and the score 1/15. [claim:C026] [evidence:E090,E091,E092,E093,E094,E095,E096]
 
+## Matched pool coverage comparison: C027
+
+At 28,000 training updates, generation seed 0 scored 11/15 with 86.85% accuracy, FID 79.22, 31.31% recall, and 2.05% memorization. At 30,000 training updates, generation seed 0 scored 11/15 with 88.10% accuracy, FID 74.42, 33.52% recall, and 3.95% memorization. [claim:C027] [evidence:E120,E121,E122,E123]
+
+## Matched DPM-Solver++ comparison: C028
+
+At 30,000 training updates, generation seed 0 scored 10/15 with 88.10% accuracy, FID 79.46, 29.20% recall, and 4.25% memorization. [claim:C028] [evidence:E125,E126,E127,E111]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

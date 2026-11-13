@@ -1,0 +1,26 @@
+{
+  "created": "2026-11-13T13:21:11.896866+00:00",
+  "inputs": {
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "submission\\diffusion.py": "803743f52b2350eca5ab468d429798196bba5909f638204d14f74b332cf6f746",
+    "src\\release\\export.py": "a1e20e1f1fa6be6e889ff8b84d7a775440f2a18b713880edbdc2628c6fcad031",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "solver": "dpmpp_2m"
+  },
+  "grid": "Identical discrete uniform timestep indices as DDIM50. Fixed [-1,1] x0 clipping, first-order bootstrap and final clean projection.",
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "source": "https://arxiv.org/abs/2211.01095",
+  "rule": "Advance by the existing hard gate, score tier or 0.05 margin gain."
+}

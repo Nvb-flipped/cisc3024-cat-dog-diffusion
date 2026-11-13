@@ -384,12 +384,40 @@
     "E096": {
       "path": "results/experiments/patch_grid_v002/patch8_detail_u030000/seed_0.json",
       "sha256": "ecbb1a719d95591494737a9e628418cad5cd7b6b24ab5cd099c6e47e8b989450"
+    },
+    "E120": {
+      "path": "results/plans/v004_coverage.json",
+      "sha256": "dcd41e44e645622b2b7ab462015401e7cfdc300c08181a63c54bc46ad5dc4c54"
+    },
+    "E121": {
+      "path": "results/experiments/v004_coverage/screening.json",
+      "sha256": "a18a7f004425a4b9aebb2a3946fcf4eb40a0658a5bae14a5e2005d52c02e3cb5"
+    },
+    "E122": {
+      "path": "results/experiments/v004_coverage/update_028000/seed_0.json",
+      "sha256": "6234db9ac18dd2716d790ef7f69de2477e1e47c124a4f063f04ae9b4bc66e96d"
+    },
+    "E123": {
+      "path": "results/experiments/v004_coverage/update_030000/seed_0.json",
+      "sha256": "a9577199d2becbd32fbbd0538b9724421e6d358a01f54e891179ba5e3249aab6"
+    },
+    "E125": {
+      "path": "results/plans/v002_dpmpp.json",
+      "sha256": "de847926fb62c735c00d60dfca2a4708806b522c7e27a9920c47812546f34ce1"
+    },
+    "E126": {
+      "path": "results/experiments/v002_dpmpp/comparison.json",
+      "sha256": "7849ad1426a31f3885b03f64e6f53cf5cee90db23700dacf8898bf31746cb366"
+    },
+    "E127": {
+      "path": "results/experiments/v002_dpmpp/seed_0.json",
+      "sha256": "b1afd51aaf15f91db75f35bd8c1adce247aaef1bc418a53e2711d916e4393824"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "d9c78934b5ef52c023b88a19c154c77cbd0c9763f9d345cdb4158c187aa52285",
-    "evidence_outline.md": "ce0b93927f4bd7a05d7eac2ac1056bffe8f7bf6313561950f4fb4359241062ee",
-    "claims.csv": "4fc2f273d2b202bb239c3ff1be5e6d01d65d94aa41a37b79195403b29aa424cc"
+    "source_manifest.json": "bc89823ed8a752b332915565a95ba66e0ed49d2aed09b831d4bed16b173f172c",
+    "evidence_outline.md": "c43eaa4519d4ce4cd76b097ba0ad403134556052d325d557a61a4452d237a37d",
+    "claims.csv": "135b69727c387b76969e9933a6ecbfae41a74443bdebe5c6d14e45858206c2ca"
   }
 }
