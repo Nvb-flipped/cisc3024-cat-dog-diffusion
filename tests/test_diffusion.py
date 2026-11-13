@@ -2,9 +2,11 @@ import torch
 import pytest
 from torch import nn
 from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices,
+                                  ddim_step_variance,
                                   reconstruct_clean, reconstruct_clean_from_velocity,
                                   sample, velocity_target)
 from submission.model import ConditionalUNet
+from submission.edm import precondition
 
 
 class ProbeModel(nn.Module):
@@ -70,6 +72,31 @@ def test_velocity_oracle_reaches_clean_endpoint():
     images = sample(Oracle().eval(), torch.tensor([0, 1]), 42, steps=10, guidance=1,
                     prediction_type='velocity')
     torch.testing.assert_close(images, torch.full_like(images, .625))
+
+
+def test_edm_oracle_reaches_clean_endpoint():
+    class Oracle(ProbeModel):
+        def forward(self, x, t, y):
+            assert torch.isfinite(t).all()
+            sigma = (t * 4).exp()[:, None, None, None]
+            scale_in, skip, scale_out = precondition(sigma)
+            return (0.25 - skip * (x / scale_in)) / scale_out
+
+    images = sample(Oracle().eval(), torch.tensor([0, 1]), 42, steps=10, guidance=1,
+                    prediction_type='edm')
+    torch.testing.assert_close(images, torch.full_like(images, .625), atol=1e-6, rtol=0)
+
+
+def test_edm_uses_stable_slots_and_private_rng():
+    model = ProbeModel().eval()
+    labels = torch.tensor([0, 1, 1, 0, 1])
+    options = dict(steps=6, guidance=2.5, execution_batch=4, prediction_type='edm')
+    state = torch.get_rng_state().clone()
+    images = sample(model, labels, 42, **options)
+    assert torch.equal(images, sample(model, labels, 42, microbatch=3, **options))
+    assert torch.equal(images[:1], sample(model, labels[:1], 42, **options))
+    assert torch.equal(images[:1], sample(model, torch.tensor([0, 0, 0, 1, 0]), 42, **options)[:1])
+    assert torch.equal(state, torch.get_rng_state())
 
 
 def test_guidance_interval_uses_conditional_prediction_outside_bounds():
@@ -148,6 +175,25 @@ def test_microbatch_regrouping_keeps_each_physical_slot():
     default = sample(model, labels, 5, steps=3, guidance=1, microbatch=4, execution_batch=4)
     regrouped = sample(model, labels, 5, steps=3, guidance=1, microbatch=3, execution_batch=4)
     assert torch.equal(default, regrouped)
+
+
+def test_seeded_ddim_noise_variance_and_output_isolation():
+    alpha, previous = torch.tensor(.2), torch.tensor(.6)
+    torch.testing.assert_close(ddim_step_variance(alpha, previous, .5), torch.tensor(1/12))
+    model = ProbeModel().eval()
+    labels = torch.arange(11) % 2
+    options = dict(steps=4, eta=.7, execution_batch=4)
+    before = torch.get_rng_state().clone()
+    baseline = sample(model, labels, 17, microbatch=4, **options)
+    assert torch.equal(baseline, sample(model, labels, 17, microbatch=3, **options))
+    assert torch.equal(baseline[:1], sample(model, labels[:1], 17, **options))
+    altered = labels.clone()
+    altered[1:] = 1 - altered[1:]
+    assert torch.equal(baseline[:1], sample(model, altered, 17, **options)[:1])
+    assert not torch.equal(baseline, sample(model, labels, 29, **options))
+    assert torch.equal(before, torch.get_rng_state())
+    with pytest.raises(ValueError):
+        sample(model, labels, 17, steps=4, eta=1.1)
 
 
 def test_invalid_sampler_inputs_fail():

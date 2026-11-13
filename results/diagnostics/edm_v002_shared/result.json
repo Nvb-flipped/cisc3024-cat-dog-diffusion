@@ -1,0 +1,203 @@
+{
+  "diagnostic_only": true,
+  "manifest_sha256": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+  "data_review_provenance_sha256": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+  "row_indices_zero_based": [
+    0,
+    2
+  ],
+  "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-m",
+    "src.training.edm_diagnostic",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--out",
+    "results\\diagnostics\\edm_v002_shared"
+  ],
+  "source_sha256": {
+    "src/training/edm_diagnostic.py": "a5b6647e7283b921726f1d9ba301804768059549b0af24d24843f5d9194abe51",
+    "src/training/data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "submission/model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "submission/diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+    "submission/edm.py": "cc20f100127aad6b98e84b995eb5b23d8d26b6985e328f5cebeb7fadc0053c0e"
+  },
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "sigma_data": 0.5,
+  "log_sigma_mean": -1.2,
+  "log_sigma_std": 1.2,
+  "probe_sigmas": [
+    0.4268368184566498,
+    2.446279287338257
+  ],
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "initial": {
+    "probe_mse": 1.1914756298065186,
+    "reconstruction_mse": 0.18947064876556396
+  },
+  "final": {
+    "update": 2000,
+    "loss": 0.16476190090179443,
+    "probe_mse": 0.0126050915569067,
+    "reconstruction_mse": 0.002147696679458022
+  },
+  "reduction": 0.9894206048016663,
+  "passed": true,
+  "oracle_reconstruction_and_loss_parity": true,
+  "progress": [
+    {
+      "update": 1,
+      "loss": 1.1022815704345703,
+      "probe_mse": 0.9689102172851562,
+      "reconstruction_mse": 0.16278856992721558
+    },
+    {
+      "update": 100,
+      "loss": 0.40877461433410645,
+      "probe_mse": 0.4260328412055969,
+      "reconstruction_mse": 0.07935060560703278
+    },
+    {
+      "update": 200,
+      "loss": 0.3406050205230713,
+      "probe_mse": 0.3266412615776062,
+      "reconstruction_mse": 0.06113939732313156
+    },
+    {
+      "update": 300,
+      "loss": 0.21052204072475433,
+      "probe_mse": 0.208586186170578,
+      "reconstruction_mse": 0.03497792035341263
+    },
+    {
+      "update": 400,
+      "loss": 0.26856595277786255,
+      "probe_mse": 0.1369420289993286,
+      "reconstruction_mse": 0.02239339053630829
+    },
+    {
+      "update": 500,
+      "loss": 0.2167494297027588,
+      "probe_mse": 0.09751959890127182,
+      "reconstruction_mse": 0.014919987879693508
+    },
+    {
+      "update": 600,
+      "loss": 0.1868833750486374,
+      "probe_mse": 0.05840381234884262,
+      "reconstruction_mse": 0.009321222081780434
+    },
+    {
+      "update": 700,
+      "loss": 0.056267768144607544,
+      "probe_mse": 0.04952733963727951,
+      "reconstruction_mse": 0.007859509438276291
+    },
+    {
+      "update": 800,
+      "loss": 0.2822619676589966,
+      "probe_mse": 0.040780678391456604,
+      "reconstruction_mse": 0.007088220678269863
+    },
+    {
+      "update": 900,
+      "loss": 0.048546306788921356,
+      "probe_mse": 0.03830627724528313,
+      "reconstruction_mse": 0.0068615032359957695
+    },
+    {
+      "update": 1000,
+      "loss": 0.08947762846946716,
+      "probe_mse": 0.030597969889640808,
+      "reconstruction_mse": 0.004855235572904348
+    },
+    {
+      "update": 1100,
+      "loss": 0.031077085062861443,
+      "probe_mse": 0.0212809257209301,
+      "reconstruction_mse": 0.0034779494162648916
+    },
+    {
+      "update": 1200,
+      "loss": 0.0220943596214056,
+      "probe_mse": 0.021693021059036255,
+      "reconstruction_mse": 0.0035467916168272495
+    },
+    {
+      "update": 1300,
+      "loss": 0.07987736165523529,
+      "probe_mse": 0.022908462211489677,
+      "reconstruction_mse": 0.003786929650232196
+    },
+    {
+      "update": 1400,
+      "loss": 0.015487149357795715,
+      "probe_mse": 0.0181037038564682,
+      "reconstruction_mse": 0.0028749327175319195
+    },
+    {
+      "update": 1500,
+      "loss": 0.016447413712739944,
+      "probe_mse": 0.015836365520954132,
+      "reconstruction_mse": 0.002657448872923851
+    },
+    {
+      "update": 1600,
+      "loss": 0.024193456396460533,
+      "probe_mse": 0.01696859672665596,
+      "reconstruction_mse": 0.0027876978274434805
+    },
+    {
+      "update": 1700,
+      "loss": 0.099248968064785,
+      "probe_mse": 0.01401826273649931,
+      "reconstruction_mse": 0.0022579384967684746
+    },
+    {
+      "update": 1800,
+      "loss": 0.010697951540350914,
+      "probe_mse": 0.012787869200110435,
+      "reconstruction_mse": 0.002020039362832904
+    },
+    {
+      "update": 1900,
+      "loss": 0.028792351484298706,
+      "probe_mse": 0.016619332134723663,
+      "reconstruction_mse": 0.003096755361184478
+    },
+    {
+      "update": 2000,
+      "loss": 0.16476190090179443,
+      "probe_mse": 0.0126050915569067,
+      "reconstruction_mse": 0.002147696679458022
+    }
+  ],
+  "seconds": 46.304165399997146,
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "72790fbeca9769aee68cf0681be5bb15fc8fd1a5",
+    "git_dirty": true
+  },
+  "completed": "2026-11-13T03:27:59.476320+00:00",
+  "weights_retained": false
+}

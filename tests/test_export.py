@@ -77,8 +77,13 @@ def test_export_is_immutable_and_detects_tampered_code(training_fixture, tmp_pat
         check_files(out)
 
 
-def test_offline_fresh_process_uses_only_export(training_fixture, tmp_path):
+@pytest.mark.parametrize('prediction_type', ['epsilon', 'edm'])
+def test_offline_fresh_process_uses_only_export(training_fixture, tmp_path, prediction_type):
     checkpoint, manifest = training_fixture
+    if prediction_type == 'edm':
+        state = torch.load(checkpoint, weights_only=True)
+        state['config']['training'] = {'prediction_type': 'edm'}
+        torch.save(state, checkpoint)
     out = tmp_path / 'export'
     export_checkpoint(checkpoint, manifest, out)
     result = tmp_path / 'offline.json'
@@ -87,6 +92,7 @@ def test_offline_fresh_process_uses_only_export(training_fixture, tmp_path):
     evidence = json.loads(result.read_text())
     assert evidence['offline'] is True and evidence['parameters'] > 0
     assert [r['count'] for r in evidence['records']] == [1, 2]
+    assert ('edm.py' in evidence['file_sha256']) == (prediction_type == 'edm')
 
 
 def test_actual_archive_extracts_and_runs_its_own_inference_code(training_fixture, tmp_path):

@@ -4,6 +4,7 @@ import math
 import torch
 from torch.nn import functional as F
 from submission.diffusion import add_noise, velocity_target
+from submission.edm import LOG_SIGMA_MEAN, LOG_SIGMA_STD, noise_condition, training_pair
 
 
 def validate_loss_weighting(settings):
@@ -26,7 +27,7 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     effective, micro = settings['effective_batch'], settings['microbatch']
     accumulation = effective // micro
     bf16 = settings['precision'] == 'bf16' and device.type == 'cuda'
-    velocity = settings.get('prediction_type', 'epsilon') == 'velocity'
+    prediction_type = settings.get('prediction_type', 'epsilon')
     gamma = settings.get('min_snr_gamma')
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
@@ -36,12 +37,21 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     for _ in range(accumulation):
         indices = torch.randint(len(labels), (micro,), generator=generator, device=device)
         x0, y = images[indices], labels[indices].clone()
-        t = torch.randint(len(alpha_bar), (micro,), generator=generator, device=device)
+        if prediction_type == 'edm':
+            log_sigma = torch.randn((micro, 1, 1, 1), generator=generator, device=device)
+            sigma = (log_sigma * LOG_SIGMA_STD + LOG_SIGMA_MEAN).exp()
+            t = noise_condition(sigma)
+        else:
+            t = torch.randint(len(alpha_bar), (micro,), generator=generator, device=device)
         noise = torch.randn(x0.shape, generator=generator, device=device)
         drop = torch.rand(micro, generator=generator, device=device) < settings['null_probability']
         y[drop] = 2
-        xt = add_noise(x0, noise, t, alpha_bar)
-        target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) if velocity else noise
+        if prediction_type == 'edm':
+            xt, target, _, _, _ = training_pair(x0, noise, sigma)
+        else:
+            xt = add_noise(x0, noise, t, alpha_bar)
+            target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) \
+                if prediction_type == 'velocity' else noise
         with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):
             predicted = model(xt, t, y)
             if gamma is None:

@@ -62,6 +62,8 @@ After calibration and a reviewed full-pool pass, freeze a new immutable version:
 
 This checks reviewed pixels, duplicate decisions and official geometry, creates a fixed class-stratified/group-disjoint 5% pool holdout, and records decision/manifest hashes. Baseline training requires at least 500 **training** heads per class after holdout. No dev image/feature is used for training or selection of pool images. No image augmentation is applied to the exact training targets.
 
+To evaluate an expansion, freeze to a new output path and pass `--preserve-split-from manifests\v002.csv`. The prior training rows must still be personally approved and kept at the exact geometry. The prior holdout is copied byte for byte and the newly kept rows join the training split. This produced v003 with 1,205 training crops and the same 63-crop holdout.
+
 After training builds its caches, independently compare their labels and pixels with a fresh official reconstruction. Use a fresh output path to preserve prior receipts.
 
 ```powershell
@@ -101,6 +103,14 @@ Reproduce the corrected v002 noise-prediction reference in a new checkpoint dire
 ```
 
 The predeclared v002 velocity comparison changes the denoising target while holding the data, architecture, training seed, update budget and sampling protocol fixed. Its exact training command and input hashes are in `results/plans/velocity_32_seed17_63bc3fce35.json`. The matching diagnostic can be reproduced with `python -m src.training.diagnostics overfit --prediction-type velocity --out results/diagnostics/velocity_reproduction`.
+
+The [v002 EDM plan](results/plans/edm_32_seed17_63bc3fce35.json) compares EDM preconditioning and deterministic Heun sampling with the 30,000-update epsilon/DDIM reference. It fixes the reviewed crops, holdout, U-Net, training seed, optimizer, EMA and update cap. Reproduce the two-crop integration check in a fresh directory:
+
+```powershell
+& .venvs\training\Scripts\python.exe -m src.training.edm_diagnostic --manifest manifests\v002.csv --out results\diagnostics\edm_reproduction
+```
+
+Run `python -m scripts.run_edm_comparison` to execute the frozen comparison or resume its verified checkpoints. The official results and decision receipt are under `results/experiments/edm_32_seed17_v002/`.
 
 The follow-up Min-SNR experiment keeps the epsilon target and applies bounded timestep weights with gamma 5. Use the exact training command in `results/plans/minsnr5_32_seed17_63bc3fce35.json` and a fresh output directory. The 2,000-update correctness probe is `python -m src.training.diagnostics overfit --min-snr-gamma 5 --out results/diagnostics/minsnr_reproduction`. This probe records unweighted epsilon MSE on fixed noise and never exports weights.
 

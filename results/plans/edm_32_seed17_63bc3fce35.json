@@ -1,0 +1,67 @@
+{
+  "created": "2026-11-13T03:28:57.507667+00:00",
+  "inputs": {
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v002.provenance.json": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "results\\diagnostics\\edm_v002_shared\\result.json": "47e28e2358adcd13b09971a8564e53cece8b5058c9370a49c63749d412ed9564",
+    "configs\\runs\\63bc3fce35\\edm_32_seed17_u030000.yaml": "31967b4fd79d0ec6a74374a59e86e2f1ea8d73b5ceaddc3dd1f78cebc0d4c02d",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "scripts\\run_edm_comparison.py": "15dc06572081d862dd57cfa7295cc3bdf79424b963c5c12a65b582ad071f2fc2",
+    "src\\training\\train.py": "c34b88b373e67f1ec33470e79b4c1dc57a87fa4f666b1814f5a68944ee5e64fe",
+    "src\\training\\step.py": "31df53ad92669cb59c55f66ff252887a8efde6c8937ea764aec5e9d8291d1110",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "submission\\model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "submission\\edm.py": "cc20f100127aad6b98e84b995eb5b23d8d26b6985e328f5cebeb7fadc0053c0e",
+    "submission\\diffusion.py": "5be3250152045a3fbee0b12fc0111a8d96d12efb50a4d573c01392e255dc1ce7",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "d1dccc9bac4e35571dd2dde3d2d0559ba8dd85b51ab631ffc0a824965339280d",
+    "src\\release\\check.py": "2a61437831473619b80d066d89afad44224644b3fa914a7c375ec6ca836b4871",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\evaluation\\select.py": "263517d7685a8e97a28565bafb0c49ec44347a7df63d508ee1d9f165bf53715d",
+    "src\\evaluation\\sweep.py": "63844918bc3ba829ad17433237f64cb6f287e99ca8b1e77cad90f6f334a0e324"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\63bc3fce35\\edm_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--validation-manifest",
+    "manifests\\v002.validation.csv",
+    "--seed",
+    "17",
+    "--out",
+    "checkpoints\\edm_32_seed17_u030000_63bc3fce35"
+  ],
+  "paper": "https://arxiv.org/abs/2206.00364",
+  "hypothesis": "EDM noise preconditioning and deterministic Heun sampling improve FID and recall at a valid memorization rate.",
+  "sampler": {
+    "weights": "ema",
+    "steps": 26,
+    "guidance": 2.5
+  },
+  "sampler_comparison": "26 Heun levels yield 51 denoiser evaluations per guidance branch versus 50 for reference DDIM.",
+  "updates": [
+    24000,
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ],
+  "n_per_class": 1000,
+  "rule": "Advance at most one valid seed-0 improvement over the v002 30k reference. Advance it to confirmation only if it improves the three-seed reference by the established tier or margin rule."
+}

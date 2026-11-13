@@ -12,7 +12,7 @@ INFERENCE_FILES = ['__init__.py', 'generate.py', 'model.py', 'diffusion.py']
 
 def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None,
                       microbatch=None, execution_batch=None, start_timestep=None,
-                      guidance_min_timestep=None, guidance_max_timestep=None):
+                      guidance_min_timestep=None, guidance_max_timestep=None, eta=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -31,16 +31,16 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         raise FileExistsError('Candidate export already exists; use a new immutable output directory')
     sampling = dict(state['config']['sampling']) | state['config']['diffusion']
     prediction_type = state['config'].get('training', {}).get('prediction_type', 'epsilon')
-    if prediction_type not in ('epsilon', 'velocity'):
+    if prediction_type not in ('epsilon', 'velocity', 'edm'):
         raise ValueError('Unsupported checkpoint denoising target')
     if sampling.get('prediction_type', prediction_type) != prediction_type:
         raise ValueError('Sampling denoising target differs from the trained target')
-    if prediction_type == 'velocity':
+    if prediction_type != 'epsilon':
         sampling['prediction_type'] = prediction_type
     overrides = [('steps', steps), ('guidance', guidance), ('microbatch', microbatch),
                  ('execution_batch', execution_batch), ('start_timestep', start_timestep),
                  ('guidance_min_timestep', guidance_min_timestep),
-                 ('guidance_max_timestep', guidance_max_timestep)]
+                 ('guidance_max_timestep', guidance_max_timestep), ('eta', eta)]
     for key, value in overrides:
         if value is not None:
             sampling[key] = value
@@ -49,6 +49,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     if any(not isinstance(sampling[key], int) or isinstance(sampling[key], bool) for key in integers) or \
        not 1 <= sampling['steps'] <= sampling['timesteps'] or sampling['timesteps'] < 2 or \
        sampling['microbatch'] < 1 or sampling['execution_batch'] < 1 or \
+       not 0 <= sampling.get('eta', 0.0) <= 1 or \
        not math.isfinite(sampling['guidance']) or \
        not math.isfinite(sampling['cosine_offset']) or sampling['cosine_offset'] < 0:
         raise ValueError('Invalid sampler configuration')
@@ -60,8 +61,13 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
        not sampling['steps'] - 1 <= start <= final_timestep or \
        not 0 <= guidance_min <= guidance_max <= final_timestep:
         raise ValueError('Invalid sampler timestep bounds')
+    if prediction_type == 'edm' and (sampling['steps'] < 2 or sampling.get('eta', 0) or
+                                     'start_timestep' in sampling or guidance_min or
+                                     'guidance_max_timestep' in sampling):
+        raise ValueError('Invalid EDM sampler configuration')
+    inference_files = INFERENCE_FILES + ['edm.py'] if prediction_type == 'edm' else INFERENCE_FILES
     out.mkdir(parents=True, exist_ok=True)
-    for name in INFERENCE_FILES:
+    for name in inference_files:
         source = ROOT / 'submission' / name
         dest = out / name
         if source.resolve() != dest.resolve():
@@ -78,7 +84,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         'data_review_provenance_sha256': state.get('data_review_provenance_sha256'),
         'training_segment_id': state.get('segment_id'),
         'parameters': parameters, 'exported': timestamp(),
-        'inference_source_sha256': {name: sha256(out / name) for name in INFERENCE_FILES}})
+        'inference_source_sha256': {name: sha256(out / name) for name in inference_files}})
     size = sum(f.stat().st_size for f in out.rglob('*') if f.is_file())
     if size > 90_000_000:
         raise ValueError(f'Export exceeds internal 90,000,000-byte ceiling: {size}')
@@ -99,12 +105,13 @@ def main():
     p.add_argument('--start-timestep', type=int)
     p.add_argument('--guidance-min-timestep', type=int)
     p.add_argument('--guidance-max-timestep', type=int)
+    p.add_argument('--eta', type=float)
     args = p.parse_args()
     print(export_checkpoint(args.run, args.manifest, args.out, weights=args.weights,
                             steps=args.steps, guidance=args.guidance, microbatch=args.microbatch,
                             execution_batch=args.execution_batch, start_timestep=args.start_timestep,
                             guidance_min_timestep=args.guidance_min_timestep,
-                            guidance_max_timestep=args.guidance_max_timestep))
+                            guidance_max_timestep=args.guidance_max_timestep, eta=args.eta))
 
 
 if __name__ == '__main__':

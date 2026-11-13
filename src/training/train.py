@@ -54,7 +54,7 @@ def main():
         config['training']['updates'] = args.updates
     settings = config['training']
     prediction_type = settings.get('prediction_type', 'epsilon')
-    if prediction_type not in ('epsilon', 'velocity'):
+    if prediction_type not in ('epsilon', 'velocity', 'edm'):
         raise ValueError('Unsupported denoising target')
     validate_loss_weighting(settings)
     if settings['updates'] < 1 or settings['checkpoint_every'] < 1 or settings['log_every'] < 1:
@@ -143,6 +143,8 @@ def main():
         'src/training/step.py', 'src/training/data.py', 'src/training/validation.py',
         'src/training/lineage.py', 'src/curation/pool_fingerprint.py',
         'submission/model.py', 'submission/diffusion.py']}
+    if prediction_type == 'edm':
+        code_hashes['submission/edm.py'] = sha256(ROOT / 'submission/edm.py')
     metadata = {'config': config, 'config_sha256': sha256(args.config),
                 'manifest': str(Path(args.manifest).resolve()), 'manifest_sha256': manifest_hash,
                 'data_review_provenance_sha256': review_provenance_hash,
