@@ -13,14 +13,14 @@
 | Full-pool proposal precomputation | 125,941 proposals from all 76,250 sources | Zero detector errors; all nine settings retained |
 | Full-pool valid square geometry | 47,855 proposals from 26,925 sources | `results/curation/full/summary.json` |
 | Student calibration | 200 proposals and 200 rejected sources | 14 proposed-set good verdicts. 23 rejected-set missed heads. `results/curation/calibration.json` |
-| v005 retained crops after personal crop and duplicate review | 1,312 | 637 cats and 675 dogs. `manifests/v005.provenance.json` and `annotations/duplicate_decisions.jsonl` |
-| Frozen training crops | v002: 1,197. v005: 1,249 | v002: 583 cats and 614 dogs. v005: 606 cats and 643 dogs. The selected development reference uses v002 |
-| Pool-only holdout | 63 | 31 cats and 32 dogs. Class-stratified, duplicate-family-disjoint, and byte-identical in v002 and v005 |
+| v006 retained crops after personal crop and duplicate review | 1,359 | 657 cats and 702 dogs. `manifests/v006.provenance.json` and `annotations/duplicate_decisions.jsonl` |
+| Frozen training crops | v002: 1,197. v006: 1,296 | v002: 583 cats and 614 dogs. v006: 626 cats and 670 dogs. The development reference uses v002 |
+| Pool-only holdout | 63 | 31 cats and 32 dogs. Class-stratified, duplicate-family-disjoint, and byte-identical in v002 and v006 |
 | Final official audit | Pending | Actual student ID and frozen final manifest required |
 
 **Pipeline.** Delivered-coordinate RGB decoding → frozen detector proposals → student correction/rejection → duplicate-family review → immutable six-column manifest → official reconstruction. No EXIF reorientation, padding, generative editing, external training images, dev-based image selection or evaluation-network curation. Final targets receive no image augmentation. Detector and evaluator weights remain separate from the generator.
 
-**Quality and uncertainty.** The official evaluator rebuilt all 1,197 v002 training crops. A fresh official reconstruction matched all 1,249 v005 training crops and 63 holdout crops in the cache. Recalculated v005 occupancy is 60–80% using recorded widths, which include student-confirmed estimates. The highest observed detector fallback, box threshold 0.40 and text threshold 0.30, yielded 5 compliant unchanged proposals among 26 reviewed (19.23%, 95% Wilson interval 8.51–37.88%). The 23 missed heads are from a diagnostic rejected-source sample. Audit precision and its Wilson interval await the student labels.
+**Quality and uncertainty.** The official evaluator rebuilt all 1,197 v002 training crops. A fresh official reconstruction matched all 1,296 v006 training crops and 63 holdout crops in the cache. Recalculated v006 occupancy is 60–80% using recorded widths, which include student-confirmed estimates. The highest observed detector fallback, box threshold 0.40 and text threshold 0.30, yielded 5 compliant unchanged proposals among 26 reviewed (19.23%, 95% Wilson interval 8.51–37.88%). The 23 missed heads are from a diagnostic rejected-source sample. Audit precision and its Wilson interval await the student labels.
 
 **Observed pilot limitations.** Agent-inspected diagnostic sheets contain drawings, toys, prints on products, wrong species labels, loose boxes and boundary failures. These observations are exploratory and do not replace student verdicts. Source dHash pairs are candidates for visual/aligned-pixel duplicate confirmation, not automatic duplicate labels.
 

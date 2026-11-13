@@ -1,0 +1,60 @@
+{
+  "created": "2026-11-13T13:48:53.629494+00:00",
+  "inputs": {
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "manifests\\v006.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v006.provenance.json": "bbc64c67816e168cd6c68df0d17cb08c94472b0f7db841f0ec0bc224c9571ccc",
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "results\\curation\\v006_cache_parity.json": "98bae407cbdb420950f781712bc95909a3ba68b02443bd2af0ec4bdf19593e84",
+    "scripts\\run_coverage_comparison.py": "19123fb3026f39154146b516fb63fb39d33c50cab6408802abc56ad0c309f484",
+    "src\\training\\train.py": "c34b88b373e67f1ec33470e79b4c1dc57a87fa4f666b1814f5a68944ee5e64fe",
+    "src\\training\\step.py": "31df53ad92669cb59c55f66ff252887a8efde6c8937ea764aec5e9d8291d1110",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "submission\\model.py": "3ccfd3b1ac0f87bff4c0adef0630887155cc175bc84aedeb032a7e58a469fd18",
+    "submission\\diffusion.py": "803743f52b2350eca5ab468d429798196bba5909f638204d14f74b332cf6f746",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "a1e20e1f1fa6be6e889ff8b84d7a775440f2a18b713880edbdc2628c6fcad031",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\evaluation\\select.py": "263517d7685a8e97a28565bafb0c49ec44347a7df63d508ee1d9f165bf53715d",
+    "src\\evaluation\\sweep.py": "63844918bc3ba829ad17433237f64cb6f287e99ca8b1e77cad90f6f334a0e324"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v006.csv",
+    "--validation-manifest",
+    "manifests\\v006.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_u030000_123aac91c9"
+  ],
+  "added_crops": 99,
+  "checkpoint_updates": [
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "rule": "30k is the matched estimate. 28k is a checkpoint screen. Advance at most one candidate by the existing hard gate and score or margin improvement rule."
+}
