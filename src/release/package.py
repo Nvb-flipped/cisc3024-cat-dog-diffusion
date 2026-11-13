@@ -17,7 +17,7 @@ SOURCE_EXTENSIONS = {'.py', '.js', '.html', '.css', '.yaml', '.yml', '.json', '.
                      '.txt', '.log', '.md', '.tex', '.bib', '.sty', '.cls', '.xml', '.drawio'}
 INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'edm.py', 'weights.pt',
                    'inference.json', 'manifest.csv', 'provenance.json'}
-PRESENTATION_EXTENSIONS = {'.pptx', '.pdf', '.tex', '.sty', '.cls', '.json', '.csv', '.txt', '.md', '.bib'}
+PRESENTATION_EXTENSIONS = {'.pptx', '.pdf', '.tex', '.sty', '.cls', '.json', '.csv', '.txt', '.md', '.bib', '.mjs'}
 FORBIDDEN_PARTS = {'data', 'student', '.venvs', '.git', '.agents', '.codex', 'models',
                    'checkpoints', 'private_build', 'tmp', '__pycache__', '.pytest_tmp', '.pytest_cache'}
 
