@@ -1,0 +1,109 @@
+{
+  "purpose": "Single-step denoiser diagnostic on held-out pool crops",
+  "manifest_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "images": 63,
+  "probe_seed": 3024,
+  "source_sha256": "a51ea6a59f4e647846ea7fe8f88e96c4b035c08d4535ac85876cb9e2582f1a84",
+  "exports": [
+    {
+      "export": "private_build\\capacity_32_seed17_u030000_63bc3fce35",
+      "weights_sha256": "f04585afbcb2f7b57c7f42d397c26e15908f8b3da7e29b670337c96b7c773297",
+      "inference_sha256": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+      "guidance": 2.5,
+      "records": [
+        {
+          "timestep": 50,
+          "guided_noise_mse": 0.5543370842933655,
+          "clipped_clean_mse": 0.004622264299541712,
+          "estimate_outside_range": 0.0137338787317276
+        },
+        {
+          "timestep": 250,
+          "guided_noise_mse": 0.20591087639331818,
+          "clipped_clean_mse": 0.03751400113105774,
+          "estimate_outside_range": 0.002087466884404421
+        },
+        {
+          "timestep": 500,
+          "guided_noise_mse": 0.07091958075761795,
+          "clipped_clean_mse": 0.07310286164283752,
+          "estimate_outside_range": 0.009517609141767025
+        },
+        {
+          "timestep": 750,
+          "guided_noise_mse": 0.022823812440037727,
+          "clipped_clean_mse": 0.1344771683216095,
+          "estimate_outside_range": 0.0467509925365448
+        },
+        {
+          "timestep": 975,
+          "guided_noise_mse": 0.004449726548045874,
+          "clipped_clean_mse": 0.957861602306366,
+          "estimate_outside_range": 0.5638434290885925
+        },
+        {
+          "timestep": 990,
+          "guided_noise_mse": 0.004055562894791365,
+          "clipped_clean_mse": 1.2195297479629517,
+          "estimate_outside_range": 0.8225188255310059
+        },
+        {
+          "timestep": 999,
+          "guided_noise_mse": 0.003954929765313864,
+          "clipped_clean_mse": 1.3850882053375244,
+          "estimate_outside_range": 0.9994574785232544
+        }
+      ]
+    },
+    {
+      "export": "private_build\\patch_grid_v002\\patch4_detail_u030000",
+      "weights_sha256": "e280e503f5e1dccba27dba6c3183a5862cfa106093df082b8bd0005ead3feff9",
+      "inference_sha256": "d361e3d38fbb05b8fcfc19761dd31fe4baf531e4955d4c1c8a1a095b1926550f",
+      "guidance": 2.5,
+      "records": [
+        {
+          "timestep": 50,
+          "guided_noise_mse": 0.38234058022499084,
+          "clipped_clean_mse": 0.003167262766510248,
+          "estimate_outside_range": 0.028237640857696533
+        },
+        {
+          "timestep": 250,
+          "guided_noise_mse": 0.1942940503358841,
+          "clipped_clean_mse": 0.035318244248628616,
+          "estimate_outside_range": 0.016115864738821983
+        },
+        {
+          "timestep": 500,
+          "guided_noise_mse": 0.08914926648139954,
+          "clipped_clean_mse": 0.09123427420854568,
+          "estimate_outside_range": 0.022068245336413383
+        },
+        {
+          "timestep": 750,
+          "guided_noise_mse": 0.04080652445554733,
+          "clipped_clean_mse": 0.22665084898471832,
+          "estimate_outside_range": 0.09422019869089127
+        },
+        {
+          "timestep": 975,
+          "guided_noise_mse": 0.025206126272678375,
+          "clipped_clean_mse": 1.2439430952072144,
+          "estimate_outside_range": 0.8169797658920288
+        },
+        {
+          "timestep": 990,
+          "guided_noise_mse": 0.024588363245129585,
+          "clipped_clean_mse": 1.3566555976867676,
+          "estimate_outside_range": 0.93129962682724
+        },
+        {
+          "timestep": 999,
+          "guided_noise_mse": 0.025023700669407845,
+          "clipped_clean_mse": 1.4190993309020996,
+          "estimate_outside_range": 0.9996435046195984
+        }
+      ]
+    }
+  ]
+}
