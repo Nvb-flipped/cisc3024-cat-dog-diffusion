@@ -9,6 +9,11 @@ from submission.edm import LOG_SIGMA_MEAN, LOG_SIGMA_STD, noise_condition, train
 
 def validate_loss_weighting(settings):
     gamma = settings.get('min_snr_gamma')
+    coarse = settings.get('coarse_epsilon_weight', 0)
+    if type(coarse) not in (int, float) or not math.isfinite(coarse) or coarse < 0:
+        raise ValueError('coarse_epsilon_weight must be nonnegative and finite')
+    if coarse and (gamma is not None or settings.get('prediction_type', 'epsilon') != 'epsilon'):
+        raise ValueError('Coarse epsilon loss requires unweighted epsilon prediction')
     if gamma is None:
         return
     if type(gamma) not in (int, float) or not math.isfinite(gamma) or gamma <= 0:
@@ -22,6 +27,11 @@ def epsilon_min_snr_weights(alpha_bar, gamma):
     return (gamma * (1 - alpha_bar) / alpha_bar.clamp_min(torch.finfo(alpha_bar.dtype).tiny)).clamp_max(1)
 
 
+def coarse_epsilon_mse(error):
+    # Nonoverlapping 4x4 averages reduce independent noise variance by 16.
+    return F.avg_pool2d(error, kernel_size=4).square().mean() * 16
+
+
 def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, settings, update):
     device = images.device
     effective, micro = settings['effective_batch'], settings['microbatch']
@@ -29,6 +39,7 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     bf16 = settings['precision'] == 'bf16' and device.type == 'cuda'
     prediction_type = settings.get('prediction_type', 'epsilon')
     gamma = settings.get('min_snr_gamma')
+    coarse = settings.get('coarse_epsilon_weight', 0)
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
         group['lr'] = lr
@@ -63,6 +74,8 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
                 predicted = model(xt, t, y)
             if gamma is None:
                 loss = F.mse_loss(predicted.float(), target)
+                if coarse:
+                    loss = (loss + coarse * coarse_epsilon_mse(predicted.float() - target)) / (1 + coarse)
             else:
                 errors = F.mse_loss(predicted.float(), target, reduction='none').mean(dim=(1, 2, 3))
                 loss = (errors * epsilon_min_snr_weights(alpha_bar[t], gamma)).mean()

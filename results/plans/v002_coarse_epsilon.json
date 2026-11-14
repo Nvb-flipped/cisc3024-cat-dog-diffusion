@@ -1,0 +1,61 @@
+{
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\run.json": "b361ee00544d3566234ff4e76eacf85cd8b1f236546abd2bc97953899ba8b17e",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.provenance.json": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v002_coarse_epsilon.yaml": "bc85a50a6e9da91620bba091fd4c81bc6680609b085ef3a476dcc02b0ff762ee",
+    "results\\diagnostics\\v002_coarse_epsilon\\result.json": "6182da4675520f839b82f79259b093788a4327f4016b2a6f68616914f4a25fc2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_coarse_epsilon.py": "2659844a672f82c9470ce92324e785a30e456c4216813efdcf5902497e873cb7",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "9e8ebad992abd9fbe61221e4315daea87c9bed0c6fbccd941448092e8a3d8421",
+    "src\\training\\diagnostics.py": "02fa5d0b141d16290740f69bf5015a83aebf366dcb0492fa8ad331da1878aa91",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad",
+    "submission\\diffusion.py": "6295e4b5e42da57164d6bc478f7a220e897b2f8c9c527a9fe779a16eb23ef336",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "2d30ca84ed18aa30a0882583eab5568baf533797674426b6c8268847d5c2accf",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v002_coarse_epsilon.yaml",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--validation-manifest",
+    "manifests\\v002.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\v002_coarse_epsilon_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "guidance_rescale": 0.25
+  },
+  "checkpoint_updates": [
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "created": "2026-11-14T06:25:35.387361+00:00",
+  "coarse_weight": 0.5,
+  "source": "https://proceedings.mlr.press/v202/hoogeboom23a.html",
+  "rule": "Single training change. Compare 30k to exact v002 rescale .25. Screen 28k too. Advance at most one seed-0 improvement to seeds 101 and 202."
+}

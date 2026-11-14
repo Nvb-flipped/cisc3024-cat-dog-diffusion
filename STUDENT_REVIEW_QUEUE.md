@@ -1,10 +1,38 @@
-# Daily student review queue
+# Student review and submission checklist
 
-Your usual review window is **12:00–13:00 GMT+8**. Calibration and priority Batches 1–18 and their duplicate reviews are complete. Batch 18 had 47 approved and kept crops and four bad verdicts. The `v006` data freeze contains 1,296 training crops and the same 63 holdout crops as `v002`. The leading development candidate uses `v002` with CFG rescale 0.25 and scored 12, 12 and 11 out of 15 across the three development seeds. The v006 comparisons are complete.
+Calibration, Priority shortlist Batches 1–18, and their duplicate reviews are complete. Your usual review window is 12:00–13:00 GMT+8. Start with the independent data check.
 
-**Next regular review window:** November 14, 12:00–13:00 GMT+8. The pages are available earlier as well.
+The 30 verdicts for Task 1 are saved. The remaining steps are selected source measurements, the official 30-row rebuild, and your account in `AGENT_LOG.md`.
 
-1. **Do the independent data check.** Open the [data worksheet](student_checks/01_data_check.md) and the contact sheet at `private_build/student_data_check_v001/contact_sheet.png`. Work through the 30 diagnostic source/crop pairs. Enter your own judgments and selected measurements in `personal_measurements.csv` in the same folder. Rebuild the diagnostic sample using the worksheet command, then record your procedure and observations in [AGENT_LOG.md](AGENT_LOG.md).
-2. **Choose figure references if time permits.** Read the [F1/F2 factual briefs](figures/review/briefs.md) and look at [the numbered examples](figures/review/model_exemplar_candidates.png). Reply with 2–4 reference numbers and what you want to borrow from them. You will choose between A/B designs after they are prepared.
+## Ready now
 
-After the final export is frozen, use the [model/interface](student_checks/02_model_interface.md) and [results](student_checks/03_results_reproduction.md) worksheets for your remaining independent checks. The official 200-crop audit will use the final manifest and your actual student ID. The 30 diagnostic pairs in this queue are a separate study.
+| Task | Open | What to save or send |
+| --- | --- | --- |
+| **1. Independent data check** | [Instructions](student_checks/01_data_check.md) · [30-pair contact sheet](private_build/student_data_check_v001/contact_sheet.png) · [Full-size sources and crops](private_build/student_data_check_v001/images) · [Measurement CSV](private_build/student_data_check_v001/personal_measurements.csv) | Your verdict and species for all 30 pairs, measurements on selected difficult examples, the official rebuild output, and your account in [AGENT_LOG.md](AGENT_LOG.md). |
+| **2. Independent model/interface check** | [Worksheet](student_checks/02_model_interface.md) · [Current candidate's diffusion code](private_build/rescale_followup/v002_rescale025/diffusion.py) · [Model code](private_build/rescale_followup/v002_rescale025/model.py) · [Sampler settings](private_build/rescale_followup/v002_rescale025/inference.json) | You can do the scalar example and code walkthrough now. Save your interface probes and their output. If the export changes, repeat the probes on the final export and record the hashes and device in [AGENT_LOG.md](AGENT_LOG.md). |
+| **3. Figure brief and reference choices** | [F1/F2 briefs](figures/review/briefs.md) · [Numbered reference sheet](figures/review/model_exemplar_candidates.png) | Reply with any factual corrections and 2–4 reference numbers, with a short note about what you like in each. F1 labels its counts as historical v001 data. The current leading sampler in F2 also mixes in CFG rescale 0.25. |
+| **4. Name and ID** | [Course project plan](PROJECT_PLAN.md) | Use your official name and actual student ID for the report and the official audit. You can enter the ID locally when you run the commands. |
+| **5. Read and practise with the current drafts** | [Development report](private_build/report_20261114_development/report.pdf) · [Editable PowerPoint draft](private_build/presentation_review/development.pptx) · [Beamer draft](private_build/presentation_development/presentation.pdf) | Mark wording you want to revise and practise explaining the data, model, and evaluation. Save any slide edits as a separate copy so they can be carried into the final decks. Figures and scores in these files are development material. |
+
+## Open when the corresponding artifact is ready
+
+| Task | Entry | What to save or send |
+| --- | --- | --- |
+| **6. Select F1/F2 designs** | Return here for the A/B previews once the figure brief and references are confirmed. | Your A/B choice for each figure and any requested corrections. |
+| **7. Official 200-crop audit** | Use the command below once the final training manifest is frozen. | In `audit/audit.csv`, give all 200 rows `good` or `bad` and give every `bad` row a concrete reason. Use the numbered `audit/sheet_*.png` images and inspect the original source when needed. This is a separate review from the 30-pair check. |
+| **8. Independent results check** | [Results worksheet](student_checks/03_results_reproduction.md) and the evaluation command below, after the final export and receipts are ready. | Your evaluator JSON, command and observations in [AGENT_LOG.md](AGENT_LOG.md). Check the final model, results table and evidence together. |
+| **9. Final review, rehearsal and submission** | Use the final report, Beamer/PPTX decks, demo, and verified project ZIP when available. [Presentation and release plan](PROJECT_PLAN.md) · [README with live demo command](README.md) | Personally revise the final decks and check the name, ID, figures and conclusions. Do two timed rehearsals of the four-minute talk with live demo, then practise 1–2 minutes of questions. Upload `report.pdf` separately and the project ZIP to UMMoodle, and retain the receipt. |
+
+Run these commands from the project root once the final artifact is ready. Use a fresh output path for each new run. The official audit command below refuses to run over an existing `audit/audit.csv`.
+
+```powershell
+if (Test-Path audit/audit.csv) { throw 'Preserve the existing audit CSV before running a new audit.' }
+$studentId = Read-Host 'Actual student ID'
+& .venvs\training\Scripts\python.exe starter_kit\audit.py --manifest submission\manifest.csv --student-id $studentId --n 200 --data-root data --out audit
+```
+
+```powershell
+$result = 'private_build/student_final_seed0.json'
+if (Test-Path $result) { throw 'Choose a new result filename before repeating the evaluation.' }
+& .venvs\training\Scripts\python.exe starter_kit\evaluate.py --submission submission --data-root data --device cuda --grading --n-per-class 1000 --batch-size 500 --seed 0 --out $result
+```
