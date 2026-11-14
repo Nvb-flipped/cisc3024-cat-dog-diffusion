@@ -116,6 +116,8 @@ The larger v006 manifest added 99 crops, an 8.3\% increase. With the same 30k up
 
 Using the exact v002 checkpoint, we matched the guided noise prediction's standard deviation to the conditional prediction per image, then mixed 25\% of that rescaled prediction into the original guidance \cite{lin2024rescale}. The three development seeds scored 12, 12 and 11 out of 15, with FID 70.53--72.16, recall 30.75--34.62\%, and memorization 4.30--4.85\%. The 50\% rescale setting exceeded the memorization cap on seed 202. The 25\% setting passed all three runs and improved the worst normalized margin.
 
+A v006 self-conditioning model used its detached clean prediction as an input on about half the training microbatches and passed that prediction between DDIM steps \cite{chen2023analogbits}. It passed the fixed two-crop diagnostic, but official recall was zero at both 28k and 30k. At 30k it scored 1/15 with FID 268.22. On v002, dynamic thresholding at the highest three sampled timesteps scored 12/15 on seed 0 with FID 74.20 and memorization 3.95\%. An equal average of the 28k and 30k EMA weights scored 10/15 with FID 73.94 and memorization 3.55\%. The three-seed rescale setting retained the lead.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

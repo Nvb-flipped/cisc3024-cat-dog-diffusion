@@ -1,0 +1,28 @@
+{
+  "created": "2026-11-14T02:28:09.360269+00:00",
+  "inputs": {
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "results\\experiments\\v006_self_condition\\screening.json": "30dd44ee5b10b5d40b4903f7553958ee10f6e59816029b054f92a9afb433a5c6",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_high_noise_probe.py": "ad36bb7198335f47aa3683eb85f729b34216f0cb90deade411e97442d9ed6fe7",
+    "submission\\diffusion.py": "6295e4b5e42da57164d6bc478f7a220e897b2f8c9c527a9fe779a16eb23ef336",
+    "src\\release\\export.py": "2d30ca84ed18aa30a0882583eab5568baf533797674426b6c8268847d5c2accf",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "threshold_percentile": 0.995,
+    "threshold_min_timestep": 950
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "source": "https://arxiv.org/abs/2205.11487",
+  "rule": "Screen dynamic thresholding only for t>=950. Advance only if it improves the v002 rescale 0.25 seed-zero anchor by the declared rule."
+}

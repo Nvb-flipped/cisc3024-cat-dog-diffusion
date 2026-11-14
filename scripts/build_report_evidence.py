@@ -414,6 +414,12 @@ def development_claims(paths):
          'v006_continuation', 'C030', 'Bounded v006 continuation', 134),
         (ROOT / 'results/experiments/v006_self_condition/screening.json',
          'v006_self_condition', 'C032', 'Matched self-conditioning comparison', 143),
+        (ROOT / 'results/experiments/high_noise_probe/comparison.json',
+         'high_noise_probe', 'C033', 'High-noise dynamic thresholding', 148),
+        (ROOT / 'results/experiments/ema_trajectory_probe/comparison.json',
+         'ema_trajectory_probe', 'C034', 'Same-trajectory EMA snapshot average', 153),
+        (ROOT / 'results/experiments/v006_dropout15/screening.json',
+         'v006_dropout15', 'C035', 'Matched residual dropout comparison', 158),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():

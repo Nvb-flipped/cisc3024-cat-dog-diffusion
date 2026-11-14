@@ -57,11 +57,18 @@ def rescale_guidance(prediction, conditional, strength):
     return prediction.lerp(prediction * ratio, strength)
 
 
+def dynamic_threshold(clean, percentile):
+    magnitude = torch.quantile(clean.abs().flatten(1), percentile, dim=1)
+    limit = magnitude.clamp_min(1).view(-1, 1, 1, 1)
+    return clean.clamp(-limit, limit) / limit
+
+
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            steps=100, guidance=1.5, microbatch=32, execution_batch=32,
            prediction_type='epsilon', start_timestep=None,
-           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0):
+           guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0,
+           threshold_percentile=None, threshold_min_timestep=0, self_condition_feedback=True):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
@@ -73,8 +80,11 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
     if not 0 <= guidance_rescale <= 1 or (guidance_rescale and prediction_type != 'epsilon'):
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
-    self_condition = getattr(model, 'self_condition', False)
-    if self_condition and (prediction_type != 'epsilon' or solver != 'ddim' or eta):
+    if threshold_percentile is not None and (not 0 < threshold_percentile <= 1 or prediction_type != 'epsilon'
+            or type(threshold_min_timestep) is not int or not 0 <= threshold_min_timestep < timesteps):
+        raise ValueError('Dynamic thresholding requires epsilon prediction, a valid timestep and percentile')
+    self_condition = getattr(model, 'self_condition', False) and self_condition_feedback
+    if getattr(model, 'self_condition', False) and (prediction_type != 'epsilon' or solver != 'ddim' or eta):
         raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
     device = next(model.parameters()).device
     if prediction_type == 'edm':
@@ -147,7 +157,11 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 if guidance_rescale:
                     prediction = rescale_guidance(prediction, conditional, guidance_rescale)
             a = schedule[t]
-            clean = reconstruct(x, prediction, a).clamp(-1, 1)
+            clean = reconstruct(x, prediction, a)
+            if threshold_percentile is not None and t >= threshold_min_timestep:
+                clean = dynamic_threshold(clean, threshold_percentile)
+            else:
+                clean = clean.clamp(-1, 1)
             previous = indices[index + 1] if index + 1 < len(indices) else -1
             if solver == 'dpmpp_2m':
                 if previous < 0:

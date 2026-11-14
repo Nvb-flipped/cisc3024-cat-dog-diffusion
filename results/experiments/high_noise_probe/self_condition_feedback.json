@@ -1,0 +1,17 @@
+{
+  "scope": "16-sample pixel diagnostic without official features or grading",
+  "seed": 17,
+  "checkpoint_sha256": "5ba15990cff695cbdd68a5311a7afdc4ccc62006c85fe03130dd54b8b8ee3ab6",
+  "results": {
+    "true": {
+      "mean": 0.44579610228538513,
+      "std": 0.30471405386924744,
+      "mean_pairwise_l2": 21.760988235473633
+    },
+    "false": {
+      "mean": 0.45097219944000244,
+      "std": 0.32098856568336487,
+      "mean_pairwise_l2": 22.44135093688965
+    }
+  }
+}

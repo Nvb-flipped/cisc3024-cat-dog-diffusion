@@ -1,0 +1,59 @@
+{
+  "created": "2026-11-14T02:33:57.228783+00:00",
+  "inputs": {
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "manifests\\v006.provenance.json": "bbc64c67816e168cd6c68df0d17cb08c94472b0f7db841f0ec0bc224c9571ccc",
+    "manifests\\v006.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v006_dropout15.yaml": "de1dcf6ff3e5502b2118364c4bdcc7bc011b9c3a3f150ef5f6429bfc4df91922",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "results\\experiments\\v006_coverage\\screening.json": "b275371814ffcc22a711f57f187fc2c02a6650d907683ffbcebbbbcf4115a07a",
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_dropout15_comparison.py": "063d9565d561fdcc1936b29d79a9cef0babc1d250b32a379fd7577ae9e90a136",
+    "results\\curation\\v006_cache_parity.json": "98bae407cbdb420950f781712bc95909a3ba68b02443bd2af0ec4bdf19593e84",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "3fce8117cb49f0ef7c3540302031c982365f0c962a1d36b111aa34d28b4b6f70",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad",
+    "submission\\diffusion.py": "6295e4b5e42da57164d6bc478f7a220e897b2f8c9c527a9fe779a16eb23ef336",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "2d30ca84ed18aa30a0882583eab5568baf533797674426b6c8268847d5c2accf",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "scripts\\run_coverage_comparison.py": "19123fb3026f39154146b516fb63fb39d33c50cab6408802abc56ad0c309f484"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v006_dropout15.yaml",
+    "--manifest",
+    "manifests\\v006.csv",
+    "--validation-manifest",
+    "manifests\\v006.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\v006_dropout15_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "checkpoints": [
+    28000,
+    30000
+  ],
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "rule": "Compare at matched updates with dropout 0.10. Advance only one valid candidate that improves the leading v002 rescale 0.25 result."
+}

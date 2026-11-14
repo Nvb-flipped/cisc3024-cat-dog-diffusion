@@ -29,4 +29,7 @@ C027,Matched pool coverage comparison,result,78c49c617a8b831d0a58fd65729dd9ef06a
 C028,Matched DPM-Solver++ comparison,result,cc4bc588adb658121dc404ca9b2032ef2ca10e313a9979235f7eb85218b1aa7f,E125;E126;E127;E111,unverified,not_estimated,descriptive
 C029,Larger matched pool coverage comparison,result,eb0246536abeb35c78cfbac47b9fc6267b6b44c1b927053445c4b4a8b3d035ad,E129;E130;E131;E132,unverified,not_estimated,descriptive
 C030,Bounded v006 continuation,result,f00b0e05ba19a07e7974feed854c941e99906061350f5045c1b5f2ef261f1446,E134;E135;E136,unverified,not_estimated,descriptive
+C032,Matched self-conditioning comparison,result,3a8163604c7e32e7d15e77add411580079b3fe7aa82244769c67c65e32f81e6d,E143;E144;E145;E146,unverified,not_estimated,descriptive
+C033,High-noise dynamic thresholding,result,21d49c6baaae8448e76bcce7ce462bf59f3264850e489257e6d9848c12908b42,E148;E149;E150,unverified,not_estimated,descriptive
+C034,Same-trajectory EMA snapshot average,result,d49f3b4530e84fb7c9af284fb914a87e5523b97d808268f22d1bcfd902d65d34,E153;E154;E155,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive

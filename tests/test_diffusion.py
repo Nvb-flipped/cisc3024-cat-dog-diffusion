@@ -1,7 +1,7 @@
 import torch
 import pytest
 from torch import nn
-from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices, dpmpp_2m_coefficients,
+from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices, dpmpp_2m_coefficients, dynamic_threshold,
                                   ddim_step_variance,
                                   reconstruct_clean, reconstruct_clean_from_velocity,
                                   rescale_guidance, sample, velocity_target)
@@ -49,6 +49,13 @@ def test_guidance_rescale_matches_each_conditional_scale_independently():
     torch.testing.assert_close(rescale_guidance(guided, conditional, .5), (guided + conditional) / 2)
     assert torch.equal(rescale_guidance(guided, conditional, 0.), guided)
     assert torch.isfinite(rescale_guidance(torch.ones_like(guided), conditional, 1.)).all()
+
+
+def test_dynamic_threshold_uses_one_limit_per_image():
+    clean = torch.tensor([[-.5, 0., .5], [-4., 0., 2.]]).reshape(2, 1, 1, 3)
+    expected = torch.tensor([[-.5, 0., .5], [-1., 0., 1.]]).reshape_as(clean)
+    assert torch.equal(dynamic_threshold(clean, .5), expected)
+    assert torch.equal(dynamic_threshold(clean, .5)[:1], dynamic_threshold(clean[:1], .5))
 
 
 def test_self_conditioning_passes_previous_clean_estimate_without_cross_batch_dependence():

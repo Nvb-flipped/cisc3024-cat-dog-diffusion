@@ -13,7 +13,8 @@ INFERENCE_FILES = ['__init__.py', 'generate.py', 'model.py', 'diffusion.py']
 def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, guidance=None,
                       microbatch=None, execution_batch=None, start_timestep=None,
                       guidance_min_timestep=None, guidance_max_timestep=None, eta=None, solver=None,
-                      guidance_rescale=None):
+                      guidance_rescale=None, threshold_percentile=None, threshold_min_timestep=None,
+                      self_condition_feedback=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -42,7 +43,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                  ('execution_batch', execution_batch), ('start_timestep', start_timestep),
                  ('guidance_min_timestep', guidance_min_timestep),
                  ('guidance_max_timestep', guidance_max_timestep), ('eta', eta), ('solver', solver),
-                 ('guidance_rescale', guidance_rescale)]
+                 ('guidance_rescale', guidance_rescale), ('threshold_percentile', threshold_percentile),
+                 ('threshold_min_timestep', threshold_min_timestep), ('self_condition_feedback', self_condition_feedback)]
     for key, value in overrides:
         if value is not None:
             sampling[key] = value
@@ -76,6 +78,11 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
     if model.self_condition and (prediction_type != 'epsilon' or solver != 'ddim' or sampling.get('eta', 0)):
         raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
+    percentile = sampling.get('threshold_percentile')
+    threshold_min = sampling.get('threshold_min_timestep', 0)
+    if percentile is not None and (not 0 < percentile <= 1 or prediction_type != 'epsilon'
+                                   or type(threshold_min) is not int or not 0 <= threshold_min <= final_timestep):
+        raise ValueError('Dynamic thresholding requires epsilon prediction, a valid timestep and percentile')
     inference_files = INFERENCE_FILES + ['edm.py'] if prediction_type == 'edm' else INFERENCE_FILES
     out.mkdir(parents=True, exist_ok=True)
     for name in inference_files:

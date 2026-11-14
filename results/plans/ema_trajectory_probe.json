@@ -1,0 +1,33 @@
+{
+  "created": "2026-11-14T02:30:38.982020+00:00",
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_028000.pt": "83c361b76a5e58d0a4f568e3e96fc23c1dbe298c4455fc0d5fa05bbb2cc5b0c4",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_ema_trajectory_probe.py": "1cdc4cc790353445cafe327db1c500df37da789659f85fc351369e550dc6e5aa",
+    "src\\release\\export.py": "2d30ca84ed18aa30a0882583eab5568baf533797674426b6c8268847d5c2accf",
+    "submission\\diffusion.py": "6295e4b5e42da57164d6bc478f7a220e897b2f8c9c527a9fe779a16eb23ef336",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad"
+  },
+  "source_updates": [
+    28000,
+    30000
+  ],
+  "weights": [
+    0.5,
+    0.5
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "guidance_rescale": 0.25
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "rule": "A single same-trajectory weight average. Compare against the leading 30k export with the exact same sampler. Advance only by the existing quality rule."
+}
