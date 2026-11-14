@@ -428,6 +428,10 @@ def development_claims(paths):
          'v002_reflected_denoiser', 'C038', 'Horizontal reflection denoiser', 170),
         (ROOT / 'results/experiments/v002_temporal_score/comparison.json',
          'v002_temporal_score', 'C039', 'Temporal score rescaling', 173),
+        (ROOT / 'results/experiments/v002_pag/comparison.json',
+         'v002_pag', 'C040', 'Perturbed-attention guidance', 177),
+        (ROOT / 'results/experiments/v007_coverage/screening.json',
+         'v007_coverage', 'C041', 'Matched Batch 19 expansion', 180),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():

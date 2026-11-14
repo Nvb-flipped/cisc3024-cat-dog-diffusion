@@ -1,10 +1,9 @@
 # Student review and submission checklist
 
-Calibration, Priority shortlist Batches 1–18, and their duplicate reviews are complete. Your usual review window is 12:00–13:00 GMT+8. Start with the independent data check.
+Calibration, Priority shortlist Batches 1–19, and their duplicate reviews are complete. All 13 approved Batch 19 crops are in the frozen v007 training set. Your usual review window is 12:00–13:00 GMT+8.
 
 The 30 verdicts for Task 1 are saved. The remaining steps are selected source measurements, the official 30-row rebuild, and your account in `AGENT_LOG.md`.
 
-**Batch 19** has 13 new candidate drafts for the pool coverage pilot. Open [Priority shortlist · Batch 19](http://127.0.0.1:8766/?mode=shortlist&batch=19) and [the English findings](http://127.0.0.1:8769/priority_shortlist_v019_findings.html). Check each draft and save your verdict. Then open [Duplicate Review](http://127.0.0.1:8767/) for any crops you approve.
 
 ## Ready now
 
