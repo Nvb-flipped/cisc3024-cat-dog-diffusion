@@ -120,6 +120,8 @@ A v006 self-conditioning model used its detached clean prediction as an input on
 
 Increasing v006 residual dropout from 0.10 to 0.15 lowered seed-0 memorization at 30k from 2.55\% to 1.05\% and raised accuracy from 89.50\% to 90.20\%. Recall fell from 25.88\% to 23.67\%, while FID changed from 72.13 to 72.30. The 28k and 30k checkpoints scored 10/15 and 11/15, respectively. These single-seed results did not meet the gate for additional evaluation.
 
+Restricting CFG on the v002 0.25 rescale candidate scored 11/15 on seed 0 in both trials. Disabling guidance below timestep 149 gave FID 77.85 and recall 30.20\%. Also disabling guidance above timestep 949 gave FID 77.68 and recall 30.53\%. Both remained below the full-interval candidate's seed-0 score of 12/15.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

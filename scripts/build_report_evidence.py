@@ -420,6 +420,10 @@ def development_claims(paths):
          'ema_trajectory_probe', 'C034', 'Same-trajectory EMA snapshot average', 153),
         (ROOT / 'results/experiments/v006_dropout15/screening.json',
          'v006_dropout15', 'C035', 'Matched residual dropout comparison', 158),
+        (ROOT / 'results/experiments/rescale_interval/comparison.json',
+         'rescale_interval', 'C036', 'Restricted CFG with rescale 0.25', 162),
+        (ROOT / 'results/experiments/v002_coarse_epsilon/screening.json',
+         'v002_coarse_epsilon', 'C037', 'Matched 4×4 block-average epsilon loss', 166),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -430,6 +434,8 @@ def development_claims(paths):
             raise ValueError(f'{title} plan changed')
         trials = record['screened']
         files, summaries = [plan, record_path], []
+        if plan_name == 'rescale_interval':
+            trials = [trial | {'setting': name} for name, trial in trials.items()]
         for trial in trials if isinstance(trials, list) else [trials]:
             row, = trial['evidence']
             path = ROOT / row['path']
@@ -441,7 +447,8 @@ def development_claims(paths):
             accuracy = f"{metrics['accuracy']:.2%}"
             if metrics['accuracy'] < .90 and accuracy == '90.00%':
                 accuracy += ' after rounding (below the official 90% threshold)'
-            summaries.append(f"At {trial['update']:,} training updates, generation seed 0 scored "
+            setting = f" with {trial['setting']}" if 'setting' in trial else ''
+            summaries.append(f"At {trial['update']:,} training updates{setting}, generation seed 0 scored "
                              f"{result['marks']['total']}/15 with accuracy {accuracy}, "
                              f"FID {metrics['fid']:.2f}, {metrics['recall']:.2%} recall, and "
                              f"{metrics['memorization_rate']:.2%} memorization.")

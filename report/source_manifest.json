@@ -2730,6 +2730,94 @@
       }
     },
     {
+      "evidence_id": "E162",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/rescale_interval.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/rescale_interval.json"
+      },
+      "locator": "results/plans/rescale_interval.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E163",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_interval/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_interval/comparison.json"
+      },
+      "locator": "results/experiments/rescale_interval/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E164",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_interval/late_off/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_interval/late_off/seed_0.json"
+      },
+      "locator": "results/experiments/rescale_interval/late_off/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E165",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_interval/ends_off/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_interval/ends_off/seed_0.json"
+      },
+      "locator": "results/experiments/rescale_interval/ends_off/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E137",
       "source_type": "report",
       "title": "Local project evidence: results/plans/rescale_followup.json",

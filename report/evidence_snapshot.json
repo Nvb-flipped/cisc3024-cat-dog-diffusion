@@ -497,6 +497,22 @@
       "path": "results/experiments/v006_dropout15/update_030000/seed_0.json",
       "sha256": "9117db114be703be8e0f68471098a01fa5076831680c6fdcf0d9aa42b4b5d2af"
     },
+    "E162": {
+      "path": "results/plans/rescale_interval.json",
+      "sha256": "c3591ac40691495cda2d234256e10852d23186f6ca86daaafbe8bdc06320c3ec"
+    },
+    "E163": {
+      "path": "results/experiments/rescale_interval/comparison.json",
+      "sha256": "a02517c40719673f852ea757c56afb7f839bd16fe56c833bc2865f65c23f6bad"
+    },
+    "E164": {
+      "path": "results/experiments/rescale_interval/late_off/seed_0.json",
+      "sha256": "cee3e128c7fe6ed87e38ad0ca6c26f4c34159eca83aaa3982b37a11932bdc89a"
+    },
+    "E165": {
+      "path": "results/experiments/rescale_interval/ends_off/seed_0.json",
+      "sha256": "fe80879d61b6bf9733c331fd1554276b836a8bf4f380177cbdb63c99fc47cbe7"
+    },
     "E137": {
       "path": "results/plans/rescale_followup.json",
       "sha256": "eca050f0464186b71e71e561606a16873317d21f31ea68c675ccbd86830f3ec3"
@@ -520,8 +536,8 @@
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "419fd8950587d63c16c05d014486a253a0411152a563a0fd24853fa33f629582",
-    "evidence_outline.md": "78b06a756efe9e667ac658359d1047519830b920cd5de302ed60722becce83fa",
-    "claims.csv": "b52323d8e378cdc5131dcec2b2adf5455c6a03765789bdf751c14b655e69b0f1"
+    "source_manifest.json": "8be950f1ad7c9dba32cc79a339969ca1c91e19de0e682c4d3ccc0011a6fff2fd",
+    "evidence_outline.md": "c18e75a9a04b99365a64a6ffa52d83d7b506918e1b9958ac3d66f7512c526404",
+    "claims.csv": "2b38ac4f9c1cbd43b08024b9027c0bef36f4710f654eebc32bd6c20c20f784e7"
   }
 }

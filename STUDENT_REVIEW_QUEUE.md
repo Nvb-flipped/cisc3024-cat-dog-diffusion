@@ -4,6 +4,8 @@ Calibration, Priority shortlist Batches 1–18, and their duplicate reviews are 
 
 The 30 verdicts for Task 1 are saved. The remaining steps are selected source measurements, the official 30-row rebuild, and your account in `AGENT_LOG.md`.
 
+**Batch 19** has 13 new candidate drafts for the pool coverage pilot. Open [Priority shortlist · Batch 19](http://127.0.0.1:8766/?mode=shortlist&batch=19) and [the English findings](http://127.0.0.1:8769/priority_shortlist_v019_findings.html). Check each draft and save your verdict. Then open [Duplicate Review](http://127.0.0.1:8767/) for any crops you approve.
+
 ## Ready now
 
 | Task | Open | What to save or send |
