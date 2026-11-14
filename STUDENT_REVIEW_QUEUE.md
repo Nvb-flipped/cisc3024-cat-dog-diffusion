@@ -1,6 +1,6 @@
 # Daily student review queue
 
-Your usual review window is **12:00–13:00 GMT+8**. Calibration and priority Batches 1–18 and their duplicate reviews are complete. Batch 18 had 47 approved and kept crops and four bad verdicts. The `v006` data freeze contains 1,296 training crops and the same 63 holdout crops as `v002`. The three-seed v002 model remains the reference while the v006 comparison runs.
+Your usual review window is **12:00–13:00 GMT+8**. Calibration and priority Batches 1–18 and their duplicate reviews are complete. Batch 18 had 47 approved and kept crops and four bad verdicts. The `v006` data freeze contains 1,296 training crops and the same 63 holdout crops as `v002`. The leading development candidate uses `v002` with CFG rescale 0.25 and scored 12, 12 and 11 out of 15 across the three development seeds. The v006 comparisons are complete.
 
 **Next regular review window:** November 14, 12:00–13:00 GMT+8. The pages are available earlier as well.
 
