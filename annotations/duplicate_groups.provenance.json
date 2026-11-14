@@ -1,5 +1,5 @@
 {
-  "csv_sha256": "7c930a95c50c6e92171b4f28c2f96f0affea89dc745324b9ebc61361a36d9a35",
-  "log_sha256": "f524d981e9eb34105bcbe0d44fc0c6762254d7e443e444c4e66c81445dd0449e",
+  "csv_sha256": "6d38d280836fa3e64a63f1a50f2e04065172b93a898f57853ef009ced9538456",
+  "log_sha256": "eaf7508b56970d576a00f3168817bdfb22aa611821b254852b034687c2cf11c3",
   "origin": "materialized personal duplicate-review events; not automatic similarity groups"
 }
