@@ -513,6 +513,22 @@
       "path": "results/experiments/rescale_interval/ends_off/seed_0.json",
       "sha256": "fe80879d61b6bf9733c331fd1554276b836a8bf4f380177cbdb63c99fc47cbe7"
     },
+    "E166": {
+      "path": "results/plans/v002_coarse_epsilon.json",
+      "sha256": "e6a647683fd1ef3eecc65355139beab68cdfb45ce3daed6fca4a1cbb432923f3"
+    },
+    "E167": {
+      "path": "results/experiments/v002_coarse_epsilon/screening.json",
+      "sha256": "6c2a36067a3819296879ed061bc981fc002d632585183b2159dd52b6140eae6c"
+    },
+    "E168": {
+      "path": "results/experiments/v002_coarse_epsilon/update_028000/seed_0.json",
+      "sha256": "e9109f7ffad04175067acff33a279299697dcd4a3723acd3b8cacfe9893245cd"
+    },
+    "E169": {
+      "path": "results/experiments/v002_coarse_epsilon/update_030000/seed_0.json",
+      "sha256": "aed57ff57cf11be97d8e7e53d4d88ca42933deca54a6363ee58694f97755fafd"
+    },
     "E137": {
       "path": "results/plans/rescale_followup.json",
       "sha256": "eca050f0464186b71e71e561606a16873317d21f31ea68c675ccbd86830f3ec3"
@@ -536,8 +552,8 @@
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "8be950f1ad7c9dba32cc79a339969ca1c91e19de0e682c4d3ccc0011a6fff2fd",
-    "evidence_outline.md": "c18e75a9a04b99365a64a6ffa52d83d7b506918e1b9958ac3d66f7512c526404",
-    "claims.csv": "2b38ac4f9c1cbd43b08024b9027c0bef36f4710f654eebc32bd6c20c20f784e7"
+    "source_manifest.json": "12d45a86ee25ecafc5c4adb40ccc7c7b7aa0d23257b854336cdbade79e296fb7",
+    "evidence_outline.md": "0be8995be64ac36a4cd31b6b31aeed2d783ea72377a55f332ef554a3b119eba4",
+    "claims.csv": "42d8ab2cfb12d25dd3ce9b5f91012af1d6cd6e8f14ea21301db42307030aa77b"
   }
 }

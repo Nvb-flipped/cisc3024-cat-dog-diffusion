@@ -1,0 +1,30 @@
+{
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_reflected_denoiser.py": "8e9633f804e090cf1a1c57661d394c382879dfed25a19505f4fcbf4079c31f12",
+    "submission\\diffusion.py": "a32ac6dfc45f4afb173a186e181674752b3948e681d76f594d630130455832bb",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad",
+    "src\\release\\export.py": "27e9dce18f592936a882b5ca12971c3868d34fa3b87491768e46ca91fde7c2f0",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "guidance_rescale": 0.25,
+    "reflect_denoiser": true
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "created": "2026-11-14T07:18:14.280877+00:00",
+  "source": "https://openreview.net/pdf?id=65XylEuDLB",
+  "rule": "Average original and unflipped mirrored noise predictions from the same U-Net, separately for conditional and null labels. This tests an approximate left/right symmetry, with two forward passes per branch and no change to training targets, weights, initial noise or solver. Screen seed 0 against the exact v002 rescale .25 anchor and advance only a valid improvement."
+}

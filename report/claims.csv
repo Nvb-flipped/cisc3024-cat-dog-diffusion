@@ -34,4 +34,5 @@ C033,High-noise dynamic thresholding,result,21d49c6baaae8448e76bcce7ce462bf59f32
 C034,Same-trajectory EMA snapshot average,result,d49f3b4530e84fb7c9af284fb914a87e5523b97d808268f22d1bcfd902d65d34,E153;E154;E155,unverified,not_estimated,descriptive
 C035,Matched residual dropout comparison,result,1ed27d3aed502fe4ee09772516b2c6e468838cf1152f7ecddab54f3ac58a5c0c,E158;E159;E160;E161,unverified,not_estimated,descriptive
 C036,Restricted CFG with rescale 0.25,result,4510914391288f7514812ae6cc3b63a046fe95f6d7f04eb62ebe3223f16b2c9f,E162;E163;E164;E165,unverified,not_estimated,descriptive
+C037,Matched 4×4 block-average epsilon loss,result,e484ae21d9ea2d88e5e52253625973c408b2e4a3022123ceada40b3e8472732b,E166;E167;E168;E169,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive

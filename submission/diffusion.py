@@ -1,5 +1,6 @@
 """Cosine DDPM parameterizations and seed-reproducible DDIM sampling."""
 import math
+from functools import partial
 import torch
 
 
@@ -63,12 +64,19 @@ def dynamic_threshold(clean, percentile):
     return clean.clamp(-limit, limit) / limit
 
 
+def horizontal_average(model, x, time, labels):
+    original = model(x, time, labels)
+    reflected = model(x.flip(-1), time, labels).flip(-1)
+    return (original + reflected) * .5
+
+
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            steps=100, guidance=1.5, microbatch=32, execution_batch=32,
            prediction_type='epsilon', start_timestep=None,
            guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0,
-           threshold_percentile=None, threshold_min_timestep=0, self_condition_feedback=True):
+           threshold_percentile=None, threshold_min_timestep=0, self_condition_feedback=True,
+           reflect_denoiser=False):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
@@ -86,6 +94,10 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
     self_condition = getattr(model, 'self_condition', False) and self_condition_feedback
     if getattr(model, 'self_condition', False) and (prediction_type != 'epsilon' or solver != 'ddim' or eta):
         raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
+    if type(reflect_denoiser) is not bool or (reflect_denoiser and (prediction_type != 'epsilon'
+            or solver != 'ddim' or eta or getattr(model, 'self_condition', False))):
+        raise ValueError('Reflected denoising requires deterministic epsilon DDIM without self-conditioning')
+    denoise = partial(horizontal_average, model) if reflect_denoiser else model
     device = next(model.parameters()).device
     if prediction_type == 'edm':
         if eta or start_timestep is not None or guidance_min_timestep or guidance_max_timestep is not None:
@@ -149,10 +161,10 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
             hint = (preceding_clean,) if self_condition else ()
             if guidance == 1 or not guidance_min_timestep <= t <= guidance_max:
-                prediction = model(x, time, y, *hint)
+                prediction = denoise(x, time, y, *hint)
             else:
-                unconditional = model(x, time, torch.full_like(y, 2), *hint)
-                conditional = model(x, time, y, *hint)
+                unconditional = denoise(x, time, torch.full_like(y, 2), *hint)
+                conditional = denoise(x, time, y, *hint)
                 prediction = unconditional + guidance * (conditional - unconditional)
                 if guidance_rescale:
                     prediction = rescale_guidance(prediction, conditional, guidance_rescale)

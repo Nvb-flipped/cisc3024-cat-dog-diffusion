@@ -2818,6 +2818,94 @@
       }
     },
     {
+      "evidence_id": "E166",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v002_coarse_epsilon.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v002_coarse_epsilon.json"
+      },
+      "locator": "results/plans/v002_coarse_epsilon.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E167",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_coarse_epsilon/screening.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_coarse_epsilon/screening.json"
+      },
+      "locator": "results/experiments/v002_coarse_epsilon/screening.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E168",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_coarse_epsilon/update_028000/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_coarse_epsilon/update_028000/seed_0.json"
+      },
+      "locator": "results/experiments/v002_coarse_epsilon/update_028000/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E169",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v002_coarse_epsilon/update_030000/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v002_coarse_epsilon/update_030000/seed_0.json"
+      },
+      "locator": "results/experiments/v002_coarse_epsilon/update_030000/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E137",
       "source_type": "report",
       "title": "Local project evidence: results/plans/rescale_followup.json",

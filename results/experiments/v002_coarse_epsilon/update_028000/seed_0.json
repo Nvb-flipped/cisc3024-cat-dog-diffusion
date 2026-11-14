@@ -1,0 +1,83 @@
+{
+  "submission": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\v002_coarse_epsilon\\update_028000",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.8600000143051147,
+    "single_class_batch_accuracy": 0.8199999928474426
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 1197,
+      "valid_rows": 1197,
+      "cat": 583,
+      "dog": 614,
+      "distinct_pool_images": 1197,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+    "accuracy": 0.871999979019165,
+    "per_class_accuracy": {
+      "cat": 0.9150000214576721,
+      "dog": 0.8289999961853027
+    },
+    "fid": 93.00296699821149,
+    "kid": 0.05438205661155229,
+    "kid_std": 0.0018713350815439858,
+    "precision": 0.5143805146217346,
+    "recall": 0.1692477911710739,
+    "memorization_rate": 0.03150000050663948,
+    "nn_distance_median": 6.561811923980713,
+    "nn_ratio_median": 0.7957236170768738,
+    "training_images_deduplicated": 2394
+  },
+  "resources": {
+    "num_parameters": 5082147,
+    "submission_mb": 19.510823249816895,
+    "seconds_per_1000": 31.19624954999017
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Good",
+        "marks": 4
+      },
+      "fid": {
+        "tier": "Marginal",
+        "marks": 2
+      },
+      "recall": {
+        "tier": "Marginal",
+        "marks": 2
+      }
+    },
+    "total": 8,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.18",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}
