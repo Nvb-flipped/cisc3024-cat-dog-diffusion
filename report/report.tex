@@ -140,6 +140,8 @@ Continuing v007 from 30k to 32k with CFG 3.25 and PAG 0.5 reduced seed-0 FID to 
 
 A fresh v007 fit added independent Gaussian input perturbation at strength 0.1 during training and retained the original epsilon target and matched sampler. At 32k its seed-0 evaluation scored 12/15, with FID 70.88, recall 31.97\%, and memorization 3.35\%. It did not advance under the declared selection rule.
 
+Applying temporal score sharpening at 1.03 to the selected v007 weights again scored 12/15 on all three development seeds. FID improved to 63.71--66.28, recall was 31.08--34.85\%, and memorization remained within 4.05--4.65\%. This improved the worst normalized margin. A 1.05 screen on seed 0 scored 12/15 with FID 65.96 and memorization 4.15\%, below the declared margin gain for additional seeds.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

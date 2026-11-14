@@ -3698,6 +3698,72 @@
       }
     },
     {
+      "evidence_id": "E217",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v007_32k_temporal105.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_32k_temporal105.json"
+      },
+      "locator": "results/plans/v007_32k_temporal105.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E218",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal105/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal105/comparison.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal105/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E219",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal105/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal105/seed_0.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal105/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E137",
       "source_type": "report",
       "title": "Local project evidence: results/plans/rescale_followup.json",
@@ -3909,6 +3975,138 @@
         "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_pag015/seed_202.json"
       },
       "locator": "results/experiments/v007_32k_pag015/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E211",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v007_32k_temporal103.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_32k_temporal103.json"
+      },
+      "locator": "results/plans/v007_32k_temporal103.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E212",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal103/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal103/comparison.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal103/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E213",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal103/selection.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal103/selection.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal103/selection.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E214",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal103/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal103/seed_0.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal103/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E215",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal103/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal103/seed_101.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal103/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E216",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_32k_temporal103/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal103/seed_202.json"
+      },
+      "locator": "results/experiments/v007_32k_temporal103/seed_202.json",
       "confidentiality": "restricted",
       "verification": {
         "status": "unverified",

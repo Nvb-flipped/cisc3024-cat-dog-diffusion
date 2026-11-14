@@ -447,6 +447,8 @@ def development_claims(paths):
          'v007_32k_pag030', 'C047', 'v007 with PAG 0.30', 200),
         (ROOT / 'results/experiments/v007_input_perturbation/comparison.json',
          'v007_input_perturbation', 'C049', 'Matched v007 input noise perturbation', 208),
+        (ROOT / 'results/experiments/v007_32k_temporal105/comparison.json',
+         'v007_32k_temporal105', 'C051', 'v007 temporal sharpening 1.05', 217),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -528,6 +530,33 @@ def development_claims(paths):
                        f"Accuracy was {metric_range(evidence, 'accuracy', '.2%')}, FID "
                        f"{metric_range(evidence, 'fid', '.2f')}, recall {metric_range(evidence, 'recall', '.2%')}, "
                        f"and memorization {metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids)))
+    temporal_root = ROOT / 'results/experiments/v007_32k_temporal103'
+    temporal_selection = temporal_root / 'selection.json'
+    if temporal_selection.exists():
+        screen_path = temporal_root / 'comparison.json'
+        plan_path = ROOT / 'results/plans/v007_32k_temporal103.json'
+        selected = json.loads(temporal_selection.read_text())
+        screen = json.loads(screen_path.read_text())
+        if screen['plan_sha256'] != sha256(plan_path) or selected['screen_sha256'] != sha256(screen_path):
+            raise ValueError('The temporal rescale decision no longer matches its plan and screen')
+        candidate = selected['candidate']
+        files, evidence = [plan_path, screen_path, temporal_selection], []
+        for row in candidate['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('A temporal rescale score changed')
+            evidence.append(validated_result(path, row['seed'], ROOT / candidate['exported']))
+            files.append(path)
+        if [row['protocol']['seed'] for row in evidence] != [0, 101, 202] or score_results(evidence) != tuple(candidate['score']):
+            raise ValueError('Replayed temporal rescale score does not match the recorded selection')
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix() for index, file in enumerate(files, 211)}
+        paths.update(ids)
+        marks = '/'.join(str(row['marks']['total']) for row in evidence)
+        claims.append(('C050', 'Three-seed v007 temporal sharpening 1.03', 'result',
+                       f"The retained temporal setting scored {marks}. Accuracy was "
+                       f"{metric_range(evidence, 'accuracy', '.2%')}, FID {metric_range(evidence, 'fid', '.2f')}, "
+                       f"recall {metric_range(evidence, 'recall', '.2%')}, and memorization "
+                       f"{metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids)))
     return claims
 
 

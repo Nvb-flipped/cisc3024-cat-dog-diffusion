@@ -46,5 +46,7 @@ C045,CFG 3.25 with half-strength PAG on v007,result,451bbcc8082ca9f84da219eac214
 C046,Bounded v007 continuation,result,0c30dfc0c59e38995f68ccfcdd6c52ec6cbd2ddbddc18d9d811fec33104ae149,E197;E198;E199,unverified,not_estimated,descriptive
 C047,v007 with PAG 0.30,result,e868f3420414e4f7dfa8d2c502feb54012475c6bfefc6af6bc1ac144225d6a06,E200;E201;E202,unverified,not_estimated,descriptive
 C049,Matched v007 input noise perturbation,result,8075f4608e67b30e00210e404e81c79d3e38c115ea35b71cb33e5adbed369744,E208;E209;E210,unverified,not_estimated,descriptive
+C051,v007 temporal sharpening 1.05,result,8eebb747fd6dfb64b359bc23e7cfb43efbc79d88a0edd5daa88eae6fb8e3cd2b,E217;E218;E219,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive
 C048,Three-seed v007 selection,result,79d5a18e06e69bc909061fa62bda5022989e4b1b827d39e9bbb47cd84dcb927e,E203;E204;E205;E206;E207,unverified,not_estimated,descriptive
+C050,Three-seed v007 temporal sharpening 1.03,result,5fe5883340a985ffe1c2469b5eb65164f4fdd63df9d97915c2e2c4fb6484629d,E211;E212;E213;E214;E215;E216,unverified,not_estimated,descriptive

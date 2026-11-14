@@ -1,0 +1,17 @@
+{
+  "solver": "ddim",
+  "steps": 50,
+  "device": "cuda",
+  "count": 35,
+  "microbatches": [
+    32,
+    7
+  ],
+  "exact_ddim_reference": true,
+  "deterministic_and_label_isolated": true,
+  "caller_rng_preserved": true,
+  "candidate_provenance_sha256": "bbd61e05e5ca241bca28ce67660f53e1974d3b6aac54663d7945cc3948ad9606",
+  "pag_scale": 0.15,
+  "score_sharpness": 1.05,
+  "score_sigma": 0.5
+}

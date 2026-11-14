@@ -192,6 +192,10 @@ At 32,000 training updates, generation seed 0 scored 12/15 with accuracy 90.50%,
 
 At 32,000 training updates, generation seed 0 scored 12/15 with accuracy 90.05%, FID 70.88, 31.97% recall, and 3.35% memorization. [claim:C049] [evidence:E208,E209,E210]
 
+## v007 temporal sharpening 1.05: C051
+
+At 32,000 training updates, generation seed 0 scored 12/15 with accuracy 90.25%, FID 65.96, 33.63% recall, and 4.15% memorization. [claim:C051] [evidence:E217,E218,E219]
+
 ## Three-seed CFG rescale follow-up: C031
 
 With the exact v002 EMA weights and 0.25 rescale, the official marks were 12/12/11. FID was 70.53–72.16, recall 30.75%–34.62%, and memorization 4.30%–4.85%. [claim:C031] [evidence:E137,E138,E139,E140,E141,E112]
@@ -199,6 +203,10 @@ With the exact v002 EMA weights and 0.25 rescale, the official marks were 12/12/
 ## Three-seed v007 selection: C048
 
 The v007 32k EMA with CFG 3.25 and PAG 0.15 scored 12/12/12. Accuracy was 90.30%–91.35%, FID 64.52–67.08, recall 32.19%–33.85%, and memorization 4.00%–4.45%. [claim:C048] [evidence:E203,E204,E205,E206,E207]
+
+## Three-seed v007 temporal sharpening 1.03: C050
+
+The retained temporal setting scored 12/12/12. Accuracy was 90.20%–91.90%, FID 63.71–66.28, recall 31.08%–34.85%, and memorization 4.05%–4.65%. [claim:C050] [evidence:E211,E212,E213,E214,E215,E216]
 
 ## Evidence still required
 
