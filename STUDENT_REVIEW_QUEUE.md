@@ -4,6 +4,7 @@ Calibration, Priority shortlist Batches 1–19, and their duplicate reviews are 
 
 The 30 verdicts for Task 1 are saved. The remaining steps are selected source measurements, the official 30-row rebuild, and your account in `AGENT_LOG.md`.
 
+The working submission deadline is **November 22, Asia/Shanghai**. Complete the independent data check and figure choices while the final model is being selected. The official audit and final results rerun depend on the frozen submission.
 
 ## Ready now
 
@@ -24,12 +25,11 @@ The 30 verdicts for Task 1 are saved. The remaining steps are selected source me
 | **8. Independent results check** | [Results worksheet](student_checks/03_results_reproduction.md) and the evaluation command below, after the final export and receipts are ready. | Your evaluator JSON, command and observations in [AGENT_LOG.md](AGENT_LOG.md). Check the final model, results table and evidence together. |
 | **9. Final review, rehearsal and submission** | Use the final report, Beamer/PPTX decks, demo, and verified project ZIP when available. [Presentation and release plan](PROJECT_PLAN.md) · [README with live demo command](README.md) | Personally revise the final decks and check the name, ID, figures and conclusions. Do two timed rehearsals of the four-minute talk with live demo, then practise 1–2 minutes of questions. Upload `report.pdf` separately and the project ZIP to UMMoodle, and retain the receipt. |
 
-Run these commands from the project root once the final artifact is ready. Use a fresh output path for each new run. The official audit command below refuses to run over an existing `audit/audit.csv`.
+Run these commands from the project root once the final artifact is ready. The audit wrapper runs the unchanged official tool, preserves the exact sample receipt and refuses to overwrite an existing audit directory.
 
 ```powershell
-if (Test-Path audit/audit.csv) { throw 'Preserve the existing audit CSV before running a new audit.' }
 $studentId = Read-Host 'Actual student ID'
-& .venvs\training\Scripts\python.exe starter_kit\audit.py --manifest submission\manifest.csv --student-id $studentId --n 200 --data-root data --out audit
+& .venvs\training\Scripts\python.exe -m src.evaluation.audit prepare --manifest submission\manifest.csv --student-id $studentId --data-root data --out audit
 ```
 
 ```powershell

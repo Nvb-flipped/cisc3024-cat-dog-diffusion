@@ -432,6 +432,10 @@ def development_claims(paths):
          'v002_pag', 'C040', 'Perturbed-attention guidance', 177),
         (ROOT / 'results/experiments/v007_coverage/screening.json',
          'v007_coverage', 'C041', 'Matched Batch 19 expansion', 180),
+        (ROOT / 'results/experiments/v007_pag_half/comparison.json',
+         'v007_pag_half', 'C042', 'Half-strength PAG on v007', 184),
+        (ROOT / 'results/experiments/v007_pag_cfg3/comparison.json',
+         'v007_pag_cfg3', 'C043', 'CFG 3.0 with half-strength PAG on v007', 187),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():

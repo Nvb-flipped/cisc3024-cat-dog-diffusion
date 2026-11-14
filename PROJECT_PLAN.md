@@ -2,6 +2,8 @@
 
 Prepared 30 October 2026. Submission deadline: **26 November 2026, 23:55, Asia/Shanghai**. The presentation takes place in the lab session that day.
 
+**Current working deadline: 22 November 2026, Asia/Shanghai, per Paco's November 14 update.** Use this earlier date for the release. The schedule below records the original plan. Keep room before the 22nd for the student audit, independent checks, final rehearsal and a clean archive verification. Use the existing trained weights for bounded, evidence-driven comparisons wherever possible, and preserve weekly Codex allowance for final verification and release.
+
 ## 1. Objective, evidence, and fixed decisions
 
 Build a class-conditional generator of new 32 × 32 RGB cat and dog head photographs, trained from scratch on a defensible training set curated exclusively from the supplied pool. Deliver reproducible code, an honest audit, a six-page report, and a rehearsed presentation in both academic Beamer and editable PowerPoint formats.

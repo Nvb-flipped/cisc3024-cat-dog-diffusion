@@ -37,4 +37,8 @@ C036,Restricted CFG with rescale 0.25,result,4510914391288f7514812ae6cc3b63a046f
 C037,Matched 4×4 block-average epsilon loss,result,e484ae21d9ea2d88e5e52253625973c408b2e4a3022123ceada40b3e8472732b,E166;E167;E168;E169,unverified,not_estimated,descriptive
 C038,Horizontal reflection denoiser,result,f83353557343bc5f2097b5c3290847f14c820f6792273ea0cffa7298639aa83e,E170;E171;E172,unverified,not_estimated,descriptive
 C039,Temporal score rescaling,result,b2d486f1d49b7836ea33f47179cf97b330c8573b2188ba5ed192d7b2b1233949,E173;E174;E175;E176,unverified,not_estimated,descriptive
+C040,Perturbed-attention guidance,result,1759ad3c45df6699eceb5ba1598a9261980e07b67ff2e14757df6ba4c4693057,E177;E178;E179,unverified,not_estimated,descriptive
+C041,Matched Batch 19 expansion,result,c84f24ccfe63fe54e271874a1a3d0274271543aca08be7649f580cc1ca19987d,E180;E181;E182;E183,unverified,not_estimated,descriptive
+C042,Half-strength PAG on v007,result,0e7a4f914c05e78e3edb8b23507887aadb2b01fe1a4f581461b626979f978140,E184;E185;E186,unverified,not_estimated,descriptive
+C043,CFG 3.0 with half-strength PAG on v007,result,ed21d4551efb5d4a6e2bee79525123009c2f3e1924ddd20b60502f66195466d8,E187;E188;E189,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive

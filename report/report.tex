@@ -128,6 +128,12 @@ Averaging denoiser predictions for original and horizontally reflected inputs at
 
 Temporal score rescaling with a local scale of 0.5 produced 11/15 on seed 0 with factor 0.93. Factor 1.07 reduced FID to 70.10, 69.22 and 68.60 across the three selection seeds. Memorization reached 5.35\% on seed 202, so the setting failed the hard condition.
 
+Perturbed-attention guidance on the same v002 checkpoint lowered seed-0 FID to 65.18, with recall 32.19\%. Memorization reached 11.15\%, yielding 0/15. In a matched v006-to-v007 training comparison, 13 additional personally approved and deduplicated crops raised seed-0 recall at 30k from 25.88\% to 30.75\% and reduced memorization from 2.55\% to 1.60\%. Accuracy changed from 89.50\% to 88.45\% and FID from 72.13 to 74.92. The v007 result scored 11/15.
+
+On v007, PAG 0.5 improved seed-0 FID from 74.92 to 70.16 and recall from 30.75\% to 32.52\%. Memorization rose to 3.05\% and accuracy reached 88.85\%. The score remained 11/15.
+
+Raising CFG from 2.5 to 3.0 on that same v007 export configuration gave FID 67.67, recall 32.52\%, accuracy 89.75\%, and memorization 3.95\% on seed 0. The score was 11/15. The v002 0.25 rescale candidate remained the strongest configuration evaluated across all three selection seeds.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering
