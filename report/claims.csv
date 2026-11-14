@@ -45,5 +45,6 @@ C044,Matched AdamW weight decay,result,5f4430ffd0d042713f5781c53f08dde22cb06cd74
 C045,CFG 3.25 with half-strength PAG on v007,result,451bbcc8082ca9f84da219eac2143d11ca0e7777f8d7a8e7053d0404f50377ed,E194;E195;E196,unverified,not_estimated,descriptive
 C046,Bounded v007 continuation,result,0c30dfc0c59e38995f68ccfcdd6c52ec6cbd2ddbddc18d9d811fec33104ae149,E197;E198;E199,unverified,not_estimated,descriptive
 C047,v007 with PAG 0.30,result,e868f3420414e4f7dfa8d2c502feb54012475c6bfefc6af6bc1ac144225d6a06,E200;E201;E202,unverified,not_estimated,descriptive
+C049,Matched v007 input noise perturbation,result,8075f4608e67b30e00210e404e81c79d3e38c115ea35b71cb33e5adbed369744,E208;E209;E210,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive
 C048,Three-seed v007 selection,result,79d5a18e06e69bc909061fa62bda5022989e4b1b827d39e9bbb47cd84dcb927e,E203;E204;E205;E206;E207,unverified,not_estimated,descriptive
