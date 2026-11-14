@@ -56,6 +56,8 @@ def main():
     prediction_type = settings.get('prediction_type', 'epsilon')
     if prediction_type not in ('epsilon', 'velocity', 'edm'):
         raise ValueError('Unsupported denoising target')
+    if config['model'].get('self_condition') and prediction_type != 'epsilon':
+        raise ValueError('Self-conditioning uses the epsilon target')
     validate_loss_weighting(settings)
     if settings['updates'] < 1 or settings['checkpoint_every'] < 1 or settings['log_every'] < 1:
         raise ValueError('Update, checkpoint and log intervals must be positive')

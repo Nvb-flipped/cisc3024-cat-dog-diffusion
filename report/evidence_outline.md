@@ -124,6 +124,10 @@ At 28,000 training updates, generation seed 0 scored 10/15 with accuracy 88.70%,
 
 At 32,000 training updates, generation seed 0 scored 10/15 with accuracy 90.00% after rounding (below the official 90% threshold), FID 70.85, 28.43% recall, and 4.05% memorization. [claim:C030] [evidence:E134,E135,E136]
 
+## Three-seed CFG rescale follow-up: C031
+
+With the exact v002 EMA weights and 0.25 rescale, the official marks were 12/12/11. FID was 70.53–72.16, recall 30.75%–34.62%, and memorization 4.30%–4.85%. [claim:C031] [evidence:E137,E138,E139,E140,E141,E112]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

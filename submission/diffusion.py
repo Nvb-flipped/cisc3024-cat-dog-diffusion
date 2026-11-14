@@ -73,6 +73,9 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
     if not 0 <= guidance_rescale <= 1 or (guidance_rescale and prediction_type != 'epsilon'):
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
+    self_condition = getattr(model, 'self_condition', False)
+    if self_condition and (prediction_type != 'epsilon' or solver != 'ddim' or eta):
+        raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
     device = next(model.parameters()).device
     if prediction_type == 'edm':
         if eta or start_timestep is not None or guidance_min_timestep or guidance_max_timestep is not None:
@@ -134,11 +137,12 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         preceding_clean = None
         for index, t in enumerate(indices):
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
+            hint = (preceding_clean,) if self_condition else ()
             if guidance == 1 or not guidance_min_timestep <= t <= guidance_max:
-                prediction = model(x, time, y)
+                prediction = model(x, time, y, *hint)
             else:
-                unconditional = model(x, time, torch.full_like(y, 2))
-                conditional = model(x, time, y)
+                unconditional = model(x, time, torch.full_like(y, 2), *hint)
+                conditional = model(x, time, y, *hint)
                 prediction = unconditional + guidance * (conditional - unconditional)
                 if guidance_rescale:
                     prediction = rescale_guidance(prediction, conditional, guidance_rescale)
@@ -156,6 +160,8 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 continue
             # Recompute epsilon after clipping x0, matching the documented clipped DDIM convention.
             corrected_noise = (x - a.sqrt() * clean) / (1 - a).sqrt()
+            if self_condition:
+                preceding_clean = clean
             if previous < 0:
                 x = clean
             else:

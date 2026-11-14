@@ -74,6 +74,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     rescale = sampling.get('guidance_rescale', 0)
     if not 0 <= rescale <= 1 or (rescale and prediction_type != 'epsilon'):
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
+    if model.self_condition and (prediction_type != 'epsilon' or solver != 'ddim' or sampling.get('eta', 0)):
+        raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
     inference_files = INFERENCE_FILES + ['edm.py'] if prediction_type == 'edm' else INFERENCE_FILES
     out.mkdir(parents=True, exist_ok=True)
     for name in inference_files:

@@ -412,6 +412,8 @@ def development_claims(paths):
          'v006_coverage', 'C029', 'Larger matched pool coverage comparison', 129),
         (ROOT / 'results/experiments/v006_coverage/continuation_032000/comparison.json',
          'v006_continuation', 'C030', 'Bounded v006 continuation', 134),
+        (ROOT / 'results/experiments/v006_self_condition/screening.json',
+         'v006_self_condition', 'C032', 'Matched self-conditioning comparison', 143),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -442,6 +444,30 @@ def development_claims(paths):
         paths.update(ids)
         sources = list(ids) + (['E111'] if plan_name == 'v002_dpmpp' else [])
         claims.append((claim_id, title, 'result', ' '.join(summaries), sources))
+    rescale_path = ROOT / 'results/experiments/rescale_followup/comparison.json'
+    if rescale_path.exists():
+        plan = ROOT / 'results/plans/rescale_followup.json'
+        result = json.loads(rescale_path.read_text())
+        candidate = result['candidate']
+        if result['plan_sha256'] != sha256(plan) or candidate is None:
+            raise ValueError('The recorded rescale selection is incomplete')
+        files = [plan, rescale_path]
+        evidence = []
+        for row in candidate['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('Rescale evaluation changed')
+            evidence.append(validated_result(path, row['seed'], ROOT / candidate['exported']))
+            files.append(path)
+        if [r['protocol']['seed'] for r in evidence] != [0, 101, 202]:
+            raise ValueError('The rescale candidate lacks a declared selection seed')
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix() for index, file in enumerate(files, 137)}
+        paths.update(ids)
+        marks = '/'.join(str(row['marks']['total']) for row in evidence)
+        claims.append(('C031', 'Three-seed CFG rescale follow-up', 'result',
+                       f"With the exact v002 EMA weights and 0.25 rescale, the official marks were {marks}. "
+                       f"FID was {metric_range(evidence, 'fid', '.2f')}, recall {metric_range(evidence, 'recall', '.2%')}, "
+                       f"and memorization {metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids) + ['E112']))
     return claims
 
 
@@ -501,7 +527,10 @@ def main():
          'preprint'),
         ('E111', 'DPM-Solver++: Fast Solver for Guided Sampling of Diffusion Probabilistic Models',
          ['Cheng Lu', 'Yuhao Zhou', 'Fan Bao', 'Jianfei Chen', 'Chongxuan Li', 'Jun Zhu'],
-         2022, 'https://arxiv.org/abs/2211.01095', 'Algorithm 2 and midpoint two-step update', 'preprint')]
+         2022, 'https://arxiv.org/abs/2211.01095', 'Algorithm 2 and midpoint two-step update', 'preprint'),
+        ('E112', 'Common Diffusion Noise Schedules and Sample Steps Are Flawed',
+         ['Shanchuan Lin', 'Bingchen Liu', 'Jiashi Li', 'Xiao Yang'], 2024,
+         'https://arxiv.org/abs/2305.08891', 'Section 3.4 per-image classifier-free guidance rescale', 'conference_paper')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',

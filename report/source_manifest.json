@@ -2422,6 +2422,116 @@
       }
     },
     {
+      "evidence_id": "E137",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/rescale_followup.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/rescale_followup.json"
+      },
+      "locator": "results/plans/rescale_followup.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E138",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_followup/comparison.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_followup/comparison.json"
+      },
+      "locator": "results/experiments/rescale_followup/comparison.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E139",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_followup/v002_rescale025/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_followup/v002_rescale025/seed_0.json"
+      },
+      "locator": "results/experiments/rescale_followup/v002_rescale025/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E140",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_followup/v002_rescale025/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_followup/v002_rescale025/seed_101.json"
+      },
+      "locator": "results/experiments/rescale_followup/v002_rescale025/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E141",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/rescale_followup/v002_rescale025/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/rescale_followup/v002_rescale025/seed_202.json"
+      },
+      "locator": "results/experiments/rescale_followup/v002_rescale025/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E101",
       "source_type": "preprint",
       "title": "Denoising Diffusion Probabilistic Models",
@@ -2725,6 +2835,33 @@
         "isbn": ""
       },
       "locator": "Algorithm 2 and midpoint two-step update",
+      "confidentiality": "public",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E112",
+      "source_type": "conference_paper",
+      "title": "Common Diffusion Noise Schedules and Sample Steps Are Flawed",
+      "authors": [
+        "Shanchuan Lin",
+        "Bingchen Liu",
+        "Jiashi Li",
+        "Xiao Yang"
+      ],
+      "year": 2024,
+      "identifiers": {
+        "url": "https://arxiv.org/abs/2305.08891",
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": ""
+      },
+      "locator": "Section 3.4 per-image classifier-free guidance rescale",
       "confidentiality": "public",
       "verification": {
         "status": "unverified",

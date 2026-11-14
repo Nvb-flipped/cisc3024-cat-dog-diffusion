@@ -114,6 +114,8 @@ With 24 additional personally reviewed pool crops and the same holdout, the matc
 
 The larger v006 manifest added 99 crops, an 8.3\% increase. With the same 30k update budget and sampler, seed 0 scored 10/15. Accuracy was 89.50\%, FID 72.13, recall 25.88\%, and memorization 2.55\%. Both runs drew 3.84 million training examples with replacement, so the expected draws per crop fell from 3,208 to 2,963 as the dataset grew. At 32k updates, v006 reached FID 70.85, recall 28.43\%, and memorization 4.05\%. The grader assigned four accuracy marks for a stored value slightly below 90\%. The score stayed at 10/15 and the v002 reference kept its higher rank.
 
+Using the exact v002 checkpoint, we matched the guided noise prediction's standard deviation to the conditional prediction per image, then mixed 25\% of that rescaled prediction into the original guidance \cite{lin2024rescale}. The three development seeds scored 12, 12 and 11 out of 15, with FID 70.53--72.16, recall 30.75--34.62\%, and memorization 4.30--4.85\%. The 50\% rescale setting exceeded the memorization cap on seed 202. The 25\% setting passed all three runs and improved the worst normalized margin.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

@@ -51,6 +51,30 @@ def test_guidance_rescale_matches_each_conditional_scale_independently():
     assert torch.isfinite(rescale_guidance(torch.ones_like(guided), conditional, 1.)).all()
 
 
+def test_self_conditioning_passes_previous_clean_estimate_without_cross_batch_dependence():
+    class SelfConditionProbe(ProbeModel):
+        self_condition = True
+
+        def __init__(self):
+            super().__init__()
+            self.hints = []
+
+        def forward(self, x, t, y, clean_hint=None):
+            self.hints.append(clean_hint)
+            prediction = super().forward(x, t, y)
+            return prediction if clean_hint is None else prediction + .1 * clean_hint
+
+    model = SelfConditionProbe().eval()
+    labels = torch.tensor([0, 1, 0])
+    options = dict(steps=4, execution_batch=2, guidance=2.5)
+    original = sample(model, labels, 17, **options)
+    assert model.hints[:2] == [None, None]
+    assert torch.equal(model.hints[2], model.hints[3])
+    assert model.hints[2].abs().max() <= 1
+    assert torch.equal(original, sample(model, labels, 17, microbatch=1, **options))
+    assert torch.equal(original[:1], sample(model, labels[:1], 17, **options))
+
+
 def test_dpmpp_first_order_matches_deterministic_ddim_and_uses_positive_step_ratios():
     schedule = cosine_alpha_bar()
     indices = [999, 980, 500, 0]

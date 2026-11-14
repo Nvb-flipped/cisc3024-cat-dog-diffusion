@@ -3,7 +3,7 @@ import math
 
 import torch
 from torch.nn import functional as F
-from submission.diffusion import add_noise, velocity_target
+from submission.diffusion import add_noise, reconstruct_clean, velocity_target
 from submission.edm import LOG_SIGMA_MEAN, LOG_SIGMA_STD, noise_condition, training_pair
 
 
@@ -53,7 +53,14 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
             target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) \
                 if prediction_type == 'velocity' else noise
         with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):
-            predicted = model(xt, t, y)
+            use_hint = getattr(model, 'self_condition', False) and torch.rand(
+                (), generator=generator, device=device).item() < .5
+            if use_hint:
+                with torch.no_grad():
+                    hint = reconstruct_clean(xt, model(xt, t, y).float(), alpha_bar[t, None, None, None]).clamp(-1, 1)
+                predicted = model(xt, t, y, hint)
+            else:
+                predicted = model(xt, t, y)
             if gamma is None:
                 loss = F.mse_loss(predicted.float(), target)
             else:

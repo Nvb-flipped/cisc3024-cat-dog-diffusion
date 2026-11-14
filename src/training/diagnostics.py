@@ -19,7 +19,8 @@ BENCHMARK_UPDATES = 500
 
 
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
-            *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False):
+            *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False,
+            self_condition=False):
     if prediction_type not in ('epsilon', 'velocity'):
         raise ValueError('Unsupported denoising target')
     weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
@@ -38,6 +39,10 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
                   conditioning_dim=64, attention_heads=4, dropout=0)
     if patch_size != 1:
         config.update(patch_size=patch_size, patch_detail=patch_detail)
+    if self_condition:
+        if prediction_type != 'epsilon':
+            raise ValueError('Self-conditioning uses the epsilon target')
+        config['self_condition'] = True
     model = ConditionalUNet(**config).to(device)
     schedule = cosine_alpha_bar().to(device)
     generator = torch.Generator(device=device).manual_seed(29)
@@ -56,6 +61,9 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     def measure():
         model.eval()
         prediction = model(probe, probe_t, y)
+        if self_condition:
+            hint = reconstruct(probe, prediction, alpha).clamp(-1, 1)
+            prediction = model(probe, probe_t, y, hint)
         clean = reconstruct(probe, prediction, alpha).clamp(-1, 1)
         return F.mse_loss(prediction, target).item(), F.mse_loss(clean, x).item(), clean
 
@@ -92,6 +100,9 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         'probe_timesteps': probe_t.tolist(), 'environment': environment(), 'completed': timestamp()}
     if patch_size != 1:
         record['model_source_sha256'] = sha256('submission/model.py')
+    if self_condition:
+        record['self_condition_sources'] = {name: sha256(name) for name in (
+            'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
     record['passed'] = record['reduction'] >= .80 and after_clean < before_clean
     write_json(out / 'result.json', record)
     if not record['passed']:
@@ -154,11 +165,12 @@ def main():
     p.add_argument('--min-snr-gamma', type=float)
     p.add_argument('--patch-size', type=int, choices=[1, 4, 8], default=1)
     p.add_argument('--patch-detail', action='store_true')
+    p.add_argument('--self-condition', action='store_true')
     args = p.parse_args()
     if args.mode == 'overfit':
         print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit',
                       prediction_type=args.prediction_type, min_snr_gamma=args.min_snr_gamma,
-                      patch_size=args.patch_size, patch_detail=args.patch_detail))
+                      patch_size=args.patch_size, patch_detail=args.patch_detail, self_condition=args.self_condition))
     else:
         print(benchmark(args.config, args.manifest, args.out or 'results/diagnostics/benchmark'))
 

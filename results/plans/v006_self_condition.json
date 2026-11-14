@@ -1,0 +1,61 @@
+{
+  "created": "2026-11-14T01:32:22.506519+00:00",
+  "inputs": {
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "manifests\\v006.provenance.json": "bbc64c67816e168cd6c68df0d17cb08c94472b0f7db841f0ec0bc224c9571ccc",
+    "manifests\\v006.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v006_self_condition.yaml": "26293f3f9a4f6f7f5a20bd6373da954bdcb2883bad9e6605878da463d9819c6e",
+    "results\\diagnostics\\v006_self_condition\\result.json": "9aa7e147c3f1d456014be2e61692481eaacf5d80bed1719383a957ebf330d8b1",
+    "results\\experiments\\v006_coverage\\screening.json": "b275371814ffcc22a711f57f187fc2c02a6650d907683ffbcebbbbcf4115a07a",
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_self_condition_comparison.py": "b66078785c5c8aba2ff63add8b10c99043ad0238782f8af068b3c657c36ca000",
+    "results\\curation\\v006_cache_parity.json": "98bae407cbdb420950f781712bc95909a3ba68b02443bd2af0ec4bdf19593e84",
+    "scripts\\run_coverage_comparison.py": "19123fb3026f39154146b516fb63fb39d33c50cab6408802abc56ad0c309f484",
+    "src\\training\\diagnostics.py": "8529c05f9f332561a27b949583b1f58cd98b41f716163bc942f8b37eb5039196",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\step.py": "3fce8117cb49f0ef7c3540302031c982365f0c962a1d36b111aa34d28b4b6f70",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad",
+    "submission\\diffusion.py": "540a79e1e2ad2d6c7dd4846cefc0e44862162626c369d946870d54d6a807a4f5",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\release\\export.py": "c74b2c27ec27d42f110c7cb568ed2d4c35f62b521fcf7f8ecbd247ddbb6175a9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v006_self_condition.yaml",
+    "--manifest",
+    "manifests\\v006.csv",
+    "--validation-manifest",
+    "manifests\\v006.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\v006_self_condition_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "checkpoint_updates": [
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "rule": "Compare with v006 at the same updates; report extra forward compute. Promote only a valid v002 improvement under the existing three-seed rule.",
+  "source": "https://arxiv.org/abs/2208.04202"
+}

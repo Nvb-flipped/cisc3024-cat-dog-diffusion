@@ -53,7 +53,7 @@ class SpatialAttention(nn.Module):
 class ConditionalUNet(nn.Module):
     def __init__(self, channels=(48, 96, 144, 192), blocks_per_level=2,
                  conditioning_dim=256, attention_heads=4, dropout=0.10, patch_size=1,
-                 patch_detail=False):
+                 patch_detail=False, self_condition=False):
         super().__init__()
         if len(channels) != 4 or any(c % 8 for c in channels):
             raise ValueError('Four channel levels divisible by 8 required')
@@ -65,8 +65,10 @@ class ConditionalUNet(nn.Module):
             raise ValueError('patch_detail requires a patch grid')
         self.config = dict(channels=list(channels), blocks_per_level=blocks_per_level,
                            conditioning_dim=conditioning_dim, attention_heads=attention_heads,
-                           dropout=dropout, patch_size=patch_size, patch_detail=patch_detail)
+                           dropout=dropout, patch_size=patch_size, patch_detail=patch_detail,
+                           self_condition=self_condition)
         self.patch_size = patch_size
+        self.self_condition = self_condition
         # Use the same two spatial reductions for both patch grids. The deepest
         # transition still has a learned convolution, so 4×4 tokens can reach 1×1.
         self.spatial_reductions = 3 if patch_size == 1 else 2
@@ -75,7 +77,7 @@ class ConditionalUNet(nn.Module):
         self.time_mlp = nn.Sequential(nn.Linear(conditioning_dim, conditioning_dim), nn.SiLU(),
                                       nn.Linear(conditioning_dim, conditioning_dim))
         self.class_embedding = nn.Embedding(3, conditioning_dim)  # 2 is null conditioning.
-        self.input = nn.Conv2d(patch_channels, channels[0], 3, padding=1)
+        self.input = nn.Conv2d(patch_channels * (2 if self_condition else 1), channels[0], 3, padding=1)
         self.encoder = nn.ModuleList()
         self.downsample = nn.ModuleList()
         current = channels[0]
@@ -115,9 +117,13 @@ class ConditionalUNet(nn.Module):
         else:
             self.detail_input = None
 
-    def forward(self, x, timesteps, labels):
+    def forward(self, x, timesteps, labels, clean_hint=None):
         condition = self.time_mlp(timestep_embedding(timesteps, self.embedding_dim)) + self.class_embedding(labels)
-        packed = F.pixel_unshuffle(x, self.patch_size) if self.patch_size > 1 else x
+        model_input = x
+        if self.self_condition:
+            hint = torch.zeros_like(x) if clean_hint is None else clean_hint
+            model_input = torch.cat((x, hint), dim=1)
+        packed = F.pixel_unshuffle(model_input, self.patch_size) if self.patch_size > 1 else model_input
         h = self.input(packed)
         skips = []
         for level, stage in enumerate(self.encoder):

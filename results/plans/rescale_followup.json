@@ -1,0 +1,42 @@
+{
+  "created": "2026-11-14T01:25:00.108486+00:00",
+  "inputs": {
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "results\\experiments\\v006_coverage\\screening.json": "b275371814ffcc22a711f57f187fc2c02a6650d907683ffbcebbbbcf4115a07a",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_rescale_followup.py": "8f63c28db8312498858ae490f1ce555f5eb07ca7f1be01d667d70b3e43a5bc30",
+    "submission\\diffusion.py": "3dd3efa4e98d058bbe1684e3ef1348501e181650ebb6e0eaff82f4d94a0586ed",
+    "src\\release\\export.py": "3fc0ee3d6b6f77a8fd7fcb62c797a82d026e7b1f3d10fc7c3950d2e60c1196aa",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "checkpoints\\capacity_32_seed17_u030000_123aac91c9\\update_030000.pt": "0c849a27275b36a5df84566c9b516e5ef2c745328ec07754376ed041c50f9480"
+  },
+  "arms": [
+    {
+      "name": "v002_rescale025",
+      "manifest": "manifests\\v002.csv",
+      "checkpoint": "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "rescale": 0.25
+    },
+    {
+      "name": "v006_rescale050",
+      "manifest": "manifests\\v006.csv",
+      "checkpoint": "checkpoints\\capacity_32_seed17_u030000_123aac91c9\\update_030000.pt",
+      "rescale": 0.5
+    }
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "rule": "Compare each arm with its exact no-rescale export on seed 0. Advance at most one valid candidate beating v002 by the existing rule."
+}
