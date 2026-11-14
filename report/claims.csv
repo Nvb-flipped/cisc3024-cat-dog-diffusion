@@ -32,4 +32,5 @@ C030,Bounded v006 continuation,result,f00b0e05ba19a07e7974feed854c941e9990606135
 C032,Matched self-conditioning comparison,result,3a8163604c7e32e7d15e77add411580079b3fe7aa82244769c67c65e32f81e6d,E143;E144;E145;E146,unverified,not_estimated,descriptive
 C033,High-noise dynamic thresholding,result,21d49c6baaae8448e76bcce7ce462bf59f3264850e489257e6d9848c12908b42,E148;E149;E150,unverified,not_estimated,descriptive
 C034,Same-trajectory EMA snapshot average,result,d49f3b4530e84fb7c9af284fb914a87e5523b97d808268f22d1bcfd902d65d34,E153;E154;E155,unverified,not_estimated,descriptive
+C035,Matched residual dropout comparison,result,1ed27d3aed502fe4ee09772516b2c6e468838cf1152f7ecddab54f3ac58a5c0c,E158;E159;E160;E161,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive

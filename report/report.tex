@@ -118,6 +118,8 @@ Using the exact v002 checkpoint, we matched the guided noise prediction's standa
 
 A v006 self-conditioning model used its detached clean prediction as an input on about half the training microbatches and passed that prediction between DDIM steps \cite{chen2023analogbits}. It passed the fixed two-crop diagnostic, but official recall was zero at both 28k and 30k. At 30k it scored 1/15 with FID 268.22. On v002, dynamic thresholding at the highest three sampled timesteps scored 12/15 on seed 0 with FID 74.20 and memorization 3.95\%. An equal average of the 28k and 30k EMA weights scored 10/15 with FID 73.94 and memorization 3.55\%. The three-seed rescale setting retained the lead.
 
+Increasing v006 residual dropout from 0.10 to 0.15 lowered seed-0 memorization at 30k from 2.55\% to 1.05\% and raised accuracy from 89.50\% to 90.20\%. Recall fell from 25.88\% to 23.67\%, while FID changed from 72.13 to 72.30. The 28k and 30k checkpoints scored 10/15 and 11/15, respectively. These single-seed results did not meet the gate for additional evaluation.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

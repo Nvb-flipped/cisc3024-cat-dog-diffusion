@@ -481,6 +481,22 @@
       "path": "results/experiments/ema_trajectory_probe/seed_0.json",
       "sha256": "29960653dd4c165f83fd63c14bf4ceeb8278cc2f379aec02866f5a69c3515773"
     },
+    "E158": {
+      "path": "results/plans/v006_dropout15.json",
+      "sha256": "48a9aa71c301f37a59ebf52a7767552fd10736e2b8a3bbcf1c7f22683116fc62"
+    },
+    "E159": {
+      "path": "results/experiments/v006_dropout15/screening.json",
+      "sha256": "2bc01d5d46d75210125950b494883db45cc6b368df81cf6e2b6acc6a0b6506a1"
+    },
+    "E160": {
+      "path": "results/experiments/v006_dropout15/update_028000/seed_0.json",
+      "sha256": "8257eca59f2d5188e07301740a8ea1a6f5c0c7b2ea5a4defc597b342d7cb95f4"
+    },
+    "E161": {
+      "path": "results/experiments/v006_dropout15/update_030000/seed_0.json",
+      "sha256": "9117db114be703be8e0f68471098a01fa5076831680c6fdcf0d9aa42b4b5d2af"
+    },
     "E137": {
       "path": "results/plans/rescale_followup.json",
       "sha256": "eca050f0464186b71e71e561606a16873317d21f31ea68c675ccbd86830f3ec3"
@@ -504,8 +520,8 @@
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "922b8e5cface7da9c47f21b637facf542233557eb27341e5da529f3a477bb380",
-    "evidence_outline.md": "dd4629d4acba3c53c6678312b80367e0161ed8c856174255277750f80a4b268e",
-    "claims.csv": "52cd09fc39500ba0a3096402ce57e5c61c66136932f65a87611333e483522925"
+    "source_manifest.json": "419fd8950587d63c16c05d014486a253a0411152a563a0fd24853fa33f629582",
+    "evidence_outline.md": "78b06a756efe9e667ac658359d1047519830b920cd5de302ed60722becce83fa",
+    "claims.csv": "b52323d8e378cdc5131dcec2b2adf5455c6a03765789bdf751c14b655e69b0f1"
   }
 }
