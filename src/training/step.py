@@ -9,6 +9,11 @@ from submission.edm import LOG_SIGMA_MEAN, LOG_SIGMA_STD, noise_condition, train
 
 def validate_loss_weighting(settings):
     gamma = settings.get('min_snr_gamma')
+    perturbation = settings.get('noise_input_perturbation', 0)
+    if type(perturbation) not in (int, float) or not math.isfinite(perturbation) or perturbation < 0:
+        raise ValueError('noise_input_perturbation must be nonnegative and finite')
+    if perturbation and settings.get('prediction_type', 'epsilon') != 'epsilon':
+        raise ValueError('Noise input perturbation requires epsilon prediction')
     coarse = settings.get('coarse_epsilon_weight', 0)
     if type(coarse) not in (int, float) or not math.isfinite(coarse) or coarse < 0:
         raise ValueError('coarse_epsilon_weight must be nonnegative and finite')
@@ -40,6 +45,7 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     prediction_type = settings.get('prediction_type', 'epsilon')
     gamma = settings.get('min_snr_gamma')
     coarse = settings.get('coarse_epsilon_weight', 0)
+    perturbation = settings.get('noise_input_perturbation', 0)
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
         group['lr'] = lr
@@ -60,7 +66,11 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
         if prediction_type == 'edm':
             xt, target, _, _, _ = training_pair(x0, noise, sigma)
         else:
-            xt = add_noise(x0, noise, t, alpha_bar)
+            input_noise = noise
+            if perturbation:
+                independent_noise = torch.randn(x0.shape, generator=generator, device=device)
+                input_noise = noise + perturbation * independent_noise
+            xt = add_noise(x0, input_noise, t, alpha_bar)
             target = velocity_target(x0, noise, alpha_bar[t, None, None, None]) \
                 if prediction_type == 'velocity' else noise
         with torch.autocast(device.type, dtype=torch.bfloat16, enabled=bf16):

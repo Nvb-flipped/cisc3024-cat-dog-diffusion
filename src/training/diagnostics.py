@@ -20,12 +20,14 @@ BENCHMARK_UPDATES = 500
 
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
             *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False,
-            self_condition=False, coarse_epsilon_weight=0):
+            self_condition=False, coarse_epsilon_weight=0, noise_input_perturbation=0):
     if prediction_type not in ('epsilon', 'velocity'):
         raise ValueError('Unsupported denoising target')
     weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
     if coarse_epsilon_weight:
         weighting['coarse_epsilon_weight'] = coarse_epsilon_weight
+    if noise_input_perturbation:
+        weighting['noise_input_perturbation'] = noise_input_perturbation
     validate_loss_weighting(weighting)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -108,6 +110,9 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     if coarse_epsilon_weight:
         record['coarse_epsilon_sources'] = {name: sha256(name) for name in (
             'src/training/step.py', 'src/training/diagnostics.py')}
+    if noise_input_perturbation:
+        record['perturbation_sources'] = {name: sha256(name) for name in (
+            'src/training/step.py', 'src/training/diagnostics.py')}
     record['passed'] = record['reduction'] >= .80 and after_clean < before_clean
     write_json(out / 'result.json', record)
     if not record['passed']:
@@ -172,12 +177,14 @@ def main():
     p.add_argument('--patch-detail', action='store_true')
     p.add_argument('--self-condition', action='store_true')
     p.add_argument('--coarse-epsilon-weight', type=float, default=0)
+    p.add_argument('--noise-input-perturbation', type=float, default=0)
     args = p.parse_args()
     if args.mode == 'overfit':
         print(overfit(args.manifest, out=args.out or 'results/diagnostics/overfit',
                       prediction_type=args.prediction_type, min_snr_gamma=args.min_snr_gamma,
                       patch_size=args.patch_size, patch_detail=args.patch_detail, self_condition=args.self_condition,
-                      coarse_epsilon_weight=args.coarse_epsilon_weight))
+                      coarse_epsilon_weight=args.coarse_epsilon_weight,
+                      noise_input_perturbation=args.noise_input_perturbation))
     else:
         print(benchmark(args.config, args.manifest, args.out or 'results/diagnostics/benchmark'))
 

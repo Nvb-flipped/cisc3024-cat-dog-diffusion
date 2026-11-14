@@ -1,0 +1,29 @@
+{
+  "inputs": {
+    "results\\experiments\\v007_pag_cfg3\\comparison.json": "56b3979bbd66ef494bfd08450d9c04916c8a6dec3931759f321f56a429b58bd7",
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_030000.pt": "217395f52f7499756ccb4a02991ab2be7a1f681ef40369733ac983902bbfaf87",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_pag_cfg325.py": "797525f8f3b7ded864ca545e63d5c3366e1f9ee0035e83e36eed91fddbfa5a2d",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.5
+  },
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "created": "2026-11-14T13:08:13.802385+00:00",
+  "rule": "Only change CFG from 3.0 to 3.25. This measures whether the previous FID and accuracy gains continue within the copy limit. Run the full seed 0 first. Advance only a valid improvement over v002 rescale 0.25."
+}

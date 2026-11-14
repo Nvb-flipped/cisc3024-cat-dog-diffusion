@@ -1,0 +1,58 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_input_perturbation.py": "9a8e0d0bd0b3b4a508adda9dc1e569b960c4150009b063659a2e75fc2c067f20",
+    "results\\experiments\\v007_32k_pag015\\comparison.json": "db30497ecb15b720c354facecdfd1a55dc3c607de8387b7840916c5cdea5c9a0",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\run.json": "203618611ca422189247ac4634a26fe99a480bd31804babc7291f1dc91545fe4",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "manifests\\v007.provenance.json": "82e1f15fb0a4a7752725eeabfdc081033a28292ce1fe316948023b6ae24d8060",
+    "manifests\\v007.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v007_input_perturbation.json": "a3b09e27152a55238cb4f170d12279c5b9aeb746bb012e719f2cd287777731dc",
+    "results\\diagnostics\\v007_input_perturbation\\result.json": "4db17d66e10d0a47c9a9c1e8895b2c24173d7e2d440054ef0d92deb06f3620c9",
+    "results\\curation\\v007_cache_parity.json": "22f3da05fd5cea1390d1f499c48be0c2a7f4ec888a729ddeff504b162cb6b0dd",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "342641fc67a8b3596e387abe6d1a30a9384331d06a8ce7fdb9630d68d94e0aff",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v007_input_perturbation.json",
+    "--manifest",
+    "manifests\\v007.csv",
+    "--validation-manifest",
+    "manifests\\v007.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v007_input_perturbation_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15
+  },
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "created": "2026-11-14T13:39:06.749589+00:00",
+  "source": "https://proceedings.mlr.press/v202/ning23a.html",
+  "rule": "At training only, add 0.1 times independent Gaussian noise to the forward noise input. Keep the exact x0 crop, original epsilon target, sampler and full 32k update budget. Advance one matched full seed-0 improvement only."
+}

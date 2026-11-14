@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.common import sha256, write_json
 from src.evaluation.select import validated_result
+from src.evaluation.sweep import score_results
 
 
 def development_claims(paths):
@@ -436,6 +437,16 @@ def development_claims(paths):
          'v007_pag_half', 'C042', 'Half-strength PAG on v007', 184),
         (ROOT / 'results/experiments/v007_pag_cfg3/comparison.json',
          'v007_pag_cfg3', 'C043', 'CFG 3.0 with half-strength PAG on v007', 187),
+        (ROOT / 'results/experiments/v002_weight_decay003/screening.json',
+         'v002_weight_decay003', 'C044', 'Matched AdamW weight decay', 190),
+        (ROOT / 'results/experiments/v007_pag_cfg325/comparison.json',
+         'v007_pag_cfg325', 'C045', 'CFG 3.25 with half-strength PAG on v007', 194),
+        (ROOT / 'results/experiments/v007_continuation_032000/comparison.json',
+         'v007_continuation_032000', 'C046', 'Bounded v007 continuation', 197),
+        (ROOT / 'results/experiments/v007_32k_pag030/comparison.json',
+         'v007_32k_pag030', 'C047', 'v007 with PAG 0.30', 200),
+        (ROOT / 'results/experiments/v007_input_perturbation/comparison.json',
+         'v007_input_perturbation', 'C049', 'Matched v007 input noise perturbation', 208),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -493,6 +504,30 @@ def development_claims(paths):
                        f"With the exact v002 EMA weights and 0.25 rescale, the official marks were {marks}. "
                        f"FID was {metric_range(evidence, 'fid', '.2f')}, recall {metric_range(evidence, 'recall', '.2%')}, "
                        f"and memorization {metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids) + ['E112']))
+    v007_path = ROOT / 'results/experiments/v007_32k_pag015/comparison.json'
+    if v007_path.exists():
+        plan_path = ROOT / 'results/plans/v007_32k_pag015.json'
+        comparison = json.loads(v007_path.read_text())
+        candidate = comparison['candidate']
+        if comparison['plan_sha256'] != sha256(plan_path) or not comparison['improves_reference']:
+            raise ValueError('The v007 selection or its frozen plan differs from the recorded winner')
+        files, evidence = [plan_path, v007_path], []
+        for row in candidate['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('The v007 selection receipt changed')
+            evidence.append(validated_result(path, row['seed'], ROOT / candidate['exported']))
+            files.append(path)
+        if [row['protocol']['seed'] for row in evidence] != [0, 101, 202] or score_results(evidence) is None:
+            raise ValueError('The v007 winner needs three valid selection seeds')
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix() for index, file in enumerate(files, 203)}
+        paths.update(ids)
+        marks = '/'.join(str(row['marks']['total']) for row in evidence)
+        claims.append(('C048', 'Three-seed v007 selection', 'result',
+                       f"The v007 32k EMA with CFG 3.25 and PAG 0.15 scored {marks}. "
+                       f"Accuracy was {metric_range(evidence, 'accuracy', '.2%')}, FID "
+                       f"{metric_range(evidence, 'fid', '.2f')}, recall {metric_range(evidence, 'recall', '.2%')}, "
+                       f"and memorization {metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids)))
     return claims
 
 

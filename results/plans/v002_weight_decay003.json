@@ -1,0 +1,63 @@
+{
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\run.json": "b361ee00544d3566234ff4e76eacf85cd8b1f236546abd2bc97953899ba8b17e",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "manifests\\v002.provenance.json": "6f14ccf08511bb33ace8f8e3f798d247206f27b47902bc2966002cd0fa187e79",
+    "manifests\\v002.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v002_weight_decay003.json": "ad63c36a572a00d2beba546f4bc2cff4273fcbcc9d4877a795ce40784a6d51f7",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_weight_decay_comparison.py": "97d5b20050c3b69b7436e0b3d619b3b0d42b5c3f4537919054b8e750ebb2794d",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "9e8ebad992abd9fbe61221e4315daea87c9bed0c6fbccd941448092e8a3d8421",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\curation\\pool_fingerprint.py": "410567c6e78bf3f72bb5d149ba0109af5a0dddde186ee3a7d6bf8813c0075236",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v002_weight_decay003.json",
+    "--manifest",
+    "manifests\\v002.csv",
+    "--validation-manifest",
+    "manifests\\v002.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\v002_weight_decay003_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "guidance_rescale": 0.25
+  },
+  "checkpoint_updates": [
+    28000,
+    30000
+  ],
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "created": "2026-11-14T10:44:17.142320+00:00",
+  "sources": [
+    "https://arxiv.org/abs/1711.05101",
+    "https://openaccess.thecvf.com/content/CVPR2023/supplemental/Bao_All_Are_Worth_CVPR_2023_supplemental.pdf",
+    "https://openaccess.thecvf.com/content/CVPR2025/papers/Sehwag_Stretching_Each_Dollar_Diffusion_Training_from_Scratch_on_a_Micro-Budget_CVPR_2025_paper.pdf"
+  ],
+  "rule": "One scratch fit, changing only AdamW weight decay from 0.0001 to 0.03. The 30k result is the matched comparison with the current best v002 export. Advance at most one valid seed-0 improvement from the two planned checkpoints."
+}

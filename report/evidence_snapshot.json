@@ -609,6 +609,58 @@
       "path": "results/experiments/v007_pag_cfg3/seed_0.json",
       "sha256": "9e2eedae79f7708051a307392ccb57d6bc7e6f64ecdaea19066c4e9f43f4d4af"
     },
+    "E190": {
+      "path": "results/plans/v002_weight_decay003.json",
+      "sha256": "990d7e7347629ef342543063a6a325487d70684a93502e5a0a91aa80ca646525"
+    },
+    "E191": {
+      "path": "results/experiments/v002_weight_decay003/screening.json",
+      "sha256": "5f69b08809c3ef4585c8fede287c349735ffc2790e1a854d31972ac021b1044d"
+    },
+    "E192": {
+      "path": "results/experiments/v002_weight_decay003/update_028000/seed_0.json",
+      "sha256": "71307b9b60deba253c0563f6b6f1150a750fd11a7d3c00aff02d1776c72a27fd"
+    },
+    "E193": {
+      "path": "results/experiments/v002_weight_decay003/update_030000/seed_0.json",
+      "sha256": "a3aea0fedeb22b4645239ce8090f2a5a8ea9a473dbf5c1b04e556a99ac391a32"
+    },
+    "E194": {
+      "path": "results/plans/v007_pag_cfg325.json",
+      "sha256": "4b3da0da58d90d3975bfeeb0d2450c0f31a9bb91589b3f2084db98bb25cde21c"
+    },
+    "E195": {
+      "path": "results/experiments/v007_pag_cfg325/comparison.json",
+      "sha256": "dc721c86a444b1a74ebb8995f970a8b2ed3dbee2194a02df9c4a833d198e4c88"
+    },
+    "E196": {
+      "path": "results/experiments/v007_pag_cfg325/seed_0.json",
+      "sha256": "7ca88e7d82d1650a96e80c87d6c725984430e3900875558f53fe043daf550228"
+    },
+    "E197": {
+      "path": "results/plans/v007_continuation_032000.json",
+      "sha256": "a1a970fe30073250056ab81c9fceb48c0c2d95c63502dcbe929502a861bb4b1c"
+    },
+    "E198": {
+      "path": "results/experiments/v007_continuation_032000/comparison.json",
+      "sha256": "b98c8170e4ce3f911308e7410fb7e8e3d553b648207da828e573204dee715ccf"
+    },
+    "E199": {
+      "path": "results/experiments/v007_continuation_032000/seed_0.json",
+      "sha256": "a70be4facce71b1f234e3c5fb02b70c1ac6c498cbd0885e9d0da9beda9b257f9"
+    },
+    "E200": {
+      "path": "results/plans/v007_32k_pag030.json",
+      "sha256": "8183c08f06cc620853e76a555df3767f55809547e9bd6d46a82bd8a20622bcda"
+    },
+    "E201": {
+      "path": "results/experiments/v007_32k_pag030/comparison.json",
+      "sha256": "0527175c3b0155fde2bad618ea431a2db0cd47bfb77c2118e58873160feed712"
+    },
+    "E202": {
+      "path": "results/experiments/v007_32k_pag030/seed_0.json",
+      "sha256": "aa9c894342bb5e2f08150b6e4e7c83817cc096de0792274de41515cb2869b859"
+    },
     "E137": {
       "path": "results/plans/rescale_followup.json",
       "sha256": "eca050f0464186b71e71e561606a16873317d21f31ea68c675ccbd86830f3ec3"
@@ -628,12 +680,32 @@
     "E141": {
       "path": "results/experiments/rescale_followup/v002_rescale025/seed_202.json",
       "sha256": "d1d7e8b34cd9e8cefa72cdcba0068d800bb2a430abadb4fe9c2a0e6d9c797683"
+    },
+    "E203": {
+      "path": "results/plans/v007_32k_pag015.json",
+      "sha256": "536cda62e6b7c44131ba74641e730ac7e51a467d3a657f6f0ad9997793b63b00"
+    },
+    "E204": {
+      "path": "results/experiments/v007_32k_pag015/comparison.json",
+      "sha256": "db30497ecb15b720c354facecdfd1a55dc3c607de8387b7840916c5cdea5c9a0"
+    },
+    "E205": {
+      "path": "results/experiments/v007_32k_pag015/seed_0.json",
+      "sha256": "5957c3a38ad3a60871fefc3588aa14a03d08f054da3102f36cab5ab3f8e70162"
+    },
+    "E206": {
+      "path": "results/experiments/v007_32k_pag015/seed_101.json",
+      "sha256": "facf51865cb10ca98d9f55bed2fd46892f85aa4c9d08f72c6387a2c7c934a17d"
+    },
+    "E207": {
+      "path": "results/experiments/v007_32k_pag015/seed_202.json",
+      "sha256": "534fcbf943259cdd2ab89a8225f2e9e8ab757032a72fc6f8fb53e247515e4dcc"
     }
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "8551cc50a67613587ba1f65024e73a0a1343908ba9fbae544516c48df3301875",
-    "evidence_outline.md": "fd5ef11989e9a8dbe37d969b79222a8aafca3bb290374500480d7d1912c03d57",
-    "claims.csv": "6ebc0449ac8db6b3dd02249a09da48dde2985e76edb1234186b3be963cdfb8dd"
+    "source_manifest.json": "d01340b7892ebf72f351eca13f3e2447c30e1b3c9c6d89e683edac15231a9866",
+    "evidence_outline.md": "54d262b8b272ce8948cb6742c6372d34b5ae73502aa309cb42588acd0a06e0fc",
+    "claims.csv": "a8e8b8eea80679a79807b22d9d65d38be279e504b6489ac33ce5d6ea290b5863"
   }
 }

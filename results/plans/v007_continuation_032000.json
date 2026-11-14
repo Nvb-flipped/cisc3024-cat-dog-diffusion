@@ -1,0 +1,46 @@
+{
+  "inputs": {
+    "results\\plans\\v007_coverage.json": "e7cd0364274a86406f89b21e7b33a9f42f95d26c747ce8bd3b94e02683c95ece",
+    "results\\experiments\\v007_pag_cfg325\\comparison.json": "dc721c86a444b1a74ebb8995f970a8b2ed3dbee2194a02df9c4a833d198e4c88",
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_030000.pt": "217395f52f7499756ccb4a02991ab2be7a1f681ef40369733ac983902bbfaf87",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_continuation.py": "c12497eca745b59df1435c0e4c22722aa1e5979688e15ab5eacf00274092e947",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v007.csv",
+    "--validation-manifest",
+    "manifests\\v007.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae",
+    "--resume",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_030000.pt"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.5
+  },
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "target_update": 32000,
+  "created": "2026-11-14T13:12:51.588871+00:00",
+  "rule": "One continuation from the exact v007 30k state. Keep the 30k DDIM50/CFG3.25/PAG0.5 sampler fixed. Advance only a valid improvement over v002."
+}

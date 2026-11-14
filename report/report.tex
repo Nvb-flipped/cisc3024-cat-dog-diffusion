@@ -134,6 +134,10 @@ On v007, PAG 0.5 improved seed-0 FID from 74.92 to 70.16 and recall from 30.75\%
 
 Raising CFG from 2.5 to 3.0 on that same v007 export configuration gave FID 67.67, recall 32.52\%, accuracy 89.75\%, and memorization 3.95\% on seed 0. The score was 11/15. The v002 0.25 rescale candidate remained the strongest configuration evaluated across all three selection seeds.
 
+Raising CFG further to 3.25 on v007 gave FID 66.68, recall 33.74\%, accuracy 89.90\%, memorization 4.40\%, and 11/15 on seed 0. On the v002 data, a separate matched scratch fit with AdamW weight decay 0.03 scored 10/15 at 28k and 11/15 at 30k. Its 30k result gave FID 71.65, recall 31.08\%, and memorization 3.25\%. Neither setting advanced to additional seeds.
+
+Continuing v007 from 30k to 32k with CFG 3.25 and PAG 0.5 reduced seed-0 FID to 64.85. Memorization rose to 5.65\%. On the same 32k weights, PAG 0.30 exceeded the 5\% cap on two of three seeds. PAG 0.15 scored 12/15 on all three development seeds, with accuracy 90.30--91.35\%, FID 64.52--67.08, recall 32.19--33.85\%, and memorization 4.00--4.45\%. This configuration leads development selection. The Excellent thresholds for FID and recall remain out of reach on these three evaluations.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering
