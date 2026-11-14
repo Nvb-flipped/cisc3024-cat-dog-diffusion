@@ -424,6 +424,10 @@ def development_claims(paths):
          'rescale_interval', 'C036', 'Restricted CFG with rescale 0.25', 162),
         (ROOT / 'results/experiments/v002_coarse_epsilon/screening.json',
          'v002_coarse_epsilon', 'C037', 'Matched 4×4 block-average epsilon loss', 166),
+        (ROOT / 'results/experiments/v002_reflected_denoiser/comparison.json',
+         'v002_reflected_denoiser', 'C038', 'Horizontal reflection denoiser', 170),
+        (ROOT / 'results/experiments/v002_temporal_score/comparison.json',
+         'v002_temporal_score', 'C039', 'Temporal score rescaling', 173),
     )
     for record_path, plan_name, claim_id, title, first_evidence_id in comparison_specs:
         if not record_path.exists():
@@ -434,7 +438,7 @@ def development_claims(paths):
             raise ValueError(f'{title} plan changed')
         trials = record['screened']
         files, summaries = [plan, record_path], []
-        if plan_name == 'rescale_interval':
+        if plan_name in ('rescale_interval', 'v002_temporal_score'):
             trials = [trial | {'setting': name} for name, trial in trials.items()]
         for trial in trials if isinstance(trials, list) else [trials]:
             row, = trial['evidence']

@@ -70,13 +70,19 @@ def horizontal_average(model, x, time, labels):
     return (original + reflected) * .5
 
 
+def temporal_score_scale(alpha_bar, sharpness, sigma):
+    signal = alpha_bar * sigma**2
+    noise = 1 - alpha_bar
+    return (signal + noise) / (signal / sharpness + noise)
+
+
 @torch.no_grad()
 def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            steps=100, guidance=1.5, microbatch=32, execution_batch=32,
            prediction_type='epsilon', start_timestep=None,
            guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0,
            threshold_percentile=None, threshold_min_timestep=0, self_condition_feedback=True,
-           reflect_denoiser=False):
+           reflect_denoiser=False, score_sharpness=1.0, score_sigma=0.5, pag_scale=0.0):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
@@ -97,6 +103,14 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
     if type(reflect_denoiser) is not bool or (reflect_denoiser and (prediction_type != 'epsilon'
             or solver != 'ddim' or eta or getattr(model, 'self_condition', False))):
         raise ValueError('Reflected denoising requires deterministic epsilon DDIM without self-conditioning')
+    if not math.isfinite(score_sharpness) or score_sharpness <= 0 or not math.isfinite(score_sigma) or score_sigma <= 0:
+        raise ValueError('Temporal score parameters must be positive and finite')
+    if score_sharpness != 1 and (prediction_type != 'epsilon' or solver != 'ddim' or eta
+                                 or getattr(model, 'self_condition', False)):
+        raise ValueError('Temporal score rescaling requires deterministic epsilon DDIM without self-conditioning')
+    if not math.isfinite(pag_scale) or pag_scale < 0 or (pag_scale and (prediction_type != 'epsilon'
+            or solver != 'ddim' or eta or reflect_denoiser or getattr(model, 'self_condition', False))):
+        raise ValueError('Perturbed attention requires deterministic epsilon DDIM and ordinary denoiser inputs')
     denoise = partial(horizontal_average, model) if reflect_denoiser else model
     device = next(model.parameters()).device
     if prediction_type == 'edm':
@@ -116,6 +130,8 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
                 not 0 <= guidance_min_timestep <= guidance_max < timesteps:
             raise ValueError('Invalid sampling timestep')
         indices = ddim_indices(last + 1, steps)
+        if score_sharpness != 1:
+            score_scales = temporal_score_scale(schedule, score_sharpness, score_sigma)
         if solver == 'dpmpp_2m':
             if len(set(indices)) != len(indices):
                 raise ValueError('DPM-Solver++ requires distinct timesteps')
@@ -161,14 +177,20 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
             hint = (preceding_clean,) if self_condition else ()
             if guidance == 1 or not guidance_min_timestep <= t <= guidance_max:
-                prediction = denoise(x, time, y, *hint)
+                conditional = denoise(x, time, y, *hint)
+                prediction = conditional
             else:
                 unconditional = denoise(x, time, torch.full_like(y, 2), *hint)
                 conditional = denoise(x, time, y, *hint)
                 prediction = unconditional + guidance * (conditional - unconditional)
                 if guidance_rescale:
                     prediction = rescale_guidance(prediction, conditional, guidance_rescale)
+            if pag_scale and 149 <= t <= 949:
+                perturbed = model(x, time, y, perturb_encoder_attention=True)
+                prediction = prediction + pag_scale * (conditional - perturbed)
             a = schedule[t]
+            if score_sharpness != 1:
+                prediction = prediction * score_scales[t]
             clean = reconstruct(x, prediction, a)
             if threshold_percentile is not None and t >= threshold_min_timestep:
                 clean = dynamic_threshold(clean, threshold_percentile)

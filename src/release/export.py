@@ -14,7 +14,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                       microbatch=None, execution_batch=None, start_timestep=None,
                       guidance_min_timestep=None, guidance_max_timestep=None, eta=None, solver=None,
                       guidance_rescale=None, threshold_percentile=None, threshold_min_timestep=None,
-                      self_condition_feedback=None, reflect_denoiser=None):
+                      self_condition_feedback=None, reflect_denoiser=None, score_sharpness=None, score_sigma=None,
+                      pag_scale=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -45,7 +46,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                  ('guidance_max_timestep', guidance_max_timestep), ('eta', eta), ('solver', solver),
                  ('guidance_rescale', guidance_rescale), ('threshold_percentile', threshold_percentile),
                  ('threshold_min_timestep', threshold_min_timestep), ('self_condition_feedback', self_condition_feedback),
-                 ('reflect_denoiser', reflect_denoiser)]
+                 ('reflect_denoiser', reflect_denoiser), ('score_sharpness', score_sharpness),
+                 ('score_sigma', score_sigma), ('pag_scale', pag_scale)]
     for key, value in overrides:
         if value is not None:
             sampling[key] = value
@@ -83,6 +85,16 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     if type(reflect) is not bool or (reflect and (prediction_type != 'epsilon' or solver != 'ddim'
                                                  or sampling.get('eta', 0) or model.self_condition)):
         raise ValueError('Reflected denoising requires deterministic epsilon DDIM without self-conditioning')
+    sharpness, sigma = sampling.get('score_sharpness', 1), sampling.get('score_sigma', .5)
+    if not math.isfinite(sharpness) or sharpness <= 0 or not math.isfinite(sigma) or sigma <= 0:
+        raise ValueError('Temporal score parameters must be positive and finite')
+    if sharpness != 1 and (prediction_type != 'epsilon' or solver != 'ddim' or sampling.get('eta', 0)
+                           or model.self_condition):
+        raise ValueError('Temporal score rescaling requires deterministic epsilon DDIM without self-conditioning')
+    pag = sampling.get('pag_scale', 0)
+    if not math.isfinite(pag) or pag < 0 or (pag and (prediction_type != 'epsilon' or solver != 'ddim'
+            or sampling.get('eta', 0) or reflect or model.self_condition)):
+        raise ValueError('Perturbed attention requires deterministic epsilon DDIM and ordinary denoiser inputs')
     percentile = sampling.get('threshold_percentile')
     threshold_min = sampling.get('threshold_min_timestep', 0)
     if percentile is not None and (not 0 < percentile <= 1 or prediction_type != 'epsilon'

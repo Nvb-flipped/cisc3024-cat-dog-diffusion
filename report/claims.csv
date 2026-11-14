@@ -35,4 +35,6 @@ C034,Same-trajectory EMA snapshot average,result,d49f3b4530e84fb7c9af284fb914a87
 C035,Matched residual dropout comparison,result,1ed27d3aed502fe4ee09772516b2c6e468838cf1152f7ecddab54f3ac58a5c0c,E158;E159;E160;E161,unverified,not_estimated,descriptive
 C036,Restricted CFG with rescale 0.25,result,4510914391288f7514812ae6cc3b63a046fe95f6d7f04eb62ebe3223f16b2c9f,E162;E163;E164;E165,unverified,not_estimated,descriptive
 C037,Matched 4×4 block-average epsilon loss,result,e484ae21d9ea2d88e5e52253625973c408b2e4a3022123ceada40b3e8472732b,E166;E167;E168;E169,unverified,not_estimated,descriptive
+C038,Horizontal reflection denoiser,result,f83353557343bc5f2097b5c3290847f14c820f6792273ea0cffa7298639aa83e,E170;E171;E172,unverified,not_estimated,descriptive
+C039,Temporal score rescaling,result,b2d486f1d49b7836ea33f47179cf97b330c8573b2188ba5ed192d7b2b1233949,E173;E174;E175;E176,unverified,not_estimated,descriptive
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive

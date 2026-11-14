@@ -27,7 +27,7 @@
     },
     "E007": {
       "path": "submission/model.py",
-      "sha256": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad"
+      "sha256": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4"
     },
     "E008": {
       "path": "results/setup/all_fast_tests.xml",
@@ -529,6 +529,34 @@
       "path": "results/experiments/v002_coarse_epsilon/update_030000/seed_0.json",
       "sha256": "aed57ff57cf11be97d8e7e53d4d88ca42933deca54a6363ee58694f97755fafd"
     },
+    "E170": {
+      "path": "results/plans/v002_reflected_denoiser.json",
+      "sha256": "a7f096841bb3976b171681baa55f196fdb9d9edc145e80b73c98f86d237652d9"
+    },
+    "E171": {
+      "path": "results/experiments/v002_reflected_denoiser/comparison.json",
+      "sha256": "3b5b532cda77dda2239aaf2426bfb81e701c4cfc9875d19f6e3099c6ad574d4a"
+    },
+    "E172": {
+      "path": "results/experiments/v002_reflected_denoiser/seed_0.json",
+      "sha256": "01e56d303c1ea5916f8223eccc3aa34760d2ccb656ba422aa22c878908fe1b7f"
+    },
+    "E173": {
+      "path": "results/plans/v002_temporal_score.json",
+      "sha256": "f755a2a62c490508f048af7bea73d59a7126a3b96d7e6820f9f4a61408f147cd"
+    },
+    "E174": {
+      "path": "results/experiments/v002_temporal_score/comparison.json",
+      "sha256": "5960b719bd31dc78de1f15818c9264dfa74c8e620689eb06d07909f2439e8eca"
+    },
+    "E175": {
+      "path": "results/experiments/v002_temporal_score/broader/seed_0.json",
+      "sha256": "7608c9caa62e6be784fe46a69396acdad96cc674b7e3c225d885d258556abf9d"
+    },
+    "E176": {
+      "path": "results/experiments/v002_temporal_score/sharper/seed_0.json",
+      "sha256": "98c4a7a55644d280baf744e1282fd822ded24b7367dca03eb0ec20d55ec869a9"
+    },
     "E137": {
       "path": "results/plans/rescale_followup.json",
       "sha256": "eca050f0464186b71e71e561606a16873317d21f31ea68c675ccbd86830f3ec3"
@@ -552,8 +580,8 @@
   },
   "verification": "Agent inspected local files; named human source/claim checks remain pending.",
   "generated_file_sha256": {
-    "source_manifest.json": "12d45a86ee25ecafc5c4adb40ccc7c7b7aa0d23257b854336cdbade79e296fb7",
-    "evidence_outline.md": "0be8995be64ac36a4cd31b6b31aeed2d783ea72377a55f332ef554a3b119eba4",
-    "claims.csv": "42d8ab2cfb12d25dd3ce9b5f91012af1d6cd6e8f14ea21301db42307030aa77b"
+    "source_manifest.json": "d9e3d5985499dc5d36d5a6bd90ae5ef192d592d5955521885272ade406a5acdc",
+    "evidence_outline.md": "376a5395f6da2636d14be9f135ccb345835c502bd09e131b3acb2c7c832a55cb",
+    "claims.csv": "b514154b09f6bd5457a89e8936761621697d4b72127ea99f649e531cd378ab60"
   }
 }

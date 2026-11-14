@@ -1,0 +1,34 @@
+{
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_temporal_score.py": "4e9e379db48f47d0b02c3c417d2b475f45262c1be98a64df87b42f58fa0a5a38",
+    "submission\\diffusion.py": "d1e13047181d9aa027985ba3681cc6047894a64a1fd81ccc3dbaab834ec9380a",
+    "submission\\model.py": "a1bfdbc29b814b07661e8bc241963f5fa0a5f10547c395dc796a5263aabf9cad",
+    "src\\release\\export.py": "87cf6843315e7dcece1d52f92ac0ec9ae35f6433502622fbfe93cc738a8340a0",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "guidance_rescale": 0.25,
+    "score_sigma": 0.5
+  },
+  "arms": {
+    "broader": 0.93,
+    "sharper": 1.07
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "created": "2026-11-14T07:23:27.820620+00:00",
+  "source": "https://arxiv.org/html/2510.01184v2#S4",
+  "rule": "Test the published mild broadening factor and a similarly sized sharpening factor. Fix sigma at 0.5 in normalized pixel space. Scale epsilon after CFG rescale with equation (5). Keep the exact v002 checkpoint and evaluate both directions on full seed 0. Advance at most one valid improvement."
+}

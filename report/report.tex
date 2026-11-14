@@ -124,6 +124,10 @@ Restricting CFG on the v002 0.25 rescale candidate scored 11/15 on seed 0 in bot
 
 Adding a variance-normalized $4\times4$ block-average loss to the full-resolution epsilon objective on v002 scored 8/15 at 28k and 9/15 at 30k on seed 0. The 30k checkpoint reached FID 87.62, recall 22.12\%, and memorization 4.90\% under the matched 0.25 rescale sampler. The block-average term preserved exact training crops and the pixel-resolution architecture. Neither checkpoint advanced.
 
+Averaging denoiser predictions for original and horizontally reflected inputs at sampling time lowered seed-0 memorization to 0.05\%, but FID increased to 100.63 and recall fell to 17.15\%. The score was 7/15.
+
+Temporal score rescaling with a local scale of 0.5 produced 11/15 on seed 0 with factor 0.93. Factor 1.07 reduced FID to 70.10, 69.22 and 68.60 across the three selection seeds. Memorization reached 5.35\% on seed 202, so the setting failed the hard condition.
+
 \IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
 \begin{figure}[htbp]
   \centering

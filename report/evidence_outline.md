@@ -148,6 +148,14 @@ At 30,000 training updates with late_off, generation seed 0 scored 11/15 with ac
 
 At 28,000 training updates, generation seed 0 scored 8/15 with accuracy 87.20%, FID 93.00, 16.92% recall, and 3.15% memorization. At 30,000 training updates, generation seed 0 scored 9/15 with accuracy 88.30%, FID 87.62, 22.12% recall, and 4.90% memorization. [claim:C037] [evidence:E166,E167,E168,E169]
 
+## Horizontal reflection denoiser: C038
+
+At 30,000 training updates, generation seed 0 scored 7/15 with accuracy 88.30%, FID 100.63, 17.15% recall, and 0.05% memorization. [claim:C038] [evidence:E170,E171,E172]
+
+## Temporal score rescaling: C039
+
+At 30,000 training updates with broader, generation seed 0 scored 11/15 with accuracy 89.45%, FID 77.44, 30.53% recall, and 3.80% memorization. At 30,000 training updates with sharper, generation seed 0 scored 12/15 with accuracy 90.70%, FID 70.10, 31.75% recall, and 4.70% memorization. [claim:C039] [evidence:E173,E174,E175,E176]
+
 ## Three-seed CFG rescale follow-up: C031
 
 With the exact v002 EMA weights and 0.25 rescale, the official marks were 12/12/11. FID was 70.53–72.16, recall 30.75%–34.62%, and memorization 4.30%–4.85%. [claim:C031] [evidence:E137,E138,E139,E140,E141,E112]

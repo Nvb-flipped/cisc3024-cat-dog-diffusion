@@ -41,10 +41,12 @@ class SpatialAttention(nn.Module):
         self.qkv = nn.Conv2d(channels, 3 * channels, 1)
         self.proj = nn.Conv2d(channels, channels, 1)
 
-    def forward(self, x):
+    def forward(self, x, *, identity_attention=False):
         b, c, height, width = x.shape
         q, k, v = self.qkv(self.norm(x)).reshape(
             b, 3, self.heads, c // self.heads, height * width).unbind(1)
+        if identity_attention:
+            return x + self.proj(v.reshape(b, c, height, width))
         weights = torch.softmax(torch.matmul(q.transpose(-1, -2), k) / math.sqrt(c // self.heads), dim=-1)
         h = torch.matmul(v, weights.transpose(-1, -2)).reshape(b, c, height, width)
         return x + self.proj(h)
@@ -117,7 +119,7 @@ class ConditionalUNet(nn.Module):
         else:
             self.detail_input = None
 
-    def forward(self, x, timesteps, labels, clean_hint=None):
+    def forward(self, x, timesteps, labels, clean_hint=None, *, perturb_encoder_attention=False):
         condition = self.time_mlp(timestep_embedding(timesteps, self.embedding_dim)) + self.class_embedding(labels)
         model_input = x
         if self.self_condition:
@@ -130,7 +132,10 @@ class ConditionalUNet(nn.Module):
             for block in stage['blocks']:
                 h = block(h, condition)
                 skips.append(h)
-            h = stage['attention'](h)
+            if perturb_encoder_attention and level == 2:
+                h = stage['attention'](h, identity_attention=True)
+            else:
+                h = stage['attention'](h)
             if level < 3:
                 h = self.downsample[level](h)
         h = self.middle2(self.middle_attention(self.middle1(h, condition)), condition)
