@@ -1,4 +1,4 @@
-* text=auto eol=lf whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 # Manifest/ledger/evidence hashes identify exact bytes; never convert their line endings.
 *.csv -text
 *.json -text
