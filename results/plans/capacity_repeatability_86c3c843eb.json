@@ -1,0 +1,79 @@
+{
+  "created": "2026-11-12T05:28:47.936112+00:00",
+  "inputs": {
+    "results\\plans\\capacity_32_extension_86c3c843eb.json": "e43fc8bbef19373f0886688e2db6069b823e3dd11cb4092a1ee905da26fff6f9",
+    "results\\experiments\\capacity_32_seed17\\selection.json": "58a7b1f5eb77c5d6fb2ba920aff129c321c3207786d544901bfc41e74860c120",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+    "manifests\\v001.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "manifests\\v001.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "submission\\diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+    "checkpoints\\capacity_32_seed17_22k_to_30k_86c3c843eb\\update_030000.pt": "40e4a9f9afe848fc9563e81a5e1da5619c0fd9bea1fb7beebce68319466cea36",
+    "private_build\\capacity_repeatability.py": "0673e6d7602ccb5f6c05f29787a05d48379c101a8a6ed739916e4b0f0273d887"
+  },
+  "runs": [
+    {
+      "seed": 29,
+      "name": "capacity_32_seed29_u030000_86c3c843eb",
+      "directory": "checkpoints\\capacity_32_seed29_u030000_86c3c843eb",
+      "command": [
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "src.training.train",
+        "--config",
+        "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+        "--manifest",
+        "manifests\\v001.csv",
+        "--validation-manifest",
+        "manifests\\v001.validation.csv",
+        "--seed",
+        "29",
+        "--updates",
+        "30000",
+        "--out",
+        "checkpoints\\capacity_32_seed29_u030000_86c3c843eb"
+      ]
+    },
+    {
+      "seed": 43,
+      "name": "capacity_32_seed43_u030000_86c3c843eb",
+      "directory": "checkpoints\\capacity_32_seed43_u030000_86c3c843eb",
+      "command": [
+        "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+        "-u",
+        "-m",
+        "src.training.train",
+        "--config",
+        "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+        "--manifest",
+        "manifests\\v001.csv",
+        "--validation-manifest",
+        "manifests\\v001.validation.csv",
+        "--seed",
+        "43",
+        "--updates",
+        "30000",
+        "--out",
+        "checkpoints\\capacity_32_seed43_u030000_86c3c843eb"
+      ]
+    }
+  ],
+  "updates": 30000,
+  "reference_training_seed": 17,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ],
+  "n_per_class": 1000,
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "decision": "Compare all three selection seeds for each run. Confirm a new candidate only if its valid official ranking improves on training seed 17."
+}

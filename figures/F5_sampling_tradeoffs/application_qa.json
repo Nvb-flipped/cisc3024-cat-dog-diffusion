@@ -1,0 +1,17 @@
+{
+  "checked": "2026-11-12T06:00:40.048061+00:00",
+  "reference_drawio_sha256": "7c84c8a6476addc4667e48ddeaf5aadb16fd7a0007606b3b3cbc39c985e705a5",
+  "powerpoint_check": {
+    "status": "native render visually verified",
+    "reference_pptx_sha256": "100811d4462f4aa3f78eee315c7fa5da6c7addddd49ba885a11e86499519fa70",
+    "render_path": "private_build\\development_figure_application_qa\\F5_sampling_tradeoffs_powerpoint.pdf",
+    "render_sha256": "d9095a73c1b36f6cd11ca35f452b5c9f8e854e29a328ca081c1d78883604e14a"
+  },
+  "drawio_check": {
+    "status": "native local rendering passed; interactive edit-save-reopen pending",
+    "application_version": "32.6.1",
+    "render_path": "private_build\\development_figure_application_qa\\F5_sampling_tradeoffs_drawio.png",
+    "render_sha256": "16a2deb2a49f15549224062083538453ac6b7c5e67aa4369f509a7d0a5cedc67"
+  },
+  "comparison": "private_build\\development_figure_application_qa\\visual_comparison.png"
+}

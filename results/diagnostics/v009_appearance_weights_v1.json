@@ -1,0 +1,21 @@
+{
+  "manifest_sha256": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+  "source_code_sha256": "d2f3d66be6cdd4c57de9445d3e5b4dd074bb8294dfce83fa64310276f286f623",
+  "weights_sha256": "fc46cd53f6a75c24ee17d8544fda9165f6a70f5dcca106ecb7315492da610ea0",
+  "classes": {
+    "0": {
+      "rows": 669,
+      "min": 0.5764329433441162,
+      "max": 1.4891183376312256,
+      "effective_rows": 634.7591552734375
+    },
+    "1": {
+      "rows": 730,
+      "min": 0.5806093811988831,
+      "max": 1.499907374382019,
+      "effective_rows": 697.8108520507812
+    }
+  },
+  "threads": 8,
+  "used_training_rows_only": true
+}

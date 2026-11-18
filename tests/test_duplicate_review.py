@@ -50,6 +50,35 @@ def test_similarity_does_not_create_verdicts(store):
     assert not store.groups.exists() and not store.log.exists()
 
 
+def test_large_comparison_groups_keep_all_members_with_at_most_eight_per_page():
+    from src.curation.duplicate_review import review_pages
+    members = [f'head-{i:02}' for i in range(19)]
+    pages = review_pages([members, ['single-a'], ['single-b']])
+    assert [len(page['ids']) for page in pages] == [8, 8, 3, 2]
+    assert [key for page in pages for key in page['ids']] == members + ['single-a', 'single-b']
+    assert [page['component_part'] for page in pages[:3]] == [1, 2, 3]
+    assert all(page['component_parts'] == 3 for page in pages[:3])
+    assert pages[-1]['singleton'] is True
+
+
+def test_draft_inventory_never_promotes_unreviewed_or_edited_crops(store, monkeypatch, tmp_path):
+    import src.curation.duplicate_review as module
+    reviewed = [json.loads(line) for line in store.decisions.read_text().splitlines()]
+    rows = [dict(row) for row in reviewed]
+    rows[1]['size'] += 1
+    rows.append(dict(rows[0], candidate_id='unreviewed-draft'))
+    catalog = tmp_path / 'results/curation/expansion_duplicate_advisory_v050.json'
+    catalog.parent.mkdir(parents=True)
+    catalog.write_text(json.dumps({'batch_count': 1, 'batches': [{'batch': 1, 'items': rows}]}))
+    monkeypatch.setattr(module, 'ROOT', tmp_path)
+    before = store.decisions.read_bytes()
+    batch = store.batch_advisory()['batches'][0]
+    assert [row['review_status'] for row in batch['items']] == ['good', 'changed', 'good', 'pending']
+    assert store.decisions.read_bytes() == before
+    assert not store.groups.exists() and not store.log.exists()
+    assert 'unreviewed-draft' not in {row['candidate_id'] for row in store.queue()['items']}
+
+
 def test_personal_choices_materialize_replayable_groups(store):
     assert store.save(choices(store))['saved'] == 3
     with store.groups.open(newline='') as stream:

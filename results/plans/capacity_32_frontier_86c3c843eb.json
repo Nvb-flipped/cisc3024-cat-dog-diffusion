@@ -1,0 +1,90 @@
+{
+  "created": "2026-11-12T00:23:02.664767+00:00",
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v001.csv",
+    "--validation-manifest",
+    "manifests\\v001.validation.csv",
+    "--seed",
+    "17",
+    "--resume",
+    "checkpoints\\capacity_32_seed17_22k_to_30k_86c3c843eb\\update_030000.pt",
+    "--updates",
+    "34000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_30k_to_34k_86c3c843eb"
+  ],
+  "config_sha256": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+  "parent_checkpoint_sha256": "40e4a9f9afe848fc9563e81a5e1da5619c0fd9bea1fb7beebce68319466cea36",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "incumbent_selection_sha256": "58a7b1f5eb77c5d6fb2ba920aff129c321c3207786d544901bfc41e74860c120",
+  "incumbent_confirmation_sha256": "179c0634f3816e9ea457b8740439b6ac3fa118bfccedec807e07722d69b95fb0",
+  "screen": [
+    {
+      "update": 30000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    },
+    {
+      "update": 30000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 30000,
+      "ddim_steps": 100,
+      "guidance": 2.5
+    },
+    {
+      "update": 32000,
+      "ddim_steps": 50,
+      "guidance": 1.5
+    },
+    {
+      "update": 32000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 32000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    },
+    {
+      "update": 34000,
+      "ddim_steps": 50,
+      "guidance": 1.5
+    },
+    {
+      "update": 34000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 34000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    }
+  ],
+  "weights": "ema",
+  "screening_seed": 0,
+  "screening_n_per_class": 250,
+  "maximum_new_selection_candidates": 2,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ],
+  "decision": "Rank valid screening results with the unchanged official evaluator and promote up to two challengers alongside the existing 30k reference. Require a stronger minimum tier or at least 0.05 stronger minimum normalized margin across the selection seeds. Freeze the winning export before its confirmations."
+}

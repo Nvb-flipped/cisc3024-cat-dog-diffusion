@@ -1,0 +1,29 @@
+{
+  "solver": "ddim",
+  "steps": 50,
+  "device": "cuda",
+  "count": 35,
+  "microbatches": [
+    32,
+    7
+  ],
+  "exact_ddim_reference": true,
+  "deterministic_and_label_isolated": true,
+  "caller_rng_preserved": true,
+  "candidate_provenance_sha256": "0a9aaafec9cc3f5ea31bd3eacf42e006854dfbcaad8ff1783498d1ba471310c2",
+  "freeu": true,
+  "reference_checks": {
+    "solver": "dpmpp_2m",
+    "steps": 50,
+    "device": "cuda",
+    "count": 35,
+    "microbatches": [
+      32,
+      7
+    ],
+    "exact_ddim_reference": true,
+    "deterministic_and_label_isolated": true,
+    "caller_rng_preserved": true,
+    "candidate_provenance_sha256": "862b3feb8ac66bb2a20f463cbaeb7a7aa07e64060a3f0cd2b9a819298c45ea13"
+  }
+}

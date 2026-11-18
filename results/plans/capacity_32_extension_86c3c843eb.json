@@ -1,0 +1,47 @@
+{
+  "created": "2026-11-11T20:05:23.713211+00:00",
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v001.csv",
+    "--validation-manifest",
+    "manifests\\v001.validation.csv",
+    "--seed",
+    "17",
+    "--resume",
+    "checkpoints\\capacity_32_seed17_u022000_86c3c843eb\\update_022000.pt",
+    "--updates",
+    "30000",
+    "--out",
+    "checkpoints\\capacity_32_seed17_22k_to_30k_86c3c843eb"
+  ],
+  "parent_checkpoint": "checkpoints\\capacity_32_seed17_u022000_86c3c843eb\\update_022000.pt",
+  "parent_checkpoint_sha256": "2b44592016cc33f61a08f477e658cf4168a7f4135c0e7055412ab1edc7d60d66",
+  "parent_comparison_sha256": "d13a653aba7f9f3b499638f55cdc193528747333c9b9874ff18e6c3549693b36",
+  "config_sha256": "14203b0f36fde2069832388c8c0d737003890d2b6dc1ee04149f600eb57d16e7",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "checkpoints": [
+    24000,
+    26000,
+    28000,
+    30000
+  ],
+  "seed_0_priority": [
+    26000,
+    30000
+  ],
+  "reason": "22k was officially valid and improved the matched-sampler margin versus 21k by 0.758, with no flags in 2,000 generated crops.",
+  "protocol": {
+    "weights": "ema",
+    "ddim_steps": 50,
+    "guidance": 2.5,
+    "seed": 0,
+    "n_per_class": 1000
+  }
+}

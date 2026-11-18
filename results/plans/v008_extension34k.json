@@ -1,0 +1,40 @@
+{
+  "inputs": {
+    "results\\plans\\v008_coverage32k.json": "1b47aa4367a7d00af484c49154270f90a56e1d176ec286dc55ce1c3671ed7fec",
+    "results\\experiments\\v008_coverage32k\\screen.json": "8fd3b3b7cd8a796c78bfcd6489d054138301a22063c27e8be6937730903acdd9",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "checkpoints\\v008_coverage32k_seed17\\update_032000.pt": "a3f5c60ede8f6da3c2ccf89b3a7f10758b1be2e9f1a2ec1d8c54fe18a80a0970",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v008_extension.py": "ff57f183205530e8f08c43393efee0a846ee6a3847e1a92daa8b1a4638ac719d"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v008_coverage32k.json",
+    "--manifest",
+    "manifests\\v008.csv",
+    "--validation-manifest",
+    "manifests\\v008.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "34000",
+    "--resume",
+    "checkpoints\\v008_coverage32k_seed17\\update_032000.pt",
+    "--out",
+    "checkpoints\\v008_extension34k_seed17"
+  ],
+  "seed": 0,
+  "rule": "Use the v008 32k seed-0 copy-rate margin for one matched 2k continuation."
+}

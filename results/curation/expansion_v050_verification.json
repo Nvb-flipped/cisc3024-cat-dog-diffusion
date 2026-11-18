@@ -1,0 +1,283 @@
+{
+  "verified_at": "2026-11-18T11:45:05.373380+00:00",
+  "batch_count": 50,
+  "new_batch_range": [
+    26,
+    50
+  ],
+  "new_drafts": 420,
+  "suggested_cats": 200,
+  "suggested_dogs": 220,
+  "all_new_local_previews_official_pixel_parity": 420,
+  "live_preview_hash_samples": 50,
+  "head_study_batches_checked": 50,
+  "findings_pages_checked": 50,
+  "duplicate_preparation_batches": 50,
+  "approved_only_count": 1462,
+  "maximum_approved_comparison_page": 8,
+  "verification_did_not_submit_verdicts": true,
+  "personal_ledger_sha256": {
+    "annotations\\decisions.jsonl": "6ed9377a985e172fccb0e720ae4e23a39899769a96cee7f5e063af68ba01ad00",
+    "annotations\\duplicate_decisions.jsonl": "1c9d59392bf7a503c31fb334fe25e561b65c5f0d78622aa9a1c587a41c19ab07",
+    "annotations\\duplicate_groups.csv": "a63eea6b8238eca21cda0bf34fac29d562d4e2e85baddea2f7d084102b12c241"
+  },
+  "batches": [
+    {
+      "batch": 1,
+      "count": 59,
+      "shortlist_sha256": "f30a29486c94dca2be61428f6560f5a34215b6250abd631c7864eb5cb966b95f"
+    },
+    {
+      "batch": 2,
+      "count": 65,
+      "shortlist_sha256": "9b8b3c3a97f87b494ec198f5db9e04f3e80380f7faee5b44ed2199664fe74a1d"
+    },
+    {
+      "batch": 3,
+      "count": 55,
+      "shortlist_sha256": "b8966c7f3181ecd7eaa0c53a9958cb379d06371927f318d17a02c42bcedf49df"
+    },
+    {
+      "batch": 4,
+      "count": 68,
+      "shortlist_sha256": "9e70e0e4978d2fb267fd9361ed77d9edfb10176ec6f8272869c7eefedaac1b37"
+    },
+    {
+      "batch": 5,
+      "count": 117,
+      "shortlist_sha256": "390b5e581ec5db0e4955090419982ab9bdbd7e8984c92d4058a968ce545b95f1"
+    },
+    {
+      "batch": 6,
+      "count": 124,
+      "shortlist_sha256": "7130aa62d359a43166222ee01ed7121ab466070bd86cff5e055a90855d9ee1c3"
+    },
+    {
+      "batch": 7,
+      "count": 124,
+      "shortlist_sha256": "cd19781e6477a4499a92f85737c2961abd64dd1baa59c8ea70b54cc24a895e33"
+    },
+    {
+      "batch": 8,
+      "count": 141,
+      "shortlist_sha256": "1818121ba1194f64461a295c8f44ae1641e79962dc0730b247f97b9e2ff8ad6a"
+    },
+    {
+      "batch": 9,
+      "count": 120,
+      "shortlist_sha256": "210f5cf08e3f75acbf7a99ba51690a0e9962c3084b9ebe68da3cca2112bd1523"
+    },
+    {
+      "batch": 10,
+      "count": 132,
+      "shortlist_sha256": "b8eae27758d6fea16cc41806de2c79efe380f5be74be705677387e211a163bfd"
+    },
+    {
+      "batch": 11,
+      "count": 111,
+      "shortlist_sha256": "f976ca99ca0ee1cda239fa2368f203370c3d154d9bcfe46ca4524b44fc292a59"
+    },
+    {
+      "batch": 12,
+      "count": 104,
+      "shortlist_sha256": "e592aba5ac793306886bcf54bf844afd37720ab7381bd06d3240204b4d3eac7f"
+    },
+    {
+      "batch": 13,
+      "count": 107,
+      "shortlist_sha256": "915abf25d65e9725a65a99b7df68d4366115659c74484ade51c6ff23979fd4fa"
+    },
+    {
+      "batch": 14,
+      "count": 8,
+      "shortlist_sha256": "9da089f05f570b8729e2fda621b8e5318384677a4849ffbad2213f053cb5bf80"
+    },
+    {
+      "batch": 15,
+      "count": 8,
+      "shortlist_sha256": "aa2ad81641edfa426ca3cbcea5b99b9819761340cc98a18a0215c7cbe281e17d"
+    },
+    {
+      "batch": 16,
+      "count": 8,
+      "shortlist_sha256": "12060fb7d077c38594ac45affa12fff6967e8bee915993b9ff62baff4d678e73"
+    },
+    {
+      "batch": 17,
+      "count": 28,
+      "shortlist_sha256": "68b3e21cda19a5a4038785330d6229eea8394cac556759c2277372a029b36e9c"
+    },
+    {
+      "batch": 18,
+      "count": 51,
+      "shortlist_sha256": "3f0461a23ee9b6cb2f0bff283fc93e0f14a322c7feaaedc87290972b5877a673"
+    },
+    {
+      "batch": 19,
+      "count": 13,
+      "shortlist_sha256": "070d7102fe2cba22d50881a266f5967bb611c4befd26f9fe8c220b6c51d7b195"
+    },
+    {
+      "batch": 20,
+      "count": 35,
+      "shortlist_sha256": "f40df70892165a11e70fd6cad174f13f7c6e9899aba6ffdc8407a2a8ebaad320"
+    },
+    {
+      "batch": 21,
+      "count": 31,
+      "shortlist_sha256": "5494b385b2b33fd7bcf3ccdece008a4404acc2d16eb42b2f44d8257e1617f748"
+    },
+    {
+      "batch": 22,
+      "count": 35,
+      "shortlist_sha256": "d8b6facfcfd15a928699c751b2185b5e48dd61eb8625abba901d13ebe2ce19fe"
+    },
+    {
+      "batch": 23,
+      "count": 74,
+      "shortlist_sha256": "1681e479fa156cd783629c8a9da5f53b66673699a740148672e4f6a17ea9fffe"
+    },
+    {
+      "batch": 24,
+      "count": 63,
+      "shortlist_sha256": "654831add829d7f556f4e7f151439a9d75ef1d63860fb87255a29847052ab82e"
+    },
+    {
+      "batch": 25,
+      "count": 69,
+      "shortlist_sha256": "eb6a39ce27b2793b4b856badff0cbef1e48906f4a5421aa39d38e106f9322c0e"
+    },
+    {
+      "batch": 26,
+      "count": 27,
+      "shortlist_sha256": "754b2335edb72ad06f30985290738cb4baa71da2ef9f43a88e489e784d88aafb"
+    },
+    {
+      "batch": 27,
+      "count": 26,
+      "shortlist_sha256": "83911935030c5bec1b577b1b15a4189176298fbe4cfa711decd1fb638d765ab6"
+    },
+    {
+      "batch": 28,
+      "count": 25,
+      "shortlist_sha256": "789aaad856b648eaacfa12244b3b8f0cf8fec1e0487afdf7b55ee1c468cd43e5"
+    },
+    {
+      "batch": 29,
+      "count": 16,
+      "shortlist_sha256": "764f278514ee4f1d65488bf400f9c375bc45d43dd37bd2b29b2d127e2c64c52e"
+    },
+    {
+      "batch": 30,
+      "count": 15,
+      "shortlist_sha256": "932f6ec9ce3508fc535c9dd0cf02702224b491f329c0afec7de80902e2fd8201"
+    },
+    {
+      "batch": 31,
+      "count": 16,
+      "shortlist_sha256": "c75320de967e186dfba99015a9197362fbb386fe45003a4929ce9cbcc76230af"
+    },
+    {
+      "batch": 32,
+      "count": 16,
+      "shortlist_sha256": "131de1862fcf63f36927158a28f0dc924cfcf6dda776d920c8ed5d4d6841b2f2"
+    },
+    {
+      "batch": 33,
+      "count": 16,
+      "shortlist_sha256": "001ed7be89089437f8c1c24a0cd03257de658911afc9779b1464bd9104d66783"
+    },
+    {
+      "batch": 34,
+      "count": 16,
+      "shortlist_sha256": "bf6129c188d22be86c1781184e77fd82977e8d0d7321f5f73b5d604bdf6da5b1"
+    },
+    {
+      "batch": 35,
+      "count": 16,
+      "shortlist_sha256": "62d78d9eabea48fe6e9271e8fecd44714acdd2e64cbd9f74ab0bf0d8b9199b8b"
+    },
+    {
+      "batch": 36,
+      "count": 16,
+      "shortlist_sha256": "4884de1be946bbd7436ade468f812a6958bc8ab3824cc4099032371b059dcb28"
+    },
+    {
+      "batch": 37,
+      "count": 16,
+      "shortlist_sha256": "7f70eef22443bcdcb5370f420974317f72d61b35fe76b936c85cb1c34ab4c40d"
+    },
+    {
+      "batch": 38,
+      "count": 16,
+      "shortlist_sha256": "fc255aa3bfa5fcdbe799b8e9aad4ca2e2e4b6d7d204ff1569cc2b8594c70c3cf"
+    },
+    {
+      "batch": 39,
+      "count": 14,
+      "shortlist_sha256": "462056e7a4e5431425fddc36a8753940e67fa1dc8d845117ea9be87ced78e92f"
+    },
+    {
+      "batch": 40,
+      "count": 11,
+      "shortlist_sha256": "638e0ab2603d17aaa5ef295a00fc9034aa7674f8aae09beeaf45c2fcc2dfa362"
+    },
+    {
+      "batch": 41,
+      "count": 15,
+      "shortlist_sha256": "da8f411b8e26e604c092e7a841a7598c078e6f69e37f5e1b9bc3cb5a58d4cd70"
+    },
+    {
+      "batch": 42,
+      "count": 16,
+      "shortlist_sha256": "e8f32c451bdef0e0996ac33f0f70972855cd0663e39947c869456e1293607a33"
+    },
+    {
+      "batch": 43,
+      "count": 16,
+      "shortlist_sha256": "65f62b843f3358882dc9c0051b2b46248f665e8241ce443be1fff7ee657ac72f"
+    },
+    {
+      "batch": 44,
+      "count": 15,
+      "shortlist_sha256": "7f956b6646974075633952a2642d82bfaf1b643eb2460c11ae67e322a532b68b"
+    },
+    {
+      "batch": 45,
+      "count": 16,
+      "shortlist_sha256": "090d70164f9e4f5c758f1946a57d022794c53d4f2a6b778c77feee665f9d9d8c"
+    },
+    {
+      "batch": 46,
+      "count": 16,
+      "shortlist_sha256": "fbedf1d6a1a8603498c3b8ce732830cb68d71c12ee0b5d64407a2213a3825c83"
+    },
+    {
+      "batch": 47,
+      "count": 16,
+      "shortlist_sha256": "0113e221ccc07af4212da5e6a7c716b4bb5c35ce7c964d101d04e7f95286f583"
+    },
+    {
+      "batch": 48,
+      "count": 16,
+      "shortlist_sha256": "5d540568c0813620b4c052fdaecf621cf530c5dac95da2cb367f0f644113ef3c"
+    },
+    {
+      "batch": 49,
+      "count": 16,
+      "shortlist_sha256": "19f099eb5c501ed1eb1bcc73995e41263e10397cbb9793760fa3ef25a7b62a9a"
+    },
+    {
+      "batch": 50,
+      "count": 16,
+      "shortlist_sha256": "3028eee1802bbbd4f90d7b3d454c60cd6446041f6e41d0d0579de0f145a0fa9f"
+    }
+  ],
+  "browser_visual_check": "Not completed: Computer Use stopped because it could not confidently determine the current browser URL.",
+  "tests": {
+    "pytest_review_and_provenance": 18,
+    "node_review_and_draft_ui": 9
+  },
+  "training_approval": false,
+  "scheduled_followups": "cancelled; none recreated"
+}

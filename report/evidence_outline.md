@@ -208,6 +208,106 @@ The v007 32k EMA with CFG 3.25 and PAG 0.15 scored 12/12/12. Accuracy was 90.30%
 
 The retained temporal setting scored 12/12/12. Accuracy was 90.20%–91.90%, FID 63.71–66.28, recall 31.08%–34.85%, and memorization 4.05%–4.65%. [claim:C050] [evidence:E211,E212,E213,E214,E215,E216]
 
+## v007 class-embedding noise annealing: C051
+
+Development scores out of 15 were 12, 12, 12. Accuracy was 91.90%–93.35%, FID 64.49–65.05, recall 30.64%–34.29%, and memorization 3.60%–4.30%. [claim:C051] [evidence:E217,E218,E219,E220,E221,E222]
+
+## v008 1,369-crop fit: C052
+
+Development scores out of 15 were 12. Accuracy was 93.85%–93.85%, FID 66.82–66.82, recall 34.29%–34.29%, and memorization 3.00%–3.00%. [claim:C052] [evidence:E223,E224,E225]
+
+## v009 1,399-crop fit: C053
+
+Development scores out of 15 were 11. Accuracy was 91.10%–91.10%, FID 71.02–71.02, recall 28.76%–28.76%, and memorization 2.10%–2.10%. [claim:C053] [evidence:E226,E227,E228]
+
+## v009 appearance-weighted fit: C054
+
+Development scores out of 15 were 11. Accuracy was 92.15%–92.15%, FID 71.38–71.38, recall 29.42%–29.42%, and memorization 2.80%–2.80%. [claim:C054] [evidence:E229,E230,E231]
+
+## v009 Haar fit: C055
+
+Development scores out of 15 were 7. Accuracy was 80.35%–80.35%, FID 121.42–121.42, recall 19.69%–19.69%, and memorization 3.50%–3.50%. [claim:C055] [evidence:E232,E233,E234]
+
+## v009 rectified-flow fit: C056
+
+Development scores out of 15 were 0. Accuracy was 91.00%–91.00%, FID 90.96–90.96, recall 28.87%–28.87%, and memorization 34.65%–34.65%. [claim:C056] [evidence:E235,E236,E237]
+
+## v009 36k extension: C057
+
+Development scores out of 15 were 0. Accuracy was 92.35%–92.35%, FID 67.12–67.12, recall 33.19%–33.19%, and memorization 5.05%–5.05%. [claim:C057] [evidence:E238,E239,E240]
+
+## v009 36k extension with CFG 3.0: C058
+
+Development scores out of 15 were 12. Accuracy was 91.95%–91.95%, FID 68.12–68.12, recall 31.42%–31.42%, and memorization 4.65%–4.65%. [claim:C058] [evidence:E241,E242,E243]
+
+## v007 decoder feature reweighting: C059
+
+Development scores out of 15 were 12, 12, 0. Accuracy was 92.75%–93.10%, FID 61.47–62.00, recall 31.08%–32.08%, and memorization 4.30%–5.10%. [claim:C059] [evidence:E244,E245,E246,E247,E248,E249]
+
+## v007 decoder feature reweighting with CFG 3.10: C060
+
+Development scores out of 15 were 12, 12, 12. Accuracy was 92.65%–93.80%, FID 62.17–62.75, recall 31.31%–33.96%, and memorization 4.25%–4.95%. [claim:C060] [evidence:E250,E251,E252,E253,E254,E255]
+
+## v009 16×16 encoder attention: C061
+
+Development scores out of 15 were 12. Accuracy was 91.90%–91.90%, FID 67.86–67.86, recall 30.31%–30.31%, and memorization 2.25%–2.25%. [claim:C061] [evidence:E256,E257,E258]
+
+## v007 FreeU with 100 DDIM steps: C062
+
+Development scores out of 15 were 0. Accuracy was 92.85%–92.85%, FID 62.63–62.63, recall 34.85%–34.85%, and memorization 5.35%–5.35%. [claim:C062] [evidence:E259,E260,E261]
+
+## v009 attention with FreeU decoder reweighting: C063
+
+Development scores out of 15 were 12. Accuracy was 93.10%–93.10%, FID 64.25–64.25, recall 31.08%–31.08%, and memorization 3.15%–3.15%. [claim:C063] [evidence:E262,E263,E264]
+
+## v009 attention with stronger FreeU reweighting: C064
+
+Development scores out of 15 were 12. Accuracy was 93.10%–93.10%, FID 62.52–62.52, recall 31.19%–31.19%, and memorization 2.90%–2.90%. [claim:C064] [evidence:E265,E266,E267]
+
+## v009 attention continuation to 34,000 updates: C065
+
+Development scores out of 15 were 12. Accuracy was 93.55%–93.55%, FID 60.67–60.67, recall 34.51%–34.51%, and memorization 4.25%–4.25%. [claim:C065] [evidence:E268,E269,E270]
+
+## v009 attention continuation to 35,000 updates: C066
+
+Development scores out of 15 were 12. Accuracy was 94.00%–94.00%, FID 60.51–60.51, recall 33.96%–33.96%, and memorization 4.70%–4.70%. [claim:C066] [evidence:E271,E272,E273]
+
+## 34k sampler CFG 3.10: C067
+
+Development scores out of 15 were 12. Accuracy was 93.85%–93.85%, FID 61.58–61.58, recall 33.30%–33.30%, and memorization 4.40%–4.40%. [claim:C067] [evidence:E274,E275,E276]
+
+## 34k sampler PAG 0.10: C068
+
+Development scores out of 15 were 12. Accuracy was 93.65%–93.65%, FID 60.90–60.90, recall 32.19%–32.19%, and memorization 4.30%–4.30%. [claim:C068] [evidence:E277,E278,E279]
+
+## 34k sampler FreeU 1.80: C069
+
+Development scores out of 15 were 12. Accuracy was 93.95%–93.95%, FID 60.88–60.88, recall 33.08%–33.08%, and memorization 4.35%–4.35%. [claim:C069] [evidence:E280,E281,E282]
+
+## 34k sampler FreeU 2.20: C070
+
+Development scores out of 15 were 12. Accuracy was 93.65%–93.65%, FID 60.52–60.52, recall 33.96%–33.96%, and memorization 4.25%–4.25%. [claim:C070] [evidence:E283,E284,E285]
+
+## 34k late learning-rate reduction: C071
+
+Development scores out of 15 were 12. Accuracy was 93.80%–93.80%, FID 60.42–60.42, recall 34.29%–34.29%, and memorization 4.50%–4.50%. [claim:C071] [evidence:E286,E287,E288]
+
+## 35k late learning-rate reduction: C072
+
+Development scores out of 15 were 0. Accuracy was 93.80%–93.80%, FID 60.09–60.09, recall 32.96%–32.96%, and memorization 5.05%–5.05%. [claim:C072] [evidence:E289,E290,E291]
+
+## 35k lower-rate fit with FreeU 2.20: C073
+
+Development scores out of 15 were 12. Accuracy was 93.80%–93.80%, FID 60.00–60.00, recall 32.30%–32.30%, and memorization 4.85%–4.85%. [claim:C073] [evidence:E292,E293,E294]
+
+## Three-seed 34k attention stability: C074
+
+Scores were 12,12,12 out of 15. Accuracy was 92.50%–93.55%, FID 60.67–61.16, recall 31.08%–34.51%, and memorization 3.85%–4.55%. [claim:C074] [evidence:E295,E296,E297,E298,E299,E300]
+
+## 34k development reselection: C075
+
+After review removed the added worst-recall veto, the original minimum-tier and normalized-margin rule selected 34k attention. The recorded worst margins are -1.1161 for 34k attention and -1.2751 for the previous FreeU candidate. Reserved confirmation and student checks remain pending. [claim:C075] [evidence:E301]
+
 ## Evidence still required
 
 - Planned equal-budget ablations with exact checkpoint, manifest and code lineage.

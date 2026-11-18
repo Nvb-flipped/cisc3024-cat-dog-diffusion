@@ -5,8 +5,16 @@ from submission.diffusion import (add_noise, cosine_alpha_bar, ddim_indices, dpm
                                   ddim_step_variance,
                                   reconstruct_clean, reconstruct_clean_from_velocity,
                                   rescale_guidance, sample, velocity_target)
-from submission.model import ConditionalUNet
+from submission.model import ConditionalUNet, mix_haar_subbands
 from submission.edm import precondition
+
+
+def test_haar_packing_is_orthonormal_and_invertible():
+    pixels = torch.arange(48, dtype=torch.float64).reshape(1, 3, 4, 4) / 16
+    packed = torch.nn.functional.pixel_unshuffle(pixels, 2)
+    transformed = mix_haar_subbands(packed)
+    torch.testing.assert_close(transformed.square().sum(), packed.square().sum())
+    torch.testing.assert_close(mix_haar_subbands(transformed), packed, rtol=0, atol=0)
 
 
 @pytest.mark.parametrize('patch_size', [4, 8])
@@ -113,14 +121,17 @@ def test_forward_inversion_at_endpoints_and_middle():
     torch.testing.assert_close(restored, clean, rtol=1e-9, atol=1e-9)
 
 
+@pytest.mark.parametrize('spacing', ['uniform', 'quadratic'])
 @pytest.mark.parametrize('steps', [1, 2, 50, 100, 200, 1000])
-def test_ddim_indices(steps):
-    indices = ddim_indices(1000, steps)
+def test_ddim_indices(steps, spacing):
+    indices = ddim_indices(1000, steps, spacing)
     assert len(indices) == len(set(indices)) == steps
     assert indices[0] == 999
     assert all(a > b for a, b in zip(indices, indices[1:]))
     if steps > 1:
         assert indices[-1] == 0
+    if spacing == 'quadratic' and steps == 50:
+        assert indices[25] < ddim_indices(1000, steps)[25]
 
 
 def test_sampler_oracle_reaches_clean_endpoint():
@@ -284,3 +295,24 @@ def test_invalid_sampler_inputs_fail():
             sample(model, bad, 0, steps=1)
     with pytest.raises(ValueError):
         sample(model.train(), torch.tensor([0]), 0, steps=1)
+
+
+def test_class_noise_stream_is_private_and_preserves_output_slots():
+    class ClassNoiseProbe(ProbeModel):
+        embedding_dim = 4
+
+        def forward(self, x, t, y, *, class_noise=None, class_noise_fraction=0.0):
+            output = super().forward(x, t, y)
+            if class_noise is not None:
+                assert torch.count_nonzero(class_noise[y == 2]) == 0 and torch.all(t > 350)
+                output = output + class_noise_fraction * class_noise[:, :1, None, None]
+            return output
+
+    model = ClassNoiseProbe().eval()
+    labels = torch.arange(8) % 2
+    options = dict(steps=4, guidance=2, class_noise_max=.10, execution_batch=4)
+    rng = torch.get_rng_state().clone()
+    baseline = sample(model, labels, 17, microbatch=4, **options)
+    assert torch.equal(baseline, sample(model, labels, 17, microbatch=2, **options))
+    assert torch.equal(baseline[:1], sample(model, labels[:1], 17, **options))
+    assert torch.equal(rng, torch.get_rng_state())

@@ -1,0 +1,83 @@
+{
+  "submission": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\v009_haar32k",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.8100000023841858,
+    "single_class_batch_accuracy": 0.7699999809265137
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 1399,
+      "valid_rows": 1399,
+      "cat": 669,
+      "dog": 730,
+      "distinct_pool_images": 1399,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+    "accuracy": 0.8034999966621399,
+    "per_class_accuracy": {
+      "cat": 0.8429999947547913,
+      "dog": 0.7639999985694885
+    },
+    "fid": 121.41718494227365,
+    "kid": 0.08039835295319137,
+    "kid_std": 0.002272972677844847,
+    "precision": 0.5674778819084167,
+    "recall": 0.19690264761447906,
+    "memorization_rate": 0.03500000014901161,
+    "nn_distance_median": 7.190836429595947,
+    "nn_ratio_median": 0.7784518599510193,
+    "training_images_deduplicated": 2798
+  },
+  "resources": {
+    "num_parameters": 5087340,
+    "submission_mb": 19.54137897491455,
+    "seconds_per_1000": 51.11007285001688
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Good",
+        "marks": 4
+      },
+      "fid": {
+        "tier": "Poor",
+        "marks": 1
+      },
+      "recall": {
+        "tier": "Marginal",
+        "marks": 2
+      }
+    },
+    "total": 7,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.18",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

@@ -121,7 +121,7 @@ def optimize(manifest, baseline_export, baseline_results, output, export_root, e
         run_plan(plan)
 
         comparisons = []
-        for update in (50000, 40000, 30000):
+        for update in (50000, 40000, 30000, 20000, 10000):
             status('learning_rate_evaluation', comparison_update=update, training_comparisons=comparisons)
             for recipe in plan['commands']:
                 comparisons.append(training_evaluation(recipe, update))

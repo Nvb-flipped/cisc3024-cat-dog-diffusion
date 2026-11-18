@@ -1,0 +1,40 @@
+{
+  "device": "cpu",
+  "parameters": 5082147,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 50,
+      "checks_seconds": 93.12512899999274,
+      "sample_sha256": "f8de2bc85f8c74e7f496384c29d5c49b6497439c983e93c910ec4e91a85f09ad"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 745.4425104000256,
+      "sample_sha256": "71ae1c8aba40bd809e02be7a2adf83339dc41036645865c996e5f9e95ace1860"
+    }
+  ],
+  "seconds": 838.6264819999924,
+  "submission_bytes": 20465869,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "f329ba4b9f180afe013d562c00485b17d17a1aa2c38b1ae4655a1daabcc402ab",
+    "manifest.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "provenance.json": "862b3feb8ac66bb2a20f463cbaeb7a7aa07e64060a3f0cd2b9a819298c45ea13",
+    "weights.pt": "4797a9dc695a7fe5f1ec4f30124453f91a7fec6179e874d50623ff9e2bb3dee6",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

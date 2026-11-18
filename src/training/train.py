@@ -2,6 +2,8 @@
 import argparse
 import copy
 import csv
+import hashlib
+import math
 import random
 import time
 from pathlib import Path
@@ -11,6 +13,7 @@ import torch
 
 from src.common import ROOT, environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
+from src.training.density_sampling import appearance_sampling_weights
 from src.training.step import optimizer_step, update_ema, validate_loss_weighting
 from src.training.validation import require_disjoint_sources, validation_loss
 from src.training.lineage import reviewed_manifest_provenance
@@ -45,6 +48,8 @@ def main():
     p.add_argument('--seed', type=int, default=17)
     p.add_argument('--out', type=Path, default=None)
     p.add_argument('--resume', type=Path)
+    p.add_argument('--resume-learning-rate', type=float,
+                   help='Explicit learning-rate change in a new checkpoint branch, recorded in metadata')
     p.add_argument('--updates', type=int, help='Explicit budget override, recorded in run metadata')
     p.add_argument('--device', default='cuda')
     args = p.parse_args()
@@ -53,8 +58,12 @@ def main():
     if args.updates is not None:
         config['training']['updates'] = args.updates
     settings = config['training']
+    if args.resume_learning_rate is not None:
+        if not args.resume or not math.isfinite(args.resume_learning_rate) or args.resume_learning_rate <= 0:
+            raise ValueError('A positive finite resume learning rate requires --resume')
+        settings['learning_rate'] = args.resume_learning_rate
     prediction_type = settings.get('prediction_type', 'epsilon')
-    if prediction_type not in ('epsilon', 'velocity', 'edm'):
+    if prediction_type not in ('epsilon', 'velocity', 'edm', 'flow'):
         raise ValueError('Unsupported denoising target')
     if config['model'].get('self_condition') and prediction_type != 'epsilon':
         raise ValueError('Self-conditioning uses the epsilon target')
@@ -73,6 +82,11 @@ def main():
     images, labels, manifest_hash, stats = load_manifest_data(args.manifest, args.pool)
     if min(stats['cat'], stats['dog']) < 500:
         raise ValueError('Baseline requires at least 500 reviewed training heads per class')
+    image_weights, appearance_digest = None, None
+    if settings.get('appearance_sampling', False):
+        weights = appearance_sampling_weights(images, labels)
+        appearance_digest = hashlib.sha256(weights.numpy().tobytes()).hexdigest()
+        image_weights = weights.to(device)
     # Small 32x32 datasets fit on the local GPU; avoids multiprocessing/Windows loader overhead.
     images, labels = images.to(device), labels.to(device)
     validation_manifest = args.validation_manifest or Path(args.manifest).with_suffix('.validation.csv')
@@ -108,6 +122,7 @@ def main():
     out.mkdir(parents=True, exist_ok=True)
     start_update = 0
     parent_hash = None
+    learning_rate_transition = None
     if args.resume:
         state = torch.load(args.resume, map_location=device, weights_only=True)
         if state['manifest_sha256'] != manifest_hash:
@@ -122,11 +137,21 @@ def main():
             raise ValueError('Resume changes the held-out pool validation manifest')
         previous_settings = dict(state['config']['training'])
         new_settings = dict(settings)
+        if args.resume_learning_rate is not None:
+            if previous_settings['learning_rate'] != settings['learning_rate']:
+                if (out / 'run.json').exists():
+                    raise ValueError('A learning-rate change requires a fresh --out branch')
+                learning_rate_transition = dict(previous=previous_settings['learning_rate'],
+                                                current=settings['learning_rate'], update=state['update'])
+            previous_settings.pop('learning_rate')
+            new_settings.pop('learning_rate')
         for mutable in ('updates', 'checkpoint_every', 'log_every'):
             previous_settings.pop(mutable, None)
             new_settings.pop(mutable, None)
         if previous_settings != new_settings or state['config']['diffusion'] != config['diffusion']:
             raise ValueError('Resume changes optimizer/objective settings')
+        if state.get('appearance_sampling_sha256') != appearance_digest:
+            raise ValueError('Resume changes training-crop sampling weights')
         model.load_state_dict(state['model'])
         ema.load_state_dict(state['ema'])
         optimizer.load_state_dict(state['optimizer'])
@@ -147,6 +172,10 @@ def main():
         'submission/model.py', 'submission/diffusion.py']}
     if prediction_type == 'edm':
         code_hashes['submission/edm.py'] = sha256(ROOT / 'submission/edm.py')
+    if prediction_type == 'flow':
+        code_hashes['submission/flow.py'] = sha256(ROOT / 'submission/flow.py')
+    if appearance_digest is not None:
+        code_hashes['src/training/density_sampling.py'] = sha256(ROOT / 'src/training/density_sampling.py')
     metadata = {'config': config, 'config_sha256': sha256(args.config),
                 'manifest': str(Path(args.manifest).resolve()), 'manifest_sha256': manifest_hash,
                 'data_review_provenance_sha256': review_provenance_hash,
@@ -158,6 +187,10 @@ def main():
                                'stats': held_stats, 'seed': 3024, 'timesteps': [50, 250, 500, 750],
                                'microbatch': 32, 'prediction_type': prediction_type} if validation else None,
                 'command_args': vars(args) | {'out': str(out), 'resume': str(args.resume) if args.resume else None}}
+    if appearance_digest is not None:
+        metadata['appearance_sampling_sha256'] = appearance_digest
+    if learning_rate_transition is not None:
+        metadata['learning_rate_transition'] = learning_rate_transition
     metadata['command_args'] = {k: str(v) if isinstance(v, Path) else v for k, v in metadata['command_args'].items()}
     write_json(out / f'segment_{segment_id}.json', metadata)
     write_json(out / 'run.json', metadata)
@@ -170,7 +203,7 @@ def main():
             writer.writeheader()
         for update in range(start_update + 1, settings['updates'] + 1):
             loss, norm, lr = optimizer_step(model, optimizer, images, labels, alpha_bar,
-                                            generator, settings, update)
+                                            generator, settings, update, image_weights=image_weights)
             update_ema(ema, model, settings['ema_decay'])
             if update % settings['log_every'] == 0 or update == 1:
                 if device.type == 'cuda':
@@ -187,6 +220,7 @@ def main():
                      'seed': args.seed, 'manifest_sha256': manifest_hash, 'stats': stats,
                      'data_review_provenance_sha256': review_provenance_hash,
                      'source_code_sha256': code_hashes, 'segment_id': segment_id,
+                     'appearance_sampling_sha256': appearance_digest,
                      'validation_manifest_sha256': held_hash if validation else None,
                      'generator_state': generator.get_state(), 'cpu_rng_state': torch.get_rng_state(),
                      'cuda_rng_state': torch.cuda.get_rng_state(device) if device.type == 'cuda' else None})

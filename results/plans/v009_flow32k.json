@@ -1,0 +1,58 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_flow.py": "60dc153b297017689a60e2abca0cb1592d7e88aa5a03ea6ee49b22a8f20e585f",
+    "results\\plans\\v009_coverage32k.json": "4087834a2787daf0fde73197a48ceb8598d9df478645eb21e535da79c76748c8",
+    "results\\experiments\\v009_coverage32k\\screen.json": "0b77d1c5cb8bfd06bebee3f018b6196efdadd34ff1cd2341ea74e4551cbe433b",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "manifests\\v009.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v009.provenance.json": "cf7910301c6ac79f041c3e3ead5b35c5caef74984f58e7d873f0a2cbb94b4997",
+    "configs\\runs\\v008_coverage32k.json": "f040ef3f9e670d8f4e03f43955b6059188a00b2335d5689156491e87390296a0",
+    "configs\\runs\\v009_flow32k.json": "cc71d2af55909ebd795cb966b8a30f12910afcb39d550eae4e0fa056eb5f6d16",
+    "results\\diagnostics\\v009_flow32k\\result.json": "af064ad1882547cfb61a34b4af4038fc9697cb517b57bed2dfaecbc0de17536f",
+    "results\\curation\\v009_cache_parity.json": "06d64e7e198cb420e31ab86c0da35087d0598d63a4a96ec54c23914891c0adbc",
+    "src\\training\\train.py": "7ec96a7697a087788cfe93e7a520eda123c6a882a0706dfb540de18bac1674e2",
+    "src\\training\\step.py": "428ca584e6f92977c8c25524e6343981a0d8e9058f0ce89582a79cce5dc0b2dd",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "020d22776ac38642d6ab84ac60259901cc1ad9a1e698a3673c01717d7a77df15",
+    "submission\\model.py": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\flow.py": "071b75574f9fb795ea6cd0fb66c312dbfe04135201b75d4a3257bd3fb94a92d5",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "2a6dbb8360765470bed01778d7340d846c880bc72ab9558e8f1acdc80558686e",
+    "src\\release\\check.py": "bb4db0ebf6e67cccd9dd69eff4ab6ae34ae5b3dd221383458ae7e16cba4fc342",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v009_flow32k.json",
+    "--manifest",
+    "manifests\\v009.csv",
+    "--validation-manifest",
+    "manifests\\v009.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v009_flow32k_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "solver": "flow_heun"
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "source": "https://arxiv.org/abs/2210.02747",
+  "rule": "One linear flow objective and its deterministic Heun sampler, with the same v009 exact targets, model architecture, scratch seed and 32k update budget."
+}

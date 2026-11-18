@@ -1,0 +1,51 @@
+{
+  "manifest_sha256": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+  "verified_cache_sha256": "d445c0a3fe6358bec0d1b1de337f107b6b58cbe77e7be3806d34356f52872927",
+  "source_sha256": "c5cba925709e233d5abfba3745abb5e6d83ed516a3d7ea0dc97a803676127380",
+  "numpy_version": "2.2.6",
+  "comparisons": [
+    {
+      "label": 0,
+      "seed": 17,
+      "adjusted_rand": 0.6247524135678283,
+      "minimum_fraction": 0.15695067264573992,
+      "passes": false
+    },
+    {
+      "label": 0,
+      "seed": 29,
+      "adjusted_rand": 0.640063084437246,
+      "minimum_fraction": 0.18834080717488788,
+      "passes": false
+    },
+    {
+      "label": 0,
+      "seed": 43,
+      "adjusted_rand": 0.4409973022669497,
+      "minimum_fraction": 0.2242152466367713,
+      "passes": false
+    },
+    {
+      "label": 1,
+      "seed": 17,
+      "adjusted_rand": 0.9115873614708266,
+      "minimum_fraction": 0.26337448559670784,
+      "passes": true
+    },
+    {
+      "label": 1,
+      "seed": 29,
+      "adjusted_rand": 0.8633458753360315,
+      "minimum_fraction": 0.26337448559670784,
+      "passes": true
+    },
+    {
+      "label": 1,
+      "seed": 43,
+      "adjusted_rand": 0.8874682603606,
+      "minimum_fraction": 0.23868312757201646,
+      "passes": true
+    }
+  ],
+  "passes": false
+}

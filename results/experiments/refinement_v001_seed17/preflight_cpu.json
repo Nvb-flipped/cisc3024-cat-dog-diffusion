@@ -1,0 +1,55 @@
+{
+  "device": "cpu",
+  "parameters": 10664371,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 84.6014849000494,
+      "sample_sha256": "a47cfd48f1370ae9c358af9198f2466cee3bed0e5527c2b7bfd2af3c2f82a7ff"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 107.32588909997139,
+      "sample_sha256": "4591c942f39960a486facc7c4df43faa2bf884b8a6a547c038144cf341f54956"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 106.00210640003206,
+      "sample_sha256": "d88011d6f0433a89a2a9737e0ff9c14fde2dac25563d9598658775f46a3760fc"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 213.0595688999747,
+      "sample_sha256": "e6af9cd481cdcc6ba30e475bf5624c518a7f51628abcf6841ae8fe2ff3d1a723"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 1658.439401599986,
+      "sample_sha256": "e1a723d68f00692838b587a29864a8dbd77b6c11d6695cba9919b4566d199793"
+    }
+  ],
+  "seconds": 2169.5268156999955,
+  "submission_bytes": 42778824,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "8e882c3074cf11918fe826034b802ceb8368b641eabaf25753b5bf8dca78fd58",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "94868481be6e2688430990d556e27f195ec15a6a114eda0fbb258c3aebd7182b",
+    "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "provenance.json": "8fc5e28d27be0c2b9fd20f80492b90cc836a28b3796b646841a4a88c382b64f6",
+    "weights.pt": "7bec035af7edf8875406ad59ee9b517ee84b2befe4a77bb3314632ad591923a5",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

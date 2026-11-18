@@ -17,6 +17,8 @@ def check_files(folder):
     config = json.loads((folder / 'inference.json').read_text(encoding='utf-8'))
     if config.get('sampling', {}).get('prediction_type') == 'edm' and not (folder / 'edm.py').is_file():
         raise ValueError('EDM export is missing edm.py')
+    if config.get('sampling', {}).get('prediction_type') == 'flow' and not (folder / 'flow.py').is_file():
+        raise ValueError('Flow export is missing flow.py')
     files = [f for f in folder.rglob('*') if f.is_file() and '__pycache__' not in f.parts]
     size = sum(f.stat().st_size for f in files)
     forbidden = [str(f) for f in files if f.suffix.lower() in ['.png', '.jpg', '.jpeg', '.zip', '.npz', '.npy', '.safetensors']]

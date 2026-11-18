@@ -1,0 +1,1 @@
+Official development evaluations from matched EMA weights, 50-step DDIM, and guidance 2.5. Both U-Nets use training seed 17 and the same 1,197 exact crops. Each point represents one 2,000-image evaluation on generation seed 0. Lines connect recorded checkpoints. The horizontal line shows the official 5% memorization limit.

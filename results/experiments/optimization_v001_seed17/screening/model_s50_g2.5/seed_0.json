@@ -1,0 +1,85 @@
+{
+  "submission": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\optimization_v001_seed17\\sampling\\model_s50_g2.5",
+  "protocol": {
+    "n_per_class": 250,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.9399999976158142,
+    "single_class_batch_accuracy": 0.9800000190734863
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 1197,
+      "valid_rows": 1197,
+      "cat": 583,
+      "dog": 614,
+      "distinct_pool_images": 1197,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 500,
+    "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+    "accuracy": 0.9679999947547913,
+    "per_class_accuracy": {
+      "cat": 0.9800000190734863,
+      "dog": 0.9559999704360962
+    },
+    "fid": 79.28627221154352,
+    "kid": 0.013241197645194607,
+    "kid_std": 0.000677959190494335,
+    "precision": 0.8059999942779541,
+    "recall": 0.38999998569488525,
+    "memorization_rate": 0.578000009059906,
+    "nn_distance_median": 4.1685380935668945,
+    "nn_ratio_median": 0.43298855423927307,
+    "training_images_deduplicated": 2394
+  },
+  "resources": {
+    "num_parameters": 10664371,
+    "submission_mb": 40.797067642211914,
+    "seconds_per_1000": 33.87348579999525
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [
+    "memorization rate 57.8% exceeds 5%: samples copy training images"
+  ],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Excellent",
+        "marks": 0
+      },
+      "fid": {
+        "tier": "Pass",
+        "marks": 0
+      },
+      "recall": {
+        "tier": "Good",
+        "marks": 0
+      }
+    },
+    "total": 0,
+    "max": 15,
+    "valid": false
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.18",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

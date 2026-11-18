@@ -1,7 +1,31 @@
 import json
 from pathlib import Path
 
+import torch
+
 from src.training import optimize
+from src.training.density_sampling import appearance_sampling_weights
+from src.training.step import timestep_sampling_probabilities
+
+
+def test_appearance_weights_increase_rare_exposure_within_species():
+    images = torch.zeros(39, 3, 32, 32)
+    images[18, 0] = .85
+    labels = torch.tensor([0] * 19 + [1] * 20)
+    weights = appearance_sampling_weights(images, labels)
+    torch.testing.assert_close(weights[:19].sum(), torch.tensor(19.))
+    torch.testing.assert_close(weights[19:], torch.ones(20))
+    assert weights[18] > weights[0] > 0
+    assert torch.equal(weights, appearance_sampling_weights(images, labels))
+
+
+def test_timestep_focus_shifts_mass_without_dropping_endpoints():
+    count = 1000
+    timesteps = torch.linspace(0, 1, count)
+    probabilities = timestep_sampling_probabilities(count, .65, 'cpu')
+    torch.testing.assert_close(probabilities.sum(), torch.tensor(1.0))
+    assert torch.all(probabilities >= .25 / count)
+    assert .58 < torch.dot(timesteps, probabilities) < .63
 
 
 def test_extension_requires_a_valid_quality_gain():

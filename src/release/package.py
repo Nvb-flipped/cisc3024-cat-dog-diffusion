@@ -15,7 +15,7 @@ ROOT_FILES = {'README.md', 'DATA_CARD.md', 'AGENTS.md', 'AGENT_LOG.md',
 SOURCE_ROOTS = {'src', 'scripts', 'tests', 'configs', 'manifests', 'annotations', 'logs', 'results', 'figures', 'report', 'student_checks'}
 SOURCE_EXTENSIONS = {'.py', '.js', '.html', '.css', '.yaml', '.yml', '.json', '.jsonl', '.csv',
                      '.txt', '.log', '.md', '.tex', '.bib', '.sty', '.cls', '.xml', '.drawio'}
-INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'edm.py', 'weights.pt',
+INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'edm.py', 'flow.py', 'weights.pt',
                    'inference.json', 'manifest.csv', 'provenance.json'}
 PRESENTATION_EXTENSIONS = {'.pptx', '.pdf', '.tex', '.sty', '.cls', '.json', '.csv', '.txt', '.md', '.bib', '.mjs'}
 FORBIDDEN_PARTS = {'data', 'student', '.venvs', '.git', '.agents', '.codex', 'models',

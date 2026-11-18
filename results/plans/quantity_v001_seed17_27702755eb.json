@@ -1,0 +1,42 @@
+{
+  "created": "2026-11-11T20:02:41.855225+00:00",
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\ddpm.yaml",
+    "--manifest",
+    "manifests\\quantity_v001.csv",
+    "--validation-manifest",
+    "manifests\\quantity_v001.validation.csv",
+    "--seed",
+    "17",
+    "--out",
+    "checkpoints\\quantity_v001_seed17_u050000_27702755eb"
+  ],
+  "manifest_sha256": "27702755eb29a9bd208b87a8689763ac0fc811f5be01ece8a29e5e905b81b705",
+  "parent_manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "config_sha256": "c859c1000ad9dc8a3de6c5f93fca573a04e34f8ff9b7f11fe8a90ec8a180f3dc",
+  "baseline_result": "results/experiments/baseline_v001_seed17/seed_0.json",
+  "baseline_result_sha256": "1489f25f2f118ccb8459f2c22ec1927e5d60f5a751daa94d7737287595cf1baa",
+  "counts": {
+    "parent": 1197,
+    "subset": 1000
+  },
+  "seed": 17,
+  "initialization": "random",
+  "updates": 50000,
+  "effective_batch": 128,
+  "images_seen": 6400000,
+  "protocol": {
+    "weights": "ema",
+    "ddim_steps": 100,
+    "guidance": 1.0,
+    "seed": 0,
+    "n_per_class": 1000
+  },
+  "interpretation": "A modest reduction of 197 distinct sources, with cat share changing from 583/1197 to 500/1000."
+}

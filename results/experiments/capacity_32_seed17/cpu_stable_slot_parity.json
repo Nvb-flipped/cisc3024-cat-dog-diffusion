@@ -1,0 +1,18 @@
+{
+  "checked": "2026-11-12T06:07:25.885446+00:00",
+  "original_receipt_sha256": "ec1ef19d09ea10354d5dd2431e1cd9a0b8748e8b2fa1df211506e41a060a80fe",
+  "new_receipt_sha256": "8fa31cbe66c1f3dd6c0e720bd0f37ba71bb6204ca3e1d86d1cf1a1c28a33127f",
+  "matched_counts": [
+    1,
+    2,
+    20,
+    50
+  ],
+  "matched_sample_sha256": {
+    "1": "3fdae64566d164bffb02645b8478516ebeab362b4fbe60d4e3fda743d5ea18e6",
+    "2": "4c6dde78e755f1bfe4f8021a389b7a9938cc42e92bba54a132903c60aa0afece",
+    "20": "e1990811ce68851e369bc2afbdee210ca0b42a895b3b3326984711827e09a508",
+    "50": "3c5733349505b0e83cc91ee453d529d50568010be71253441df9d01fbfd88dc0"
+  },
+  "unchanged_weights_sha256": "46aeaf6542d028691b3ed64d053cfb6377c60c1dcecd712effd4f3b733e99757"
+}

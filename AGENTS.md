@@ -20,9 +20,9 @@ Execute PROJECT_PLAN.md; the course handout has precedence. This is an individua
 
 Layout: src/{curation,training,evaluation,release}, configs/, manifests/, annotations/, tests/, results/, logs/, submission/, figures/, report/, presentation/. Local-only: data/, models/, checkpoints/, .venvs/.
 
-Commands and current state: README.md and EXECUTION_STATUS.md. Before substantial work and periodically during a run, check account usage. Stop at 90% five-hour usage, save a handoff/reset time, and resume after reset as authorized. Do not consume reset credits.
+Commands and current state: README.md and EXECUTION_STATUS.md. Before substantial work and periodically during a run, check account usage. Stop at 95% five-hour usage, save a handoff/reset time, and resume after a verified natural reset. Do not consume reset credits.
 
-Usage reserve: at 80% used (20% remaining), warn once and begin checkpointing/wrapping up. At 85% used, start no new substantial stage and check usage frequently. At 90% used (10% remaining), stop project work cleanly. Do not spend the reserve until an interruption occurs. Actual usage checks drive these thresholds; no native quota-event capability is assumed.
+Usage reserve: at 80% used (20% remaining), warn once and begin checkpointing/wrapping up. At 85% used, start no new substantial stage and check usage frequently. At 95% used (5% remaining), stop project work cleanly. Actual usage checks drive these thresholds; no native quota-event capability is assumed.
 
 Verification: official tests; crop parity; provenance/cache parity; diffusion math; fixed single-batch 2,000-update diagnostic with >=80% probe-MSE reduction; inference isolation/shape/range/RNG; clean export/offline load; actual archive allowlist check.
 
@@ -32,4 +32,4 @@ Windows process pitfall: the PID returned by a virtual-environment Python launch
 
 Review UI pitfall: overlapping saves can otherwise misattribute a late response or skip a crop; serialize saves and attach each result to its original candidate. Discard stale previews and measurements when geometry changes. For a drafted crop, keep the student's current checklist choices on geometry or species edits and reset the separate confirmation; the student updates the individual checks. For a crop without a draft, clear old criteria on geometry edits. Browser checks must not submit real student verdicts.
 
-Measured inference pitfall: on the actual CUDA U-Net, changing physical batch dimensions amplified floating-point differences near the noisy cosine endpoint (an untrained stress test observed max output difference 0.968). Sampling now pads logical chunks to one serialized execution_batch, keeping arithmetic shape fixed. Test changed logical microbatch sizes and N=1 versus mixed prefixes. Treat a change of execution_batch as a sampler configuration change requiring reevaluation; it is not merely a performance switch.
+Measured inference pitfall: on the actual CUDA U-Net, changing physical batch dimensions amplified floating-point differences near the noisy cosine endpoint (an untrained stress test observed max output difference 0.968). A trained CPU probe also found a 1.58e-5 difference when a logical regrouping moved an output to another physical slot. Sampling pads logical chunks to one serialized execution_batch and retains each output's physical slot. Test changed logical microbatch sizes and N=1 versus mixed prefixes. Treat a change of execution_batch as a sampler configuration change requiring reevaluation; it is not merely a performance switch.

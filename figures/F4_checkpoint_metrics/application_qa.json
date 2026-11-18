@@ -1,0 +1,25 @@
+{
+  "checked": "2026-11-12T05:46:55.764950+00:00",
+  "reference_drawio_sha256": "8ad1e5e236718365e1ef61c644a0c4b37bacfb9c3b79caf7a39baaed9eda1ea0",
+  "powerpoint_check": {
+    "status": "passed",
+    "office_version": "16.0",
+    "reference_pptx_sha256": "77ea2e870cb5403f597c5cdbf125497e269a23f4399a5820535aa0ffb63b9555",
+    "test_copy_sha256": "4ccde050dee11571b6c2f5a3d386a8975e9b7954cc1c60bfa05fe081a651406a",
+    "rendered_pdf_sha256": "ba6f14d836da1b73875fa6e74559d7ce7dfc8982404bd7ad2ac4d0861b936ca1",
+    "changed_label": "5% limit (edit test)",
+    "changed_fid_mark": 19,
+    "new_fid_mark_rgb": "#2e874f",
+    "recall_group_shift_points": 3.0,
+    "visual_render": "Compared the actual Office PDF to the reference; all panels, ticks, marks and labels visible."
+  },
+  "drawio_check": {
+    "status": "native local rendering passed; interactive edit-save-reopen pending",
+    "application_version": "32.6.1",
+    "render_path": "private_build\\F4_application_qa\\drawio_render.png",
+    "render_sha256": "ce9e8d350f58e760ec7f6762662c26fa6b1f90563262e0d130aa513c086b68ae",
+    "observed": "All panels and values visible in the installed desktop export.",
+    "edit_blocker": "The Windows UI bridge could observe draw.io but returned failed to activate captured window for input."
+  },
+  "scope": "Local software verification only. Human review remains pending."
+}

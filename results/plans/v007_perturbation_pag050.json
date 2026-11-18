@@ -1,0 +1,35 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_perturbation_pag.py": "def1a350325ba2834e69586d55c6f0bcfaea093ae72b9d5cb182f22088b3c023",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\v007_input_perturbation_seed17\\update_032000.pt": "12be23855d4a292588f0b9cff0edaee4497efe49f9a4448dd4e96108354adc7c",
+    "results\\experiments\\v007_input_perturbation\\comparison.json": "f398338bb7b0d5873debd57d4b1f56d3e98c25b2f7644c933174ed3a3ecf6a6a",
+    "results\\experiments\\v007_32k_temporal103\\selection.json": "f768b884b74b6e6c1ad06a5b25fe6c637555ae6ae511af99b32afb475c15086e",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.5
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v007_perturbation_pag"
+  ],
+  "rule": "Change only PAG from .15 to .50 on the existing perturbation checkpoint. Confirm only a seed-0 improvement over the leading official v007 temporal export.",
+  "created": "2026-11-16T11:51:32.099329+00:00"
+}

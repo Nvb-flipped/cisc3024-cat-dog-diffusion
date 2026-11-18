@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v008_distribution_mixture.py": "ae979cfbb85f1bbbecb1703f0a2bfec448a734182811ce7264bfade768584377",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\coverage_mixture_generate.py": "c54b365be168427779897b03e59db8b0588fe0ecfabf3c81c5a9d68a8d04f1b6",
+    "results\\plans\\v008_coverage32k.json": "1b47aa4367a7d00af484c49154270f90a56e1d176ec286dc55ce1c3671ed7fec",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "results\\experiments\\v008_coverage32k\\screen.json": "8fd3b3b7cd8a796c78bfcd6489d054138301a22063c27e8be6937730903acdd9",
+    "manifests\\v008.csv": "4456c5d8fe8afb1aa193e9c2b3af9cd435b41280ada8c74a7cd5709890e2e8d5",
+    "checkpoints\\v008_coverage32k_seed17\\update_032000.pt": "a3f5c60ede8f6da3c2ccf89b3a7f10758b1be2e9f1a2ec1d8c54fe18a80a0970"
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "source_exports": [
+    {
+      "diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "f329ba4b9f180afe013d562c00485b17d17a1aa2c38b1ae4655a1daabcc402ab",
+      "manifest.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+      "model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+      "provenance.json": "862b3feb8ac66bb2a20f463cbaeb7a7aa07e64060a3f0cd2b9a819298c45ea13",
+      "weights.pt": "4797a9dc695a7fe5f1ec4f30124453f91a7fec6179e874d50623ff9e2bb3dee6",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    {
+      "diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "f329ba4b9f180afe013d562c00485b17d17a1aa2c38b1ae4655a1daabcc402ab",
+      "manifest.csv": "4456c5d8fe8afb1aa193e9c2b3af9cd435b41280ada8c74a7cd5709890e2e8d5",
+      "model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+      "provenance.json": "7d2ccb9a47532c6b9497855c88471caf20c3da5b633013610a1949fb3638d644",
+      "weights.pt": "648ddc2b6f8e2e1ea2cab5c40ddfdd6c87a919645860a3663560b70c4973c66a",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    }
+  ],
+  "rule": "Fixed equal mixture; one private seeded model choice per output position. Keep the exact checkpoints, both internal samplers and the complete union training manifest."
+}

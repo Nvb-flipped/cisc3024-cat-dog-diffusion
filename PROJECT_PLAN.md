@@ -2,7 +2,7 @@
 
 Prepared 30 October 2026. Submission deadline: **26 November 2026, 23:55, Asia/Shanghai**. The presentation takes place in the lab session that day.
 
-**Current working deadline: 22 November 2026, Asia/Shanghai, per Paco's November 14 update.** Use this earlier date for the release. The schedule below records the original plan. Keep room before the 22nd for the student audit, independent checks, final rehearsal and a clean archive verification. Use the existing trained weights for bounded, evidence-driven comparisons wherever possible, and preserve weekly Codex allowance for final verification and release.
+**Internal completion date: 23 November 2026, Asia/Shanghai. Formal deadline: 26 November 2026.** Freeze model selection by the evening of November 21. Prepare submission materials in parallel using the verified v007 class-annealing export as the fallback. Use November 22–23 for the final audit, independent checks and clean archive verification. Reserve November 24–25 for Paco's final review and presentation practice. The schedule below records the original plan.
 
 ## 1. Objective, evidence, and fixed decisions
 

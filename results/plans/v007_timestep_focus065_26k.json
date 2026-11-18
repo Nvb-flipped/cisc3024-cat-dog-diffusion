@@ -1,0 +1,30 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_timestep_midpoint.py": "94fed080401d92718b0bf2fa2eb769a717488c18b4651c2a323aec390d06c566",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\v007_timestep_focus065_seed17\\update_026000.pt": "e692a3863c529886cc591d5a028463ad400964013e71eb993dd80d3e98b65aa2",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "results\\plans\\v007_timestep_focus065.json": "4fb29d1802ea857ec9cd118df3c77fbbe164f4089ca930fbb31a16b148d891dd",
+    "results\\experiments\\v007_timestep_focus065\\screen.json": "72a386f615bb7729396b44b88d1c0f51460a8d4e74ad71673951a3f13026ca91",
+    "results\\experiments\\v007_timestep_focus065_20k\\screen.json": "21cab35891fd83195c29664fdd375766fbcbdfdff850569209638257235573b7",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "command": "python -u -m scripts.run_v007_timestep_midpoint",
+  "rule": "Test 26k, the midpoint between the weak 20k and copying 32k checkpoints. Keep the exact sampler and allow confirmation only after a valid quality gain over the current 12/15 control."
+}

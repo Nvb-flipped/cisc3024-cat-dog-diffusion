@@ -1,0 +1,83 @@
+{
+  "submission": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\v008_coverage32k",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.9200000166893005,
+    "single_class_batch_accuracy": 0.949999988079071
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 1369,
+      "valid_rows": 1369,
+      "cat": 655,
+      "dog": 714,
+      "distinct_pool_images": 1369,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+    "accuracy": 0.9384999871253967,
+    "per_class_accuracy": {
+      "cat": 0.9559999704360962,
+      "dog": 0.9210000038146973
+    },
+    "fid": 66.81767139920453,
+    "kid": 0.023751761576820362,
+    "kid_std": 0.001369208618460109,
+    "precision": 0.7101770043373108,
+    "recall": 0.34292036294937134,
+    "memorization_rate": 0.029999999329447746,
+    "nn_distance_median": 8.497227668762207,
+    "nn_ratio_median": 0.9342448115348816,
+    "training_images_deduplicated": 2738
+  },
+  "resources": {
+    "num_parameters": 5082147,
+    "submission_mb": 19.519225120544434,
+    "seconds_per_1000": 48.43332445001579
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Excellent",
+        "marks": 5
+      },
+      "fid": {
+        "tier": "Pass",
+        "marks": 3
+      },
+      "recall": {
+        "tier": "Good",
+        "marks": 4
+      }
+    },
+    "total": 12,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.18",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "status": "file_structure_and_semantic_parity_passed",
+  "svg_text_count": 3,
+  "objects": 35,
+  "native_pictures": 32,
+  "drawio_edges": 0,
+  "png": {
+    "pixels": [
+      2100,
+      1175
+    ],
+    "dpi": [
+      299.9994,
+      299.9994
+    ],
+    "mode": "RGBA"
+  },
+  "pptx_canvas_pt": [
+    504.0,
+    282.0
+  ],
+  "actual_powerpoint_edit_save_render": "native render and picture crop/edit-save-reopen passed",
+  "actual_drawio_edit_save_render": "native local rendering passed; interactive edit-save-reopen pending",
+  "application_checks": {
+    "checked": "2026-11-12T06:00:40.099567+00:00",
+    "reference_drawio_sha256": "8898933863c482a7a6289c8aea641b61e1205e66cbd05cd396cde7e536ac8f35",
+    "powerpoint_check": {
+      "status": "native render and picture crop/edit-save-reopen passed",
+      "reference_pptx_sha256": "65d45ab2f88c8a8dd85bffd867aa97723547325425cfb181453d6fc372488bb8",
+      "render_path": "private_build\\development_figure_application_qa\\F6_generated_powerpoint.pdf",
+      "render_sha256": "8028d9fa8884aa97f5ca207c2f4a1c3a76c4b7a9c54730ccf76308171bdd734d",
+      "native_picture_test": {
+        "status": "passed",
+        "crop_left_change_points": 1.9996800422668457,
+        "test_copy_sha256": "0ff4142b568113439a3aae8c7c194a67c4c56277465db2867ba1f16cbbb3dfbd"
+      }
+    },
+    "drawio_check": {
+      "status": "native local rendering passed; interactive edit-save-reopen pending",
+      "application_version": "32.6.1",
+      "render_path": "private_build\\development_figure_application_qa\\F6_generated_drawio.png",
+      "render_sha256": "1499fa41106b8401a93395b91ecc94c6c035edbfd7a1ad0827905a57a8b4515b"
+    },
+    "comparison": "private_build\\development_figure_application_qa\\visual_comparison.png"
+  },
+  "scope": "File parity plus separately recorded native-operation evidence; final human design acceptance remains pending",
+  "files": {
+    "figure.svg": "db63b4fbe4582242cdca3f2c14e290e08c0a1d0629eb18d267442752dd374fdf",
+    "figure.png": "5157456c7ddc565b80f4ed24603320b613564fe86286eb88cb34e135bb1e22bd",
+    "figure.pdf": "9fe4640f1877732eb8a80d46a1d6c5c21fc2a2d0666acab799710446460cd8f5",
+    "figure.pptx": "65d45ab2f88c8a8dd85bffd867aa97723547325425cfb181453d6fc372488bb8",
+    "figure.drawio": "8898933863c482a7a6289c8aea641b61e1205e66cbd05cd396cde7e536ac8f35",
+    "figure.xml": "8898933863c482a7a6289c8aea641b61e1205e66cbd05cd396cde7e536ac8f35",
+    "figure.spec.json": "b6593b79fe3c890feff2782d2db8afbe8db8dde461d964a3d5f433fb70984f5a",
+    "source.csv": "40a6a69d1fe8859c454d4d59f4b0af699ebf9eea79621d1e68b1fd432fb17306",
+    "source_summary.json": "eebc4acb1911482eb693044c2e793c7d374bfda5c69baea8d662dd2be6cbea9f"
+  }
+}

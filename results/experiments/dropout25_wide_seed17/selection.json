@@ -1,0 +1,153 @@
+{
+  "time": "2026-11-12T02:13:48.275726+00:00",
+  "plan_sha256": "56255ff5c7820d940f8cfe921019c98feb826735faccf58dae618e6d34774cf2",
+  "screening_sha256": "78e28346c8929212c47432fb955118f87ef02abaaa9c65a243f0f10a24de5343",
+  "incumbent_sha256": "58a7b1f5eb77c5d6fb2ba920aff129c321c3207786d544901bfc41e74860c120",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "checks": [
+    {
+      "checkpoint": "checkpoints\\dropout25_wide_seed17_u030000_86c3c843eb\\update_026000.pt",
+      "checkpoint_sha256": "1891dda277a46c6e92d81316277b33deca9f61f237eff93c199dff632509db20",
+      "update": 26000,
+      "exported": "private_build\\dropout25_wide_seed17\\u026000_ema_s50_g2.5",
+      "export_hashes": {
+        "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "3e8423458d433731c1f998b78a154bc6c6bd63a972a0f53a32c3f74c9b933d19",
+        "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "022fb3ec6b5d7fcdeae6c19d6ecffb52aa6a4adc28b32b82e8b5ff39b7658662",
+        "weights.pt": "e8f517a3438e837cf45c582aaae32240b33a0c9320c870bdc7c05945c53ed25f",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\dropout25_wide_seed17\\full\\u026000_ema_s50_g2.5\\seed_0.json",
+          "sha256": "726c47089231c250eacad83d86731fd2907766dffd0ffb1cb6a08d0359684b0e",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8554999828338623,
+            "per_class_accuracy": {
+              "cat": 0.9449999928474426,
+              "dog": 0.765999972820282
+            },
+            "fid": 91.2088802886949,
+            "kid": 0.04972519378933902,
+            "kid_std": 0.002131771369117592,
+            "precision": 0.5951327681541443,
+            "recall": 0.2345132678747177,
+            "memorization_rate": 0.039500001817941666,
+            "nn_distance_median": 7.359955310821533,
+            "nn_ratio_median": 0.9245031476020813,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 4
+              },
+              "fid": {
+                "tier": "Marginal",
+                "marks": 2
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 3
+              }
+            },
+            "total": 9,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": null,
+      "name": "u026000_ema_s50_g2.5",
+      "complete": false
+    },
+    {
+      "checkpoint": "checkpoints\\dropout25_wide_seed17_u030000_86c3c843eb\\update_026000.pt",
+      "checkpoint_sha256": "1891dda277a46c6e92d81316277b33deca9f61f237eff93c199dff632509db20",
+      "update": 26000,
+      "exported": "private_build\\dropout25_wide_seed17\\u026000_ema_s50_g2",
+      "export_hashes": {
+        "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "549ee133d6d3be041e44839f9107337463a0f09c40bbd349ef8a4157e47048cf",
+        "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "2a4280706a1a17076e8018d9fe84a561067ec854b050d820e408c0abe8cb53d0",
+        "weights.pt": "e8f517a3438e837cf45c582aaae32240b33a0c9320c870bdc7c05945c53ed25f",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.0,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\dropout25_wide_seed17\\full\\u026000_ema_s50_g2\\seed_0.json",
+          "sha256": "473cf3c60602613274d60927823af7d4e30eadc69246cf3e5141d35057641b19",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.828000009059906,
+            "per_class_accuracy": {
+              "cat": 0.9380000233650208,
+              "dog": 0.7179999947547913
+            },
+            "fid": 100.16994607372999,
+            "kid": 0.05875800963867048,
+            "kid_std": 0.002371726940986208,
+            "precision": 0.5508849620819092,
+            "recall": 0.21349558234214783,
+            "memorization_rate": 0.026499999687075615,
+            "nn_distance_median": 7.464442253112793,
+            "nn_ratio_median": 0.9367191791534424,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 4
+              },
+              "fid": {
+                "tier": "Poor",
+                "marks": 1
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 3
+              }
+            },
+            "total": 8,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": null,
+      "name": "u026000_ema_s50_g2",
+      "complete": false
+    }
+  ],
+  "selected": null,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ]
+}

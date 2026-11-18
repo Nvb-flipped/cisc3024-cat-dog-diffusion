@@ -5,10 +5,17 @@ import torch
 from torch.nn import functional as F
 from submission.diffusion import add_noise, reconstruct_clean, velocity_target
 from submission.edm import LOG_SIGMA_MEAN, LOG_SIGMA_STD, noise_condition, training_pair
+from submission.flow import flow_pair
 
 
 def validate_loss_weighting(settings):
+    if type(settings.get('appearance_sampling', False)) is not bool:
+        raise ValueError('appearance_sampling must be a boolean')
     gamma = settings.get('min_snr_gamma')
+    focus = settings.get('timestep_sampling_focus')
+    if focus is not None and (type(focus) not in (int, float) or not 0 < focus < 1
+                              or gamma is not None or settings.get('prediction_type', 'epsilon') != 'epsilon'):
+        raise ValueError('Timestep focus must be between zero and one for unweighted epsilon prediction')
     perturbation = settings.get('noise_input_perturbation', 0)
     if type(perturbation) not in (int, float) or not math.isfinite(perturbation) or perturbation < 0:
         raise ValueError('noise_input_perturbation must be nonnegative and finite')
@@ -37,7 +44,14 @@ def coarse_epsilon_mse(error):
     return F.avg_pool2d(error, kernel_size=4).square().mean() * 16
 
 
-def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, settings, update):
+def timestep_sampling_probabilities(length, focus, device):
+    """Discretize a broad Gaussian with a 25% uniform component over all timesteps."""
+    normalized = torch.linspace(0, 1, length, device=device)
+    gaussian = torch.softmax(-.5 * ((normalized - focus) / .22).square(), dim=0)
+    return .75 * gaussian + .25 / length
+
+
+def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, settings, update, *, image_weights=None):
     device = images.device
     effective, micro = settings['effective_batch'], settings['microbatch']
     accumulation = effective // micro
@@ -46,18 +60,25 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
     gamma = settings.get('min_snr_gamma')
     coarse = settings.get('coarse_epsilon_weight', 0)
     perturbation = settings.get('noise_input_perturbation', 0)
+    focus = settings.get('timestep_sampling_focus')
+    timestep_probabilities = None if focus is None else timestep_sampling_probabilities(len(alpha_bar), focus, device)
     lr = settings['learning_rate'] * min(update / max(settings['warmup'], 1), 1)
     for group in optimizer.param_groups:
         group['lr'] = lr
     optimizer.zero_grad(set_to_none=True)
     losses = []
     for _ in range(accumulation):
-        indices = torch.randint(len(labels), (micro,), generator=generator, device=device)
+        if image_weights is None:
+            indices = torch.randint(len(labels), (micro,), generator=generator, device=device)
+        else:
+            indices = torch.multinomial(image_weights, micro, replacement=True, generator=generator)
         x0, y = images[indices], labels[indices].clone()
         if prediction_type == 'edm':
             log_sigma = torch.randn((micro, 1, 1, 1), generator=generator, device=device)
             sigma = (log_sigma * LOG_SIGMA_STD + LOG_SIGMA_MEAN).exp()
             t = noise_condition(sigma)
+        elif timestep_probabilities is not None:
+            t = torch.multinomial(timestep_probabilities, micro, replacement=True, generator=generator)
         else:
             t = torch.randint(len(alpha_bar), (micro,), generator=generator, device=device)
         noise = torch.randn(x0.shape, generator=generator, device=device)
@@ -65,6 +86,8 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
         y[drop] = 2
         if prediction_type == 'edm':
             xt, target, _, _, _ = training_pair(x0, noise, sigma)
+        elif prediction_type == 'flow':
+            xt, target = flow_pair(x0, noise, t, len(alpha_bar))
         else:
             input_noise = noise
             if perturbation:

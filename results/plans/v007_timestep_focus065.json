@@ -1,0 +1,53 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_timestep_focus.py": "ecb71f5a14ff1d9a9977c1cf1894b02daa4185a9531520a2fe3b7b6257115db5",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "manifests\\v007.provenance.json": "82e1f15fb0a4a7752725eeabfdc081033a28292ce1fe316948023b6ae24d8060",
+    "manifests\\v007.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v007_timestep_focus065.json": "f4c3253164a8ca3b74e521efb6a31f4c51962d6d4145ac6925a808ecd83640cb",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\run.json": "203618611ca422189247ac4634a26fe99a480bd31804babc7291f1dc91545fe4",
+    "results\\diagnostics\\v007_timestep_focus065\\result.json": "cc0a922dce7200048806563f44efe19d1fb1de62df7e38a7a35e36888644225a",
+    "results\\curation\\v007_cache_parity.json": "22f3da05fd5cea1390d1f499c48be0c2a7f4ec888a729ddeff504b162cb6b0dd",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "92a045e5aadfb7fbd3e82e2048c48b91f66a3292965808e97793ce6baeeb2272",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v007_timestep_focus065.json",
+    "--manifest",
+    "manifests\\v007.csv",
+    "--validation-manifest",
+    "manifests\\v007.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v007_timestep_focus065_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "source": "https://arxiv.org/abs/2601.21348",
+  "rule": "Use a discrete Gaussian with center .65 and width .22 for 75% of timestep probability. The remaining 25% is uniform. Keep exact targets, full timestep support, all v007 rows, scratch initialization, the seed, update count and the annealing 0.10 sampler fixed.",
+  "created": "2026-11-16T12:42:37.974497+00:00"
+}

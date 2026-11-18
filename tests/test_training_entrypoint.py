@@ -51,3 +51,14 @@ def test_training_checkpoint_holdout_and_new_branch_resume(tmp_path, monkeypatch
     assert segment['initial_update'] == 2
     assert (branch / 'update_000003.pt').exists()
     assert torch.load(first / 'update_000002.pt', weights_only=True)['update'] == 2
+    lower_rate = tmp_path / 'lower_rate'
+    run(lower_rate, '--resume', first / 'update_000002.pt', '--updates', 3, '--resume-learning-rate', .0001)
+    lower_state = torch.load(lower_rate / 'update_000003.pt', weights_only=True)
+    assert lower_state['config']['training']['learning_rate'] == .0001
+    assert lower_state['optimizer']['param_groups'][0]['lr'] == .0001
+    lower_segment = json.loads(next(lower_rate.glob('segment_*.json')).read_text())
+    assert lower_segment['learning_rate_transition'] == dict(previous=.0002, current=.0001, update=2)
+    with pytest.raises(ValueError, match='fresh --out'):
+        run(lower_rate, '--resume', first / 'update_000002.pt', '--updates', 4, '--resume-learning-rate', .0001)
+    with pytest.raises(ValueError, match='requires --resume'):
+        run(tmp_path / 'invalid', '--resume-learning-rate', .0001)

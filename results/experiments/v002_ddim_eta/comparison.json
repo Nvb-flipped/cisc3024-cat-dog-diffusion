@@ -1,0 +1,146 @@
+{
+  "plan_sha256": "bef743611b2835ea4e9ecf5af17b5515421fbd5831bf0350c89f049c27851f5f",
+  "trials": [
+    {
+      "checkpoint": "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "checkpoint_sha256": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+      "update": 30000,
+      "exported": "private_build\\v002_ddim_eta\\eta_35",
+      "export_hashes": {
+        "diffusion.py": "77d1a632ef1a086479adb0fc39bfcf6c1d61faa9b8a738014927129199a3264c",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "1ee63b2ae05c0af079b77192c35d4814d2110822566af3edf52d1fad112880a4",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "314b2f3c4e7c19e6e6f9bef41a42f3845dfb24aae2d1dc33cd87bf7f3dd02af0",
+        "weights.pt": "f04585afbcb2f7b57c7f42d397c26e15908f8b3da7e29b670337c96b7c773297",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\v002_ddim_eta\\eta_35\\seed_0.json",
+          "sha256": "f8e58521eb7608f7660e400de5971f361db685ed174f8587a4c4701d7ec7ad35",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.9079999923706055,
+            "per_class_accuracy": {
+              "cat": 0.9359999895095825,
+              "dog": 0.8799999952316284
+            },
+            "fid": 76.4683127288049,
+            "kid": 0.0313044980227578,
+            "kid_std": 0.001526202643864157,
+            "precision": 0.6626105904579163,
+            "recall": 0.34292036294937134,
+            "memorization_rate": 0.051500000059604645,
+            "nn_distance_median": 8.188752174377441,
+            "nn_ratio_median": 0.9163302183151245,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Excellent",
+                "marks": 0
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Good",
+                "marks": 0
+              }
+            },
+            "total": 0,
+            "max": 15,
+            "valid": false
+          },
+          "violations": [
+            "memorization rate 5.2% exceeds 5%: samples copy training images"
+          ]
+        }
+      ],
+      "score": null,
+      "eta": 0.35,
+      "name": "eta_35"
+    },
+    {
+      "checkpoint": "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "checkpoint_sha256": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+      "update": 30000,
+      "exported": "private_build\\v002_ddim_eta\\eta_70",
+      "export_hashes": {
+        "diffusion.py": "77d1a632ef1a086479adb0fc39bfcf6c1d61faa9b8a738014927129199a3264c",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "6dfa118f01ee5f55427f309738ce597c8008ad4d6fe2c4b2ef4b485fc8427821",
+        "manifest.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "128142b8af9da10a976e7f34f0d7df0532b33656b02cc07c6676ddece2f00ba4",
+        "weights.pt": "f04585afbcb2f7b57c7f42d397c26e15908f8b3da7e29b670337c96b7c773297",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\v002_ddim_eta\\eta_70\\seed_0.json",
+          "sha256": "13f0abef6d0eab47bb66a551e3984b27dd669d2581cae01225328eb8abd2fe53",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.9200000166893005,
+            "per_class_accuracy": {
+              "cat": 0.9380000233650208,
+              "dog": 0.9020000100135803
+            },
+            "fid": 78.44146712229531,
+            "kid": 0.03319339102549202,
+            "kid_std": 0.0013151407051226218,
+            "precision": 0.6714601516723633,
+            "recall": 0.3141593039035797,
+            "memorization_rate": 0.07599999755620956,
+            "nn_distance_median": 7.72394323348999,
+            "nn_ratio_median": 0.8968726992607117,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Excellent",
+                "marks": 0
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Good",
+                "marks": 0
+              }
+            },
+            "total": 0,
+            "max": 15,
+            "valid": false
+          },
+          "violations": [
+            "memorization rate 7.6% exceeds 5%: samples copy training images"
+          ]
+        }
+      ],
+      "score": null,
+      "eta": 0.7,
+      "name": "eta_70"
+    }
+  ],
+  "promoted": null,
+  "candidate": null,
+  "improves_reference": false
+}

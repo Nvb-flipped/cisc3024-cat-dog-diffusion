@@ -15,7 +15,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                       guidance_min_timestep=None, guidance_max_timestep=None, eta=None, solver=None,
                       guidance_rescale=None, threshold_percentile=None, threshold_min_timestep=None,
                       self_condition_feedback=None, reflect_denoiser=None, score_sharpness=None, score_sigma=None,
-                      pag_scale=None):
+                      pag_scale=None, class_noise_max=None, timestep_spacing=None, freeu=False,
+                      freeu_strength=None):
     checkpoint, manifest, out = Path(checkpoint), Path(manifest), Path(out)
     state = torch.load(checkpoint, map_location='cpu', weights_only=True)
     if state.get('diagnostic_only'):
@@ -23,7 +24,12 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     digest = sha256(manifest)
     if state['manifest_sha256'] != digest:
         raise ValueError('Checkpoint/manifest mismatch; final model must list all and only its training rows')
-    model = ConditionalUNet(**state['config']['model'])
+    model_config = dict(state['config']['model'])
+    if freeu:
+        model_config['freeu'] = True
+    if freeu_strength is not None:
+        model_config['freeu_strength'] = freeu_strength
+    model = ConditionalUNet(**model_config)
     model.load_state_dict(state[weights], strict=True)
     if any(not torch.isfinite(value).all() for value in state[weights].values()):
         raise ValueError('Checkpoint contains nonfinite weights')
@@ -34,7 +40,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
         raise FileExistsError('Candidate export already exists; use a new immutable output directory')
     sampling = dict(state['config']['sampling']) | state['config']['diffusion']
     prediction_type = state['config'].get('training', {}).get('prediction_type', 'epsilon')
-    if prediction_type not in ('epsilon', 'velocity', 'edm'):
+    if prediction_type not in ('epsilon', 'velocity', 'edm', 'flow'):
         raise ValueError('Unsupported checkpoint denoising target')
     if sampling.get('prediction_type', prediction_type) != prediction_type:
         raise ValueError('Sampling denoising target differs from the trained target')
@@ -47,7 +53,8 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                  ('guidance_rescale', guidance_rescale), ('threshold_percentile', threshold_percentile),
                  ('threshold_min_timestep', threshold_min_timestep), ('self_condition_feedback', self_condition_feedback),
                  ('reflect_denoiser', reflect_denoiser), ('score_sharpness', score_sharpness),
-                 ('score_sigma', score_sigma), ('pag_scale', pag_scale)]
+                 ('score_sigma', score_sigma), ('pag_scale', pag_scale), ('class_noise_max', class_noise_max),
+                 ('timestep_spacing', timestep_spacing)]
     for key, value in overrides:
         if value is not None:
             sampling[key] = value
@@ -73,9 +80,18 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
                                      'guidance_max_timestep' in sampling):
         raise ValueError('Invalid EDM sampler configuration')
     solver = sampling.get('solver', 'ddim')
-    if solver not in ('ddim', 'dpmpp_2m') or (solver == 'dpmpp_2m' and (
+    spacing = sampling.get('timestep_spacing', 'uniform')
+    if spacing not in ('uniform', 'quadratic') or (
+            spacing != 'uniform' and (solver != 'ddim' or prediction_type == 'edm')):
+        raise ValueError('Nonuniform timestep spacing requires DDIM')
+    if solver not in ('ddim', 'dpmpp_2m', 'flow_heun') or (solver == 'dpmpp_2m' and (
             prediction_type != 'epsilon' or sampling.get('eta', 0) or sampling['steps'] < 2)):
         raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
+    if (solver == 'flow_heun') != (prediction_type == 'flow'):
+        raise ValueError('Linear flow requires the Heun flow solver')
+    if prediction_type == 'flow' and (sampling['steps'] < 2 or sampling.get('eta', 0) or guidance_min
+            or any(key in sampling for key in ('start_timestep', 'guidance_max_timestep', 'threshold_percentile'))):
+        raise ValueError('Flow requires a full deterministic trajectory without diffusion-only options')
     rescale = sampling.get('guidance_rescale', 0)
     if not 0 <= rescale <= 1 or (rescale and prediction_type != 'epsilon'):
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
@@ -95,12 +111,17 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
     if not math.isfinite(pag) or pag < 0 or (pag and (prediction_type != 'epsilon' or solver != 'ddim'
             or sampling.get('eta', 0) or reflect or model.self_condition)):
         raise ValueError('Perturbed attention requires deterministic epsilon DDIM and ordinary denoiser inputs')
+    class_noise = sampling.get('class_noise_max', 0)
+    if not 0 <= class_noise <= 1 or (class_noise and (prediction_type != 'epsilon' or solver != 'ddim'
+            or sampling.get('eta', 0) or reflect or model.self_condition)):
+        raise ValueError('Class condition annealing requires ordinary deterministic epsilon DDIM')
     percentile = sampling.get('threshold_percentile')
     threshold_min = sampling.get('threshold_min_timestep', 0)
     if percentile is not None and (not 0 < percentile <= 1 or prediction_type != 'epsilon'
                                    or type(threshold_min) is not int or not 0 <= threshold_min <= final_timestep):
         raise ValueError('Dynamic thresholding requires epsilon prediction, a valid timestep and percentile')
-    inference_files = INFERENCE_FILES + ['edm.py'] if prediction_type == 'edm' else INFERENCE_FILES
+    extra_files = {'edm': ['edm.py'], 'flow': ['flow.py']}
+    inference_files = INFERENCE_FILES + extra_files.get(prediction_type, [])
     out.mkdir(parents=True, exist_ok=True)
     for name in inference_files:
         source = ROOT / 'submission' / name
@@ -109,7 +130,7 @@ def export_checkpoint(checkpoint, manifest, out, *, weights='ema', steps=None, g
             shutil.copy2(source, dest)
     shutil.copy2(manifest, out / 'manifest.csv')
     torch.save({name: tensor.detach().cpu() for name, tensor in state[weights].items()}, out / 'weights.pt')
-    write_json(out / 'inference.json', {'model': state['config']['model'], 'sampling': sampling})
+    write_json(out / 'inference.json', {'model': model_config, 'sampling': sampling})
     write_json(out / 'provenance.json', {'checkpoint_sha256': sha256(checkpoint),
         'manifest_sha256': digest, 'weights_sha256': sha256(out / 'weights.pt'),
         'config_sha256': sha256(out / 'inference.json'), 'weights_variant': weights,
@@ -141,7 +162,7 @@ def main():
     p.add_argument('--guidance-min-timestep', type=int)
     p.add_argument('--guidance-max-timestep', type=int)
     p.add_argument('--eta', type=float)
-    p.add_argument('--solver', choices=('ddim', 'dpmpp_2m'))
+    p.add_argument('--solver', choices=('ddim', 'dpmpp_2m', 'flow_heun'))
     p.add_argument('--guidance-rescale', type=float)
     args = p.parse_args()
     print(export_checkpoint(args.run, args.manifest, args.out, weights=args.weights,

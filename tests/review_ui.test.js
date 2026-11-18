@@ -5,7 +5,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const test = require('node:test');
 
-function fixture() {
+function fixture(search = '') {
   const nodes = new Map();
   function node(id) {
     if (!nodes.has(id)) nodes.set(id, {value: '', checked: false, disabled: false,
@@ -16,7 +16,7 @@ function fixture() {
   const criteria = ['species_correct', 'real_photo'].map(name => ({checked: true, dataset: {criterion: name}}));
   const buttons = ['good', 'bad'].map(verdict => ({dataset: {verdict}}));
   const pending = [];
-  const context = vm.createContext({URLSearchParams,
+  const context = vm.createContext({URLSearchParams, location: {search},
     URL: {createObjectURL() { throw new Error('Stale preview must not create a blob URL'); }, revokeObjectURL() {}},
     document: {getElementById: node,
       querySelector(selector) { return selector.startsWith('meta') ? {content: 'synthetic-token'} : criteria[0]; },
@@ -27,13 +27,25 @@ function fixture() {
       }},
     fetch(url, options) { return new Promise(resolve => pending.push({url, options, resolve})); }});
   const source = fs.readFileSync(path.join(__dirname, '../src/curation/review.js'), 'utf8')
-    .replace(/\nload\(\)\.catch\(error => message\(error\.message, true\)\);\s*$/, '');
+    .replace(/\nopenReviewLink\(\)\.catch\(error => message\(error\.message, true\)\);\s*$/, '');
   vm.runInContext(source, context);
   vm.runInContext("items = [{candidate_id:'synthetic-a', pool_id:'fixture'}]; loading = false;", context);
   return {context, pending, node, criteria, run(code) { return vm.runInContext(code, context); }};
 }
 
 function response(data) { return {ok: true, async json() { return data; }}; }
+
+test('a shortlist link opens the requested saved crop and batch', async () => {
+  const f = fixture('?mode=shortlist&batch=2&candidate=synthetic-b');
+  f.run('show = async () => {}');
+  const load = f.run('openReviewLink()');
+  assert.equal(f.pending[0].url, '/items?mode=shortlist&page=1');
+  f.pending[0].resolve(response({items: [{candidate_id: 'synthetic-a'}, {candidate_id: 'synthetic-b'}],
+    total: 2, page: 1, batch_count: 2, batch_id: 'v002'}));
+  await load;
+  assert.equal(f.run('items[position].candidate_id'), 'synthetic-b');
+  assert.equal(f.node('page').value, 2);
+});
 
 test('two overlapping save calls send only one decision', async () => {
   const f = fixture();

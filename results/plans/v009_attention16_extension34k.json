@@ -1,0 +1,61 @@
+{
+  "inputs": {
+    "src/training/train.py": "7ec96a7697a087788cfe93e7a520eda123c6a882a0706dfb540de18bac1674e2",
+    "src/training/step.py": "428ca584e6f92977c8c25524e6343981a0d8e9058f0ce89582a79cce5dc0b2dd",
+    "src/training/data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src/training/validation.py": "020d22776ac38642d6ab84ac60259901cc1ad9a1e698a3673c01717d7a77df15",
+    "src/training/lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "src/curation/pool_fingerprint.py": "410567c6e78bf3f72bb5d149ba0109af5a0dddde186ee3a7d6bf8813c0075236",
+    "submission/model.py": "b2cf89d87b1c15a98c74ae7aef291f9e44b6d33678232f879504fc078e841ee6",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_attention16_extension.py": "a3015f50829941128a04a08e648d99e9334818ae36293e3fcb9bf0954954f520",
+    "checkpoints\\v009_attention16_32k_seed17\\update_032000.pt": "0e572223d717ccb7ce5c7bdaec97d48e0260427667c15d3e19258d09ab6d675c",
+    "results\\plans\\v009_attention16_32k.json": "3302ea024321f78a20d7128ae305d8c76e499f11b56c6d3fc67e0a6bff2c08cc",
+    "checkpoints\\v009_attention16_32k_seed17\\run.json": "c62f3038ddafda7ba51fdb4d8f79af59491ed337a2cd13c26af19fc910df526f",
+    "results\\experiments\\v009_attention16_freeu200\\screen.json": "c158ab8b102328d8fde3041ce9a8d853aa9d8c90caee27bd1831660e46324dbd",
+    "results\\experiments\\v007_freeu_cfg310\\selection.json": "6ddcd94c12429f44feac93e092e8dd4ed917da2c18b39905b35204b5d9399ea3",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "manifests\\v009.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v009.provenance.json": "cf7910301c6ac79f041c3e3ead5b35c5caef74984f58e7d873f0a2cbb94b4997",
+    "configs\\runs\\v009_attention16_32k.json": "b0025a253c5d6fb83f217032ea585962ae887f1f33bac70dc71540dd2ae07a0f",
+    "src\\release\\export.py": "31f699b12cce5133ca248d510a77a0b4c4413ce7ed7c3f7931e42016ffff876b"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v009_attention16_32k.json",
+    "--manifest",
+    "manifests\\v009.csv",
+    "--validation-manifest",
+    "manifests\\v009.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "34000",
+    "--out",
+    "checkpoints\\v009_attention16_extension34k",
+    "--resume",
+    "checkpoints\\v009_attention16_32k_seed17\\update_032000.pt"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1,
+    "freeu": true,
+    "freeu_strength": 2.0
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "rule": "Use the 2.90% copy rate as headroom for a single 2k continuation. Advance only if the official screen passes, reaches 13/15, and improves over both controls."
+}

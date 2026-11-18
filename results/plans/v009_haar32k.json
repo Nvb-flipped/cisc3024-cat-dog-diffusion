@@ -1,0 +1,59 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_haar.py": "e791c51c26f142f3534719190d58f6b6b61f2a5bbdad364458e120aba39a5932",
+    "results\\plans\\v009_coverage32k.json": "4087834a2787daf0fde73197a48ceb8598d9df478645eb21e535da79c76748c8",
+    "results\\experiments\\v009_coverage32k\\screen.json": "0b77d1c5cb8bfd06bebee3f018b6196efdadd34ff1cd2341ea74e4551cbe433b",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "manifests\\v009.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v009.provenance.json": "cf7910301c6ac79f041c3e3ead5b35c5caef74984f58e7d873f0a2cbb94b4997",
+    "configs\\runs\\v008_coverage32k.json": "f040ef3f9e670d8f4e03f43955b6059188a00b2335d5689156491e87390296a0",
+    "configs\\runs\\v009_haar32k.json": "2280c638df2a48c8c392f1e09b01376293f13e9592532bc26cab6a3360b06235",
+    "results\\diagnostics\\v009_haar32k\\result.json": "53c3100d262dbde0cd278cacc9ebf4e8257b1eeba906e1aaf4a22d916d5815c6",
+    "results\\curation\\v009_cache_parity.json": "06d64e7e198cb420e31ab86c0da35087d0598d63a4a96ec54c23914891c0adbc",
+    "src\\training\\train.py": "3c2fe4d7c50c5bf08cebe699660163b55cd53a8c5ddee4c275a381f70b47b0bc",
+    "src\\training\\step.py": "5a1304fbd4b2fb856f200de38d074e808084f23c50fc013afb12a03486cfaa91",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "submission\\model.py": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+    "submission\\diffusion.py": "00237eea543d407dd7303c3914bc2c8e5802115d896fc329e2ccd6c8cfd202cc",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "92110f74f9bc49f00202d9bfc2e938744272466ca9c529e1e4dc3cc91f8b49b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v009_haar32k.json",
+    "--manifest",
+    "manifests\\v009.csv",
+    "--validation-manifest",
+    "manifests\\v009.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v009_haar32k_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "source": "https://arxiv.org/abs/2211.16152",
+  "rule": "Train a native Haar U-Net from scratch with pixel epsilon targets and the same exact inputs."
+}

@@ -1,0 +1,119 @@
+{
+  "time": "2026-11-11T16:34:51.519946+00:00",
+  "selection_sha256": "2ef5262e5c8e7b33b9c158a7f174ad8daba85196313600d89bd1ad9785e441d8",
+  "valid": true,
+  "candidate": "u021000_ema_s50_g2.5",
+  "confirmation": {
+    "checkpoint": "checkpoints\\ddpm_seed17_refine_20k_22k_86c3c843eb\\update_021000.pt",
+    "checkpoint_sha256": "47e909e60fb4c17c3b4d0399b771940e3cd394f0bb40be132df5b96e4a3ad7b5",
+    "update": 21000,
+    "exported": "private_build\\refinement_v001_seed17\\u021000_ema_s50_g2.5",
+    "export_hashes": {
+      "diffusion.py": "8e882c3074cf11918fe826034b802ceb8368b641eabaf25753b5bf8dca78fd58",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "94868481be6e2688430990d556e27f195ec15a6a114eda0fbb258c3aebd7182b",
+      "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+      "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+      "provenance.json": "8fc5e28d27be0c2b9fd20f80492b90cc836a28b3796b646841a4a88c382b64f6",
+      "weights.pt": "7bec035af7edf8875406ad59ee9b517ee84b2befe4a77bb3314632ad591923a5",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "evidence": [
+      {
+        "seed": 303,
+        "path": "results\\experiments\\refinement_v001_seed17\\confirmation\\seed_303.json",
+        "sha256": "3d8c51b187c8c86ff2db4e3fb71f6ce0cd6e416c7c19e46cf4e1634ac3de9c3e",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.8934999704360962,
+          "per_class_accuracy": {
+            "cat": 0.9369999766349792,
+            "dog": 0.8500000238418579
+          },
+          "fid": 79.84758146672237,
+          "kid": 0.032140854893549724,
+          "kid_std": 0.0014116514427764005,
+          "precision": 0.6648229956626892,
+          "recall": 0.2853982448577881,
+          "memorization_rate": 0.04699999839067459,
+          "nn_distance_median": 7.243261814117432,
+          "nn_ratio_median": 0.8903682827949524,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Good",
+              "marks": 4
+            },
+            "fid": {
+              "tier": "Pass",
+              "marks": 3
+            },
+            "recall": {
+              "tier": "Pass",
+              "marks": 3
+            }
+          },
+          "total": 10,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      },
+      {
+        "seed": 404,
+        "path": "results\\experiments\\refinement_v001_seed17\\confirmation\\seed_404.json",
+        "sha256": "d405dab1b87bdf891c5f511341fb3bdc5c0abc28e13da614856865105d818835",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.8995000123977661,
+          "per_class_accuracy": {
+            "cat": 0.9319999814033508,
+            "dog": 0.8669999837875366
+          },
+          "fid": 78.98927874168743,
+          "kid": 0.032701110175263136,
+          "kid_std": 0.0013999650727044273,
+          "precision": 0.6216813921928406,
+          "recall": 0.2455752193927765,
+          "memorization_rate": 0.04450000077486038,
+          "nn_distance_median": 7.299350261688232,
+          "nn_ratio_median": 0.8910871744155884,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Good",
+              "marks": 4
+            },
+            "fid": {
+              "tier": "Pass",
+              "marks": 3
+            },
+            "recall": {
+              "tier": "Pass",
+              "marks": 3
+            }
+          },
+          "total": 10,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      }
+    ],
+    "score": [
+      10,
+      -2.9847581466722373,
+      -0.04699999839067459,
+      -33.801743099989835
+    ]
+  }
+}

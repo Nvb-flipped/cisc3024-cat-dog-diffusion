@@ -1,0 +1,10 @@
+{
+  "device": "cuda",
+  "label_count": 35,
+  "prefixes": [
+    1,
+    7
+  ],
+  "passed": true,
+  "weights_sha256": "fb4df1f5997e9e9375e707315f97fcbab5a674455fc572ede0b6f92f4eb2ab37"
+}

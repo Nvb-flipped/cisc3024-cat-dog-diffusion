@@ -1,0 +1,26 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_lower_guidance.py": "c97abe6074d336bd037f909adfd01a74f9e29cdea5fb6306b8e6bae16ccefcbb",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "results\\experiments\\v009_extension36k\\screen.json": "8c35604fb08ae4092eb536a103c887827bca996ece467dbe89bf9fe4b70b6ee1",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "checkpoints\\v009_extension36k_seed17\\update_036000.pt": "7af9b4efcb5070ca779a3c6d08ba98ec26d83871af13d03eeaedbd4ef159b34f",
+    "submission\\model.py": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "2a6dbb8360765470bed01778d7340d846c880bc72ab9558e8f1acdc80558686e",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.0,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "rule": "Change only CFG from 3.25 to 3.0 on the one-copy-over-cap checkpoint."
+}

@@ -1,0 +1,32 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_timestep_early.py": "efa1298e0dd47778886b08036c337eafc6cc3b4e73f92b8e4501e998b9ba572e",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\v007_timestep_focus065_seed17\\update_020000.pt": "cfa1b967f39647d961edd7e7188e88a66ab04f9638e5a42e3aee08b5fb496417",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "results\\plans\\v007_timestep_focus065.json": "4fb29d1802ea857ec9cd118df3c77fbbe164f4089ca930fbb31a16b148d891dd",
+    "checkpoints\\v007_timestep_focus065_seed17\\validation_020000.json": "d761f27601894d46645b2ebd3b7b5546b3cfae10d53526ccec623ed06be72656",
+    "checkpoints\\v007_timestep_focus065_seed17\\validation_032000.json": "f80b119c8620724d72c922aa6ba23c9ab4d934c0ba3cebf54617c1f6148be5da",
+    "results\\experiments\\v007_timestep_focus065\\screen.json": "72a386f615bb7729396b44b88d1c0f51460a8d4e74ad71673951a3f13026ca91",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "command": "python -u -m scripts.run_v007_timestep_early",
+  "rule": "Test the first held-out EMA-loss plateau, 20k, with the same official sampler and seed. This is one checkpoint-age comparison after the 32k hard-cap failure.",
+  "created": "2026-11-16T14:12:32.617693+00:00"
+}

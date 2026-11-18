@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_freeu.py": "2f66daa6d323fe72967c29602b4001a2c48aaa610f8e8cc7df4f3ec0e248103b",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_032000.pt": "bab5e1ef6a7bcd0891803fe6ce22b5b24d07cbb7d44a841d3351f22e586d4b1b",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "submission\\model.py": "7eba67da222642aa1813b60d80a5e2d81a90da20813e037231f0c18318e9485c",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "d1ef60e13c12e9bd3689f4c6a79618b2c6517f4cd554d6ecde7f9cb1156d538f",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1,
+    "freeu": true
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v007_freeu"
+  ],
+  "source": "https://arxiv.org/abs/2309.11497",
+  "rule": "One mild feature reweight on the first two decoder stages. Keep exact learned weights, sampling settings and pool rows. Advance only a valid official improvement."
+}

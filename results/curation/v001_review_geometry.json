@@ -1,0 +1,75 @@
+{
+  "created": "2026-11-12T05:56:29.824382+00:00",
+  "source_hashes": {
+    "manifests\\v001.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "manifests\\v001.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v001.provenance.json": "28c6a3a658c6f6192fc9c47cc80e1a8feac93012320c46e628068700562be62e",
+    "annotations\\decisions.jsonl": "4f5ad1e962d69283aa64492f801af861465b0a0906ccaa78a08e4751ab62c452",
+    "annotations\\duplicate_groups.csv": "ee19d9fbe98419a736f058dc35a08a07552131c3ac02ea5c4c66f99cf438199e"
+  },
+  "kept": 1260,
+  "training": {
+    "cat": {
+      "n": 583,
+      "head_width_px": {
+        "minimum": 32.8,
+        "q1": 70.45,
+        "median": 96.9,
+        "q3": 129.2,
+        "maximum": 218.2
+      },
+      "head_width_basis": {
+        "source_clicks": 169,
+        "agent_draft_confirmed": 408,
+        "student_entry": 6
+      },
+      "occupancy": {
+        "minimum": 0.6,
+        "q1": 0.6870967741935484,
+        "median": 0.69,
+        "q3": 0.7188118811881188,
+        "maximum": 0.8
+      }
+    },
+    "dog": {
+      "n": 614,
+      "head_width_px": {
+        "minimum": 36.0,
+        "q1": 69.0,
+        "median": 91.3,
+        "q3": 123.0,
+        "maximum": 230.0
+      },
+      "head_width_basis": {
+        "agent_draft_confirmed": 443,
+        "source_clicks": 164,
+        "student_entry": 7
+      },
+      "occupancy": {
+        "minimum": 0.6,
+        "q1": 0.6873640832851359,
+        "median": 0.7185913542069321,
+        "q3": 0.7191176470588235,
+        "maximum": 0.8032
+      }
+    }
+  },
+  "legacy_occupancy_difference_above_0_005": 27,
+  "strict_range_rechecks": [
+    {
+      "split": "training",
+      "row": 120,
+      "pool_id": "s007489",
+      "label": 1,
+      "candidate_id": "b7846466313a7ef639a1",
+      "preview_sha256": "4c7b05439eb4f1bfed93e6c1216353d64947de8766c3b303e199f23a1cc2c76d",
+      "head_width": 200.8,
+      "side": 250,
+      "head_width_basis": "source_clicks",
+      "recorded_occupancy": 0.8,
+      "recalculated_occupancy": 0.8032
+    }
+  ],
+  "scope": "Recomputed from recorded widths. Human remeasurement and the official audit are separate.",
+  "table_sha256": "8592cfdb30203d47c2c309a4186492940fd3222f7909faae46f1db545260adc5"
+}

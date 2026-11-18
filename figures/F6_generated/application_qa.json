@@ -1,0 +1,22 @@
+{
+  "checked": "2026-11-12T06:00:40.099567+00:00",
+  "reference_drawio_sha256": "8898933863c482a7a6289c8aea641b61e1205e66cbd05cd396cde7e536ac8f35",
+  "powerpoint_check": {
+    "status": "native render and picture crop/edit-save-reopen passed",
+    "reference_pptx_sha256": "65d45ab2f88c8a8dd85bffd867aa97723547325425cfb181453d6fc372488bb8",
+    "render_path": "private_build\\development_figure_application_qa\\F6_generated_powerpoint.pdf",
+    "render_sha256": "8028d9fa8884aa97f5ca207c2f4a1c3a76c4b7a9c54730ccf76308171bdd734d",
+    "native_picture_test": {
+      "status": "passed",
+      "crop_left_change_points": 1.9996800422668457,
+      "test_copy_sha256": "0ff4142b568113439a3aae8c7c194a67c4c56277465db2867ba1f16cbbb3dfbd"
+    }
+  },
+  "drawio_check": {
+    "status": "native local rendering passed; interactive edit-save-reopen pending",
+    "application_version": "32.6.1",
+    "render_path": "private_build\\development_figure_application_qa\\F6_generated_drawio.png",
+    "render_sha256": "1499fa41106b8401a93395b91ecc94c6c035edbfd7a1ad0827905a57a8b4515b"
+  },
+  "comparison": "private_build\\development_figure_application_qa\\visual_comparison.png"
+}

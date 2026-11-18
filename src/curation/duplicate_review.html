@@ -3,11 +3,17 @@
 <meta name="review-token" content="__TOKEN__"><title>Head study · duplicate families</title>
 <style>
 :root{color-scheme:light;--ink:#183047;--muted:#5c6f80;--line:#c5d0da;--blue:#145d92}*{box-sizing:border-box}body{margin:0;background:#eef2f5;color:var(--ink);font:16px/1.45 'Segoe UI',sans-serif}header,main{max-width:1400px;margin:auto;padding:24px 4vw}header{border-bottom:1px solid var(--line)}h1{font:600 27px Georgia,serif;margin:0}h2{font-size:18px}p{max-width:1000px}.note{color:var(--muted);font-size:14px}.toolbar,.actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:18px 0}input,select,button{font:inherit;padding:9px;background:white;border:1px solid var(--line);border-radius:4px;color:var(--ink)}button{cursor:pointer}button:disabled{opacity:.5;cursor:wait}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #e3a43a;outline-offset:2px}.primary{background:var(--blue);color:white;border-color:var(--blue)}#cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}.card{background:white;border:1px solid var(--line);padding:16px;max-width:600px}.images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:12px;min-height:128px}.source{display:block;max-width:100%;max-height:150px}.crop{display:block;width:100%;max-width:128px;aspect-ratio:1;image-rendering:pixelated}.card input,.card select{width:100%;margin-top:6px}.card label{display:block;font-size:13px;margin-top:12px}.identity{font:13px Consolas,monospace;overflow-wrap:anywhere}.message{font-weight:600;min-height:28px}.error{color:#9e3737}#panel[hidden]{display:none}.check{display:flex;gap:9px;align-items:start;margin-top:20px}.check input{margin-top:6px}a{color:var(--blue)}
-@media(max-width:850px){#cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:450px){#cards{grid-template-columns:1fr}}
+.draft-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}details{margin:22px 0;padding:16px;border:1px solid var(--line)}summary{cursor:pointer;font-weight:600}.draft-grid .card a{display:block;margin-top:12px}
+@media(max-width:850px){#cards,.draft-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:450px){#cards,.draft-grid{grid-template-columns:1fr}}
 </style></head><body><header><h1>Duplicate families</h1><p class="note">Personal comparison of approved heads · one kept crop per confirmed family</p></header>
 <main><p>Similarity only suggests which crops to compare. Two similar heads can be different animals, and duplicate photos can occur in different comparison sets. Check originals and crops, including mirrored or recropped versions. Confirm the same family ID wherever the same head appears; keep one suitable crop.</p>
 <div class="toolbar"><label>Student reviewer <input id="reviewer" placeholder="Your name" autocomplete="name"></label><button id="refresh">Reload approved crops</button><span id="progress"></span><a href="http://127.0.0.1:8766/">Return to crop review</a></div>
+<details id="draft-batches"><summary>Batch preparation and read-only draft comparisons</summary>
+<p class="note">Draft comparisons are suggestions, not family decisions. Save your crop verdict in Head Study first. Only personally approved crops appear in the family review below. Edited crops are compared again after approval.</p>
+<div class="toolbar"><label>Prepared batch <select id="draftBatch"></select></label><span id="draftInventory"></span><a href="http://127.0.0.1:8769/priority_shortlist_expansion_findings.html">All batch findings</a></div>
+<p class="note" id="draftStatus"></p><div id="draftCards" class="draft-grid"></div>
+<div class="actions"><button id="draftPrevious">← Previous draft page</button><button id="draftNext">Next draft page →</button><button id="draftBack">Back to batch</button></div></details>
 <div class="message" id="message" role="status" aria-live="polite">Loading personally approved crops…</div>
 <section id="panel" hidden><h2 id="heading"></h2><p class="note" id="suggestions"></p><div id="cards"></div>
 <label class="check"><input id="compared" type="checkbox"><span id="confirmation"></span></label>
@@ -20,7 +26,7 @@ const token = document.querySelector('meta[name="review-token"]').content;
 let queue = null, itemsById = new Map(), position = 0, saving = false, imagesReady = false, imageVersion = 0;
 function message(text, error=false) { field('message').textContent=text; field('message').className=error?'message error':'message'; }
 function element(tag, text) { const node=document.createElement(tag); if(text!==undefined)node.textContent=text; return node; }
-function setBusy(value) { saving=value; document.querySelectorAll('button,input,select').forEach(node=>node.disabled=value); }
+function setBusy(value) { saving=value; document.querySelectorAll('#panel button,#panel input,#panel select,#reviewer,#refresh').forEach(node=>node.disabled=value); }
 function firstPendingPage(after=-1) {
   return queue.pages.findIndex((page, index) => index>after && page.ids.some(id=>!itemsById.get(id).prior));
 }
@@ -42,6 +48,7 @@ function show() {
   field('progress').textContent=`Review page ${position+1} / ${queue.pages.length} · ${queue.items.filter(item=>item.prior).length} / ${queue.items.length} family decisions saved`;
   field('heading').textContent=singleton ? `${ids.length} crops with no close match suggested` : `Compare ${ids.length} approved crops`;
   field('suggestions').textContent=singleton ? 'Check the crops on this page. You can confirm all pending crops together, or edit individual family and keep choices.' : 'The similarity search flagged these crops for comparison. Use the originals to decide which ones share a family.';
+  if(page.component_parts>1)field('suggestions').textContent+=` Group page ${page.component_part} of ${page.component_parts}; compare across these pages and reuse the same family ID wherever the same head appears.`;
   field('confirmation').textContent=singleton ? 'I checked the originals and crops on this page and confirm my keep choices.' : 'I personally compared these source photographs and exact crops, and checked family IDs against other reviewed heads.';
   field('distinct').textContent=singleton ? 'Keep all pending crops on this page' : 'Confirm all distinct; keep each crop';
   field('distinct').hidden=singleton && ids.every(id=>itemsById.get(id).prior);
@@ -88,8 +95,56 @@ async function save(distinct=false) {
     show(); window.scrollTo(0,0); message(`Saved ${result.saved} personal decisions.`);
   }catch(error){message(error.message,true);}finally{setBusy(false);}
 }
-field('refresh').onclick=load;field('save').onclick=()=>save();field('distinct').onclick=()=>save(true);
+field('refresh').onclick=async()=>{await load();await loadDraftBatches();};field('save').onclick=()=>save();field('distinct').onclick=()=>save(true);
 field('previous').onclick=()=>{position=Math.max(0,position-1);show();window.scrollTo(0,0);};
 field('next').onclick=()=>{const next=firstPendingPage(position);if(next<0)message('No later pending page. Review earlier pages or reload approved crops.');else{position=next;show();window.scrollTo(0,0);}};
-load();
+let batchAdvisory=null,draftPage=0;
+function currentDraftBatch(){return batchAdvisory?.batches.find(b=>b.batch===Number(field('draftBatch').value));}
+function draftCard(row, showMatches=true){
+  const card=element('article');card.className='card';
+  card.append(element('p',`${row.pool_id} · ${Number(row.label)===0?'cat':'dog'} · ${row.candidate_id}`));
+  const images=element('div');images.className='images';
+  for(const kind of ['source','crop']){
+    const query=new URLSearchParams({pool_id:row.pool_id});
+    if(kind==='crop')for(const key of ['x0','y0','size','angle'])query.set(key,row[key]);
+    const img=element('img');img.src=`/${kind}?${query}`;img.className=kind;img.alt=kind==='source'?'Original source':'Exact draft crop';img.loading='lazy';images.append(img);
+  }
+  card.append(images,element('p',row.review_status?`Crop review: ${row.review_status}`:row.crop_review_sha256?'Previously approved crop':'Draft crop; not approved'));
+  const link=element('a',row.batch?'Open in Head Study':'Use approved family review below');
+  link.href=row.batch?`http://127.0.0.1:8766/?${new URLSearchParams({mode:'shortlist',batch:row.batch,candidate:row.candidate_id})}`:'#panel';card.append(link);
+  const matches=batchAdvisory.matches[row.candidate_id]||[];
+  if(showMatches&&matches.length){
+    const button=element('button',`Compare ${matches.length} suggested match${matches.length>1?'es':''}`);
+    button.onclick=()=>{
+      field('draftCards').replaceChildren(draftCard(row,false),...matches.map(m=>draftCard(batchAdvisory.comparison_items[m.candidate_id],false)));
+      field('draftStatus').textContent='Target first, then similarity suggestions. This does not establish a duplicate family. Use family review after approving the crop.';
+      field('draftPrevious').disabled=field('draftNext').disabled=true;field('draftBack').hidden=false;
+    };card.append(button);
+  }else if(showMatches)card.append(element('p','No close match suggested; this does not prove distinctness.'));
+  return card;
+}
+function showDraftBatch(){
+  const batch=currentDraftBatch();if(!batch)return;
+  const counts=batch.review_counts;
+  field('draftInventory').textContent=`${batchAdvisory.batch_count} batches prepared · ${batch.items.length} crops in Batch ${batch.batch}`;
+  field('draftStatus').textContent=`Draft page ${draftPage+1} / ${Math.ceil(batch.items.length/8)} · ${counts.pending} pending · ${counts.good} good · ${counts.bad} bad · ${counts.uncertain} uncertain · ${counts.changed} edited since draft`;
+  field('draftCards').replaceChildren(...batch.items.slice(draftPage*8,draftPage*8+8).map(row=>draftCard(row)));
+  field('draftPrevious').disabled=draftPage===0;field('draftNext').disabled=(draftPage+1)*8>=batch.items.length;field('draftBack').hidden=true;
+}
+async function loadDraftBatches(){
+  try{
+    const response=await fetch('/batches');if(!response.ok)throw new Error('Batch preparation could not be loaded.');
+    const result=await response.json();batchAdvisory=result;
+    const selected=Number(field('draftBatch').value)||Number(new URLSearchParams(location.search).get('batch'))||26;
+    field('draftBatch').replaceChildren(...result.batches.map(batch=>{const option=element('option',`Batch ${batch.batch} (${batch.items.length} crops)`);option.value=batch.batch;return option;}));
+    field('draftBatch').value=String(result.batches.some(b=>b.batch===selected)?selected:result.batches[0]?.batch||'');
+    if(new URLSearchParams(location.search).has('batch'))field('draft-batches').open=true;
+    draftPage=0;showDraftBatch();
+  }catch(error){field('draftStatus').textContent=error.message;}
+}
+field('draftBatch').onchange=()=>{draftPage=0;showDraftBatch();};
+field('draftPrevious').onclick=()=>{draftPage=Math.max(0,draftPage-1);showDraftBatch();};
+field('draftNext').onclick=()=>{draftPage++;showDraftBatch();};
+field('draftBack').onclick=showDraftBatch;
+load();loadDraftBatches();
 </script></body></html>

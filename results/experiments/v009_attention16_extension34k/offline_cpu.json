@@ -1,0 +1,55 @@
+{
+  "device": "cpu",
+  "parameters": 5098915,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 163.27128270000685,
+      "sample_sha256": "bbcd222fa154baf298c4b830d70f83e6203137928a96f8f816c39426eb861c3d"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 212.5538932000054,
+      "sample_sha256": "c72c70a89057ee11e70e9f22a0a12bac06e6459678c70b4998aff1acda8eba57"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 177.02734619996045,
+      "sample_sha256": "41b08adfd5d32dcf685d152670abf8ba56e0f8e7f0499c1557b603ebebe32969"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 311.3211137999315,
+      "sample_sha256": "8f3436fa4f80787d108afab7f6f4e28dcffb32943daad68309fb42ed921964f0"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 2478.449545899988,
+      "sample_sha256": "ee39b6f139ef468b599650ab7872b305ecffffd96e954d2867971498084ac95b"
+    }
+  ],
+  "seconds": 3342.690139500075,
+  "submission_bytes": 20542292,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "8a3dfd2448bcb60e74aabae817ff3071c1afc496ba379f253cf10fe34cf0564d",
+    "manifest.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "model.py": "b2cf89d87b1c15a98c74ae7aef291f9e44b6d33678232f879504fc078e841ee6",
+    "provenance.json": "950d155408b0c088109b4010c1bf791616554db54a7c81dba5bea4b2daceab20",
+    "weights.pt": "12caf590a1c931ea1d4cab1d23f71a588433e0249080f4b60098053b50549392",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

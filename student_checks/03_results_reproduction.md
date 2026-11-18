@@ -1,6 +1,6 @@
 # Independent results check — pending final experiments
 
-Wait for a frozen candidate and real official results. The current placeholder smoke is environment evidence and must not be used as the project result table.
+Use the frozen final export and its original official results. Development comparisons are available under `results/experiments/`. The final result table will use the matching receipts under `results/final/`.
 
 - Start a fresh process and independently invoke the unchanged `starter_kit/evaluate.py` on the exact exported submission, with course pool present, grading enabled, 1,000 generated images per class and evaluator batch size 500. Record the generation seed and input hashes. Preserve the original JSON rather than copying rounded numbers by hand.
 - Confirm that the complete manifest rebuilt, memorization ran, and all hard checks passed. Identify accuracy, FID, KID and its reported variability, precision, recall, memorization, parameters, disk size and sampling time in the original result.

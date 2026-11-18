@@ -1,0 +1,58 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v008_coverage.py": "64bb1c59e6b679109b9f09c932bcf3bafbb0c978c67b85d09a997fcab0c1f07a",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "manifests\\v008.csv": "4456c5d8fe8afb1aa193e9c2b3af9cd435b41280ada8c74a7cd5709890e2e8d5",
+    "manifests\\v008.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v008.provenance.json": "f40ed78fce86babaa476bcc82bb9f07621b6f3536a3c13c0beebf60886056af3",
+    "results\\curation\\v008_cache_parity.json": "71c322bdae7ff1ab473042abac5978944083de3d389fc99acac89c24d067cdda",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\run.json": "203618611ca422189247ac4634a26fe99a480bd31804babc7291f1dc91545fe4",
+    "configs\\runs\\v008_coverage32k.json": "f040ef3f9e670d8f4e03f43955b6059188a00b2335d5689156491e87390296a0",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "92a045e5aadfb7fbd3e82e2048c48b91f66a3292965808e97793ce6baeeb2272",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "src\\training\\lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v008_coverage32k.json",
+    "--manifest",
+    "manifests\\v008.csv",
+    "--validation-manifest",
+    "manifests\\v008.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v008_coverage32k_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "added_crops": 60,
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000
+}

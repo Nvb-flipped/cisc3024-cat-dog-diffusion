@@ -1,0 +1,741 @@
+{
+  "batch": "v045",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "draft_species_overrides": {},
+  "inputs_sha256": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\scout_expansion.py": "b1989a82aa75a08ee286e04c78d97c63c9b7b240d5700e36d3abea0339eca532",
+    "results\\curation\\full\\candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "private_build\\review_yield_v001\\unreviewed_rank.csv": "f2ba6afa94cadde7cd02146057a3e8987f03e0375ac2eb0bf4d6ef56db962c9f",
+    "results\\curation\\photo_screen_full\\scores.csv": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9",
+    "annotations\\decisions.jsonl": "6ed9377a985e172fccb0e720ae4e23a39899769a96cee7f5e063af68ba01ad00",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "data\\cache\\v2_3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858.npz": "d445c0a3fe6358bec0d1b1de337f107b6b58cbe77e7be3806d34356f52872927",
+    "results\\curation\\priority_shortlist_v001.json": "f30a29486c94dca2be61428f6560f5a34215b6250abd631c7864eb5cb966b95f",
+    "results\\curation\\priority_shortlist_v002.json": "9b8b3c3a97f87b494ec198f5db9e04f3e80380f7faee5b44ed2199664fe74a1d",
+    "results\\curation\\priority_shortlist_v003.json": "b8966c7f3181ecd7eaa0c53a9958cb379d06371927f318d17a02c42bcedf49df",
+    "results\\curation\\priority_shortlist_v004.json": "9e70e0e4978d2fb267fd9361ed77d9edfb10176ec6f8272869c7eefedaac1b37",
+    "results\\curation\\priority_shortlist_v005.json": "390b5e581ec5db0e4955090419982ab9bdbd7e8984c92d4058a968ce545b95f1",
+    "results\\curation\\priority_shortlist_v006.json": "7130aa62d359a43166222ee01ed7121ab466070bd86cff5e055a90855d9ee1c3",
+    "results\\curation\\priority_shortlist_v007.json": "cd19781e6477a4499a92f85737c2961abd64dd1baa59c8ea70b54cc24a895e33",
+    "results\\curation\\priority_shortlist_v008.json": "1818121ba1194f64461a295c8f44ae1641e79962dc0730b247f97b9e2ff8ad6a",
+    "results\\curation\\priority_shortlist_v009.json": "210f5cf08e3f75acbf7a99ba51690a0e9962c3084b9ebe68da3cca2112bd1523",
+    "results\\curation\\priority_shortlist_v010.json": "b8eae27758d6fea16cc41806de2c79efe380f5be74be705677387e211a163bfd",
+    "results\\curation\\priority_shortlist_v011.json": "f976ca99ca0ee1cda239fa2368f203370c3d154d9bcfe46ca4524b44fc292a59",
+    "results\\curation\\priority_shortlist_v012.json": "e592aba5ac793306886bcf54bf844afd37720ab7381bd06d3240204b4d3eac7f",
+    "results\\curation\\priority_shortlist_v013.json": "915abf25d65e9725a65a99b7df68d4366115659c74484ade51c6ff23979fd4fa",
+    "results\\curation\\priority_shortlist_v014.json": "9da089f05f570b8729e2fda621b8e5318384677a4849ffbad2213f053cb5bf80",
+    "results\\curation\\priority_shortlist_v015.json": "aa2ad81641edfa426ca3cbcea5b99b9819761340cc98a18a0215c7cbe281e17d",
+    "results\\curation\\priority_shortlist_v016.json": "12060fb7d077c38594ac45affa12fff6967e8bee915993b9ff62baff4d678e73",
+    "results\\curation\\priority_shortlist_v017.json": "68b3e21cda19a5a4038785330d6229eea8394cac556759c2277372a029b36e9c",
+    "results\\curation\\priority_shortlist_v018.json": "3f0461a23ee9b6cb2f0bff283fc93e0f14a322c7feaaedc87290972b5877a673",
+    "results\\curation\\priority_shortlist_v019.json": "070d7102fe2cba22d50881a266f5967bb611c4befd26f9fe8c220b6c51d7b195",
+    "results\\curation\\priority_shortlist_v020.json": "f40df70892165a11e70fd6cad174f13f7c6e9899aba6ffdc8407a2a8ebaad320",
+    "results\\curation\\priority_shortlist_v021.json": "5494b385b2b33fd7bcf3ccdece008a4404acc2d16eb42b2f44d8257e1617f748",
+    "results\\curation\\priority_shortlist_v022.json": "d8b6facfcfd15a928699c751b2185b5e48dd61eb8625abba901d13ebe2ce19fe",
+    "results\\curation\\priority_shortlist_v023.json": "1681e479fa156cd783629c8a9da5f53b66673699a740148672e4f6a17ea9fffe",
+    "results\\curation\\priority_shortlist_v024.json": "654831add829d7f556f4e7f151439a9d75ef1d63860fb87255a29847052ab82e",
+    "results\\curation\\priority_shortlist_v025.json": "eb6a39ce27b2793b4b856badff0cbef1e48906f4a5421aa39d38e106f9322c0e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch20_index.json": "306602cb04c46d77f3872775c5ba0d436c26f3fd3cd9147d20093a7b0ca8bcd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch21_index.json": "9421065d1cd7cc14e2879ccef9b749e2183877468da9a133b556baaf676716c6",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch22_index.json": "aeb303e7a420a09402564103a38b247e44c7a3fd2c0189f9f8fe2c3bb73e4a45",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch23_index.json": "5900a2ea16d023b8c3711e8286585287a6fda482ba6621d4ae191ea30cc83d3e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch24_index.json": "00322ff06d243e7b8cf8f2a1b35c4ed74e58b5caad0b97a64015ba04e919fbda",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch25_index.json": "ed588db4a33083bcf5807662dea27422e93a47687a3928fb11982180dd0c7b23",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch26_index.json": "dfcdfa5e8464de055a8ab0c60cf90d556b54d4f49ec88977f35b29fa38168b05",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch27_index.json": "81b8b6b90aa3103f195f7c3a519551bdc0e753a0b6d77ecb7f744ee1cc67c928",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch28_index.json": "9f784602d74fc42db9d6caee041bc382bd8c512b2cc010e627f74a287128b775",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch29_index.json": "c5c72e7258b810268ba626c02e5c3e843b921877f35cd562b8a1187f84dbc593",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch30_index.json": "aadd7d0d804b9548b7ede27fca7982acb49d1ae5757463f6aa535ed1d9461c2e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch31_index.json": "e5f3c46df36fb4161e8e20cec64d790e3aa490091f69179ce7d822ad84ce87db",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch32_index.json": "da1ee64d4848f81409842812a463bb5074d5416cc48435a07f0f0a9a0dfb13d0",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch33_index.json": "e29e9976a95e92f18f42e4c1b4dfc048944043b2141cd7d768dc0cf830446e72",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch34_index.json": "564fc8f0ba68b2c23addef15f13845c91509c16ea26b0a93f3f43c4aa24abe1e",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch35_index.json": "923e08e0f1b423af436ce38c39f6b4eba493b52209c80ab9a87648b3baa930c6",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch36_index.json": "4add4b01e1e2b3e39762f0c189018dfddf8815cd4f027554ec7f29601bb9a0c5",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch37_index.json": "ac849517fd3e41d9c7f0abb00fb31bb1d22cc551dc79f466f2af40b76c0db4b4",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch38_index.json": "ef172d6673f7a059f14c77451e56252e93134c8a0cc541a8e67e3a7414be2d0d",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch39_index.json": "1ef76e75231bc092dadbc5d347eeb3bc9008c689958bdca2cf2d1757d764001a",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch40_index.json": "5d124d7ff10a6f92edcba28054562fbd5c4cc9a2734fc51dc5998c6eebaa6779",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch41_index.json": "fe8129a24005ea08c7f43db7edac4a098b3d0da42d6f55c872506a623cd5eb48",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch42_index.json": "4e6c7a839b23f5b7ca4e4af6ee1b3bc44d45b5f16dc7e82063ba3579a6e9f352",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch43_index.json": "cc460cccd1b033cd2c4273b7ca79379bf74a7bc26dc40735d22bc99036024087",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch44_index.json": "be24d80dd2b82ddc4101d2ce61b5a29ce68e37722eef63b77fbea5c157680cb0",
+    "C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/private_build/coverage_recovery_extension_v004/batch45_index.json": "cc929e593449b7ab883494fb1723d14f6247861468430cd69488198513456d9c",
+    "annotations/decisions.jsonl": "6ed9377a985e172fccb0e720ae4e23a39899769a96cee7f5e063af68ba01ad00",
+    "C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/private_build/coverage_recovery_extension_v004/publish.py": "bb7ce27ed3d5fe832a900a09d28139bcbebf2ec93f43f070dd0e0a10da92f099"
+  },
+  "draft_notes_sha256": "da97be64e431e5882afcb1dca8ac3749418c8013c7564fc233c5316ba7742a7d",
+  "prescreened_ranked_count": 32,
+  "visual_counts": {
+    "rank": 16,
+    "diversity": 16
+  },
+  "shortlisted_by_arm": {
+    "rank": 10,
+    "diversity": 6
+  },
+  "candidate_ids": [
+    "cd0f345fb159a7d9a6da",
+    "292206b2c645a4707024",
+    "c4e7b6b1dca32ab55233",
+    "00195c8c32f8a35fd51a",
+    "a99a2468d74ad67b2dce",
+    "885723eeb82da75d0f65",
+    "206b8ee26a63dbbcedcd",
+    "22f3e045b77c49d0941b",
+    "af221765146b682ee93a",
+    "69a95bef940b2aed9cba",
+    "bf2c99310c1e4e152364",
+    "a1e80e7bf8ee050168b9",
+    "5a9b0a5aee51b66bbdad",
+    "2fb8d1da18899f89d844",
+    "31fec9e6548e8ede4f94",
+    "d3a68884b3c93792b181"
+  ],
+  "recovered_candidates": [],
+  "findings": [
+    {
+      "candidate_id": "cd0f345fb159a7d9a6da",
+      "pool_id": "s073441",
+      "code": "C02",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Gray cat in flowering branches. Check branches do not hide ears or muzzle.",
+      "crop_sha256": "6c0060c607d9067fff1e571fb514bf847b4ceb85ac244ed76158a22ae7b29a39",
+      "geometry": {
+        "x0": 88,
+        "y0": 2,
+        "size": 188,
+        "angle": 0.0
+      },
+      "estimated_head_width": 135.1,
+      "estimated_occupancy": 0.7186170212765958
+    },
+    {
+      "candidate_id": "292206b2c645a4707024",
+      "pool_id": "s073681",
+      "code": "C03",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Long-haired kitten beside yarn. Check both pointed ears and chin.",
+      "crop_sha256": "c97f215a47846a666c4dbf0862ff9d2dd583d240fc14db6870370831704e4eb5",
+      "geometry": {
+        "x0": 171,
+        "y0": 29,
+        "size": 187,
+        "angle": 0.0
+      },
+      "estimated_head_width": 134.4,
+      "estimated_occupancy": 0.718716577540107
+    },
+    {
+      "candidate_id": "c4e7b6b1dca32ab55233",
+      "pool_id": "s072387",
+      "code": "C04",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Two tabbies on white. Check neighboring head at right stays outside the square.",
+      "crop_sha256": "64227841a17e65304edca3af41ca895aa85610ca3b3eb0f05ee7dd5b2ca89510",
+      "geometry": {
+        "x0": 99,
+        "y0": 13,
+        "size": 113,
+        "angle": 0.0
+      },
+      "estimated_head_width": 81.2,
+      "estimated_occupancy": 0.7185840707964603
+    },
+    {
+      "candidate_id": "00195c8c32f8a35fd51a",
+      "pool_id": "s022309",
+      "code": "C07",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Dark cat held by people. Check hands do not hide ears or jaw.",
+      "crop_sha256": "15984332b54755ff4a1e35a5da236d98db493034c97917bb266b7c42bd3ec846",
+      "geometry": {
+        "x0": 198,
+        "y0": 56,
+        "size": 191,
+        "angle": 0.0
+      },
+      "estimated_head_width": 137.3,
+      "estimated_occupancy": 0.7188481675392671
+    },
+    {
+      "candidate_id": "a99a2468d74ad67b2dce",
+      "pool_id": "s029729",
+      "code": "C10",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Long-haired tabby indoors. Check ear tips against the dark screen.",
+      "crop_sha256": "1f65c87771e32f1b78d0fde0e98d0f8ac092b4607fef5d414aea8d5f26653478",
+      "geometry": {
+        "x0": 90,
+        "y0": 55,
+        "size": 93,
+        "angle": 0.0
+      },
+      "estimated_head_width": 66.8,
+      "estimated_occupancy": 0.7182795698924731
+    },
+    {
+      "candidate_id": "885723eeb82da75d0f65",
+      "pool_id": "s050179",
+      "code": "C12",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Tabby wearing a red neckerchief beside a dog. Check dog head remains outside the square.",
+      "crop_sha256": "e335e1f8d26a39cb59bb9b91881efd33860127a9234fc6fe4176e9ba6a31e243",
+      "geometry": {
+        "x0": 152,
+        "y0": 48,
+        "size": 150,
+        "angle": 0.0
+      },
+      "estimated_head_width": 107.8,
+      "estimated_occupancy": 0.7186666666666667
+    },
+    {
+      "candidate_id": "206b8ee26a63dbbcedcd",
+      "pool_id": "s014348",
+      "code": "C13",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "White Persian portrait. Check tiny ears against pale long fur.",
+      "crop_sha256": "0181994b69b6c02caf036398194b23ca771e30f4b79d0aae2a6745ead211fb88",
+      "geometry": {
+        "x0": 12,
+        "y0": 24,
+        "size": 142,
+        "angle": 0.0
+      },
+      "estimated_head_width": 106.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "22f3e045b77c49d0941b",
+      "pool_id": "s067093",
+      "code": "C15",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Dark kitten crouching on white. Head appears small in the square; check a tighter crop with all ears included.",
+      "crop_sha256": "70327c0954e2816e26363791da7998bfef80e1ba639afa541468f82e99d2ec01",
+      "geometry": {
+        "x0": 50,
+        "y0": 88,
+        "size": 207,
+        "angle": 0.0
+      },
+      "estimated_head_width": 116.4,
+      "estimated_occupancy": 0.5623188405797102
+    },
+    {
+      "candidate_id": "af221765146b682ee93a",
+      "pool_id": "s063050",
+      "code": "D01",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Golden dog in a yellow shirt. Check both hanging ears and full chin.",
+      "crop_sha256": "56121b47f5012ec71d0171eefed11c1c2628d4c83d05614f84b96eed71e2a45a",
+      "geometry": {
+        "x0": 71,
+        "y0": 7,
+        "size": 137,
+        "angle": 0.0
+      },
+      "estimated_head_width": 98.5,
+      "estimated_occupancy": 0.718978102189781
+    },
+    {
+      "candidate_id": "69a95bef940b2aed9cba",
+      "pool_id": "s046116",
+      "code": "D03",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Small ginger dog resting in grass. Check ears and chin clear of the surface.",
+      "crop_sha256": "56f295371948562af66945c69af5832c0e55c0e0ce3eb31f52db6ae917a021d4",
+      "geometry": {
+        "x0": 136,
+        "y0": 19,
+        "size": 111,
+        "angle": 0.0
+      },
+      "estimated_head_width": 79.8,
+      "estimated_occupancy": 0.7189189189189189
+    },
+    {
+      "candidate_id": "bf2c99310c1e4e152364",
+      "pool_id": "s057525",
+      "code": "D04",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Black terrier indoors. Check dark ear tips and complete muzzle.",
+      "crop_sha256": "b24f9ff3180a6572a2d16430c1eae98e187a69faac932b3ae771b4a6d9725166",
+      "geometry": {
+        "x0": 39,
+        "y0": 89,
+        "size": 118,
+        "angle": 0.0
+      },
+      "estimated_head_width": 84.8,
+      "estimated_occupancy": 0.7186440677966102
+    },
+    {
+      "candidate_id": "a1e80e7bf8ee050168b9",
+      "pool_id": "s024563",
+      "code": "D05",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Golden puppy on hay. Check both floppy ears and lower jaw.",
+      "crop_sha256": "26156f63651be84a8314dda549fd2759b098e5382f3325cb3df9c3077b77c889",
+      "geometry": {
+        "x0": 190,
+        "y0": 37,
+        "size": 233,
+        "angle": 0.0
+      },
+      "estimated_head_width": 167.5,
+      "estimated_occupancy": 0.7188841201716738
+    },
+    {
+      "candidate_id": "5a9b0a5aee51b66bbdad",
+      "pool_id": "s027461",
+      "code": "D06",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Pale puppy in an outdoor pen. Check bars do not obscure the head.",
+      "crop_sha256": "4d0d204e5e8ce06a06f5b3724c6804b6127deee1e225b3680e9613d60b6c028b",
+      "geometry": {
+        "x0": 58,
+        "y0": 120,
+        "size": 95,
+        "angle": 0.0
+      },
+      "estimated_head_width": 68.3,
+      "estimated_occupancy": 0.7189473684210526
+    },
+    {
+      "candidate_id": "2fb8d1da18899f89d844",
+      "pool_id": "s070653",
+      "code": "D08",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Pale retriever among orange flowers. Check both ears and chin.",
+      "crop_sha256": "c83f364ad3d83cea922cdb2b022b40429323bcd233d39b2936a7a93476626fa4",
+      "geometry": {
+        "x0": 144,
+        "y0": 42,
+        "size": 132,
+        "angle": 0.0
+      },
+      "estimated_head_width": 94.9,
+      "estimated_occupancy": 0.718939393939394
+    },
+    {
+      "candidate_id": "31fec9e6548e8ede4f94",
+      "pool_id": "s013030",
+      "code": "D12",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Pug outdoors in profile. Check far ear and nose tip.",
+      "crop_sha256": "e7d45353bf42a03cff0f5a84bf69d3ba9c804a4d85c13f22e33afcf7eff49967",
+      "geometry": {
+        "x0": 242,
+        "y0": 55,
+        "size": 127,
+        "angle": 0.0
+      },
+      "estimated_head_width": 91.3,
+      "estimated_occupancy": 0.7188976377952756
+    },
+    {
+      "candidate_id": "d3a68884b3c93792b181",
+      "pool_id": "s021012",
+      "code": "D14",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "White-and-brown dog outside. Check ear ends and whole chin.",
+      "crop_sha256": "c854ca132690f9cb2f9c6a6a7b6ebd46738ec4741b60711eee039293636db89f",
+      "geometry": {
+        "x0": 102,
+        "y0": 11,
+        "size": 119,
+        "angle": 0.0
+      },
+      "estimated_head_width": 89.2,
+      "estimated_occupancy": 0.7495798319327731
+    }
+  ],
+  "review_drafts": {
+    "cd0f345fb159a7d9a6da": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 135.1,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Gray cat in flowering branches. Check branches do not hide ears or muzzle.",
+      "preview_sha256": "6c0060c607d9067fff1e571fb514bf847b4ceb85ac244ed76158a22ae7b29a39"
+    },
+    "292206b2c645a4707024": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 134.4,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired kitten beside yarn. Check both pointed ears and chin.",
+      "preview_sha256": "c97f215a47846a666c4dbf0862ff9d2dd583d240fc14db6870370831704e4eb5"
+    },
+    "c4e7b6b1dca32ab55233": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 81.2,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Two tabbies on white. Check neighboring head at right stays outside the square.",
+      "preview_sha256": "64227841a17e65304edca3af41ca895aa85610ca3b3eb0f05ee7dd5b2ca89510"
+    },
+    "00195c8c32f8a35fd51a": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 137.3,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dark cat held by people. Check hands do not hide ears or jaw.",
+      "preview_sha256": "15984332b54755ff4a1e35a5da236d98db493034c97917bb266b7c42bd3ec846"
+    },
+    "a99a2468d74ad67b2dce": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 66.8,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired tabby indoors. Check ear tips against the dark screen.",
+      "preview_sha256": "1f65c87771e32f1b78d0fde0e98d0f8ac092b4607fef5d414aea8d5f26653478"
+    },
+    "885723eeb82da75d0f65": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 107.8,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tabby wearing a red neckerchief beside a dog. Check dog head remains outside the square.",
+      "preview_sha256": "e335e1f8d26a39cb59bb9b91881efd33860127a9234fc6fe4176e9ba6a31e243"
+    },
+    "206b8ee26a63dbbcedcd": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 106.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White Persian portrait. Check tiny ears against pale long fur.",
+      "preview_sha256": "0181994b69b6c02caf036398194b23ca771e30f4b79d0aae2a6745ead211fb88"
+    },
+    "22f3e045b77c49d0941b": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 116.4,
+      "head_span_crop_px": [
+        7,
+        25
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Dark kitten crouching on white. Head appears small in the square; check a tighter crop with all ears included.",
+      "note": "Dark kitten crouching on white. Head appears small in the square; check a tighter crop with all ears included.",
+      "preview_sha256": "70327c0954e2816e26363791da7998bfef80e1ba639afa541468f82e99d2ec01"
+    },
+    "af221765146b682ee93a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 98.5,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Golden dog in a yellow shirt. Check both hanging ears and full chin.",
+      "preview_sha256": "56121b47f5012ec71d0171eefed11c1c2628d4c83d05614f84b96eed71e2a45a"
+    },
+    "69a95bef940b2aed9cba": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 79.8,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small ginger dog resting in grass. Check ears and chin clear of the surface.",
+      "preview_sha256": "56f295371948562af66945c69af5832c0e55c0e0ce3eb31f52db6ae917a021d4"
+    },
+    "bf2c99310c1e4e152364": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 84.8,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black terrier indoors. Check dark ear tips and complete muzzle.",
+      "preview_sha256": "b24f9ff3180a6572a2d16430c1eae98e187a69faac932b3ae771b4a6d9725166"
+    },
+    "a1e80e7bf8ee050168b9": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 167.5,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Golden puppy on hay. Check both floppy ears and lower jaw.",
+      "preview_sha256": "26156f63651be84a8314dda549fd2759b098e5382f3325cb3df9c3077b77c889"
+    },
+    "5a9b0a5aee51b66bbdad": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 68.3,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pale puppy in an outdoor pen. Check bars do not obscure the head.",
+      "preview_sha256": "4d0d204e5e8ce06a06f5b3724c6804b6127deee1e225b3680e9613d60b6c028b"
+    },
+    "2fb8d1da18899f89d844": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 94.9,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pale retriever among orange flowers. Check both ears and chin.",
+      "preview_sha256": "c83f364ad3d83cea922cdb2b022b40429323bcd233d39b2936a7a93476626fa4"
+    },
+    "31fec9e6548e8ede4f94": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 91.3,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pug outdoors in profile. Check far ear and nose tip.",
+      "preview_sha256": "e7d45353bf42a03cff0f5a84bf69d3ba9c804a4d85c13f22e33afcf7eff49967"
+    },
+    "d3a68884b3c93792b181": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 89.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White-and-brown dog outside. Check ear ends and whole chin.",
+      "preview_sha256": "c854ca132690f9cb2f9c6a6a7b6ebd46738ec4741b60711eee039293636db89f"
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "time": "2026-11-12T02:04:26.603283+00:00",
+  "plan_sha256": "56255ff5c7820d940f8cfe921019c98feb826735faccf58dae618e6d34774cf2",
+  "new": {
+    "checkpoint": "checkpoints\\dropout25_wide_seed17_u030000_86c3c843eb\\update_022000.pt",
+    "checkpoint_sha256": "dca456b06fea93dd79c03293e52bb9a959fb7f3852f406ce2f319b2615c1ffba",
+    "update": 22000,
+    "exported": "private_build\\dropout25_wide_seed17\\u022000_ema_s50_g2.5",
+    "export_hashes": {
+      "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "3e8423458d433731c1f998b78a154bc6c6bd63a972a0f53a32c3f74c9b933d19",
+      "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+      "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+      "provenance.json": "1348f2dc619cb6e9a3efc7882c8162b91bc235811bd650971cc9d0dfbfe6d647",
+      "weights.pt": "fa65db4a6737219df051b65596503788cc4f0edb0af09e0f4475c493a0ace59a",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "evidence": [
+      {
+        "seed": 0,
+        "path": "results\\experiments\\dropout25_wide_seed17\\full\\u022000_ema_s50_g2.5\\seed_0.json",
+        "sha256": "534527c6402c55a45e2508b204c3f1b05144c0441936fe024fab5101a36f6d49",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.8004999756813049,
+          "per_class_accuracy": {
+            "cat": 0.9520000219345093,
+            "dog": 0.6489999890327454
+          },
+          "fid": 119.9707086251787,
+          "kid": 0.08204980747906225,
+          "kid_std": 0.0025255789075601257,
+          "precision": 0.4457964599132538,
+          "recall": 0.19911503791809082,
+          "memorization_rate": 0.0020000000949949026,
+          "nn_distance_median": 7.478696823120117,
+          "nn_ratio_median": 0.948361337184906,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Good",
+              "marks": 4
+            },
+            "fid": {
+              "tier": "Poor",
+              "marks": 1
+            },
+            "recall": {
+              "tier": "Marginal",
+              "marks": 2
+            }
+          },
+          "total": 7,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      }
+    ],
+    "score": [
+      7,
+      -6.99707086251787,
+      -0.0020000000949949026,
+      -30.07152919999953
+    ]
+  },
+  "control": {
+    "path": "results\\experiments\\refinement_v001_seed17\\u022000_ema_s50_g2.5\\seed_0.json",
+    "sha256": "96a35d66d0a3b1c78479c79bc61bc832719a17e30d5f155ed8afb9dd343b28f4",
+    "metrics": {
+      "num_samples": 2000,
+      "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+      "accuracy": 0.9120000004768372,
+      "per_class_accuracy": {
+        "cat": 0.9350000023841858,
+        "dog": 0.8889999985694885
+      },
+      "fid": 72.8921012859953,
+      "kid": 0.026038217797102848,
+      "kid_std": 0.0014758785423412738,
+      "precision": 0.6858407258987427,
+      "recall": 0.27323007583618164,
+      "memorization_rate": 0.08049999922513962,
+      "nn_distance_median": 6.988245010375977,
+      "nn_ratio_median": 0.8649557828903198,
+      "training_images_deduplicated": 2394
+    },
+    "marks": {
+      "per_metric": {
+        "accuracy": {
+          "tier": "Excellent",
+          "marks": 0
+        },
+        "fid": {
+          "tier": "Pass",
+          "marks": 0
+        },
+        "recall": {
+          "tier": "Pass",
+          "marks": 0
+        }
+      },
+      "total": 0,
+      "max": 15,
+      "valid": false
+    }
+  }
+}

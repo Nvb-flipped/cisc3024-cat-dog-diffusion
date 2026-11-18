@@ -1,0 +1,38 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_attention16_freeu.py": "7e8215db70f24f0d75adad08f16f291cf47ec93b56405faf0e9279ccc5b3a712",
+    "results\\experiments\\v009_attention16_32k\\screen.json": "27a39ea43e8fdfefdf062f732497a2f122f94f596b30fc8c296643e4b05c06ca",
+    "results\\experiments\\v007_freeu_cfg310\\selection.json": "6ddcd94c12429f44feac93e092e8dd4ed917da2c18b39905b35204b5d9399ea3",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "checkpoints\\v009_attention16_32k_seed17\\update_032000.pt": "0e572223d717ccb7ce5c7bdaec97d48e0260427667c15d3e19258d09ab6d675c",
+    "submission\\model.py": "b2cf89d87b1c15a98c74ae7aef291f9e44b6d33678232f879504fc078e841ee6",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "31f699b12cce5133ca248d510a77a0b4c4413ce7ed7c3f7931e42016ffff876b",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1,
+    "freeu": true
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v009_attention16_freeu"
+  ],
+  "rule": "Transfer only the established decoder feature reweight. Advance after valid improvement over both unmodified attention and the three-seed incumbent on the matched screen seed."
+}

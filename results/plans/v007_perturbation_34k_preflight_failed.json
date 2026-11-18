@@ -1,0 +1,47 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_perturbation_extension.py": "c041b08a5c1a0377bfd657f6594900690bab10ecc6b4c52bf2f63cae3e89284e",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "manifests\\v007.provenance.json": "82e1f15fb0a4a7752725eeabfdc081033a28292ce1fe316948023b6ae24d8060",
+    "manifests\\v007.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "configs\\runs\\v007_input_perturbation.json": "a3b09e27152a55238cb4f170d12279c5b9aeb746bb012e719f2cd287777731dc",
+    "checkpoints\\v007_input_perturbation_seed17\\update_032000.pt": "12be23855d4a292588f0b9cff0edaee4497efe49f9a4448dd4e96108354adc7c",
+    "results\\experiments\\v007_input_perturbation\\comparison.json": "f398338bb7b0d5873debd57d4b1f56d3e98c25b2f7644c933174ed3a3ecf6a6a",
+    "results\\experiments\\v007_32k_temporal103\\selection.json": "f768b884b74b6e6c1ad06a5b25fe6c637555ae6ae511af99b32afb475c15086e",
+    "src\\training\\train.py": "98643f6eef1a171d79a0c16387a999987cd7dd2b1ae4d92379abed2e65b89364",
+    "src\\training\\step.py": "342641fc67a8b3596e387abe6d1a30a9384331d06a8ce7fdb9630d68d94e0aff",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v007_input_perturbation.json",
+    "--manifest",
+    "manifests\\v007.csv",
+    "--validation-manifest",
+    "manifests\\v007.validation.csv",
+    "--seed",
+    "17",
+    "--out",
+    "checkpoints\\v007_input_perturbation_seed17",
+    "--resume",
+    "checkpoints\\v007_input_perturbation_seed17\\update_032000.pt",
+    "--updates",
+    "34000"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15
+  },
+  "seed": 0,
+  "n_per_class": 1000,
+  "rule": "Resume for 2,000 updates from the exact reviewed 32k control. Its 3.35% copy rate provides margin to test whether the later fit improves fidelity or coverage.",
+  "created": "2026-11-16T11:58:58.558445+00:00"
+}

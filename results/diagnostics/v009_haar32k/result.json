@@ -1,0 +1,64 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0,
+    "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4"
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0,
+    "patch_size": 2,
+    "patch_detail": false,
+    "haar_packing": true
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "prediction_type": "epsilon",
+  "min_snr_gamma": null,
+  "probe_mse_before": 1.0767669677734375,
+  "probe_mse_after": 0.043446265161037445,
+  "reduction": 0.9596511905905912,
+  "reconstruction_mse_before": 0.532534658908844,
+  "reconstruction_mse_after": 0.07464851438999176,
+  "seconds": 47.552710200019646,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "93208573c6325399bd74936d49723da26556b5e7",
+    "git_dirty": true
+  },
+  "completed": "2026-11-16T20:25:08.733776+00:00",
+  "model_source_sha256": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+  "haar_sources": {
+    "submission/model.py": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+    "submission/diffusion.py": "00237eea543d407dd7303c3914bc2c8e5802115d896fc329e2ccd6c8cfd202cc",
+    "src/training/step.py": "5a1304fbd4b2fb856f200de38d074e808084f23c50fc013afb12a03486cfaa91",
+    "src/training/diagnostics.py": "ff756be0dbe74f44428907def8c80e9c9d4d2e1606caa96d48880ac254d2886b"
+  },
+  "passed": true
+}

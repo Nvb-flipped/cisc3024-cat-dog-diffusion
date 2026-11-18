@@ -1,0 +1,35 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_score_average.py": "57e1f6a071f1992cebb8de99c1157562248688c7cd52206574d3039842964b11",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "results\\experiments\\v007_32k_temporal103\\selection.json": "f768b884b74b6e6c1ad06a5b25fe6c637555ae6ae511af99b32afb475c15086e",
+    "results\\experiments\\v007_input_perturbation\\comparison.json": "f398338bb7b0d5873debd57d4b1f56d3e98c25b2f7644c933174ed3a3ecf6a6a",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_032000.pt": "bab5e1ef6a7bcd0891803fe6ce22b5b24d07cbb7d44a841d3351f22e586d4b1b",
+    "checkpoints\\v007_input_perturbation_seed17\\update_032000.pt": "12be23855d4a292588f0b9cff0edaee4497efe49f9a4448dd4e96108354adc7c",
+    "scripts\\run_v007_autoguidance.py": "39371c6a458ec2eabe04ce84c0e8c027e0e7d564f3a3a71cc13f40f49e12c724",
+    "scripts\\autoguided_generate.py": "0cb46b99910e5f7816587aa2891eb04aef74e7c4ff2a6281da18069b38861ed0",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25
+  },
+  "average_weights": [
+    0.5,
+    0.5
+  ],
+  "seed": 0,
+  "n_per_class": 1000,
+  "source": "https://arxiv.org/abs/2601.11444",
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v007_score_average"
+  ],
+  "rule": "Average conditional and null predictions separately before applying identical CFG. Disable PAG and temporal rescaling to test the plain score average.",
+  "created": "2026-11-16T12:34:51.973985+00:00"
+}

@@ -1,0 +1,25 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\check_v009_attention16_stability.py": "24333e4dd21b2497e82c43d5b82e9667ee9b82b37ce53f5f1007548ecaa52b38",
+    "results\\experiments\\v009_attention16_extension34k\\screen.json": "a16b15cd3d5d9a595d9b41768dc3a1974f626af8cd225a0c2915496d3f60794d",
+    "results\\experiments\\v009_attention16_extension35k\\screen.json": "aaebd99d3337930f7bb6c40ae2622c34ca0005f42cb0f5dde4bc0f57af3d2650",
+    "results\\experiments\\v007_freeu_cfg310\\selection.json": "6ddcd94c12429f44feac93e092e8dd4ed917da2c18b39905b35204b5d9399ea3",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "checkpoints\\v009_attention16_extension34k\\update_034000.pt": "ce7bb7cfbe88e08850156d3e3327c192a67289a68153fd7384ece7a9c5f8c0f1",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.check_v009_attention16_stability"
+  ],
+  "rule": "Check stability after improved FID and recall on seed 0. Require the established three-seed gain, lower worst FID, at least the incumbent worst recall, and a peak copy rate at or below the incumbent."
+}

@@ -50,3 +50,28 @@ C051,v007 temporal sharpening 1.05,result,8eebb747fd6dfb64b359bc23e7cfb43efbc79d
 C031,Three-seed CFG rescale follow-up,result,4e5f4b16d8f80e1469fc0301f618bd90f16ab130d10531ad5dcae4e73b6d83c2,E137;E138;E139;E140;E141;E112,unverified,not_estimated,descriptive
 C048,Three-seed v007 selection,result,79d5a18e06e69bc909061fa62bda5022989e4b1b827d39e9bbb47cd84dcb927e,E203;E204;E205;E206;E207,unverified,not_estimated,descriptive
 C050,Three-seed v007 temporal sharpening 1.03,result,5fe5883340a985ffe1c2469b5eb65164f4fdd63df9d97915c2e2c4fb6484629d,E211;E212;E213;E214;E215;E216,unverified,not_estimated,descriptive
+C051,v007 class-embedding noise annealing,result,e67eb12393a15187d7f466c6053b058bd28704160c101280a4d5be096e28ca69,E217;E218;E219;E220;E221;E222,unverified,not_estimated,descriptive
+C052,"v008 1,369-crop fit",result,314c2843c728a865a9cdcc53c9e6fe39a6b798be894b8dd9b8ce5a2835a84fff,E223;E224;E225,unverified,not_estimated,descriptive
+C053,"v009 1,399-crop fit",result,1037f205b3fb351de430547329937ef79ff1b78d93e1c0c1c6a13ecb5873feee,E226;E227;E228,unverified,not_estimated,descriptive
+C054,v009 appearance-weighted fit,result,4445972823ac21742b3e52622e93a69d4f71a507e59675a8a0732ee4d7ef01ff,E229;E230;E231,unverified,not_estimated,descriptive
+C055,v009 Haar fit,result,41c7df79c462ffa84903328869765121a72cb770ab70dcd2068fe326e2f22ae0,E232;E233;E234,unverified,not_estimated,descriptive
+C056,v009 rectified-flow fit,result,f6aa42700c2f8870dddbc7bcaebdce77b699b61ef04bd40bae873ad42723d07f,E235;E236;E237,unverified,not_estimated,descriptive
+C057,v009 36k extension,result,e064ea73bdcdb4ec0d028c3659c3285400ca77de9e88170cd80110579d62acda,E238;E239;E240,unverified,not_estimated,descriptive
+C058,v009 36k extension with CFG 3.0,result,95d10c76ecc652654ca2a39331c20c2036a978847c7e8ac021e412f46873d91b,E241;E242;E243,unverified,not_estimated,descriptive
+C059,v007 decoder feature reweighting,result,1d8d0ec3ed1c3791d4292fdd944d986bbe6943ad3024bceab0b0e11f509ca152,E244;E245;E246;E247;E248;E249,unverified,not_estimated,descriptive
+C060,v007 decoder feature reweighting with CFG 3.10,result,d74a12d3f5260f228e1e6c1af8b166bbe5fcfb42028dbd91dc472e04d39641ee,E250;E251;E252;E253;E254;E255,unverified,not_estimated,descriptive
+C061,v009 16×16 encoder attention,result,7a6bd01ef7f4e8af6e7771b544ccef778f1e5dd1a6e992e7ae855f148e3caf9c,E256;E257;E258,unverified,not_estimated,descriptive
+C062,v007 FreeU with 100 DDIM steps,result,fbc88829e60bab038beedd212beabb7ae39816a3425bd7f1b67f882554164012,E259;E260;E261,unverified,not_estimated,descriptive
+C063,v009 attention with FreeU decoder reweighting,result,ab811636c784a0fabae05cfdde2c046a21f8cb582efed51192941a88e5508225,E262;E263;E264,unverified,not_estimated,descriptive
+C064,v009 attention with stronger FreeU reweighting,result,eeebfdbcc1417e94ed45507b267b3b28263e31ac20172071a6cdc5df39a9e5bd,E265;E266;E267,unverified,not_estimated,descriptive
+C065,"v009 attention continuation to 34,000 updates",result,f08e20f0204a012a01d1b7c2dc27a484f3a12b41e8805f8d8e8f78c9f1371115,E268;E269;E270,unverified,not_estimated,descriptive
+C066,"v009 attention continuation to 35,000 updates",result,af64cc80ddf25d9a4135211ee0fc992f1b1f7357ffe628fb07aa942a5d9e258a,E271;E272;E273,unverified,not_estimated,descriptive
+C067,34k sampler CFG 3.10,result,b65d3e0175a276be6ac9c67fb6c018eb6811a3bb10d18a14dd2cb9ba93489310,E274;E275;E276,unverified,not_estimated,descriptive
+C068,34k sampler PAG 0.10,result,58cf9b782d71b86cc45f33343cf3cee8bbafadcde4d99acc2dd74cf93141cd1c,E277;E278;E279,unverified,not_estimated,descriptive
+C069,34k sampler FreeU 1.80,result,bed803c67e9ccb786f024834a22c5d3d03b2e1fc444eb8a0dd6129a9c4ea1e20,E280;E281;E282,unverified,not_estimated,descriptive
+C070,34k sampler FreeU 2.20,result,cb68eca74e25a69a5501c47d3708ce68f568eb2ff1678dc4e016d7c4883d5450,E283;E284;E285,unverified,not_estimated,descriptive
+C071,34k late learning-rate reduction,result,d9a2fbd461036c0b6e446fcd23e93315cf6fa439c829b1446b3485b78336af03,E286;E287;E288,unverified,not_estimated,descriptive
+C072,35k late learning-rate reduction,result,8ef7c639934c7ffe47a5b4478cbbffeb4c5e6021d0b1aced39455de5eef121d6,E289;E290;E291,unverified,not_estimated,descriptive
+C073,35k lower-rate fit with FreeU 2.20,result,ee29d20e531bbea63e2423006cb856fb99601d6f3f3f4028082b8a6536d3c1f2,E292;E293;E294,unverified,not_estimated,descriptive
+C074,Three-seed 34k attention stability,result,22ef5211ed827f519830b17c1b68ac0736e6e4eb3087fd6fac65d4c6581f6751,E295;E296;E297;E298;E299;E300,unverified,not_estimated,descriptive
+C075,34k development reselection,result,cf93bebe3c02f5d27b82cf59b4ea27ac03ef2323f0540accd238b75e820e75d1,E301,unverified,not_estimated,descriptive

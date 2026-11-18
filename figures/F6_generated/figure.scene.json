@@ -1,0 +1,341 @@
+{
+  "units": "points",
+  "canvas": [
+    504.0,
+    282.0
+  ],
+  "objects": [
+    {
+      "id": "cat_label",
+      "kind": "text",
+      "text": "Cat",
+      "x": 18.999999999999996,
+      "y": 4.8149999999999995,
+      "width": 32.51,
+      "height": 19.8,
+      "rotation": 0.0,
+      "font_size": 9.0,
+      "anchor": "start",
+      "bold": true,
+      "color": "#202020"
+    },
+    {
+      "id": "cat_00",
+      "kind": "image",
+      "x": 19.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "8bdb75c103e76d498d502fc8622b928d69909cdc1a0d99d5faa37a3613f3d589"
+    },
+    {
+      "id": "cat_01",
+      "kind": "image",
+      "x": 78.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "daabba49fa7601d5d820271b7d487a274fb1f76b6a0626766792fe795d9a1843"
+    },
+    {
+      "id": "cat_02",
+      "kind": "image",
+      "x": 137.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "b1989116768d109d21b12ef71c3aabf0a97f7dc369c7aff938f9a394b219c73a"
+    },
+    {
+      "id": "cat_03",
+      "kind": "image",
+      "x": 196.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "42bcac0d0712f643ef6b484dba7ca0717737cf723e34df64c44dba2cb8bb9b82"
+    },
+    {
+      "id": "cat_04",
+      "kind": "image",
+      "x": 255.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "a6a84f8429abdc8fca7a3830fbd172307503320f55b452505c22d04207a3036d"
+    },
+    {
+      "id": "cat_05",
+      "kind": "image",
+      "x": 314.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "84e70207ea13270f07b85bb9d43c2a005fc51a5003f780eb74a8334aeff79818"
+    },
+    {
+      "id": "cat_06",
+      "kind": "image",
+      "x": 373.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "693520374dca43bf0974178010532a03936c0720d5a7e1611ef50c7b3f961add"
+    },
+    {
+      "id": "cat_07",
+      "kind": "image",
+      "x": 432.0,
+      "y": 25.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "045f2f1a44341536a8e0f47e113788cdb1e0ffeff3dc2cb3da45dfd87e4b1f89"
+    },
+    {
+      "id": "cat_08",
+      "kind": "image",
+      "x": 19.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "a98610dd8c1a924f3fe54ffdc74f3bafd437d52fb69c45f97f9869ea37d9c9d2"
+    },
+    {
+      "id": "cat_09",
+      "kind": "image",
+      "x": 78.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "37356447462e212a6fe5343148dfd7535b4e6d607df5e6a9e2bcb491d1455fd3"
+    },
+    {
+      "id": "cat_10",
+      "kind": "image",
+      "x": 137.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "ebc4b048dc4dc3a34bd0469cb4976996c224876036180b5813ead62458e47d77"
+    },
+    {
+      "id": "cat_11",
+      "kind": "image",
+      "x": 196.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "2375924ee0f45297e90a0344bd539fef674bdb710652c20ccd6d9af3218edd9b"
+    },
+    {
+      "id": "cat_12",
+      "kind": "image",
+      "x": 255.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "e8d21f69c158beb728679e506d2e65a56f1775d864d6332458040479e93f7cc5"
+    },
+    {
+      "id": "cat_13",
+      "kind": "image",
+      "x": 314.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "5cfa6b4e4797a496924b18ea9380deff4ca806aac448d87a5ad989555689cab8"
+    },
+    {
+      "id": "cat_14",
+      "kind": "image",
+      "x": 373.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "bbad2cfa138a532e54a0443f4b13f043f124edd31365b638ec91744ff8d5e9f6"
+    },
+    {
+      "id": "cat_15",
+      "kind": "image",
+      "x": 432.0,
+      "y": 77.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "2608ca21d0ddf397dc122ec42ad813a49f16ec79f4188eb5a73599052bc7e48e"
+    },
+    {
+      "id": "dog_label",
+      "kind": "text",
+      "text": "Dog",
+      "x": 19.0,
+      "y": 130.815,
+      "width": 35.5,
+      "height": 19.8,
+      "rotation": 0.0,
+      "font_size": 9.0,
+      "anchor": "start",
+      "bold": true,
+      "color": "#202020"
+    },
+    {
+      "id": "dog_00",
+      "kind": "image",
+      "x": 19.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "2f79ff1a409324928b0b8871375ec460205b42e1262cd7261b496b370355a7fe"
+    },
+    {
+      "id": "dog_01",
+      "kind": "image",
+      "x": 78.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "89c29774b3a6ed2220c5312b65100ca4f771927237018c89b42683d732cf961c"
+    },
+    {
+      "id": "dog_02",
+      "kind": "image",
+      "x": 137.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "6383fe54a72e9d25480b209ebd18f45d3bb66426555e7996531d84fef981ff81"
+    },
+    {
+      "id": "dog_03",
+      "kind": "image",
+      "x": 196.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "ea7f95b8c6f3f8a1125c1a62a681407c93cdb20b69ddf07e41138902995057d8"
+    },
+    {
+      "id": "dog_04",
+      "kind": "image",
+      "x": 255.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "9ee83fa9997363786cab7e4021396a539d73bd315a8f148e86dc3cc04fe48faa"
+    },
+    {
+      "id": "dog_05",
+      "kind": "image",
+      "x": 314.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "a4eed59fa637525b346337bb0f717e78a61c7ad38b3334b684b57486a0b527d8"
+    },
+    {
+      "id": "dog_06",
+      "kind": "image",
+      "x": 373.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "295cfb009ac74ff2911b490ce340ba0ac044063ec1032926258926be3ca5e17f"
+    },
+    {
+      "id": "dog_07",
+      "kind": "image",
+      "x": 432.0,
+      "y": 151.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "d0a6c5f68e398e599fc6e246e1eb068bf86f480dcf20063bf7a16f231a67b8ec"
+    },
+    {
+      "id": "dog_08",
+      "kind": "image",
+      "x": 19.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "ad3eb653f95024f73e1acf994cc7b07e1de27130011c780d6c97b31362b1b180"
+    },
+    {
+      "id": "dog_09",
+      "kind": "image",
+      "x": 78.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "5003a4776b3a63af66668dc790fcf0bc4e9275da97174112385e2c386e47cc19"
+    },
+    {
+      "id": "dog_10",
+      "kind": "image",
+      "x": 137.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "785a7099687d54ec63edb1be0845cb78e68f6cf3efaf3d92cd09ea98a5a4de76"
+    },
+    {
+      "id": "dog_11",
+      "kind": "image",
+      "x": 196.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "2c3c1aa37940d2d2243ed1654e9701a83a4c59ec103508920cf5586c48aac311"
+    },
+    {
+      "id": "dog_12",
+      "kind": "image",
+      "x": 255.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "c112d8a7de3c9677428a197e7a41e54993c3c79c74f0514f0db2bc5a17214a77"
+    },
+    {
+      "id": "dog_13",
+      "kind": "image",
+      "x": 314.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "64a9739c6e2d81ba945720b8897a2db7c41445487bf7ca42e746497bbfdbace3"
+    },
+    {
+      "id": "dog_14",
+      "kind": "image",
+      "x": 373.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "7ad0ec8b24474932425d52aa47fa94bb8399d2718ac40b7e57500bee142291e6"
+    },
+    {
+      "id": "dog_15",
+      "kind": "image",
+      "x": 432.0,
+      "y": 203.0,
+      "width": 50.0,
+      "height": 50.0,
+      "image_href_sha256": "1561e053d6bede297cdecd8d5d8d5970c2a0e9ae8dc938f7745cbf17852e1aca"
+    },
+    {
+      "id": "protocol",
+      "kind": "text",
+      "text": "Official generation seed 0 \u00b7 first 16 per class",
+      "x": 176.766015625,
+      "y": 262.745,
+      "width": 150.46796875,
+      "height": 15.400000000000002,
+      "rotation": 0.0,
+      "font_size": 7.0,
+      "anchor": "middle",
+      "bold": false,
+      "color": "#202020"
+    }
+  ],
+  "source": "figures\\F6_generated\\figure.svg",
+  "note": "Draw.io is an editable vector drawing; underlying data remain in source.csv."
+}

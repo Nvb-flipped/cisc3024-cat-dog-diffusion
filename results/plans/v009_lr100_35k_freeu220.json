@@ -1,0 +1,39 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_lr100_35k_freeu220.py": "e9c413be21d6c172c095578b673421ac9e9e347fb9b5480095111e7f60427dbb",
+    "results\\experiments\\v009_attention16_lr100_35k\\screen.json": "207ed35b23c9203d31c288c95748804996f5abe4a747c760dd324d0404a81ba4",
+    "checkpoints\\v009_attention16_lr100_35k\\update_035000.pt": "d1e014e86099231e70f1ac0fd8dfe80c2277de46c2c849b810cd038a19a6b534",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "submission\\model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "31f699b12cce5133ca248d510a77a0b4c4413ce7ed7c3f7931e42016ffff876b",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1,
+    "freeu": true,
+    "freeu_strength": 2.2
+  },
+  "screen_seed": 0,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v009_lr100_35k_freeu220"
+  ],
+  "rule": "Increase decoder feature shifts from 2.0 to 2.2. Advance only if the full seed-0 screen scores at least 13/15 with every hard constraint satisfied."
+}

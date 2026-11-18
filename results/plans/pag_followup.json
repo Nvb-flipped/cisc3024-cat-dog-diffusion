@@ -1,0 +1,45 @@
+{
+  "inputs": {
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462",
+    "results\\experiments\\v006_dropout15\\screening.json": "2bc01d5d46d75210125950b494883db45cc6b368df81cf6e2b6acc6a0b6506a1",
+    "results\\experiments\\v002_pag\\comparison.json": "395b03b44a63433ccd07e1899dda026fc217216c2c86cfa95845b4acf2a9fc8c",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_pag_followup.py": "53bfba2665830126c170d68c245fad803aa85cf4c22858654f3df976dc3944e3",
+    "submission\\diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "submission\\model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "src\\release\\export.py": "5dae3e906941eb34789b2f1071e2a06c94dbf5a7e3ec32f1bbc6e2b56fcc8e8b",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "manifests\\v006.csv": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b",
+    "checkpoints\\v006_dropout15_seed17\\update_030000.pt": "1414438ba4c9b76116c6b52503dc43ed253a813736ced91af956f1ba02db5ea2"
+  },
+  "arms": {
+    "v002_half": {
+      "manifest": "manifests\\v002.csv",
+      "checkpoint": "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt",
+      "guidance_rescale": 0.25,
+      "pag_scale": 0.5
+    },
+    "v006_dropout15_half": {
+      "manifest": "manifests\\v006.csv",
+      "checkpoint": "checkpoints\\v006_dropout15_seed17\\update_030000.pt",
+      "guidance_rescale": 0.0,
+      "pag_scale": 0.5
+    }
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "created": "2026-11-14T10:42:35.490071+00:00",
+  "rule": "Full scale lowered FID but exceeded the hard memorization cap. Test only one half scale with the v002 anchor and with the v006 dropout .15 checkpoint that had 1.05% memorization. Each arm uses its own exact no-PAG sampler and manifest as the paired control. Advance only a valid improvement versus the leading v002 anchor."
+}

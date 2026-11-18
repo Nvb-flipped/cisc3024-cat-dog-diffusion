@@ -1,0 +1,14 @@
+{
+  "solver": "flow_heun",
+  "steps": 50,
+  "device": "cuda",
+  "count": 35,
+  "microbatches": [
+    32,
+    7
+  ],
+  "exact_ddim_reference": true,
+  "deterministic_and_label_isolated": true,
+  "caller_rng_preserved": true,
+  "candidate_provenance_sha256": "cd05b659f3a4cb317163fb8e88524e93e83fd0f86e906751798fbf9378a462f5"
+}

@@ -4,6 +4,7 @@ from pathlib import Path
 import torch
 from submission.diffusion import add_noise, velocity_target
 from submission.edm import noise_condition, training_pair
+from submission.flow import flow_pair
 
 
 def require_disjoint_sources(training_manifest, validation_manifest):
@@ -20,7 +21,7 @@ def validation_loss(model, images, labels, alpha_bar, *, seed=3024,
     if not len(labels) or images.shape != (len(labels), 3, 32, 32):
         raise ValueError('Validation requires nonempty exact 32x32 RGB crops')
     if not timesteps or any(not 0 <= t < len(alpha_bar) for t in timesteps) or microbatch < 1 or \
-            prediction_type not in ('epsilon', 'velocity', 'edm'):
+            prediction_type not in ('epsilon', 'velocity', 'edm', 'flow'):
         raise ValueError('Invalid fixed validation protocol')
     generator = torch.Generator(device='cpu').manual_seed(seed)
     original_mode = model.training
@@ -39,6 +40,8 @@ def validation_loss(model, images, labels, alpha_bar, *, seed=3024,
                     sigma = ((1 - alpha) / alpha).sqrt().expand(len(clean), 1, 1, 1)
                     noisy, target, _, _, _ = training_pair(clean, noise_batch, sigma)
                     times = noise_condition(sigma)
+                elif prediction_type == 'flow':
+                    noisy, target = flow_pair(clean, noise_batch, times, len(alpha_bar))
                 else:
                     noisy = add_noise(clean, noise_batch, times, alpha_bar)
                     target = noise_batch if prediction_type == 'epsilon' else velocity_target(

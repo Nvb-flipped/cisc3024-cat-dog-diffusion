@@ -1,0 +1,62 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0,
+    "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4"
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "prediction_type": "flow",
+  "min_snr_gamma": null,
+  "probe_mse_before": 1.5735563039779663,
+  "probe_mse_after": 0.027850961312651634,
+  "reduction": 0.9823006261407716,
+  "reconstruction_mse_before": 0.38283586502075195,
+  "reconstruction_mse_after": 0.005402206443250179,
+  "seconds": 47.67909340001643,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "93208573c6325399bd74936d49723da26556b5e7",
+    "git_dirty": true
+  },
+  "completed": "2026-11-16T21:22:47.044862+00:00",
+  "flow_sources": {
+    "submission/flow.py": "071b75574f9fb795ea6cd0fb66c312dbfe04135201b75d4a3257bd3fb94a92d5",
+    "submission/model.py": "0fadc6585952124e8d44afd62ac8aed1158fa0b11b180b7bdbfdf5056d791ffe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "src/training/train.py": "7ec96a7697a087788cfe93e7a520eda123c6a882a0706dfb540de18bac1674e2",
+    "src/training/step.py": "428ca584e6f92977c8c25524e6343981a0d8e9058f0ce89582a79cce5dc0b2dd",
+    "src/training/diagnostics.py": "9a93bbc79cbdccfc21d16faf449dcd0176a75171b78ebefcce94402ebde1bf28"
+  },
+  "passed": true
+}

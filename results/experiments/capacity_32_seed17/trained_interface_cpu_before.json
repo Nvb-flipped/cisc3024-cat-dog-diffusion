@@ -1,0 +1,46 @@
+{
+  "time": "2026-11-12T00:25:52.873524+00:00",
+  "seed": 3024,
+  "labels": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    1,
+    0
+  ],
+  "device": "cpu",
+  "baseline": {
+    "steps": 50,
+    "guidance": 2.5,
+    "microbatch": 32,
+    "execution_batch": 32,
+    "timesteps": 1000,
+    "cosine_offset": 0.008
+  },
+  "compared_logical_microbatch": 7,
+  "per_output_max_absolute_difference": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.5795230865478516e-05,
+    0.0
+  ],
+  "export_hashes": {
+    "diffusion.py": "8e882c3074cf11918fe826034b802ceb8368b641eabaf25753b5bf8dca78fd58",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+    "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "provenance.json": "f7077bad90b3d4dc68e11d430564bc1063bcde25fd3f765ae51b9b52503bab66",
+    "weights.pt": "46aeaf6542d028691b3ed64d053cfb6377c60c1dcecd712effd4f3b733e99757",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

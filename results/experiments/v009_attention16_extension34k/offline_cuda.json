@@ -1,0 +1,55 @@
+{
+  "device": "cuda",
+  "parameters": 5098915,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 27.82048070000019,
+      "sample_sha256": "95de6d98a489c248341ca112b6e3f94dae2a3709eb58ef60f7aa9b26f64aea29"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 21.377452399930917,
+      "sample_sha256": "c54455ccbc08bc159c5578f9855dd5911bc44bb2a153be6ebb18239a4d2578ab"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 21.1526188000571,
+      "sample_sha256": "ffb3bd19085efc9d814c5338bb95645a173d7638fb555f0ae1e221a6ecd6d5a3"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 42.6871810000157,
+      "sample_sha256": "ce7553d00d926be8510ef42821714dbd308dd6e667aa77f01024b9b689c468c6"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 338.3061868000077,
+      "sample_sha256": "85fa6a72b6c2c2494420f4cc289503ef7e097a315d1295566ab2f702b1c44a71"
+    }
+  ],
+  "seconds": 456.1424579999875,
+  "submission_bytes": 20542292,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "8a3dfd2448bcb60e74aabae817ff3071c1afc496ba379f253cf10fe34cf0564d",
+    "manifest.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "model.py": "b2cf89d87b1c15a98c74ae7aef291f9e44b6d33678232f879504fc078e841ee6",
+    "provenance.json": "950d155408b0c088109b4010c1bf791616554db54a7c81dba5bea4b2daceab20",
+    "weights.pt": "12caf590a1c931ea1d4cab1d23f71a588433e0249080f4b60098053b50549392",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

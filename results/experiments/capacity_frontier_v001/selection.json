@@ -1,0 +1,289 @@
+{
+  "time": "2026-11-12T01:12:08.274300+00:00",
+  "plan_sha256": "a4f0c285b30e8fa3166f4e996e60f7c35274cb7281d70c3aa2a2fe1aad569ebc",
+  "screening_sha256": "a6893414fbc7af2f13820f9b59ccd87c48322672ab9df8ab41fb5b8944f32cb9",
+  "incumbent_sha256": "58a7b1f5eb77c5d6fb2ba920aff129c321c3207786d544901bfc41e74860c120",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "checks": [
+    {
+      "checkpoint": "checkpoints\\capacity_32_seed17_30k_to_34k_86c3c843eb\\update_032000.pt",
+      "checkpoint_sha256": "27b65158ec6ad8bff87ee97fb04c141dbf48a243b4ccdb19f4f114a6e980f5bc",
+      "update": 32000,
+      "exported": "private_build\\capacity_frontier_v001\\u032000_ema_s50_g2",
+      "export_hashes": {
+        "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "7173e4e60f4f26a08a90f019c5baa43f7e6a59117a659c93abdad619b8631790",
+        "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "b548b5c1e02f87c388c3ab3bcc3c1691a3afb51c8c935bf680805942e0e5ed82",
+        "weights.pt": "54b5c9830c7454231d3bb8150cdf7e4326808931ddc3dcc5826c08154909e497",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 2.0,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\capacity_frontier_v001\\full\\u032000_ema_s50_g2\\seed_0.json",
+          "sha256": "b13b20c8b951fb5f8294f7b879029591f89ea5a76ee22e979be420a47656c5b8",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8834999799728394,
+            "per_class_accuracy": {
+              "cat": 0.9240000247955322,
+              "dog": 0.8429999947547913
+            },
+            "fid": 74.13387222040882,
+            "kid": 0.02998863045204117,
+            "kid_std": 0.001603759533249419,
+            "precision": 0.6515486836433411,
+            "recall": 0.366150438785553,
+            "memorization_rate": 0.041999999433755875,
+            "nn_distance_median": 8.085631370544434,
+            "nn_ratio_median": 0.9241209626197815,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 4
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 3
+              },
+              "recall": {
+                "tier": "Good",
+                "marks": 4
+              }
+            },
+            "total": 11,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        },
+        {
+          "seed": 101,
+          "path": "results\\experiments\\capacity_frontier_v001\\full\\u032000_ema_s50_g2\\seed_101.json",
+          "sha256": "017c8c3d8984f81c1f1870514103f1dfcef6448e53a61cbe2b698bae59f985d8",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8939999938011169,
+            "per_class_accuracy": {
+              "cat": 0.9290000200271606,
+              "dog": 0.859000027179718
+            },
+            "fid": 73.07731240144722,
+            "kid": 0.029192252871954878,
+            "kid_std": 0.001404541222323025,
+            "precision": 0.6581858396530151,
+            "recall": 0.32300883531570435,
+            "memorization_rate": 0.05000000074505806,
+            "nn_distance_median": 8.041685104370117,
+            "nn_ratio_median": 0.9238536953926086,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 0
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 0
+              },
+              "recall": {
+                "tier": "Good",
+                "marks": 0
+              }
+            },
+            "total": 0,
+            "max": 15,
+            "valid": false
+          },
+          "violations": [
+            "memorization rate 5.0% exceeds 5%: samples copy training images"
+          ]
+        }
+      ],
+      "score": null,
+      "name": "u032000_ema_s50_g2",
+      "complete": false
+    },
+    {
+      "checkpoint": "checkpoints\\capacity_32_seed17_22k_to_30k_86c3c843eb\\update_030000.pt",
+      "checkpoint_sha256": "40e4a9f9afe848fc9563e81a5e1da5619c0fd9bea1fb7beebce68319466cea36",
+      "update": 30000,
+      "exported": "private_build\\capacity_frontier_v001\\u030000_ema_s100_g2.5",
+      "export_hashes": {
+        "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "inference.json": "8b715d0568e7c6cda278f4db6eb07921d26f2c2bc4ecf829b2c1425f4aa68057",
+        "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+        "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+        "provenance.json": "e3dff607bdf743729b650a4d70e084547193dc9e2a017bf154de8d59bc0e6211",
+        "weights.pt": "46aeaf6542d028691b3ed64d053cfb6377c60c1dcecd712effd4f3b733e99757",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+      },
+      "weights": "ema",
+      "steps": 100,
+      "guidance": 2.5,
+      "evidence": [
+        {
+          "seed": 0,
+          "path": "results\\experiments\\capacity_frontier_v001\\full\\u030000_ema_s100_g2.5\\seed_0.json",
+          "sha256": "b81a7a99583a82d11c2fb8b2687b18eb9fc4ddd459e35351fb695be5d80fb835",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.9035000205039978,
+            "per_class_accuracy": {
+              "cat": 0.9319999814033508,
+              "dog": 0.875
+            },
+            "fid": 74.49307091343815,
+            "kid": 0.029638094145034106,
+            "kid_std": 0.00159692472304038,
+            "precision": 0.6615044474601746,
+            "recall": 0.3241150379180908,
+            "memorization_rate": 0.035999998450279236,
+            "nn_distance_median": 8.213839530944824,
+            "nn_ratio_median": 0.9244382977485657,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Excellent",
+                "marks": 5
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 3
+              },
+              "recall": {
+                "tier": "Good",
+                "marks": 4
+              }
+            },
+            "total": 12,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        },
+        {
+          "seed": 101,
+          "path": "results\\experiments\\capacity_frontier_v001\\full\\u030000_ema_s100_g2.5\\seed_101.json",
+          "sha256": "6f931792dec87e2eed70bf237e19582999b61466bb5c34a0a6d15b77f99c4504",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.9049999713897705,
+            "per_class_accuracy": {
+              "cat": 0.9300000071525574,
+              "dog": 0.8799999952316284
+            },
+            "fid": 72.75466137615899,
+            "kid": 0.028567075425032576,
+            "kid_std": 0.0013529692195289203,
+            "precision": 0.6670354008674622,
+            "recall": 0.29756638407707214,
+            "memorization_rate": 0.0430000014603138,
+            "nn_distance_median": 8.18110179901123,
+            "nn_ratio_median": 0.9230141639709473,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Excellent",
+                "marks": 5
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 3
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 3
+              }
+            },
+            "total": 11,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        },
+        {
+          "seed": 202,
+          "path": "results\\experiments\\capacity_frontier_v001\\full\\u030000_ema_s100_g2.5\\seed_202.json",
+          "sha256": "9acd3d620f2d4f2927703b4e8846bc77c6bc3f37463db0ba65eb6ab37e6b747c",
+          "metrics": {
+            "num_samples": 2000,
+            "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+            "accuracy": 0.8859999775886536,
+            "per_class_accuracy": {
+              "cat": 0.9200000166893005,
+              "dog": 0.8519999980926514
+            },
+            "fid": 74.64084277477036,
+            "kid": 0.0305852974555692,
+            "kid_std": 0.0013557185662322689,
+            "precision": 0.6482300758361816,
+            "recall": 0.2809734642505646,
+            "memorization_rate": 0.0430000014603138,
+            "nn_distance_median": 8.259523391723633,
+            "nn_ratio_median": 0.9312326908111572,
+            "training_images_deduplicated": 2394
+          },
+          "marks": {
+            "per_metric": {
+              "accuracy": {
+                "tier": "Good",
+                "marks": 4
+              },
+              "fid": {
+                "tier": "Pass",
+                "marks": 3
+              },
+              "recall": {
+                "tier": "Pass",
+                "marks": 3
+              }
+            },
+            "total": 10,
+            "max": 15,
+            "valid": true
+          },
+          "violations": []
+        }
+      ],
+      "score": [
+        10,
+        -2.464084277477036,
+        -0.0430000014603138,
+        -62.98800585000026
+      ],
+      "name": "u030000_ema_s100_g2.5",
+      "complete": true
+    }
+  ],
+  "selected": null,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ]
+}

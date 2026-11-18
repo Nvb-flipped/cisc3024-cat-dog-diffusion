@@ -1,0 +1,53 @@
+{
+  "created": "2026-11-11T19:16:41.169342+00:00",
+  "question": "Does lower capacity improve quality at the same update budget under the memorization limit?",
+  "config": "configs\\runs\\86c3c843eb\\capacity_32_seed17_u022000.yaml",
+  "config_sha256": "19c2df33ebc46fca3082601161e01761deb851822f3c431bf972ce2bc6890917",
+  "parent_config_sha256": "c859c1000ad9dc8a3de6c5f93fca573a04e34f8ff9b7f11fe8a90ec8a180f3dc",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "initialization": "random",
+  "training_seed": 17,
+  "effective_batch": 128,
+  "images_seen_at_22000": 2816000,
+  "parameters": 5082147,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\capacity_32_seed17_u022000.yaml",
+    "--manifest",
+    "manifests\\v001.csv",
+    "--validation-manifest",
+    "manifests\\v001.validation.csv",
+    "--seed",
+    "17",
+    "--out",
+    "checkpoints\\capacity_32_seed17_u022000_86c3c843eb"
+  ],
+  "checkpoints": [
+    21000,
+    22000
+  ],
+  "incumbent_selection": "results\\experiments\\refinement_v001_seed17\\selection.json",
+  "incumbent_sha256": "2ef5262e5c8e7b33b9c158a7f174ad8daba85196313600d89bd1ad9785e441d8",
+  "official_protocol": {
+    "weights": "ema",
+    "ddim_steps": 50,
+    "guidance": 2.5,
+    "n_per_class": 1000,
+    "screening_seed": 0,
+    "selection_seeds": [
+      0,
+      101,
+      202
+    ],
+    "confirmation_seeds": [
+      303,
+      404
+    ]
+  },
+  "decision": "Compare same-update snapshots against the full-width run at the same sampler. Require a valid official result and a higher worst seed tier total or at least 0.05 higher normalized margin for promotion. Freeze before confirmation."
+}

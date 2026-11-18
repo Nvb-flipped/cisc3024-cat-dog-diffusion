@@ -7,7 +7,59 @@
       "data": "results/diagnostics/overfit/loss.csv",
       "summary": "results/diagnostics/overfit/result.json",
       "status": "implementation diagnostic; not a final model result"
+    },
+    {
+      "id": "F4",
+      "kind": "checkpoint_metrics",
+      "output": "figures/F4_checkpoint_metrics",
+      "manifest": "manifests/v001.csv",
+      "series": [
+        {
+          "name": "Full-width U-Net",
+          "color": "#B34817",
+          "marker": "s",
+          "results": [
+            ["results/experiments/optimization_v001_seed17/selection/ema_s50_g2.5/seed_0.json", "private_build/optimization_v001_seed17/sampling/ema_s50_g2.5"],
+            ["results/experiments/refinement_v001_seed17/u021000_ema_s50_g2.5/seed_0.json", "private_build/refinement_v001_seed17/u021000_ema_s50_g2.5"],
+            ["results/experiments/refinement_v001_seed17/u022000_ema_s50_g2.5/seed_0.json", "private_build/refinement_v001_seed17/u022000_ema_s50_g2.5"]
+          ]
+        },
+        {
+          "name": "Smaller U-Net",
+          "color": "#0072B2",
+          "marker": "o",
+          "results": [
+            ["results/experiments/capacity_32_seed17/u021000_ema_s50_g2.5/seed_0.json", "private_build/capacity_32_seed17/u021000_ema_s50_g2.5"],
+            ["results/experiments/capacity_32_seed17/u022000_ema_s50_g2.5/seed_0.json", "private_build/capacity_32_seed17/u022000_ema_s50_g2.5"],
+            ["results/experiments/capacity_32_seed17/u026000_ema_s50_g2.5/seed_0.json", "private_build/capacity_32_seed17/u026000_ema_s50_g2.5"],
+            ["results/experiments/capacity_32_seed17/u030000_ema_s50_g2.5/seed_0.json", "private_build/capacity_32_seed17/u030000_ema_s50_g2.5"]
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F5",
+      "kind": "sampling_sweep",
+      "output": "figures/F5_sampling_tradeoffs",
+      "source": "results/experiments/optimization_v001_seed17/screening"
+    },
+    {
+      "id": "F6",
+      "kind": "photo_grid",
+      "output": "figures/F6_generated",
+      "result": "results/experiments/capacity_32_seed17/u030000_ema_s50_g2.5/seed_0.json",
+      "submission": "private_build/capacity_32_seed17/u030000_ema_s50_g2.5",
+      "status": "development figure; rebind to final official evidence"
+    },
+    {
+      "id": "F7",
+      "kind": "photo_grid",
+      "output": "figures/F7_memorization",
+      "result": "results/experiments/capacity_32_seed17/u030000_ema_s50_g2.5/seed_0.json",
+      "submission": "private_build/capacity_32_seed17/u030000_ema_s50_g2.5",
+      "replay": "private_build/memorization_replay_v001/small30k_cfg2.5",
+      "status": "development figure; rebind to final official evidence"
     }
   ],
-  "pending": ["F1 curation diagram", "F2 model/sampling diagram", "F3 final audit", "F4 training/quality trajectories", "F5 ablations", "F6 generated samples", "F7 memorization"]
+  "pending": ["F1 curation diagram", "F2 model/sampling diagram", "F3 final audit", "F5 crop ablation", "F6 and F7 final rebind"]
 }

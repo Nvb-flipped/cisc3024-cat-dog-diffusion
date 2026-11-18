@@ -1,0 +1,106 @@
+{
+  "protocol": "EMA/DDIM50/CFG2.5, seed 0, 1000 per class",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "sources": {
+    "results/experiments/optimization_v001_seed17/selection/ema_s50_g2.5/seed_0.json": "90ffffb189a39682299d2118be9c9927f4f7df3e8e26f8ab16af13de4e6a272f",
+    "results/experiments/refinement_v001_seed17/u021000_ema_s50_g2.5/seed_0.json": "1f0478f2577b6f8e5bd7b710abd4aed1f968a224ef5bf1a0fc01b9f2a1695748",
+    "results/experiments/refinement_v001_seed17/u022000_ema_s50_g2.5/seed_0.json": "96a35d66d0a3b1c78479c79bc61bc832719a17e30d5f155ed8afb9dd343b28f4",
+    "results/experiments/capacity_32_seed17/u021000_ema_s50_g2.5/seed_0.json": "19bb5e418cf10f246d8251162c59d82b72a6f85327388e354d6b6e11c28c3310",
+    "results/experiments/capacity_32_seed17/u022000_ema_s50_g2.5/seed_0.json": "f7726cf8671c6b64478ae439c0cfa4d561a5a1d1e97ae75d7ba5cff9748825ea",
+    "results/experiments/capacity_32_seed17/u026000_ema_s50_g2.5/seed_0.json": "49e608978c2a696863fcb007bcee93707819b6e668c61d62235ea8fe7c33cc10",
+    "results/experiments/capacity_32_seed17/u030000_ema_s50_g2.5/seed_0.json": "299661733763b7e4f4dd0e25478ebc420b2f4a30b63cc217f542e2d2d55bbd5c"
+  },
+  "rows": [
+    {
+      "model": "Full-width U-Net",
+      "update": 20000,
+      "generation_seed": 0,
+      "accuracy": 0.8725000023841858,
+      "fid": 87.56046529506295,
+      "recall": 0.20796459913253784,
+      "memorization_rate": 0.02199999988079071,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/optimization_v001_seed17/selection/ema_s50_g2.5/seed_0.json",
+      "source_sha256": "90ffffb189a39682299d2118be9c9927f4f7df3e8e26f8ab16af13de4e6a272f"
+    },
+    {
+      "model": "Full-width U-Net",
+      "update": 21000,
+      "generation_seed": 0,
+      "accuracy": 0.887499988079071,
+      "fid": 78.9412440954776,
+      "recall": 0.25774335861206055,
+      "memorization_rate": 0.04749999940395355,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/refinement_v001_seed17/u021000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "1f0478f2577b6f8e5bd7b710abd4aed1f968a224ef5bf1a0fc01b9f2a1695748"
+    },
+    {
+      "model": "Full-width U-Net",
+      "update": 22000,
+      "generation_seed": 0,
+      "accuracy": 0.9120000004768372,
+      "fid": 72.8921012859953,
+      "recall": 0.27323007583618164,
+      "memorization_rate": 0.08049999922513962,
+      "num_samples": 2000,
+      "valid": false,
+      "source": "results/experiments/refinement_v001_seed17/u022000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "96a35d66d0a3b1c78479c79bc61bc832719a17e30d5f155ed8afb9dd343b28f4"
+    },
+    {
+      "model": "Smaller U-Net",
+      "update": 21000,
+      "generation_seed": 0,
+      "accuracy": 0.8615000247955322,
+      "fid": 108.41286967441346,
+      "recall": 0.15597344934940338,
+      "memorization_rate": 0.0,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/capacity_32_seed17/u021000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "19bb5e418cf10f246d8251162c59d82b72a6f85327388e354d6b6e11c28c3310"
+    },
+    {
+      "model": "Smaller U-Net",
+      "update": 22000,
+      "generation_seed": 0,
+      "accuracy": 0.8759999871253967,
+      "fid": 100.83013659480008,
+      "recall": 0.19137167930603027,
+      "memorization_rate": 0.0,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/capacity_32_seed17/u022000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "f7726cf8671c6b64478ae439c0cfa4d561a5a1d1e97ae75d7ba5cff9748825ea"
+    },
+    {
+      "model": "Smaller U-Net",
+      "update": 26000,
+      "generation_seed": 0,
+      "accuracy": 0.887499988079071,
+      "fid": 82.9038519552467,
+      "recall": 0.26327434182167053,
+      "memorization_rate": 0.006000000052154064,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/capacity_32_seed17/u026000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "49e608978c2a696863fcb007bcee93707819b6e668c61d62235ea8fe7c33cc10"
+    },
+    {
+      "model": "Smaller U-Net",
+      "update": 30000,
+      "generation_seed": 0,
+      "accuracy": 0.8980000019073486,
+      "fid": 73.57422904935555,
+      "recall": 0.30752211809158325,
+      "memorization_rate": 0.03550000116229057,
+      "num_samples": 2000,
+      "valid": true,
+      "source": "results/experiments/capacity_32_seed17/u030000_ema_s50_g2.5/seed_0.json",
+      "source_sha256": "299661733763b7e4f4dd0e25478ebc420b2f4a30b63cc217f542e2d2d55bbd5c"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "plan_sha256": "4fb29d1802ea857ec9cd118df3c77fbbe164f4089ca930fbb31a16b148d891dd",
+  "candidate": {
+    "checkpoint": "checkpoints\\v007_timestep_focus065_seed17\\update_032000.pt",
+    "checkpoint_sha256": "d7ad7162d956b6ce00470b109e30f6efd7fe7d8096b964f676657a209ebe5d07",
+    "update": 32000,
+    "exported": "private_build\\v007_timestep_focus065",
+    "export_hashes": {
+      "diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "f329ba4b9f180afe013d562c00485b17d17a1aa2c38b1ae4655a1daabcc402ab",
+      "manifest.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+      "model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+      "provenance.json": "c1979abed56bee0e0a3b75478ffabaa98057d11a88ff16c17c3f62e7a95131fd",
+      "weights.pt": "7bffc0bb1c9fd7bb99c5c0b3c2a22c592d024a17980bf2768a49271c051a6ca6",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "evidence": [
+      {
+        "seed": 0,
+        "path": "results\\experiments\\v007_timestep_focus065\\seed_0.json",
+        "sha256": "48efbcfbeb91a19ccaad7f3fdc197a33a099f5ba8ce7e05d17ea2469daf3d836",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.9409999847412109,
+          "per_class_accuracy": {
+            "cat": 0.9330000281333923,
+            "dog": 0.9490000009536743
+          },
+          "fid": 56.64612519053645,
+          "kid": 0.013101490162761369,
+          "kid_std": 0.0009553253215522948,
+          "precision": 0.7433628439903259,
+          "recall": 0.3738937973976135,
+          "memorization_rate": 0.5134999752044678,
+          "nn_distance_median": 4.533727645874023,
+          "nn_ratio_median": 0.49338144063949585,
+          "training_images_deduplicated": 2618
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Excellent",
+              "marks": 0
+            },
+            "fid": {
+              "tier": "Good",
+              "marks": 0
+            },
+            "recall": {
+              "tier": "Good",
+              "marks": 0
+            }
+          },
+          "total": 0,
+          "max": 15,
+          "valid": false
+        },
+        "violations": [
+          "memorization rate 51.3% exceeds 5%: samples copy training images"
+        ]
+      }
+    ],
+    "score": null
+  },
+  "advances": false
+}

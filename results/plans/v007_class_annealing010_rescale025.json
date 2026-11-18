@@ -1,0 +1,41 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_annealing_followup.py": "e428b6b754843cedad65d4a91c48a2576aa92fee7f358adb0aee6aef25466204",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_032000.pt": "bab5e1ef6a7bcd0891803fe6ce22b5b24d07cbb7d44a841d3351f22e586d4b1b",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "results\\experiments\\v007_32k_temporal103\\selection.json": "f768b884b74b6e6c1ad06a5b25fe6c637555ae6ae511af99b32afb475c15086e",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9",
+    "results\\experiments\\rescale_followup\\comparison.json": "9bbc90195cb3f256e685d1b8517e8490912eb1d12f056ffbe3af20cf91f48462"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1,
+    "guidance_rescale": 0.25
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v007_annealing_followup",
+    "rescale"
+  ],
+  "rule": "Transfer the previously tested v002 guidance rescale strength. Keep all other inputs fixed.",
+  "created": "2026-11-16T12:28:13.950132+00:00"
+}

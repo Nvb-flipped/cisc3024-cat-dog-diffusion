@@ -1,0 +1,1 @@
+Official 500-image screening with seed 0 on one fixed full-width U-Net checkpoint. The 24 settings vary weight averaging, DDIM step count and classifier-free guidance. The gray line marks the 5% memorization limit. Small-sample FID is compared only within this screen.

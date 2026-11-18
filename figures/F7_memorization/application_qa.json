@@ -1,0 +1,17 @@
+{
+  "checked": "2026-11-12T06:00:40.119566+00:00",
+  "reference_drawio_sha256": "0c0478cb56bdd3c6bb28d0a4d9a72c068aa1907c891af3baeef60fc4a49e2935",
+  "powerpoint_check": {
+    "status": "native render visually verified",
+    "reference_pptx_sha256": "a1ca940eff7e32860eac1c7b075dec9f3349d6e3f119a002b27d53c31c0a0138",
+    "render_path": "private_build\\development_figure_application_qa\\F7_memorization_powerpoint.pdf",
+    "render_sha256": "82608593d961abf0b3b0fb45d5b018268385160e1a3b65e06e901620d2fe3fee"
+  },
+  "drawio_check": {
+    "status": "native local rendering passed; interactive edit-save-reopen pending",
+    "application_version": "32.6.1",
+    "render_path": "private_build\\development_figure_application_qa\\F7_memorization_drawio.png",
+    "render_sha256": "5cacdad80fd227f8bac323962c2c899d2e03323bdc88b7c221d65998f977e614"
+  },
+  "comparison": "private_build\\development_figure_application_qa\\visual_comparison.png"
+}

@@ -1,0 +1,2643 @@
+{
+  "batch": "v024",
+  "origin": "agent_visual_shortlist",
+  "training_approval": false,
+  "inputs_sha256": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\scout_v024.py": "4aceacffb31ee7375739d74e48ff73226d018f81aa89b0e7247ce3b3273728bf",
+    "results\\curation\\full\\candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "private_build\\review_yield_v001\\unreviewed_rank.csv": "f2ba6afa94cadde7cd02146057a3e8987f03e0375ac2eb0bf4d6ef56db962c9f",
+    "annotations\\decisions.jsonl": "6ed9377a985e172fccb0e720ae4e23a39899769a96cee7f5e063af68ba01ad00",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "data\\cache\\v2_3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858.npz": "d445c0a3fe6358bec0d1b1de337f107b6b58cbe77e7be3806d34356f52872927",
+    "results\\curation\\priority_shortlist_v001.json": "f30a29486c94dca2be61428f6560f5a34215b6250abd631c7864eb5cb966b95f",
+    "results\\curation\\priority_shortlist_v002.json": "9b8b3c3a97f87b494ec198f5db9e04f3e80380f7faee5b44ed2199664fe74a1d",
+    "results\\curation\\priority_shortlist_v003.json": "b8966c7f3181ecd7eaa0c53a9958cb379d06371927f318d17a02c42bcedf49df",
+    "results\\curation\\priority_shortlist_v004.json": "9e70e0e4978d2fb267fd9361ed77d9edfb10176ec6f8272869c7eefedaac1b37",
+    "results\\curation\\priority_shortlist_v005.json": "390b5e581ec5db0e4955090419982ab9bdbd7e8984c92d4058a968ce545b95f1",
+    "results\\curation\\priority_shortlist_v006.json": "7130aa62d359a43166222ee01ed7121ab466070bd86cff5e055a90855d9ee1c3",
+    "results\\curation\\priority_shortlist_v007.json": "cd19781e6477a4499a92f85737c2961abd64dd1baa59c8ea70b54cc24a895e33",
+    "results\\curation\\priority_shortlist_v008.json": "1818121ba1194f64461a295c8f44ae1641e79962dc0730b247f97b9e2ff8ad6a",
+    "results\\curation\\priority_shortlist_v009.json": "210f5cf08e3f75acbf7a99ba51690a0e9962c3084b9ebe68da3cca2112bd1523",
+    "results\\curation\\priority_shortlist_v010.json": "b8eae27758d6fea16cc41806de2c79efe380f5be74be705677387e211a163bfd",
+    "results\\curation\\priority_shortlist_v011.json": "f976ca99ca0ee1cda239fa2368f203370c3d154d9bcfe46ca4524b44fc292a59",
+    "results\\curation\\priority_shortlist_v012.json": "e592aba5ac793306886bcf54bf844afd37720ab7381bd06d3240204b4d3eac7f",
+    "results\\curation\\priority_shortlist_v013.json": "915abf25d65e9725a65a99b7df68d4366115659c74484ade51c6ff23979fd4fa",
+    "results\\curation\\priority_shortlist_v014.json": "9da089f05f570b8729e2fda621b8e5318384677a4849ffbad2213f053cb5bf80",
+    "results\\curation\\priority_shortlist_v015.json": "aa2ad81641edfa426ca3cbcea5b99b9819761340cc98a18a0215c7cbe281e17d",
+    "results\\curation\\priority_shortlist_v016.json": "12060fb7d077c38594ac45affa12fff6967e8bee915993b9ff62baff4d678e73",
+    "results\\curation\\priority_shortlist_v017.json": "68b3e21cda19a5a4038785330d6229eea8394cac556759c2277372a029b36e9c",
+    "results\\curation\\priority_shortlist_v018.json": "3f0461a23ee9b6cb2f0bff283fc93e0f14a322c7feaaedc87290972b5877a673",
+    "results\\curation\\priority_shortlist_v019.json": "070d7102fe2cba22d50881a266f5967bb611c4befd26f9fe8c220b6c51d7b195",
+    "results\\curation\\priority_shortlist_v020.json": "f40df70892165a11e70fd6cad174f13f7c6e9899aba6ffdc8407a2a8ebaad320",
+    "results\\curation\\priority_shortlist_v021.json": "5494b385b2b33fd7bcf3ccdece008a4404acc2d16eb42b2f44d8257e1617f748",
+    "results\\curation\\priority_shortlist_v022.json": "d8b6facfcfd15a928699c751b2185b5e48dd61eb8625abba901d13ebe2ce19fe",
+    "results\\curation\\priority_shortlist_v023.json": "1681e479fa156cd783629c8a9da5f53b66673699a740148672e4f6a17ea9fffe",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch20_index.json": "306602cb04c46d77f3872775c5ba0d436c26f3fd3cd9147d20093a7b0ca8bcd2",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch21_index.json": "9421065d1cd7cc14e2879ccef9b749e2183877468da9a133b556baaf676716c6",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch22_index.json": "aeb303e7a420a09402564103a38b247e44c7a3fd2c0189f9f8fe2c3bb73e4a45",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\private_build\\coverage_recovery_extension_v004\\batch23_index.json": "5900a2ea16d023b8c3711e8286585287a6fda482ba6621d4ae191ea30cc83d3e",
+    "C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/private_build/coverage_recovery_extension_v004/batch24_index.json": "00322ff06d243e7b8cf8f2a1b35c4ed74e58b5caad0b97a64015ba04e919fbda",
+    "annotations/decisions.jsonl": "6ed9377a985e172fccb0e720ae4e23a39899769a96cee7f5e063af68ba01ad00",
+    "C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/private_build/coverage_recovery_extension_v004/publish.py": "ad591dd918cf0a2448aea0ee6bc0e7a300cef88cbd96375cbc3aafda604e8d5f"
+  },
+  "draft_notes_sha256": "9c40c5cd0b11b07f9591e713b0b87e1613c0ac67f9f339dac7ebf001555f6bec",
+  "prescreened_ranked_count": 96,
+  "visual_counts": {
+    "rank": 48,
+    "diversity": 48
+  },
+  "shortlisted_by_arm": {
+    "rank": 35,
+    "diversity": 28
+  },
+  "candidate_ids": [
+    "503b8bd2cfa45080aadd",
+    "1a636d8c4565635405a4",
+    "6599d084288cbd72581e",
+    "9fe8f75be04c6fc830a4",
+    "f959680423b1d8f8f1cb",
+    "2a61d6eaf709f5e781b1",
+    "fef7dd2c17ad94ffa9c7",
+    "d9c6c657afda05fe7b0a",
+    "bb25e291e960e2a3f1b6",
+    "bb783093e243cf466a78",
+    "4b58e5db9571278305b3",
+    "d55ac9005837fde722e4",
+    "afcddb5f08306a03024b",
+    "090931fa9757633c5cd5",
+    "af4dcb02a6454252268e",
+    "0d69ec53eb09ee921130",
+    "0f5cf50d6c7578baa515",
+    "142f429d7a01eeed731d",
+    "875ce4dccd8e0c93d404",
+    "9cfc65e5c9e2df09847e",
+    "dabd5d396ed68e201bf5",
+    "d9afac6dddfa9d524617",
+    "7c2e2f97ee4db2f71d4d",
+    "407fc476f2192ae79712",
+    "c03dd9410b885ba0ec03",
+    "90cea033988a230a8d1e",
+    "ec8c4bbdacbd407c3dee",
+    "ecfc66797c6c313326aa",
+    "e579c99e0e2fe95fb618",
+    "897b765bd027ce5fcf20",
+    "3d48cdd225ad241d7d92",
+    "eaa5298774a055b3bfa4",
+    "29ad4a97e327ecd4c2fa",
+    "b5ea16a1c44cf73f967d",
+    "ea094dca089ac724a70c",
+    "9fa727c2f6b6daf41145",
+    "d373e4c356f246424422",
+    "d233389128fc1bff009b",
+    "c83af06c5ed9ca719c0f",
+    "f18548c5b5d2893d5487",
+    "a40d69b681f170b95cde",
+    "b214d0e83a8c271d18bd",
+    "69c5cae6dadcacada6ae",
+    "b7428d1307c95e3935ed",
+    "5e6f3bf2ea6419487b56",
+    "74a6a0be378f19d6ffae",
+    "bd3f06b3bbd49bfc41d6",
+    "d55d434724ec7249dd5a",
+    "5d64ff35ad9fb4176d3a",
+    "3e1ec9db959269a95398",
+    "e72a2c81a91fdf0903a0",
+    "e7913c760f5ea2bd8021",
+    "59d07472cc38c527cdbc",
+    "4084a19fc0f5897c8f0c",
+    "91160e15802b7d92bdce",
+    "a5f9dd7374a52197bf93",
+    "44cf70269c96711866fe",
+    "77059ae0b28bd2fe1dee",
+    "a93c88f80f649733f4ca",
+    "7e61fba08c9177851bfe",
+    "50fb781d4bb15c8b6234",
+    "acbfc7a993842964d6b2",
+    "03f9af8e77937e14d342"
+  ],
+  "recovered_candidates": [],
+  "findings": [
+    {
+      "candidate_id": "503b8bd2cfa45080aadd",
+      "pool_id": "s049660",
+      "code": "C01",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Yawning tabby on timber. Head appears wider than 80% of the crop; enlarge the square while retaining both ears.",
+      "crop_sha256": "947d24012374bce32ac2d30c58f971e31a4972e111a0a2f8a1a83df9ecc64013",
+      "geometry": {
+        "x0": 61,
+        "y0": 14,
+        "size": 186,
+        "angle": 0.0
+      },
+      "estimated_head_width": 162.8,
+      "estimated_occupancy": 0.8752688172043012
+    },
+    {
+      "candidate_id": "1a636d8c4565635405a4",
+      "pool_id": "s033876",
+      "code": "C02",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "White cat against black. Head appears below 60%; tighten the square while preserving the ears and chin.",
+      "crop_sha256": "55179bd07b4a042a2e7e8f8c3e84cfb75c4adb916cadc32e5ffebc3d52081910",
+      "geometry": {
+        "x0": 158,
+        "y0": 17,
+        "size": 132,
+        "angle": 0.0
+      },
+      "estimated_head_width": 74.2,
+      "estimated_occupancy": 0.5621212121212121
+    },
+    {
+      "candidate_id": "6599d084288cbd72581e",
+      "pool_id": "s025530",
+      "code": "C04",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Long-haired kitten against white. Check both pointed ears and the pale chin.",
+      "crop_sha256": "2802574ca06c934fae7b7c769f401a98168840f65615c8932f0f1115596082f1",
+      "geometry": {
+        "x0": 42,
+        "y0": 3,
+        "size": 124,
+        "angle": 0.0
+      },
+      "estimated_head_width": 93.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "9fe8f75be04c6fc830a4",
+      "pool_id": "s004482",
+      "code": "C08",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Fluffy ginger cat beside a decorated window. Verify both ears against the background ornaments.",
+      "crop_sha256": "ce10cc37c7a2404d421a28e624c160b63eb315b455abb00f31565a08de5e41a2",
+      "geometry": {
+        "x0": 86,
+        "y0": 9,
+        "size": 310,
+        "angle": 0.0
+      },
+      "estimated_head_width": 242.2,
+      "estimated_occupancy": 0.7812903225806451
+    },
+    {
+      "candidate_id": "f959680423b1d8f8f1cb",
+      "pool_id": "s047505",
+      "code": "C09",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "White kitten against a blue wall. Verify the pale ear tips and the jaw.",
+      "crop_sha256": "585aa4d0d989e31df336e4eedadfdbfcf93b842c719d0b7e6504cff9d9d06ab5",
+      "geometry": {
+        "x0": 100,
+        "y0": 11,
+        "size": 144,
+        "angle": 0.0
+      },
+      "estimated_head_width": 94.5,
+      "estimated_occupancy": 0.65625
+    },
+    {
+      "candidate_id": "2a61d6eaf709f5e781b1",
+      "pool_id": "s063692",
+      "code": "C10",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Tabby in a tree in side view. Head looks small in this square; check a tighter crop.",
+      "crop_sha256": "0415c90d8f006727c8ac8b96d2e5633e96715471eecf94a65452c35a2dce9ad9",
+      "geometry": {
+        "x0": 32,
+        "y0": 4,
+        "size": 295,
+        "angle": 0.0
+      },
+      "estimated_head_width": 165.9,
+      "estimated_occupancy": 0.5623728813559322
+    },
+    {
+      "candidate_id": "fef7dd2c17ad94ffa9c7",
+      "pool_id": "s070776",
+      "code": "C11",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Gray cat walking forward. Verify the downward-looking face, complete ears and chin.",
+      "crop_sha256": "de1648490b04e2b9bcb65bd86d16dcf4de921b6a355d2a2163d327cca0f358e5",
+      "geometry": {
+        "x0": 8,
+        "y0": 93,
+        "size": 256,
+        "angle": 0.0
+      },
+      "estimated_head_width": 184.0,
+      "estimated_occupancy": 0.71875
+    },
+    {
+      "candidate_id": "d9c6c657afda05fe7b0a",
+      "pool_id": "s043022",
+      "code": "C13",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Dark cat outdoors beside a fence. Head looks small relative to the square; check a tighter crop and visibility in the shadows.",
+      "crop_sha256": "4c184f8e053cb10ca5e540818969243393719543bf38116ea452241029f8f15b",
+      "geometry": {
+        "x0": 42,
+        "y0": 72,
+        "size": 175,
+        "angle": 0.0
+      },
+      "estimated_head_width": 87.5,
+      "estimated_occupancy": 0.5
+    },
+    {
+      "candidate_id": "bb25e291e960e2a3f1b6",
+      "pool_id": "s014004",
+      "code": "C16",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Ginger kitten on timber. Verify the ear tips and the jaw against its chest.",
+      "crop_sha256": "273c614945eacf838a897c20f87446bfca4e56fa579c4c67b8677fcf340223dc",
+      "geometry": {
+        "x0": 75,
+        "y0": 4,
+        "size": 120,
+        "angle": 0.0
+      },
+      "estimated_head_width": 82.5,
+      "estimated_occupancy": 0.6875
+    },
+    {
+      "candidate_id": "bb783093e243cf466a78",
+      "pool_id": "s048332",
+      "code": "C17",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "Ginger cat standing on snow. Check both ears and the side-profile muzzle.",
+      "crop_sha256": "c832d4c6a2c5fb8da6731b1531eef1ee7efc2d952b243f0b00f88604f901062e",
+      "geometry": {
+        "x0": 161,
+        "y0": 30,
+        "size": 118,
+        "angle": 0.0
+      },
+      "estimated_head_width": 81.1,
+      "estimated_occupancy": 0.6872881355932203
+    },
+    {
+      "candidate_id": "4b58e5db9571278305b3",
+      "pool_id": "s019893",
+      "code": "C18",
+      "group": "rank",
+      "suggested_species": "Cat",
+      "note": "White-and-tabby cat beside other resting cats. Verify that the exact crop contains just this head.",
+      "crop_sha256": "e2b4a048ebc02949f27eece49d4d2254eef28aa521484e2282e831254a3510fd",
+      "geometry": {
+        "x0": 220,
+        "y0": 56,
+        "size": 123,
+        "angle": 0.0
+      },
+      "estimated_head_width": 92.2,
+      "estimated_occupancy": 0.7495934959349594
+    },
+    {
+      "candidate_id": "d55ac9005837fde722e4",
+      "pool_id": "s022440",
+      "code": "C34",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Long-haired cat held in a monochrome portrait. Check both ear contours and the complete pale muzzle.",
+      "crop_sha256": "38954fd7a23c3f5b25cbda9333b7201a00db7b232e2de953e511fb48763cc46f",
+      "geometry": {
+        "x0": 148,
+        "y0": 35,
+        "size": 226,
+        "angle": 0.0
+      },
+      "estimated_head_width": 162.4,
+      "estimated_occupancy": 0.7185840707964603
+    },
+    {
+      "candidate_id": "afcddb5f08306a03024b",
+      "pool_id": "s037722",
+      "code": "C35",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Cat beside a seated person. Check the side-profile muzzle and both ear contours near the right boundary.",
+      "crop_sha256": "550c2fe53ab07d0e4db43496797bc8169a0e0f6860cf9f1b4ca51c21239dc689",
+      "geometry": {
+        "x0": 305,
+        "y0": 27,
+        "size": 143,
+        "angle": 0.0
+      },
+      "estimated_head_width": 107.2,
+      "estimated_occupancy": 0.7496503496503497
+    },
+    {
+      "candidate_id": "090931fa9757633c5cd5",
+      "pool_id": "s057303",
+      "code": "C37",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "White cat on an outdoor cushion. Check pale ears and chin against the bright cushion.",
+      "crop_sha256": "e14c3aeab9a61974b79f973a6e1c57d0326d883cba91cdc20f965ab2dd9aaee7",
+      "geometry": {
+        "x0": 261,
+        "y0": 131,
+        "size": 113,
+        "angle": 0.0
+      },
+      "estimated_head_width": 70.6,
+      "estimated_occupancy": 0.6247787610619469
+    },
+    {
+      "candidate_id": "af4dcb02a6454252268e",
+      "pool_id": "s043091",
+      "code": "C44",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Siamese-type kitten beside flowers. Verify the ear tips at the crop top; enlarge or shift the square if a tip is clipped.",
+      "crop_sha256": "3a59ae950ec9514897311a856af63f8ae157c54a19fc3a7d7545d786674fbe48",
+      "geometry": {
+        "x0": 42,
+        "y0": 55,
+        "size": 153,
+        "angle": 0.0
+      },
+      "estimated_head_width": 114.8,
+      "estimated_occupancy": 0.7503267973856209
+    },
+    {
+      "candidate_id": "0d69ec53eb09ee921130",
+      "pool_id": "s021866",
+      "code": "C45",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Tabby on a sofa. Check the complete side-profile muzzle and far ear.",
+      "crop_sha256": "847f359c3e584a2f6fdfb062ee71d6e4e9cfdd17b03c49672de288e21bae2f2a",
+      "geometry": {
+        "x0": 218,
+        "y0": 78,
+        "size": 136,
+        "angle": 0.0
+      },
+      "estimated_head_width": 97.8,
+      "estimated_occupancy": 0.7191176470588235
+    },
+    {
+      "candidate_id": "0f5cf50d6c7578baa515",
+      "pool_id": "s058373",
+      "code": "C46",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Cream kitten beside a dark cat. Check that the dark cat's head stays outside this crop.",
+      "crop_sha256": "6c6182a002c20b2b8d2c183bd5fa66f624ffcba8580ff2dc564293d2578d32c7",
+      "geometry": {
+        "x0": 173,
+        "y0": 98,
+        "size": 100,
+        "angle": 0.0
+      },
+      "estimated_head_width": 78.1,
+      "estimated_occupancy": 0.7809999999999999
+    },
+    {
+      "candidate_id": "142f429d7a01eeed731d",
+      "pool_id": "s060048",
+      "code": "C47",
+      "group": "diversity",
+      "suggested_species": "Cat",
+      "note": "Tabby crouching against white. Verify both ears and the full lower jaw.",
+      "crop_sha256": "cd8ac1e87b80c562f555a045ee9abf06b78e87533b005511b55904009b5010fc",
+      "geometry": {
+        "x0": 148,
+        "y0": 55,
+        "size": 229,
+        "angle": 0.0
+      },
+      "estimated_head_width": 164.6,
+      "estimated_occupancy": 0.7187772925764192
+    },
+    {
+      "candidate_id": "875ce4dccd8e0c93d404",
+      "pool_id": "s073979",
+      "code": "D01",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Wrinkled brown dog against white. Verify both hanging ear tips and the lower muzzle.",
+      "crop_sha256": "dd1d89fc1b86bedc3a541f45ca29f6cda8c88d4d71682a118c5813fbc872fce8",
+      "geometry": {
+        "x0": 34,
+        "y0": 1,
+        "size": 251,
+        "angle": 0.0
+      },
+      "estimated_head_width": 188.2,
+      "estimated_occupancy": 0.7498007968127489
+    },
+    {
+      "candidate_id": "9cfc65e5c9e2df09847e",
+      "pool_id": "s036032",
+      "code": "D02",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Husky-type dog outdoors. Check both pointed ears and the complete jaw.",
+      "crop_sha256": "f59760523fb323a428645e096b7287c0611ea8c582fe127115e9ba0402265d0a",
+      "geometry": {
+        "x0": 25,
+        "y0": 13,
+        "size": 231,
+        "angle": 0.0
+      },
+      "estimated_head_width": 173.2,
+      "estimated_occupancy": 0.7497835497835498
+    },
+    {
+      "candidate_id": "dabd5d396ed68e201bf5",
+      "pool_id": "s005288",
+      "code": "D03",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Small dog beside bedding. Verify the dark ears and full muzzle against the pale fabric.",
+      "crop_sha256": "25281ac17763d841dd67e6872f274632d5ce7177b123e6b6917ae39e1554a290",
+      "geometry": {
+        "x0": 105,
+        "y0": 50,
+        "size": 249,
+        "angle": 0.0
+      },
+      "estimated_head_width": 179.0,
+      "estimated_occupancy": 0.7188755020080321
+    },
+    {
+      "candidate_id": "d9afac6dddfa9d524617",
+      "pool_id": "s075169",
+      "code": "D04",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Tan pointed-ear dog on a blue seat. Check both ears and the side-profile muzzle.",
+      "crop_sha256": "5204628c5d40c738ee8dc7bd10d5ca3ba80dafae8fa600406cfb63c88e29f0d5",
+      "geometry": {
+        "x0": 0,
+        "y0": 47,
+        "size": 283,
+        "angle": 0.0
+      },
+      "estimated_head_width": 212.2,
+      "estimated_occupancy": 0.7498233215547703
+    },
+    {
+      "candidate_id": "7c2e2f97ee4db2f71d4d",
+      "pool_id": "s050147",
+      "code": "D05",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Tan dog facing forward indoors. Verify both ear tips and the chin.",
+      "crop_sha256": "b2ac35cac27a6c8acea0f4bf082a9bac62c9aa5ed9d39e938a4ed2b5560b7425",
+      "geometry": {
+        "x0": 193,
+        "y0": 16,
+        "size": 196,
+        "angle": 0.0
+      },
+      "estimated_head_width": 140.9,
+      "estimated_occupancy": 0.7188775510204082
+    },
+    {
+      "candidate_id": "407fc476f2192ae79712",
+      "pool_id": "s019975",
+      "code": "D06",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Small tan-and-white dog beside bicycles. Check the complete ears and muzzle in the distant source.",
+      "crop_sha256": "39d7e5dfe8c14f75e5233403adfa5a3aea7f7ac3752a0997675b8ddbc5d2336d",
+      "geometry": {
+        "x0": 129,
+        "y0": 93,
+        "size": 101,
+        "angle": 0.0
+      },
+      "estimated_head_width": 72.6,
+      "estimated_occupancy": 0.7188118811881188
+    },
+    {
+      "candidate_id": "c03dd9410b885ba0ec03",
+      "pool_id": "s042358",
+      "code": "D07",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Pointed-ear dog held by a person. Verify both ear tips remain free of the hands and other dog.",
+      "crop_sha256": "a441782ae19011e3480306fa3034d58778f57f1cf1a7f330f48d1c37a5c877ec",
+      "geometry": {
+        "x0": 105,
+        "y0": 162,
+        "size": 134,
+        "angle": 0.0
+      },
+      "estimated_head_width": 96.3,
+      "estimated_occupancy": 0.7186567164179104
+    },
+    {
+      "candidate_id": "90cea033988a230a8d1e",
+      "pool_id": "s040687",
+      "code": "D08",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Black dog on a lead outdoors. Check the dark ear edges and lower face.",
+      "crop_sha256": "cbca179f06ab5eb17088c0b4b30fe123253e5101a40ff841d7431a132969e6d5",
+      "geometry": {
+        "x0": 251,
+        "y0": 44,
+        "size": 166,
+        "angle": 0.0
+      },
+      "estimated_head_width": 119.3,
+      "estimated_occupancy": 0.7186746987951808
+    },
+    {
+      "candidate_id": "ec8c4bbdacbd407c3dee",
+      "pool_id": "s047329",
+      "code": "D09",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Curly pale dog in a garden. Verify both hanging ears and the full lower jaw.",
+      "crop_sha256": "f29b16bb5e49464eec3c5c746ae97744c6248bf0eb187d0d0ae043014b86b71a",
+      "geometry": {
+        "x0": 112,
+        "y0": 15,
+        "size": 275,
+        "angle": 0.0
+      },
+      "estimated_head_width": 206.2,
+      "estimated_occupancy": 0.7498181818181818
+    },
+    {
+      "candidate_id": "ecfc66797c6c313326aa",
+      "pool_id": "s043692",
+      "code": "D10",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Long-haired tan dog beside a seated person. Check both ears and the lower jaw against the clothing.",
+      "crop_sha256": "ed1425fc53a02cd9db378878cb70445cf75326152e6098fc62a2f2e01dae4354",
+      "geometry": {
+        "x0": 37,
+        "y0": 203,
+        "size": 238,
+        "angle": 0.0
+      },
+      "estimated_head_width": 171.1,
+      "estimated_occupancy": 0.7189075630252101
+    },
+    {
+      "candidate_id": "e579c99e0e2fe95fb618",
+      "pool_id": "s041406",
+      "code": "D11",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Short-muzzled tan dog on bedding. Verify both ears and the dark muzzle.",
+      "crop_sha256": "f330e3a81e16f685789d9c5b0ad865b9a35591929b6dcca76c1a8cdb308119ab",
+      "geometry": {
+        "x0": 132,
+        "y0": 25,
+        "size": 118,
+        "angle": 0.0
+      },
+      "estimated_head_width": 88.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "897b765bd027ce5fcf20",
+      "pool_id": "s004497",
+      "code": "D12",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Fluffy brown dog on a path. Check the natural ears against the ruff and the full jaw.",
+      "crop_sha256": "4d3893fd57ab88051c4ed506e5a52564f6d1eda117cf904bcea30aaf0ce20605",
+      "geometry": {
+        "x0": 74,
+        "y0": 54,
+        "size": 134,
+        "angle": 0.0
+      },
+      "estimated_head_width": 100.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "3d48cdd225ad241d7d92",
+      "pool_id": "s065278",
+      "code": "D13",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Black-and-white small dog on white. Verify both dark ears and the pale chin.",
+      "crop_sha256": "39f66ca4c2e27dc457281e665b74330999d8fd6082413f490c573402d822447d",
+      "geometry": {
+        "x0": 46,
+        "y0": 6,
+        "size": 234,
+        "angle": 0.0
+      },
+      "estimated_head_width": 160.9,
+      "estimated_occupancy": 0.6876068376068376
+    },
+    {
+      "candidate_id": "eaa5298774a055b3bfa4",
+      "pool_id": "s062380",
+      "code": "D14",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Small pale dog on a beach. Verify the floppy ears and lower jaw.",
+      "crop_sha256": "0eed82f49ded3f98ab1d062506fe72190f4f876670c632cb45d0454a07ec56a1",
+      "geometry": {
+        "x0": 97,
+        "y0": 173,
+        "size": 124,
+        "angle": 0.0
+      },
+      "estimated_head_width": 85.2,
+      "estimated_occupancy": 0.6870967741935484
+    },
+    {
+      "candidate_id": "29ad4a97e327ecd4c2fa",
+      "pool_id": "s061375",
+      "code": "D15",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Pale puppy against gray. Check the floppy ear tips and the full muzzle.",
+      "crop_sha256": "a36556027a8f6637f1f39f4613f6dd9d9e725dd4ce37456968a536f1ac42978b",
+      "geometry": {
+        "x0": 108,
+        "y0": 79,
+        "size": 136,
+        "angle": 0.0
+      },
+      "estimated_head_width": 102.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "b5ea16a1c44cf73f967d",
+      "pool_id": "s024451",
+      "code": "D16",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Curly tan dog on grass. Check both ears and complete side-profile muzzle.",
+      "crop_sha256": "0e1ca7d02e8a5ee7f4144e1fb5efc5b366500315b4b3aa794832332f3f567894",
+      "geometry": {
+        "x0": 48,
+        "y0": 3,
+        "size": 232,
+        "angle": 0.0
+      },
+      "estimated_head_width": 174.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "ea094dca089ac724a70c",
+      "pool_id": "s041956",
+      "code": "D17",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Brown dog in a studio portrait. Verify both long ears and the chin.",
+      "crop_sha256": "492f11658b6cae5b4703372ae008dfe15ca325ff57d2a6f733f2eea446090014",
+      "geometry": {
+        "x0": 39,
+        "y0": 27,
+        "size": 249,
+        "angle": 0.0
+      },
+      "estimated_head_width": 186.8,
+      "estimated_occupancy": 0.7502008032128514
+    },
+    {
+      "candidate_id": "9fa727c2f6b6daf41145",
+      "pool_id": "s009644",
+      "code": "D18",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Black dog wearing a blue bandana. Check the ear edges and jaw against the dark coat.",
+      "crop_sha256": "28943cf860d462388ec10f13eca439e5a542629b597278e8acc142ddfddc959e",
+      "geometry": {
+        "x0": 9,
+        "y0": 0,
+        "size": 175,
+        "angle": 0.0
+      },
+      "estimated_head_width": 131.2,
+      "estimated_occupancy": 0.7497142857142857
+    },
+    {
+      "candidate_id": "d373e4c356f246424422",
+      "pool_id": "s062050",
+      "code": "D19",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Small tan-and-black dog in grass. Verify both ear tips and the lower face.",
+      "crop_sha256": "394ac70b375c9e8f83b0589189d355ee9fdc33ff09d1b4b82c1103d5fda27358",
+      "geometry": {
+        "x0": 94,
+        "y0": 51,
+        "size": 109,
+        "angle": 0.0
+      },
+      "estimated_head_width": 74.9,
+      "estimated_occupancy": 0.6871559633027523
+    },
+    {
+      "candidate_id": "d233389128fc1bff009b",
+      "pool_id": "s060335",
+      "code": "D20",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Shaggy black dog outdoors. Check the natural ears against the hair and the lower jaw.",
+      "crop_sha256": "172c3b34c06cee6bf592df24fca0ebe543ff7429ee82ebcf60b211997b5419d8",
+      "geometry": {
+        "x0": 69,
+        "y0": 24,
+        "size": 259,
+        "angle": 0.0
+      },
+      "estimated_head_width": 194.2,
+      "estimated_occupancy": 0.7498069498069497
+    },
+    {
+      "candidate_id": "c83af06c5ed9ca719c0f",
+      "pool_id": "s071785",
+      "code": "D21",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Pointed-ear tan dog in an open landscape. Verify the distant source head and both ear tips.",
+      "crop_sha256": "a6ae540230aafdf1868fed62276bcafb27909fb2dcf934a762ccb8bb999e0462",
+      "geometry": {
+        "x0": 108,
+        "y0": 127,
+        "size": 99,
+        "angle": 0.0
+      },
+      "estimated_head_width": 71.2,
+      "estimated_occupancy": 0.7191919191919193
+    },
+    {
+      "candidate_id": "f18548c5b5d2893d5487",
+      "pool_id": "s012541",
+      "code": "D22",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "White dog in snowy woodland. Check the pale ears and full muzzle against the snow.",
+      "crop_sha256": "0b3d52d6578007febbc8c89037e833d9bbb550a0604255d98f7d8db3e04d373f",
+      "geometry": {
+        "x0": 302,
+        "y0": 69,
+        "size": 97,
+        "angle": 0.0
+      },
+      "estimated_head_width": 66.7,
+      "estimated_occupancy": 0.6876288659793814
+    },
+    {
+      "candidate_id": "a40d69b681f170b95cde",
+      "pool_id": "s024064",
+      "code": "D23",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "Curly brown dog indoors. Verify both hanging ear tips and the full jaw.",
+      "crop_sha256": "b36a14a5923d0c95ba8638aff97d34bb90b82ba196f09a15d84ece772055be36",
+      "geometry": {
+        "x0": 72,
+        "y0": 2,
+        "size": 304,
+        "angle": 0.0
+      },
+      "estimated_head_width": 228.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "b214d0e83a8c271d18bd",
+      "pool_id": "s062726",
+      "code": "D24",
+      "group": "rank",
+      "suggested_species": "Dog",
+      "note": "White dog beside a seated person. Verify both ears and side-profile muzzle against the person's clothes.",
+      "crop_sha256": "3013bf59d97e542abd85edbd63ad377c2705640c99b201883202821491ea5189",
+      "geometry": {
+        "x0": 61,
+        "y0": 126,
+        "size": 129,
+        "angle": 0.0
+      },
+      "estimated_head_width": 96.8,
+      "estimated_occupancy": 0.7503875968992247
+    },
+    {
+      "candidate_id": "69c5cae6dadcacada6ae",
+      "pool_id": "s040007",
+      "code": "D25",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Dog in a dark costume. Check that the clothing leaves both natural ears and the full muzzle visible.",
+      "crop_sha256": "709bcccb45db08792bc79f9253355d6f1dcc03f353e62d0c4bc6f9abeafcefa6",
+      "geometry": {
+        "x0": 58,
+        "y0": 3,
+        "size": 266,
+        "angle": 0.0
+      },
+      "estimated_head_width": 199.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "b7428d1307c95e3935ed",
+      "pool_id": "s001176",
+      "code": "D26",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Small black-and-tan dog on a patterned seat. Verify both pointed ears and the complete jaw.",
+      "crop_sha256": "91db4abf1b5b755dd2bef905f39d688223d85fe43f092d825c06c8a9d664884b",
+      "geometry": {
+        "x0": 41,
+        "y0": 33,
+        "size": 189,
+        "angle": 0.0
+      },
+      "estimated_head_width": 141.8,
+      "estimated_occupancy": 0.7502645502645503
+    },
+    {
+      "candidate_id": "5e6f3bf2ea6419487b56",
+      "pool_id": "s066526",
+      "code": "D27",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Black-and-white long-haired dog held by a person. Check both ears and ensure the person's face stays outside the crop.",
+      "crop_sha256": "201a85d4cb481a666517c5c367d576f5445b952443a5b7aa8cbd9133e175ad63",
+      "geometry": {
+        "x0": 169,
+        "y0": 80,
+        "size": 180,
+        "angle": 0.0
+      },
+      "estimated_head_width": 135.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "74a6a0be378f19d6ffae",
+      "pool_id": "s037888",
+      "code": "D28",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Small large-eared dog against white. Verify both ear tips and complete lower jaw.",
+      "crop_sha256": "fb90ceaf71569e0c8678cf56af4637fbe40ed60b55f479f417d7add66771791c",
+      "geometry": {
+        "x0": 40,
+        "y0": 8,
+        "size": 192,
+        "angle": 0.0
+      },
+      "estimated_head_width": 150.0,
+      "estimated_occupancy": 0.78125
+    },
+    {
+      "candidate_id": "bd3f06b3bbd49bfc41d6",
+      "pool_id": "s023759",
+      "code": "D30",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Dark dog on snow. Check both ear tips and the side-profile muzzle.",
+      "crop_sha256": "0aca0ff3369c9564572c85bfa9646cbf6a773cce9e8d8d2a3fb4f0dd2b3c42f6",
+      "geometry": {
+        "x0": 210,
+        "y0": 11,
+        "size": 296,
+        "angle": 0.0
+      },
+      "estimated_head_width": 222.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "d55d434724ec7249dd5a",
+      "pool_id": "s054112",
+      "code": "D31",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Spotted dog at a snowy waterside. Check the hanging ear contour and full side-profile jaw.",
+      "crop_sha256": "155a79237aba04c5b2977ea34b09559ea1733db986bf824c4bc12632492dd5ad",
+      "geometry": {
+        "x0": 139,
+        "y0": 27,
+        "size": 254,
+        "angle": 0.0
+      },
+      "estimated_head_width": 190.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "5d64ff35ad9fb4176d3a",
+      "pool_id": "s041380",
+      "code": "D32",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Beagle-type dog on a tiled floor. Verify both floppy ears and the lower jaw.",
+      "crop_sha256": "58513b52a386730847143a3c10d5b5ad6ad0c3927a1d84a4faab13fb3ac4e562",
+      "geometry": {
+        "x0": 89,
+        "y0": 36,
+        "size": 202,
+        "angle": 0.0
+      },
+      "estimated_head_width": 151.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "3e1ec9db959269a95398",
+      "pool_id": "s038808",
+      "code": "D33",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Small white fluffy dog on grass. Check pale ear contours and chin against the coat.",
+      "crop_sha256": "434b8218468da2fbfa99adb2a4c1172722808aae37a65847aa1c5c993a2e920b",
+      "geometry": {
+        "x0": 230,
+        "y0": 31,
+        "size": 164,
+        "angle": 0.0
+      },
+      "estimated_head_width": 123.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "e72a2c81a91fdf0903a0",
+      "pool_id": "s013412",
+      "code": "D35",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Tricolour long-haired dog beside water. Verify both ears and the complete open jaw.",
+      "crop_sha256": "d6f05dbaee0eae77959dc21e447c8ac83dc3e084e83c65a9de54bc94eed8e20d",
+      "geometry": {
+        "x0": 136,
+        "y0": 48,
+        "size": 167,
+        "angle": 0.0
+      },
+      "estimated_head_width": 125.2,
+      "estimated_occupancy": 0.7497005988023953
+    },
+    {
+      "candidate_id": "e7913c760f5ea2bd8021",
+      "pool_id": "s070466",
+      "code": "D36",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Dark pointed-ear dog beside bushes. Check both ear tips and the dark muzzle.",
+      "crop_sha256": "03f992e755d4016d895bd0af51d6017bba34da98c179d03b1f523ffbf3c79ad0",
+      "geometry": {
+        "x0": 185,
+        "y0": 18,
+        "size": 177,
+        "angle": 0.0
+      },
+      "estimated_head_width": 127.2,
+      "estimated_occupancy": 0.7186440677966102
+    },
+    {
+      "candidate_id": "59d07472cc38c527cdbc",
+      "pool_id": "s065385",
+      "code": "D37",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Black-and-white dog in an outdoor portrait. Check both floppy ears and full lower jaw.",
+      "crop_sha256": "8da7afbcd638287a61385673b588edf47f198fb8bd4727dfd4a7127c1a121081",
+      "geometry": {
+        "x0": 91,
+        "y0": 31,
+        "size": 172,
+        "angle": 0.0
+      },
+      "estimated_head_width": 129.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "4084a19fc0f5897c8f0c",
+      "pool_id": "s008620",
+      "code": "D39",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Tan puppy against a plain gray background. Verify the ear tips and chin.",
+      "crop_sha256": "c5664eac8f515ee489312bb68e7755e7c77cb46a13cf46ddc44ff83a1fb4c778",
+      "geometry": {
+        "x0": 73,
+        "y0": 4,
+        "size": 225,
+        "angle": 0.0
+      },
+      "estimated_head_width": 168.8,
+      "estimated_occupancy": 0.7502222222222222
+    },
+    {
+      "candidate_id": "91160e15802b7d92bdce",
+      "pool_id": "s064090",
+      "code": "D40",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Small black-and-tan dog in grass. Check the ear contours and complete muzzle.",
+      "crop_sha256": "b800136248ee1eee691d5d4a97f2f6209645cf788f483851d1bef297f66fb4d6",
+      "geometry": {
+        "x0": 77,
+        "y0": 33,
+        "size": 124,
+        "angle": 0.0
+      },
+      "estimated_head_width": 89.1,
+      "estimated_occupancy": 0.7185483870967742
+    },
+    {
+      "candidate_id": "a5f9dd7374a52197bf93",
+      "pool_id": "s043687",
+      "code": "D41",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Brown-and-white dog outdoors. Check both ear tips and the full pale muzzle.",
+      "crop_sha256": "c8bb5722c25785643f6c040a6d94ebd685f6a67c834addaa0509b966a0996728",
+      "geometry": {
+        "x0": 49,
+        "y0": 66,
+        "size": 214,
+        "angle": 0.0
+      },
+      "estimated_head_width": 160.5,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "44cf70269c96711866fe",
+      "pool_id": "s038077",
+      "code": "D42",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Golden dog held beside a person. Verify both ears and that the arm leaves the jaw visible.",
+      "crop_sha256": "5dec150d8e99de1aa678fe118f977cf6bbd62532deec048e3ecf86cd48c6c3b9",
+      "geometry": {
+        "x0": 200,
+        "y0": 74,
+        "size": 184,
+        "angle": 0.0
+      },
+      "estimated_head_width": 138.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "77059ae0b28bd2fe1dee",
+      "pool_id": "s014074",
+      "code": "D43",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Beagle-type dog against white. Check both hanging ear tips and full lower jaw.",
+      "crop_sha256": "829a0c3d2255c7071b457718411ac1a695084641291335a65e3bae7767c403e4",
+      "geometry": {
+        "x0": 155,
+        "y0": 13,
+        "size": 121,
+        "angle": 0.0
+      },
+      "estimated_head_width": 90.8,
+      "estimated_occupancy": 0.7504132231404959
+    },
+    {
+      "candidate_id": "a93c88f80f649733f4ca",
+      "pool_id": "s065066",
+      "code": "D44",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Black-and-white pointed-ear dog in grass. Verify both tips and the pale chin.",
+      "crop_sha256": "97e21a247ccf72842d0acd5aedf83c6608652c356ccd1d63d80571d5a67e1e75",
+      "geometry": {
+        "x0": 132,
+        "y0": 5,
+        "size": 174,
+        "angle": 0.0
+      },
+      "estimated_head_width": 125.1,
+      "estimated_occupancy": 0.7189655172413792
+    },
+    {
+      "candidate_id": "7e61fba08c9177851bfe",
+      "pool_id": "s027989",
+      "code": "D45",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Shaggy gray small dog outdoors. Check natural ears and jaw against the long hair.",
+      "crop_sha256": "990dbc5d056562635cf3d325f7998372f785f5b96a9fb564286f7ae7b67f189d",
+      "geometry": {
+        "x0": 51,
+        "y0": 26,
+        "size": 256,
+        "angle": 0.0
+      },
+      "estimated_head_width": 192.0,
+      "estimated_occupancy": 0.75
+    },
+    {
+      "candidate_id": "50fb781d4bb15c8b6234",
+      "pool_id": "s040792",
+      "code": "D46",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Husky-type dog in snow. Verify both ear tips and the pale lower face.",
+      "crop_sha256": "e80a3e78ac1f048121cee408b1a2948a5a248bb7a52f378b353d7b6839258d7c",
+      "geometry": {
+        "x0": 173,
+        "y0": 8,
+        "size": 136,
+        "angle": 0.0
+      },
+      "estimated_head_width": 97.8,
+      "estimated_occupancy": 0.7191176470588235
+    },
+    {
+      "candidate_id": "acbfc7a993842964d6b2",
+      "pool_id": "s014118",
+      "code": "D47",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Dark dog beside a person on a park bench. Verify ear edges and muzzle in the original.",
+      "crop_sha256": "7a40df20483fce5d8df648418d5d26a05980a300fa24a8e2c6e163dc439a51f4",
+      "geometry": {
+        "x0": 208,
+        "y0": 156,
+        "size": 107,
+        "angle": 0.0
+      },
+      "estimated_head_width": 76.9,
+      "estimated_occupancy": 0.7186915887850468
+    },
+    {
+      "candidate_id": "03f9af8e77937e14d342",
+      "pool_id": "s063009",
+      "code": "D48",
+      "group": "diversity",
+      "suggested_species": "Dog",
+      "note": "Small white dog in grass. Check both natural ears and the jaw against the coat.",
+      "crop_sha256": "62965ff23c85dc9cfcb18b9b67e358e25f9db3cb8eb1a5e88206eaf679f45ba3",
+      "geometry": {
+        "x0": 35,
+        "y0": 19,
+        "size": 224,
+        "angle": 0.0
+      },
+      "estimated_head_width": 168.0,
+      "estimated_occupancy": 0.75
+    }
+  ],
+  "review_drafts": {
+    "503b8bd2cfa45080aadd": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 162.8,
+      "head_span_crop_px": [
+        2,
+        30
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Yawning tabby on timber. Head appears wider than 80% of the crop; enlarge the square while retaining both ears.",
+      "note": "Yawning tabby on timber. Head appears wider than 80% of the crop; enlarge the square while retaining both ears.",
+      "preview_sha256": "947d24012374bce32ac2d30c58f971e31a4972e111a0a2f8a1a83df9ecc64013"
+    },
+    "1a636d8c4565635405a4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 74.2,
+      "head_span_crop_px": [
+        7,
+        25
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "White cat against black. Head appears below 60%; tighten the square while preserving the ears and chin.",
+      "note": "White cat against black. Head appears below 60%; tighten the square while preserving the ears and chin.",
+      "preview_sha256": "55179bd07b4a042a2e7e8f8c3e84cfb75c4adb916cadc32e5ffebc3d52081910"
+    },
+    "6599d084288cbd72581e": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 93.0,
+      "head_span_crop_px": [
+        5,
+        29
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired kitten against white. Check both pointed ears and the pale chin.",
+      "preview_sha256": "2802574ca06c934fae7b7c769f401a98168840f65615c8932f0f1115596082f1"
+    },
+    "9fe8f75be04c6fc830a4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 242.2,
+      "head_span_crop_px": [
+        3,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Fluffy ginger cat beside a decorated window. Verify both ears against the background ornaments.",
+      "preview_sha256": "ce10cc37c7a2404d421a28e624c160b63eb315b455abb00f31565a08de5e41a2"
+    },
+    "f959680423b1d8f8f1cb": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 94.5,
+      "head_span_crop_px": [
+        5,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White kitten against a blue wall. Verify the pale ear tips and the jaw.",
+      "preview_sha256": "585aa4d0d989e31df336e4eedadfdbfcf93b842c719d0b7e6504cff9d9d06ab5"
+    },
+    "2a61d6eaf709f5e781b1": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 165.9,
+      "head_span_crop_px": [
+        11,
+        29
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Tabby in a tree in side view. Head looks small in this square; check a tighter crop.",
+      "note": "Tabby in a tree in side view. Head looks small in this square; check a tighter crop.",
+      "preview_sha256": "0415c90d8f006727c8ac8b96d2e5633e96715471eecf94a65452c35a2dce9ad9"
+    },
+    "fef7dd2c17ad94ffa9c7": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 184.0,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Gray cat walking forward. Verify the downward-looking face, complete ears and chin.",
+      "preview_sha256": "de1648490b04e2b9bcb65bd86d16dcf4de921b6a355d2a2163d327cca0f358e5"
+    },
+    "d9c6c657afda05fe7b0a": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 87.5,
+      "head_span_crop_px": [
+        12,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": false
+      },
+      "reason_category": "Crop too loose, tight, tilted or off center",
+      "reason": "Dark cat outdoors beside a fence. Head looks small relative to the square; check a tighter crop and visibility in the shadows.",
+      "note": "Dark cat outdoors beside a fence. Head looks small relative to the square; check a tighter crop and visibility in the shadows.",
+      "preview_sha256": "4c184f8e053cb10ca5e540818969243393719543bf38116ea452241029f8f15b"
+    },
+    "bb25e291e960e2a3f1b6": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 82.5,
+      "head_span_crop_px": [
+        7,
+        29
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Ginger kitten on timber. Verify the ear tips and the jaw against its chest.",
+      "preview_sha256": "273c614945eacf838a897c20f87446bfca4e56fa579c4c67b8677fcf340223dc"
+    },
+    "bb783093e243cf466a78": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 81.1,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Ginger cat standing on snow. Check both ears and the side-profile muzzle.",
+      "preview_sha256": "c832d4c6a2c5fb8da6731b1531eef1ee7efc2d952b243f0b00f88604f901062e"
+    },
+    "4b58e5db9571278305b3": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 92.2,
+      "head_span_crop_px": [
+        3,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White-and-tabby cat beside other resting cats. Verify that the exact crop contains just this head.",
+      "preview_sha256": "e2b4a048ebc02949f27eece49d4d2254eef28aa521484e2282e831254a3510fd"
+    },
+    "d55ac9005837fde722e4": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 162.4,
+      "head_span_crop_px": [
+        3,
+        26
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired cat held in a monochrome portrait. Check both ear contours and the complete pale muzzle.",
+      "preview_sha256": "38954fd7a23c3f5b25cbda9333b7201a00db7b232e2de953e511fb48763cc46f"
+    },
+    "afcddb5f08306a03024b": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 107.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Cat beside a seated person. Check the side-profile muzzle and both ear contours near the right boundary.",
+      "preview_sha256": "550c2fe53ab07d0e4db43496797bc8169a0e0f6860cf9f1b4ca51c21239dc689"
+    },
+    "090931fa9757633c5cd5": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 70.6,
+      "head_span_crop_px": [
+        7,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White cat on an outdoor cushion. Check pale ears and chin against the bright cushion.",
+      "preview_sha256": "e14c3aeab9a61974b79f973a6e1c57d0326d883cba91cdc20f965ab2dd9aaee7"
+    },
+    "af4dcb02a6454252268e": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 114.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": false,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "Ears or part of the head cut off",
+      "reason": "Siamese-type kitten beside flowers. Verify the ear tips at the crop top; enlarge or shift the square if a tip is clipped.",
+      "note": "Siamese-type kitten beside flowers. Verify the ear tips at the crop top; enlarge or shift the square if a tip is clipped.",
+      "preview_sha256": "3a59ae950ec9514897311a856af63f8ae157c54a19fc3a7d7545d786674fbe48"
+    },
+    "0d69ec53eb09ee921130": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 97.8,
+      "head_span_crop_px": [
+        6,
+        29
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tabby on a sofa. Check the complete side-profile muzzle and far ear.",
+      "preview_sha256": "847f359c3e584a2f6fdfb062ee71d6e4e9cfdd17b03c49672de288e21bae2f2a"
+    },
+    "0f5cf50d6c7578baa515": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 78.1,
+      "head_span_crop_px": [
+        3,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Cream kitten beside a dark cat. Check that the dark cat's head stays outside this crop.",
+      "preview_sha256": "6c6182a002c20b2b8d2c183bd5fa66f624ffcba8580ff2dc564293d2578d32c7"
+    },
+    "142f429d7a01eeed731d": {
+      "origin": "agent_review_draft",
+      "label": 0,
+      "head_width": 164.6,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tabby crouching against white. Verify both ears and the full lower jaw.",
+      "preview_sha256": "cd8ac1e87b80c562f555a045ee9abf06b78e87533b005511b55904009b5010fc"
+    },
+    "875ce4dccd8e0c93d404": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 188.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Wrinkled brown dog against white. Verify both hanging ear tips and the lower muzzle.",
+      "preview_sha256": "dd1d89fc1b86bedc3a541f45ca29f6cda8c88d4d71682a118c5813fbc872fce8"
+    },
+    "9cfc65e5c9e2df09847e": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 173.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Husky-type dog outdoors. Check both pointed ears and the complete jaw.",
+      "preview_sha256": "f59760523fb323a428645e096b7287c0611ea8c582fe127115e9ba0402265d0a"
+    },
+    "dabd5d396ed68e201bf5": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 179.0,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small dog beside bedding. Verify the dark ears and full muzzle against the pale fabric.",
+      "preview_sha256": "25281ac17763d841dd67e6872f274632d5ce7177b123e6b6917ae39e1554a290"
+    },
+    "d9afac6dddfa9d524617": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 212.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tan pointed-ear dog on a blue seat. Check both ears and the side-profile muzzle.",
+      "preview_sha256": "5204628c5d40c738ee8dc7bd10d5ca3ba80dafae8fa600406cfb63c88e29f0d5"
+    },
+    "7c2e2f97ee4db2f71d4d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 140.9,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tan dog facing forward indoors. Verify both ear tips and the chin.",
+      "preview_sha256": "b2ac35cac27a6c8acea0f4bf082a9bac62c9aa5ed9d39e938a4ed2b5560b7425"
+    },
+    "407fc476f2192ae79712": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 72.6,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small tan-and-white dog beside bicycles. Check the complete ears and muzzle in the distant source.",
+      "preview_sha256": "39d7e5dfe8c14f75e5233403adfa5a3aea7f7ac3752a0997675b8ddbc5d2336d"
+    },
+    "c03dd9410b885ba0ec03": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 96.3,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pointed-ear dog held by a person. Verify both ear tips remain free of the hands and other dog.",
+      "preview_sha256": "a441782ae19011e3480306fa3034d58778f57f1cf1a7f330f48d1c37a5c877ec"
+    },
+    "90cea033988a230a8d1e": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 119.3,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black dog on a lead outdoors. Check the dark ear edges and lower face.",
+      "preview_sha256": "cbca179f06ab5eb17088c0b4b30fe123253e5101a40ff841d7431a132969e6d5"
+    },
+    "ec8c4bbdacbd407c3dee": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 206.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Curly pale dog in a garden. Verify both hanging ears and the full lower jaw.",
+      "preview_sha256": "f29b16bb5e49464eec3c5c746ae97744c6248bf0eb187d0d0ae043014b86b71a"
+    },
+    "ecfc66797c6c313326aa": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 171.1,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Long-haired tan dog beside a seated person. Check both ears and the lower jaw against the clothing.",
+      "preview_sha256": "ed1425fc53a02cd9db378878cb70445cf75326152e6098fc62a2f2e01dae4354"
+    },
+    "e579c99e0e2fe95fb618": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 88.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Short-muzzled tan dog on bedding. Verify both ears and the dark muzzle.",
+      "preview_sha256": "f330e3a81e16f685789d9c5b0ad865b9a35591929b6dcca76c1a8cdb308119ab"
+    },
+    "897b765bd027ce5fcf20": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 100.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Fluffy brown dog on a path. Check the natural ears against the ruff and the full jaw.",
+      "preview_sha256": "4d3893fd57ab88051c4ed506e5a52564f6d1eda117cf904bcea30aaf0ce20605"
+    },
+    "3d48cdd225ad241d7d92": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 160.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black-and-white small dog on white. Verify both dark ears and the pale chin.",
+      "preview_sha256": "39f66ca4c2e27dc457281e665b74330999d8fd6082413f490c573402d822447d"
+    },
+    "eaa5298774a055b3bfa4": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 85.2,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small pale dog on a beach. Verify the floppy ears and lower jaw.",
+      "preview_sha256": "0eed82f49ded3f98ab1d062506fe72190f4f876670c632cb45d0454a07ec56a1"
+    },
+    "29ad4a97e327ecd4c2fa": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 102.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pale puppy against gray. Check the floppy ear tips and the full muzzle.",
+      "preview_sha256": "a36556027a8f6637f1f39f4613f6dd9d9e725dd4ce37456968a536f1ac42978b"
+    },
+    "b5ea16a1c44cf73f967d": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 174.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Curly tan dog on grass. Check both ears and complete side-profile muzzle.",
+      "preview_sha256": "0e1ca7d02e8a5ee7f4144e1fb5efc5b366500315b4b3aa794832332f3f567894"
+    },
+    "ea094dca089ac724a70c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 186.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Brown dog in a studio portrait. Verify both long ears and the chin.",
+      "preview_sha256": "492f11658b6cae5b4703372ae008dfe15ca325ff57d2a6f733f2eea446090014"
+    },
+    "9fa727c2f6b6daf41145": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 131.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black dog wearing a blue bandana. Check the ear edges and jaw against the dark coat.",
+      "preview_sha256": "28943cf860d462388ec10f13eca439e5a542629b597278e8acc142ddfddc959e"
+    },
+    "d373e4c356f246424422": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 74.9,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small tan-and-black dog in grass. Verify both ear tips and the lower face.",
+      "preview_sha256": "394ac70b375c9e8f83b0589189d355ee9fdc33ff09d1b4b82c1103d5fda27358"
+    },
+    "d233389128fc1bff009b": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 194.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Shaggy black dog outdoors. Check the natural ears against the hair and the lower jaw.",
+      "preview_sha256": "172c3b34c06cee6bf592df24fca0ebe543ff7429ee82ebcf60b211997b5419d8"
+    },
+    "c83af06c5ed9ca719c0f": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 71.2,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Pointed-ear tan dog in an open landscape. Verify the distant source head and both ear tips.",
+      "preview_sha256": "a6ae540230aafdf1868fed62276bcafb27909fb2dcf934a762ccb8bb999e0462"
+    },
+    "f18548c5b5d2893d5487": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 66.7,
+      "head_span_crop_px": [
+        5,
+        27
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White dog in snowy woodland. Check the pale ears and full muzzle against the snow.",
+      "preview_sha256": "0b3d52d6578007febbc8c89037e833d9bbb550a0604255d98f7d8db3e04d373f"
+    },
+    "a40d69b681f170b95cde": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 228.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Curly brown dog indoors. Verify both hanging ear tips and the full jaw.",
+      "preview_sha256": "b36a14a5923d0c95ba8638aff97d34bb90b82ba196f09a15d84ece772055be36"
+    },
+    "b214d0e83a8c271d18bd": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 96.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "White dog beside a seated person. Verify both ears and side-profile muzzle against the person's clothes.",
+      "preview_sha256": "3013bf59d97e542abd85edbd63ad377c2705640c99b201883202821491ea5189"
+    },
+    "69c5cae6dadcacada6ae": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 199.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dog in a dark costume. Check that the clothing leaves both natural ears and the full muzzle visible.",
+      "preview_sha256": "709bcccb45db08792bc79f9253355d6f1dcc03f353e62d0c4bc6f9abeafcefa6"
+    },
+    "b7428d1307c95e3935ed": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 141.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small black-and-tan dog on a patterned seat. Verify both pointed ears and the complete jaw.",
+      "preview_sha256": "91db4abf1b5b755dd2bef905f39d688223d85fe43f092d825c06c8a9d664884b"
+    },
+    "5e6f3bf2ea6419487b56": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 135.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black-and-white long-haired dog held by a person. Check both ears and ensure the person's face stays outside the crop.",
+      "preview_sha256": "201a85d4cb481a666517c5c367d576f5445b952443a5b7aa8cbd9133e175ad63"
+    },
+    "74a6a0be378f19d6ffae": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 150.0,
+      "head_span_crop_px": [
+        3,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small large-eared dog against white. Verify both ear tips and complete lower jaw.",
+      "preview_sha256": "fb90ceaf71569e0c8678cf56af4637fbe40ed60b55f479f417d7add66771791c"
+    },
+    "bd3f06b3bbd49bfc41d6": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 222.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dark dog on snow. Check both ear tips and the side-profile muzzle.",
+      "preview_sha256": "0aca0ff3369c9564572c85bfa9646cbf6a773cce9e8d8d2a3fb4f0dd2b3c42f6"
+    },
+    "d55d434724ec7249dd5a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 190.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Spotted dog at a snowy waterside. Check the hanging ear contour and full side-profile jaw.",
+      "preview_sha256": "155a79237aba04c5b2977ea34b09559ea1733db986bf824c4bc12632492dd5ad"
+    },
+    "5d64ff35ad9fb4176d3a": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 151.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Beagle-type dog on a tiled floor. Verify both floppy ears and the lower jaw.",
+      "preview_sha256": "58513b52a386730847143a3c10d5b5ad6ad0c3927a1d84a4faab13fb3ac4e562"
+    },
+    "3e1ec9db959269a95398": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 123.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small white fluffy dog on grass. Check pale ear contours and chin against the coat.",
+      "preview_sha256": "434b8218468da2fbfa99adb2a4c1172722808aae37a65847aa1c5c993a2e920b"
+    },
+    "e72a2c81a91fdf0903a0": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 125.2,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tricolour long-haired dog beside water. Verify both ears and the complete open jaw.",
+      "preview_sha256": "d6f05dbaee0eae77959dc21e447c8ac83dc3e084e83c65a9de54bc94eed8e20d"
+    },
+    "e7913c760f5ea2bd8021": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 127.2,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dark pointed-ear dog beside bushes. Check both ear tips and the dark muzzle.",
+      "preview_sha256": "03f992e755d4016d895bd0af51d6017bba34da98c179d03b1f523ffbf3c79ad0"
+    },
+    "59d07472cc38c527cdbc": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 129.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black-and-white dog in an outdoor portrait. Check both floppy ears and full lower jaw.",
+      "preview_sha256": "8da7afbcd638287a61385673b588edf47f198fb8bd4727dfd4a7127c1a121081"
+    },
+    "4084a19fc0f5897c8f0c": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 168.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Tan puppy against a plain gray background. Verify the ear tips and chin.",
+      "preview_sha256": "c5664eac8f515ee489312bb68e7755e7c77cb46a13cf46ddc44ff83a1fb4c778"
+    },
+    "91160e15802b7d92bdce": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 89.1,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small black-and-tan dog in grass. Check the ear contours and complete muzzle.",
+      "preview_sha256": "b800136248ee1eee691d5d4a97f2f6209645cf788f483851d1bef297f66fb4d6"
+    },
+    "a5f9dd7374a52197bf93": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 160.5,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Brown-and-white dog outdoors. Check both ear tips and the full pale muzzle.",
+      "preview_sha256": "c8bb5722c25785643f6c040a6d94ebd685f6a67c834addaa0509b966a0996728"
+    },
+    "44cf70269c96711866fe": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 138.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Golden dog held beside a person. Verify both ears and that the arm leaves the jaw visible.",
+      "preview_sha256": "5dec150d8e99de1aa678fe118f977cf6bbd62532deec048e3ecf86cd48c6c3b9"
+    },
+    "77059ae0b28bd2fe1dee": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 90.8,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Beagle-type dog against white. Check both hanging ear tips and full lower jaw.",
+      "preview_sha256": "829a0c3d2255c7071b457718411ac1a695084641291335a65e3bae7767c403e4"
+    },
+    "a93c88f80f649733f4ca": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 125.1,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Black-and-white pointed-ear dog in grass. Verify both tips and the pale chin.",
+      "preview_sha256": "97e21a247ccf72842d0acd5aedf83c6608652c356ccd1d63d80571d5a67e1e75"
+    },
+    "7e61fba08c9177851bfe": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 192.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Shaggy gray small dog outdoors. Check natural ears and jaw against the long hair.",
+      "preview_sha256": "990dbc5d056562635cf3d325f7998372f785f5b96a9fb564286f7ae7b67f189d"
+    },
+    "50fb781d4bb15c8b6234": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 97.8,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Husky-type dog in snow. Verify both ear tips and the pale lower face.",
+      "preview_sha256": "e80a3e78ac1f048121cee408b1a2948a5a248bb7a52f378b353d7b6839258d7c"
+    },
+    "acbfc7a993842964d6b2": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 76.9,
+      "head_span_crop_px": [
+        5,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Dark dog beside a person on a park bench. Verify ear edges and muzzle in the original.",
+      "preview_sha256": "7a40df20483fce5d8df648418d5d26a05980a300fa24a8e2c6e163dc439a51f4"
+    },
+    "03f9af8e77937e14d342": {
+      "origin": "agent_review_draft",
+      "label": 1,
+      "head_width": 168.0,
+      "head_span_crop_px": [
+        4,
+        28
+      ],
+      "measurement_method": "Visual estimate from exact 32px crop scaled to source pixels",
+      "criteria": {
+        "species_correct": true,
+        "real_photo": true,
+        "one_head": true,
+        "ears_visible": true,
+        "upright": true,
+        "centered": true,
+        "occupancy_valid": true
+      },
+      "reason_category": "",
+      "reason": "",
+      "note": "Small white dog in grass. Check both natural ears and the jaw against the coat.",
+      "preview_sha256": "62965ff23c85dc9cfcb18b9b67e358e25f9db3cb8eb1a5e88206eaf679f45ba3"
+    }
+  }
+}

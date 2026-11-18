@@ -1,0 +1,125 @@
+{
+  "time": "2026-11-11T20:32:05.194877+00:00",
+  "selection_sha256": "58a7b1f5eb77c5d6fb2ba920aff129c321c3207786d544901bfc41e74860c120",
+  "confirmation": {
+    "checkpoint": "checkpoints\\capacity_32_seed17_22k_to_30k_86c3c843eb\\update_030000.pt",
+    "checkpoint_sha256": "40e4a9f9afe848fc9563e81a5e1da5619c0fd9bea1fb7beebce68319466cea36",
+    "update": 30000,
+    "exported": "private_build\\capacity_32_seed17\\u030000_ema_s50_g2.5",
+    "export_hashes": {
+      "diffusion.py": "8e882c3074cf11918fe826034b802ceb8368b641eabaf25753b5bf8dca78fd58",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+      "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+      "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+      "provenance.json": "f7077bad90b3d4dc68e11d430564bc1063bcde25fd3f765ae51b9b52503bab66",
+      "weights.pt": "46aeaf6542d028691b3ed64d053cfb6377c60c1dcecd712effd4f3b733e99757",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5,
+    "evidence": [
+      {
+        "seed": 303,
+        "path": "results\\experiments\\capacity_32_seed17\\confirmation\\seed_303.json",
+        "sha256": "f9920e836304a799ea63a0e6300842cf87dce3b4813b31cbcb958680a8b7b6cb",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.9110000133514404,
+          "per_class_accuracy": {
+            "cat": 0.9409999847412109,
+            "dog": 0.8809999823570251
+          },
+          "fid": 73.4498589969711,
+          "kid": 0.02934781148061706,
+          "kid_std": 0.0012733105235818907,
+          "precision": 0.6283186078071594,
+          "recall": 0.3053097426891327,
+          "memorization_rate": 0.03449999913573265,
+          "nn_distance_median": 8.213386535644531,
+          "nn_ratio_median": 0.9296737313270569,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Excellent",
+              "marks": 5
+            },
+            "fid": {
+              "tier": "Pass",
+              "marks": 3
+            },
+            "recall": {
+              "tier": "Good",
+              "marks": 4
+            }
+          },
+          "total": 12,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      },
+      {
+        "seed": 404,
+        "path": "results\\experiments\\capacity_32_seed17\\confirmation\\seed_404.json",
+        "sha256": "b919d052a0bf98560db8cbd960825e4501db2cf1f80ef9728f434e4ca0c3d5e3",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.8980000019073486,
+          "per_class_accuracy": {
+            "cat": 0.9319999814033508,
+            "dog": 0.8640000224113464
+          },
+          "fid": 74.22517785986554,
+          "kid": 0.0300917812710375,
+          "kid_std": 0.0012391056576177518,
+          "precision": 0.6570796370506287,
+          "recall": 0.3097345232963562,
+          "memorization_rate": 0.03449999913573265,
+          "nn_distance_median": 8.227923393249512,
+          "nn_ratio_median": 0.9319533109664917,
+          "training_images_deduplicated": 2394
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Good",
+              "marks": 4
+            },
+            "fid": {
+              "tier": "Pass",
+              "marks": 3
+            },
+            "recall": {
+              "tier": "Good",
+              "marks": 4
+            }
+          },
+          "total": 11,
+          "max": 15,
+          "valid": true
+        },
+        "violations": []
+      }
+    ],
+    "score": [
+      11,
+      -2.422517785986554,
+      -0.03449999913573265,
+      -33.68426994999754
+    ]
+  },
+  "all_five_score": [
+    10,
+    -2.422517785986554,
+    -0.04450000077486038,
+    -33.68426994999754
+  ],
+  "valid": true,
+  "scope": "Frozen candidate confirmation on seeds previously used with other exports."
+}

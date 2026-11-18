@@ -1,0 +1,44 @@
+{
+  "model": {
+    "channels": [
+      32,
+      64,
+      96,
+      128
+    ],
+    "blocks_per_level": 2,
+    "conditioning_dim": 256,
+    "attention_heads": 4,
+    "dropout": 0.1
+  },
+  "diffusion": {
+    "timesteps": 1000,
+    "cosine_offset": 0.008
+  },
+  "training": {
+    "updates": 32000,
+    "effective_batch": 128,
+    "microbatch": 64,
+    "learning_rate": 0.0002,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "weight_decay": 0.0001,
+    "warmup": 2000,
+    "grad_clip": 1.0,
+    "ema_decay": 0.9999,
+    "null_probability": 0.1,
+    "checkpoint_every": 2000,
+    "log_every": 100,
+    "precision": "bf16",
+    "threads": 8,
+    "timestep_sampling_focus": 0.65
+  },
+  "sampling": {
+    "steps": 100,
+    "guidance": 1.5,
+    "microbatch": 32,
+    "execution_batch": 32
+  }
+}

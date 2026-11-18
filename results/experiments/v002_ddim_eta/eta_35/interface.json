@@ -1,0 +1,13 @@
+{
+  "eta": 0.35,
+  "device": "cuda",
+  "count": 35,
+  "microbatches": [
+    32,
+    7
+  ],
+  "exact_prefix_isolation_and_rng": true,
+  "exact_zero_eta_reference": true,
+  "reference_export_provenance_sha256": "6e612a237134c188fa3d815e026a31dbea3ab4b94f4a57a23652075c31f3b34d",
+  "sampler_sha256": "77d1a632ef1a086479adb0fc39bfcf6c1d61faa9b8a738014927129199a3264c"
+}

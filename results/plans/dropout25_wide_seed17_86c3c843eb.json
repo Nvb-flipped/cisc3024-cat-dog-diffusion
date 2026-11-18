@@ -1,0 +1,75 @@
+{
+  "created": "2026-11-12T01:04:55.873735+00:00",
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\86c3c843eb\\dropout25_wide_seed17_u030000.yaml",
+    "--manifest",
+    "manifests\\v001.csv",
+    "--validation-manifest",
+    "manifests\\v001.validation.csv",
+    "--seed",
+    "17",
+    "--out",
+    "checkpoints\\dropout25_wide_seed17_u030000_86c3c843eb"
+  ],
+  "config_sha256": "df47266510beeb2f4dba84cbce5ee3caefd343afbf29f6b154a0399cde8a79c9",
+  "parent_config_sha256": "c859c1000ad9dc8a3de6c5f93fca573a04e34f8ff9b7f11fe8a90ec8a180f3dc",
+  "manifest_sha256": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+  "holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "training_seed": 17,
+  "updates": 30000,
+  "initialization": "random",
+  "parameters": 10664371,
+  "hypothesis": "Higher residual dropout may reduce memorization while retaining the wider model\u2019s capacity.",
+  "matched_22k_reference": "results\\experiments\\refinement_v001_seed17\\u022000_ema_s50_g2.5\\seed_0.json",
+  "matched_22k_reference_sha256": "96a35d66d0a3b1c78479c79bc61bc832719a17e30d5f155ed8afb9dd343b28f4",
+  "screen": [
+    {
+      "update": 22000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 22000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    },
+    {
+      "update": 26000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 26000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    },
+    {
+      "update": 30000,
+      "ddim_steps": 50,
+      "guidance": 2.0
+    },
+    {
+      "update": 30000,
+      "ddim_steps": 50,
+      "guidance": 2.5
+    }
+  ],
+  "screening_seed": 0,
+  "screening_n_per_class": 250,
+  "maximum_new_selection_candidates": 2,
+  "selection_seeds": [
+    0,
+    101,
+    202
+  ],
+  "confirmation_seeds": [
+    303,
+    404
+  ],
+  "decision": "Compare the matched 22k recipe first. Promote valid variants by the predeclared official ranking. Require improved minimum tier or normalized margin before freezing and confirming a challenger."
+}

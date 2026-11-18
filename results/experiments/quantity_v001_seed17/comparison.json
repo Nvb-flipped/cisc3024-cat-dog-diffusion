@@ -1,0 +1,114 @@
+{
+  "time": "2026-11-12T00:41:41.641059+00:00",
+  "plan_sha256": "dabfe9956c741b2491c8b7d49ba6198899ad7e25d270195904630c3274890784",
+  "resume_sha256": "f610dd925c4e7b149251f25e78a4dbba6953666ce6349fa250e9bdd4ba0c60e2",
+  "training_completion_sha256": "b0b38c3e4cf4027ebe32a2e4be774e8b7f2046a5d6f2de98d3a09b9c914183b5",
+  "candidate": {
+    "checkpoint": "checkpoints\\quantity_v001_seed17_u050000_27702755eb\\update_050000.pt",
+    "checkpoint_sha256": "23c8a3fc68a820656b5e9d26d5cfd3866cbf70b95b8ea3037bd82b8bcd724ada",
+    "update": 50000,
+    "exported": "private_build\\quantity_v001_seed17",
+    "export_hashes": {
+      "diffusion.py": "8e882c3074cf11918fe826034b802ceb8368b641eabaf25753b5bf8dca78fd58",
+      "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+      "inference.json": "ed285735253ab8dbd766d6ed85809e205e4dc189cd8617fd6e48b253e8519e2b",
+      "manifest.csv": "27702755eb29a9bd208b87a8689763ac0fc811f5be01ece8a29e5e905b81b705",
+      "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+      "provenance.json": "5d38421997d0e91a39c8776748a701dbf0f86e2f999f38f0541107773ce5cb2b",
+      "weights.pt": "17db0bb599bb6ef37036812eb34ecdbc2bbb5164ed72c0ad65816e1cdf7c34d1",
+      "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+    },
+    "weights": "ema",
+    "steps": 100,
+    "guidance": 1.0,
+    "evidence": [
+      {
+        "seed": 0,
+        "path": "results\\experiments\\quantity_v001_seed17\\seed_0.json",
+        "sha256": "dd58c7076253e407d9dc42e393bdf835897efdfdc02b72f65b6420a78c872f6d",
+        "metrics": {
+          "num_samples": 2000,
+          "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+          "accuracy": 0.9334999918937683,
+          "per_class_accuracy": {
+            "cat": 0.9670000076293945,
+            "dog": 0.8999999761581421
+          },
+          "fid": 51.74845652882868,
+          "kid": 0.007681153799388465,
+          "kid_std": 0.0010239572940795136,
+          "precision": 0.7953540086746216,
+          "recall": 0.4446902573108673,
+          "memorization_rate": 0.737500011920929,
+          "nn_distance_median": 2.864450693130493,
+          "nn_ratio_median": 0.29210591316223145,
+          "training_images_deduplicated": 2000
+        },
+        "marks": {
+          "per_metric": {
+            "accuracy": {
+              "tier": "Excellent",
+              "marks": 0
+            },
+            "fid": {
+              "tier": "Good",
+              "marks": 0
+            },
+            "recall": {
+              "tier": "Excellent",
+              "marks": 0
+            }
+          },
+          "total": 0,
+          "max": 15,
+          "valid": false
+        },
+        "violations": [
+          "memorization rate 73.8% exceeds 5%: samples copy training images"
+        ]
+      }
+    ],
+    "score": null
+  },
+  "baseline": {
+    "result": "results\\experiments\\baseline_v001_seed17\\seed_0.json",
+    "result_sha256": "1489f25f2f118ccb8459f2c22ec1927e5d60f5a751daa94d7737287595cf1baa",
+    "metrics": {
+      "num_samples": 2000,
+      "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+      "accuracy": 0.9014999866485596,
+      "per_class_accuracy": {
+        "cat": 0.9380000233650208,
+        "dog": 0.8650000095367432
+      },
+      "fid": 52.90280926674251,
+      "kid": 0.009498897753513811,
+      "kid_std": 0.0009792521737569373,
+      "precision": 0.7776548862457275,
+      "recall": 0.4303097426891327,
+      "memorization_rate": 0.578000009059906,
+      "nn_distance_median": 3.9752230644226074,
+      "nn_ratio_median": 0.42337411642074585,
+      "training_images_deduplicated": 2394
+    },
+    "marks": {
+      "per_metric": {
+        "accuracy": {
+          "tier": "Excellent",
+          "marks": 0
+        },
+        "fid": {
+          "tier": "Good",
+          "marks": 0
+        },
+        "recall": {
+          "tier": "Excellent",
+          "marks": 0
+        }
+      },
+      "total": 0,
+      "max": 15,
+      "valid": false
+    }
+  }
+}

@@ -31,9 +31,17 @@ def reconstruct_clean_from_velocity(noisy, velocity, a):
     return a.sqrt() * noisy - (1 - a).sqrt() * velocity
 
 
-def ddim_indices(timesteps, steps):
+def ddim_indices(timesteps, steps, spacing='uniform'):
     if not 1 <= steps <= timesteps:
         raise ValueError('sampling steps must be in [1, timesteps]')
+    if spacing == 'quadratic':
+        if steps == 1:
+            return [timesteps - 1]
+        ordinal = torch.arange(steps - 1, -1, -1, dtype=torch.float64)
+        # The ordinal term keeps discrete indices distinct after rounding.
+        return (ordinal + (timesteps - steps) * (ordinal / (steps - 1)).square()).round().long().tolist()
+    if spacing != 'uniform':
+        raise ValueError('Unsupported DDIM timestep spacing')
     return torch.linspace(timesteps - 1, 0, steps).round().long().tolist()
 
 
@@ -82,22 +90,38 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
            prediction_type='epsilon', start_timestep=None,
            guidance_min_timestep=0, guidance_max_timestep=None, eta=0.0, solver='ddim', guidance_rescale=0.0,
            threshold_percentile=None, threshold_min_timestep=0, self_condition_feedback=True,
-           reflect_denoiser=False, score_sharpness=1.0, score_sigma=0.5, pag_scale=0.0):
+           reflect_denoiser=False, score_sharpness=1.0, score_sigma=0.5, pag_scale=0.0,
+           class_noise_max=0.0, timestep_spacing='uniform'):
     if model.training:
         raise ValueError('Sampling requires model.eval()')
     if labels.ndim != 1 or labels.dtype != torch.long or not torch.all((labels == 0) | (labels == 1)):
         raise ValueError('labels must be a one-dimensional LongTensor containing 0/1')
     if microbatch < 1 or execution_batch < 1 or not math.isfinite(guidance) or not 0 <= eta <= 1 or \
-            prediction_type not in ('epsilon', 'velocity', 'edm'):
+            prediction_type not in ('epsilon', 'velocity', 'edm', 'flow'):
         raise ValueError('Invalid sampling configuration')
-    if solver not in ('ddim', 'dpmpp_2m') or (solver == 'dpmpp_2m' and (prediction_type != 'epsilon' or eta or steps < 2)):
+    if solver not in ('ddim', 'dpmpp_2m', 'flow_heun') or (
+            solver == 'dpmpp_2m' and (prediction_type != 'epsilon' or eta or steps < 2)):
         raise ValueError('DPM-Solver++ requires deterministic epsilon sampling with at least two steps')
+    if (solver == 'flow_heun') != (prediction_type == 'flow'):
+        raise ValueError('Linear flow requires the Heun flow solver')
+    if prediction_type == 'flow' and (steps < 2 or eta or start_timestep is not None
+            or guidance_min_timestep or guidance_max_timestep is not None or threshold_percentile is not None
+            or guidance_rescale or reflect_denoiser or score_sharpness != 1 or pag_scale or class_noise_max
+            or getattr(model, 'self_condition', False)):
+        raise ValueError('Flow requires a full deterministic trajectory without diffusion-only options')
+    if timestep_spacing not in ('uniform', 'quadratic') or (
+            timestep_spacing != 'uniform' and (solver != 'ddim' or prediction_type == 'edm')):
+        raise ValueError('Nonuniform timestep spacing requires DDIM')
     if not 0 <= guidance_rescale <= 1 or (guidance_rescale and prediction_type != 'epsilon'):
         raise ValueError('Guidance rescale requires epsilon prediction and a strength in [0,1]')
     if threshold_percentile is not None and (not 0 < threshold_percentile <= 1 or prediction_type != 'epsilon'
             or type(threshold_min_timestep) is not int or not 0 <= threshold_min_timestep < timesteps):
         raise ValueError('Dynamic thresholding requires epsilon prediction, a valid timestep and percentile')
     self_condition = getattr(model, 'self_condition', False) and self_condition_feedback
+    if not 0 <= class_noise_max <= 1 or (class_noise_max and (
+            solver != 'ddim' or prediction_type != 'epsilon' or eta or reflect_denoiser
+            or getattr(model, 'self_condition', False))):
+        raise ValueError('Class condition annealing requires ordinary deterministic epsilon DDIM')
     if getattr(model, 'self_condition', False) and (prediction_type != 'epsilon' or solver != 'ddim' or eta):
         raise ValueError('Self-conditioning requires deterministic epsilon DDIM')
     if type(reflect_denoiser) is not bool or (reflect_denoiser and (prediction_type != 'epsilon'
@@ -121,6 +145,12 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         else:
             from edm import heun_sample, heun_sigmas
         sigmas = heun_sigmas(steps, device)
+    elif prediction_type == 'flow':
+        if __package__:
+            from .flow import heun_flow
+        else:
+            from flow import heun_flow
+        indices = ddim_indices(timesteps, steps)
     else:
         schedule = cosine_alpha_bar(timesteps, cosine_offset).to(device)
         last = timesteps - 1 if start_timestep is None else start_timestep
@@ -129,7 +159,7 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
         if any(type(value) is not int for value in bounds) or not 0 <= last < timesteps or \
                 not 0 <= guidance_min_timestep <= guidance_max < timesteps:
             raise ValueError('Invalid sampling timestep')
-        indices = ddim_indices(last + 1, steps)
+        indices = ddim_indices(last + 1, steps, timestep_spacing)
         if score_sharpness != 1:
             score_scales = temporal_score_scale(schedule, score_sharpness, score_sigma)
         if solver == 'dpmpp_2m':
@@ -141,6 +171,11 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
     # One CPU draw per output position: independent of labels and microbatch boundaries.
     noise = torch.stack([torch.randn(3, 32, 32, generator=generator) for _ in range(len(labels))]) \
         if len(labels) else torch.empty(0, 3, 32, 32)
+    if class_noise_max:
+        class_rng = torch.Generator(device='cpu').manual_seed(int(seed) ^ 0x3C587AE6912277D3)
+        class_seeds = torch.randint(0, 2**63 - 1, (len(labels),), generator=class_rng).tolist()
+        class_fractions = [class_noise_max * min(1, max(0, (t / (timesteps - 1) - .35) / .5))
+                           for t in indices]
     if eta:
         # Use one independent CPU stream per output position for transition noise.
         transition_rng = torch.Generator(device='cpu').manual_seed(int(seed) ^ 0x4847D1D63AA4EE97)
@@ -169,24 +204,38 @@ def sample(model, labels, seed, *, timesteps=1000, cosine_offset=0.008,
             outputs.append((clean[slot:slot + count].float() + 1).mul(0.5).clamp(0, 1))
             start += count
             continue
+        if prediction_type == 'flow':
+            clean = heun_flow(model, x, y, indices, timesteps, guidance)
+            outputs.append((clean[slot:slot + count].float() + 1).mul(0.5).clamp(0, 1))
+            start += count
+            continue
         if eta:
             streams = [torch.Generator(device='cpu').manual_seed(value)
                        for value in stream_seeds[start:start + count]]
+        if class_noise_max:
+            class_draws = torch.zeros(steps, execution_batch, model.embedding_dim)
+            for position, value in enumerate(class_seeds[start:start + count], start=slot):
+                stream = torch.Generator(device='cpu').manual_seed(value)
+                class_draws[:, position] = torch.randn(steps, model.embedding_dim, generator=stream)
+            class_draws = class_draws.to(device)
         preceding_clean = None
         for index, t in enumerate(indices):
             time = torch.full((len(y),), t, device=device, dtype=torch.long)
             hint = (preceding_clean,) if self_condition else ()
+            condition = {}
+            if class_noise_max and class_fractions[index]:
+                condition = {'class_noise': class_draws[index], 'class_noise_fraction': class_fractions[index]}
             if guidance == 1 or not guidance_min_timestep <= t <= guidance_max:
-                conditional = denoise(x, time, y, *hint)
+                conditional = denoise(x, time, y, *hint, **condition)
                 prediction = conditional
             else:
                 unconditional = denoise(x, time, torch.full_like(y, 2), *hint)
-                conditional = denoise(x, time, y, *hint)
+                conditional = denoise(x, time, y, *hint, **condition)
                 prediction = unconditional + guidance * (conditional - unconditional)
                 if guidance_rescale:
                     prediction = rescale_guidance(prediction, conditional, guidance_rescale)
             if pag_scale and 149 <= t <= 949:
-                perturbed = model(x, time, y, perturb_encoder_attention=True)
+                perturbed = model(x, time, y, perturb_encoder_attention=True, **condition)
                 prediction = prediction + pag_scale * (conditional - perturbed)
             a = schedule[t]
             if score_sharpness != 1:

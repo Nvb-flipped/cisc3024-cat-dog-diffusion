@@ -557,6 +557,126 @@ def development_claims(paths):
                        f"{metric_range(evidence, 'accuracy', '.2%')}, FID {metric_range(evidence, 'fid', '.2f')}, "
                        f"recall {metric_range(evidence, 'recall', '.2%')}, and memorization "
                        f"{metric_range(evidence, 'memorization_rate', '.2%')}.", list(ids)))
+    recent_runs = [
+        ('v007_class_annealing010', 'v007 class-embedding noise annealing'),
+        ('v008_coverage32k', 'v008 1,369-crop fit'),
+        ('v009_coverage32k', 'v009 1,399-crop fit'),
+        ('v009_appearance32k', 'v009 appearance-weighted fit'),
+        ('v009_haar32k', 'v009 Haar fit'),
+        ('v009_flow32k', 'v009 rectified-flow fit'),
+        ('v009_extension36k', 'v009 36k extension'),
+        ('v009_extension36k_cfg3', 'v009 36k extension with CFG 3.0'),
+        ('v007_freeu_mild', 'v007 decoder feature reweighting'),
+        ('v007_freeu_cfg310', 'v007 decoder feature reweighting with CFG 3.10'),
+        ('v009_attention16_32k', 'v009 16×16 encoder attention'),
+        ('v007_freeu_ddim100', 'v007 FreeU with 100 DDIM steps'),
+        ('v009_attention16_freeu', 'v009 attention with FreeU decoder reweighting'),
+        ('v009_attention16_freeu200', 'v009 attention with stronger FreeU reweighting'),
+        ('v009_attention16_extension34k', 'v009 attention continuation to 34,000 updates'),
+        ('v009_attention16_extension35k', 'v009 attention continuation to 35,000 updates'),
+        ('v009_34k_cfg310', '34k sampler CFG 3.10'),
+        ('v009_34k_pag010', '34k sampler PAG 0.10'),
+        ('v009_34k_freeu180', '34k sampler FreeU 1.80'),
+        ('v009_34k_freeu220', '34k sampler FreeU 2.20'),
+        ('v009_attention16_lr100', '34k late learning-rate reduction'),
+        ('v009_attention16_lr100_35k', '35k late learning-rate reduction'),
+        ('v009_lr100_35k_freeu220', '35k lower-rate fit with FreeU 2.20'),
+    ]
+    next_id = 217
+    first_screen = ROOT / 'results/experiments/v007_class_annealing010/screen.json'
+    for claim_index, (run, title) in enumerate(recent_runs, 51):
+        if not first_screen.exists():
+            break
+        folder = ROOT / 'results/experiments' / run
+        screen_path = folder / 'screen.json'
+        plan_path = ROOT / 'results/plans' / f'{run}.json'
+        if run in {'v009_34k_cfg310', 'v009_34k_pag010', 'v009_34k_freeu180'}:
+            plan_path = ROOT / 'results/plans/v009_34k_refine.json'
+        selection_path = folder / 'selection.json'
+        if not screen_path.exists():
+            continue
+        requires_selection = selection_path.exists()
+        if run in {'v007_class_annealing010', 'v007_freeu_mild', 'v007_freeu_cfg310'} and not requires_selection:
+            continue
+        screen = json.loads(screen_path.read_text())
+        if screen['plan_sha256'] != sha256(plan_path):
+            raise ValueError(f'Screen plan changed: {run}')
+        files = [plan_path, screen_path]
+        seeds = [json.loads(plan_path.read_text()).get('screen_seed', 0)]
+        if requires_selection:
+            selection = json.loads(selection_path.read_text())
+            if selection['screen_sha256'] != sha256(screen_path):
+                raise ValueError(f'Selection screen changed: {run}')
+            screen = selection
+            seeds = [0, 101, 202]
+            files.append(selection_path)
+        candidate = screen['candidate']
+        results = []
+        for entry in candidate['evidence']:
+            path = ROOT / entry['path']
+            if sha256(path) != entry['sha256']:
+                raise ValueError(f'Evaluation changed: {path}')
+            results.append(validated_result(path, entry['seed'], ROOT / candidate['exported']))
+            files.append(path)
+        if [row['protocol']['seed'] for row in results] != seeds:
+            raise ValueError(f'Unexpected evaluation seeds: {run}')
+        recorded_score = candidate['score']
+        if requires_selection and score_results(results) != (
+                tuple(recorded_score) if recorded_score is not None else None):
+            raise ValueError(f'Replayed selection score changed: {run}')
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, next_id)}
+        next_id += len(ids)
+        paths.update(ids)
+        marks = ', '.join(str(row['marks']['total']) for row in results)
+        claims.append((f'C{claim_index:03d}', title, 'result',
+                       f"Development scores out of 15 were {marks}. Accuracy was "
+                       f"{metric_range(results, 'accuracy', '.2%')}, FID {metric_range(results, 'fid', '.2f')}, "
+                       f"recall {metric_range(results, 'recall', '.2%')}, and memorization "
+                       f"{metric_range(results, 'memorization_rate', '.2%')}.", list(ids)))
+    stability_path = ROOT / 'results/experiments/v009_attention16_extension34k/stability.json'
+    if stability_path.exists():
+        stability = json.loads(stability_path.read_text())
+        stability_plan = ROOT / 'results/plans/v009_attention16_stability.json'
+        screen_path = stability_path.with_name('screen.json')
+        if (stability['plan_sha256'] != sha256(stability_plan)
+                or stability['screen_sha256'] != sha256(screen_path)):
+            raise ValueError('The 34k stability receipt changed')
+        candidate = stability['candidate']
+        results, files = [], [stability_plan, screen_path, stability_path]
+        for row in candidate['evidence']:
+            path = ROOT / row['path']
+            if sha256(path) != row['sha256']:
+                raise ValueError('A 34k stability evaluation changed')
+            results.append(validated_result(path, row['seed'], ROOT / candidate['exported']))
+            files.append(path)
+        if ([row['protocol']['seed'] for row in results] != [0, 101, 202]
+                or score_results(results) != tuple(candidate['score'])):
+            raise ValueError('The 34k stability score did not replay')
+        ids = {f'E{index:03d}': file.relative_to(ROOT).as_posix()
+               for index, file in enumerate(files, next_id)}
+        paths.update(ids)
+        claims.append(('C074', 'Three-seed 34k attention stability', 'result',
+                       f"Scores were {','.join(str(row['marks']['total']) for row in results)} out of 15. "
+                       f"Accuracy was {metric_range(results, 'accuracy', '.2%')}, FID "
+                       f"{metric_range(results, 'fid', '.2f')}, recall {metric_range(results, 'recall', '.2%')}, "
+                       f"and memorization {metric_range(results, 'memorization_rate', '.2%')}.", list(ids)))
+        next_id += len(ids)
+        reselection_path = stability_path.with_name('reselection.json')
+        if reselection_path.exists():
+            reselection = json.loads(reselection_path.read_text())
+            for path, digest in reselection['inputs'].items():
+                if sha256(ROOT / path) != digest:
+                    raise ValueError('A development reselection input changed')
+            if reselection['candidate'] != candidate or not reselection['improves_reference']:
+                raise ValueError('Expected the exact validated 34k stability candidate')
+            identifier = f'E{next_id:03d}'
+            paths[identifier] = reselection_path.relative_to(ROOT).as_posix()
+            claims.append(('C075', '34k development reselection', 'result',
+                           'After review removed the added worst-recall veto, the original minimum-tier '
+                           'and normalized-margin rule selected 34k attention. The recorded worst margins '
+                           'are -1.1161 for 34k attention and -1.2751 for the previous FreeU candidate. '
+                           'Reserved confirmation and student checks remain pending.', [identifier]))
     return claims
 
 
@@ -619,7 +739,11 @@ def main():
          2022, 'https://arxiv.org/abs/2211.01095', 'Algorithm 2 and midpoint two-step update', 'preprint'),
         ('E112', 'Common Diffusion Noise Schedules and Sample Steps Are Flawed',
          ['Shanchuan Lin', 'Bingchen Liu', 'Jiashi Li', 'Xiao Yang'], 2024,
-         'https://arxiv.org/abs/2305.08891', 'Section 3.4 per-image classifier-free guidance rescale', 'conference_paper')]
+         'https://arxiv.org/abs/2305.08891', 'Section 3.4 per-image classifier-free guidance rescale', 'conference_paper'),
+        ('E113', 'FreeU: Free Lunch in Diffusion U-Net',
+         ['Chenyang Si', 'Ziqi Huang', 'Yuming Jiang', 'Ziwei Liu'], 2024,
+         'https://arxiv.org/abs/2309.11497', 'Backbone and skip feature reweighting in the decoder',
+         'conference_paper')]
     for identifier, title, authors, year, url, locator, kind in literature:
         sources.append({'evidence_id': identifier, 'source_type': kind, 'title': title, 'authors': authors,
             'year': year, 'identifiers': {'url': url, 'doi': '10.48550/arXiv.2609.00065' if identifier == 'E107' else '',

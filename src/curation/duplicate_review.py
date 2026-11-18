@@ -23,7 +23,16 @@ SINGLETON_PAGE_SIZE = 8
 
 def review_pages(components):
     singletons = [component[0] for component in components if len(component) == 1]
-    pages = [{'ids': component, 'singleton': False} for component in components if len(component) > 1]
+    pages = []
+    for component in components:
+        if len(component) <= 1:
+            continue
+        for start in range(0, len(component), SINGLETON_PAGE_SIZE):
+            page = {'ids': component[start:start + SINGLETON_PAGE_SIZE], 'singleton': False}
+            if len(component) > SINGLETON_PAGE_SIZE:
+                page.update(component_size=len(component), component_part=start // SINGLETON_PAGE_SIZE + 1,
+                            component_parts=(len(component) + SINGLETON_PAGE_SIZE - 1) // SINGLETON_PAGE_SIZE)
+            pages.append(page)
     pages.extend({'ids': singletons[start:start + SINGLETON_PAGE_SIZE], 'singleton': True}
                  for start in range(0, len(singletons), SINGLETON_PAGE_SIZE))
     return pages
@@ -133,6 +142,28 @@ class DuplicateReview:
         if self.groups.exists() and (not sidecar.exists() or
                 json.loads(sidecar.read_text())['csv_sha256'] != sha256(self.groups)):
             raise ValueError('Existing duplicate CSV was edited manually; preserve and reconcile it before browser export')
+
+    def batch_advisory(self):
+        """Read-only preparation; unapproved drafts never enter the family save queue."""
+        path = ROOT / 'results/curation/expansion_duplicate_advisory_v050.json'
+        if self.diagnostic_only or not path.exists():
+            return {'batch_count': 0, 'batches': [], 'comparison_items': {}, 'matches': {}}
+        result = json.loads(path.read_text(encoding='utf-8'))
+        latest = latest_decisions(self.decisions) if self.decisions.exists() else {}
+        for batch in result['batches']:
+            counts = {'pending': 0, 'good': 0, 'bad': 0, 'uncertain': 0, 'changed': 0}
+            for row in batch['items']:
+                prior = latest.get(row['candidate_id'])
+                status = 'pending'
+                if prior and prior.get('origin') == 'student_browser_review':
+                    exact = (prior.get('preview_sha256') == row['preview_sha256'] and
+                             int(prior['label']) == int(row['label']) and
+                             parse_geometry(prior) == parse_geometry(row))
+                    status = prior['verdict'] if exact else 'changed'
+                row['review_status'] = status
+                counts[status] += 1
+            batch['review_counts'] = counts
+        return result
 
     def export_groups(self):
         self.require_unchanged_groups()
@@ -255,6 +286,8 @@ def main():
                     return self.send(html.encode(), 'text/html; charset=utf-8')
                 if url.path == '/queue':
                     return self.send(json.dumps(store.queue()).encode())
+                if url.path == '/batches':
+                    return self.send(json.dumps(store.batch_advisory()).encode())
                 if url.path in ['/source', '/crop']:
                     pool_id = query['pool_id']
                     if url.path == '/crop':

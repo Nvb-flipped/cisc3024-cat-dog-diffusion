@@ -1,0 +1,30 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v007_autoguidance.py": "9c63ee7880a2d9dff002dd03b7ddd9fe0bb4bb1bef651f117bba17424d248b3f",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\autoguided_generate.py": "0cb46b99910e5f7816587aa2891eb04aef74e7c4ff2a6281da18069b38861ed0",
+    "manifests\\v007.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_032000.pt": "bab5e1ef6a7bcd0891803fe6ce22b5b24d07cbb7d44a841d3351f22e586d4b1b",
+    "checkpoints\\capacity_32_seed17_u030000_6c2d9e7fae\\update_020000.pt": "42cdc332f5f5760abb05cb730c7c2ea271c835fb38d109b3c3904a910063ad23",
+    "results\\experiments\\v007_32k_temporal103\\selection.json": "f768b884b74b6e6c1ad06a5b25fe6c637555ae6ae511af99b32afb475c15086e",
+    "scripts\\run_v002_dpmpp.py": "1f1cd3a2643c13f1d18cc4c65206f71887cd309b39aa2d1c769b6f56a923ce73",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 1.0
+  },
+  "autoguidance_scale": 1.0,
+  "seed": 0,
+  "n_per_class": 1000,
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "scripts.run_v007_autoguidance"
+  ],
+  "source": "https://arxiv.org/abs/2406.02507",
+  "rule": "Replace CFG/PAG/temporal rescaling with same-label extrapolation from the 20k EMA to the 32k EMA. Keep all DDIM50 indices, execution shape and v007 crop rows fixed.",
+  "created": "2026-11-16T11:55:00.424998+00:00"
+}

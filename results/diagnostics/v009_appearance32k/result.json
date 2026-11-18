@@ -1,0 +1,63 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0,
+    "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4"
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "prediction_type": "epsilon",
+  "min_snr_gamma": null,
+  "appearance_sampling": true,
+  "probe_mse_before": 1.1554162502288818,
+  "probe_mse_after": 0.014715999364852905,
+  "reduction": 0.9872634651261503,
+  "reconstruction_mse_before": 0.5410223007202148,
+  "reconstruction_mse_after": 0.025095975026488304,
+  "seconds": 47.70871589996386,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.18",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": "NVIDIA GeForce RTX 5060 Ti",
+    "git_commit": "93208573c6325399bd74936d49723da26556b5e7",
+    "git_dirty": true
+  },
+  "completed": "2026-11-16T18:41:21.613643+00:00",
+  "appearance_sampling_sources": {
+    "src/training/density_sampling.py": "d2f3d66be6cdd4c57de9445d3e5b4dd074bb8294dfce83fa64310276f286f623",
+    "src/training/step.py": "5a1304fbd4b2fb856f200de38d074e808084f23c50fc013afb12a03486cfaa91",
+    "src/training/train.py": "3c2fe4d7c50c5bf08cebe699660163b55cd53a8c5ddee4c275a381f70b47b0bc",
+    "src/training/diagnostics.py": "d8e0c035ab77649746dea8e5d8fd871abf086705cc525c64ec3f874b65d7e99e",
+    "submission/model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission/diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d"
+  },
+  "passed": true
+}

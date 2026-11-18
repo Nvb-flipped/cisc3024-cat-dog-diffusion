@@ -36,6 +36,11 @@ def validate(folder):
         raise ValueError('Draw.io labels/values differ from the SVG')
     spec = json.loads((folder / 'figure.spec.json').read_text())
     objects = spec['objects']
+    picture_count = spec.get('picture_count', 0)
+    svg_pictures = list(svg.iter(f'{{{SVG}}}image'))
+    drawio_pictures = [cell for cell in cells if 'shape=image;' in cell.get('style', '')]
+    if len(svg_pictures) != picture_count or len(drawio_pictures) != picture_count:
+        raise ValueError('Picture inventory differs across SVG, specification and draw.io')
     svg_ids = {element.get('id') for element in svg.iter()}
     if any(item['id'] not in svg_ids or item['id'] not in ids for item in objects):
         raise ValueError('Semantic IDs differ across SVG/spec/draw.io')
@@ -46,8 +51,8 @@ def validate(folder):
         pptx_text = [node.text or '' for node in slide.iter(f'{{{DRAWING}}}t')]
         if sorted(svg_text) != sorted(pptx_text):
             raise ValueError('Native PowerPoint labels/values differ from the SVG')
-        if list(slide.iter(f'{{{PRESENTATION}}}pic')):
-            raise ValueError('This data chart must contain native vector/text objects, not pictures')
+        if len(list(slide.iter(f'{{{PRESENTATION}}}pic'))) != picture_count:
+            raise ValueError('The count of native PowerPoint pictures differs from the specification')
     if not math.isclose(width_pt, spec['width'], abs_tol=.001) or not math.isclose(height_pt, spec['height'], abs_tol=.001):
         raise ValueError('PowerPoint canvas differs from the canonical specification')
     with Image.open(folder / 'figure.png') as im:
@@ -67,11 +72,15 @@ def validate(folder):
     drawio_status = 'pending'
     if application_checks:
         powerpoint_status = application_checks.get('powerpoint_check', {}).get('status', 'pending')
-        drawio_status = ('text/mark and connected-node edit-save-reopen tested'
-            if application_checks.get('connection_check', {}).get('status') == 'passed'
-            else 'text/mark edit-save-reopen tested; connected-node test pending')
+        if 'drawio_check' in application_checks:
+            drawio_status = application_checks['drawio_check']['status']
+        else:
+            drawio_status = ('text/mark and connected-node edit-save-reopen tested'
+                if application_checks.get('connection_check', {}).get('status') == 'passed'
+                else 'text/mark edit-save-reopen tested; connected-node test pending')
     report = {'status': 'file_structure_and_semantic_parity_passed', 'svg_text_count': len(svg_text),
-        'objects': len(objects), 'drawio_edges': sum(cell.get('edge') == '1' for cell in cells),
+        'objects': len(objects), 'native_pictures': picture_count,
+        'drawio_edges': sum(cell.get('edge') == '1' for cell in cells),
         'png': png, 'pptx_canvas_pt': [width_pt, height_pt],
         'actual_powerpoint_edit_save_render': powerpoint_status,
         'actual_drawio_edit_save_render': drawio_status,

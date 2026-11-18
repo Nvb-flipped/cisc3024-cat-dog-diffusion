@@ -1,5 +1,7 @@
 """Convert the supported scientific SVG subset to readable native draw.io cells."""
 import argparse
+import hashlib
+import json
 import math
 import re
 import xml.etree.ElementTree as ET
@@ -8,6 +10,7 @@ from PIL import ImageFont
 from src.common import write_json
 
 SVG = 'http://www.w3.org/2000/svg'
+XLINK = 'http://www.w3.org/1999/xlink'
 NUMBER = r'[-+]?(?:\d*\.\d+|\d+\.?)(?:[eE][-+]?\d+)?'
 IDENTITY = (1, 0, 0, 1, 0, 0)
 
@@ -96,6 +99,12 @@ def svg_scene(svg_path):
                 'rotation': math.degrees(math.atan2(matrix[1], matrix[0])),
                 'font_size': size, 'anchor': anchor, 'bold': style.get('font-weight') in ['700', 'bold'],
                 'color': style.get('fill', '#000000')})
+        elif tag == 'image':
+            href = element.get(f'{{{XLINK}}}href') or element.get('href')
+            if not href or not href.startswith('data:image/png;base64,') or matrix != IDENTITY:
+                raise ValueError('Photo grids require embedded PNG tiles at explicit canvas positions')
+            scene.append({'id': identifier, 'kind': 'image', 'x': float(element.get('x')), 'y': float(element.get('y')),
+                          'width': float(element.get('width')), 'height': float(element.get('height')), 'href': href})
         elif tag == 'path':
             commands = path_commands(element.get('d', ''))
             if any(command == 'C' for command, _ in commands):
@@ -130,8 +139,12 @@ def drawio(svg_path, out):
     viewbox, scene = svg_scene(svg_path)
     scale = 96 / 72
     width, height = viewbox[2:]
+    out = Path(out)
+    spec_path = out.with_suffix('.spec.json')
+    spec = json.loads(spec_path.read_text()) if spec_path.exists() else {}
     mxfile = ET.Element('mxfile', {'host': 'app.diagrams.net', 'compressed': 'false'})
-    diagram = ET.SubElement(mxfile, 'diagram', {'id': 'F0', 'name': 'Diagnostic overfit'})
+    diagram = ET.SubElement(mxfile, 'diagram', {'id': spec.get('id', 'F0'),
+                                                'name': spec.get('title', 'Diagnostic overfit')})
     model = ET.SubElement(diagram, 'mxGraphModel', {'dx': str(width*scale), 'dy': str(height*scale),
         'grid': '0', 'page': '1', 'pageScale': '1', 'pageWidth': str(width*scale), 'pageHeight': str(height*scale)})
     graph = ET.SubElement(model, 'root')
@@ -151,6 +164,12 @@ def drawio(svg_path, out):
                 f'fontStyle={1 if item["bold"] else 0};rotation={item["rotation"]:g};')
             cell = ET.SubElement(graph, 'mxCell', {'id': key, 'value': item['text'], 'style': style,
                                                  'vertex': '1', 'parent': '1'})
+            geometry(cell, item['x'], item['y'], item['width'], item['height'])
+            continue
+        if kind == 'image':
+            url = item['href'].replace(';base64,', ',', 1)
+            cell = ET.SubElement(graph, 'mxCell', {'id': key, 'value': '', 'parent': '1', 'vertex': '1',
+                'style': f'shape=image;imageAspect=0;aspect=fixed;image={url};'})
             geometry(cell, item['x'], item['y'], item['width'], item['height'])
             continue
         style = item['style']
@@ -178,15 +197,15 @@ def drawio(svg_path, out):
                 ET.SubElement(points, 'mxPoint', {'x': f'{x*scale:.6f}', 'y': f'{y*scale:.6f}'})
     ET.indent(mxfile)
     data = ET.tostring(mxfile, encoding='utf-8', xml_declaration=True)
-    out = Path(out)
     out.write_bytes(data)
     out.with_suffix('.xml').write_bytes(data)
+    for item in scene:
+        if item['kind'] == 'image':
+            item['image_href_sha256'] = hashlib.sha256(item.pop('href').encode('ascii')).hexdigest()
     write_json(out.with_suffix('.scene.json'), {'units': 'points', 'canvas': [width, height], 'objects': scene,
         'source': str(svg_path), 'note': 'Draw.io is an editable vector drawing; underlying data remain in source.csv.'})
     spec_path = out.with_suffix('.spec.json')
-    if spec_path.exists():
-        import json
-        spec = json.loads(spec_path.read_text())
+    if spec:
         spec['objects'] = scene
         write_json(spec_path, spec)
     return {'objects': len(scene), 'text': sum(s['kind'] == 'text' for s in scene), 'canvas_px': [width*scale, height*scale]}

@@ -1,0 +1,155 @@
+{
+  "checkpoint": "checkpoints\\capacity_32_seed43_u030000_86c3c843eb\\update_030000.pt",
+  "checkpoint_sha256": "1e927b2c27aecda4cf09200a2f3bcb2edf23981a13f360113b4cfc2bc90c9933",
+  "update": 30000,
+  "exported": "private_build\\capacity_repeatability\\capacity_32_seed43_u030000_86c3c843eb",
+  "export_hashes": {
+    "diffusion.py": "40245fcbe06ecb206992c44129fe23a5035dd7b156e83a4d00e7c845010a1cd0",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "6773ca6bd0173deb1c8f4b91b64efc244624e83b0db8315ec918a9081f96bd5a",
+    "manifest.csv": "86c3c843eb40411bcf113c53af8c174fe6d5b995788c60e171cd4398f812ef09",
+    "model.py": "f0dacf1e3413285275edcc00844b31f5374aca270c5d135d7ad75f0fd0cdb6c7",
+    "provenance.json": "3f25cef84187f5123f61f6f9cea737eb409ef5027d38ebceed252897d5ff0f16",
+    "weights.pt": "dcf43bd41e5035930e3148c83585855817170be099c251f1153fd6d34e2f3786",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  },
+  "weights": "ema",
+  "steps": 50,
+  "guidance": 2.5,
+  "evidence": [
+    {
+      "seed": 0,
+      "path": "results\\experiments\\capacity_repeatability_v001\\selection\\capacity_32_seed43_u030000_86c3c843eb\\seed_0.json",
+      "sha256": "4c5216898d2ac2287fa1eb4918952543431aaf0044be90a41d96264aa6133709",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.9079999923706055,
+        "per_class_accuracy": {
+          "cat": 0.9129999876022339,
+          "dog": 0.902999997138977
+        },
+        "fid": 74.07765500539631,
+        "kid": 0.03037226293816361,
+        "kid_std": 0.0017204258815491933,
+        "precision": 0.6869469285011292,
+        "recall": 0.3108406960964203,
+        "memorization_rate": 0.05000000074505806,
+        "nn_distance_median": 8.6283540725708,
+        "nn_ratio_median": 0.9212993383407593,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Excellent",
+            "marks": 0
+          },
+          "fid": {
+            "tier": "Pass",
+            "marks": 0
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 0
+          }
+        },
+        "total": 0,
+        "max": 15,
+        "valid": false
+      },
+      "violations": [
+        "memorization rate 5.0% exceeds 5%: samples copy training images"
+      ]
+    },
+    {
+      "seed": 101,
+      "path": "results\\experiments\\capacity_repeatability_v001\\selection\\capacity_32_seed43_u030000_86c3c843eb\\seed_101.json",
+      "sha256": "a7db422573931e7c3560524a70d30c2ba4df3eae37c78b0b81985a0f71524c0f",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.906000018119812,
+        "per_class_accuracy": {
+          "cat": 0.9160000085830688,
+          "dog": 0.8960000276565552
+        },
+        "fid": 73.65387110285462,
+        "kid": 0.03008564102581736,
+        "kid_std": 0.0013634474183357127,
+        "precision": 0.6836283206939697,
+        "recall": 0.3053097426891327,
+        "memorization_rate": 0.03999999910593033,
+        "nn_distance_median": 8.656150817871094,
+        "nn_ratio_median": 0.9233020544052124,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Excellent",
+            "marks": 5
+          },
+          "fid": {
+            "tier": "Pass",
+            "marks": 3
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 12,
+        "max": 15,
+        "valid": true
+      },
+      "violations": []
+    },
+    {
+      "seed": 202,
+      "path": "results\\experiments\\capacity_repeatability_v001\\selection\\capacity_32_seed43_u030000_86c3c843eb\\seed_202.json",
+      "sha256": "4f00154c7c04e40cf1f8fdcc8df2413b808e25c8531d71d124aa150de858fddd",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz",
+        "accuracy": 0.8870000243186951,
+        "per_class_accuracy": {
+          "cat": 0.906000018119812,
+          "dog": 0.8679999709129333
+        },
+        "fid": 74.52636506834352,
+        "kid": 0.03071262590372272,
+        "kid_std": 0.0014601363914018976,
+        "precision": 0.7035398483276367,
+        "recall": 0.3097345232963562,
+        "memorization_rate": 0.04800000041723251,
+        "nn_distance_median": 8.67673397064209,
+        "nn_ratio_median": 0.9274619817733765,
+        "training_images_deduplicated": 2394
+      },
+      "marks": {
+        "per_metric": {
+          "accuracy": {
+            "tier": "Good",
+            "marks": 4
+          },
+          "fid": {
+            "tier": "Pass",
+            "marks": 3
+          },
+          "recall": {
+            "tier": "Good",
+            "marks": 4
+          }
+        },
+        "total": 11,
+        "max": 15,
+        "valid": true
+      },
+      "violations": []
+    }
+  ],
+  "score": null,
+  "training_seed": 43,
+  "name": "capacity_32_seed43_u030000_86c3c843eb"
+}

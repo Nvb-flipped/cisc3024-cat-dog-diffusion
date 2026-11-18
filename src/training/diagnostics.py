@@ -9,10 +9,12 @@ from torch.nn import functional as F
 from torchvision.utils import save_image
 from src.common import environment, read_config, sha256, timestamp, write_json
 from src.training.data import load_manifest_data
+from src.training.density_sampling import appearance_sampling_weights
 from src.training.step import optimizer_step, update_ema, validate_loss_weighting
 from submission.diffusion import (add_noise, cosine_alpha_bar, reconstruct_clean,
                                   reconstruct_clean_from_velocity, velocity_target)
 from submission.model import ConditionalUNet
+from submission.flow import flow_pair, reconstruct_flow
 
 OVERFIT_UPDATES = 2000
 BENCHMARK_UPDATES = 500
@@ -20,14 +22,19 @@ BENCHMARK_UPDATES = 500
 
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
             *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False,
-            self_condition=False, coarse_epsilon_weight=0, noise_input_perturbation=0):
-    if prediction_type not in ('epsilon', 'velocity'):
+            self_condition=False, coarse_epsilon_weight=0, noise_input_perturbation=0, timestep_sampling_focus=None,
+            appearance_sampling=False, haar_packing=False, encoder_attention16=False):
+    if prediction_type not in ('epsilon', 'velocity', 'flow'):
         raise ValueError('Unsupported denoising target')
     weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
     if coarse_epsilon_weight:
         weighting['coarse_epsilon_weight'] = coarse_epsilon_weight
     if noise_input_perturbation:
         weighting['noise_input_perturbation'] = noise_input_perturbation
+    if timestep_sampling_focus is not None:
+        weighting['timestep_sampling_focus'] = timestep_sampling_focus
+    if appearance_sampling:
+        weighting['appearance_sampling'] = appearance_sampling
     validate_loss_weighting(weighting)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -38,11 +45,16 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
     x, y, digest, stats = load_manifest_data(manifest)
+    image_weights = appearance_sampling_weights(x, y).to(device) if appearance_sampling else None
     x, y = x.to(device), y.to(device)
     config = dict(channels=[16, 32, 48, 64], blocks_per_level=1,
                   conditioning_dim=64, attention_heads=4, dropout=0)
     if patch_size != 1:
         config.update(patch_size=patch_size, patch_detail=patch_detail)
+    if haar_packing:
+        config['haar_packing'] = True
+    if encoder_attention16:
+        config['encoder_attention16'] = True
     if self_condition:
         if prediction_type != 'epsilon':
             raise ValueError('Self-conditioning uses the epsilon target')
@@ -60,6 +72,8 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     if prediction_type == 'velocity':
         target = velocity_target(x, probe_noise, alpha)
         reconstruct = reconstruct_clean_from_velocity
+    elif prediction_type == 'flow':
+        probe, target = flow_pair(x, probe_noise, probe_t, len(schedule))
 
     @torch.no_grad()
     def measure():
@@ -68,7 +82,10 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         if self_condition:
             hint = reconstruct(probe, prediction, alpha).clamp(-1, 1)
             prediction = model(probe, probe_t, y, hint)
-        clean = reconstruct(probe, prediction, alpha).clamp(-1, 1)
+        if prediction_type == 'flow':
+            clean = reconstruct_flow(probe, prediction, probe_t, len(schedule)).clamp(-1, 1)
+        else:
+            clean = reconstruct(probe, prediction, alpha).clamp(-1, 1)
         return F.mse_loss(prediction, target).item(), F.mse_loss(clean, x).item(), clean
 
     before_mse, before_clean, before = measure()
@@ -81,7 +98,8 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     losses = []
     for update in range(1, OVERFIT_UPDATES + 1):
         model.train()
-        loss, norm, lr = optimizer_step(model, optimizer, x, y, schedule, generator, settings, update)
+        loss, norm, lr = optimizer_step(model, optimizer, x, y, schedule, generator, settings, update,
+                                        image_weights=image_weights)
         if update % 100 == 0 or update == 1:
             probe_mse, clean_mse, _ = measure()
             row = {'update': update, 'loss': loss.item(), 'probe_mse': probe_mse,
@@ -104,6 +122,12 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         'probe_timesteps': probe_t.tolist(), 'environment': environment(), 'completed': timestamp()}
     if patch_size != 1:
         record['model_source_sha256'] = sha256('submission/model.py')
+    if haar_packing:
+        record['haar_sources'] = {name: sha256(name) for name in (
+            'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
+    if encoder_attention16:
+        record['attention_sources'] = {name: sha256(name) for name in (
+            'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
     if self_condition:
         record['self_condition_sources'] = {name: sha256(name) for name in (
             'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
@@ -113,6 +137,17 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
     if noise_input_perturbation:
         record['perturbation_sources'] = {name: sha256(name) for name in (
             'src/training/step.py', 'src/training/diagnostics.py')}
+    if timestep_sampling_focus is not None:
+        record['timestep_sampling_sources'] = {name: sha256(name) for name in (
+            'src/training/step.py', 'src/training/diagnostics.py', 'submission/model.py', 'submission/diffusion.py')}
+    if appearance_sampling:
+        record['appearance_sampling_sources'] = {name: sha256(name) for name in (
+            'src/training/density_sampling.py', 'src/training/step.py', 'src/training/train.py',
+            'src/training/diagnostics.py', 'submission/model.py', 'submission/diffusion.py')}
+    if prediction_type == 'flow':
+        record['flow_sources'] = {name: sha256(name) for name in (
+            'submission/flow.py', 'submission/model.py', 'submission/diffusion.py',
+            'src/training/train.py', 'src/training/step.py', 'src/training/diagnostics.py')}
     record['passed'] = record['reduction'] >= .80 and after_clean < before_clean
     write_json(out / 'result.json', record)
     if not record['passed']:
@@ -171,7 +206,7 @@ def main():
     p.add_argument('--manifest', default='manifests/diagnostic_two_heads.csv')
     p.add_argument('--config', default='configs/ddpm.yaml')
     p.add_argument('--out')
-    p.add_argument('--prediction-type', choices=['epsilon', 'velocity'], default='epsilon')
+    p.add_argument('--prediction-type', choices=['epsilon', 'velocity', 'flow'], default='epsilon')
     p.add_argument('--min-snr-gamma', type=float)
     p.add_argument('--patch-size', type=int, choices=[1, 4, 8], default=1)
     p.add_argument('--patch-detail', action='store_true')

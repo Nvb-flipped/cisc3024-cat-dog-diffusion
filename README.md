@@ -1,5 +1,7 @@
 # CISC3024: conditional cat/dog head generation
 
+For the November 19 private PC transfer, start with [MIGRATION_HANDOFF.md](MIGRATION_HANDOFF.md). Git contains development history and current personal review records; the private `migration-2026-11-19` release contains the large, hash-verified project snapshot. A clone alone omits data/checkpoints/private build files. Use the restore tool before rebuilding the environment. The historical introduction below describes v002; current model/data status is in the handoff and EXECUTION_STATUS.md.
+
 This repository implements the pipeline in [PROJECT_PLAN.md](PROJECT_PLAN.md). The generator is a pixel-space conditional diffusion U-Net trained from scratch. The corrected v002 manifest contains 1,197 personally reviewed training crops and a separate 63-crop holdout. The original v001 manifest and its official results are retained for development comparisons. See [EXECUTION_STATUS.md](EXECUTION_STATUS.md) for the current model comparison and [STUDENT_REVIEW_QUEUE.md](STUDENT_REVIEW_QUEUE.md) for the pending personal checks.
 
 The course pool is restricted to this course. Keep it local; do not push it or redistribute project materials. The supplied handout takes precedence over the starter kit. Labels are cat=0 and dog=1.

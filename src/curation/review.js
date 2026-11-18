@@ -139,7 +139,7 @@ async function show() {
   message(prior ? 'Saved verdict: ' + prior.verdict : 'Awaiting your judgment');
 }
 
-async function load() {
+async function load(candidateId = null) {
   const version = ++loadVersion;
   ++renderVersion;
   busy(true);
@@ -151,7 +151,9 @@ async function load() {
   const result = await response.json();
   if (version !== loadVersion) return;
   if (!response.ok) throw new Error(result.error || 'Review set could not be loaded');
-  items = result.items; total = result.total; position = 0;
+  items = result.items; total = result.total;
+  const linkedPosition = candidateId ? items.findIndex(item => item.candidate_id === candidateId) : 0;
+  position = Math.max(0, linkedPosition);
   page = result.page;
   field('page').value = page + 1;
   field('page').max = Math.max(1, shortlist ? result.batch_count : Math.ceil(total / 200));
@@ -161,6 +163,7 @@ async function load() {
     field('shortlistFindings').href = `http://127.0.0.1:8769/priority_shortlist${suffix}_findings.html`;
   }
   await show();
+  if (version === loadVersion && linkedPosition < 0) message('The linked crop is unavailable in this review batch.', true);
 }
 
 async function next() {
@@ -261,4 +264,12 @@ field('label').onchange = () => {
   message('Species changed. Recheck the species criterion using the photograph.');
 };
 document.querySelectorAll('[data-verdict]').forEach(button => button.onclick = () => save(button.dataset.verdict));
-load().catch(error => message(error.message, true));
+function openReviewLink() {
+  const query = new URLSearchParams(globalThis.location?.search || '');
+  if (query.get('mode') !== 'shortlist') return load();
+  field('mode').value = 'shortlist';
+  const batch = Number(query.get('batch'));
+  if (Number.isSafeInteger(batch) && batch > 0) page = batch - 1;
+  return load(query.get('candidate'));
+}
+openReviewLink().catch(error => message(error.message, true));

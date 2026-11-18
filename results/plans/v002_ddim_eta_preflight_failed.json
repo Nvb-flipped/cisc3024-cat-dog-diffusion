@@ -1,0 +1,28 @@
+{
+  "created": "2026-11-13T02:36:04.294188+00:00",
+  "inputs": {
+    "results\\experiments\\capacity_32_seed17_v002\\comparison.json": "160b111c06b459f76426596dbc95ddb58b4b3c685f5341e4032e1f283969a22e",
+    "manifests\\v002.csv": "63bc3fce35a05d372956779dbf315e0f72d3fc3eb2fc96b740a79e398069e84e",
+    "checkpoints\\capacity_32_seed17_u030000_63bc3fce35\\update_030000.pt": "5f954a0b05c51c560cd4343665aef8189024e84e637362981cd8288925401bd2",
+    "submission\\diffusion.py": "77d1a632ef1a086479adb0fc39bfcf6c1d61faa9b8a738014927129199a3264c",
+    "src\\release\\export.py": "3ba5284f908d4deb35f1ba5e6cff2a607b59429bf0723a1e97c63ea4be828870",
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v002_ddim_eta.py": "436cc19ff0ef11df2071c20901d471cbbcd8778e260f32aade8155823412609e"
+  },
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 2.5
+  },
+  "eta_values": [
+    0.35,
+    0.7
+  ],
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "reference": "https://arxiv.org/html/2010.02502",
+  "rule": "Advance at most one valid seed-0 improvement by tier floor or 0.05 margin."
+}

@@ -3700,7 +3700,7 @@
     {
       "evidence_id": "E217",
       "source_type": "report",
-      "title": "Local project evidence: results/plans/v007_32k_temporal105.json",
+      "title": "Local project evidence: results/plans/v007_class_annealing010.json",
       "authors": [],
       "year": 2026,
       "identifiers": {
@@ -3708,9 +3708,9 @@
         "pmid": "",
         "pmcid": "",
         "isbn": "",
-        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_32k_temporal105.json"
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_class_annealing010.json"
       },
-      "locator": "results/plans/v007_32k_temporal105.json",
+      "locator": "results/plans/v007_class_annealing010.json",
       "confidentiality": "restricted",
       "verification": {
         "status": "unverified",
@@ -3722,7 +3722,7 @@
     {
       "evidence_id": "E218",
       "source_type": "report",
-      "title": "Local project evidence: results/experiments/v007_32k_temporal105/comparison.json",
+      "title": "Local project evidence: results/experiments/v007_class_annealing010/screen.json",
       "authors": [],
       "year": 2026,
       "identifiers": {
@@ -3730,9 +3730,9 @@
         "pmid": "",
         "pmcid": "",
         "isbn": "",
-        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal105/comparison.json"
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_class_annealing010/screen.json"
       },
-      "locator": "results/experiments/v007_32k_temporal105/comparison.json",
+      "locator": "results/experiments/v007_class_annealing010/screen.json",
       "confidentiality": "restricted",
       "verification": {
         "status": "unverified",
@@ -3744,7 +3744,7 @@
     {
       "evidence_id": "E219",
       "source_type": "report",
-      "title": "Local project evidence: results/experiments/v007_32k_temporal105/seed_0.json",
+      "title": "Local project evidence: results/experiments/v007_class_annealing010/selection.json",
       "authors": [],
       "year": 2026,
       "identifiers": {
@@ -3752,9 +3752,9 @@
         "pmid": "",
         "pmcid": "",
         "isbn": "",
-        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_32k_temporal105/seed_0.json"
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_class_annealing010/selection.json"
       },
-      "locator": "results/experiments/v007_32k_temporal105/seed_0.json",
+      "locator": "results/experiments/v007_class_annealing010/selection.json",
       "confidentiality": "restricted",
       "verification": {
         "status": "unverified",
@@ -4116,6 +4116,1810 @@
       }
     },
     {
+      "evidence_id": "E220",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_class_annealing010/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_class_annealing010/seed_0.json"
+      },
+      "locator": "results/experiments/v007_class_annealing010/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E221",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_class_annealing010/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_class_annealing010/seed_101.json"
+      },
+      "locator": "results/experiments/v007_class_annealing010/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E222",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_class_annealing010/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_class_annealing010/seed_202.json"
+      },
+      "locator": "results/experiments/v007_class_annealing010/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E223",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v008_coverage32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v008_coverage32k.json"
+      },
+      "locator": "results/plans/v008_coverage32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E224",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v008_coverage32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v008_coverage32k/screen.json"
+      },
+      "locator": "results/experiments/v008_coverage32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E225",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v008_coverage32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v008_coverage32k/seed_0.json"
+      },
+      "locator": "results/experiments/v008_coverage32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E226",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_coverage32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_coverage32k.json"
+      },
+      "locator": "results/plans/v009_coverage32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E227",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_coverage32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_coverage32k/screen.json"
+      },
+      "locator": "results/experiments/v009_coverage32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E228",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_coverage32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_coverage32k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_coverage32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E229",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_appearance32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_appearance32k.json"
+      },
+      "locator": "results/plans/v009_appearance32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E230",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_appearance32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_appearance32k/screen.json"
+      },
+      "locator": "results/experiments/v009_appearance32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E231",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_appearance32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_appearance32k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_appearance32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E232",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_haar32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_haar32k.json"
+      },
+      "locator": "results/plans/v009_haar32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E233",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_haar32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_haar32k/screen.json"
+      },
+      "locator": "results/experiments/v009_haar32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E234",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_haar32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_haar32k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_haar32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E235",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_flow32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_flow32k.json"
+      },
+      "locator": "results/plans/v009_flow32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E236",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_flow32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_flow32k/screen.json"
+      },
+      "locator": "results/experiments/v009_flow32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E237",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_flow32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_flow32k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_flow32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E238",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_extension36k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_extension36k.json"
+      },
+      "locator": "results/plans/v009_extension36k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E239",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_extension36k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_extension36k/screen.json"
+      },
+      "locator": "results/experiments/v009_extension36k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E240",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_extension36k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_extension36k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_extension36k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E241",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_extension36k_cfg3.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_extension36k_cfg3.json"
+      },
+      "locator": "results/plans/v009_extension36k_cfg3.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E242",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_extension36k_cfg3/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_extension36k_cfg3/screen.json"
+      },
+      "locator": "results/experiments/v009_extension36k_cfg3/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E243",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_extension36k_cfg3/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_extension36k_cfg3/seed_0.json"
+      },
+      "locator": "results/experiments/v009_extension36k_cfg3/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E244",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v007_freeu_mild.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_freeu_mild.json"
+      },
+      "locator": "results/plans/v007_freeu_mild.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E245",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_mild/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_mild/screen.json"
+      },
+      "locator": "results/experiments/v007_freeu_mild/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E246",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_mild/selection.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_mild/selection.json"
+      },
+      "locator": "results/experiments/v007_freeu_mild/selection.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E247",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_mild/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_mild/seed_0.json"
+      },
+      "locator": "results/experiments/v007_freeu_mild/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E248",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_mild/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_mild/seed_101.json"
+      },
+      "locator": "results/experiments/v007_freeu_mild/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E249",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_mild/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_mild/seed_202.json"
+      },
+      "locator": "results/experiments/v007_freeu_mild/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E250",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v007_freeu_cfg310.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_freeu_cfg310.json"
+      },
+      "locator": "results/plans/v007_freeu_cfg310.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E251",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_cfg310/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_cfg310/screen.json"
+      },
+      "locator": "results/experiments/v007_freeu_cfg310/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E252",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_cfg310/selection.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_cfg310/selection.json"
+      },
+      "locator": "results/experiments/v007_freeu_cfg310/selection.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E253",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_cfg310/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_cfg310/seed_0.json"
+      },
+      "locator": "results/experiments/v007_freeu_cfg310/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E254",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_cfg310/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_cfg310/seed_101.json"
+      },
+      "locator": "results/experiments/v007_freeu_cfg310/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E255",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_cfg310/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_cfg310/seed_202.json"
+      },
+      "locator": "results/experiments/v007_freeu_cfg310/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E256",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_32k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_32k.json"
+      },
+      "locator": "results/plans/v009_attention16_32k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E257",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_32k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_32k/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_32k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E258",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_32k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_32k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_32k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E259",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v007_freeu_ddim100.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v007_freeu_ddim100.json"
+      },
+      "locator": "results/plans/v007_freeu_ddim100.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E260",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_ddim100/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_ddim100/screen.json"
+      },
+      "locator": "results/experiments/v007_freeu_ddim100/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E261",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v007_freeu_ddim100/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v007_freeu_ddim100/seed_202.json"
+      },
+      "locator": "results/experiments/v007_freeu_ddim100/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E262",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_freeu.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_freeu.json"
+      },
+      "locator": "results/plans/v009_attention16_freeu.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E263",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_freeu/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_freeu/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_freeu/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E264",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_freeu/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_freeu/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_freeu/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E265",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_freeu200.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_freeu200.json"
+      },
+      "locator": "results/plans/v009_attention16_freeu200.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E266",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_freeu200/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_freeu200/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_freeu200/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E267",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_freeu200/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_freeu200/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_freeu200/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E268",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_extension34k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_extension34k.json"
+      },
+      "locator": "results/plans/v009_attention16_extension34k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E269",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E270",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E271",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_extension35k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_extension35k.json"
+      },
+      "locator": "results/plans/v009_attention16_extension35k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E272",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension35k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension35k/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension35k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E273",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension35k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension35k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension35k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E274",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_34k_refine.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_34k_refine.json"
+      },
+      "locator": "results/plans/v009_34k_refine.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E275",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_cfg310/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_cfg310/screen.json"
+      },
+      "locator": "results/experiments/v009_34k_cfg310/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E276",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_cfg310/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_cfg310/seed_0.json"
+      },
+      "locator": "results/experiments/v009_34k_cfg310/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E277",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_34k_refine.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_34k_refine.json"
+      },
+      "locator": "results/plans/v009_34k_refine.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E278",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_pag010/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_pag010/screen.json"
+      },
+      "locator": "results/experiments/v009_34k_pag010/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E279",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_pag010/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_pag010/seed_0.json"
+      },
+      "locator": "results/experiments/v009_34k_pag010/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E280",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_34k_refine.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_34k_refine.json"
+      },
+      "locator": "results/plans/v009_34k_refine.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E281",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_freeu180/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_freeu180/screen.json"
+      },
+      "locator": "results/experiments/v009_34k_freeu180/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E282",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_freeu180/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_freeu180/seed_0.json"
+      },
+      "locator": "results/experiments/v009_34k_freeu180/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E283",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_34k_freeu220.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_34k_freeu220.json"
+      },
+      "locator": "results/plans/v009_34k_freeu220.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E284",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_freeu220/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_freeu220/screen.json"
+      },
+      "locator": "results/experiments/v009_34k_freeu220/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E285",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_34k_freeu220/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_34k_freeu220/seed_0.json"
+      },
+      "locator": "results/experiments/v009_34k_freeu220/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E286",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_lr100.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_lr100.json"
+      },
+      "locator": "results/plans/v009_attention16_lr100.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E287",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_lr100/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_lr100/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_lr100/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E288",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_lr100/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_lr100/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_lr100/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E289",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_lr100_35k.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_lr100_35k.json"
+      },
+      "locator": "results/plans/v009_attention16_lr100_35k.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E290",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_lr100_35k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_lr100_35k/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_lr100_35k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E291",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_lr100_35k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_lr100_35k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_lr100_35k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E292",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_lr100_35k_freeu220.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_lr100_35k_freeu220.json"
+      },
+      "locator": "results/plans/v009_lr100_35k_freeu220.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E293",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_lr100_35k_freeu220/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_lr100_35k_freeu220/screen.json"
+      },
+      "locator": "results/experiments/v009_lr100_35k_freeu220/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E294",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_lr100_35k_freeu220/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_lr100_35k_freeu220/seed_0.json"
+      },
+      "locator": "results/experiments/v009_lr100_35k_freeu220/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E295",
+      "source_type": "report",
+      "title": "Local project evidence: results/plans/v009_attention16_stability.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/plans/v009_attention16_stability.json"
+      },
+      "locator": "results/plans/v009_attention16_stability.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E296",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/screen.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/screen.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/screen.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E297",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/stability.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/stability.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/stability.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E298",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/seed_0.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/seed_0.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/seed_0.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E299",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/seed_101.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/seed_101.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/seed_101.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E300",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/seed_202.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/seed_202.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/seed_202.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E301",
+      "source_type": "report",
+      "title": "Local project evidence: results/experiments/v009_attention16_extension34k/reselection.json",
+      "authors": [],
+      "year": 2026,
+      "identifiers": {
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": "",
+        "url": "file:///C:/Users/csmen/Documents/Codex/Pattern-Recognition-Project/results/experiments/v009_attention16_extension34k/reselection.json"
+      },
+      "locator": "results/experiments/v009_attention16_extension34k/reselection.json",
+      "confidentiality": "restricted",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
       "evidence_id": "E101",
       "source_type": "preprint",
       "title": "Denoising Diffusion Probabilistic Models",
@@ -4446,6 +6250,33 @@
         "isbn": ""
       },
       "locator": "Section 3.4 per-image classifier-free guidance rescale",
+      "confidentiality": "public",
+      "verification": {
+        "status": "unverified",
+        "source_opened": false,
+        "verified_by": "",
+        "verified_on": ""
+      }
+    },
+    {
+      "evidence_id": "E113",
+      "source_type": "conference_paper",
+      "title": "FreeU: Free Lunch in Diffusion U-Net",
+      "authors": [
+        "Chenyang Si",
+        "Ziqi Huang",
+        "Yuming Jiang",
+        "Ziwei Liu"
+      ],
+      "year": 2024,
+      "identifiers": {
+        "url": "https://arxiv.org/abs/2309.11497",
+        "doi": "",
+        "pmid": "",
+        "pmcid": "",
+        "isbn": ""
+      },
+      "locator": "Backbone and skip feature reweighting in the decoder",
       "confidentiality": "public",
       "verification": {
         "status": "unverified",

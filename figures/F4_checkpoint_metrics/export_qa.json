@@ -1,0 +1,61 @@
+{
+  "status": "file_structure_and_semantic_parity_passed",
+  "svg_text_count": 38,
+  "objects": 107,
+  "native_pictures": 0,
+  "drawio_edges": 42,
+  "png": {
+    "pixels": [
+      2100,
+      780
+    ],
+    "dpi": [
+      299.9994,
+      299.9994
+    ],
+    "mode": "RGBA"
+  },
+  "pptx_canvas_pt": [
+    504.0,
+    187.2
+  ],
+  "actual_powerpoint_edit_save_render": "passed",
+  "actual_drawio_edit_save_render": "native local rendering passed; interactive edit-save-reopen pending",
+  "application_checks": {
+    "checked": "2026-11-12T05:46:55.764950+00:00",
+    "reference_drawio_sha256": "8ad1e5e236718365e1ef61c644a0c4b37bacfb9c3b79caf7a39baaed9eda1ea0",
+    "powerpoint_check": {
+      "status": "passed",
+      "office_version": "16.0",
+      "reference_pptx_sha256": "77ea2e870cb5403f597c5cdbf125497e269a23f4399a5820535aa0ffb63b9555",
+      "test_copy_sha256": "4ccde050dee11571b6c2f5a3d386a8975e9b7954cc1c60bfa05fe081a651406a",
+      "rendered_pdf_sha256": "ba6f14d836da1b73875fa6e74559d7ce7dfc8982404bd7ad2ac4d0861b936ca1",
+      "changed_label": "5% limit (edit test)",
+      "changed_fid_mark": 19,
+      "new_fid_mark_rgb": "#2e874f",
+      "recall_group_shift_points": 3.0,
+      "visual_render": "Compared the actual Office PDF to the reference; all panels, ticks, marks and labels visible."
+    },
+    "drawio_check": {
+      "status": "native local rendering passed; interactive edit-save-reopen pending",
+      "application_version": "32.6.1",
+      "render_path": "private_build\\F4_application_qa\\drawio_render.png",
+      "render_sha256": "ce9e8d350f58e760ec7f6762662c26fa6b1f90563262e0d130aa513c086b68ae",
+      "observed": "All panels and values visible in the installed desktop export.",
+      "edit_blocker": "The Windows UI bridge could observe draw.io but returned failed to activate captured window for input."
+    },
+    "scope": "Local software verification only. Human review remains pending."
+  },
+  "scope": "File parity plus separately recorded native-operation evidence; final human design acceptance remains pending",
+  "files": {
+    "figure.svg": "dec4ffba6e9ae307a54c5e20b94da5b91db26830533bdd0e221bd92d21cd57b9",
+    "figure.png": "e4e92727396f5cfa1fe5e881174ae94877d2d093afbc31e61c025b350bfb7db5",
+    "figure.pdf": "d5b6b3a2abab04d321eb56b3eb6af32a5ebfbf093e1779626ec3490a17d5ef67",
+    "figure.pptx": "77ea2e870cb5403f597c5cdbf125497e269a23f4399a5820535aa0ffb63b9555",
+    "figure.drawio": "8ad1e5e236718365e1ef61c644a0c4b37bacfb9c3b79caf7a39baaed9eda1ea0",
+    "figure.xml": "8ad1e5e236718365e1ef61c644a0c4b37bacfb9c3b79caf7a39baaed9eda1ea0",
+    "figure.spec.json": "28039806a57ee2ed8e7a6d69086cffeb94920069129551fb2c17ed6323e15ef4",
+    "source.csv": "1c1b0931743aac879414261d0220bec290527989a6880556381bd126294ceb4c",
+    "source_summary.json": "b9145107a1df5abeeb64e353522c095015dd799577457ff28b9f35e64209a8d0"
+  }
+}

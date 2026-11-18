@@ -1,0 +1,57 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_density.py": "c41e5b596be74df1ab7232a7bee1579ae67624be0eb72bb6413a1ebae483d260",
+    "results\\plans\\v009_coverage32k.json": "4087834a2787daf0fde73197a48ceb8598d9df478645eb21e535da79c76748c8",
+    "results\\experiments\\v009_coverage32k\\screen.json": "0b77d1c5cb8bfd06bebee3f018b6196efdadd34ff1cd2341ea74e4551cbe433b",
+    "results\\experiments\\v007_class_annealing010\\selection.json": "aba5d43b09651b4755aaded643ca4e8e519cfec9fd3e221b2f62b935e35f8044",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "manifests\\v009.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests\\v009.provenance.json": "cf7910301c6ac79f041c3e3ead5b35c5caef74984f58e7d873f0a2cbb94b4997",
+    "configs\\runs\\v009_appearance32k.json": "457219e43bae5a34a1862a69b5389019804b92dc61a4eaaac9418b891d08eb36",
+    "results\\diagnostics\\v009_appearance32k\\result.json": "942831314ed965400c1e62691811d44bd6989285420ad710d56f4a1f7444006b",
+    "results\\diagnostics\\v009_appearance_weights_v1.json": "d77fcd7714cd9bf94dc33c7f7f4340f5c341cdd68c1a9722ba769f01e1f118e4",
+    "src\\training\\train.py": "3c2fe4d7c50c5bf08cebe699660163b55cd53a8c5ddee4c275a381f70b47b0bc",
+    "src\\training\\step.py": "5a1304fbd4b2fb856f200de38d074e808084f23c50fc013afb12a03486cfaa91",
+    "src\\training\\density_sampling.py": "d2f3d66be6cdd4c57de9445d3e5b4dd074bb8294dfce83fa64310276f286f623",
+    "src\\training\\data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src\\training\\validation.py": "704abe2a80ef2959bf1a41bb5c5baa82ab205b5fc0dfae6b6de89ca10f326fe2",
+    "submission\\model.py": "c343cb9379aa745ec8e4621945da090c59bb1cc0b60b1a1266e3392cc04daabe",
+    "submission\\diffusion.py": "79ae0fb764959d4f5ab1fc8d4034a392beda0ba0af3ece220b1b689bfb90148d",
+    "src\\release\\export.py": "23c339e9907250188b6a3e3e012311d5213e9093f7aad8a85fce363859361e17",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434"
+  },
+  "command": [
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\.venvs\\training\\Scripts\\python.exe",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs\\runs\\v009_appearance32k.json",
+    "--manifest",
+    "manifests\\v009.csv",
+    "--validation-manifest",
+    "manifests\\v009.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "32000",
+    "--out",
+    "checkpoints\\v009_appearance32k_seed17"
+  ],
+  "sampler": {
+    "weights": "ema",
+    "steps": 50,
+    "guidance": 3.25,
+    "pag_scale": 0.15,
+    "score_sharpness": 1.03,
+    "score_sigma": 0.5,
+    "class_noise_max": 0.1
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "rule": "Keep the exact targets and species mass. Increase exposure to locally uncommon crop appearances using capped within-species weights."
+}

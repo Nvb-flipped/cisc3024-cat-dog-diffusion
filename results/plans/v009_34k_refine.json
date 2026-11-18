@@ -1,0 +1,33 @@
+{
+  "inputs": {
+    "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\scripts\\run_v009_34k_refine.py": "52aa49b49f6f87b32097f24c6526516f17229c2a1862e7df673341c3d4d7f186",
+    "results\\experiments\\v009_attention16_extension34k\\stability.json": "2318d6989d59e6e05ea5182fe254a7c0af99a9540b89fcc1dc157e4ab6052e87",
+    "results\\experiments\\v007_freeu_cfg310\\selection.json": "6ddcd94c12429f44feac93e092e8dd4ed917da2c18b39905b35204b5d9399ea3",
+    "checkpoints\\v009_attention16_extension34k\\update_034000.pt": "ce7bb7cfbe88e08850156d3e3327c192a67289a68153fd7384ece7a9c5f8c0f1",
+    "manifests\\v009.csv": "3fe851d409d1ce870373fae817d7daee323514a0a9b2be8f7a3c43922ff2c858",
+    "submission\\model.py": "b2cf89d87b1c15a98c74ae7aef291f9e44b6d33678232f879504fc078e841ee6",
+    "submission\\diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission\\generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src\\release\\export.py": "31f699b12cce5133ca248d510a77a0b4c4413ce7ed7c3f7931e42016ffff876b",
+    "src\\evaluation\\run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src\\training\\optimize.py": "0ad191784e729ec8cc5ccf8041c817b45a34587280273c2a724c1f33d42f73b9"
+  },
+  "arms": {
+    "cfg310": {
+      "guidance": 3.1
+    },
+    "pag010": {
+      "pag_scale": 0.1
+    },
+    "freeu180": {
+      "freeu_strength": 1.8
+    }
+  },
+  "seeds": [
+    0,
+    101,
+    202
+  ],
+  "n_per_class": 1000,
+  "rule": "Three single-factor seed-0 screens on the frozen 34k checkpoint. Confirm only a valid candidate that improves on the paired 34k control and either reaches 13/15 or reduces FID by at least 1 with recall at least 0.30 and accuracy at least 0.90. Promotion uses the original minimum-tier/normalized-margin rule against both three-seed controls, without an additional worst-recall veto."
+}
