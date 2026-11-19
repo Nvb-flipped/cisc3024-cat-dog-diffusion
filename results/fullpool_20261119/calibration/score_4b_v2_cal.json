@@ -1,0 +1,56 @@
+{
+  "queue": "results/fullpool_20261119/calibration/personal_calibration.csv",
+  "ledger": "results/fullpool_20261119/vlm/cal_4b_v2.jsonl",
+  "scored": 1169,
+  "of": 1169,
+  "confusion": {
+    "bad->PASS": 71,
+    "bad->REJECT": 8,
+    "bad->UNCERTAIN": 119,
+    "good->ERROR": 3,
+    "good->PASS": 880,
+    "good->REJECT": 2,
+    "good->UNCERTAIN": 86
+  },
+  "pass_precision": [
+    0.9253,
+    0.9069,
+    0.9404
+  ],
+  "good_recall_as_pass": [
+    0.9063,
+    0.8863,
+    0.923
+  ],
+  "bad_rejected_or_uncertain": [
+    0.6414,
+    0.5725,
+    0.7049
+  ],
+  "species_agreement_on_good": [
+    0.9979,
+    0.9925,
+    0.9994
+  ],
+  "with_geometry_gate": {
+    "confusion": {
+      "bad->GEOMETRY_GATE": 117,
+      "bad->PASS": 36,
+      "bad->UNCERTAIN": 45,
+      "good->ERROR": 3,
+      "good->PASS": 880,
+      "good->REJECT": 2,
+      "good->UNCERTAIN": 86
+    },
+    "pass_precision": [
+      0.9607,
+      0.9461,
+      0.9715
+    ],
+    "good_recall_as_pass": [
+      0.9063,
+      0.8863,
+      0.923
+    ]
+  }
+}

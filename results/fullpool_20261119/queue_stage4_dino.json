@@ -1,0 +1,12 @@
+{
+  "source": "candidates_merged.csv",
+  "source_sha256": "685a6d792fdd5cb7c9af87410ecf55aff29381c463f13fa45f1654840a1cd8fb",
+  "excluded_personal_verdicts": 2237,
+  "queued": 47605,
+  "by_origin": {
+    "dino_valid": 32365,
+    "dino_geometry_rescue": 15240
+  },
+  "order": "dino_valid before geometry rescue, then detector score descending",
+  "sha256": "84c4337a75fe970b669fbfcb6f4f66f111568c242b44caeacb0b05df90b34837"
+}

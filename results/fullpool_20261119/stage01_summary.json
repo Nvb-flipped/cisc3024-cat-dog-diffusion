@@ -1,0 +1,48 @@
+{
+  "created": "2026-11-19T12:04:56.290715+00:00",
+  "stage": "source registry and merged DINO head candidates; no verdicts",
+  "inputs": {
+    "results/curation/full/candidates.csv": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b",
+    "results/curation/integrity.csv": "1eebe1721feb261afce91eb6310492f98ba75e3b1ca49c21b9d0c89cf34d7e17",
+    "results/curation/photo_screen_full/scores.csv": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9",
+    "annotations/decisions.jsonl": "73e274001c5573fb5559d4b59632f1ab6ce14798b00ead95a79138ae846f8ee1",
+    "results/curation/full/summary.json": "4256abbcfa2af7b180806398cf4b2e93d4151d97431e57f3d15b61f1fef0a785"
+  },
+  "sources": 76250,
+  "source_status": {
+    "NO_VALID_DETECTION_PENDING_RESCUE": 39502,
+    "CANDIDATES_PENDING_SCREEN": 36748
+  },
+  "proposal_geometry": {
+    "head_width_below_32": 9317,
+    "square_outside_source": 68769,
+    "valid": 47855
+  },
+  "merged_candidates": 49842,
+  "merged_by_origin": {
+    "dino_geometry_rescue": 15240,
+    "dino_valid": 34602
+  },
+  "with_personal_verdict": {
+    "good": 1873,
+    "bad": 364
+  },
+  "rescue_rule": {
+    "occupancies": [
+      0.7,
+      0.72,
+      0.74,
+      0.76,
+      0.78,
+      0.8
+    ],
+    "max_centre_offset": 0.08,
+    "angle": 0,
+    "min_head_width": 32,
+    "merge_iou": 0.5
+  },
+  "outputs": {
+    "candidates_merged.csv": "685a6d792fdd5cb7c9af87410ecf55aff29381c463f13fa45f1654840a1cd8fb",
+    "source_registry.csv": "e26f23c98a67541c4216344eb75b356235bc50b6a6d10d11c078cbba843c3246"
+  }
+}

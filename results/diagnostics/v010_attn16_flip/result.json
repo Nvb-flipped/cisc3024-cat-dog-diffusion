@@ -1,0 +1,68 @@
+{
+  "purpose": "integration correctness only, not generalization or final quality",
+  "diagnostic_only": true,
+  "manifest_sha256": "7462eccc8fb711ce911a5289b7440712f97acd34dd7895a3d318c756a0ecdbd4",
+  "stats": {
+    "rows": 2,
+    "valid_rows": 2,
+    "cat": 1,
+    "dog": 1,
+    "distinct_pool_images": 2,
+    "rotated": 0,
+    "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4"
+  },
+  "model": {
+    "channels": [
+      16,
+      32,
+      48,
+      64
+    ],
+    "blocks_per_level": 1,
+    "conditioning_dim": 64,
+    "attention_heads": 4,
+    "dropout": 0,
+    "encoder_attention16": true
+  },
+  "updates": 2000,
+  "required_reduction": 0.8,
+  "prediction_type": "epsilon",
+  "min_snr_gamma": null,
+  "horizontal_flip": 0.5,
+  "probe_mse_before": 1.1566389799118042,
+  "probe_mse_after": 0.024381326511502266,
+  "reduction": 0.9789205387895872,
+  "reconstruction_mse_before": 0.540371835231781,
+  "reconstruction_mse_after": 0.04557172581553459,
+  "seconds": 31.274686575867236,
+  "training_seed": 17,
+  "noise_seed": 29,
+  "probe_seed": 43,
+  "probe_timesteps": [
+    250,
+    750
+  ],
+  "environment": {
+    "python": "3.11.16",
+    "platform": "Linux-7.0.0-42-generic-x86_64-with-glibc2.43",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "gpu": null,
+    "git_commit": "5d741d4901e4014c40343c533e6e3a3a2cb2bac0",
+    "git_dirty": true
+  },
+  "completed": "2026-11-19T01:02:41.334259+00:00",
+  "flip_sources": {
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/diagnostics.py": "0a29eebb63db061455511ffa35698df43b760cd6402d125b97354c5970cff182"
+  },
+  "attention_sources": {
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/diagnostics.py": "0a29eebb63db061455511ffa35698df43b760cd6402d125b97354c5970cff182"
+  },
+  "passed": true
+}

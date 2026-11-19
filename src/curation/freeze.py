@@ -2,11 +2,14 @@
 import argparse
 import csv
 import hashlib
+import io
 import json
 import math
 import sys
 from collections import Counter
 from pathlib import Path
+import numpy as np
+from PIL import Image
 from src.common import ROOT, read_config, sha256
 from src.curation.review import CRITERIA, rendered_crop
 from src.curation.provenance import crop_review_identity
@@ -48,11 +51,38 @@ def split_by_group(rows, group_map, fraction, seed):
     return train, validation
 
 
+def portable_previews(receipt_path, source):
+    """Load a cross-platform preview re-verification receipt bound to this exact decision log."""
+    if receipt_path is None:
+        return None, {}
+    receipt = json.loads(Path(receipt_path).read_text(encoding='utf-8'))
+    if receipt['decisions_sha256'] != sha256(source):
+        raise ValueError('Preview portability receipt was made for a different decision log')
+    if any(item['rows_with_any_pixel_difference'] for item in receipt['cross_platform_pixel_evidence']):
+        raise ValueError('Receipt shows platform-dependent crop pixels')
+    return receipt, {row['candidate_id']: row for row in receipt['records']}
+
+
+def preview_matches(pool, item, geometry, portable):
+    rendered = rendered_crop(pool, item['pool_id'], geometry)
+    if hashlib.sha256(rendered).hexdigest() == item['preview_sha256']:
+        return 'exact_png'
+    record = portable.get(item['candidate_id'])
+    if record is None or record['recorded_preview_sha256'] != item['preview_sha256'] or \
+            any(record[k] != item[k] for k in ('pool_id', 'x0', 'y0', 'size', 'angle')) or \
+            record['label'] != int(item['label']):
+        return None
+    pixels = np.asarray(Image.open(io.BytesIO(rendered)).convert('RGB')).tobytes()
+    return record['method'] if hashlib.sha256(pixels).hexdigest() == record['pixel_sha256'] else None
+
+
 def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_groups.csv',
-           *, preserve_split_from=None):
+           *, preserve_split_from=None, preview_receipt=None):
     pool = Pool(config['pool'])
     source = Path(decisions_path or config['decisions'])
     decisions = latest_decisions(source)
+    receipt, portable = portable_previews(preview_receipt, source)
+    preview_methods = Counter()
     groups_path = Path(groups_path)
     if not groups_path.exists():
         raise ValueError('Student duplicate review required: missing annotations/duplicate_groups.csv')
@@ -75,7 +105,8 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
         if item['angle'] and not item.get('angle_reason'):
             raise ValueError('Nonzero rotation lacks explanation')
         geometry = {k: item[k] for k in ['x0', 'y0', 'size', 'angle']}
-        if hashlib.sha256(rendered_crop(pool, item['pool_id'], geometry)).hexdigest() != item['preview_sha256']:
+        method = preview_matches(pool, item, geometry, portable)
+        if method is None:
             raise ValueError('Source/geometry changed after review')
         group = groups.get(item['candidate_id'])
         if not group or not group.get('reviewer') or not group.get('timestamp') or not group.get('group_id'):
@@ -89,6 +120,7 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
         if previous_label != item['label']:
             raise ValueError('Duplicate family has contradictory labels')
         if group['keep'] == 'yes':
+            preview_methods[method] += 1
             if not 0.60 <= item['head_width'] / item['size'] <= 0.80:
                 raise ValueError(f"Recheck source width or crop occupancy for {item['candidate_id']}")
             accepted.append(item)
@@ -153,7 +185,9 @@ def freeze(config, out, decisions_path=None, groups_path='annotations/duplicate_
             'candidate_ids': [r['candidate_id'] for r in train], 'seed': config['seed'],
             'holdout_fraction': config['validation_fraction'],
             'policy': 'student reviewed; one head per confirmed duplicate family; pool-only grouped holdout',
-            **split_metadata},
+            **split_metadata, **({'preview_portability_receipt': str(preview_receipt),
+                                  'preview_portability_receipt_sha256': sha256(preview_receipt),
+                                  'preview_verification_methods': dict(preview_methods)} if receipt else {})},
             columns=COLUMNS, check=lambda path: check_manifest(path, pool),
             validation_source=validation_source)
 
@@ -165,9 +199,11 @@ def main():
     p.add_argument('--decisions')
     p.add_argument('--duplicate-groups', default='annotations/duplicate_groups.csv')
     p.add_argument('--preserve-split-from', type=Path)
+    p.add_argument('--preview-receipt', type=Path,
+                   help='Cross-platform preview re-verification receipt (scripts.verify_preview_portability)')
     args = p.parse_args()
     print(freeze(read_config(args.config), args.out, args.decisions, args.duplicate_groups,
-                 preserve_split_from=args.preserve_split_from))
+                 preserve_split_from=args.preserve_split_from, preview_receipt=args.preview_receipt))
 
 
 if __name__ == '__main__':

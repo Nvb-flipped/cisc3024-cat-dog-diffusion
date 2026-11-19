@@ -1,0 +1,74 @@
+{
+  "inputs": {
+    "scripts/run_v010.py": "ff9016ed87ac3121d35819caf69f33cdfdc8df51fe04d2713bc1018edca3bd30",
+    "manifests/v010.csv": "c404939b7b23b513b9ba8d170ed8f3b3deadb5637a76a69a546f39e4a2a3f238",
+    "manifests/v010.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests/v010.provenance.json": "8d80289dfe080a5e48a9b87f041602c1d705064ab234d7f2f7312cceac3143b2",
+    "results/curation/v010_cache_parity.json": "7d122773e2b7546599544e5c9c5b3ca19ca802ec34bebe4ab201c750915c46d4",
+    "results/curation/preview_portability_20261119.json": "916387964568701e3b6d5614a758d6baa24dcfa50287be5c38981b3c3eac5d4b",
+    "configs/runs/v009_attention16_32k.json": "b0025a253c5d6fb83f217032ea585962ae887f1f33bac70dc71540dd2ae07a0f",
+    "configs/runs/v010_attn16.json": "ae0c139bd329a42974a02879bdeb59aedf4b1f23b31ccd9449e4d8d848a377df",
+    "results/diagnostics/v010_attn16/result.json": "12760b5f6db7d4a54d74d39be616ac21fcca90dea6d7c5f76659c7fc319ffa10",
+    "src/training/train.py": "77dfd43337db7d71a1e69dfd183c3c8648f97ed419ee6d38f6a9b1caa18d8545",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/data.py": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+    "src/training/validation.py": "020d22776ac38642d6ab84ac60259901cc1ad9a1e698a3673c01717d7a77df15",
+    "src/training/lineage.py": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "submission/generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "src/release/export.py": "31f699b12cce5133ca248d510a77a0b4c4413ce7ed7c3f7931e42016ffff876b",
+    "src/evaluation/run.py": "a705803682127172a58d4c096d249befc700d84d22d17bb8daf8235651f78434",
+    "src/training/diagnostics.py": "0a29eebb63db061455511ffa35698df43b760cd6402d125b97354c5970cff182"
+  },
+  "command": [
+    "python",
+    "-u",
+    "-m",
+    "src.training.train",
+    "--config",
+    "configs/runs/v010_attn16.json",
+    "--manifest",
+    "manifests/v010.csv",
+    "--validation-manifest",
+    "manifests/v010.validation.csv",
+    "--seed",
+    "17",
+    "--updates",
+    "48000",
+    "--out",
+    "checkpoints/v010_attn16_seed17"
+  ],
+  "variant": {
+    "changes": {},
+    "updates": 48000,
+    "checkpoint_every": 1000
+  },
+  "samplers": {
+    "v009": {
+      "weights": "ema",
+      "steps": 50,
+      "guidance": 3.25,
+      "pag_scale": 0.15,
+      "score_sharpness": 1.03,
+      "score_sigma": 0.5,
+      "class_noise_max": 0.1,
+      "freeu": true,
+      "freeu_strength": 2.0
+    }
+  },
+  "seeds": {
+    "selection": [
+      0,
+      101,
+      202
+    ],
+    "confirmation": [
+      303,
+      404
+    ]
+  },
+  "n_per_class": 1000,
+  "rule": "Screen EMA checkpoints on official seed 0 with the v009 sampler; reject any hard-check violation; prefer the highest tier total, then the larger minimum normalized margin, then lower memorization. Freeze the choice before seeds 303/404.",
+  "created": "2026-11-19T12:03:39.720870+00:00"
+}

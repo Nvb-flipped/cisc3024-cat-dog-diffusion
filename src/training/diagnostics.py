@@ -23,7 +23,8 @@ BENCHMARK_UPDATES = 500
 def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='results/diagnostics/overfit',
             *, prediction_type='epsilon', min_snr_gamma=None, patch_size=1, patch_detail=False,
             self_condition=False, coarse_epsilon_weight=0, noise_input_perturbation=0, timestep_sampling_focus=None,
-            appearance_sampling=False, haar_packing=False, encoder_attention16=False):
+            appearance_sampling=False, haar_packing=False, encoder_attention16=False,
+            horizontal_flip=0):
     if prediction_type not in ('epsilon', 'velocity', 'flow'):
         raise ValueError('Unsupported denoising target')
     weighting = dict(prediction_type=prediction_type, min_snr_gamma=min_snr_gamma)
@@ -35,6 +36,8 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         weighting['timestep_sampling_focus'] = timestep_sampling_focus
     if appearance_sampling:
         weighting['appearance_sampling'] = appearance_sampling
+    if horizontal_flip:
+        weighting['horizontal_flip'] = horizontal_flip
     validate_loss_weighting(weighting)
     out = Path(out)
     out.mkdir(parents=True, exist_ok=True)
@@ -124,6 +127,9 @@ def overfit(manifest='manifests/diagnostic_two_heads.csv', device='cuda', out='r
         record['model_source_sha256'] = sha256('submission/model.py')
     if haar_packing:
         record['haar_sources'] = {name: sha256(name) for name in (
+            'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
+    if horizontal_flip:
+        record['flip_sources'] = {name: sha256(name) for name in (
             'submission/model.py', 'submission/diffusion.py', 'src/training/step.py', 'src/training/diagnostics.py')}
     if encoder_attention16:
         record['attention_sources'] = {name: sha256(name) for name in (

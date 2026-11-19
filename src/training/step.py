@@ -11,6 +11,9 @@ from submission.flow import flow_pair
 def validate_loss_weighting(settings):
     if type(settings.get('appearance_sampling', False)) is not bool:
         raise ValueError('appearance_sampling must be a boolean')
+    flip = settings.get('horizontal_flip', 0)
+    if type(flip) not in (int, float) or not 0 <= flip <= 1:
+        raise ValueError('horizontal_flip must be a probability between zero and one')
     gamma = settings.get('min_snr_gamma')
     focus = settings.get('timestep_sampling_focus')
     if focus is not None and (type(focus) not in (int, float) or not 0 < focus < 1
@@ -73,6 +76,12 @@ def optimizer_step(model, optimizer, images, labels, alpha_bar, generator, setti
         else:
             indices = torch.multinomial(image_weights, micro, replacement=True, generator=generator)
         x0, y = images[indices], labels[indices].clone()
+        flip_probability = settings.get('horizontal_flip', 0)
+        if flip_probability:
+            # Mirror whole exact manifest crops left-right; no resampling or new pixel values.
+            # Disabled runs draw no extra random numbers, preserving earlier training streams.
+            mirrored = torch.rand(micro, generator=generator, device=device) < flip_probability
+            x0 = torch.where(mirrored[:, None, None, None], x0.flip(-1), x0)
         if prediction_type == 'edm':
             log_sigma = torch.randn((micro, 1, 1, 1), generator=generator, device=device)
             sigma = (log_sigma * LOG_SIGMA_STD + LOG_SIGMA_MEAN).exp()
