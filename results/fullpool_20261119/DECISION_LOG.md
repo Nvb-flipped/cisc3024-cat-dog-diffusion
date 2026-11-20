@@ -327,3 +327,14 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     (Excellent tier on all five seeds); remaining issues are the personal audit, final data card,
     AGENT_LOG checks, report.pdf/page count and presentation files (student-owned or not yet
     produced). `DATA_CARD.md` rewritten with the real v014 counts and still marked provisional.
+70. **10:45 Risk-estimation run on the FINAL model (no selection use).** 45 further official seeds
+    (2001-2045, g2.75, EMA 0.9995 80k, same export as `submission/`) in three restricted containers, to
+    estimate the per-seed probability of 15/15 with a confidence interval (15-seed data: 15/15 at 15,
+    recall 0.433 +/- 0.021). Results change nothing about the submission; they are reported as a
+    calibrated risk statement for the report. Together with the 15 earlier seeds: 60 seeds.
+71. **15:20 Risk estimate for the final model (entry 70) complete: 60/60 official seeds at 15/15.**
+    Seeds 0..1414 (15) and 2001..2045 (45), EMA 0.9995 80k, g2.75: accuracy 0.9713 mean (0.9625-0.9785),
+    FID 46.72 (46.14-47.35), recall 0.4332 mean, SD 0.0181, minimum 0.4038 (3 of 60 below 0.41),
+    precision 0.785 (0.746-0.814), memorization 0% on every seed, no violation. Per-seed P(15) point
+    estimate 1.00, Wilson 95% lower bound 0.94. These 45 seeds were never used for selection.
+    Not a hidden-test guarantee (the hidden dev set or generation seed may differ).
