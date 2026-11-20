@@ -1,0 +1,22 @@
+{
+  "inputs": {
+    "scripts/run_v013.py": "274061af88f7f155e673f245906f314cee182a3ac5de9e7ede26d1ff7cb84f78",
+    "manifests/v013.csv": "9151ccdde9638ef0cbf2bdd8e5d9326906895005bae68258de2fc390d3eb9b64",
+    "manifests/v013.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests/v013.provenance.json": "50b00f97f23d9bc4ad41fed6cd1e6c1cbc94dc21f1e127cd2ad2f16c347f8543",
+    "results/curation/v013_cache_parity.json": "04072495c1c0dc4625deb9f0409f089f1afb3d3550cd3312a13e91f62b923ceb",
+    "configs/runs/v010_attn16_flip.json": "506deab6e9ff00577cbacb27aea71ce734395f6a351ab5164bf4c864b7e10fba",
+    "configs/runs/v013_flip.json": "4dc6ab44a8fec3c52ba742225f63a58e6a1358a627448b998e884cd97127bdb4",
+    "results/fullpool_20261119/selection_v013.json": "e42e3a5077e8e4e0fb553e348757234c0262b3b65e9b8107b7b95fbb4aea076a",
+    "src/training/train.py": "77dfd43337db7d71a1e69dfd183c3c8648f97ed419ee6d38f6a9b1caa18d8545",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/data.py": "5dbfc1cc7a958fff22b7bb8a7ad6e2f40a74227102f1fbef9754dc3fe2832c76",
+    "src/training/lineage.py": "f3830197f55cdc5082aaa7e7f5dde9fc2e41be4981bd6158b9187992e3d739f5",
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df"
+  },
+  "updates": 120000,
+  "comparison": "v010_attn16_flip (same config except manifest and update budget)",
+  "rule": "Screen EMA checkpoints with the v009 sampler and guidance 3.0 on official seed 0; compare with v010 64k on FID/recall/accuracy/memorization and visual quality; multi-seed before any selection.",
+  "created": "2026-11-20T00:54:57.582769+00:00"
+}

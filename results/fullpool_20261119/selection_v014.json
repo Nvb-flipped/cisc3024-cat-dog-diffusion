@@ -1,0 +1,30 @@
+{
+  "created": "2026-11-20T06:58:28.467303+00:00",
+  "manifest": "manifests/v014.csv",
+  "manifest_sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+  "candidate_status": "results/fullpool_20261119/v014.candidate_status.csv",
+  "candidate_status_sha256": "25f6e34355e5fafb219db6be8d87190706d2049ad22f35a1dedbaea902e8ae39",
+  "labels_sha256": "0d462949eb272c0e636ffc124eda16e24c5573515915b2efadaceac8597b03b1",
+  "acceptance": "latest agent visual verdict good under the exact handout spec (decision log 50); one-head re-check of 1,160 detector-flagged rows (decision 54-55)",
+  "final_ledgers": {
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkA.jsonl": "7f947a61071b5564fd397066f43e0328b0668c486bac68cc15a1f581da27a437",
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkB.jsonl": "745810091355c9e046eddbabbe75dd869ccf090f1b265113ac329c0d369befb5",
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkC.jsonl": "61cc40e9d893ae5329b9ee360fa49ac56ddd3d27baa3984c4c624ad1a4e95c3c",
+    "private_build/fullpool_qa/label_check/agent_review.jsonl": "f8fd96a783d51cc7ce319c5aa0bd4b0f573a855267de3d25da52d0e7ef8495d1",
+    "private_build/fullpool_qa/recrop_review_b6/agent_review.jsonl": "eac10dfe2e6b674d93afe1d55644ff08cbb70a8319d132d85d9d1ca6ab10982d"
+  },
+  "recrop_tables": {
+    "results/fullpool_20261119/recrop_batch1.csv": "8aff0a133922112792e012fec59fb9dffc2b1baedd80c686794014752522d5fd",
+    "results/fullpool_20261119/recrop_batch2.csv": "5423fd6621a9a502df82845d3e1ca38bedac8c91b437f069b4fb71cdb68544fd",
+    "results/fullpool_20261119/recrop_batch3.csv": "11388fa4f83121e2f9693e82327118ea45a2713750e9dc0ab9a363f8a8a7e33e",
+    "results/fullpool_20261119/recrop_batch4.csv": "934b762c9748e1ecfde7b3f7dc2a9d42ee9cb339e64f459bbc0bdb0f9692912a",
+    "results/fullpool_20261119/recrop_batch5.csv": "c3c28cc57fe406e37223dffb54c9c714163eb3309dc3575a2dfd9f43936dc7a0",
+    "results/fullpool_20261119/recrop_batch6.csv": "8efc7eb5293008299d6ea37e05516c0e7a34764d0ff7ef73bf36ab3ab36bdd6e"
+  },
+  "rows": 8029,
+  "personal_rows": 1929,
+  "ai_rows": 6100,
+  "cat": 3096,
+  "dog": 4933,
+  "superseded_unused": "private_build/superseded_manifests/v014_pre_second_head/ (8,295 rows, never trained)"
+}

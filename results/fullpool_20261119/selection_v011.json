@@ -1,0 +1,27 @@
+{
+  "created": "2026-11-19T18:39:05.179722+00:00",
+  "gates": [
+    "Qwen3.5-9B BF16 rev c2022362, prompt v5 (no detector hints): PASS per src.curation.vlm_screen.resolved (VLM size band ignored)",
+    "Grounding DINO re-measured head fraction inside the square >= 0.60 (src.curation.head_measure)",
+    "Qwen3.5-9B prompt v6 framing: head_size=most_of_image and gaze=camera_or_side"
+  ],
+  "estimated_precision": {
+    "validation_sample": "79/100 agent-labelled (Wilson ~0.70-0.86)",
+    "development_sample": "97/110 of 151"
+  },
+  "inputs": {
+    "results/fullpool_20261119/vlm/queue_9b_v5.jsonl": "77b86620b6164b239b8994ab6fd7a9e248dff5aceb7c41aa5e50a477556f8062",
+    "results/fullpool_20261119/vlm/rescue_9b_v5.jsonl": "2e3182d8f3036563fd24890ff269bb42dff0ba80f0daff9e0e52321cb3233362",
+    "results/fullpool_20261119/headmeasure/dino_9b_pass.jsonl": "8d01ea6a502f126e818e9ce2e2ec201bec7d62a48f06ce5269a3c42f76da3113",
+    "results/fullpool_20261119/headmeasure/rescue_9b_pass.jsonl": "18e281e70c84c62b0ed4239058211d6fbde3554cb8abead8a696a81ac482868c",
+    "results/fullpool_20261119/vlm/accepted_9b_v6.jsonl": "378390c749dc18cf431a4a40a071ec1f4d9eb77817335e3fdad7db1daabed997"
+  },
+  "selected": 3926,
+  "by_origin": {
+    "dino_valid": 1324,
+    "dino_geometry_rescue": 1065,
+    "dino_rescue_geometry_rescue": 465,
+    "dino_rescue_valid": 1072
+  },
+  "sha256": "bc7170e19fbb0bde562cce3ca1fb20df30f2127f160b319dc44698a7312abd92"
+}

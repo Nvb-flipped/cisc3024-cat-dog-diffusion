@@ -27,7 +27,8 @@ def load_manifest_data(manifest, pool_path='data/student', cache_dir='data/cache
         provenance_path = manifest.with_name(manifest.stem.removesuffix('.validation') + '.provenance.json')
     if provenance_path.exists():
         provenance = json.loads(provenance_path.read_text())
-        if provenance.get('origin') in ['student_reviewed_manifest', 'subset_of_student_reviewed_manifest']:
+        if provenance.get('origin') in ['student_reviewed_manifest', 'subset_of_student_reviewed_manifest',
+                                        'ai_assisted_reviewed_manifest']:
             if digest not in {record['sha256'] for record in provenance.get('manifests', [])}:
                 raise ValueError('Manifest bytes differ from the frozen personal-review lineage')
             if provenance.get('pool_content_sha256') != pool_hash:

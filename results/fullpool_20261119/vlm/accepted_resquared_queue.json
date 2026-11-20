@@ -1,0 +1,13 @@
+{
+  "rule": "detector box extent/side 0.65 (else 0.67, 0.70), centre offset <= 8%, angle 0, no padding; parent = 9B v5 PASS, head_fraction>=0.60, v6 most_of_image & camera_or_side",
+  "counts": {
+    "resquared": 3128,
+    "no_fit": 798
+  },
+  "occupancy_targets": {
+    "0.65": 2726,
+    "0.7": 236,
+    "0.67": 166
+  },
+  "sha256": "b6da46f0974c2e85e33660d00de63187253ee7da80d78ff550bd138a6d7c450a"
+}

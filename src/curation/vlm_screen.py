@@ -157,10 +157,82 @@ SCHEMA_V5 = {
                  'both_ears_fully_inside', 'head_clearly_visible', 'upright', 'centered', 'edited_or_costume'],
     'additionalProperties': False,
 }
-PROMPTS = {'v2': (SYSTEM, INSTRUCTIONS), 'v3': (SYSTEM_V3, INSTRUCTIONS_V3), 'v4': (SYSTEM_V4, INSTRUCTIONS_V4),
+
+SYSTEM_V6 = 'You judge photo framing precisely. Answer only with the requested JSON.'
+INSTRUCTIONS_V6 = """Image 1 is a source photo with a red square; image 2 is exactly that square.
+Describe the framing of the animal in image 2:
+- head_size: "small_less_than_half" if the head spans less than half of image 2's width,
+  "about_half", "most_of_image" if the head spans most of the width but is fully visible, or
+  "cut_off_by_edges" if part of the head or an ear is cut off by the border;
+- ears_cut_by_border: true if any ear tip touches or leaves the border;
+- gaze: "camera_or_side" if the face looks at the camera or to the side, "looking_up",
+  "looking_down", or "turned_away" (back of the head);
+- body_visible: "little_or_none", "some_chest_or_neck", or "most_of_body";
+- other_animals_or_people: any other animal or any person (or body part) visible;
+- text_or_graphics: added text, logos or graphics.
+Source size and crop side (pixels): {metadata}"""
+SCHEMA_V6 = {
+    'type': 'object',
+    'properties': {
+        'head_size': {'enum': ['small_less_than_half', 'about_half', 'most_of_image', 'cut_off_by_edges']},
+        'ears_cut_by_border': {'type': 'boolean'},
+        'gaze': {'enum': ['camera_or_side', 'looking_up', 'looking_down', 'turned_away']},
+        'body_visible': {'enum': ['little_or_none', 'some_chest_or_neck', 'most_of_body']},
+        'other_animals_or_people': {'type': 'boolean'},
+        'text_or_graphics': {'type': 'boolean'},
+    },
+    'required': ['head_size', 'ears_cut_by_border', 'gaze', 'body_visible', 'other_animals_or_people', 'text_or_graphics'],
+    'additionalProperties': False,
+}
+
+SYSTEM_V7 = 'You check photos for added graphic elements. Answer only with the requested JSON.'
+INSTRUCTIONS_V7 = """Image 1 is a source photo with a red square; image 2 is exactly that square.
+In image 2:
+- added_graphics: true if there is any ADDED design element on or around the photo: text
+  banners or captions, product names or logos, website/app interface elements (buttons, menus),
+  decorative frames or borders, stickers, drawn lines or shapes, cartoon elements, or a collage
+  edge where two photos meet. Faint semi-transparent stock-photo watermarks do NOT count;
+- second_animal_or_person: any part of another animal or of a person is visible;
+- painting_or_illustration: the animal is painted, drawn or digitally illustrated rather than
+  photographed.
+Source size and crop side (pixels): {metadata}"""
+SCHEMA_V7 = {
+    'type': 'object',
+    'properties': {
+        'added_graphics': {'type': 'boolean'},
+        'second_animal_or_person': {'type': 'boolean'},
+        'painting_or_illustration': {'type': 'boolean'},
+    },
+    'required': ['added_graphics', 'second_animal_or_person', 'painting_or_illustration'],
+    'additionalProperties': False,
+}
+
+SYSTEM_V8 = 'You help find usable training photos of cat and dog heads. Answer only with the requested JSON.'
+INSTRUCTIONS_V8 = """Image 1 is a source photo with a red square; image 2 is exactly that square.
+Could image 2 be used as a head-shot training image of a cat or dog? It is usable when:
+- it shows a real cat or dog (photographs with faint stock watermarks, studio backgrounds or
+  collars/harnesses are fine; drawings, toys, statues, prints on products and other species are not);
+- one animal head is the main subject, roughly centred, roughly upright (the body may be lying
+  down as long as the head itself is upright), and most of the head including ears is visible;
+- no other animal head or human face is prominent in the square.
+Small imperfections (an ear tip touching the edge, slight blur, a little text in a corner) are
+acceptable. Source size and crop side (pixels): {metadata}"""
+SCHEMA_V8 = {
+    'type': 'object',
+    'properties': {
+        'species': {'enum': ['cat', 'dog', 'other', 'none']},
+        'usable_head_shot': {'type': 'boolean'},
+        'main_problem': {'enum': ['none', 'not_real_animal', 'other_species', 'no_clear_head', 'head_too_small',
+                                 'head_cut_off', 'not_upright', 'second_animal_or_person', 'heavy_text_or_graphics',
+                                 'too_blurry_or_dark']},
+    },
+    'required': ['species', 'usable_head_shot', 'main_problem'],
+    'additionalProperties': False,
+}
+PROMPTS = {'v8': (SYSTEM_V8, INSTRUCTIONS_V8), 'v7': (SYSTEM_V7, INSTRUCTIONS_V7), 'v6': (SYSTEM_V6, INSTRUCTIONS_V6), 'v2': (SYSTEM, INSTRUCTIONS), 'v3': (SYSTEM_V3, INSTRUCTIONS_V3), 'v4': (SYSTEM_V4, INSTRUCTIONS_V4),
            'v5': (SYSTEM_V5, INSTRUCTIONS_V5)}
-SCHEMAS = {'v2': SCHEMA, 'v3': SCHEMA, 'v4': SCHEMA_V4, 'v5': SCHEMA_V5}
-NO_BOX_HINTS = {'v5'}  # v2-v4 showed the model copies detector-derived size hints
+SCHEMAS = {'v2': SCHEMA, 'v3': SCHEMA, 'v4': SCHEMA_V4, 'v5': SCHEMA_V5, 'v6': SCHEMA_V6, 'v7': SCHEMA_V7, 'v8': SCHEMA_V8}
+NO_BOX_HINTS = {'v5', 'v6', 'v7', 'v8'}  # v2-v4 showed the model copies detector-derived size hints
 
 
 def prompt_sha256(version):
@@ -222,9 +294,21 @@ def request(server, model, context_png, detail_png, meta, max_tokens=160, prompt
 
 def resolved(verdict):
     """Deterministic acceptance from the VLM fields; the VLM's own decision must agree."""
+    if 'usable_head_shot' in verdict:  # v8 recall-oriented recovery question
+        return 'PASS' if verdict['usable_head_shot'] and verdict['species'] in ('cat', 'dog') else 'REJECT'
+    if 'added_graphics' in verdict:  # v7 graphics/second-subject check
+        return 'REJECT' if (verdict['added_graphics'] or verdict['second_animal_or_person']
+                            or verdict['painting_or_illustration']) else 'PASS'
+    if 'gaze' in verdict:  # v6 framing second opinion
+        ok = (verdict['head_size'] in ('most_of_image', 'about_half') and not verdict['ears_cut_by_border']
+              and verdict['gaze'] == 'camera_or_side' and verdict['body_visible'] != 'most_of_body'
+              and not verdict['other_animals_or_people'] and not verdict['text_or_graphics'])
+        return 'PASS' if ok else 'REJECT'
     if 'head_width_share' in verdict:  # v5: combined checklist, no detector hints
+        # The VLM size band is ignored: Qwen3.5-9B rated every valid close-up "over_80" on the blind
+        # sample; occupancy is fixed by geometry and re-measured by src.curation.head_measure instead.
         ok = (verdict['species'] in ('cat', 'dog') and verdict['is_real_photo'] and verdict['heads_or_faces_visible'] == 1
-              and verdict['view'] in ('head_closeup', 'head_and_neck') and verdict['head_width_share'] == '60_to_80'
+              and verdict['view'] in ('head_closeup', 'head_and_neck')
               and verdict['both_ears_fully_inside'] and verdict['head_clearly_visible'] and verdict['upright']
               and verdict['centered'] and not verdict['edited_or_costume'])
         return 'PASS' if ok else ('UNCERTAIN' if verdict['species'] == 'uncertain' else 'REJECT')

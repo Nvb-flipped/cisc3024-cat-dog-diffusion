@@ -1,0 +1,13 @@
+{
+  "created": "2026-11-19T21:03:09.591122+00:00",
+  "parent_selection": "selection_v011.json",
+  "parent_selection_sha256": "572a21728e4fd90d82bda5ab16282082270d9eda19d77adae58d34d6b897e418",
+  "agent_review": "results/fullpool_20261119/agent_review/v011_ai_rows_agent_review.jsonl",
+  "agent_review_sha256": "dbb466dbbee025e2909a1375da732dfaa7b01737fb282cd780c77f5c968dda72",
+  "agent_review_note": "Visual review of every v011 AI row by the coding agent (origin agent_visual_review); not personal verdicts.",
+  "reviewed": 3607,
+  "kept": 2681,
+  "rejected": 926,
+  "selected": 2681,
+  "sha256": "4027abc16ef3e286c7f5aa310c110d8a97023b7a1b1a7f1acd3bc7e782774c8b"
+}

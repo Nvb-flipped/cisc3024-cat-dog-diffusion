@@ -28,6 +28,7 @@ from src.curation.deduplicate import UnionFind, families
 from src.curation.geometry import inside
 from src.curation.manifest_bundle import publish_bundle
 from src.curation.pool_fingerprint import fingerprint
+from src.curation.vlm_screen import resolved as resolve_verdict
 
 sys.path.insert(0, str(ROOT / 'starter_kit'))
 from catdog_eval.data import Pool, rebuild  # noqa: E402
@@ -48,9 +49,16 @@ def read_ledgers(paths):
     return latest
 
 
+def current(record):
+    """Recompute the resolution from the raw verdict so a stale stored field never decides."""
+    if not record:
+        return None
+    return resolve_verdict(record['verdict']) if record.get('verdict') else 'ERROR'
+
+
 def resolve(primary, escalation):
-    first = primary['resolved'] if primary else 'MISSING'
-    second = escalation['resolved'] if escalation else None
+    first = current(primary) if primary else 'MISSING'
+    second = current(escalation) if escalation else None
     species = [r['verdict']['species'] for r in (primary, escalation) if r and r.get('verdict')]
     if first == 'PASS' and second is None:
         return 'ACCEPT', species[0]
@@ -107,15 +115,23 @@ def freeze(out, parent, candidate_tables, primary_ledgers, escalation_ledgers=()
                 decision = 'EXCLUDED_HOLDOUT_SOURCE'
             status[cid] = decision
             if decision == 'ACCEPT':
-                accepted.append(row | {'label': SPECIES[species]})
-    # Several accepted heads in one source must be clearly different heads.
+                accepted.append(row | {'label': SPECIES[species], 'x0': int(row['x0']), 'y0': int(row['y0']),
+                                       'size': int(row['size']), 'angle': float(row['angle'] or 0)})
+    # Several heads in one source must be clearly different heads: compare final squares with every
+    # kept row of that source (personal parent rows and the holdout first, then accepted AI rows).
+    def square(r):
+        return [int(r['x0']), int(r['y0']), int(r['x0']) + int(r['size']), int(r['y0']) + int(r['size'])]
+    kept_squares = defaultdict(list)
+    for r in parent_rows + holdout_rows:
+        kept_squares[r['pool_id']].append(('personal', square(r)))
     by_source = defaultdict(list)
     for row in sorted(accepted, key=lambda r: (-float(r['box_width']), r['candidate_id'])):
-        boxes = [json.loads(other['box']) for other in by_source[row['pool_id']]]
-        if any(box_iou(json.loads(row['box']), box) > 0.1 for box in boxes):
-            status[row['candidate_id']] = 'DUPLICATE_SAME_SOURCE'
+        overlaps = [kind for kind, sq in kept_squares[row['pool_id']] if box_iou(square(row), sq) > 0.3]
+        if overlaps:
+            status[row['candidate_id']] = 'DUPLICATE_OF_PERSONAL' if 'personal' in overlaps else 'DUPLICATE_SAME_SOURCE'
         else:
             by_source[row['pool_id']].append(row)
+            kept_squares[row['pool_id']].append(('ai', square(row)))
     accepted = [row for rows in by_source.values() for row in rows]
     # Exact official 32x32 pixels for duplicate families.
     combined = ([dict(r, _kind='parent') for r in parent_rows] + [dict(r, _kind='holdout') for r in holdout_rows]

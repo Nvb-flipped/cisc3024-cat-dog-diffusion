@@ -1,0 +1,12 @@
+{
+  "created": "2026-11-20T00:54:04.365888+00:00",
+  "parent_selection": "selection_v012.json",
+  "parent_selection_sha256": "5ef1e3c96ab0c42eccb0c9df34a829ff5ac0ea541b143e2e7be28be696def6ee",
+  "added_from": "9B v5 PASS & head_fraction>=0.60 crops rejected by the v6 framing rule, kept by agent visual review",
+  "agent_review": "results/fullpool_20261119/agent_review/v6_rejected_agent_review.jsonl",
+  "agent_review_sha256": "ab3a07639c5f427370f8fee5fd590ba873cedf9c0f3743459c277344c72611fc",
+  "reviewed": 1364,
+  "kept": 351,
+  "selected_total": 3032,
+  "sha256": "2e201883526a10d1ef70d2de3527772cd81466c8afb15405e3438962c7f52abb"
+}

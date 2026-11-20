@@ -31,6 +31,7 @@ from src.training.diagnostics import overfit
 from src.training.optimize import evaluate
 
 PARENT = Path('manifests/v009.csv')
+AMENDMENTS = Path('results/plans/v010_input_amendments.json')
 PREVIEW_RECEIPT = Path('results/curation/preview_portability_20261119.json')
 MANIFEST = Path('manifests/v010.csv')
 HOLDOUT = MANIFEST.with_suffix('.validation.csv')
@@ -137,6 +138,12 @@ def plan_for(name):
         write_json(plan, spec | {'created': timestamp()})
     frozen = read(plan)
     frozen.pop('created', None)
+    # Recorded amendments: a frozen input may carry a newer hash only if the exact old->new pair
+    # and its reason are listed (changes that cannot affect these runs, e.g. a new manifest origin).
+    if AMENDMENTS.exists():
+        for path, change in read(AMENDMENTS)['inputs'].items():
+            if frozen['inputs'].get(path) == change['old'] and spec['inputs'].get(path) == change['new']:
+                spec['inputs'][path] = change['old']
     if frozen != spec:
         raise ValueError(f'Frozen plan inputs changed: {plan}')
     return plan, run, command, settings

@@ -1,0 +1,20 @@
+{
+  "created": "2026-11-19T18:38:43.481245+00:00",
+  "inputs": {
+    "src/training/data.py": {
+      "old": "69de9eb18a1db30a26b05b6a250ad11dc1088c980083b879c7069be046ef521f",
+      "new": "5dbfc1cc7a958fff22b7bb8a7ad6e2f40a74227102f1fbef9754dc3fe2832c76",
+      "reason": "Adds acceptance of the ai_assisted_reviewed_manifest origin (deferred patch private_build/pending_patches/ai_assisted_lineage.patch); student_reviewed manifests such as v010 follow the unchanged code path."
+    },
+    "src/training/lineage.py": {
+      "old": "4118f462a0d6be932b337f3c7f510ef3e26007374224331bb67a2e999835939c",
+      "new": "f3830197f55cdc5082aaa7e7f5dde9fc2e41be4981bd6158b9187992e3d739f5",
+      "reason": "Adds acceptance of the ai_assisted_reviewed_manifest origin (deferred patch private_build/pending_patches/ai_assisted_lineage.patch); student_reviewed manifests such as v010 follow the unchanged code path."
+    },
+    "scripts/run_v010.py": {
+      "old": "ff9016ed87ac3121d35819caf69f33cdfdc8df51fe04d2713bc1018edca3bd30",
+      "new": "020456d03abd569d5ecbb5bf61ac703ae3ac95d5e1312daaefe44f065e2981c9",
+      "reason": "Adds this recorded-amendment check to plan verification; no change to training, export or evaluation behaviour."
+    }
+  }
+}

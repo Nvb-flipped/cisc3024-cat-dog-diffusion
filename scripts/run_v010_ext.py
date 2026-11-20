@@ -25,10 +25,20 @@ EXTENSIONS = {
     'v010_wide_flip_ext': dict(parent='v010_wide_flip', parent_update=80000, updates=160000),
 }
 SAMPLERS = dict(BASE_SAMPLERS)
+# Names carry no dots: export folders are imported as Python packages by the interface check.
 for guidance in (2.0, 2.25, 2.5, 2.75, 3.0):
-    SAMPLERS[f'g{guidance:g}'] = BASE_SAMPLERS['v009'] | {'guidance': guidance}
+    SAMPLERS[f'g{round(guidance * 100):03d}'] = BASE_SAMPLERS['v009'] | {'guidance': guidance}
 for strength in (1.5, 1.0):
-    SAMPLERS[f'g2.5_freeu{strength:g}'] = BASE_SAMPLERS['v009'] | {'guidance': 2.5, 'freeu_strength': strength}
+    SAMPLERS[f'g250_freeu{round(strength * 10):02d}'] = BASE_SAMPLERS['v009'] | {'guidance': 2.5, 'freeu_strength': strength}
+# Visual-quality variants around the best seed-0 setting (guidance 3.0): FreeU off/1.5, 100 steps.
+SAMPLERS['g300_nofreeu'] = BASE_SAMPLERS['v009'] | {'guidance': 3.0, 'freeu': False, 'freeu_strength': None}
+SAMPLERS['g300_freeu15'] = BASE_SAMPLERS['v009'] | {'guidance': 3.0, 'freeu_strength': 1.5}
+SAMPLERS['g300_s100'] = BASE_SAMPLERS['v009'] | {'guidance': 3.0, 'steps': 100}
+# Guidance limited to an interval (Kynkaanniemi et al., 2024): no guidance at the highest noise levels,
+# where it mostly collapses diversity (recall).
+SAMPLERS['g300_gmax850'] = BASE_SAMPLERS['v009'] | {'guidance': 3.0, 'guidance_max_timestep': 850}
+SAMPLERS['g300_gmax700'] = BASE_SAMPLERS['v009'] | {'guidance': 3.0, 'guidance_max_timestep': 700}
+SAMPLERS['g350_gmax700'] = BASE_SAMPLERS['v009'] | {'guidance': 3.5, 'guidance_max_timestep': 700}
 
 
 def run_dir(name):

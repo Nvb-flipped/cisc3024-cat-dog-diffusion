@@ -1,0 +1,83 @@
+{
+  "submission": "/home/paco/Pattern-Recognition-Project/private_build/v012_flip/u120000_g275",
+  "protocol": {
+    "n_per_class": 1000,
+    "seed": 0,
+    "batch_size": 500,
+    "device": "cuda",
+    "grading": true
+  },
+  "checks": {
+    "deterministic": true,
+    "seed_sensitive": true,
+    "mixed_batch_accuracy": 0.9900000095367432,
+    "single_class_batch_accuracy": 0.9800000190734863
+  },
+  "training_data": {
+    "errors": [],
+    "warnings": [],
+    "stats": {
+      "rows": 4610,
+      "valid_rows": 4610,
+      "cat": 1962,
+      "dog": 2648,
+      "distinct_pool_images": 4532,
+      "rotated": 0
+    }
+  },
+  "metrics": {
+    "num_samples": 2000,
+    "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+    "accuracy": 0.9750000238418579,
+    "per_class_accuracy": {
+      "cat": 0.9649999737739563,
+      "dog": 0.9850000143051147
+    },
+    "fid": 48.409836474563406,
+    "kid": 0.008242412693955314,
+    "kid_std": 0.0007001538027490863,
+    "precision": 0.8241150379180908,
+    "recall": 0.3705752193927765,
+    "memorization_rate": 0.0,
+    "nn_distance_median": 10.70350170135498,
+    "nn_ratio_median": 0.9765656590461731,
+    "training_images_deduplicated": 9212
+  },
+  "resources": {
+    "num_parameters": 5098915,
+    "submission_mb": 19.666605949401855,
+    "seconds_per_1000": 15.88057298550848
+  },
+  "limits": {
+    "max_parameters": 20000000,
+    "max_submission_mb": 100.0,
+    "max_memorization_rate": 0.05
+  },
+  "violations": [],
+  "warnings": [],
+  "marks": {
+    "per_metric": {
+      "accuracy": {
+        "tier": "Excellent",
+        "marks": 5
+      },
+      "fid": {
+        "tier": "Excellent",
+        "marks": 5
+      },
+      "recall": {
+        "tier": "Good",
+        "marks": 4
+      }
+    },
+    "total": 14,
+    "max": 15,
+    "valid": true
+  },
+  "environment": {
+    "torch": "2.9.1+cu128",
+    "python": "3.11.16",
+    "classifier_sha256": "9f66f425bed44b5e515045e5df002e61ca7f68eccfc3204a88ff234eae576afa",
+    "reference_sha256": "3f592dcb3738a00eff9623ec3b4581007b2e8289f5bae1b64e19ef0dd75c7402"
+  }
+}

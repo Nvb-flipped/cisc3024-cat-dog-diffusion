@@ -1,0 +1,108 @@
+{
+  "origin": "ai_assisted_reviewed_manifest",
+  "created": "2026-11-20T06:58:12.703554+00:00",
+  "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+  "vlm_decisions_are_personal_verdicts": false,
+  "agent_reviews_are_personal_verdicts": false,
+  "acceptance_authority": "agent visual review under the exact handout specification (decision log 50)",
+  "curation_policy_basis": "Paco reported a TA clarification that AI-assisted cleaning qualifies; the official 200-crop audit stays personal.",
+  "parent_manifest": "manifests/v010.csv",
+  "parent_manifest_sha256": "c404939b7b23b513b9ba8d170ed8f3b3deadb5637a76a69a546f39e4a2a3f238",
+  "parent_holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "parent_provenance_sha256": "8d80289dfe080a5e48a9b87f041602c1d705064ab234d7f2f7312cceac3143b2",
+  "parent_rows": 1929,
+  "ai_rows": 6100,
+  "train_by_class": {
+    "1": 4933,
+    "0": 3096
+  },
+  "agent_reviews": {
+    "private_build/fullpool_qa/blind200/agent_review.jsonl": "a42eb3fa0b514dee30180e16a80775ca343110005754fbcc5f02ca587aeda76f",
+    "private_build/fullpool_qa/review_v011_ai/agent_review.jsonl": "dbb466dbbee025e2909a1375da732dfaa7b01737fb282cd780c77f5c968dda72",
+    "private_build/fullpool_qa/review_v6_rejected/agent_review.jsonl": "ab3a07639c5f427370f8fee5fd590ba873cedf9c0f3743459c277344c72611fc",
+    "private_build/fullpool_qa/rereview_lying/agent_review.jsonl": "23018e40352bb0349c311c537777ea6280551df9171d40c6e8a2f167a6a8f6e6",
+    "private_build/fullpool_qa/v8_yield100/agent_review.jsonl": "a61c4cd260db01f99e52ab1aca466ebe050ce150583c9edbd858897c862085bb",
+    "private_build/fullpool_qa/ranked_review/agent_review.jsonl": "88608a42548659af68d3b1b96a5c96ea876e62c6e2d3fb74627a77cb9518bfb0",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork1.jsonl": "87d0e1dd795304c979e0deea59b9877009ee4400d83af5faf1e64cac59ac77cc",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork2.jsonl": "82032f50f0ac53299f8bc28b5bf6f44559d90e9750276fd84e712699af547636",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork3.jsonl": "d4b5e48dacfdb04d9ca78033374ff0da2f36643b8a513253c80e75d737b7c978",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork4.jsonl": "12307897537335d0f2d088469f8021f4445089af2394975c029fb33aec156d92",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork5.jsonl": "78370f36148077cb1a27034e28eea95f7e860d135ef907e20e5e24037bf5bbb7",
+    "private_build/fullpool_qa/ranked_review/agent_review_fork6.jsonl": "dd22861d8a2ab58b7ecdb4699b3da64858dbe0be3b1fa7c3f49aea07dd2610a5",
+    "private_build/fullpool_qa/rereview_spec/agent_review_fork7.jsonl": "4e1e39bc45bf578b1ceee3a0b89e3876173b20b166d186a8dfc9e11397cad0fe",
+    "private_build/fullpool_qa/rereview_spec/agent_review_fork8.jsonl": "bede9e677646e92234c54711cec8217b14f03b72c71c20b638997f166a901830",
+    "private_build/fullpool_qa/rereview_spec/agent_review_fork9.jsonl": "1ad343486d44fc146d806a2b94d7b6aaee7f60bfaa037d9c87e2c9b00d72348f",
+    "private_build/fullpool_qa/recrop_review/agent_review.jsonl": "b24e5caf71376e8f0ce9c03661bf682d1a96ed2f61863ec1ec8f176b6f7f759f",
+    "private_build/fullpool_qa/recrop_review/agent_review_fork1.jsonl": "f76c4929c07a92e1d8faa5b45e4f57ea391ea688b9f09a13ce2a77d2a5e30462",
+    "private_build/fullpool_qa/recrop_review/agent_review_fork2.jsonl": "0dab13f52c107a39a2b66d3d40de0f68f9178f8378df619ce3a35469b3a98115",
+    "private_build/fullpool_qa/recrop_review/agent_review_fork3.jsonl": "f34f875e0bcca2fb2d1d97d5575e37fe3b25eba24ea34502eceece8c7810d946",
+    "private_build/fullpool_qa/recrop_review/agent_review_fork4.jsonl": "5c566e6f64829b8a220defb7fa7d3c116980512a5a8692967a9d5765761ad333",
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkA.jsonl": "7f947a61071b5564fd397066f43e0328b0668c486bac68cc15a1f581da27a437",
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkB.jsonl": "745810091355c9e046eddbabbe75dd869ccf090f1b265113ac329c0d369befb5",
+    "private_build/fullpool_qa/rereview_second_head/agent_review_forkC.jsonl": "61cc40e9d893ae5329b9ee360fa49ac56ddd3d27baa3984c4c624ad1a4e95c3c",
+    "private_build/fullpool_qa/label_check/agent_review.jsonl": "f8fd96a783d51cc7ce319c5aa0bd4b0f573a855267de3d25da52d0e7ef8495d1",
+    "private_build/fullpool_qa/recrop_review_b6/agent_review.jsonl": "eac10dfe2e6b674d93afe1d55644ff08cbb70a8319d132d85d9d1ca6ab10982d"
+  },
+  "recrop_tables": {
+    "results/fullpool_20261119/recrop_batch1.csv": "8aff0a133922112792e012fec59fb9dffc2b1baedd80c686794014752522d5fd",
+    "results/fullpool_20261119/recrop_batch2.csv": "5423fd6621a9a502df82845d3e1ca38bedac8c91b437f069b4fb71cdb68544fd",
+    "results/fullpool_20261119/recrop_batch3.csv": "11388fa4f83121e2f9693e82327118ea45a2713750e9dc0ab9a363f8a8a7e33e",
+    "results/fullpool_20261119/recrop_batch4.csv": "934b762c9748e1ecfde7b3f7dc2a9d42ee9cb339e64f459bbc0bdb0f9692912a",
+    "results/fullpool_20261119/recrop_batch5.csv": "c3c28cc57fe406e37223dffb54c9c714163eb3309dc3575a2dfd9f43936dc7a0",
+    "results/fullpool_20261119/recrop_batch6.csv": "8efc7eb5293008299d6ea37e05516c0e7a34764d0ff7ef73bf36ab3ab36bdd6e"
+  },
+  "primary_ledgers": {
+    "results/fullpool_20261119/vlm/queue_9b_v5.jsonl": "77b86620b6164b239b8994ab6fd7a9e248dff5aceb7c41aa5e50a477556f8062",
+    "results/fullpool_20261119/vlm/rescue_9b_v5.jsonl": "2e3182d8f3036563fd24890ff269bb42dff0ba80f0daff9e0e52321cb3233362",
+    "results/fullpool_20261119/vlm/recovery_9b_v8.jsonl": "cad5fcad3e1701f7ca465c85e67a822c3b7bcdfe81d4ea8a747cab2e7288aa90"
+  },
+  "label_sources": {
+    "vlm/queue_9b_v5.jsonl": 3740,
+    "vlm/rescue_9b_v5.jsonl": 2358,
+    "clip": 2
+  },
+  "candidate_status": "results/fullpool_20261119/v014.candidate_status.csv",
+  "candidate_status_sha256": "25f6e34355e5fafb219db6be8d87190706d2049ad22f35a1dedbaea902e8ae39",
+  "labels": "results/fullpool_20261119/v014.labels.csv",
+  "labels_sha256": "0d462949eb272c0e636ffc124eda16e24c5573515915b2efadaceac8597b03b1",
+  "status_counts": {
+    "REVIEW_REJECT": 10091,
+    "TRAIN": 6100,
+    "DUPLICATE_SAME_SOURCE": 776,
+    "DUPLICATE_FAMILY": 21,
+    "DUPLICATE_OF_PERSONAL": 181,
+    "EXCLUDED_HOLDOUT_SOURCE": 5
+  },
+  "split_policy": "Parent training rows kept exactly; parent holdout byte-identical; holdout sources/families excluded",
+  "manifests": [
+    {
+      "path": "manifests/v014.csv",
+      "sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+      "stats": {
+        "rows": 8029,
+        "valid_rows": 8029,
+        "cat": 3096,
+        "dog": 4933,
+        "distinct_pool_images": 7719,
+        "rotated": 0
+      },
+      "warnings": []
+    },
+    {
+      "path": "manifests/v014.validation.csv",
+      "sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+      "stats": {
+        "rows": 63,
+        "valid_rows": 63,
+        "cat": 31,
+        "dog": 32,
+        "distinct_pool_images": 63,
+        "rotated": 0
+      },
+      "warnings": [
+        "only 31 cat images (expected at least 500)",
+        "only 32 dog images (expected at least 500)"
+      ]
+    }
+  ]
+}

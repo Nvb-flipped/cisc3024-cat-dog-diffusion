@@ -1,0 +1,28 @@
+{
+  "checked": "2026-11-19T21:03:57.229800+00:00",
+  "rebuild": "starter_kit.catdog_eval.data.rebuild",
+  "checks": [
+    {
+      "manifest": "manifests/v012.csv",
+      "manifest_sha256": "7a304616e186a19d34911873ee0d0ee87250c340f2bce9a3ca4d4255a98df5a9",
+      "rows": 4610,
+      "cat": 1962,
+      "dog": 2648,
+      "cache_sha256": "64701123f560d890419aea179c2da70a5567c1db1c0c07e833cba3ba836809c9",
+      "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+      "labels_equal": true,
+      "pixels_equal": true
+    },
+    {
+      "manifest": "manifests/v012.validation.csv",
+      "manifest_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+      "rows": 63,
+      "cat": 31,
+      "dog": 32,
+      "cache_sha256": "1d9f039f6f95cebb32df94f041afcd2275c11fdf22bcae5ae438d07c89567286",
+      "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+      "labels_equal": true,
+      "pixels_equal": true
+    }
+  ]
+}

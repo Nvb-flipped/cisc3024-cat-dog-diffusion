@@ -1,0 +1,31 @@
+{
+  "created": "2026-11-19",
+  "sources_total": 76250,
+  "original_dino": {
+    "valid_proposals": 47855,
+    "sources_with_valid": 26925,
+    "sources_without_valid": 49325
+  },
+  "stage1_merge": {
+    "dino_valid_heads_after_iou_merge": 34602,
+    "geometry_rescue_heads": 15240,
+    "previously_negative_sources_gaining_rescue_heads": 9823,
+    "merged_total": 49842,
+    "with_personal_verdict": 2237,
+    "stage4_queue": 47605,
+    "note": "47,605 (queue) vs 47,855 (valid proposals) is a coincidence: 47,855 proposals merge into 34,602 heads, plus 15,240 geometry rescues = 49,842, minus 2,237 with personal verdicts = 47,605.",
+    "proposals_absorbed_in_dino_valid_heads_including_rescued_duplicates": 51331
+  },
+  "stage2_rescue": {
+    "sources_still_without_candidates": 39502,
+    "clip_flagged_ge_0.10": 13943,
+    "clip_unflagged": 25559,
+    "flag_recall_on_personally_confirmed_sources": 0.9975,
+    "dino_rescue_cpu_done_before_gpu": 1314,
+    "dino_rescue_gpu_queue": 12629,
+    "limitations": [
+      "Unflagged sources get no detector rescue; a sampled visual miss audit is required.",
+      "Sources that already had candidates are not re-detected for additional heads; sample-audit for multi-head misses."
+    ]
+  }
+}

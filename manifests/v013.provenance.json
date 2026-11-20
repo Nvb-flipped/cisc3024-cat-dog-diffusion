@@ -1,0 +1,64 @@
+{
+  "origin": "ai_assisted_reviewed_manifest",
+  "created": "2026-11-20T00:54:22.513871+00:00",
+  "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+  "vlm_decisions_are_personal_verdicts": false,
+  "curation_policy_basis": "Paco reported (19 Nov 2026) a TA clarification that AI-assisted cleaning qualifies as student work without manually reviewing every pool image; the official 200-crop audit stays personal.",
+  "parent_manifest": "manifests/v010.csv",
+  "parent_manifest_sha256": "c404939b7b23b513b9ba8d170ed8f3b3deadb5637a76a69a546f39e4a2a3f238",
+  "parent_holdout_sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+  "parent_provenance_sha256": "8d80289dfe080a5e48a9b87f041602c1d705064ab234d7f2f7312cceac3143b2",
+  "parent_rows": 1929,
+  "ai_rows": 2993,
+  "train_by_class": {
+    "0": 2120,
+    "1": 2802
+  },
+  "candidate_tables": {
+    "results/fullpool_20261119/selection_v013_candidates.csv": "2e201883526a10d1ef70d2de3527772cd81466c8afb15405e3438962c7f52abb"
+  },
+  "primary_ledgers": {
+    "results/fullpool_20261119/vlm/queue_9b_v5.jsonl": "77b86620b6164b239b8994ab6fd7a9e248dff5aceb7c41aa5e50a477556f8062",
+    "results/fullpool_20261119/vlm/rescue_9b_v5.jsonl": "2e3182d8f3036563fd24890ff269bb42dff0ba80f0daff9e0e52321cb3233362"
+  },
+  "escalation_ledgers": {},
+  "candidate_status": "results/fullpool_20261119/v013.candidate_status.csv",
+  "candidate_status_sha256": "50346f62d93f00dfe4bed8cf286beb4cd56e43d5fcf5d2b58e1fb1777a337d27",
+  "status_counts": {
+    "TRAIN": 2993,
+    "DUPLICATE_SAME_SOURCE": 21,
+    "DUPLICATE_OF_PERSONAL": 18
+  },
+  "split_policy": "Parent training rows kept exactly; parent holdout byte-identical; holdout sources/families excluded",
+  "manifests": [
+    {
+      "path": "manifests/v013.csv",
+      "sha256": "9151ccdde9638ef0cbf2bdd8e5d9326906895005bae68258de2fc390d3eb9b64",
+      "stats": {
+        "rows": 4922,
+        "valid_rows": 4922,
+        "cat": 2120,
+        "dog": 2802,
+        "distinct_pool_images": 4831,
+        "rotated": 0
+      },
+      "warnings": []
+    },
+    {
+      "path": "manifests/v013.validation.csv",
+      "sha256": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+      "stats": {
+        "rows": 63,
+        "valid_rows": 63,
+        "cat": 31,
+        "dog": 32,
+        "distinct_pool_images": 63,
+        "rotated": 0
+      },
+      "warnings": [
+        "only 31 cat images (expected at least 500)",
+        "only 32 dog images (expected at least 500)"
+      ]
+    }
+  ]
+}

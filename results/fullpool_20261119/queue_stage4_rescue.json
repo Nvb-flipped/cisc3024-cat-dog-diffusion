@@ -1,0 +1,11 @@
+{
+  "sources_rescued": 9262,
+  "merged_heads": 15510,
+  "by_origin": {
+    "dino_rescue_valid": 11111,
+    "dino_rescue_geometry_rescue": 4399
+  },
+  "order": "CLIP pet probability, then detector score",
+  "note": "clip_photo_margin column holds the source-level CLIP P(real cat)+P(real dog) for rescue rows",
+  "sha256": "2cd47b514c8e9d83b04744302c660cb1a928899651001e73d3feb3e2a84d2a40"
+}

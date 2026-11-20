@@ -5,7 +5,15 @@ from src.curation.freeze_ai_assisted import geometry_ok, resolve
 
 
 def record(resolved, species='cat'):
-    return {'resolved': resolved, 'verdict': {'species': species}}
+    """A realistic v5 verdict whose recomputed resolution is `resolved`."""
+    verdict = {'species': species, 'is_real_photo': True, 'heads_or_faces_visible': 1, 'view': 'head_closeup',
+               'head_width_share': 'over_80', 'both_ears_fully_inside': True, 'head_clearly_visible': True,
+               'upright': True, 'centered': True, 'edited_or_costume': False}
+    if resolved == 'REJECT':
+        verdict['is_real_photo'] = False
+    if resolved == 'UNCERTAIN':
+        verdict['species'] = 'uncertain'
+    return {'resolved': 'stale-field-is-ignored', 'verdict': verdict}
 
 
 def test_agreeing_or_single_pass_is_accepted_with_its_species():
