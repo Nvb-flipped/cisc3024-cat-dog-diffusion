@@ -353,3 +353,21 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     **Decision: manifest v014 and the submitted model stay unchanged.** Cleaning would need a large-tile
     re-review of ~8,000 crops, fresh training, re-evaluation and a new 200-row audit (a manifest change
     voids the audit), with a risk to the 60/60 result; it is listed under "Next" in the data card.
+73. **17:25 The student's independent results check found a failing seed; earlier claim corrected.**
+    The student reran the unchanged `starter_kit/evaluate.py` on `submission/` (weights/manifest hashes
+    matched ours; evidence in `student_checks/evidence/`). Seed 0 reproduced our result (accuracy,
+    precision, recall, memorization identical; FID differs by 1.2e-7, KID by 1e-17: float noise). Their
+    own seed 31415, never used by the agent: accuracy 0.9745, FID 46.40, KID 0.0068, precision 0.7754,
+    memorization 0%, **recall 0.3949 (< 0.40) -> recall tier Good (4 marks) -> 14/15**, no violation.
+    Reproduced independently by the agent in a container (identical numbers,
+    `results/experiments/v014_ema9995_flip/u080000_g275/seed_31415.json`). So "15/15 on every seed"
+    (entry 71 and earlier chat reports) is wrong: the correct statement is **60 of 61 seeds at 15**
+    (98.4%, Wilson 95% 91.3-99.7%); seed 31415 is 2.1 SD below the 60-seed recall mean (0.433, SD
+    0.018), as expected for a few-percent tail. Decision: the model stays (switching on one new seed
+    would be selection on test evidence; 120k had 14/15 on 15 seeds). The report must say "60 of 61
+    seeds" and carry the risk statement; the hidden test set and seed add uncertainty beyond the dev set.
+    Also: the student's grid counts (failed tiles of 128 = 16 columns x 8 rows, top 4 rows cats, bottom 4
+    dogs: seed 0 -> 39 (cats 10/64, dogs 29/64); seed 31415 -> 60 (cats 21/64, dogs 39/64)) are far above
+    my earlier statement of "6-8 of 64 dog tiles distorted", but fit the evaluator's precision of
+    0.78-0.80 (about a fifth of samples outside the real-image manifold). My visual-quality statements
+    were too optimistic; the report should use the student's counting protocol or avoid numbers.
