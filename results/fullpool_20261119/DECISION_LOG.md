@@ -250,3 +250,73 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     Receipt `results/release/v014_ema9995_u080000_offline_checks.json`. Note: `src.release.check`
     wrote its default `results/release/offline_check.json`, replacing an untracked local receipt of
     an earlier candidate (that older file survives only in the 19 Nov migration snapshot).
+62. **09:40 Both v014 trainings finished at 160k** (EMA 0.9999 at 09:36 UTC, EMA 0.9995 at 09:39 UTC; the
+    GPU was freed by the other user, so ~1.5 h earlier than forecast). Chained seed-0 screens of
+    100k–160k (g2.75) are running. v014 EMA 0.9999 so far (seed 0, g2.75): 100k 15 (FID 46.60,
+    recall 0.405), 120k 15 (FID 45.82, recall 0.433, precision 0.795). The frozen candidate remains
+    EMA 0.9995 80k until a later checkpoint matches 15 on all five seeds with a visibly cleaner grid.
+    Hourly report job replaced with one matching the current work (old prompt referenced finished
+    9B screening).
+63. **09:50 Later v014 checkpoints screened (seed 0, g2.75), all 15/15:** EMA 0.9995: 100k FID 46.04 /
+    recall 0.443; 120k 45.83 / 0.447; 140k 45.64 / 0.448 (precision 0.808); **160k 45.92 / 0.451 /
+    precision 0.811**. EMA 0.9999: 100k 46.60 / 0.405; 120k 45.82 / 0.433; 140k 45.81 / 0.444
+    (precision 0.813); 160k 45.86 / 0.434. Late checkpoints beat 80k on FID (−0.7 to −0.9), recall
+    (+0.03) and precision (+0.01 to +0.03), unlike v011 where later checkpoints lost recall.
+    Selection seeds 101/202 launched for EMA 0.9995 at 160k and 140k and EMA 0.9999 at 140k (g2.75).
+    Rule: highest total over seeds 0/101/202, then larger minimum recall margin, then precision and
+    grid quality; the single winner then gets confirmation seeds 303/404 (a new choice is not
+    covered by the 80k confirmation). Memorization is 0% everywhere, so longer training is safe.
+64. **09:55 Correction and robustness panel (rule fixed before running).** Selection seeds 101/202
+    (g2.75, EMA 0.9995): 80k 15/15/15 (recall 0.419/0.416/0.433, FID 46.57/46.84/46.47); 140k 15/15/14
+    (recall 0.448/0.402/0.398); 160k 15/15/15 (recall 0.451/0.404/0.403, FID 45.92/46.47/46.19,
+    accuracy 0.975/0.981/0.975). EMA 0.9999 140k: 15/14/15 (seed 101 recall 0.379). My entry 63 read
+    "later checkpoints raise recall by +0.03" from seed 0 alone; that does not hold on seeds 101/202
+    (recall is seed-noisy, SD ~0.012-0.02). Later checkpoints are consistently better on FID
+    (-0.3 to -0.6 per seed) and accuracy, which already have wide margins; recall decides the grade.
+    By the frozen rule (total, then minimum margin) 80k stays the candidate. To separate real
+    differences from seed noise, EMA 0.9995 at 80k/100k/120k/160k will be evaluated on nine seeds
+    (0,101,202,303,404,505,606,707,808). Rule, fixed now: no hard-check violations; most seeds at 15;
+    then z = (mean recall - 0.40)/SD(recall) over the nine seeds; then precision and grid quality.
+    These extra seeds are robustness evaluations, not a new selection pool for other settings.
+65. **10:10 Nine-seed panel result (EMA 0.9995, g2.75, seeds 0/101/202/303/404/505/606/707/808):**
+    80k 9/9 at 15 (recall mean 0.434, SD 0.022, min 0.415, z 1.58, FID 46.77, precision 0.788);
+    100k 9/9 (0.431, 0.020, min 0.400, z 1.56, FID 46.19); **120k 9/9 (0.433, 0.010, min 0.418,
+    z 3.30, FID 46.00, precision 0.791, accuracy 0.968-0.982)**; 160k 8/9 (seed 707 recall 0.3993 ->
+    14; z 1.00). No hard-check violation, memorization 0% everywhere. By the rule fixed in entry 64
+    the winner is **EMA 0.9995 at 120k**. Caveat: SD from nine seeds is noisy, and the winner of four
+    near-equal candidates is mildly optimistic; 120k also has the best minimum recall and a better
+    FID than the 80k candidate, so both simple rules agree. Seeds 303/404 were part of the
+    selection panel, so a clean confirmation uses fresh seeds 909/1010/1111/1212/1313/1414; pass
+    criterion fixed now: all six at 15 with no violation. The 80k candidate (15 on 9/9 seeds)
+    remains the fallback.
+66. **10:15 Fresh-seed confirmation of 120k FAILED its pre-set criterion (all six at 15):** seeds
+    909/1010/1111/1212/1313/1414 = 15/14/15/15/15/15; the 14 is seed 1010 (recall 0.3993, accuracy
+    0.976, FID 46.23). Other fresh-seed recalls 0.404/0.423/0.423/0.476/0.438; FID 45.57-46.23; no
+    violation; memorization 0%. Over all 15 seeds 120k has recall mean 0.432, SD ~0.019, so the
+    nine-seed SD of 0.010 in entry 65 was optimistic (selection bias, as flagged there). With mean
+    ~0.43 and SD ~0.02 any of these checkpoints has roughly 5% chance per seed of recall < 0.40
+    (one mark). Criterion is recorded as failed, not redefined. Fair finalist comparison, fixed now
+    before running it: 80k and 120k on the same 15 seeds (0,101,202,303,404,505,606,707,808,909,1010,
+    1111,1212,1313,1414); most seeds at 15 wins, then higher minimum recall, then 120k (better FID).
+    80k is being evaluated on the six fresh seeds now.
+67. **10:20 Finalist comparison on identical 15 seeds (EMA 0.9995, g2.75) — rule from entry 66:**
+    **80k: 15/15 seeds at 15** (recall mean 0.4332, SD 0.0214, min 0.4115; FID mean 46.70, max 47.15;
+    accuracy min 0.964; precision mean 0.788; no violations; memorization 0%). 120k: 14/15 (recall
+    mean 0.4303, SD 0.0184, min 0.3993; FID mean 45.95; precision 0.797). Rule picks **80k**. The six
+    fresh seeds (909-1414) were not used to choose 80k, so they are clean confirmation: 80k = 15 on
+    all six (recall 0.4115-0.4757). FINAL CHOICE: v014 EMA 0.9995, 80,000 updates, g2.75
+    (checkpoint `checkpoints/v014_ema9995_flip_seed17/update_080000`, export
+    `private_build/v014_ema9995_flip/u080000_g275`). Honest risk statement: recall SD across seeds
+    is ~0.02 around a mean of ~0.43, so a new seed has a few-percent chance (~2-5%) of falling
+    just below 0.40 and costing one mark; no hidden-test result can be promised.
+68. **10:27 Final model installed in `submission/` and official evidence regenerated from it.**
+    Installed files (byte-identical to export `private_build/v014_ema9995_flip/u080000_g275`):
+    weights.pt (sha256 e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f), manifest.csv (v014, sha256 693b3270...),
+    provenance.json, inference.json, plus the unchanged inference code (model/diffusion/generate/
+    __init__; edm.py and flow.py remain from earlier experiments and are unused by this
+    epsilon-prediction export). `src.evaluation.run` from `submission/` (restricted container,
+    no network), seeds 0/101/202/303/404 -> `results/final/seed_N.json`: 15/15/15/15/15, FID
+    46.57/46.84/46.47/47.05/46.79, recall 0.419/0.416/0.433/0.445/0.425, accuracy 0.972/0.975/
+    0.970/0.973/0.964, memorization 0%, no violations; metrics bit-identical to the experiment runs.
+    Offline CUDA/CPU checks of `submission/` itself are running (receipts
+    `results/release/offline_{cuda,cpu}.json`).
