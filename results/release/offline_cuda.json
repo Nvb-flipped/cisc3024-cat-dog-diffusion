@@ -1,0 +1,59 @@
+{
+  "device": "cuda",
+  "parameters": 5098915,
+  "offline": true,
+  "clean_working_directory": "/home/paco/Pattern-Recognition-Project/tmp/offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 2.599079535808414,
+      "sample_sha256": "7172ddc6b79c4898823f5357945395c6b23e049f337380feda86fabc72a40caa"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 3.147764672059566,
+      "sample_sha256": "55c0da03435bb88164b0317881b590dd88edce815ca0474884942770da306da3"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 3.137256489833817,
+      "sample_sha256": "92bcf92760495b9551dbd1d2c7e0d596c585a915e9c1c6806c8fbd141bd6468f"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 5.965518935117871,
+      "sample_sha256": "00481f28f22950cb0f59117ec41a95a704174d0b14febe873e10091e5ecc8611"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 48.115548240952194,
+      "sample_sha256": "b654fc258f33fa0817c861b0e198f5a6495347091683105e2ef4ab57f9e73bec"
+    }
+  ],
+  "seconds": 63.117963996948674,
+  "submission_bytes": 20710252,
+  "files": [
+    "edm.py",
+    "manifest.csv",
+    "weights.pt",
+    "provenance.json",
+    "model.py",
+    "__init__.py",
+    "generate.py",
+    "flow.py",
+    "diffusion.py",
+    "inference.json"
+  ],
+  "file_sha256": {
+    "edm.py": "cc20f100127aad6b98e84b995eb5b23d8d26b6985e328f5cebeb7fadc0053c0e",
+    "manifest.csv": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+    "weights.pt": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+    "provenance.json": "2498e056f4184cb6301e91eb750945f323de5225b11973a1b9cc2e82cc683bc5",
+    "model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "flow.py": "071b75574f9fb795ea6cd0fb66c312dbfe04135201b75d4a3257bd3fb94a92d5",
+    "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+    "inference.json": "a7ef9736dac9bd9b98b289384f5574c42f9dd012e2ba579f0ae888c4ea8af0ea"
+  }
+}

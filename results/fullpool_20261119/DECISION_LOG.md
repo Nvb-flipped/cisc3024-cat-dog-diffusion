@@ -320,3 +320,10 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     0.970/0.973/0.964, memorization 0%, no violations; metrics bit-identical to the experiment runs.
     Offline CUDA/CPU checks of `submission/` itself are running (receipts
     `results/release/offline_{cuda,cpu}.json`).
+69. **10:40 Release evidence for `submission/` complete (my side).** Offline receipts bound to the
+    installed files: CUDA 1/2/20/50/500 passes (500 images in 48 s), CPU passes (500 images in 742 s),
+    network disabled, clean working directory, 5,098,915 parameters, 20.7 MB. Readiness check:
+    submission, offline CPU/CUDA and the five final seeds pass with no objective shortfall
+    (Excellent tier on all five seeds); remaining issues are the personal audit, final data card,
+    AGENT_LOG checks, report.pdf/page count and presentation files (student-owned or not yet
+    produced). `DATA_CARD.md` rewritten with the real v014 counts and still marked provisional.

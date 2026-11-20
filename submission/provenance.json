@@ -1,0 +1,30 @@
+{
+  "checkpoint_sha256": "7ae2baf5b4511e0855dd97a222a4c0a0edad1ad45f8135914330f87e28921107",
+  "manifest_sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+  "weights_sha256": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+  "config_sha256": "a7ef9736dac9bd9b98b289384f5574c42f9dd012e2ba579f0ae888c4ea8af0ea",
+  "weights_variant": "ema",
+  "training_update": 80000,
+  "training_seed": 17,
+  "pool_content_sha256": "221cc63eacf7ab12dc943390d696ef27870d25b0af121ee1adb2d861c91003a4",
+  "training_source_code_sha256": {
+    "src/training/train.py": "77dfd43337db7d71a1e69dfd183c3c8648f97ed419ee6d38f6a9b1caa18d8545",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/data.py": "5dbfc1cc7a958fff22b7bb8a7ad6e2f40a74227102f1fbef9754dc3fe2832c76",
+    "src/training/validation.py": "020d22776ac38642d6ab84ac60259901cc1ad9a1e698a3673c01717d7a77df15",
+    "src/training/lineage.py": "f3830197f55cdc5082aaa7e7f5dde9fc2e41be4981bd6158b9187992e3d739f5",
+    "src/curation/pool_fingerprint.py": "410567c6e78bf3f72bb5d149ba0109af5a0dddde186ee3a7d6bf8813c0075236",
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df"
+  },
+  "data_review_provenance_sha256": "aa9d242fbbe552b857b763eb76df179056f7e4f61ce833005ff1f702dbc71291",
+  "training_segment_id": "000000_20261120T0700460189040000",
+  "parameters": 5098915,
+  "exported": "2026-11-20T08:18:59.784790+00:00",
+  "inference_source_sha256": {
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df"
+  }
+}
