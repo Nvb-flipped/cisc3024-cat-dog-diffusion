@@ -371,3 +371,14 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     my earlier statement of "6-8 of 64 dog tiles distorted", but fit the evaluator's precision of
     0.78-0.80 (about a fifth of samples outside the real-image manifold). My visual-quality statements
     were too optimistic; the report should use the student's counting protocol or avoid numbers.
+74. **17:50 Clarification of the student's "failed tile" criterion (entry 73).** A tile counts as failed
+    when the student can hardly or not at all tell whether it shows a cat, a dog or even an animal,
+    because of distortion or misplaced head components. By that strict criterion 39/128 (seed 0) and
+    60/128 (seed 31415) tiles fail, i.e. 30% and 47%, dogs more than cats. The official metrics do not
+    show this (classifier accuracy 0.97, precision 0.78-0.80 = about 20% outside the real-image
+    manifold), so entry 73's statement that the counts "fit" precision is withdrawn: the student's
+    failure rate exceeds what precision implies, and accuracy does not measure human recognizability.
+    Report implication: state this limitation plainly. Possible quality levers (all trade against
+    recall, the marginal metric, or need new training): higher guidance (+precision, -recall), wider
+    model (v011 wide: precision 0.85-0.88 but recall 0.38-0.40). None applied; the choice between
+    visual quality and the 15/15 margin belongs to the student.
