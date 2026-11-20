@@ -217,3 +217,31 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     160k updates, seed 17. Selection rule unchanged: hard checks first, then tier total, then
     recall margin; best candidates go to seeds 101/202, then confirmation 303/404, with grid
     inspection for head realism/distortion before any selection.
+57. **08:18 v014 80k early screen (EMA 0.9999, g2.75, seed 0): 15/15** — accuracy 0.973, FID 47.28
+    (lowest measured in the project), recall 0.415, precision 0.780, memorization 0%. Versus v011 80k
+    seed 0 (FID 48.52, recall 0.409, precision 0.829): better FID/recall, lower precision. Grid
+    (`results/experiments/v014_flip/u080000_g275/seed_0.png`): cats mostly clean, recognisable heads;
+    roughly 6–8 of 64 dog tiles are blurry/blobby or partly distorted, consistent with the precision
+    drop. Seeds 101/202 at 80k and the EMA 0.9995 80k screens are running; later checkpoints and
+    guidance 3.0 (higher precision in v011) will be compared before any selection.
+58. **08:22 v014 80k multi-seed (g2.75):** EMA 0.9999 = 15/15/14 on seeds 0/101/202 (FID 47.28/47.29/
+    46.89, recall 0.415/0.404/0.387, precision 0.780/0.797/0.782, accuracy 0.971–0.976, mem 0%).
+    EMA 0.9995 seed 0 = 15 (FID 46.57, recall 0.419, precision 0.797); its seeds 101/202 running.
+    Recall is still the only marginal metric (seed 202 below 0.40); FID margin is now ~3 points.
+59. **08:27 v014 EMA 0.9995 80k (g2.75) = 15/15/15 on seeds 0/101/202** — first model with full marks
+    on every selection seed: accuracy 0.972/0.975/0.970, FID 46.57/46.84/46.47, recall
+    0.419/0.416/0.433, precision 0.797/0.808/0.801, memorization 0%. Minimum recall margin +0.016
+    (v011 best: −0.008). Under the frozen rule this is the leading candidate; confirmation seeds
+    303/404 launched. Grid looks like the EMA 0.9999 grid (same seed-17 trajectory and sampling
+    noise; weights differ, mean pixel difference 5/255): cats clean, ~6–8/64 dog tiles blurry or
+    partly distorted. Later checkpoints/guidance will still be screened for higher precision; a
+    switch requires equal marks on all five seeds and a cleaner grid.
+60. **08:29 Confirmation holds: v014 EMA 0.9995 80k (g2.75) = 15 on all five official seeds.**
+    Seeds 303/404: accuracy 0.973/0.964, FID 47.05/46.79, recall 0.445/0.425, precision 0.748/0.780,
+    memorization 0%, no violations. Five-seed minimum margins: accuracy +0.064, FID −2.95 (≤50),
+    recall +0.016, memorization 5 pp below the limit. This is the frozen submission candidate
+    (checkpoint `checkpoints/v014_ema9995_flip_seed17/update_080000`, export
+    `private_build/v014_ema9995_flip/u080000_g275`). Later checkpoints and guidance variants are
+    still screened for image quality (precision); a replacement needs 15 on all five seeds and a
+    visibly cleaner grid. Release steps (submission/ export, clean offline load, archive allowlist,
+    hashes) follow.
