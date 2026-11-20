@@ -1,0 +1,116 @@
+{
+  "submission": "private_build/v014_ema9995_flip/u080000_g275",
+  "container": "prp-check-v014 (no network, scripts/gpu_job.sh)",
+  "checks": {
+    "cpu": {
+      "device": "cpu",
+      "parameters": 5098915,
+      "offline": true,
+      "clean_working_directory": "/home/paco/Pattern-Recognition-Project/tmp/offline_check",
+      "records": [
+        {
+          "count": 1,
+          "checks_seconds": 34.96089799609035,
+          "sample_sha256": "08ab0def630b7dd3c5f05aa4d8588912ee5e3ed61b61c9bcdcd2a4499e42b3cb"
+        },
+        {
+          "count": 2,
+          "checks_seconds": 46.33670522412285,
+          "sample_sha256": "c9ebdc04dd956bdbcbaf026e69e10303a08fcb54ac8026999539679c8502d1ed"
+        },
+        {
+          "count": 20,
+          "checks_seconds": 46.297193336999044,
+          "sample_sha256": "129c1c331703ba4df9948b698318d9e69ba76273f8f055014888d667919ea9bc"
+        },
+        {
+          "count": 50,
+          "checks_seconds": 92.75945359794423,
+          "sample_sha256": "bd2eed587616801366acf6014ba6f28a3a083871078eaa7ac4ff02f719919d7f"
+        },
+        {
+          "count": 500,
+          "checks_seconds": 766.8034804840572,
+          "sample_sha256": "c2cf65bb5729e62c023470d7dd46653a794c7ee7c90df8719d411ed16177c0fc"
+        }
+      ],
+      "seconds": 987.2007883349434,
+      "submission_bytes": 20706708,
+      "files": [
+        "manifest.csv",
+        "weights.pt",
+        "provenance.json",
+        "model.py",
+        "__init__.py",
+        "generate.py",
+        "diffusion.py",
+        "inference.json"
+      ],
+      "file_sha256": {
+        "manifest.csv": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+        "weights.pt": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+        "provenance.json": "2498e056f4184cb6301e91eb750945f323de5225b11973a1b9cc2e82cc683bc5",
+        "model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+        "inference.json": "a7ef9736dac9bd9b98b289384f5574c42f9dd012e2ba579f0ae888c4ea8af0ea"
+      }
+    },
+    "cuda": {
+      "device": "cuda",
+      "parameters": 5098915,
+      "offline": true,
+      "clean_working_directory": "/home/paco/Pattern-Recognition-Project/tmp/offline_check",
+      "records": [
+        {
+          "count": 1,
+          "checks_seconds": 3.753585040103644,
+          "sample_sha256": "7172ddc6b79c4898823f5357945395c6b23e049f337380feda86fabc72a40caa"
+        },
+        {
+          "count": 2,
+          "checks_seconds": 4.407763780094683,
+          "sample_sha256": "55c0da03435bb88164b0317881b590dd88edce815ca0474884942770da306da3"
+        },
+        {
+          "count": 20,
+          "checks_seconds": 4.308338875882328,
+          "sample_sha256": "92bcf92760495b9551dbd1d2c7e0d596c585a915e9c1c6806c8fbd141bd6468f"
+        },
+        {
+          "count": 50,
+          "checks_seconds": 8.746517485938966,
+          "sample_sha256": "00481f28f22950cb0f59117ec41a95a704174d0b14febe873e10091e5ecc8611"
+        },
+        {
+          "count": 500,
+          "checks_seconds": 69.3663053130731,
+          "sample_sha256": "b654fc258f33fa0817c861b0e198f5a6495347091683105e2ef4ab57f9e73bec"
+        }
+      ],
+      "seconds": 91.55237530404702,
+      "submission_bytes": 20706708,
+      "files": [
+        "manifest.csv",
+        "weights.pt",
+        "provenance.json",
+        "model.py",
+        "__init__.py",
+        "generate.py",
+        "diffusion.py",
+        "inference.json"
+      ],
+      "file_sha256": {
+        "manifest.csv": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+        "weights.pt": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+        "provenance.json": "2498e056f4184cb6301e91eb750945f323de5225b11973a1b9cc2e82cc683bc5",
+        "model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+        "inference.json": "a7ef9736dac9bd9b98b289384f5574c42f9dd012e2ba579f0ae888c4ea8af0ea"
+      }
+    }
+  }
+}

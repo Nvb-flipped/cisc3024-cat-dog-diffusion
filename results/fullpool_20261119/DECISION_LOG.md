@@ -245,3 +245,8 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     still screened for image quality (precision); a replacement needs 15 on all five seeds and a
     visibly cleaner grid. Release steps (submission/ export, clean offline load, archive allowlist,
     hashes) follow.
+61. **08:50 Offline release checks pass for the v014 EMA 0.9995 80k export:** CPU and CUDA, network
+    disabled, clean working directory, counts 1/2/20/50/500; 5,098,915 parameters, 20.7 MB export.
+    Receipt `results/release/v014_ema9995_u080000_offline_checks.json`. Note: `src.release.check`
+    wrote its default `results/release/offline_check.json`, replacing an untracked local receipt of
+    an earlier candidate (that older file survives only in the 19 Nov migration snapshot).
