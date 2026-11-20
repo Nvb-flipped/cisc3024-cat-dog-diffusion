@@ -1,0 +1,35 @@
+{
+  "status": "complete_csv_and_exact_official_sample",
+  "audit_sha256": "ccf9b0fa26d651f4dc844dc1848d58277a74a36cde6248a8a6c4c2c5982a1c5d",
+  "manifest_sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+  "overall": {
+    "n": 200,
+    "good": 160,
+    "precision": 0.8,
+    "wilson_95": [
+      0.7391448134346212,
+      0.8495479907390189
+    ]
+  },
+  "by_class": {
+    "cat": {
+      "n": 75,
+      "good": 63,
+      "precision": 0.84,
+      "wilson_95": [
+        0.7408329231474533,
+        0.9060348639642386
+      ]
+    },
+    "dog": {
+      "n": 125,
+      "good": 97,
+      "precision": 0.776,
+      "wilson_95": [
+        0.6953116645758503,
+        0.8402302380971537
+      ]
+    }
+  },
+  "scope": "Checks sample identity and CSV completeness; authentic personal judgment remains the student responsibility."
+}

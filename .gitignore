@@ -30,3 +30,6 @@ results/**/*.png
 results/**/*.jpg
 results/**/*.html
 !requirements*.txt
+
+# Audit sheets are crops of raw course photographs: local only (the archive allowlist also excludes them)
+audit/sheet_*.png

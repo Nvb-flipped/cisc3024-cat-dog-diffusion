@@ -1,0 +1,28 @@
+{
+  "student_id": "U-C3-2652-3",
+  "manifest_sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+  "official_tool_sha256": "9d4a1a9eaa79c16eed4ed83601af832c7898868d3d397aa330e7f3aa60d17b2b",
+  "created": "2026-11-20T15:26:33.992738+00:00",
+  "command": [
+    "/home/paco/Pattern-Recognition-Project/.venvs/training/bin/python",
+    "/home/paco/Pattern-Recognition-Project/starter_kit/audit.py",
+    "--manifest",
+    "/home/paco/Pattern-Recognition-Project/submission/manifest.csv",
+    "--student-id",
+    "U-C3-2652-3",
+    "--n",
+    "200",
+    "--data-root",
+    "/home/paco/Pattern-Recognition-Project/data",
+    "--out",
+    "/home/paco/Pattern-Recognition-Project/audit_prepare_maul_uh2/audit"
+  ],
+  "initial_csv_sha256": "80a67387aaabf31ab4313c3eee023d90f128e725ab9a930256584d505669ce7d",
+  "sheet_sha256": {
+    "sheet_00.png": "70929825dfd258ba494b581e59e698f63cdd2b73c927b379846335ff9bc2cc52",
+    "sheet_01.png": "f16ec1f543d25d673964af326d6cc8275d772c1515355753b6bc90008b15fb34",
+    "sheet_02.png": "130b36c3944b3996cd55fec06f290f47a04daec8c2b17c5ff57a1ab150628bbc",
+    "sheet_03.png": "285bdd1e9de8dfa0431d6742abc7ed743934e92b207d4be398ee79d0ef798857"
+  },
+  "ownership": "Verdicts and bad-row reasons must be personally supplied by the student."
+}

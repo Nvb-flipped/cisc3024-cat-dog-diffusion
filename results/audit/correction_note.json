@@ -1,0 +1,19 @@
+{
+  "note": "Two typing slips in the student-filled audit.csv were corrected after the student confirmed the intended values in chat (20 Nov 2026). No other cell changed.",
+  "original_sha256": "a45cefc6c552a28734bbea127b06d8dad3beb0b892476b2709ca95bb26efe897",
+  "corrected_sha256": "ccf9b0fa26d651f4dc844dc1848d58277a74a36cde6248a8a6c4c2c5982a1c5d",
+  "original_copy": "private_build/audit_backup/audit_as_filled_by_student.csv",
+  "edits": [
+    {
+      "index": 67,
+      "label": "1good -> 1",
+      "verdict": "'' -> good"
+    },
+    {
+      "index": 96,
+      "verdict": "'bad ears cut' -> bad",
+      "reason": "'' -> ears cut"
+    }
+  ],
+  "confirmed_by_student": true
+}

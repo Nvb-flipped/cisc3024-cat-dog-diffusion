@@ -1,0 +1,122 @@
+{
+  "audit_csv": "audit/audit.csv",
+  "overall": {
+    "n": 200,
+    "good": 160,
+    "precision": 0.8,
+    "wilson_95": [
+      0.7391448134346212,
+      0.8495479907390189
+    ]
+  },
+  "by_class": {
+    "cat": {
+      "n": 75,
+      "good": 63,
+      "precision": 0.84,
+      "wilson_95": [
+        0.7408329231474533,
+        0.9060348639642386
+      ]
+    },
+    "dog": {
+      "n": 125,
+      "good": 97,
+      "precision": 0.776,
+      "wilson_95": [
+        0.6953116645758503,
+        0.8402302380971537
+      ]
+    }
+  },
+  "by_source": {
+    "personal": {
+      "n": 49,
+      "good": 43,
+      "precision": 0.8775510204081632,
+      "wilson_95": [
+        0.7575560270624347,
+        0.9426517420975983
+      ]
+    },
+    "ai_found": {
+      "n": 151,
+      "good": 117,
+      "precision": 0.7748344370860927,
+      "wilson_95": [
+        0.7018736938094161,
+        0.8341584556688042
+      ]
+    }
+  },
+  "by_source_and_class": {
+    "personal_cat": {
+      "n": 25,
+      "good": 24,
+      "precision": 0.96,
+      "wilson_95": [
+        0.8045593626380625,
+        0.9929037664980127
+      ]
+    },
+    "personal_dog": {
+      "n": 24,
+      "good": 19,
+      "precision": 0.7916666666666666,
+      "wilson_95": [
+        0.5952954674681133,
+        0.9075517464714814
+      ]
+    },
+    "ai_found_cat": {
+      "n": 50,
+      "good": 39,
+      "precision": 0.78,
+      "wilson_95": [
+        0.6475845041874634,
+        0.8724608402978559
+      ]
+    },
+    "ai_found_dog": {
+      "n": 101,
+      "good": 78,
+      "precision": 0.7722772277227723,
+      "wilson_95": [
+        0.6814098987582484,
+        0.8431917294398499
+      ]
+    }
+  },
+  "bad_reasons": {
+    "ears cut": 33,
+    "head spans less than 60%": 4,
+    "head covered": 1,
+    "ears covered": 1,
+    "head cut": 1
+  },
+  "bad_by_source": {
+    "ai_found": 34,
+    "personal": 6
+  },
+  "ai_recrop_rows": {
+    "n": 18,
+    "good": 10,
+    "precision": 0.5555555555555556,
+    "wilson_95": [
+      0.33716415642042774,
+      0.7544048187299437
+    ]
+  },
+  "ai_original_square_rows": {
+    "n": 133,
+    "good": 107,
+    "precision": 0.8045112781954887,
+    "wilson_95": [
+      0.7289697232197552,
+      0.8629561499626974
+    ]
+  },
+  "ears_cut_in_ai_recrop_rows": 7,
+  "ears_cut_in_ai_original_rows": 22,
+  "scope": "Descriptive statistics of the student's own verdicts; not a re-judgment."
+}

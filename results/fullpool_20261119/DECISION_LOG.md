@@ -338,3 +338,18 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     precision 0.785 (0.746-0.814), memorization 0% on every seed, no violation. Per-seed P(15) point
     estimate 1.00, Wilson 95% lower bound 0.94. These 45 seeds were never used for selection.
     Not a hidden-test guarantee (the hidden dev set or generation seed may differ).
+72. **16:10 Official audit complete (student's personal labels, 200 crops, student ID recorded in
+    `audit/provenance.json`).** Two typing slips (#67: "good" typed in the label column; #96: reason
+    typed in the verdict column) were corrected only after the student confirmed the intended values
+    in chat; original kept in `private_build/audit_backup/`, note `results/audit/correction_note.json`.
+    Result: **160/200 good = 80.0% (Wilson 95% 73.9-85.0%)**; cats 63/75 (84.0%), dogs 97/125 (77.6%);
+    student-reviewed rows 43/49 (87.8%), AI-found rows 117/151 (77.5%). 40 bad: ears cut 33, head <60%
+    4, head/ears covered 2, head cut 1. Ears-cut is the dominant error and my agent review
+    under-detected it (small thumbnails, face-only detector boxes); it was concentrated in re-crops
+    (7 of 18 audited). A one-feature geometry rule (box margin to the square's top edge) cannot
+    separate ears-cut from good rows (every threshold loses most good rows). The handout scores the
+    audit by agreement with the teaching team's re-labels of 50 rows, not by precision, so 80% costs no
+    audit marks; it is reported honestly in `DATA_CARD.md` (one page, 449 words).
+    **Decision: manifest v014 and the submitted model stay unchanged.** Cleaning would need a large-tile
+    re-review of ~8,000 crops, fresh training, re-evaluation and a new 200-row audit (a manifest change
+    voids the audit), with a risk to the 60/60 result; it is listed under "Next" in the data card.
