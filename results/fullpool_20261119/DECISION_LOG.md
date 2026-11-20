@@ -190,7 +190,7 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     complete. Latest-verdict count: 7,339 AI-found good + 1,929 personal = 9,268 before dedup.
     First v014 freeze: 8,295 rows (1,929 personal + 6,366 AI; 3,202 cat / 5,093 dog; 781 same-photo,
     181 duplicate-of-personal, 22 family duplicates, 5 holdout-source exclusions).
-54. **07:00 Label spot-check found a one-head gap; v014 set aside before any use:** CLIP zero-shot on
+54. **06:52 Label spot-check found a one-head gap; v014 set aside before any use:** CLIP zero-shot on
     stored crop embeddings disagreed with 11/6,366 VLM species labels (none strong); all 11 VLM labels
     are visually correct, but 6 of the 11 crops show part of a second animal head at the edge
     (exactly-one-head violation). A detector-overlap scan (another detected head box ≥25% inside the
@@ -201,7 +201,7 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     `private_build/superseded_manifests/v014_pre_second_head/`; v014 will be refrozen with these
     ledgers last. Drivers `scripts/run_v014.py` (160k) and `scripts/run_v014_variants.py`
     (EMA 0.9995, 160k) are sed copies of the v013 drivers.
-55. **07:35 One-head re-check result and final v014:** the three re-check reviewers rejected 295 of
+55. **06:58 One-head re-check result and final v014:** the three re-check reviewers rejected 295 of
     the 1,160 flagged rows (second animal head 92, ears cut 80, person 36, screen/non-photo 21,
     small head 21, not upright 20, other 25). The 80 ears-cut rejections were confirmed on a
     300-px sample (face-only squares the earlier small-tile reviews missed; the overlap scan caught
@@ -212,7 +212,7 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     **v014 = 8,029 rows** (1,929 personal + 6,100 AI; 3,096 cat / 4,933 dog; byte-identical 63-row
     holdout), sha256 693b3270…; cache parity exact (8,092 crops). Species labels: CLIP cross-check
     disagreed on 11/6,366, all VLM labels visually correct.
-56. **07:40 v014 trainings launched (restricted containers, 1k checkpoints, chained seed-0 g2.75
+56. **07:00 v014 trainings launched (restricted containers, 1k checkpoints, chained seed-0 g2.75
     screens at 80k/100k/120k/140k/160k):** `v014_flip` (EMA 0.9999) and `v014_ema9995_flip`, both
     160k updates, seed 17. Selection rule unchanged: hard checks first, then tier total, then
     recall margin; best candidates go to seeds 101/202, then confirmation 303/404, with grid
