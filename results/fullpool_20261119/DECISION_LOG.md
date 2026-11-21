@@ -407,3 +407,17 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     size and SHA-256, and their bytes read from the release archives (HTTP range) are identical to the local
     files. Evidence: `results/pruning/backup_and_sample_verification_20261121.json`. Steps 3-5 await the
     student's go-ahead.
+77. **04:10 (21 Nov UTC) Pruning executed under the student's SOP and verified.** Final dry run: 1,517
+    files, 141.8 GB (the earlier 1,522 / 142.2 GB minus the 5 Tier-2 sample files, which the new
+    verification evidence file cites, so the record-based protection kept them). Hashes of all 1,517 files
+    were computed and matched their receipts (0 mismatches) before deletion; the ledger
+    (`results/pruning/ledger_2026-11-21T040237.000071+0000.json`: path, bytes, actual SHA-256, receipt SHA-256, backup archive for the 316 older-run
+    files, backup-manifest SHA-256 9b25b070...) was written first, then the files deleted.
+    Result: `checkpoints/` 161.1 GB -> 19.4 GB (141.6 GB freed), disk free 47 GB -> 176 GiB.
+    Post-checks: 207 tests passed (1 skipped), identical to the pre-prune baseline; official evaluator
+    rerun on submission/ in a container: seed 0 = 15/15, all six metrics identical to results/final;
+    seed 31415 = 14/15, five metrics identical, FID differs by 4.6e-7 (float noise); all 2,673
+    backed-up kept-set files re-hash identical; final checkpoint update_080000.pt verified (sha256
+    7ae2baf5...) with the 100k-160k updates; 241 export folders have consistent weights hashes;
+    submission/ equals the final export; none of the 155 cited checkpoint files is missing; git status
+    unchanged apart from the ledger; the wide and mid trainings were untouched and keep running.

@@ -128,13 +128,32 @@ def main():
     print(f'\n{len(ledger)} files, {total / 1e9:.1f} GB would be deleted' + ('' if args.apply else ' (dry run: nothing deleted)'))
     if not args.apply:
         return
+    # 1) hash the ACTUAL content of every file to be deleted; refuse to continue if one differs from its receipt
+    mismatches = []
+    for i, entry in enumerate(ledger, 1):
+        entry['sha256'] = file_sha256(entry['path'])
+        entry['matches_receipt'] = None if not entry['receipt_sha256'] else entry['sha256'] == entry['receipt_sha256']
+        if entry['matches_receipt'] is False:
+            mismatches.append(entry['path'])
+        if i % 200 == 0:
+            print(f'hashed {i}/{len(ledger)}', flush=True)
+    if mismatches:
+        print('ABORT, nothing deleted: file hash differs from its receipt:', *mismatches[:10], sep='\n  ')
+        return
+    manifest_sha = file_sha256(args.legacy_backup_manifest) if args.legacy_backup_manifest else None
     out = Path('results/pruning') / f"ledger_{timestamp().replace(':', '')}.json"
-    write_json(out, {'created': timestamp(), 'rule': __doc__.split('\n\n')[1], 'keep_every': args.keep_every,
-                     'skipped': args.skip, 'files': ledger, 'total_bytes': total})
-    print('ledger written:', out)
-    for entry in ledger:
+    meta = {'created': timestamp(), 'rule': __doc__.strip(), 'keep_every': args.keep_every, 'skipped': args.skip,
+            'legacy_backup_manifest': args.legacy_backup_manifest, 'legacy_backup_manifest_sha256': manifest_sha,
+            'files': ledger, 'total_bytes': total}
+    # 2) the ledger (path, bytes, actual SHA-256, receipt SHA-256, backup archive) is written BEFORE any deletion
+    write_json(out, meta | {'status': 'planned: written before any deletion'})
+    print('ledger written before deletion:', out, flush=True)
+    for i, entry in enumerate(ledger, 1):
         Path(entry['path']).unlink()
-    print('deleted', len(ledger), 'files')
+        if i % 200 == 0:
+            print(f'deleted {i}/{len(ledger)}', flush=True)
+    write_json(out, meta | {'status': 'completed', 'deleted_files': len(ledger), 'completed': timestamp()})
+    print('deleted', len(ledger), 'files; ledger updated:', out)
 
 
 if __name__ == '__main__':
