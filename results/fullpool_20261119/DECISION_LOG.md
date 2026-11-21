@@ -396,3 +396,14 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     student's tile count on seed 0 is <= 29 of 128 (current 39), counted with the student's
     criterion; (5) 30 further seeds give >= 28 at 15. Otherwise the current model stays. The final
     trade-off between marks risk and image quality belongs to the student.
+76. **04:00 (21 Nov UTC) Pruning SOP steps 1-2 verified (student-approved SOP; nothing deleted yet).**
+    Step 1: the final model (`submission/`) and the 2,663 files that survive pruning of the Linux-era
+    runs (67 checkpoints + all receipts and loss logs) were packed into stored ZIP parts (6.24 GB, 2,673 files)
+    and uploaded to the private release `linux-era-backup-2026-11-21`. All 7 assets: GitHub's SHA-256 equals
+    the locally recomputed SHA-256; all 2,673 files re-hashed on disk are identical to the manifest; no file
+    of today's kept set is missing from the backup; the final-model asset re-downloaded contains
+    `weights.pt` with SHA-256 e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f = local.
+    Step 2: 5 of 5 random Tier-2 files (seed 2026112101) match the migration-2026-11-19 manifest by path,
+    size and SHA-256, and their bytes read from the release archives (HTTP range) are identical to the local
+    files. Evidence: `results/pruning/backup_and_sample_verification_20261121.json`. Steps 3-5 await the
+    student's go-ahead.

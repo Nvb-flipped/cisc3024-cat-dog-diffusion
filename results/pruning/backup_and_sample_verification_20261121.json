@@ -1,0 +1,124 @@
+{
+ "created": "2026-11-21T03:58Z",
+ "sop": "pruning SOP steps 1 and 2 (student-approved)",
+ "step1_release": {
+  "tag": "linux-era-backup-2026-11-21",
+  "url": "https://github.com/Nvb-flipped/Pattern-Recognition-Project/releases/tag/linux-era-backup-2026-11-21",
+  "private_repo": true,
+  "assets": [
+   {
+    "name": "final-model-v014-ema9995-80k.zip",
+    "size": 20711666,
+    "local_sha256_recomputed": "92c676281a8e1436154243046ef068cb502440be222120171bf6f021045842f3",
+    "github_digest": "sha256:92c676281a8e1436154243046ef068cb502440be222120171bf6f021045842f3",
+    "match": true
+   },
+   {
+    "name": "kept-set-manifest.json",
+    "size": 609468,
+    "local_sha256_recomputed": "49c611e1dc3c7db67dcb3a28577352b0b6f5fc22db27fe768497d4be0b3a7385",
+    "github_digest": "sha256:49c611e1dc3c7db67dcb3a28577352b0b6f5fc22db27fe768497d4be0b3a7385",
+    "match": true
+   },
+   {
+    "name": "kept-set.part001.zip",
+    "size": 1231021783,
+    "local_sha256_recomputed": "d02ddd3c9a492de6443b478435ea48c06b25c926ccd5139391986d0567c6a711",
+    "github_digest": "sha256:d02ddd3c9a492de6443b478435ea48c06b25c926ccd5139391986d0567c6a711",
+    "match": true
+   },
+   {
+    "name": "kept-set.part002.zip",
+    "size": 1351063231,
+    "local_sha256_recomputed": "c5b3af1c098bbda9f7634004559f67131da09c7febfb20fc4d0149c80fab29b9",
+    "github_digest": "sha256:c5b3af1c098bbda9f7634004559f67131da09c7febfb20fc4d0149c80fab29b9",
+    "match": true
+   },
+   {
+    "name": "kept-set.part003.zip",
+    "size": 1336753522,
+    "local_sha256_recomputed": "9c42a79b9b84108cb9fe61fcb5b0405f4f9501fe922cd6dcaa10c1fd60a60209",
+    "github_digest": "sha256:9c42a79b9b84108cb9fe61fcb5b0405f4f9501fe922cd6dcaa10c1fd60a60209",
+    "match": true
+   },
+   {
+    "name": "kept-set.part004.zip",
+    "size": 1394626642,
+    "local_sha256_recomputed": "bb46bc82bce2204b6a784186c33b8ad8022112f1d2eefda8f8fe80ef0c449607",
+    "github_digest": "sha256:bb46bc82bce2204b6a784186c33b8ad8022112f1d2eefda8f8fe80ef0c449607",
+    "match": true
+   },
+   {
+    "name": "kept-set.part005.zip",
+    "size": 903143908,
+    "local_sha256_recomputed": "5b91eab4d1846f88c3d28efab3a6c856d4a1ba1e8ce3ec6fc7b82a999358a96a",
+    "github_digest": "sha256:5b91eab4d1846f88c3d28efab3a6c856d4a1ba1e8ce3ec6fc7b82a999358a96a",
+    "match": true
+   }
+  ],
+  "manifest_files": 2673,
+  "manifest_bytes": 6236781756,
+  "files_rehashed_on_disk_identical": 2673,
+  "files_differing": 0,
+  "kept_set_files_now": 2663,
+  "kept_set_files_not_in_backup": 0,
+  "runs_excluded_still_training": [
+   "v014_mid_ema9995_flip",
+   "v014_wide_ema9995_flip"
+  ],
+  "final_weights_sha256": {
+   "local": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+   "inside_redownloaded_asset": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f"
+  }
+ },
+ "step2_tier2_sample": {
+  "migration_release": "migration-2026-11-19",
+  "tier2_deletion_list": {
+   "files": 321,
+   "bytes": 28300000000
+  },
+  "random_seed": 2026112101,
+  "samples": [
+   {
+    "path": "checkpoints/v009_coverage32k_seed17/update_004000.pt",
+    "size": 81726897,
+    "sha256_local": "916beade30ad3e0b72d96cf32dccebd82acba4e8343cdc8b8964e77f2595750a",
+    "manifest_archive": "project-snapshot.part029.zip",
+    "manifest_path_size_hash_agree": true,
+    "bytes_read_from_release_identical": true
+   },
+   {
+    "path": "checkpoints/v008_coverage32k_seed17/update_020000.pt",
+    "size": 81726897,
+    "sha256_local": "1420c61d3dee36fadde868ff739d71f89ce89f90dcee0d844f7a5aa5af46b105",
+    "manifest_archive": "project-snapshot.part027.zip",
+    "manifest_path_size_hash_agree": true,
+    "bytes_read_from_release_identical": true
+   },
+   {
+    "path": "checkpoints/capacity_40_seed17_u026000_123aac91c9/update_020000.pt",
+    "size": 122232817,
+    "sha256_local": "73fce592c359789cc4aee47fb086cebd922b47e8feec61195498ba0baadccb8d",
+    "manifest_archive": "project-snapshot.part013.zip",
+    "manifest_path_size_hash_agree": true,
+    "bytes_read_from_release_identical": true
+   },
+   {
+    "path": "checkpoints/patch8_detail_seed17_u030000_63bc3fce35/update_012000.pt",
+    "size": 84270089,
+    "sha256_local": "817238056f578f72cc35aeef1223bb716ddddff93158c70f4056d076abdfaa75",
+    "manifest_archive": "project-snapshot.part020.zip",
+    "manifest_path_size_hash_agree": true,
+    "bytes_read_from_release_identical": true
+   },
+   {
+    "path": "checkpoints/capacity_32_seed43_u030000_86c3c843eb/update_026000.pt",
+    "size": 81726897,
+    "sha256_local": "d8376483e1e843704464326797b8ac2b9b8c5bd6f59546960153c75def2823d9",
+    "manifest_archive": "project-snapshot.part012.zip",
+    "manifest_path_size_hash_agree": true,
+    "bytes_read_from_release_identical": true
+   }
+  ]
+ }
+}
