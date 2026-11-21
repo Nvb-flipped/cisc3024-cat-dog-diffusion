@@ -382,3 +382,17 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     recall, the marginal metric, or need new training): higher guidance (+precision, -recall), wider
     model (v011 wide: precision 0.85-0.88 but recall 0.38-0.40). None applied; the choice between
     visual quality and the 15/15 margin belongs to the student.
+75. **02:55 (21 Nov UTC) Bounded attempt to improve image quality, decided with the student.** Current
+    model (v014 EMA 0.9995 80k): 60 of 61 seeds at 15; recall 0.433 +/- 0.019 (min 0.395), FID 46.7,
+    accuracy 0.971, precision 0.785; student-counted unrecognizable tiles 30% (seed 0) and 47%
+    (seed 31415). Official audit stays valid only if the MANIFEST is unchanged, so only model-side
+    changes are tried: `v014_wide_ema9995_flip` (channels 48/96/144/192, 10.7M) and
+    `v014_mid_ema9995_flip` (40/80/120/160, ~8M), EMA 0.9995, 120k updates, checkpoints every 5k
+    (disk 54 GB free), `scripts/run_v014_capacity.py`; screens at 80k/100k/120k (g2.75, seed 0).
+    Evidence so far: wide on v011 data raised precision by about 0.04 and lowered recall by about 0.015.
+    **Replacement rule, fixed before results:** a candidate replaces the current model only if (1) no
+    violation and memorization <= 1%; (2) on the same 15 seeds (0,101,...,1414) at least 14 are 15/15
+    and mean recall >= 0.42; (3) mean precision >= 0.82 (current 0.7875 on those seeds); (4) the
+    student's tile count on seed 0 is <= 29 of 128 (current 39), counted with the student's
+    criterion; (5) 30 further seeds give >= 28 at 15. Otherwise the current model stays. The final
+    trade-off between marks risk and image quality belongs to the student.

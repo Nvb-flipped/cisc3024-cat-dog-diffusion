@@ -1,0 +1,31 @@
+{
+  "inputs": {
+    "manifests/v014.csv": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+    "manifests/v014.validation.csv": "9c5de5064f41bc4b40646a264fc53375e21a2d27695e613351f0bb7aacae7efd",
+    "manifests/v014.provenance.json": "aa9d242fbbe552b857b763eb76df179056f7e4f61ce833005ff1f702dbc71291",
+    "configs/runs/v010_attn16_flip.json": "506deab6e9ff00577cbacb27aea71ce734395f6a351ab5164bf4c864b7e10fba",
+    "configs/runs/v014_wide_ema9995_flip.json": "0303386d47e52246c5a2436879ddb3bafea4bfdd292607847e0dba84c52788fc",
+    "src/training/train.py": "77dfd43337db7d71a1e69dfd183c3c8648f97ed419ee6d38f6a9b1caa18d8545",
+    "src/training/step.py": "3024bac2620e94e5c01bf727f3310239824223c1271fc20f4f455c20984552d2",
+    "src/training/data.py": "5dbfc1cc7a958fff22b7bb8a7ad6e2f40a74227102f1fbef9754dc3fe2832c76",
+    "submission/model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+    "submission/diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df"
+  },
+  "variant": {
+    "model": {
+      "channels": [
+        48,
+        96,
+        144,
+        192
+      ]
+    },
+    "training": {
+      "ema_decay": 0.9995,
+      "checkpoint_every": 5000
+    },
+    "updates": 120000
+  },
+  "comparison": "v014_flip (same manifest/recipe; only the listed config change)",
+  "created": "2026-11-21T02:46:04.157380+00:00"
+}
