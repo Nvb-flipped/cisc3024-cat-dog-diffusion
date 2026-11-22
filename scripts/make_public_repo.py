@@ -125,7 +125,20 @@ commit.message = (new + ('\\n\\n' + body if body else '') + '\\n').encode('utf-8
     subprocess.run(['git', 'commit', '-q', '-m', 'release: add final model weights (v014, EMA 0.9995, 80k updates)\n\n'
                     f'submission/weights.pt, SHA-256 {digest}. Weights are git-ignored in the working repository.'],
                    cwd=out, check=True, env=env)
-    summary = {'commits': int(git('rev-list', '--count', 'HEAD', cwd=out).strip()), 'files_kept': len(keep),
+    # the course archive also holds files that are git-ignored during development (mainly *.log); add them in one last commit
+    from src.release.package import selected_files
+    tracked = set(git('ls-files', cwd=out).splitlines())
+    extra = [str(f.relative_to(ROOT)).replace('\\', '/') for f in selected_files(ROOT)]
+    extra = [p for p in extra if p not in tracked]
+    for rel in extra:
+        target = out / rel
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(ROOT / rel, target)
+    if extra:
+        git('add', '-f', '--', *extra, cwd=out)
+        subprocess.run(['git', 'commit', '-q', '-m', 'logs: add experiment and evaluator logs\n\nThese files are part of the course archive but git-ignored in the working '
+                        f'repository (*.log and a few untracked evidence files): {len(extra)} files.'], cwd=out, check=True, env=env)
+    summary = {'commits': int(git('rev-list', '--count', 'HEAD', cwd=out).strip()), 'files_kept': len(keep), 'files_added_last': len(extra),
                'dropped_embedded_photo': sorted(set(dropped['embedded photo'])), 'dropped_too_large': sorted(set(dropped['too large']))}
     print(json.dumps(summary, indent=1))
 
@@ -147,16 +160,17 @@ def verify(out):
         if p.lower().endswith(TEXT_SUFFIXES) and any(m in data.decode('utf-8', 'ignore').lower() for m in EMBED):
             problems.append(f'embedded photo in {p}')
     messages = git('log', '--format=%H%x1f%B%x1e', cwd=out)
-    for pattern in ('co-authored-by', 'claude', 'anthropic', 'generated with'):
+    for pattern in ('co-authored-by', 'noreply@anthropic', 'generated with'):   # attribution trailers are errors
         hits = len(re.findall(pattern, messages, flags=re.I))
         if hits:
             problems.append(f'{hits} commit-message mention(s) of "{pattern}"')
+    info = {name: len(re.findall(name, messages, flags=re.I)) for name in ('claude', 'codex')}   # plain tool names in text: informational
     identities = sorted(set(git('log', '--format=%an <%ae>%n%cn <%ce>', cwd=out).splitlines()))
     sizes.sort(reverse=True)
     report = {'commits': int(git('rev-list', '--count', 'HEAD', cwd=out).strip()),
               'first_commit': git('log', '--reverse', '--format=%ad %s', '--date=short', cwd=out).splitlines()[0],
               'last_commit': git('log', '-1', '--format=%ad %s', '--date=short', cwd=out).strip(),
-              'identities': identities, 'tracked_files': len(git('ls-files', cwd=out).splitlines()),
+              'tool_names_in_messages': info, 'identities': identities, 'tracked_files': len(git('ls-files', cwd=out).splitlines()),
               'largest_blobs_MB': [(round(s / 1e6, 1), p) for s, p in sizes[:4]], 'problems': problems}
     print(json.dumps(report, indent=1))
     return not problems
