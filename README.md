@@ -39,7 +39,22 @@ python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
 python demo.py --check
 ```
 
-With a GPU, install the CUDA build of torch from the PyTorch website instead of the CPU build; `demo.py` then uses it automatically. The same seed gives the same image on the same computer. A different CPU, GPU or torch version can change a few pixels by one grey level (measured on the CPU between torch 2.9.1 and 2.15.0: 384 of 352,160 pixels, each by 1 of 255), so the printed image hash can differ between computers while the pictures look identical; `--check` therefore tests behaviour, not hashes. `weights.pt` is checked against the hash in `submission/provenance.json` before anything is generated.
+With a GPU, install the CUDA build of torch from the PyTorch website instead of the CPU build; `demo.py` then uses it automatically.
+
+**Windows with WSL2 and an NVIDIA GPU (the setup planned for the live demo, a laptop with an RTX 3060).** WSL2 is Linux, so the Linux commands apply; the GPU is passed through by the Windows NVIDIA driver. Not yet tested by the author (only Linux with another GPU was).
+
+```text
+# In Windows: install a current NVIDIA driver (it provides CUDA to WSL2) and WSL2 with Ubuntu:  wsl --install
+# In the Ubuntu (WSL) terminal. Copy the unzipped project into the Linux file system, not /mnt/c (much faster), then:
+cd ~/project
+python3 -m venv demo-env && source demo-env/bin/activate     # if venv is missing:  sudo apt install python3-venv
+python -m pip install numpy pillow torch                      # the default Linux torch wheel already contains CUDA (a large download)
+python -c "import torch; print(torch.cuda.is_available(), torch.cuda.get_device_name(0))"    # must print True and the GPU name
+python demo.py --check          # a few seconds on the GPU
+python demo.py                  # type 0, 0, 1 (a grid takes about a second), q to quit
+```
+
+If the last check prints `False`, torch cannot see the GPU: update the NVIDIA driver on Windows and run `wsl --shutdown`, then reopen Ubuntu. The model needs well under 2 GB of GPU memory. The same seed gives the same image on the same computer. A different CPU, GPU or torch version can change a few pixels by one grey level (measured on the CPU between torch 2.9.1 and 2.15.0: 384 of 352,160 pixels, each by 1 of 255), so the printed image hash can differ between computers while the pictures look identical; `--check` therefore tests behaviour, not hashes. `weights.pt` is checked against the hash in `submission/provenance.json` before anything is generated.
 
 ## Final model (v014): one command per report number
 
