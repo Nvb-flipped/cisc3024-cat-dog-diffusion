@@ -1,4 +1,4 @@
-% Beamer deck, 5-minute talk version.
+% Four-minute presentation plus questions; live demo is a main-talk slide.
 \documentclass[aspectratio=169,10pt,t]{beamer}
 \usetheme{Madrid}
 \definecolor{navy}{HTML}{1F3A5F}
@@ -22,8 +22,8 @@
 \input{../report/numbers.tex}
 \setlength{\parskip}{2pt}
 \renewcommand{\arraystretch}{1.08}
-\title[Cat and dog head generation]{Cat and Dog Head Generation from a Self-Curated Pool}
-\subtitle{Data curation, a pixel diffusion model, and coding agents}
+\title[Cat and dog head generation]{Learning to Generate Cat and Dog Heads from a Raw Image Pool}
+\subtitle{What I built, how I evaluated it, and what the agent got wrong}
 \author[Sou Chak Tong]{Sou Chak Tong\\[2pt]\small Student ID U-C3-2652-3}
 \institute[CISC3024]{CISC3024 Pattern Recognition Project}
 \date{26 November 2026}
@@ -36,42 +36,42 @@
 \begin{frame}[plain]\titlepage\end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 2
-\begin{frame}{Overview}
+\begin{frame}{Project in one minute}
 \centering
-\tile{2.62cm}{marks, seed 0}{15 / 15}\hspace{3pt}
-\tile{2.62cm}{seeds at 15 marks}{\nFifteen{} of \nSeeds}\hspace{3pt}
-\tile{2.62cm}{FID, limit 50}{46.6}\hspace{3pt}
-\tile{2.62cm}{recall, limit 0.40}{0.419}\hspace{3pt}
-\tile{2.62cm}{my audit: crops good}{\auditPct\,\%}
+\tile{2.62cm}{official score, seed 0}{15 / 15}\hspace{3pt}
+\tile{2.62cm}{full-score seeds}{\nFifteen{} / \nSeeds}\hspace{3pt}
+\tile{2.62cm}{FID (target $\leq50$)}{46.6}\hspace{3pt}
+\tile{2.62cm}{recall (target $\geq0.40$)}{0.419}\hspace{3pt}
+\tile{2.62cm}{accepted in my audit}{\auditPct\,\%}
 
 \vspace{0.25cm}
 \begin{tikzpicture}[node distance=0.32cm,every node/.style={draw=navy,fill=white,rounded corners=2pt,align=center,font=\scriptsize,minimum height=1.0cm,minimum width=1.7cm,inner sep=2pt},
   >={Stealth[length=2mm]}]
-\node (a) {Raw pool\\76{,}250};
-\node (b) [right=of a] {Candidates\\63{,}115};
-\node (c) [right=of b] {Qwen screen\\6{,}718};
-\node (d) [right=of c] {Agent review\\17{,}174};
-\node (e) [right=of d,fill=navy!10!white] {\textbf{Manifest}\\\textbf{8{,}029}\\1{,}929 mine};
-\node (f) [right=of e] {U-Net\\5.1M};
-\node (g) [right=of f] {DDIM\\50 steps};
+\node (a) {Original pool\\76{,}250};
+\node (b) [right=of a] {Head proposals\\63{,}115};
+\node (c) [right=of b] {9B screen\\6{,}718};
+\node (d) [right=of c] {Visual review\\17{,}174};
+\node (e) [right=of d,fill=navy!10!white] {\textbf{Train set}\\\textbf{8{,}029}\\1{,}929 reviewed};
+\node (f) [right=of e] {Denoiser\\5.1M};
+\node (g) [right=of f] {Sampling\\50 steps};
 \draw[->] (a)--(b); \draw[->] (b)--(c); \draw[->] (c)--(d); \draw[->] (d)--(e); \draw[->] (e)--(f); \draw[->] (f)--(g);
 \end{tikzpicture}
 
 \vspace{0.15cm}
 \begin{columns}[T]
 \begin{column}{0.48\linewidth}
-\begin{block}{What changed the score}
+\begin{block}{Which changes helped}
 \footnotesize\begin{itemize}\setlength{\itemsep}{0pt}
-\item Mirroring: memorization 1.65\,\% $\to$ 0\,\%
-\item More valid crops: recall 0.32 $\to$ 0.42
+\item Left--right flips: measured memorization fell from 1.65\,\% to 0\,\%
+\item Expanded, curated data: recall rose from 0.32 to 0.42
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.48\linewidth}
-\begin{block}{Points to remember}
+\begin{block}{Why I kept checking}
 \footnotesize\begin{itemize}\setlength{\itemsep}{0pt}
-\item Recall is the thin margin: seed \lowSeed{} gives 14/15
-\item Metrics hide distortion: 39 of 128 samples unrecognizable
+\item Seed \lowSeed{} missed the recall threshold and scored 14/15
+\item Human inspection found 39/128 seed-0 tiles unrecognizable
 \end{itemize}
 \end{block}
 \end{column}
@@ -79,41 +79,41 @@
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 3
-\begin{frame}{Data pipeline}
+\begin{frame}{From raw images to a training manifest}
 \begin{columns}[T]
 \begin{column}{0.56\linewidth}
 \footnotesize
 \begin{tabular}{@{}p{5.6cm}r@{}}
 \toprule
-Step & Images \\
+Processing stage & Count \\
 \midrule
-Raw LAION pool (cats, dogs, other animals, scenes) & 76{,}250 \\
-Candidate head crops (detector squares + rescue) & 63{,}115 \\
-Passed Qwen3.5-9B screen & 6{,}718 \\
-Agent visual review (reviewed / valid) & 17{,}174 / 7{,}083 \\
-After duplicate and holdout removal & 6{,}100 \\
-Plus my own 50 reviewed batches & 1{,}929 \\
+Unlabelled source images from LAION & 76{,}250 \\
+Detected and recovered crop proposals & 63{,}115 \\
+Passed initial Qwen3.5-9B filtering & 6{,}718 \\
+Agent examined / considered valid & 17{,}174 / 7{,}083 \\
+Retained after deduplication and exclusions & 6{,}100 \\
+Added from my 50 review batches & 1{,}929 \\
 \midrule
-\textbf{Final manifest} (3{,}096 cat, 4{,}933 dog) & \textbf{\manifestRows} \\
-Pool-only holdout (31 cat, 32 dog) & 63 \\
+\textbf{Training manifest} (3{,}096 cats, 4{,}933 dogs) & \textbf{\manifestRows} \\
+Separate pool holdout (31 cats, 32 dogs) & 63 \\
 \bottomrule
 \end{tabular}
 
-\vspace{3pt}\footnotesize Rows are not a strict funnel: the review also covered crops the screen had rejected.
+\vspace{3pt}\footnotesize Counts overlap: visual review included candidates that the VLM initially rejected.
 \end{column}
 \begin{column}{0.42\linewidth}
-\begin{block}{Crop rules}
+\begin{block}{What made a crop eligible}
 \footnotesize\begin{itemize}\setlength{\itemsep}{0pt}
-\item real photo; one head, centred, upright
-\item head with ears 60--80\,\% of the square
-\item head $\ge$ 32 px in the pool image
+\item Photographed animal; one centred, approximately upright head
+\item Complete head and ears span roughly 60--80\,\% of the crop width
+\item Source head width must reach at least 32 pixels
 \end{itemize}
 \end{block}
-\begin{block}{Constraints}
+\begin{block}{Rules I had to respect}
 \footnotesize\begin{itemize}\setlength{\itemsep}{0pt}
-\item official geometry, no padding, exact crops
-\item pretrained models for curation only
-\item no evaluator networks
+\item Reconstruct every crop exactly; never pad beyond the source
+\item Pretrained detectors and VLMs used only to select data
+\item Keep official evaluation networks out of curation
 \end{itemize}
 \end{block}
 \end{column}
@@ -121,34 +121,34 @@ Pool-only holdout (31 cat, 32 dog) & 63 \\
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 4
-\begin{frame}{Crop audit}
+\begin{frame}{My audit exposed crop-quality errors}
 \centering\includegraphics[width=0.92\linewidth]{fig_audit.pdf}
 
 \vspace{2pt}
 \begin{columns}[T]
 \begin{column}{0.48\linewidth}
-\begin{alertblock}{Result}
-\small \textbf{\auditGood{} of 200 good (\auditPct\,\%)}, 95\,\% interval \auditCI. \auditEars{} of \auditBad{} bad crops have \textbf{ears cut}, worst in re-cropped squares (\auditRecrop).
+\begin{alertblock}{What I measured}
+\small I marked \textbf{\auditGood{} / 200 crops valid (\auditPct\,\%)}; the 95\,\% interval is \auditCI. Among \auditBad{} invalid crops, \auditEars{} had \textbf{clipped ears}; the clipping was worst in the re-cropped squares (\auditRecrop{} of them).
 \end{alertblock}
 \end{column}
 \begin{column}{0.48\linewidth}
-\begin{block}{Cause and next step}
-\small Face-only detector boxes, ear margins judged on thumbnails. Next: re-review at 300 px with an explicit ear check, then retrain.
+\begin{block}{How I would fix it}
+\small Face-centred boxes often leave too little room for ears. I would inspect candidates at 300 px, verify both ears explicitly, then rebuild the data and retrain.
 \end{block}
 \end{column}
 \end{columns}
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 5
-\begin{frame}{Model and sampler}
+\begin{frame}{Diffusion model: training and generation}
 \begin{columns}[T]
 \begin{column}{0.49\linewidth}
-\begin{block}{Conditional pixel U-Net, from scratch}
+\begin{block}{The noise predictor I trained}
 \small\begin{itemize}\setlength{\itemsep}{1pt}
-\item $3{\times}32{\times}32$ in $[-1,1]$; widths 32/64/96/128; \params{} parameters
-\item GroupNorm, SiLU, self-attention at 8/4/16$\times$16
-\item condition: time MLP + class embedding (cat, dog, \emph{null})
-\item AdamW $2{\times}10^{-4}$, batch 128, bf16, EMA 0.9995, mirror $0.5$, label dropout 0.1
+\item 32$\times$32 RGB inputs scaled to $[-1,1]$; channels 32/64/96/128; \params{} parameters
+\item GroupNorm and SiLU with attention at 4$\times$4, 8$\times$8 and 16$\times$16
+\item Timestep embedding plus class IDs for cat, dog and an unconditional case
+\item AdamW ($2{\times}10^{-4}$), effective batch 128, bf16; EMA 0.9995; 50\,\% flips; 10\,\% null labels
 \end{itemize}
 \[
 x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\epsilon,\quad
@@ -157,11 +157,11 @@ x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\epsilon,\quad
 \end{block}
 \end{column}
 \begin{column}{0.49\linewidth}
-\begin{block}{Deterministic sampler, 50 DDIM steps}
+\begin{block}{How I generated the final images}
 \small\begin{itemize}\setlength{\itemsep}{1pt}
-\item classifier-free guidance $w=2.75$; PAG 0.15; FreeU 2.0
-\item private CPU generator per output, fixed batch 32
-\item so each image depends only on its label and the seed
+\item 50-step DDIM with guidance $w=2.75$, PAG 0.15 and FreeU 2.0
+\item Independent CPU-seeded noise per requested output; execution chunks of 32
+\item The other items in a batch do not change a given image
 \end{itemize}
 \[
 \tilde\epsilon=\epsilon_\varnothing+w(\epsilon_y-\epsilon_\varnothing),\quad
@@ -173,11 +173,11 @@ x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\epsilon,\quad
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 6
-\begin{frame}{Results}
+\begin{frame}{Official evaluation: how consistent was it?}
 \centering\small\setlength{\tabcolsep}{5pt}
 \begin{tabular}{rrrrrrrr}
 \toprule
-Seed & Accuracy & FID & KID ($10^{-3}$) & Precision & Recall & Memorization & Marks \\
+Seed & Class acc. & FID & KID ($10^{-3}$) & Precision & Recall & Memor. & Score \\
 \midrule
 \officialRows
 \bottomrule
@@ -186,208 +186,209 @@ Seed & Accuracy & FID & KID ($10^{-3}$) & Precision & Recall & Memorization & Ma
 \vspace{4pt}
 \begin{columns}[T]
 \begin{column}{0.55\linewidth}
-\begin{block}{All \nSeeds{} seeds I evaluated}
+\begin{block}{Variation across \nSeeds{} evaluation seeds}
 \footnotesize\begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{\nFifteen{} of \nSeeds{} earn 15 marks} (\pFifteen\,\%, 95\,\% interval \pFifteenLo--\pFifteenHi)
-\item recall \recallMean{} $\pm$ \recallSD; memorization 0\,\%
-\item seed \lowSeed{} (my own check): recall \lowRecall{} $\Rightarrow$ 14/15
+\item \textbf{\nFifteen{} / \nSeeds{} scored 15/15} (\pFifteen\,\%; 95\,\% interval \pFifteenLo--\pFifteenHi)
+\item Mean recall \recallMean{} $\pm$ \recallSD; no detected memorization
+\item My independent seed \lowSeed{} gave recall \lowRecall{}, hence 14/15
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.42\linewidth}
-\begin{block}{Submission limits}
+\begin{block}{Compliance checks}
 \footnotesize\begin{tabular}{@{}lr@{}}
-Parameters ($\le$20\,M) & \params \\
-Size ($\le$100\,MB) & \sizeMB\,MB \\
+Weights ($\le$20\,M parameters) & \params \\
+Package ($\le$100\,MB) & \sizeMB\,MB \\
 Memorization ($\le$5\,\%) & 0.00\,\% \\
-Deterministic, seed-sensitive & \chkDet, \chkSeed \\
+Repeatable, seed-dependent & \chkDet, \chkSeed \\
 \end{tabular}
 \end{block}
 \end{column}
 \end{columns}
-\vspace{3pt}\footnotesize RTX 5090 (shared); training \trainHours\,h; sampling about \sampleSpeed\,s per 1{,}000 images.
+\vspace{3pt}\footnotesize Training on a shared RTX 5090 took \trainHours\,h; generating 1{,}000 images took roughly \sampleSpeed\,s.
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 7
-\begin{frame}{Samples}
+\begin{frame}{Generated examples and visible failures}
 \begin{columns}[T]
 \begin{column}{0.60\linewidth}
 \centering\includegraphics[width=\linewidth]{fig_grid_seed0.png}\\[-1pt]
-{\scriptsize Seed 0 grid from the evaluator: rows 1--4 cats, rows 5--8 dogs.}
+{\scriptsize Evaluator output at seed 0: cats occupy rows 1--4, dogs rows 5--8.}
 \end{column}
 \begin{column}{0.38\linewidth}
 \centering\includegraphics[width=\linewidth]{fig_seeds.pdf}
 \end{column}
 \end{columns}
 \vspace{2pt}
-\begin{alertblock}{Unrecognizable tiles (cannot tell cat, dog or animal)}
-\small seed 0: \textbf{39 of 128} (cats 10/64, dogs 29/64); seed 31415: \textbf{60 of 128} (cats 21/64, dogs 39/64). Dogs fail more often, and FID, accuracy (0.97) and precision (0.80) do not show it.
+\begin{alertblock}{I also counted images I could not identify}
+\small At seed 0, \textbf{39/128} tiles were unclear (10 cats, 29 dogs); at seed 31415, \textbf{60/128} (21 cats, 39 dogs). Dog images were harder to recognize, despite accuracy near 0.97 and precision near 0.80.
 \end{alertblock}
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 8
-\begin{frame}{Working with coding agents}
+\begin{frame}{Checking what the coding agent reported}
 \begin{columns}[T]
 \begin{column}{0.49\linewidth}
-\begin{block}{Data check: ``about 3\,\% problems''}
+\begin{block}{Audit versus the agent's estimate}
 \small\begin{itemize}\setlength{\itemsep}{2pt}
-\item Agent claim: 6{,}100 AI-found crops pass the rules
-\item My test: 200 crops from \texttt{audit.py}, labelled blind
-\item Outcome: 20\,\% bad, 33/40 ears cut
+\item Agent treated 6{,}100 AI-selected crops as usable
+\item I independently labelled 200 random \texttt{audit.py} crops
+\item I rejected 40/200; 33 failures involved missing ear tips
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.49\linewidth}
-\begin{block}{Rules added to AGENTS.md}
+\begin{block}{Guidelines I added after checking}
 \small\begin{itemize}\setlength{\itemsep}{2pt}
-\item ears: view at 300 px, test every criterion
-\item seeds: always write ``X of Y seeds'' and the spread
-\item grids: count bad tiles exactly, per class
+\item Enlarge to 300 px and inspect complete ear margins
+\item Give success counts with denominators and report seed variation
+\item Count visually failed cat and dog outputs separately
 \end{itemize}
 \end{block}
 \end{column}
 \end{columns}
 \vspace{2pt}
-\begin{block}{Results check: ``15/15 on every seed''}
-\small I reran the unchanged evaluator on \texttt{submission/} with my own seed \lowSeed: \textbf{14/15}, recall \lowRecall. The claim became ``\nFifteen{} of \nSeeds{} seeds''. Delegated: pipeline, drivers, tests, review. Mine: policy, 1{,}929 crops, audit, checks.
+\begin{block}{Checking whether every seed scores 15/15}
+\footnotesize At my independent seed \lowSeed{}, the unchanged evaluator gave recall \lowRecall{} and \textbf{14/15}. The accurate summary is \textbf{\nFifteen{} of \nSeeds{} full-score seeds}. \textbf{Who did what:} Codex developed the initial pipeline on my first PC; Claude Code ran the whole-pool screening on this PC. I set the direction, reviewed 1{,}929 crops myself, and tested the reported results.
+\end{block}
+\end{frame}
+
+% ------------------------------------------------------------------------------------------------------------------ Main-talk live demo
+\begin{frame}[fragile]{Live demo: generating images offline}
+\begin{columns}[T]
+\begin{column}{0.52\linewidth}
+\begin{block}{On my WSL laptop (project root)}
+\small Follow the README setup, then run:
+\begin{verbatim}
+python demo.py
+# enter seeds: 0, 0, 1
+\end{verbatim}
+\end{block}
+\end{column}
+\begin{column}{0.45\linewidth}
+\begin{block}{What I demonstrate}
+\small\begin{itemize}\setlength{\itemsep}{1pt}
+\item The same seed gives the same images \textbf{on this computer}
+\item A different seed changes the images
+\item The model runs without network access
+\end{itemize}
+\end{block}
+\end{column}
+\end{columns}
+\vspace{5pt}
+\begin{block}{Reproducibility, with a hardware caveat}
+\small The output depends on its label and seed, not on other batch items. Exact pixel hashes need not match across GPUs. The official interface tests and \textbf{210 project tests} pass.
 \end{block}
 \end{frame}
 
 % ------------------------------------------------------------------------------------------------------------------ 9
-\begin{frame}{Summary}
+\begin{frame}{What I learned and what remains}
 \begin{columns}[T]
 \begin{column}{0.49\linewidth}
-\begin{block}{Main points}
+\begin{block}{Lessons from the experiments}
 \small\begin{itemize}\setlength{\itemsep}{2pt}
-\item Data quantity and validity drove the score more than model tricks
-\item Mirroring was the biggest single change
-\item Reporting ``X of Y seeds'' exposed a real risk
+\item Better coverage of usable images mattered more than sampler tweaks
+\item Random horizontal flips gave the clearest single improvement
+\item A seed-by-seed summary showed that passing was not guaranteed
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.49\linewidth}
-\begin{block}{Limits and next steps}
+\begin{block}{What I would investigate next}
 \small\begin{itemize}\setlength{\itemsep}{2pt}
-\item recall margin is thin; one seed in \nSeeds{} lost a mark
-\item ears cut in the data; distorted dogs in samples
-\item re-review at 300 px, retrain, redraw the audit
+\item Recall is still borderline: one of \nSeeds{} seeds fell short
+\item Cropped ears remain in the manifest; some generated dogs are distorted
+\item Recheck crops at 300 px, refine the manifest and repeat training/audit
 \end{itemize}
 \end{block}
 \end{column}
 \end{columns}
-\vspace{4pt}\centering\small Materials, code, logs and the experiment index are in the submitted ZIP. Offline demo verified: seed 0 twice gives the same hash, seed 1 differs, no network used.
+\vspace{4pt}\centering\small Code and experiment records are in the submission. In an offline run, the same seed reproduced the same images \textbf{on the same computer}; a new seed changed the output. Pixel hashes may vary across GPUs.
 \end{frame}
 
-% ================================================================================== backup slides (Q&A only)
+% ================================================================================== backup slides (Q&A only; live demo appears in main talk)
 \appendix
 \section*{Backup}
 
-\begin{frame}[fragile]{Live demo (not run in the talk)}
-\begin{columns}[T]
-\begin{column}{0.56\linewidth}
-\begin{block}{Offline generation from \texttt{submission/} only}
-\small\begin{verbatim}
-python -m src.release.demo \
-  --submission submission --out private_build/demo
-# wait for "Model ready", then enter seeds:  0  0  1
-\end{verbatim}
-\end{block}
-\end{column}
-\begin{column}{0.42\linewidth}
-\begin{block}{Expected output}
-\small\begin{itemize}\setlength{\itemsep}{1pt}
-\item seed 0 twice: identical image hash
-\item seed 1: a different 16-image grid
-\item no network used
-\end{itemize}
-\end{block}
-\end{column}
-\end{columns}
-\vspace{4pt}
-\begin{block}{What I verified}
-\normalsize Deterministic per (label, seed); each output depends only on its own label; the caller's random state is preserved; course tests and my 207 project tests pass.
-\end{block}
-\end{frame}
-
-\begin{frame}{How candidates were found, screened and judged}
+\begin{frame}{Finding candidate heads: extra details}
 \small
 \begin{columns}[T]
 \begin{column}{0.32\linewidth}
-\begin{block}{Propose}
+\begin{block}{Locate}
 \footnotesize\begin{itemize}\setlength{\itemsep}{1pt}
-\item Grounding DINO Tiny on all 76{,}250 images
-\item official geometry; bounded rescue (occupancy 0.70--0.80, centre within 8\,\%, no padding)
-\item CLIP source screen + second detector pass
+\item Applied Grounding DINO Tiny to all 76{,}250 source images
+\item Recovered crops within geometry bounds: 0.70--0.80 occupancy, 8\,\% centre tolerance, no padding
+\item Added source-level CLIP triage and another detection pass
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.32\linewidth}
-\begin{block}{Screen}
+\begin{block}{Prioritize}
 \footnotesize\begin{itemize}\setlength{\itemsep}{1pt}
-\item Qwen3.5-9B on every candidate (6{,}718 passed)
-\item CLIP linear probe trained on my verdicts ranks the rest
-\item score orders review only; never accepts
+\item Ran Qwen3.5-9B screening, obtaining 6{,}718 passes
+\item A CLIP probe fitted to my decisions prioritized remaining cases
+\item Ranking scores alone could not approve an image
 \end{itemize}
 \end{block}
 \end{column}
 \begin{column}{0.32\linewidth}
-\begin{block}{Judge}
+\begin{block}{Verify}
 \footnotesize\begin{itemize}\setlength{\itemsep}{1pt}
-\item agent review against the exact rules
-\item re-square face-only boxes (0.50--0.60) and re-review
-\item one-head re-check of 1{,}160 flagged: 295 rejected
-\item duplicates: pixel, dHash, same-photo
+\item Applied the full crop specification during agent review
+\item Adjusted overly tight face boxes (0.50--0.60) before reviewing again
+\item Examined 1{,}160 suspected multi-head cases; rejected 295
+\item Removed exact-pixel, dHash and same-photo duplicates
 \end{itemize}
 \end{block}
 \end{column}
 \end{columns}
-\vspace{3pt}\footnotesize Species labels came from the VLM; CLIP zero-shot disagreed on 11 of 6{,}366, all verified correct. Missed-head sample of 200 unflagged sources: about 1\,\% real heads.
+\vspace{3pt}\footnotesize Among 6{,}366 species labels, zero-shot CLIP disagreed with the VLM on 11; manual verification favored the VLM in all 11. A sample of 200 unflagged sources revealed roughly 1\,\% with real heads.
 \end{frame}
 
-\begin{frame}{More valid data lifts recall and lowers FID}
+\begin{frame}{Training data size versus generative performance}
 \centering\includegraphics[width=0.86\linewidth]{fig_progress.pdf}
 
 \vspace{2pt}\scriptsize\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lrcrrrrr}
 \toprule
-Model & Images & Marks (seeds 0/101/202) & Acc. & FID & Recall & Prec. & Mem. \\
+Variant & Crops & Scores (0/101/202) & Acc. & FID & Recall & Prec. & Mem. \\
 \midrule
 \progressRows
 \bottomrule
 \end{tabular}
 \end{frame}
 
-\begin{frame}{What did not work}
+\begin{frame}{Experiments I did not keep}
 \small
 \begin{columns}[T]
 \begin{column}{0.49\linewidth}
 \begin{itemize}\setlength{\itemsep}{3pt}
-\item \textbf{Memorization at 1.2k:} 13 of 94 experiment folders scored 0 (up to 74\,\%)
-\item \textbf{Other objectives} (Min-SNR, EDM, velocity, patches, flow, Haar): FID 87--220 vs 72
-\item \textbf{Regularization}: no gain
-\item \textbf{DPM-Solver++, stochastic DDIM, CFG rescale}: no reliable gain
+\item \textbf{Early 1.2k set:} 13 of 94 experiment folders received 0; memorization reached 74\,\%
+\item \textbf{Alternative losses/methods:} Min-SNR, EDM, velocity, patches, flow and Haar yielded FID 87--220 rather than 72
+\item \textbf{Regularization variants:} no consistent benefit
+\item \textbf{Sampler changes:} DPM-Solver++, stochastic DDIM and CFG rescaling brought no repeatable gain
 \end{itemize}
 \end{column}
 \begin{column}{0.49\linewidth}
 \begin{itemize}\setlength{\itemsep}{3pt}
-\item \textbf{Strict review made data smaller:} recall 0.40 $\to$ 0.35--0.38
-\item \textbf{Longer training:} 120k checkpoint lost a mark on 1 of 15 seeds
-\item \textbf{Wider 10.7M model:} accuracy \wideAcc{}, precision \widePrec{} but recall \wideRecall{}, only \wideAtFifteen{} of 15 seeds at 15 marks
-\item All 94 experiments: \texttt{EXPERIMENTS.md}
+\item \textbf{More restrictive filtering:} the smaller, stricter sets (4.6k and 4.9k crops) gave recall 0.33--0.40 per seed, against 0.42 on average for the final set
+\item \textbf{Extended training:} the 120k checkpoint dropped a mark for 1/15 seeds
+\item \textbf{10.7M-weight U-Net:} accuracy \wideAcc{} and precision \widePrec{}, yet recall \wideRecall{}; only \wideAtFifteen{}/15 seeds scored full marks
+\item Full experiment inventory: \texttt{EXPERIMENTS.md} (94 runs)
 \end{itemize}
 \end{column}
 \end{columns}
 \end{frame}
 
-\begin{frame}{Settings and reproducibility}
+\begin{frame}{Configuration used for the submitted checkpoint}
 \footnotesize
 \begin{tabular}{@{}lp{0.78\linewidth}@{}}
 \toprule
-Model & channels 32/64/96/128, 2 blocks per level, 4 heads, conditioning 256, dropout 0.1, extra 16$\times$16 encoder attention \\
-Training & seed 17, batch 128 (2$\times$64), AdamW $2{\times}10^{-4}$, $\beta=(0.9,0.999)$, weight decay $10^{-4}$, warm-up 2{,}000, EMA 0.9995, mirror 0.5, null label 0.1, bf16; 160k-update run, 80k checkpoint submitted \\
-Sampler & DDIM 50 steps, $w=2.75$, PAG 0.15 on $149\le t\le949$, temporal rescale 1.03, class noise 0.1, FreeU 2.0, execution batch 32 \\
-Selection & checkpoint and sampler chosen by a rule fixed before the results (decision log 57--67); 120k and wider model tested and not adopted \\
-Evidence & \texttt{results/final/} (official runs from \texttt{submission/}), \texttt{DECISION\_LOG.md}, \texttt{EXPERIMENTS.md}, README with one command per number \\
+Network & 32/64/96/128 channels; two residual blocks at each scale; four attention heads; conditioning 256; dropout 0.1; extra 16$\times$16 attention \\
+Optimization & Training seed 17; effective batch 128 (2$\times$64); AdamW $2{\times}10^{-4}$, $\beta=(0.9,0.999)$, decay $10^{-4}$; warm-up 2{,}000; EMA 0.9995; flip probability 0.5; null-label probability 0.1; bf16. Selected 80k checkpoint from a 160k run \\
+Sampling & 50 DDIM iterations; CFG $w=2.75$; PAG 0.15 for $149\le t\le949$; temporal scaling 1.03; class noise 0.1; FreeU 2.0; execution batch 32 \\
+Decision & Used a pre-specified selection procedure (\texttt{DECISION\_LOG.md}, entries 57--67). Tested but did not retain the 120k checkpoint or larger U-Net \\
+Records & Official evaluator outputs in \texttt{results/final/}, reproducibility instructions in the README, and experiment/decision logs in \texttt{EXPERIMENTS.md} and \texttt{DECISION\_LOG.md} \\
 \bottomrule
 \end{tabular}
 \end{frame}

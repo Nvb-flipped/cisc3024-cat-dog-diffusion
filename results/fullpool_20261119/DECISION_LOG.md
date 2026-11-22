@@ -439,3 +439,15 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     says slides must not be AI-generated; the student reports an in-person instructor exemption (AGENTS.md: "in person, not
     written"). The agent cannot verify it: a written confirmation should be obtained and kept; the student must revise the
     deck personally and be able to explain every slide. PPTX is no longer produced (handout accepts any slide format).
+80. **16:00 (22 Nov UTC) Final slide deck: proofreading and refinement.** `presentation/presentation.tex` is the student's reworded
+    version (`presentation_rephrased_fixed.tex`) of the agent's draft of entry 79; the structure, figures and most sentences
+    descend from that draft, and the student reworded and re-ordered text and chose the live-demo slide. The agent then
+    proofread it against the result files and made four corrections: slide 4 (ear clipping is worst in the re-cropped
+    squares, 7 of 18), slide 5 (the other items in a batch do not change a given image), slide 8 (roles sentence: the agent
+    ran the screening on this PC; the student set the direction, reviewed 1,929 crops and tested the reported results) and
+    slide 13 (stricter sets gave recall 0.33-0.40 per seed against 0.42 for the final set, instead of "0.35-0.38").
+    Checked and unchanged: 74% memorization (73.8%), 13 of 94 folders with 0 marks, FID 87-220 for the alternative methods,
+    120k checkpoint 14/15 on 1 of 15 seeds, 10.7M model 12 of 15 seeds (accuracy 0.979, precision 0.829, mean recall 0.416),
+    60 of 61 seeds, recall 0.433 +/- 0.019, 39/128 and 60/128 unclear tiles. 14 slides compile without errors; two harmless
+    overfull-box warnings remain (0.2 pt and 11 pt, on a backup table). The earlier record (entry 79 and the plan documents)
+    is kept as written: the deck began as an agent draft and was then edited and proofread.
