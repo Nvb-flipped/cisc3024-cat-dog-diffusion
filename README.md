@@ -78,7 +78,7 @@ Current state: the submitted model is **v014, EMA 0.9995, 80,000 updates, sample
 | 61-seed statistics, recall figure | `python -m scripts.build_report_assets` | `report/numbers.tex`, `report/fig_*.pdf` |
 | Audit sample and result (160/200) | `python -m src.evaluation.audit prepare --manifest submission/manifest.csv --student-id ID --data-root data --out audit`, then label `audit/audit.csv`, then `... audit summarize ...`; breakdown: `python -m src.evaluation.audit_breakdown` | `audit/audit.csv`, `results/audit/breakdown.json` |
 | Offline CPU and CUDA interface checks | `python -m src.release.check --submission submission --device cpu --out results/release/offline_cpu.json` (and `--device cuda`) | `results/release/offline_*.json` |
-| Tests (216 pass, 1 skipped) | `python -m pytest -q tests starter_kit/tests` | terminal |
+| Tests (223 pass, 1 skipped) | `python -m pytest -q tests starter_kit/tests` | terminal |
 | Experiment table | `python -m scripts.build_experiments_index && python -m scripts.build_experiments_md` | `EXPERIMENTS.md` |
 | Report PDF | `tectonic -X compile report/report.tex` | `report/report.pdf` |
 
@@ -286,7 +286,7 @@ After final packaging, test the actual ZIP with a new extraction directory. This
 & .venvs\training\Scripts\python.exe -m src.release.verify_archive private_build\project_submission.zip --extract-to private_build\clean_room_v001 --official-seed 0
 ```
 
-The clean-room checker validates the archive member allowlist and hashes before extraction, rejects escaping paths or embedded photographs in text sources, and checks CPU/GPU inference from the extracted files. Its receipt binds the exact ZIP hash. The tiny synthetic archive test is software validation only; a final course archive has not yet been built.
+The clean-room checker validates the archive member allowlist and hashes before extraction, rejects escaping paths or embedded photographs in text sources, and checks CPU/GPU inference from the extracted files. Its receipt binds the exact ZIP hash. The packager refuses to write an archive above 100,000,000 bytes (`MAX_ARCHIVE_BYTES`, the stricter decimal reading of Moodle's 100 MB), and `verify_archive` repeats that check. To stay under the limit, three raw curation tables that the screening scripts produce (`results/curation/full/detections.jsonl`, `results/curation/full/candidates.csv`, `results/curation/photo_screen_full/scores.csv`) are not in the ZIP; they are one extra asset of the GitHub release, `bulk_curation_logs.zip`, and `results/release/omitted_bulk_files.json` records the SHA-256 and size of every omitted file and of the asset (`python -m scripts.build_bulk_evidence` builds both). Unzip the asset inside the project folder to restore them. Nothing in the tests, the demo, the evaluation or the model needs them; the final course ZIP is built with the commands above.
 
 The F4 checkpoint curves and F5 sampler sweep can be rebuilt directly from the retained data and official JSON:
 

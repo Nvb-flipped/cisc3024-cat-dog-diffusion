@@ -9,7 +9,7 @@ import sys
 import zipfile
 from pathlib import Path, PurePosixPath
 from src.common import ROOT, sha256, timestamp, write_json
-from src.release.package import allowed
+from src.release.package import allowed, check_archive_size
 from scripts.setup_inputs import verify_starter
 
 EXTRA_MEMBERS = {'ARTIFACT_HASHES.json', 'GIT_HISTORY.txt'}
@@ -53,6 +53,7 @@ def verify_archive(archive, extract_to, *, course_root=ROOT, devices=('cpu', 'cu
         raise ValueError('Archive differs from the expected upload artifact hash')
     if extract_to.exists():
         raise FileExistsError('Clean-room directory must be new; preserve earlier verification evidence')
+    check_archive_size(archive)
     validate_members(archive)
     extract_to.mkdir(parents=True)
     with zipfile.ZipFile(archive) as bundle:

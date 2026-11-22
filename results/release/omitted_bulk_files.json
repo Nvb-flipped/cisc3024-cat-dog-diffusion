@@ -1,0 +1,25 @@
+{
+ "reason": "The course ZIP must stay under the 100 MB upload limit; these are the largest raw curation intermediates.",
+ "asset": "bulk_curation_logs.zip",
+ "asset_sha256": "cfff2e468b279f7484b4c478459c279d701c92155addb7011cc3b8311729a7d9",
+ "asset_bytes": 31118833,
+ "published_with_release": "final-submission",
+ "restore": "unzip the asset inside the project root; every path below is relative to it",
+ "files": [
+  {
+   "path": "results/curation/full/detections.jsonl",
+   "bytes": 58922369,
+   "sha256": "f2f7b66c21167f0dcedc487b7d5a5116715c16ef1a09b9775338050a9be0a092"
+  },
+  {
+   "path": "results/curation/full/candidates.csv",
+   "bytes": 28355239,
+   "sha256": "6346f79eaeb5877c90a140fdf0f8841e836aac6f23392eba79a1d32d8eeaa91b"
+  },
+  {
+   "path": "results/curation/photo_screen_full/scores.csv",
+   "bytes": 19956727,
+   "sha256": "6d6abafa9ad2e7560a8aa9303528e7d395db8b064779261b2cf5b66e5e2cbbd9"
+  }
+ ]
+}

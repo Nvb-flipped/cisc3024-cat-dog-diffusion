@@ -22,6 +22,13 @@ INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'ed
 PRESENTATION_EXTENSIONS = {'.pptx', '.pdf', '.tex', '.sty', '.cls', '.json', '.csv', '.txt', '.md', '.bib', '.mjs'}
 # Course deadline: Thursday 26 November 2026 23:55 Asia/Shanghai = 15:55 UTC. Every file in the archive must be older.
 DEADLINE_EPOCH = 1795708500  # 2026-11-26T15:55:00Z
+# Moodle accepts one file of at most 100 MB. The decimal reading is the stricter one, so it is the ceiling: no archive above it is ever written.
+MAX_ARCHIVE_BYTES = 100_000_000
+# The largest raw curation intermediates (per-image detector output and tables derived from it) do not fit in that limit. They are
+# published as a separate release asset instead; results/release/omitted_bulk_files.json lists each file with its SHA-256 and bytes.
+BULK_OMITTED = ('results/curation/full/detections.jsonl', 'results/curation/full/candidates.csv',
+                'results/curation/photo_screen_full/scores.csv')
+BULK_MANIFEST = 'results/release/omitted_bulk_files.json'
 FORBIDDEN_PARTS = {'data', 'student', '.venvs', '.git', '.agents', '.codex', 'models',
                    'checkpoints', 'private_build', 'tmp', '__pycache__', '.pytest_tmp', '.pytest_cache'}
 
@@ -33,6 +40,8 @@ def allowed(relative):
         return False
     if relative.as_posix() == 'results/release/package_receipt.json':
         return False  # written by the packager after the archive exists; it names the previous archive
+    if relative.as_posix() in BULK_OMITTED:
+        return False  # delivered in the separate bulk asset, see BULK_MANIFEST
     if relative.as_posix() == 'report/report.pdf':
         return True   # the final report is also uploaded to Moodle on its own; the archive keeps a copy (no other report PDFs)
     if len(parts) == 1:
@@ -46,6 +55,27 @@ def allowed(relative):
     if parts[0] in SOURCE_ROOTS:
         return relative.suffix.lower() in SOURCE_EXTENSIONS
     return False
+
+
+def check_archive_size(path, limit=MAX_ARCHIVE_BYTES):
+    """Refuse an archive above the Moodle limit; returns its size in bytes."""
+    size = Path(path).stat().st_size
+    if size > limit:
+        raise ValueError(f'Archive is {size:,} bytes, {size - limit:,} above the {limit:,}-byte upload limit')
+    return size
+
+
+def check_bulk_manifest(root):
+    """The omitted files must be exactly the listed ones, and each present local file must still match its recorded hash."""
+    record = json.loads((Path(root) / BULK_MANIFEST).read_text(encoding='utf-8'))
+    listed = [item['path'] for item in record['files']]
+    if sorted(listed) != sorted(BULK_OMITTED):
+        raise ValueError('omitted_bulk_files.json does not list exactly the omitted files')
+    for item in record['files']:
+        path = Path(root) / item['path']
+        if path.exists() and sha256(path) != item['sha256']:
+            raise ValueError(f'Omitted file changed after its bulk asset was built: {item["path"]}')
+    return record
 
 
 def selected_files(root):
@@ -81,6 +111,7 @@ def build_archive(root, out):
     checks = readiness(root)
     if not checks['structural_checks_passed']:
         raise ValueError('Release is not ready for packaging: ' + '; '.join(checks['issues']))
+    check_bulk_manifest(root)
     files = selected_files(root)
     history = subprocess.check_output(['git', 'log', '--date=iso-strict', '--pretty=format:%h %ad %s'],
                                      cwd=root, text=True)
@@ -104,9 +135,15 @@ def build_archive(root, out):
         for name, expected in hashes.items():
             if hashlib.sha256(z.read(name)).hexdigest() != expected:
                 raise ValueError(f'Archive content hash mismatch: {name}')
+    try:
+        size = check_archive_size(temporary)
+    except ValueError:
+        temporary.unlink()
+        raise
     temporary.replace(out)
     receipt = {'archive': str(out), 'sha256': sha256(out), 'bytes': out.stat().st_size,
         'created': timestamp(), 'members': len(hashes) + 2,
+        'limit_bytes': MAX_ARCHIVE_BYTES, 'headroom_bytes': MAX_ARCHIVE_BYTES - size,
         'report_pdf': 'report/report.pdf (a copy is inside the archive; this file alone is the Moodle upload)',
         'scope': 'Local archive only; no course upload performed. Clean-room execution and human final review remain required.'}
     write_json(root / 'results/release/package_receipt.json', receipt)
