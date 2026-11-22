@@ -457,3 +457,20 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     public history gets only the final report PDF (nine earlier drafts are not published). Test count is now 216 passed, 1 skipped
     (was 210): README, report and slide 9 updated and rebuilt (report: 6 pages in total, 5 of main text). The earlier clean-room
     test was stopped and must be repeated on the new archive.
+82. **16:27 (22 Nov UTC) ZIP size guarantee and final project check.** The course ZIP must be the single Moodle file, so it must stay
+    under 100 MB: `src.release.package` now refuses to write any archive above 100,000,000 bytes (decimal MB, the stricter reading),
+    `verify_archive` repeats the check, and a test covers it. The previous archive was 118.7 MB. Three raw curation tables
+    (`results/curation/full/detections.jsonl`, `results/curation/full/candidates.csv`, `results/curation/photo_screen_full/scores.csv`,
+    31.1 MB compressed) are now one asset of the GitHub release, `bulk_curation_logs.zip` (SHA-256 cfff2e468b27...a7d9);
+    `results/release/omitted_bulk_files.json` holds the SHA-256 and size of each file and of the asset. No test, demo, evaluation
+    or model step reads them. `python -m scripts.final_check` (CPU) passed: starter kit byte-identical to the supplied archive;
+    223 tests passed, 1 skipped (README, report and slides quote 223); 5,098,915 parameters (ceiling 18M) and 20,710,252 bytes
+    (ceiling 90,000,000); manifest 8,029 rows (3,096 cat / 4,933 dog), every crop inside its image, angle 0, no padding, no
+    duplicate rows, the 63-photo holdout disjoint; seed statistics recomputed from the 61 raw evaluator JSONs equal the report
+    (60 of 61 seeds at 15, recall 0.433 +/- 0.019, min 0.395 at seed 31415, memorization 0.00% maximum); `build_report_assets`
+    regenerates `report/numbers.tex` byte-identically; the report has 6 pages (5 of main text), name and ID, no draft marks and
+    working links; no token or key in tracked files. The skipped test, the fixed 2,000-update single-batch diagnostic, was run on
+    the final code: probe MSE 1.1554 to 0.0157 (98.6% reduction, 80% required). The 61 panel evaluations used exports without
+    `edm.py` and `flow.py` (imported lazily for the edm/flow prediction types, unused by the epsilon model); every other inference
+    file is byte-identical to `submission/`. The GPU was used only for that 24 s diagnostic while another user's jobs ran. The
+    clean-room test of the final ZIP is recorded outside this log (`private_build/final_verification/`), because the ZIP contains it.
