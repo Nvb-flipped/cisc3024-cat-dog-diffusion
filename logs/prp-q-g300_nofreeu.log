@@ -1,0 +1,3 @@
+Evaluating u064000_g300_nofreeu: 1000 per class, seed 0
+{'update': 64000, 'sampler': 'g300_nofreeu', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9665, 'fid': 54.05, 'recall': 0.3717, 'precision': 0.771, 'memorization': 0.0}
+[W1119 15:10:45.138365236 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

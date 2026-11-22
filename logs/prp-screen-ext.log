@@ -1,0 +1,11 @@
+Evaluating u096000_v009: 1000 per class, seed 0
+{'update': 96000, 'sampler': 'v009', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.965, 'fid': 50.9, 'recall': 0.3628, 'precision': 0.7788, 'memorization': 0.0005000000237487257}
+Evaluating u112000_v009: 1000 per class, seed 0
+{'update': 112000, 'sampler': 'v009', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9625, 'fid': 52.31, 'recall': 0.3617, 'precision': 0.7843, 'memorization': 0.0005000000237487257}
+Evaluating u128000_v009: 1000 per class, seed 0
+{'update': 128000, 'sampler': 'v009', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9585, 'fid': 52.42, 'recall': 0.3573, 'precision': 0.792, 'memorization': 0.0005000000237487257}
+Evaluating u144000_v009: 1000 per class, seed 0
+{'update': 144000, 'sampler': 'v009', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.964, 'fid': 52.81, 'recall': 0.3595, 'precision': 0.7677, 'memorization': 0.0005000000237487257}
+Evaluating u160000_v009: 1000 per class, seed 0
+{'update': 160000, 'sampler': 'v009', 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9655, 'fid': 53.13, 'recall': 0.3341, 'precision': 0.7876, 'memorization': 0.0}
+[W1119 16:00:17.724332117 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

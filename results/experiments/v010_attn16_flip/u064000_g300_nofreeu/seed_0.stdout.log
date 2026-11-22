@@ -1,0 +1,22 @@
+
+================ Evaluation summary ================
+samples        2000   (reference /home/paco/Pattern-Recognition-Project/data/dev/dev.npz)
+accuracy       0.9665   (cat 0.9600, dog 0.9730)
+FID            54.05
+KID            13.01 x 1e-3   (std 1.11)
+precision      0.7710
+recall         0.3717
+memorization   0.00%   (median NN distance 9.49, median NN ratio 0.97, against 3858 training images and their mirror images, near-duplicates removed)
+parameters     5,098,915   (limit 20,000,000)
+size           19.60 MB   (limit 100 MB)
+speed          21.11 s / 1000 images on cuda
+checks         deterministic=True  seed_sensitive=True  single/mixed batch accuracy=0.95/0.98
+manifest       1929/1929 valid rows: 880 cats, 1049 dogs from 1929 pool images (0 rotated)
+accuracy       Excellent  5 marks
+fid            Good       4 marks
+recall         Good       4 marks
+marks          13 / 15
+====================================================
+results -> /home/paco/Pattern-Recognition-Project/results/experiments/v010_attn16_flip/u064000_g300_nofreeu/seed_0.json
+grid    -> /home/paco/Pattern-Recognition-Project/results/experiments/v010_attn16_flip/u064000_g300_nofreeu/seed_0.png
+[W1119 15:10:45.696422427 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

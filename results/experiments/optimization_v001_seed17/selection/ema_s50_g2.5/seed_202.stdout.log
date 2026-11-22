@@ -1,0 +1,21 @@
+
+================ Evaluation summary ================
+samples        2000   (reference C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\data\dev\dev.npz)
+accuracy       0.8860   (cat 0.9230, dog 0.8490)
+FID            86.96
+KID            40.37 x 1e-3   (std 1.80)
+precision      0.6228
+recall         0.2190
+memorization   2.90%   (median NN distance 7.34, median NN ratio 0.91, against 2394 training images and their mirror images, near-duplicates removed)
+parameters     10,664,371   (limit 20,000,000)
+size           40.80 MB   (limit 100 MB)
+speed          81.29 s / 1000 images on cuda
+checks         deterministic=True  seed_sensitive=True  single/mixed batch accuracy=0.82/0.89
+manifest       1197/1197 valid rows: 583 cats, 614 dogs from 1197 pool images (0 rotated)
+accuracy       Good       4 marks
+fid            Marginal   2 marks
+recall         Pass       3 marks
+marks          9 / 15
+====================================================
+results -> C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\results\experiments\optimization_v001_seed17\selection\ema_s50_g2.5\seed_202.json
+grid    -> C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\results\experiments\optimization_v001_seed17\selection\ema_s50_g2.5\seed_202.png

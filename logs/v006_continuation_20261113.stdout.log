@@ -1,0 +1,23 @@
+{'update': 30100, 'loss': 0.032529547810554504, 'grad_norm': 0.12768147885799408, 'lr': 0.0002, 'elapsed_seconds': 27.56468660000246}
+{'update': 30200, 'loss': 0.03266288340091705, 'grad_norm': 0.0782426968216896, 'lr': 0.0002, 'elapsed_seconds': 37.49316499999259}
+{'update': 30300, 'loss': 0.046434931457042694, 'grad_norm': 0.1263372302055359, 'lr': 0.0002, 'elapsed_seconds': 47.063553699990734}
+{'update': 30400, 'loss': 0.053412407636642456, 'grad_norm': 0.08599430322647095, 'lr': 0.0002, 'elapsed_seconds': 56.909517699998105}
+{'update': 30500, 'loss': 0.04292123764753342, 'grad_norm': 0.10212818533182144, 'lr': 0.0002, 'elapsed_seconds': 66.76601809999556}
+{'update': 30600, 'loss': 0.04329187422990799, 'grad_norm': 0.09933605790138245, 'lr': 0.0002, 'elapsed_seconds': 76.52519379998557}
+{'update': 30700, 'loss': 0.04494624584913254, 'grad_norm': 0.09400888532400131, 'lr': 0.0002, 'elapsed_seconds': 86.19160839999677}
+{'update': 30800, 'loss': 0.05164346843957901, 'grad_norm': 0.09703090041875839, 'lr': 0.0002, 'elapsed_seconds': 95.89639399998123}
+{'update': 30900, 'loss': 0.04636363312602043, 'grad_norm': 0.14255526661872864, 'lr': 0.0002, 'elapsed_seconds': 105.65140279999468}
+{'update': 31000, 'loss': 0.046616584062576294, 'grad_norm': 0.10762253403663635, 'lr': 0.0002, 'elapsed_seconds': 115.1738927999977}
+{'update': 31100, 'loss': 0.03613433241844177, 'grad_norm': 0.129259392619133, 'lr': 0.0002, 'elapsed_seconds': 124.84164339999552}
+{'update': 31200, 'loss': 0.03362346813082695, 'grad_norm': 0.08236932009458542, 'lr': 0.0002, 'elapsed_seconds': 134.7198596999806}
+{'update': 31300, 'loss': 0.034707777202129364, 'grad_norm': 0.1063087210059166, 'lr': 0.0002, 'elapsed_seconds': 143.75486180000007}
+{'update': 31400, 'loss': 0.04162997752428055, 'grad_norm': 0.12136229127645493, 'lr': 0.0002, 'elapsed_seconds': 153.0821243999817}
+{'update': 31500, 'loss': 0.029158316552639008, 'grad_norm': 0.08008667081594467, 'lr': 0.0002, 'elapsed_seconds': 162.52870059999987}
+{'update': 31600, 'loss': 0.038545265793800354, 'grad_norm': 0.1306035965681076, 'lr': 0.0002, 'elapsed_seconds': 171.95379450000473}
+{'update': 31700, 'loss': 0.0385313481092453, 'grad_norm': 0.11799677461385727, 'lr': 0.0002, 'elapsed_seconds': 181.34181620000163}
+{'update': 31800, 'loss': 0.04632788151502609, 'grad_norm': 0.09167991578578949, 'lr': 0.0002, 'elapsed_seconds': 190.6676138000039}
+{'update': 31900, 'loss': 0.04476682096719742, 'grad_norm': 0.10991028696298599, 'lr': 0.0002, 'elapsed_seconds': 200.11240839998936}
+{'update': 32000, 'loss': 0.056123364716768265, 'grad_norm': 0.07779094576835632, 'lr': 0.0002, 'elapsed_seconds': 209.2466269999859}
+{"event": "training_completed", "ended": "2026-11-13T14:43:42.265156+00:00", "last_update": 32000, "segment_id": "030000_20261113T1440123086160000", "segment_seconds": 209.87444650000543, "manifest_sha256": "123aac91c9cb71b487e156a119ba977a15fa34cceb03491c05b49e5c5927131b"}
+Evaluating update_032000: 1000 per class, seed 0
+{"event": "official_evaluation_completed", "evidence": [{"seed": 0, "path": "results\\experiments\\v006_coverage\\continuation_032000\\seed_0.json", "sha256": "10ed8c09edfb9e2e83cf86db86166778327527056f209078873491d37836c411", "metrics": {"num_samples": 2000, "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz", "accuracy": 0.8999999761581421, "per_class_accuracy": {"cat": 0.9240000247955322, "dog": 0.8759999871253967}, "fid": 70.84553336612026, "kid": 0.027068781569218256, "kid_std": 0.001615101561653982, "precision": 0.6880530714988708, "recall": 0.2842920422554016, "memorization_rate": 0.04050000011920929, "nn_distance_median": 8.436342239379883, "nn_ratio_median": 0.9359924793243408, "training_images_deduplicated": 2592}, "marks": {"per_metric": {"accuracy": {"tier": "Good", "marks": 4}, "fid": {"tier": "Pass", "marks": 3}, "recall": {"tier": "Pass", "marks": 3}}, "total": 10, "max": 15, "valid": true}, "violations": []}]}

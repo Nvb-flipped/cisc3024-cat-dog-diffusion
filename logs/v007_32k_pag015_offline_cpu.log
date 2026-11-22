@@ -1,0 +1,55 @@
+{
+  "device": "cpu",
+  "parameters": 5082147,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 50.354170500009786,
+      "sample_sha256": "9f9874c5d5e8e854a864128744e325a503c75da3cf664d0407400b131cafecd3"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 72.48142739999457,
+      "sample_sha256": "08c00c8147c28fcd0e8d3673e32097f0afd8f8c6b1c83f6dee841d48b0e9d5c1"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 68.31180199998198,
+      "sample_sha256": "6992d56db2b3f0e7fd29325923046cbf2dc0d368ee1ff035c0061462ad709662"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 133.7627376000164,
+      "sample_sha256": "da122c9fdafaa0d5e0db26a875671229d0c8569fa6125633a593e6f40b624a43"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 1077.626837399992,
+      "sample_sha256": "7f86d671d0fe28d6561cb4492f017c28c85d206b63f7b37b61bd4aeee9af3d05"
+    }
+  ],
+  "seconds": 1402.6007713,
+  "submission_bytes": 20463756,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "7cd4e2655089a72426c09dc39df9e0525ce082d698c943a7d98a8594371a614b",
+    "manifest.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "provenance.json": "6c17450ec3d91ee5b57171c09c92db4f914fca37b4ac8a9dc0ccfb074740f9a1",
+    "weights.pt": "4797a9dc695a7fe5f1ec4f30124453f91a7fec6179e874d50623ff9e2bb3dee6",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

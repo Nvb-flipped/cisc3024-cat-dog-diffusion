@@ -1,0 +1,5 @@
+Evaluating u064000_g300: 1000 per class, seed 101
+Evaluating u064000_g300: 1000 per class, seed 202
+{'update': 64000, 'sampler': 'g300', 'seed': 101, 'marks': 13, 'valid': True, 'accuracy': 0.982, 'fid': 50.3, 'recall': 0.3673, 'precision': 0.8252, 'memorization': 0.0}
+{'update': 64000, 'sampler': 'g300', 'seed': 202, 'marks': 15, 'valid': True, 'accuracy': 0.9825, 'fid': 49.82, 'recall': 0.4027, 'precision': 0.8009, 'memorization': 0.0}
+[W1119 19:55:10.356128760 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

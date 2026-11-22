@@ -1,0 +1,41 @@
+Reusing verified completed run: C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\checkpoints\ddpm_seed17_86c3c843eb
+Reusing verified completed run: C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\checkpoints\lr_0.0001_seed17_u050000_86c3c843eb
+Reusing verified completed run: C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\checkpoints\lr_0.0003_seed17_u050000_86c3c843eb
+Evaluating lr_0.0002_u020000: 1000 per class, seed 0
+Evaluating lr_0.0001_u020000: 1000 per class, seed 0
+Evaluating lr_0.0003_u020000: 1000 per class, seed 0
+Evaluating ema_s50_g1: 250 per class, seed 0
+Evaluating ema_s50_g1.5: 250 per class, seed 0
+Evaluating ema_s50_g2: 250 per class, seed 0
+Evaluating ema_s50_g2.5: 250 per class, seed 0
+Evaluating ema_s100_g1: 250 per class, seed 0
+Evaluating ema_s100_g1.5: 250 per class, seed 0
+Evaluating ema_s100_g2: 250 per class, seed 0
+Evaluating ema_s100_g2.5: 250 per class, seed 0
+Evaluating ema_s200_g1: 250 per class, seed 0
+Evaluating ema_s200_g1.5: 250 per class, seed 0
+Evaluating ema_s200_g2: 250 per class, seed 0
+Evaluating ema_s200_g2.5: 250 per class, seed 0
+Evaluating model_s50_g1: 250 per class, seed 0
+Evaluating model_s50_g1.5: 250 per class, seed 0
+Evaluating model_s50_g2: 250 per class, seed 0
+Evaluating model_s50_g2.5: 250 per class, seed 0
+Evaluating model_s100_g1: 250 per class, seed 0
+Evaluating model_s100_g1.5: 250 per class, seed 0
+Evaluating model_s100_g2: 250 per class, seed 0
+Evaluating model_s100_g2.5: 250 per class, seed 0
+Evaluating model_s200_g1: 250 per class, seed 0
+Evaluating model_s200_g1.5: 250 per class, seed 0
+Evaluating model_s200_g2: 250 per class, seed 0
+Evaluating model_s200_g2.5: 250 per class, seed 0
+Evaluating ema_s100_g1: 1000 per class, seed 0
+Evaluating ema_s100_g1: 1000 per class, seed 101
+Evaluating ema_s100_g1: 1000 per class, seed 202
+Evaluating ema_s50_g2.5: 1000 per class, seed 0
+Evaluating ema_s50_g2.5: 1000 per class, seed 101
+Evaluating ema_s50_g2.5: 1000 per class, seed 202
+Evaluating ema_s100_g2.5: 1000 per class, seed 0
+Evaluating ema_s100_g2.5: 1000 per class, seed 101
+Evaluating ema_s100_g2.5: 1000 per class, seed 202
+Evaluating ema_s50_g2.5: 1000 per class, seed 303
+Evaluating ema_s50_g2.5: 1000 per class, seed 404

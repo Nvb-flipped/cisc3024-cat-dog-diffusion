@@ -1,0 +1,55 @@
+{
+  "device": "cuda",
+  "parameters": 5082147,
+  "offline": true,
+  "clean_working_directory": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\tmp\\offline_check",
+  "records": [
+    {
+      "count": 1,
+      "checks_seconds": 17.56819849999738,
+      "sample_sha256": "318ddb2a0a56a7b3441d86e3cb09080e48f2e1d123511ce91b92f73022efbe02"
+    },
+    {
+      "count": 2,
+      "checks_seconds": 5.643923499999801,
+      "sample_sha256": "9dfef3dedc361ff9bb6edef3c57b365dbcd0442dca7112155dc8bea73754bb81"
+    },
+    {
+      "count": 20,
+      "checks_seconds": 5.617847300018184,
+      "sample_sha256": "02acb1bc8762bf6a8ba344cfc2d5c4ade78821e0f45853cf6f95e1d112f36106"
+    },
+    {
+      "count": 50,
+      "checks_seconds": 11.08925239997916,
+      "sample_sha256": "f866b8bb225448816d491e9be726a6d615efd5a7825555b5dfdfffeb5afb0995"
+    },
+    {
+      "count": 500,
+      "checks_seconds": 95.88225299998885,
+      "sample_sha256": "8ed677c0916c4daa200974785f9f7c699f512f3d8b52115b71fb3a2f7872b836"
+    }
+  ],
+  "seconds": 138.1442490000045,
+  "submission_bytes": 20463756,
+  "files": [
+    "diffusion.py",
+    "generate.py",
+    "inference.json",
+    "manifest.csv",
+    "model.py",
+    "provenance.json",
+    "weights.pt",
+    "__init__.py"
+  ],
+  "file_sha256": {
+    "diffusion.py": "f15afd1cc414d43a1195f7a8e1e1d188a837ad5e02971736f01300cd8010cd1f",
+    "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+    "inference.json": "7cd4e2655089a72426c09dc39df9e0525ce082d698c943a7d98a8594371a614b",
+    "manifest.csv": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6",
+    "model.py": "9caf3232dd4be5f0a3339c2163629339e8c062c4a288a6c46377cc5e79e14eb4",
+    "provenance.json": "6c17450ec3d91ee5b57171c09c92db4f914fca37b4ac8a9dc0ccfb074740f9a1",
+    "weights.pt": "4797a9dc695a7fe5f1ec4f30124453f91a7fec6179e874d50623ff9e2bb3dee6",
+    "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458"
+  }
+}

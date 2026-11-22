@@ -1,0 +1,72 @@
+run                            before  kept delete  freed GB
+capacity_32_seed17_22k_to_30k_86c3c843eb      4     2      2       0.2  
+capacity_32_seed17_30k_to_34k_86c3c843eb      2     2      0       0.0  
+capacity_32_seed17_u022000_86c3c843eb      4     2      2       0.2  
+capacity_32_seed17_u030000_123aac91c9     16     4     12       1.0  
+capacity_32_seed17_u030000_200d0f7e3f     15     2     13       1.1  
+capacity_32_seed17_u030000_63bc3fce35     15     2     13       1.1  
+capacity_32_seed17_u030000_6c2d9e7fae     16     4     12       1.0  
+capacity_32_seed29_u030000_86c3c843eb     15     1     14       1.1  
+capacity_32_seed43_u030000_86c3c843eb     15     2     13       1.1  
+capacity_40_seed17_u026000_123aac91c9     13     4      9       1.1  
+ddpm_seed17_86c3c843eb              5     4      1       0.2  
+ddpm_seed17_refine_20k_22k_86c3c843eb      2     2      0       0.0  
+dropout25_wide_seed17_u030000_86c3c843eb     15     3     12       2.1  
+edm_32_seed17_u030000_63bc3fce35     15     6      9       0.7  
+lr_0.0001_seed17_u050000_86c3c843eb      5     4      1       0.2  
+lr_0.0003_seed17_u050000_86c3c843eb      5     4      1       0.2  
+minsnr5_32_seed17_u030000_63bc3fce35     15     4     11       0.9  
+patch4_detail_seed17_u030000_63bc3fce35     15     3     12       1.0  
+patch8_detail_seed17_u030000_63bc3fce35     15     3     12       1.0  
+quantity_v001_seed17_u050000_27702755eb      5     2      3       0.5  
+v002_coarse_epsilon                15     2     13       1.1  
+v002_weight_decay003               15     2     13       1.1  
+v006_dropout15                     15     2     13       1.1  
+v006_self_condition                15     2     13       1.1  
+v007_input_perturbation            17     2     15       1.2  
+v007_timestep_focus065             16     4     12       1.0  
+v008_coverage32k                   16     2     14       1.1  
+v008_extension34k                   1     1      0       0.0  
+v009_appearance32k                 16     1     15       1.2  
+v009_attention16_32k               16     1     15       1.2  
+v009_attention16_extension34k       1     1      0       0.0  
+v009_attention16_extension35k       1     1      0       0.0  
+v009_attention16_lr100              1     1      0       0.0  
+v009_attention16_lr100_35k          1     1      0       0.0  
+v009_coverage32k                   16     2     14       1.1  
+v009_extension36k                   2     1      1       0.1  
+v009_flow32k                       16     1     15       1.2  
+v009_haar32k                       12     1     11       0.9  
+v010_attn16_flip                   80     6     74       6.1  
+v010_attn16                        48     4     44       3.6  
+v010_flip_ext                      80     5     75       6.2  
+v010_wide_flip                     80     5     75      12.9  
+v011_ema9995_flip                 100     3     97       8.0  
+v011_flip                         120     6    114       9.3  
+v011_wide_flip                    100     3     97      16.7  
+v012_flip                         120     4    116       9.5  
+v013_ema9995_flip                 100     3     97       8.0  
+v013_flip                         120     4    116       9.5  
+v014_ema9995_flip                 160    16    144      11.8  
+v014_flip                         160     8    152      12.5  
+v014_mid_ema9995_flip              14    14      0       0.0  SKIPPED (live job or --skip)
+v014_wide_ema9995_flip             13    13      0       0.0  SKIPPED (live job or --skip)
+velocity_32_seed17_u030000_63bc3fce35      1     1      0       0.0  
+
+1517 files, 141.8 GB would be deleted
+hashed 200/1517
+hashed 400/1517
+hashed 600/1517
+hashed 800/1517
+hashed 1000/1517
+hashed 1200/1517
+hashed 1400/1517
+ledger written before deletion: results/pruning/ledger_2026-11-21T040237.000071+0000.json
+deleted 200/1517
+deleted 400/1517
+deleted 600/1517
+deleted 800/1517
+deleted 1000/1517
+deleted 1200/1517
+deleted 1400/1517
+deleted 1517 files; ledger updated: results/pruning/ledger_2026-11-21T040237.000071+0000.json

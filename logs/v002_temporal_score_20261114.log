@@ -1,0 +1,18 @@
+Evaluating broader: 1000 per class, seed 0
+{"event": "official_evaluation_completed", "name": "broader", "evidence": [{"seed": 0, "path": "results\\experiments\\v002_temporal_score\\broader\\seed_0.json", "sha256": "7608c9caa62e6be784fe46a69396acdad96cc674b7e3c225d885d258556abf9d", "metrics": {"num_samples": 2000, "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz", "accuracy": 0.8945000171661377, "per_class_accuracy": {"cat": 0.9169999957084656, "dog": 0.871999979019165}, "fid": 77.4441225350439, "kid": 0.032011126350716415, "kid_std": 0.0015676579911571994, "precision": 0.622787594795227, "recall": 0.3053097426891327, "memorization_rate": 0.03799999877810478, "nn_distance_median": 8.312749862670898, "nn_ratio_median": 0.9228816032409668, "training_images_deduplicated": 2394}, "marks": {"per_metric": {"accuracy": {"tier": "Good", "marks": 4}, "fid": {"tier": "Pass", "marks": 3}, "recall": {"tier": "Good", "marks": 4}}, "total": 11, "max": 15, "valid": true}, "violations": []}]}
+Evaluating sharper: 1000 per class, seed 0
+{"event": "official_evaluation_completed", "name": "sharper", "evidence": [{"seed": 0, "path": "results\\experiments\\v002_temporal_score\\sharper\\seed_0.json", "sha256": "98c4a7a55644d280baf744e1282fd822ded24b7367dca03eb0ec20d55ec869a9", "metrics": {"num_samples": 2000, "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz", "accuracy": 0.9070000052452087, "per_class_accuracy": {"cat": 0.9449999928474426, "dog": 0.8690000176429749}, "fid": 70.10282063951445, "kid": 0.02782371181149272, "kid_std": 0.0015893774354098355, "precision": 0.6460176706314087, "recall": 0.31747788190841675, "memorization_rate": 0.04699999839067459, "nn_distance_median": 8.123557090759277, "nn_ratio_median": 0.9173059463500977, "training_images_deduplicated": 2394}, "marks": {"per_metric": {"accuracy": {"tier": "Excellent", "marks": 5}, "fid": {"tier": "Pass", "marks": 3}, "recall": {"tier": "Good", "marks": 4}}, "total": 12, "max": 15, "valid": true}, "violations": []}]}
+Evaluating sharper: 1000 per class, seed 101
+Evaluating sharper: 1000 per class, seed 202
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\scripts\run_temporal_score.py", line 84, in <module>
+    main()
+  File "C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\scripts\run_temporal_score.py", line 75, in main
+    print(json.dumps(dict(event='official_selection_completed', name=best, evidence=selected['evidence'][1:]),
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\csmen\Documents\Codex\Pattern-Recognition-Project\.venvs\runtimes\cpython-3.11-windows-x86_64-none\Lib\json\__init__.py", line 234, in dumps
+    return cls(
+           ^^^^
+TypeError: JSONEncoder.__init__() got an unexpected keyword argument 'flush'

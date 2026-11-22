@@ -1,0 +1,116 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 117, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 113, in main
+    screen(args.name, args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 91, in screen
+    write_json(results / 'interface.json', verify_interface(export, export) | {'solver': 'ddim'})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v002_dpmpp.py", line 34, in verify_interface
+    reference_api = importlib.import_module('.'.join((*Path(reference).parts, 'generate')))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/.uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'private_build.v010_attn16_flip.u064000_g2'
+[W1119 14:31:15.328046600 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 117, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 113, in main
+    screen(args.name, args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 91, in screen
+    write_json(results / 'interface.json', verify_interface(export, export) | {'solver': 'ddim'})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v002_dpmpp.py", line 34, in verify_interface
+    reference_api = importlib.import_module('.'.join((*Path(reference).parts, 'generate')))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/.uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'private_build.v010_attn16_flip.u064000_g2'
+[W1119 14:32:48.633375589 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 117, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 113, in main
+    screen(args.name, args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 91, in screen
+    write_json(results / 'interface.json', verify_interface(export, export) | {'solver': 'ddim'})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v002_dpmpp.py", line 34, in verify_interface
+    reference_api = importlib.import_module('.'.join((*Path(reference).parts, 'generate')))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/.uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'private_build.v010_attn16_flip.u064000_g2'
+[W1119 14:34:20.788824085 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 117, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 113, in main
+    screen(args.name, args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010_ext.py", line 91, in screen
+    write_json(results / 'interface.json', verify_interface(export, export) | {'solver': 'ddim'})
+                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v002_dpmpp.py", line 34, in verify_interface
+    reference_api = importlib.import_module('.'.join((*Path(reference).parts, 'generate')))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/.uv/python/cpython-3.11.16-linux-x86_64-gnu/lib/python3.11/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1126, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1204, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1140, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'private_build.v010_attn16_flip.u064000_g2'
+[W1119 14:35:52.877715465 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

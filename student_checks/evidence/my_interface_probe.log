@@ -1,0 +1,40 @@
+Device: cuda | torch 2.9.1+cu128
+sha256 submission/weights.pt: e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f
+sha256 submission/manifest.csv: 693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930
+Loading model...
+
+--- Probe 1: Determinism (same labels and seed) ---
+max diff 0.000e+00 -> PASS (identical)
+
+--- Probe 2: Seed sensitivity (seed 5 vs seed 6) ---
+mean |diff| per image [0.2953, 0.4198, 0.2024, 0.2537] -> PASS (every image should change)
+
+--- Probe 3: Independence from other labels (image 0) + label control ---
+image 0 max diff 0.000e+00 -> PASS (identical); control (slot 1, label 0 vs 1) mean |diff| 0.1297 -> PASS
+
+--- Probe 4: Single label and prefixes of larger batches ---
+N=1 vs image 0 of N=4: 0.000e+00; first 4 images of N=40 vs N=4: 0.000e+00; first 4 images of N=65 vs N=4: 0.000e+00 -> PASS (identical)
+
+--- Probe 5: Shape, dtype, value range, NaN/Inf ---
+Shape (4, 3, 32, 32) ok=True | dtype torch.float32 ok=True | range [0.0000, 1.0000] ok=True | all finite=True
+PASS
+
+--- Probe 6 (optional): caller's global RNG state is preserved ---
+{'torch CPU': True, 'python random': True, 'numpy': True, 'torch CUDA': True} -> PASS
+
+============================== SUMMARY ===============================
+Probe 1: Determinism (same labels and seed)
+    max diff 0.000e+00 -> PASS (identical)
+Probe 2: Seed sensitivity (seed 5 vs seed 6)
+    mean |diff| per image [0.2953, 0.4198, 0.2024, 0.2537] -> PASS (every image should change)
+Probe 3: Independence from other labels (image 0) + label control
+    image 0 max diff 0.000e+00 -> PASS (identical); control (slot 1, label 0 vs 1) mean |diff| 0.1297 -> PASS
+Probe 4: Single label and prefixes of larger batches
+    N=1 vs image 0 of N=4: 0.000e+00; first 4 images of N=40 vs N=4: 0.000e+00; first 4 images of N=65 vs N=4: 0.000e+00 -> PASS (identical)
+Probe 5: Shape, dtype, value range, NaN/Inf
+    PASS
+Probe 6 (optional): caller's global RNG state is preserved
+    {'torch CPU': True, 'python random': True, 'numpy': True, 'torch CUDA': True} -> PASS
+======================================================================
+Note: ~1e-5 differences would be the known GPU floating-point noise from AGENTS.md; report the number.
+No probe failed.

@@ -1,0 +1,21 @@
+
+================ Evaluation summary ================
+samples        2000   (reference /home/paco/Pattern-Recognition-Project/data/dev/dev.npz)
+accuracy       0.9360   (cat 0.9580, dog 0.9140)
+FID            60.59
+KID            19.12 x 1e-3   (std 1.20)
+precision      0.7588
+recall         0.3330
+memorization   4.35%   (median NN distance 8.77, median NN ratio 0.93, against 2798 training images and their mirror images, near-duplicates removed)
+parameters     5,098,915   (limit 20,000,000)
+size           19.59 MB   (limit 100 MB)
+speed          794.36 s / 1000 images on cpu
+checks         deterministic=True  seed_sensitive=True  single/mixed batch accuracy=0.93/0.92
+manifest       1399/1399 valid rows: 669 cats, 730 dogs from 1399 pool images (0 rotated)
+accuracy       Excellent  5 marks
+fid            Pass       3 marks
+recall         Good       4 marks
+marks          12 / 15
+====================================================
+results -> /home/paco/Pattern-Recognition-Project/results/experiments/v009_linux_baseline/seed_0_cpu.json
+grid    -> /home/paco/Pattern-Recognition-Project/results/experiments/v009_linux_baseline/seed_0_cpu.png

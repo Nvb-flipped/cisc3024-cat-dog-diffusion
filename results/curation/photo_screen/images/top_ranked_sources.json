@@ -1,0 +1,658 @@
+[
+  {
+    "candidate_id": "af9599ab7015018a4d2f",
+    "pool_id": "s028274",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4712953269481659,
+    "box": [
+      177.5894317626953,
+      72.40717315673828,
+      256.23095703125,
+      154.05128479003906
+    ],
+    "head_width": 78.64152526855469,
+    "head_height": 81.64411163330078,
+    "geometry": {
+      "x0": 158,
+      "y0": 55,
+      "size": 117,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.2,
+        0.25
+      ],
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.2
+      ],
+      [
+        0.3,
+        0.25
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.2
+      ],
+      [
+        0.4,
+        0.25
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "b26bfa6ae0240be47b9e",
+    "pool_id": "s032305",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4403115510940552,
+    "box": [
+      155.01792907714844,
+      28.615571975708008,
+      249.06423950195312,
+      121.06243896484375
+    ],
+    "head_width": 94.04631042480469,
+    "head_height": 92.44686698913574,
+    "geometry": {
+      "x0": 135,
+      "y0": 7,
+      "size": 135,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "6989da5f9f91c10f7e9e",
+    "pool_id": "s000313",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4446656107902527,
+    "box": [
+      339.76123046875,
+      75.06008911132812,
+      420.0958251953125,
+      183.21409606933594
+    ],
+    "head_width": 80.3345947265625,
+    "head_height": 108.15400695800781,
+    "geometry": {
+      "x0": 302,
+      "y0": 52,
+      "size": 155,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.25
+      ],
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.25
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.25
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "d267ee35779c9592e494",
+    "pool_id": "s053387",
+    "label": 0,
+    "detector_phrase": "cat",
+    "score": 0.3380943536758423,
+    "box": [
+      137.18592834472656,
+      41.38516616821289,
+      256.7462463378906,
+      184.4276123046875
+    ],
+    "head_width": 119.56031799316406,
+    "head_height": 143.0424461364746,
+    "geometry": {
+      "x0": 94,
+      "y0": 10,
+      "size": 205,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "4efc1d4d6cdb1ee41b25",
+    "pool_id": "s052001",
+    "label": 0,
+    "detector_phrase": "a cat head",
+    "score": 0.21854712069034576,
+    "box": [
+      87.54438781738281,
+      38.49473190307617,
+      196.46324157714844,
+      183.09805297851562
+    ],
+    "head_width": 108.91885375976562,
+    "head_height": 144.60332107543945,
+    "geometry": {
+      "x0": 39,
+      "y0": 7,
+      "size": 207,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "de3b57ebd5099af57a03",
+    "pool_id": "s031492",
+    "label": 0,
+    "detector_phrase": "a cat head",
+    "score": 0.2539460062980652,
+    "box": [
+      208.626953125,
+      156.58273315429688,
+      258.9884033203125,
+      206.14637756347656
+    ],
+    "head_width": 50.3614501953125,
+    "head_height": 49.56364440917969,
+    "geometry": {
+      "x0": 198,
+      "y0": 145,
+      "size": 72,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.2,
+        0.25
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "feac10e4295ba95aa1a9",
+    "pool_id": "s060008",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4779645800590515,
+    "box": [
+      138.07241821289062,
+      36.49400329589844,
+      224.29367065429688,
+      97.51795959472656
+    ],
+    "head_width": 86.22125244140625,
+    "head_height": 61.023956298828125,
+    "geometry": {
+      "x0": 119,
+      "y0": 5,
+      "size": 124,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.2,
+        0.25
+      ],
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.2
+      ],
+      [
+        0.3,
+        0.25
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.2
+      ],
+      [
+        0.4,
+        0.25
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "20e56917d3632e2760c4",
+    "pool_id": "s049875",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4951014518737793,
+    "box": [
+      69.6662368774414,
+      48.722808837890625,
+      167.70628356933594,
+      133.7549285888672
+    ],
+    "head_width": 98.04004669189453,
+    "head_height": 85.03211975097656,
+    "geometry": {
+      "x0": 48,
+      "y0": 21,
+      "size": 141,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "87400c17053638702174",
+    "pool_id": "s015813",
+    "label": 0,
+    "detector_phrase": "a cat head",
+    "score": 0.23175977170467377,
+    "box": [
+      44.44204330444336,
+      23.860042572021484,
+      130.5659637451172,
+      124.29762268066406
+    ],
+    "head_width": 86.12392044067383,
+    "head_height": 100.43758010864258,
+    "geometry": {
+      "x0": 16,
+      "y0": 2,
+      "size": 144,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "9aab18f32c5b2e576784",
+    "pool_id": "s075141",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4792645573616028,
+    "box": [
+      80.13996887207031,
+      103.44511413574219,
+      195.55198669433594,
+      203.83316040039062
+    ],
+    "head_width": 115.41201782226562,
+    "head_height": 100.38804626464844,
+    "geometry": {
+      "x0": 55,
+      "y0": 71,
+      "size": 165,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.2,
+        0.25
+      ],
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.2
+      ],
+      [
+        0.3,
+        0.25
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.2
+      ],
+      [
+        0.4,
+        0.25
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "c73ad895e4bf5308e549",
+    "pool_id": "s000758",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.25083526968955994,
+    "box": [
+      141.4093780517578,
+      123.45294952392578,
+      222.43246459960938,
+      216.84852600097656
+    ],
+    "head_width": 81.02308654785156,
+    "head_height": 93.39557647705078,
+    "geometry": {
+      "x0": 115,
+      "y0": 103,
+      "size": 134,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "ccb23e90bc234154878e",
+    "pool_id": "s034241",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.44791311025619507,
+    "box": [
+      120.34651947021484,
+      44.9769172668457,
+      256.0947265625,
+      176.66444396972656
+    ],
+    "head_width": 135.74820709228516,
+    "head_height": 131.68752670288086,
+    "geometry": {
+      "x0": 91,
+      "y0": 14,
+      "size": 194,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "4fbfc39add9910ed73ed",
+    "pool_id": "s000992",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.4627474546432495,
+    "box": [
+      112.24322509765625,
+      47.18181610107422,
+      182.7311553955078,
+      127.57656860351562
+    ],
+    "head_width": 70.48793029785156,
+    "head_height": 80.3947525024414,
+    "geometry": {
+      "x0": 90,
+      "y0": 30,
+      "size": 115,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  },
+  {
+    "candidate_id": "527555ec30b9374fa391",
+    "pool_id": "s023670",
+    "label": 0,
+    "detector_phrase": "a cat head",
+    "score": 0.34645208716392517,
+    "box": [
+      147.69198608398438,
+      84.34757995605469,
+      212.42898559570312,
+      159.50265502929688
+    ],
+    "head_width": 64.73699951171875,
+    "head_height": 75.15507507324219,
+    "geometry": {
+      "x0": 126,
+      "y0": 68,
+      "size": 108,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.2
+      ],
+      [
+        0.2,
+        0.25
+      ],
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.2
+      ],
+      [
+        0.3,
+        0.25
+      ],
+      [
+        0.3,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "0ca6d1160adf7b30bf94",
+    "pool_id": "s027029",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.43908214569091797,
+    "box": [
+      166.29791259765625,
+      104.44102478027344,
+      221.7809295654297,
+      148.81182861328125
+    ],
+    "head_width": 55.48301696777344,
+    "head_height": 44.37080383300781,
+    "geometry": {
+      "x0": 154,
+      "y0": 87,
+      "size": 80,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 1
+  },
+  {
+    "candidate_id": "48010d909c44878655e9",
+    "pool_id": "s048122",
+    "label": 1,
+    "detector_phrase": "a head a dog head",
+    "score": 0.47223028540611267,
+    "box": [
+      409.0926818847656,
+      44.895023345947266,
+      497.78131103515625,
+      131.71200561523438
+    ],
+    "head_width": 88.68862915039062,
+    "head_height": 86.81698226928711,
+    "geometry": {
+      "x0": 390,
+      "y0": 25,
+      "size": 127,
+      "angle": 0
+    },
+    "geometry_rejection": "",
+    "eligible_settings": [
+      [
+        0.2,
+        0.3
+      ],
+      [
+        0.3,
+        0.3
+      ],
+      [
+        0.4,
+        0.3
+      ]
+    ],
+    "photo_hint": 0
+  }
+]

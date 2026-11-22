@@ -1,0 +1,9 @@
+Evaluating u160000_g275: 1000 per class, seed 101
+Evaluating u160000_g275: 1000 per class, seed 202
+{'update': 160000, 'sampler': 'g275', 'seed': 101, 'marks': 15, 'accuracy': 0.9805, 'fid': 46.47, 'recall': 0.4038, 'precision': 0.7954, 'memorization': 0.0}
+{'update': 160000, 'sampler': 'g275', 'seed': 202, 'marks': 15, 'accuracy': 0.9745, 'fid': 46.19, 'recall': 0.4027, 'precision': 0.8042, 'memorization': 0.0}
+Evaluating u140000_g275: 1000 per class, seed 101
+Evaluating u140000_g275: 1000 per class, seed 202
+{'update': 140000, 'sampler': 'g275', 'seed': 101, 'marks': 15, 'accuracy': 0.9775, 'fid': 46.57, 'recall': 0.4015, 'precision': 0.8153, 'memorization': 0.0}
+{'update': 140000, 'sampler': 'g275', 'seed': 202, 'marks': 14, 'accuracy': 0.9795, 'fid': 45.48, 'recall': 0.3982, 'precision': 0.8119, 'memorization': 0.0}
+[W1120 09:49:12.514498041 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

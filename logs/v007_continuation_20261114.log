@@ -1,0 +1,24 @@
+{'update': 30100, 'loss': 0.03134850412607193, 'grad_norm': 0.11129552125930786, 'lr': 0.0002, 'elapsed_seconds': 26.876594600005774}
+{'update': 30200, 'loss': 0.03376161307096481, 'grad_norm': 0.054296668618917465, 'lr': 0.0002, 'elapsed_seconds': 36.61729500000365}
+{'update': 30300, 'loss': 0.04964146390557289, 'grad_norm': 0.15932756662368774, 'lr': 0.0002, 'elapsed_seconds': 46.38030170000275}
+{'update': 30400, 'loss': 0.05348138138651848, 'grad_norm': 0.08115499466657639, 'lr': 0.0002, 'elapsed_seconds': 56.154497599985916}
+{'update': 30500, 'loss': 0.04284866899251938, 'grad_norm': 0.10404576361179352, 'lr': 0.0002, 'elapsed_seconds': 65.92186380000203}
+{'update': 30600, 'loss': 0.047094739973545074, 'grad_norm': 0.08609340339899063, 'lr': 0.0002, 'elapsed_seconds': 75.56330889998935}
+{'update': 30700, 'loss': 0.04800327867269516, 'grad_norm': 0.0773170217871666, 'lr': 0.0002, 'elapsed_seconds': 85.19279909998295}
+{'update': 30800, 'loss': 0.04814871400594711, 'grad_norm': 0.09946265816688538, 'lr': 0.0002, 'elapsed_seconds': 94.98256689999835}
+{'update': 30900, 'loss': 0.05524463579058647, 'grad_norm': 0.10292286425828934, 'lr': 0.0002, 'elapsed_seconds': 104.61387030000333}
+{'update': 31000, 'loss': 0.041811853647232056, 'grad_norm': 0.11437743902206421, 'lr': 0.0002, 'elapsed_seconds': 114.30402700000559}
+{'update': 31100, 'loss': 0.03739554435014725, 'grad_norm': 0.12108033150434494, 'lr': 0.0002, 'elapsed_seconds': 124.30220919998828}
+{'update': 31200, 'loss': 0.030497312545776367, 'grad_norm': 0.09246405959129333, 'lr': 0.0002, 'elapsed_seconds': 133.84082650000346}
+{'update': 31300, 'loss': 0.033710777759552, 'grad_norm': 0.09181860089302063, 'lr': 0.0002, 'elapsed_seconds': 143.54927319998387}
+{'update': 31400, 'loss': 0.04446040093898773, 'grad_norm': 0.09656213223934174, 'lr': 0.0002, 'elapsed_seconds': 153.33357719998457}
+{'update': 31500, 'loss': 0.029182612895965576, 'grad_norm': 0.07003171741962433, 'lr': 0.0002, 'elapsed_seconds': 163.16000090001035}
+{'update': 31600, 'loss': 0.03679563105106354, 'grad_norm': 0.09205303341150284, 'lr': 0.0002, 'elapsed_seconds': 173.19328680000035}
+{'update': 31700, 'loss': 0.03908626362681389, 'grad_norm': 0.12898822128772736, 'lr': 0.0002, 'elapsed_seconds': 183.2718356999976}
+{'update': 31800, 'loss': 0.04981955140829086, 'grad_norm': 0.12675292789936066, 'lr': 0.0002, 'elapsed_seconds': 193.2328259999922}
+{'update': 31900, 'loss': 0.03983388468623161, 'grad_norm': 0.12085922062397003, 'lr': 0.0002, 'elapsed_seconds': 203.25485920000938}
+{'update': 32000, 'loss': 0.05365157127380371, 'grad_norm': 0.0847383663058281, 'lr': 0.0002, 'elapsed_seconds': 213.36666209998657}
+{"event": "training_completed", "ended": "2026-11-14T13:16:33.261902+00:00", "last_update": 32000, "segment_id": "030000_20261114T1312592037120000", "segment_seconds": 213.9503781000094, "manifest_sha256": "6c2d9e7fae1b3ea2b889a5ca4a0ee3ae6eaa665d9ee9f6aad00679cb862df9c6"}
+Evaluating v007_continuation_032000: 1000 per class, seed 0
+{"event": "official_evaluation_completed", "update": 32000, "evidence": [{"seed": 0, "path": "results\\experiments\\v007_continuation_032000\\seed_0.json", "sha256": "a70be4facce71b1f234e3c5fb02b70c1ac6c498cbd0885e9d0da9beda9b257f9", "metrics": {"num_samples": 2000, "reference": "C:\\Users\\csmen\\Documents\\Codex\\Pattern-Recognition-Project\\data\\dev\\dev.npz", "accuracy": 0.9104999899864197, "per_class_accuracy": {"cat": 0.9369999766349792, "dog": 0.8840000033378601}, "fid": 64.84979389472977, "kid": 0.0205982107766894, "kid_std": 0.0011820777245394503, "precision": 0.7002212405204773, "recall": 0.3462389409542084, "memorization_rate": 0.05649999901652336, "nn_distance_median": 8.7296781539917, "nn_ratio_median": 0.9204729199409485, "training_images_deduplicated": 2618}, "marks": {"per_metric": {"accuracy": {"tier": "Excellent", "marks": 0}, "fid": {"tier": "Pass", "marks": 0}, "recall": {"tier": "Good", "marks": 0}}, "total": 0, "max": 15, "valid": false}, "violations": ["memorization rate 5.6% exceeds 5%: samples copy training images"]}]}
+{"event": "comparison_completed", "improves_reference": false}

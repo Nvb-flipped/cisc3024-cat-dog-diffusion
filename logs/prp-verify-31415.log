@@ -1,0 +1,3 @@
+Evaluating u080000_g275: 1000 per class, seed 31415
+{'update': 80000, 'sampler': 'g275', 'seed': 31415, 'marks': 14, 'accuracy': 0.9745, 'fid': 46.4, 'recall': 0.3949, 'precision': 0.7754, 'memorization': 0.0}
+[W1120 17:22:02.615590883 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

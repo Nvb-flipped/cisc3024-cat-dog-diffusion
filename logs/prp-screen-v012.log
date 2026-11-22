@@ -1,0 +1,139 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:10:13.900238659 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:11:45.585539271 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:13:16.217625024 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:14:48.855261430 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:16:20.490729000 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:17:51.168090988 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:19:23.827362570 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:20:55.504286266 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:22:26.156809297 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 139, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 135, in main
+    screen(args.updates, args.sampler, args.seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 103, in screen
+    plan()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v012.py", line 71, in plan
+    raise ValueError(f'Frozen plan changed: {path}')
+ValueError: Frozen plan changed: results/plans/v012_flip.json
+[W1119 22:23:58.758394429 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u064000_g275: 1000 per class, seed 0
+{'update': 64000, 'sampler': 'g275', 'seed': 0, 'marks': 14, 'valid': True, 'accuracy': 0.9675, 'fid': 48.54, 'recall': 0.3816, 'precision': 0.7976, 'memorization': 0.0}
+Evaluating u080000_g275: 1000 per class, seed 0
+{'update': 80000, 'sampler': 'g275', 'seed': 0, 'marks': 14, 'valid': True, 'accuracy': 0.975, 'fid': 48.14, 'recall': 0.3927, 'precision': 0.8075, 'memorization': 0.0}
+Evaluating u096000_g275: 1000 per class, seed 0
+{'update': 96000, 'sampler': 'g275', 'seed': 0, 'marks': 14, 'valid': True, 'accuracy': 0.9805, 'fid': 48.21, 'recall': 0.3717, 'precision': 0.8462, 'memorization': 0.0}
+Evaluating u120000_g275: 1000 per class, seed 0
+{'update': 120000, 'sampler': 'g275', 'seed': 0, 'marks': 14, 'valid': True, 'accuracy': 0.975, 'fid': 48.41, 'recall': 0.3706, 'precision': 0.8241, 'memorization': 0.0}
+[W1119 22:49:07.567572139 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

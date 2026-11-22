@@ -1,0 +1,3 @@
+add_noise           : code 0.2728220211291866   hand 0.2728220211291865   |diff| 5.55e-17
+reconstruct_clean   : code 0.4   hand 0.4   |diff| 0.00e+00
+MATCH

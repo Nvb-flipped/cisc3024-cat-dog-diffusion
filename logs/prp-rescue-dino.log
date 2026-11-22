@@ -1,0 +1,372 @@
+dino: 13943 flagged of 39502 negatives; 13943 remaining
+dino 0/13943 2s
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 182, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 178, in main
+    clip_screen(args.pool) if args.phase == 'clip' else dino_rescue(args.pool)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 142, in dino_rescue
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2529, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2191, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1580, in forward
+    (vision_features, text_features), attentions = encoder_layer(
+                                                   ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1143, in forward
+    (vision_features, vision_deformable_attn) = self.deformable_layer(
+                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1007, in forward
+    hidden_states, attn_weights = self.self_attn(
+                                  ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 611, in forward
+    output = self.attn(
+             ^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 93, in forward
+    (torch.stack(sampling_value_list, dim=-2).flatten(-2) * attention_weights)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 312.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 74.31 MiB is free. Including non-PyTorch memory, this process has 2.44 GiB memory in use. Of the allocated memory 1.55 GiB is allocated by PyTorch, and 311.48 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+dino: 13943 flagged of 39502 negatives; 13942 remaining
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 182, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 178, in main
+    clip_screen(args.pool) if args.phase == 'clip' else dino_rescue(args.pool)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 142, in dino_rescue
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2529, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2191, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1580, in forward
+    (vision_features, text_features), attentions = encoder_layer(
+                                                   ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1143, in forward
+    (vision_features, vision_deformable_attn) = self.deformable_layer(
+                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1007, in forward
+    hidden_states, attn_weights = self.self_attn(
+                                  ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 611, in forward
+    output = self.attn(
+             ^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 93, in forward
+    (torch.stack(sampling_value_list, dim=-2).flatten(-2) * attention_weights)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 312.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 270.31 MiB is free. Including non-PyTorch memory, this process has 2.25 GiB memory in use. Of the allocated memory 1.51 GiB is allocated by PyTorch, and 158.59 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+dino: 13943 flagged of 39502 negatives; 13942 remaining
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 186, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 182, in main
+    clip_screen(args.pool) if args.phase == 'clip' else dino_rescue(args.pool)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 144, in dino_rescue
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2529, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2191, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1580, in forward
+    (vision_features, text_features), attentions = encoder_layer(
+                                                   ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1143, in forward
+    (vision_features, vision_deformable_attn) = self.deformable_layer(
+                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1007, in forward
+    hidden_states, attn_weights = self.self_attn(
+                                  ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 611, in forward
+    output = self.attn(
+             ^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 93, in forward
+    (torch.stack(sampling_value_list, dim=-2).flatten(-2) * attention_weights)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 312.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 130.31 MiB is free. Including non-PyTorch memory, this process has 2.38 GiB memory in use. Of the allocated memory 1.72 GiB is allocated by PyTorch, and 76.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+dino: 13943 flagged of 39502 negatives; 13942 remaining
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 186, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 182, in main
+    clip_screen(args.pool) if args.phase == 'clip' else dino_rescue(args.pool)
+                                                        ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rescue.py", line 144, in dino_rescue
+    outputs = model(**inputs)
+              ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2529, in forward
+    outputs = self.model(
+              ^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 2191, in forward
+    encoder_outputs = self.encoder(
+                      ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1580, in forward
+    (vision_features, text_features), attentions = encoder_layer(
+                                                   ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1143, in forward
+    (vision_features, vision_deformable_attn) = self.deformable_layer(
+                                                ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 1007, in forward
+    hidden_states, attn_weights = self.self_attn(
+                                  ^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 611, in forward
+    output = self.attn(
+             ^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/grounding_dino/modeling_grounding_dino.py", line 93, in forward
+    (torch.stack(sampling_value_list, dim=-2).flatten(-2) * attention_weights)
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 312.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 130.31 MiB is free. Including non-PyTorch memory, this process has 2.38 GiB memory in use. Of the allocated memory 1.72 GiB is allocated by PyTorch, and 76.72 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+dino: 13943 flagged of 39502 negatives; 12629 remaining
+dino 0/12629 2s
+dino 200/12629 188s
+dino 400/12629 374s
+dino 600/12629 556s
+dino 800/12629 697s
+dino 1000/12629 837s
+dino 1200/12629 980s
+dino 1400/12629 1147s
+dino 1600/12629 1328s
+dino 1800/12629 1512s
+dino 2000/12629 1695s
+dino 2200/12629 1863s
+dino 2400/12629 2048s
+dino 2600/12629 2233s
+dino 2800/12629 2385s
+dino 3000/12629 2527s
+dino 3200/12629 2670s
+dino 3400/12629 2814s
+dino 3600/12629 2955s
+dino 3800/12629 3098s
+dino 4000/12629 3239s
+dino 4200/12629 3381s
+dino 4400/12629 3525s
+dino 4600/12629 3669s
+dino 4800/12629 3812s
+dino 5000/12629 3951s
+dino 5200/12629 4131s
+dino 5400/12629 4293s
+dino 5600/12629 4398s
+dino: 13943 flagged of 39502 negatives; 6995 remaining
+dino 0/6995 2s
+dino 200/6995 77s
+dino 400/6995 151s
+dino 600/6995 221s
+dino 800/6995 283s
+dino 1000/6995 341s
+dino 1200/6995 420s
+dino 1400/6995 492s
+dino 1600/6995 528s
+dino 1800/6995 560s
+dino 2000/6995 593s
+dino 2200/6995 625s
+dino 2400/6995 657s
+dino 2600/6995 689s
+dino 2800/6995 720s
+dino 3000/6995 745s
+dino 3200/6995 769s
+dino 3400/6995 794s
+dino 3600/6995 820s
+dino 3800/6995 846s
+dino 4000/6995 872s
+dino 4200/6995 904s
+dino 4400/6995 936s
+dino 4600/6995 968s
+dino 4800/6995 1001s
+dino 5000/6995 1033s
+dino 5200/6995 1060s
+dino 5400/6995 1086s
+dino 5600/6995 1112s
+dino 5800/6995 1138s
+dino 6000/6995 1164s
+dino 6200/6995 1196s
+dino 6400/6995 1228s
+dino 6600/6995 1260s
+dino 6800/6995 1292s
+[W1119 14:59:43.674438661 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

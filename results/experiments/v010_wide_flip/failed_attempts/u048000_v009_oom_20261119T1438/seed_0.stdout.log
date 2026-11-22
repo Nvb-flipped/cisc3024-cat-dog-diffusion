@@ -1,0 +1,32 @@
+Traceback (most recent call last):
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 591, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 563, in main
+    result, images, labels = evaluate_submission(
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 399, in evaluate_submission
+    model = module.load_model(torch.device(device))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/private_build/v010_wide_flip/u048000_v009/generate.py", line 24, in load_model
+    return model.to(device).eval()
+           ^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1371, in to
+    return self._apply(convert)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 930, in _apply
+    module._apply(fn)
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 957, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1357, in convert
+    return t.to(
+           ^^^^^
+torch.AcceleratorError: CUDA error: out of memory
+Search for `cudaErrorMemoryAllocation' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[W1119 14:38:26.616018749 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

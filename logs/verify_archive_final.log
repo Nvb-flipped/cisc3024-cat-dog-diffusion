@@ -1,0 +1,60 @@
+{
+  "archive": "/home/paco/Pattern-Recognition-Project/private_build/project_submission.zip",
+  "archive_sha256": "2f1911f9815a6709fbdc8364a14c79d3876e132b472df9ee2feb9536abaa9e6d",
+  "extracted_root": "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final",
+  "started": "2026-11-22T15:33:18.779005+00:00",
+  "devices": {
+    "cpu": {
+      "result_sha256": "95416091d4df236e683ec227728bacb16b52622e4fa20d804f64547ccc0fac4d",
+      "command": [
+        "/home/paco/Pattern-Recognition-Project/.venvs/training/bin/python",
+        "-m",
+        "src.release.check",
+        "--submission",
+        "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/submission",
+        "--device",
+        "cpu",
+        "--counts",
+        "1,2,20,50,500",
+        "--out",
+        "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/private_build/archive_verification/offline_cpu.json"
+      ]
+    },
+    "cuda": {
+      "result_sha256": "e96cf2333d0173728099014c4ef199ab2639c6a7429e9e714fcdf397bd22a6e6",
+      "command": [
+        "/home/paco/Pattern-Recognition-Project/.venvs/training/bin/python",
+        "-m",
+        "src.release.check",
+        "--submission",
+        "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/submission",
+        "--device",
+        "cuda",
+        "--counts",
+        "1,2,20,50,500",
+        "--out",
+        "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/private_build/archive_verification/offline_cuda.json"
+      ]
+    }
+  },
+  "official_evaluation": {
+    "result_sha256": "fcdd369efed5148f75af46f93ccc12c0ae3262b6f73093371aa923e63122f85b",
+    "command": [
+      "/home/paco/Pattern-Recognition-Project/.venvs/training/bin/python",
+      "-m",
+      "src.evaluation.run",
+      "--submission",
+      "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/submission",
+      "--out",
+      "/home/paco/Pattern-Recognition-Project/private_build/clean_room_final/private_build/archive_verification/official_seed_0.json",
+      "--data-root",
+      "/home/paco/Pattern-Recognition-Project/data",
+      "--metric-cache",
+      "/home/paco/Pattern-Recognition-Project/models/evaluator",
+      "--seed",
+      "0"
+    ]
+  },
+  "scope": "Archive execution check, not a new human audit or hidden-test result.",
+  "finished": "2026-11-22T15:50:28.229126+00:00"
+}

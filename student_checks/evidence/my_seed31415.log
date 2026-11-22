@@ -1,0 +1,58 @@
+Traceback (most recent call last):
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 591, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 563, in main
+    result, images, labels = evaluate_submission(
+                             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 408, in evaluate_submission
+    metrics = compute_metrics(images, labels, reference, device, seed, training)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/evaluate.py", line 189, in compute_metrics
+    feats = inception_features(images, device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/starter_kit/catdog_eval/features.py", line 39, in inception_features
+    out.append(model(x)[0].flatten(1).double().cpu())
+               ^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/pytorch_fid/inception.py", line 156, in forward
+    x = block(x)
+        ^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/container.py", line 250, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torchvision/models/inception.py", line 406, in forward
+    x = self.bn(x)
+        ^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 193, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/functional.py", line 2813, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.03 GiB. GPU 0 has a total capacity of 31.35 GiB of which 661.69 MiB is free. Process 2354055 has 13.46 GiB memory in use. Process 2356393 has 13.39 GiB memory in use. Including non-PyTorch memory, this process has 3.83 GiB memory in use. Of the allocated memory 1.86 GiB is allocated by PyTorch, and 1.37 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)

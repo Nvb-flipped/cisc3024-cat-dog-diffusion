@@ -1,0 +1,10 @@
+{'update': 80000, 'sampler': 'g275', 'seed': 0, 'marks': 15, 'valid': True, 'accuracy': 0.973, 'fid': 47.28, 'recall': 0.4148, 'precision': 0.7799, 'memorization': 0.0}
+Evaluating u100000_g275: 1000 per class, seed 0
+{'update': 100000, 'sampler': 'g275', 'seed': 0, 'marks': 15, 'valid': True, 'accuracy': 0.973, 'fid': 46.6, 'recall': 0.4049, 'precision': 0.7721, 'memorization': 0.0}
+Evaluating u120000_g275: 1000 per class, seed 0
+{'update': 120000, 'sampler': 'g275', 'seed': 0, 'marks': 15, 'valid': True, 'accuracy': 0.9755, 'fid': 45.82, 'recall': 0.4325, 'precision': 0.7954, 'memorization': 0.0}
+Evaluating u140000_g275: 1000 per class, seed 0
+{'update': 140000, 'sampler': 'g275', 'seed': 0, 'marks': 15, 'valid': True, 'accuracy': 0.973, 'fid': 45.81, 'recall': 0.4436, 'precision': 0.8131, 'memorization': 0.0}
+Evaluating u160000_g275: 1000 per class, seed 0
+{'update': 160000, 'sampler': 'g275', 'seed': 0, 'marks': 15, 'valid': True, 'accuracy': 0.9685, 'fid': 45.86, 'recall': 0.4336, 'precision': 0.8119, 'memorization': 0.0}
+[W1120 09:42:15.699083347 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

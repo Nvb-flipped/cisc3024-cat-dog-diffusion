@@ -1,0 +1,283 @@
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 43, in run_official
+    raise RuntimeError(f'Official evaluator failed; inspect {out.with_suffix(".stdout.log")}')
+RuntimeError: Official evaluator failed; inspect /home/paco/Pattern-Recognition-Project/results/experiments/v010_wide_flip/u048000_v009/seed_0.stdout.log
+[W1119 14:38:26.022572618 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:39:58.019143017 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+Evaluating u048000_v009: 1000 per class, seed 0
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:41:30.803332912 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:43:02.634204202 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+Evaluating u048000_v009: 1000 per class, seed 0
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:44:34.431821904 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:46:05.346438110 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+Evaluating u048000_v009: 1000 per class, seed 0
+[W1119 14:47:37.265554323 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:49:09.134598474 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+Evaluating u048000_v009: 1000 per class, seed 0
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:50:41.934419022 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+Evaluating u048000_v009: 1000 per class, seed 0
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:52:13.804990353 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+Evaluating u048000_v009: 1000 per class, seed 0
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:53:45.741336972 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+Evaluating u048000_v009: 1000 per class, seed 0
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:55:17.560441725 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+Evaluating u048000_v009: 1000 per class, seed 0
+[W1119 14:56:49.490094782 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:58:20.343550067 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 14:59:52.124404358 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 229, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 225, in main
+    run_seeds(args.variant, args.updates, args.sampler, seeds)
+  File "/home/paco/Pattern-Recognition-Project/scripts/run_v010.py", line 192, in run_seeds
+    result = evaluate(checkpoint, MANIFEST, export, out, seeds=seeds, **runtime)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/src/training/optimize.py", line 39, in evaluate
+    run_official(exported, path, seed=seed, n_per_class=n_per_class)
+  File "/home/paco/Pattern-Recognition-Project/src/evaluation/run.py", line 17, in run_official
+    raise FileExistsError('Original evaluation evidence is immutable; use a new output path')
+FileExistsError: Original evaluation evidence is immutable; use a new output path
+[W1119 15:01:24.968528559 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Evaluating u048000_v009: 1000 per class, seed 0
+{'update': 48000, 'seed': 0, 'marks': 12, 'valid': True, 'accuracy': 0.96, 'fid': 52.28, 'recall': 0.2898, 'precision': 0.802, 'memorization': 0.010499999858438969}
+Evaluating u056000_v009: 1000 per class, seed 0
+{'update': 56000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.962, 'fid': 51.89, 'recall': 0.3451, 'precision': 0.8186, 'memorization': 0.01899999938905239}
+Evaluating u064000_v009: 1000 per class, seed 0
+{'update': 64000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9635, 'fid': 51.8, 'recall': 0.3518, 'precision': 0.7954, 'memorization': 0.03400000184774399}
+Evaluating u072000_v009: 1000 per class, seed 0
+{'update': 72000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.97, 'fid': 51.54, 'recall': 0.344, 'precision': 0.8274, 'memorization': 0.03550000116229057}
+Evaluating u080000_v009: 1000 per class, seed 0
+{'update': 80000, 'seed': 0, 'marks': 0, 'valid': False, 'accuracy': 0.973, 'fid': 51.22, 'recall': 0.3241, 'precision': 0.7942, 'memorization': 0.054999999701976776}
+[W1119 15:09:15.730098837 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

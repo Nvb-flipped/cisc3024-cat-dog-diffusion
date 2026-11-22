@@ -1,0 +1,31 @@
+Evaluating u080000_g275: 1000 per class, seed 2001
+Evaluating u080000_g275: 1000 per class, seed 2002
+Evaluating u080000_g275: 1000 per class, seed 2003
+Evaluating u080000_g275: 1000 per class, seed 2004
+Evaluating u080000_g275: 1000 per class, seed 2005
+Evaluating u080000_g275: 1000 per class, seed 2006
+Evaluating u080000_g275: 1000 per class, seed 2007
+Evaluating u080000_g275: 1000 per class, seed 2008
+Evaluating u080000_g275: 1000 per class, seed 2009
+Evaluating u080000_g275: 1000 per class, seed 2010
+Evaluating u080000_g275: 1000 per class, seed 2011
+Evaluating u080000_g275: 1000 per class, seed 2012
+Evaluating u080000_g275: 1000 per class, seed 2013
+Evaluating u080000_g275: 1000 per class, seed 2014
+Evaluating u080000_g275: 1000 per class, seed 2015
+{'update': 80000, 'sampler': 'g275', 'seed': 2001, 'marks': 15, 'accuracy': 0.974, 'fid': 46.81, 'recall': 0.4038, 'precision': 0.7865, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2002, 'marks': 15, 'accuracy': 0.967, 'fid': 46.53, 'recall': 0.4369, 'precision': 0.7854, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2003, 'marks': 15, 'accuracy': 0.97, 'fid': 46.55, 'recall': 0.4491, 'precision': 0.7832, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2004, 'marks': 15, 'accuracy': 0.969, 'fid': 46.73, 'recall': 0.406, 'precision': 0.8142, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2005, 'marks': 15, 'accuracy': 0.9745, 'fid': 46.24, 'recall': 0.4569, 'precision': 0.7843, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2006, 'marks': 15, 'accuracy': 0.9725, 'fid': 46.7, 'recall': 0.4414, 'precision': 0.7976, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2007, 'marks': 15, 'accuracy': 0.9725, 'fid': 46.39, 'recall': 0.4281, 'precision': 0.7699, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2008, 'marks': 15, 'accuracy': 0.97, 'fid': 46.94, 'recall': 0.417, 'precision': 0.7976, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2009, 'marks': 15, 'accuracy': 0.9725, 'fid': 46.85, 'recall': 0.4071, 'precision': 0.792, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2010, 'marks': 15, 'accuracy': 0.9675, 'fid': 47.0, 'recall': 0.4259, 'precision': 0.792, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2011, 'marks': 15, 'accuracy': 0.969, 'fid': 46.9, 'recall': 0.4281, 'precision': 0.7843, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2012, 'marks': 15, 'accuracy': 0.9665, 'fid': 46.92, 'recall': 0.4591, 'precision': 0.7655, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2013, 'marks': 15, 'accuracy': 0.9705, 'fid': 46.76, 'recall': 0.417, 'precision': 0.7887, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2014, 'marks': 15, 'accuracy': 0.9785, 'fid': 46.83, 'recall': 0.4137, 'precision': 0.802, 'memorization': 0.0}
+{'update': 80000, 'sampler': 'g275', 'seed': 2015, 'marks': 15, 'accuracy': 0.9705, 'fid': 46.32, 'recall': 0.4414, 'precision': 0.8064, 'memorization': 0.0}
+[W1120 11:09:27.311896334 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

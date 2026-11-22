@@ -1,0 +1,389 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 153, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 147, in main
+    embed(R / 'clip_crop_embeddings.npz')
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 68, in embed
+    f = F.normalize(model.get_image_features(**processor(images=list(images), return_tensors='pt').to('cuda')), dim=-1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/utils/generic.py", line 809, in wrapper
+    return func(*args, **valid_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 928, in get_image_features
+    vision_outputs: BaseModelOutputWithPooling = self.vision_model(
+                                                 ^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 745, in forward
+    encoder_outputs: BaseModelOutput = self.encoder(
+                                       ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 549, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 407, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 363, in forward
+    hidden_states = self.activation_fn(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/activations.py", line 119, in forward
+    return input * torch.sigmoid(1.702 * input)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 150.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 39.62 MiB is free. Including non-PyTorch memory, this process has 1.71 GiB memory in use. Of the allocated memory 1.12 GiB is allocated by PyTorch, and 6.30 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[W1120 03:48:12.579528033 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 153, in <module>
+    main()
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 147, in main
+    embed(R / 'clip_crop_embeddings.npz')
+  File "/home/paco/Pattern-Recognition-Project/src/curation/rank_classifier.py", line 68, in embed
+    f = F.normalize(model.get_image_features(**processor(images=list(images), return_tensors='pt').to('cuda')), dim=-1)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/utils/generic.py", line 809, in wrapper
+    return func(*args, **valid_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 928, in get_image_features
+    vision_outputs: BaseModelOutputWithPooling = self.vision_model(
+                                                 ^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 745, in forward
+    encoder_outputs: BaseModelOutput = self.encoder(
+                                       ^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 549, in forward
+    layer_outputs = encoder_layer(
+                    ^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/modeling_layers.py", line 94, in __call__
+    return super().__call__(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 407, in forward
+    hidden_states = self.mlp(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/models/clip/modeling_clip.py", line 363, in forward
+    hidden_states = self.activation_fn(hidden_states)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/paco/Pattern-Recognition-Project/.venvs/training/lib/python3.11/site-packages/transformers/activations.py", line 119, in forward
+    return input * torch.sigmoid(1.702 * input)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 150.00 MiB. GPU 0 has a total capacity of 31.35 GiB of which 39.62 MiB is free. Including non-PyTorch memory, this process has 1.71 GiB memory in use. Of the allocated memory 1.12 GiB is allocated by PyTorch, and 6.30 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[W1120 03:49:48.873797212 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
+256
+512
+768
+1024
+1280
+1536
+1792
+2048
+2304
+2560
+2816
+3072
+3328
+3584
+3840
+4096
+4352
+4608
+4864
+5120
+5376
+5632
+5888
+6144
+6400
+6656
+6912
+7168
+7424
+7680
+7936
+8192
+8448
+8704
+8960
+9216
+9472
+9728
+9984
+10240
+10496
+10752
+11008
+11264
+11520
+11776
+12032
+12288
+12544
+12800
+13056
+13312
+13568
+13824
+14080
+14336
+14592
+14848
+15104
+15360
+15616
+15872
+16128
+16384
+16640
+16896
+17152
+17408
+17664
+17920
+18176
+18432
+18688
+18944
+19200
+19456
+19712
+19968
+20224
+20480
+20736
+20992
+21248
+21504
+21760
+22016
+22272
+22528
+22784
+23040
+23296
+23552
+23808
+24064
+24320
+24576
+24832
+25088
+25344
+25600
+25856
+26112
+26368
+26624
+26880
+27136
+27392
+27648
+27904
+28160
+28416
+28672
+28928
+29184
+29440
+29696
+29952
+30208
+30464
+30720
+30976
+31232
+31488
+31744
+32000
+32256
+32512
+32768
+33024
+33280
+33536
+33792
+34048
+34304
+34560
+34816
+35072
+35328
+35584
+35840
+36096
+36352
+36608
+36864
+37120
+37376
+37632
+37888
+38144
+38400
+38656
+38912
+39168
+39424
+39680
+39936
+40192
+40448
+40704
+40960
+41216
+41472
+41728
+41984
+42240
+42496
+42752
+43008
+43264
+43520
+43776
+44032
+44288
+44544
+44800
+45056
+45312
+45568
+45824
+46080
+46336
+46592
+46848
+47104
+47360
+47616
+47872
+48128
+48384
+48640
+48896
+49152
+49408
+49664
+49920
+50176
+50432
+50688
+50944
+51200
+51456
+51712
+51968
+52224
+52480
+52736
+52992
+53248
+53504
+53760
+54016
+54272
+54528
+54784
+55040
+55296
+55552
+55808
+56064
+56320
+56576
+56832
+57088
+57344
+57600
+57856
+58112
+58368
+58624
+58880
+59136
+59392
+59648
+59904
+60160
+60416
+60672
+60928
+61184
+61440
+61696
+61952
+62208
+62464
+62720
+62976
+63232
+63488
+63744
+64000
+64256
+64512
+64768
+65024
+65280
+65485
+[W1120 03:53:10.448204300 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())

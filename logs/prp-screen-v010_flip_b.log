@@ -1,0 +1,7 @@
+Evaluating u064000_v009: 1000 per class, seed 0
+{'update': 64000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.957, 'fid': 50.68, 'recall': 0.3927, 'precision': 0.7887, 'memorization': 0.0}
+Evaluating u072000_v009: 1000 per class, seed 0
+{'update': 72000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.95, 'fid': 50.54, 'recall': 0.3894, 'precision': 0.7865, 'memorization': 0.0}
+Evaluating u080000_v009: 1000 per class, seed 0
+{'update': 80000, 'seed': 0, 'marks': 13, 'valid': True, 'accuracy': 0.9535, 'fid': 50.96, 'recall': 0.3606, 'precision': 0.7765, 'memorization': 0.0}
+[W1119 14:30:20.839732431 AllocatorConfig.cpp:28] Warning: PYTORCH_CUDA_ALLOC_CONF is deprecated, use PYTORCH_ALLOC_CONF instead (function operator())
