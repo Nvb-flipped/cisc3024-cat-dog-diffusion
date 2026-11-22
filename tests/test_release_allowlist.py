@@ -38,3 +38,11 @@ def test_audit_completeness_requires_every_bad_reason(tmp_path):
     text = path.read_text()
     path.write_text(text.replace('bad,', 'bad,fixture reason'))
     assert audit_check(path)['rows'] == 200
+
+
+def test_archive_deadline_is_26_november_2026_2355_shanghai():
+    from datetime import datetime
+    from zoneinfo import ZoneInfo
+    from src.release.package import DEADLINE_EPOCH
+    zone = ZoneInfo('Asia/Shanghai')
+    assert datetime.fromtimestamp(DEADLINE_EPOCH, zone) == datetime(2026, 11, 26, 23, 55, tzinfo=zone)

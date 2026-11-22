@@ -4,6 +4,7 @@ import hashlib
 import json
 import os
 import subprocess
+import time
 import zipfile
 from pathlib import Path
 from src.common import ROOT, sha256, timestamp, write_json
@@ -19,6 +20,8 @@ SOURCE_EXTENSIONS = {'.py', '.js', '.html', '.css', '.yaml', '.yml', '.json', '.
 INFERENCE_FILES = {'__init__.py', 'generate.py', 'model.py', 'diffusion.py', 'edm.py', 'flow.py', 'weights.pt',
                    'inference.json', 'manifest.csv', 'provenance.json'}
 PRESENTATION_EXTENSIONS = {'.pptx', '.pdf', '.tex', '.sty', '.cls', '.json', '.csv', '.txt', '.md', '.bib', '.mjs'}
+# Course deadline: Thursday 26 November 2026 23:55 Asia/Shanghai = 15:55 UTC. Every file in the archive must be older.
+DEADLINE_EPOCH = 1795708500  # 2026-11-26T15:55:00Z
 FORBIDDEN_PARTS = {'data', 'student', '.venvs', '.git', '.agents', '.codex', 'models',
                    'checkpoints', 'private_build', 'tmp', '__pycache__', '.pytest_tmp', '.pytest_cache'}
 
@@ -88,6 +91,9 @@ def build_archive(root, out):
     with zipfile.ZipFile(temporary) as z:
         if z.testzip() is not None:
             raise ValueError('Archive CRC validation failed')
+        late = [i.filename for i in z.infolist() if time.mktime(tuple(i.date_time) + (0, 0, -1)) > DEADLINE_EPOCH]
+        if late:
+            raise ValueError(f'Archive members dated after the submission deadline: {late[:5]}')
         for item in z.namelist():
             if item not in ['GIT_HISTORY.txt', 'ARTIFACT_HASHES.json'] and not allowed(Path(item)):
                 raise ValueError(f'Forbidden archive member: {item}')

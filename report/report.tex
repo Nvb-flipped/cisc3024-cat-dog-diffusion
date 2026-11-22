@@ -9,9 +9,10 @@
 \setlength{\parskip}{2pt}
 \renewcommand{\arraystretch}{1.05}
 \input{numbers.tex}
-\newcommand{\showmarks}{1}
+\newcommand{\showmarks}{0}
 \newcommand{\student}[1]{\ifnum\showmarks=1\textcolor{red}{[STUDENT: #1]}\fi}
-\newcommand{\zipurl}{https://github.com/Nvb-flipped/REPO-NAME/releases/download/final-submission/project_submission.zip}
+\newcommand{\zipurl}{https://github.com/Nvb-flipped/cisc3024-cat-dog-diffusion/releases/download/final-submission/project_submission.zip}
+\newcommand{\releaseurl}{https://github.com/Nvb-flipped/cisc3024-cat-dog-diffusion/releases/tag/final-submission}
 \title{\vspace{-0.9cm}\textbf{Cat and dog head generation from a self-curated pool}\vspace{-0.1cm}}
 \author{Sou Chak Tong \quad Student ID: U-C3-2652-3 \quad CISC3024 Pattern Recognition Project}
 \date{}
@@ -26,7 +27,7 @@ On the unchanged official evaluator, seed 0 gives accuracy 0.972, FID 46.57, KID
 Over \nSeeds{} generation seeds, \nFifteen{} score 15/15 ($\pFifteen\,\%$, Wilson 95\,\% interval $\pFifteenLo$--$\pFifteenHi\,\%$); seed \lowSeed{} (one I chose myself) scores 14/15 because its recall is \lowRecall{}, just below 0.40.
 Recall is therefore the one metric with little margin. My personal audit of 200 training crops found \auditGood{} good (\auditPct\,\%, 95\,\% interval \auditCI\,\%); the main error is ears cut by the square.
 Visual quality is weaker than the metrics suggest: by my own count 39 of 128 samples in the seed-0 grid are unrecognizable (Section~3).
-\textbf{Submission ZIP:} \expandafter\url\expandafter{\zipurl}\ \student{replace by the real link; add the OneDrive backup link if used}.
+\textbf{Submission ZIP (download link):} \expandafter\url\expandafter{\zipurl}. The release page, which shows the file's SHA-256 checksum, is \expandafter\url\expandafter{\releaseurl}.
 
 \section{Data}
 \textbf{Pipeline.} Grounding DINO Tiny~\cite{liu2023groundingdino} proposed head boxes for all 76{,}250 pool images; I turned them into square crops with the official geometry (60--80\,\% head occupancy, no padding, no rotation) and added bounded re-squaring where the box fell outside the image or covered only the face. A CLIP~\cite{radford2021clip} screen and a targeted second detector pass recovered images with no detection, giving \textbf{63{,}115 candidate crops}. Qwen3.5-9B~\cite{qwen35} (served with vLLM~\cite{kwon2023vllm}) screened every candidate (6{,}718 passed). A CLIP linear probe trained on my own verdicts ranked the rest so that review went best-first. About 17{,}000 crops then received an \emph{agent visual review} against the exact handout rules (real photo; exactly one centred, roughly upright head with ears; 60--80\,\% of the side; $\ge$32 px wide); 7{,}083 were judged valid. Same-photo overlaps, near-duplicates of my own crops (pixel distance, dHash, source reposts) and holdout sources were removed (983 crops). Together with my 1{,}929 personally reviewed crops (50 batches) this gives the final \textbf{8{,}029}. The evaluator's classifier, Inception network and all dev images and features were never used for curation. The agent's verdicts are not my own; the audit below is.

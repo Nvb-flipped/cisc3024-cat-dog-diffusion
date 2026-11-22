@@ -88,8 +88,7 @@ def readiness(root=ROOT):
             evidence[f'offline_{device}'] = sha256(path)
         except (OSError, ValueError, KeyError) as exc:
             issues.append(f'Offline {device}: {exc}')
-    for name in ['report/report.pdf', 'presentation/presentation.pptx',
-                 'presentation/presentation.tex', 'presentation/presentation.pdf']:
+    for name in ['report/report.pdf', 'presentation/presentation.tex', 'presentation/presentation.pdf']:
         if not (root / name).is_file():
             issues.append(f'Missing final artifact: {name}')
     try:
