@@ -168,7 +168,7 @@ def verify(out):
         if p.lower().endswith(TEXT_SUFFIXES) and any(m in data.decode('utf-8', 'ignore').lower() for m in EMBED):
             problems.append(f'embedded photo in {p}')
     messages = git('log', '--format=%H%x1f%B%x1e', cwd=out)
-    for pattern in ('co-authored-by', 'noreply@anthropic', r'\bgenerated with\b'):   # attribution trailers are errors; whole phrase only
+    for pattern in ('co-authored-by', 'noreply@anthropic', r'generated with\s+\[?claude', '\U0001F916'):   # attribution trailers are errors; whole phrase only
         hits = len(re.findall(pattern, messages, flags=re.I))
         if hits:
             problems.append(f'{hits} commit-message mention(s) of "{pattern}"')

@@ -474,3 +474,13 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     `edm.py` and `flow.py` (imported lazily for the edm/flow prediction types, unused by the epsilon model); every other inference
     file is byte-identical to `submission/`. The GPU was used only for that 24 s diagnostic while another user's jobs ran. The
     clean-room test of the final ZIP is recorded outside this log (`private_build/final_verification/`), because the ZIP contains it.
+83. **16:36 (22 Nov UTC) Stale files in the archive corrected.** The final pass found shipped files that described earlier states:
+    `results/release/readiness.json` (a record from the first PC with Windows paths and `structural_checks_passed: false`;
+    regenerated with `src.release.readiness` on the final files: passed, no issues, five declared seeds at 15),
+    `REQUIREMENTS_TRACE.md` (v006 era, "no final ZIP"), `STUDENT_REVIEW_QUEUE.md` (a Batch-22 work queue), the README opening
+    paragraph (v002 state, links to two files that are not in the archive) and a THIRD_PARTY_NOTICES line saying the disclosure
+    was in progress. They now describe the final state using verified facts only; what the student still owns (final read-through,
+    rehearsal, the upload, the slide-ownership row) stays recorded as the student's. `report/DEVELOPMENT_EVIDENCE_NOTE.md`
+    labels the old development evidence files as historical (they are hash-bound and unchanged). `PROJECT_PLAN.md` keeps its
+    original text (frozen plan). The public-history scan now looks for an attribution line ("generated with Claude", the robot
+    emoji, Co-Authored-By) instead of any use of the words.
