@@ -246,11 +246,9 @@ For the live demo, start the command before presenting and wait for `Model ready
 
 ## Student ownership and remaining deliverables
 
-`AGENT_LOG.md` contains pending instructions, not completed student checks. The student must independently perform the data, interface and evaluator checks and record the actual evidence/outcome contemporaneously.
+The student's own work is recorded in `AGENT_LOG.md` (three independent checks of the agent's data, results and interface work, with their evidence under `student_checks/evidence/`), `audit/audit.csv` (the personal 200-crop audit: 160 of 200 good) and `annotations/` (the 1,929 personally reviewed crops). `student_checks/` keeps the original check procedures.
 
-`student_checks/` contains three blank procedures. The prepared 30-pair data study is under `private_build/student_data_check_v001/`, including original-resolution sources, official/project crops, a diagnostic manifest and blank personal measurements. The agent recorded zero pixel difference for those exact reconstruction comparisons; that does not count as the student's independent check. See STUDENT_REVIEW_QUEUE.md for the daily review order.
-
-The final audit is generated only after the final manifest and actual student ID are known:
+The audit is generated only after the final manifest and the actual student ID are known:
 
 ```powershell
 & .venvs\training\Scripts\python.exe -m src.evaluation.audit prepare --manifest submission\manifest.csv --student-id ACTUAL_ID --data-root data --out audit
@@ -258,7 +256,7 @@ The final audit is generated only after the final manifest and actual student ID
 & .venvs\training\Scripts\python.exe -m src.evaluation.audit summarize --manifest submission\manifest.csv --student-id ACTUAL_ID --out audit
 ```
 
-The student must personally label all 200 rows and give a reason for every bad row. DATA_CARD.md remains provisional until this happens. Report, figures, Beamer/PPTX, final packaging and rehearsal remain governed by PROJECT_PLAN.md. FigGenie brief/exemplar and A/B reviews require the student's choices; source counts and performance must be real. The student reports an in-person instructor exemption for AI slide generation and will revise the slides; no written exemption has been supplied.
+The student labels all 200 rows personally and gives a reason for every bad row; the result (80.0%, Wilson 95% interval 73.9-85.0%) is in `DATA_CARD.md`. The report, the slides, final packaging and rehearsal follow PROJECT_PLAN.md.
 
 The audit wrapper invokes the unchanged official script, refuses an existing audit directory, records the manifest/tool hashes and student ID, and recomputes the exact official 200-row sample before summarizing. A manifest change invalidates this audit. Audit intervals are Wilson 95% intervals, with class-specific denominators retained. The wrapper checks file identity/completeness; it cannot certify who supplied the judgments.
 

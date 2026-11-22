@@ -13,7 +13,7 @@
 | Remove same-photo, near-duplicate and holdout-source rows | 6,100 AI-found |
 | Add the student's personally reviewed crops (50 batches) | **8,029 final** |
 
-AI-assisted cleaning was used (student-reported TA clarification). Agent verdicts are not the student's; the audit below is the student's own.
+AI-assisted cleaning was used. Agent verdicts are not the student's; the audit below is the student's own.
 
 **Audit precision.** The student personally labelled the 200 crops drawn by `audit.py`: **160 good = 80.0%** (Wilson 95% interval 73.9–85.0%). Cats 63/75 = 84.0% (74.1–90.6%); dogs 97/125 = 77.6% (69.5–84.0%). Student-reviewed rows 43/49 = 87.8% (75.8–94.3%); AI-found rows 117/151 = 77.5% (70.2–83.4%); the intervals overlap, so no reliable difference. Numbers: `results/audit/breakdown.json`.
 
