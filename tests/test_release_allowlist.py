@@ -13,7 +13,8 @@ def test_course_archive_excludes_prohibited_material(name):
 
 @pytest.mark.parametrize('name', ['submission/weights.pt', 'submission/generate.py', 'audit/audit.csv',
     'src/training/train.py', 'figures/F0/figure.drawio', 'figures/F0/source.csv',
-    'presentation/presentation.pptx', 'presentation/presentation.pdf', 'README.md'])
+    'presentation/presentation.pptx', 'presentation/presentation.pdf', 'README.md', 'demo.py',
+    'requirements-demo.txt', 'EXPERIMENTS.md'])
 def test_course_archive_retains_required_material(name):
     assert allowed(name)
 

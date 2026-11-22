@@ -1,0 +1,9 @@
+# Only what demo.py needs (generation and the demo; no training, no data). Python 3.10 to 3.12.
+# Windows / Linux: install the smaller CPU build of torch first:
+#     python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+# macOS: the default build is used:  python -m pip install torch
+# then:  python -m pip install numpy pillow
+# Tested with torch 2.9.1, pillow 11.3.0, numpy 2.2.6 on Ubuntu Linux; other platforms are not yet tested.
+torch>=2.2
+numpy>=1.24
+pillow>=9.1

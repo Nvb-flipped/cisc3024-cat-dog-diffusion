@@ -6,6 +6,41 @@ This repository implements the pipeline in [PROJECT_PLAN.md](PROJECT_PLAN.md). T
 
 The course pool is restricted to this course. Keep it local; do not push it or redistribute project materials. The supplied handout takes precedence over the starter kit. Labels are cat=0 and dog=1.
 
+## Supported platforms and how to run the demo
+
+**Reproduction environment.** Every number in the report, every command in the table below and the whole test suite were produced and checked on **Ubuntu Linux** (kernel 7.0, Python 3.11.16, PyTorch 2.9.1 with CUDA 12.8, one NVIDIA RTX 5090). Reproducing the project (data curation, training, evaluation) is supported on Linux only; training needs an NVIDIA GPU, curation additionally needs a vision-language model server and several GB of local models, and the course pool and starter kit must be placed locally (not part of the ZIP). The older PowerShell sections below come from the first, Windows-based phase of the project and have not been re-run since.
+
+**Generation and the demo (`submission/`, `demo.py`)** need only Python, `torch`, `numpy` and `pillow` and no network or dataset. They run on the CPU or an NVIDIA GPU. They have been tested on Linux (CPU-only and GPU); Windows and macOS are expected to work but have **not been tested by the author**. Apple's `mps` backend is deliberately not used.
+
+| | Linux | Windows | macOS |
+|---|---|---|---|
+| `demo.py`, CPU | tested | not tested | not tested |
+| `demo.py`, NVIDIA GPU | tested | not tested | not applicable |
+| full project (curation, training, evaluation) | tested | not supported | not supported |
+
+Speed matters: one 16-image grid takes about half a second on the RTX 5090, but on a CPU it takes minutes (the sampler runs 150 network passes per image batch). A live demonstration therefore needs a GPU; a CPU run gives the same images, only much more slowly.
+
+Run the demo from the unzipped project folder (Python 3.10 to 3.12; `requirements-demo.txt` lists the packages):
+
+```text
+# Linux / macOS
+python3 -m venv demo-env && source demo-env/bin/activate
+python -m pip install numpy pillow
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu    # macOS: python -m pip install torch
+python demo.py --check          # interface self-check (many minutes on a CPU, seconds on a GPU)
+python demo.py --seed 0         # one 16-image grid (8 cats, 8 dogs) saved under demo_output/
+python demo.py                  # interactive: type a seed per grid, q to quit
+
+# Windows (PowerShell)
+py -3 -m venv demo-env
+demo-env\Scripts\activate
+python -m pip install numpy pillow
+python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+python demo.py --check
+```
+
+With a GPU, install the CUDA build of torch from the PyTorch website instead of the CPU build; `demo.py` then uses it automatically. The same seed gives the same image on the same computer. A different CPU, GPU or torch version can change a few pixels by one grey level (measured on the CPU between torch 2.9.1 and 2.15.0: 384 of 352,160 pixels, each by 1 of 255), so the printed image hash can differ between computers while the pictures look identical; `--check` therefore tests behaviour, not hashes. `weights.pt` is checked against the hash in `submission/provenance.json` before anything is generated.
+
 ## Final model (v014): one command per report number
 
 Current state: the submitted model is **v014, EMA 0.9995, 80,000 updates, sampler g2.75** (`submission/`, `manifests/v014.csv`, 8,029 rows). Decisions and evidence: `results/fullpool_20261119/DECISION_LOG.md` (entries 53-78), `EXPERIMENTS.md` (all 94 experiment folders), `results/final/` (official runs from `submission/`). Commands below run from the repository root on Linux (`python` = `.venvs/training/bin/python`; the older PowerShell sections further down document the first Windows-era setup). GPU jobs ran in restricted containers through `scripts/gpu_job.sh`, but each command also runs directly.
@@ -28,7 +63,7 @@ Current state: the submitted model is **v014, EMA 0.9995, 80,000 updates, sample
 | 61-seed statistics, recall figure | `python -m scripts.build_report_assets` | `report/numbers.tex`, `report/fig_*.pdf` |
 | Audit sample and result (160/200) | `python -m src.evaluation.audit prepare --manifest submission/manifest.csv --student-id ID --data-root data --out audit`, then label `audit/audit.csv`, then `... audit summarize ...`; breakdown: `python -m src.evaluation.audit_breakdown` | `audit/audit.csv`, `results/audit/breakdown.json` |
 | Offline CPU and CUDA interface checks | `python -m src.release.check --submission submission --device cpu --out results/release/offline_cpu.json` (and `--device cuda`) | `results/release/offline_*.json` |
-| Tests (207 pass) | `python -m pytest -q tests starter_kit/tests` | terminal |
+| Tests (210 pass, 1 skipped) | `python -m pytest -q tests starter_kit/tests` | terminal |
 | Experiment table | `python -m scripts.build_experiments_index && python -m scripts.build_experiments_md` | `EXPERIMENTS.md` |
 | Report PDF | `tectonic -X compile report/report.tex` | `report/report.pdf` |
 
