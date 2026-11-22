@@ -432,3 +432,10 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     recall, the one metric with little margin. FINAL MODEL UNCHANGED: v014 EMA 0.9995, 80k updates, g2.75
     (60 of 61 seeds at 15). Whether the wide model's samples are visibly cleaner was not counted by the
     student; it would not change the decision under the pre-set rule.
+79. **12:50 (22 Nov UTC) Report and slide drafts.** Report draft (`report/report.tex`, `report/report_draft.pdf`, 4 main-text pages, author
+    Sou Chak Tong) with every number generated from result files by `scripts/build_report_assets.py`; red [STUDENT: ...] marks
+    list what only the student can supply (interface check, own-voice agent section, TA wording, ZIP link). Beamer deck
+    (`presentation/presentation.tex`, 10 main + 4 backup frames) drafted by the agent at the student's request. The handout
+    says slides must not be AI-generated; the student reports an in-person instructor exemption (AGENTS.md: "in person, not
+    written"). The agent cannot verify it: a written confirmation should be obtained and kept; the student must revise the
+    deck personally and be able to explain every slide. PPTX is no longer produced (handout accepts any slide format).
