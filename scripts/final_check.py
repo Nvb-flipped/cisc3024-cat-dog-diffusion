@@ -44,7 +44,36 @@ def run(*command):
 
 def macros():
     text = (ROOT / 'report/numbers.tex').read_text(encoding='utf-8')
-    return dict(re.findall(r'\\newcommand\{\\(\w+)\}\{([^}]*)\}', text))
+    return dict(re.findall(r'\\newcommand\{\\(\w+)\}\{((?:[^{}]|\{[^{}]*\})*)\}', text))
+
+
+PDF_READER = '''
+import ctypes, json, sys
+import pypdfium2 as pdfium
+import pypdfium2.raw as raw
+pdf = pdfium.PdfDocument(sys.argv[1])
+text = ' '.join(pdf[i].get_textpage().get_text_range() for i in range(len(pdf)))
+links = set()
+for i in range(len(pdf)):
+    for k in range(raw.FPDFPage_GetAnnotCount(pdf[i])):
+        annot = raw.FPDFPage_GetAnnot(pdf[i], k)
+        if raw.FPDFAnnot_GetSubtype(annot) == raw.FPDF_ANNOT_LINK:
+            action = raw.FPDFLink_GetAction(raw.FPDFAnnot_GetLink(annot))
+            if raw.FPDFAction_GetType(action) == raw.PDFACTION_URI:
+                n = raw.FPDFAction_GetURIPath(pdf, action, None, 0)
+                buffer = ctypes.create_string_buffer(n)
+                raw.FPDFAction_GetURIPath(pdf, action, buffer, n)
+                links.add(buffer.value.decode())
+print(json.dumps({'pages': len(pdf), 'text': text, 'links': sorted(links)}))
+'''
+
+
+def read_pdf(path):
+    """Text, page count and clickable links of a PDF (pypdfium2 is installed in the tools environment)."""
+    python = ROOT / '.venvs/tools/bin/python'
+    out = subprocess.run([str(python if python.exists() else sys.executable), '-I', '-c', PDF_READER, str(path)],
+                         capture_output=True, text=True, check=True)
+    return json.loads(out.stdout)
 
 
 @check('git: only the packager receipt is uncommitted')
@@ -142,48 +171,43 @@ def _():
 @check('seeds: every evaluator run used the final inference files')
 def _():
     final = json.loads((ROOT / 'results/final/seed_0.provenance.json').read_text(encoding='utf-8'))['submission_file_sha256']
-    stale = []
-    for path in sorted(PANEL.glob('seed_*.provenance.json')):
-        recorded = json.loads(path.read_text(encoding='utf-8')).get('submission_file_sha256')
-        if recorded != final:
+    core = {'weights.pt', 'generate.py', 'model.py', 'diffusion.py', 'inference.json', 'manifest.csv', 'provenance.json', '__init__.py'}
+    sidecars = sorted(PANEL.glob('seed_*.provenance.json'))
+    stale, extras = [], set()
+    for path in sidecars:
+        recorded = json.loads(path.read_text(encoding='utf-8'))['submission_file_sha256']
+        if not core <= set(recorded) or any(recorded[name] != final[name] for name in recorded if name in final) or set(recorded) - set(final):
             stale.append(path.name)
+        extras |= set(final) - set(recorded)
     assert not stale, f'{len(stale)} panel runs used different files: {stale[:3]}'
-    return f'{len(list(PANEL.glob("seed_*.provenance.json")))} panel sidecars + results/final all match submission/ file hashes'
+    lazy = (ROOT / 'submission/diffusion.py').read_text(encoding='utf-8')
+    assert "prediction_type='epsilon'" in lazy, 'the sampler default is no longer epsilon prediction'
+    assert 'prediction_type' not in (ROOT / 'submission/generate.py').read_text(encoding='utf-8') \
+        and 'prediction_type' not in (ROOT / 'submission/inference.json').read_text(encoding='utf-8'), 'the final model overrides the epsilon default'
+    return (f'{len(sidecars)} panel sidecars: weights, generate, model, diffusion, config and manifest identical to submission/; '
+            f'only {sorted(extras)} absent there (imported lazily for the edm/flow prediction types, unused by the final epsilon model)')
 
 
 @check('report: name, ID, no draft marks, page limit, clickable links')
 def _():
-    import pypdfium2 as pdfium
-    import pypdfium2.raw as raw
-    import ctypes
-    pdf = pdfium.PdfDocument(str(ROOT / 'report/report.pdf'))
-    text = ' '.join(pdf[i].get_textpage().get_text_range() for i in range(len(pdf)))
+    info = read_pdf(ROOT / 'report/report.pdf')
+    text = info['text']
     assert 'Sou Chak Tong' in text and 'U-C3-2652-3' in text, 'name or ID missing'
     assert not re.search(r'STUDENT:|TODO|FIXME|XXX', text), 'draft mark in the PDF'
     pages = json.loads((ROOT / 'report/page_count.json').read_text(encoding='utf-8'))
-    assert pages['pdf_sha256'] == sha256(ROOT / 'report/report.pdf') and pages['main_text_pages'] <= 6 and pages['total_pages'] == len(pdf)
-    links = set()
-    for i in range(len(pdf)):
-        for k in range(raw.FPDFPage_GetAnnotCount(pdf[i])):
-            annot = raw.FPDFPage_GetAnnot(pdf[i], k)
-            if raw.FPDFAnnot_GetSubtype(annot) == raw.FPDF_ANNOT_LINK:
-                action = raw.FPDFLink_GetAction(raw.FPDFAnnot_GetLink(annot))
-                if raw.FPDFAction_GetType(action) == raw.PDFACTION_URI:
-                    n = raw.FPDFAction_GetURIPath(pdf, action, None, 0)
-                    buffer = ctypes.create_string_buffer(n)
-                    raw.FPDFAction_GetURIPath(pdf, action, buffer, n)
-                    links.add(buffer.value.decode())
+    assert pages['pdf_sha256'] == sha256(ROOT / 'report/report.pdf') and pages['main_text_pages'] <= 6 and pages['total_pages'] == info['pages']
     base = 'https://github.com/Nvb-flipped/cisc3024-cat-dog-diffusion/releases/'
+    links = set(info['links'])
     assert base + 'download/final-submission/project_submission.zip' in links and base + 'tag/final-submission' in links, links
-    return f'{len(pdf)} pages ({pages["main_text_pages"]} main text), {len(links)} links incl. the release ZIP and release page'
+    return f'{info["pages"]} pages ({pages["main_text_pages"]} main text), {len(links)} links incl. the release ZIP and release page'
 
 
 @check('slides: compiled PDF is current and has the expected frames')
 def _():
-    import pypdfium2 as pdfium
-    pdf = pdfium.PdfDocument(str(ROOT / 'presentation/presentation.pdf'))
+    info = read_pdf(ROOT / 'presentation/presentation.pdf')
     assert (ROOT / 'presentation/presentation.pdf').stat().st_mtime >= (ROOT / 'presentation/presentation.tex').stat().st_mtime - 1, 'PDF older than its source'
-    return f'{len(pdf)} slides'
+    assert info['pages'] >= 10, info['pages']
+    return f'{info["pages"]} slides'
 
 
 @check('secrets: no token or key in tracked files, git config or remotes')
