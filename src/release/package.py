@@ -33,6 +33,8 @@ def allowed(relative):
         return False
     if relative.as_posix() == 'results/release/package_receipt.json':
         return False  # written by the packager after the archive exists; it names the previous archive
+    if relative.as_posix() == 'report/report.pdf':
+        return True   # the final report is also uploaded to Moodle on its own; the archive keeps a copy (no other report PDFs)
     if len(parts) == 1:
         return relative.name in ROOT_FILES
     if parts[0] == 'submission':
@@ -105,7 +107,7 @@ def build_archive(root, out):
     temporary.replace(out)
     receipt = {'archive': str(out), 'sha256': sha256(out), 'bytes': out.stat().st_size,
         'created': timestamp(), 'members': len(hashes) + 2,
-        'report_uploaded_separately': str(root / 'report/report.pdf'),
+        'report_pdf': 'report/report.pdf (a copy is inside the archive; this file alone is the Moodle upload)',
         'scope': 'Local archive only; no course upload performed. Clean-room execution and human final review remain required.'}
     write_json(root / 'results/release/package_receipt.json', receipt)
     return receipt

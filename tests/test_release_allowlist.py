@@ -6,7 +6,7 @@ from src.release.readiness import audit_check
 
 @pytest.mark.parametrize('name', ['data/student/index.csv', 'student/index.csv', '.git/config',
     'checkpoints/run.pt', 'submission/alternate.pt', 'submission/image.png', 'results/grid.png',
-    'figures/example.svg', 'report/report.pdf', '.venvs/training/anything.py', '../secret.txt',
+    'figures/example.svg', 'report/fig_audit.pdf', 'report/report_draft.pdf', 'report/old/report.pdf', '.venvs/training/anything.py', '../secret.txt',
     'results/release/package_receipt.json'])
 def test_course_archive_excludes_prohibited_material(name):
     assert not allowed(name)
@@ -14,7 +14,7 @@ def test_course_archive_excludes_prohibited_material(name):
 
 @pytest.mark.parametrize('name', ['submission/weights.pt', 'submission/generate.py', 'audit/audit.csv',
     'src/training/train.py', 'figures/F0/figure.drawio', 'figures/F0/source.csv',
-    'presentation/presentation.pptx', 'presentation/presentation.pdf', 'README.md', 'demo.py',
+    'presentation/presentation.pptx', 'presentation/presentation.pdf', 'report/report.pdf', 'report/report.tex', 'README.md', 'demo.py',
     'requirements-demo.txt', 'EXPERIMENTS.md'])
 def test_course_archive_retains_required_material(name):
     assert allowed(name)

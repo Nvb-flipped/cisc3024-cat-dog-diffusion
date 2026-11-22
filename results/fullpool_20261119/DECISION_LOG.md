@@ -451,3 +451,9 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     60 of 61 seeds, recall 0.433 +/- 0.019, 39/128 and 60/128 unclear tiles. 14 slides compile without errors; two harmless
     overfull-box warnings remain (0.2 pt and 11 pt, on a backup table). The earlier record (entry 79 and the plan documents)
     is kept as written: the deck began as an agent draft and was then edited and proofread.
+81. **16:15 (22 Nov UTC) The final report PDF is also inside the course ZIP.** At the student's request the archive allowlist now
+    admits exactly `report/report.pdf` (no other report PDFs); a test covers it. The Moodle upload is still the report PDF alone:
+    the ZIP is 118 MB, above Moodle's 100 MB single-file limit, so it is delivered by the GitHub release link in the report. The
+    public history gets only the final report PDF (nine earlier drafts are not published). Test count is now 216 passed, 1 skipped
+    (was 210): README, report and slide 9 updated and rebuilt (report: 6 pages in total, 5 of main text). The earlier clean-room
+    test was stopped and must be repeated on the new archive.

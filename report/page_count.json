@@ -1,8 +1,8 @@
 {
-  "pdf_sha256": "8e363a3ba62787121076fe611c7d0b640eef4f4853e6709207c3d51407b93687",
+  "pdf_sha256": "ff756388b9e4553d3d9da255ebf36c4aea48c2d70c128ecf02217d81d4f028b7",
   "main_text_pages": 5,
   "total_pages": 6,
   "main_text_limit": 6,
-  "built": "2026-11-22T14:29:23.078394+00:00",
+  "built": "2026-11-22T16:15:21.671505+00:00",
   "engine": "Tectonic 0.17.0"
 }

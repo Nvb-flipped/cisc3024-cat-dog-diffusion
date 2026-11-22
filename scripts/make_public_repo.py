@@ -11,7 +11,7 @@ build   clones the project history and rewrites it with git-filter-repo:
             scripts/public_history_messages.tsv (area: summary), keeping the original body without trailer lines
             (Co-Authored-By and similar);
           * unifies the author/committer identity (--name, --email);
-        then adds the (git-ignored) final weights in one last commit.
+        then adds the (git-ignored) final weights and the final report PDF in separate last commits.
 verify  scans the rewritten history: image/archive/key material, tokens, embedded photos, trailer lines, identities, sizes.
 """
 import argparse
@@ -75,6 +75,7 @@ def build(out, name, email):
     blobs = history_blobs(out)
     paths = sorted({p for _, p in blobs})
     keep = {p for p in paths if allowed(p) or p == '.gitignore'}
+    keep.discard('report/report.pdf')   # nine drafts of it exist in the history; only the final PDF is added (last commits)
     by_path = {}
     for sha, p in blobs:
         by_path.setdefault(p, set()).add(sha)
@@ -125,6 +126,13 @@ commit.message = (new + ('\\n\\n' + body if body else '') + '\\n').encode('utf-8
     subprocess.run(['git', 'commit', '-q', '-m', 'release: add final model weights (v014, EMA 0.9995, 80k updates)\n\n'
                     f'submission/weights.pt, SHA-256 {digest}. Weights are git-ignored in the working repository.'],
                    cwd=out, check=True, env=env)
+    report = ROOT / 'report/report.pdf'
+    (out / 'report').mkdir(exist_ok=True)
+    shutil.copy2(report, out / 'report/report.pdf')
+    report_digest = subprocess.run(['sha256sum', str(report)], capture_output=True, text=True).stdout.split()[0]
+    git('add', '-f', 'report/report.pdf', cwd=out)
+    subprocess.run(['git', 'commit', '-q', '-m', 'report: add final report PDF\n\nreport/report.pdf, SHA-256 ' + report_digest + '. '
+                    'The PDF is also the single file uploaded to Moodle; the earlier drafts are not published.'], cwd=out, check=True, env=env)
     # the course archive also holds files that are git-ignored during development (mainly *.log); add them in one last commit
     from src.release.package import selected_files
     tracked = set(git('ls-files', cwd=out).splitlines())
@@ -153,7 +161,7 @@ def verify(out):
         p = path_of[sha]
         sizes.append((size, p))
         kind = MAGIC.get(data[:4])
-        if kind and not (p == 'submission/weights.pt' or (kind == 'pdf' and p.startswith('presentation/'))):
+        if kind and not (p == 'submission/weights.pt' or (kind == 'pdf' and (p.startswith('presentation/') or p == 'report/report.pdf'))):
             problems.append(f'{kind} data in {p}')
         if TOKEN.search(data):
             problems.append(f'token or key pattern in {p}')

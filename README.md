@@ -78,7 +78,7 @@ Current state: the submitted model is **v014, EMA 0.9995, 80,000 updates, sample
 | 61-seed statistics, recall figure | `python -m scripts.build_report_assets` | `report/numbers.tex`, `report/fig_*.pdf` |
 | Audit sample and result (160/200) | `python -m src.evaluation.audit prepare --manifest submission/manifest.csv --student-id ID --data-root data --out audit`, then label `audit/audit.csv`, then `... audit summarize ...`; breakdown: `python -m src.evaluation.audit_breakdown` | `audit/audit.csv`, `results/audit/breakdown.json` |
 | Offline CPU and CUDA interface checks | `python -m src.release.check --submission submission --device cpu --out results/release/offline_cpu.json` (and `--device cuda`) | `results/release/offline_*.json` |
-| Tests (210 pass, 1 skipped) | `python -m pytest -q tests starter_kit/tests` | terminal |
+| Tests (216 pass, 1 skipped) | `python -m pytest -q tests starter_kit/tests` | terminal |
 | Experiment table | `python -m scripts.build_experiments_index && python -m scripts.build_experiments_md` | `EXPERIMENTS.md` |
 | Report PDF | `tectonic -X compile report/report.tex` | `report/report.pdf` |
 
