@@ -144,7 +144,7 @@ def build_archive(root, out):
     receipt = {'archive': str(out), 'sha256': sha256(out), 'bytes': out.stat().st_size,
         'created': timestamp(), 'members': len(hashes) + 2,
         'limit_bytes': MAX_ARCHIVE_BYTES, 'headroom_bytes': MAX_ARCHIVE_BYTES - size,
-        'report_pdf': 'report/report.pdf (a copy is inside the archive; this file alone is the Moodle upload)',
+        'report_pdf': 'report/report.pdf (a copy is inside the archive; the archive is the single Moodle upload)',
         'scope': 'Local archive only; no course upload performed. Clean-room execution and human final review remain required.'}
     write_json(root / 'results/release/package_receipt.json', receipt)
     return receipt

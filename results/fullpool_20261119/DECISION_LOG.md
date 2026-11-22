@@ -458,7 +458,7 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     (was 210): README, report and slide 9 updated and rebuilt (report: 6 pages in total, 5 of main text). The earlier clean-room
     test was stopped and must be repeated on the new archive.
 82. **16:27 (22 Nov UTC) ZIP size guarantee and final project check.** The course ZIP must be the single Moodle file, so it must stay
-    under 100 MB: `src.release.package` now refuses to write any archive above 100,000,000 bytes (decimal MB, the stricter reading),
+    under 100 MB (this replaces the plan of entry 81 to upload the report alone): `src.release.package` now refuses to write any archive above 100,000,000 bytes (decimal MB, the stricter reading),
     `verify_archive` repeats the check, and a test covers it. The previous archive was 118.7 MB. Three raw curation tables
     (`results/curation/full/detections.jsonl`, `results/curation/full/candidates.csv`, `results/curation/photo_screen_full/scores.csv`,
     31.1 MB compressed) are now one asset of the GitHub release, `bulk_curation_logs.zip` (SHA-256 cfff2e468b27...a7d9);

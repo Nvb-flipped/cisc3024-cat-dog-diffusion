@@ -132,7 +132,7 @@ commit.message = (new + ('\\n\\n' + body if body else '') + '\\n').encode('utf-8
     report_digest = subprocess.run(['sha256sum', str(report)], capture_output=True, text=True).stdout.split()[0]
     git('add', '-f', 'report/report.pdf', cwd=out)
     subprocess.run(['git', 'commit', '-q', '-m', 'report: add final report PDF\n\nreport/report.pdf, SHA-256 ' + report_digest + '. '
-                    'The PDF is also the single file uploaded to Moodle; the earlier drafts are not published.'], cwd=out, check=True, env=env)
+                    'The same PDF is inside the course ZIP; the earlier drafts are not published.'], cwd=out, check=True, env=env)
     # the course archive also holds files that are git-ignored during development (mainly *.log); add them in one last commit
     from src.release.package import selected_files
     tracked = set(git('ls-files', cwd=out).splitlines())
