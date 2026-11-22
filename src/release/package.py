@@ -31,6 +31,8 @@ def allowed(relative):
     parts = relative.parts
     if not parts or relative.is_absolute() or '..' in parts or any(p in FORBIDDEN_PARTS for p in parts):
         return False
+    if relative.as_posix() == 'results/release/package_receipt.json':
+        return False  # written by the packager after the archive exists; it names the previous archive
     if len(parts) == 1:
         return relative.name in ROOT_FILES
     if parts[0] == 'submission':

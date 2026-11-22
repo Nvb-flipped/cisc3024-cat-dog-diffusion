@@ -6,7 +6,8 @@ from src.release.readiness import audit_check
 
 @pytest.mark.parametrize('name', ['data/student/index.csv', 'student/index.csv', '.git/config',
     'checkpoints/run.pt', 'submission/alternate.pt', 'submission/image.png', 'results/grid.png',
-    'figures/example.svg', 'report/report.pdf', '.venvs/training/anything.py', '../secret.txt'])
+    'figures/example.svg', 'report/report.pdf', '.venvs/training/anything.py', '../secret.txt',
+    'results/release/package_receipt.json'])
 def test_course_archive_excludes_prohibited_material(name):
     assert not allowed(name)
 
