@@ -1,25 +1,192 @@
 {
-  "structural_checks_passed": false,
-  "issues": [
-    "Final inference export: Missing export files: ['weights.pt', 'inference.json', 'manifest.csv', 'provenance.json']",
-    "Personal official audit: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\audit\\\\audit.csv'",
-    "Data card is provisional or lacks audit precision",
-    "Three contemporaneous independent student checks are still pending",
-    "Final seed 0: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_0.json'",
-    "Final seed 101: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_101.json'",
-    "Final seed 202: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_202.json'",
-    "Final seed 303: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_303.json'",
-    "Final seed 404: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\final\\\\seed_404.json'",
-    "Offline cpu: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\release\\\\offline_cpu.json'",
-    "Offline cuda: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\results\\\\release\\\\offline_cuda.json'",
-    "Missing final artifact: report/report.pdf",
-    "Missing final artifact: presentation/presentation.pptx",
-    "Missing final artifact: presentation/presentation.tex",
-    "Missing final artifact: presentation/presentation.pdf",
-    "Report page evidence: [Errno 2] No such file or directory: 'C:\\\\Users\\\\csmen\\\\Documents\\\\Codex\\\\Pattern-Recognition-Project\\\\report\\\\page_count.json'"
-  ],
+  "structural_checks_passed": true,
+  "issues": [],
   "objective_shortfalls": [],
-  "excellent_tier_all_seeds": false,
-  "evidence": {},
+  "excellent_tier_all_seeds": true,
+  "evidence": {
+    "submission": {
+      "submission_bytes": 20710252,
+      "files": [
+        "edm.py",
+        "manifest.csv",
+        "weights.pt",
+        "provenance.json",
+        "model.py",
+        "__init__.py",
+        "generate.py",
+        "flow.py",
+        "diffusion.py",
+        "inference.json"
+      ],
+      "file_sha256": {
+        "edm.py": "cc20f100127aad6b98e84b995eb5b23d8d26b6985e328f5cebeb7fadc0053c0e",
+        "manifest.csv": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+        "weights.pt": "e26f85b0b7ff915dc0dc70fe15c9fd840b87cb2fdf4e299cf092e000e23d089f",
+        "provenance.json": "2498e056f4184cb6301e91eb750945f323de5225b11973a1b9cc2e82cc683bc5",
+        "model.py": "6bdc0791f0c3982c6b6ee7fdd034d9bb610a54d5a5650e119336488587aabefe",
+        "__init__.py": "760869f7f97b38abc25123b1b987400234721d5c6f18e77dc0ccc0e324e6b458",
+        "generate.py": "c95136e6b1bf68e6e9a8c669669327ad2c9a3f56aca8d0fcd3556e3a1777c007",
+        "flow.py": "071b75574f9fb795ea6cd0fb66c312dbfe04135201b75d4a3257bd3fb94a92d5",
+        "diffusion.py": "1b2eeb7061eb1d91f81e82b28a63bdb6f6b6a11e0e0ecd1895dd32d1297a53df",
+        "inference.json": "a7ef9736dac9bd9b98b289384f5574c42f9dd012e2ba579f0ae888c4ea8af0ea"
+      }
+    },
+    "audit": {
+      "rows": 200,
+      "good": 160,
+      "sha256": "ccf9b0fa26d651f4dc844dc1848d58277a74a36cde6248a8a6c4c2c5982a1c5d",
+      "scope": "CSV completeness only; student must personally label the exact official sample"
+    },
+    "audit_sample": {
+      "status": "complete_csv_and_exact_official_sample",
+      "audit_sha256": "ccf9b0fa26d651f4dc844dc1848d58277a74a36cde6248a8a6c4c2c5982a1c5d",
+      "manifest_sha256": "693b32705b7bc5a3845254f9eb9039e0dcbcda6521033e74368e8055132af930",
+      "overall": {
+        "n": 200,
+        "good": 160,
+        "precision": 0.8,
+        "wilson_95": [
+          0.7391448134346212,
+          0.8495479907390189
+        ]
+      },
+      "by_class": {
+        "cat": {
+          "n": 75,
+          "good": 63,
+          "precision": 0.84,
+          "wilson_95": [
+            0.7408329231474533,
+            0.9060348639642386
+          ]
+        },
+        "dog": {
+          "n": 125,
+          "good": 97,
+          "precision": 0.776,
+          "wilson_95": [
+            0.6953116645758503,
+            0.8402302380971537
+          ]
+        }
+      },
+      "scope": "Checks sample identity and CSV completeness; authentic personal judgment remains the student responsibility."
+    },
+    "seed_0": {
+      "sha256": "46262f6efa0470840595d51f9e4170cf155eb76c07591575deddbc5027175969",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+        "accuracy": 0.972000002861023,
+        "per_class_accuracy": {
+          "cat": 0.9750000238418579,
+          "dog": 0.968999981880188
+        },
+        "fid": 46.5681723679121,
+        "kid": 0.007307247193680526,
+        "kid_std": 0.0005374288781526839,
+        "precision": 0.7964601516723633,
+        "recall": 0.4192477762699127,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.26263427734375,
+        "nn_ratio_median": 0.9800369143486023,
+        "training_images_deduplicated": 16041
+      }
+    },
+    "seed_101": {
+      "sha256": "bbf710c34bd8ef34b7e74ef88151783e06a6e0a27bdcfc1d4041e561bbad8a80",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+        "accuracy": 0.9745000004768372,
+        "per_class_accuracy": {
+          "cat": 0.9769999980926514,
+          "dog": 0.972000002861023
+        },
+        "fid": 46.837324186177966,
+        "kid": 0.0072841433583868565,
+        "kid_std": 0.0005997713383343067,
+        "precision": 0.8075221180915833,
+        "recall": 0.4159291982650757,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.332687377929688,
+        "nn_ratio_median": 0.980178952217102,
+        "training_images_deduplicated": 16041
+      }
+    },
+    "seed_202": {
+      "sha256": "42a340dd0c93cfb68b921fa62a6bab0a0d9557518db64539232993765e515fe7",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+        "accuracy": 0.9695000052452087,
+        "per_class_accuracy": {
+          "cat": 0.9750000238418579,
+          "dog": 0.9639999866485596
+        },
+        "fid": 46.4671289493117,
+        "kid": 0.007069668928680217,
+        "kid_std": 0.0005036837319940671,
+        "precision": 0.8008849620819092,
+        "recall": 0.43252211809158325,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.262173652648926,
+        "nn_ratio_median": 0.9794296622276306,
+        "training_images_deduplicated": 16041
+      }
+    },
+    "seed_303": {
+      "sha256": "71a7c8426765afdb0f41520dabded0a5cc163725cf25d99070cf3b0e874b4bdc",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+        "accuracy": 0.9725000262260437,
+        "per_class_accuracy": {
+          "cat": 0.9779999852180481,
+          "dog": 0.9670000076293945
+        },
+        "fid": 47.0455623328225,
+        "kid": 0.0068481481457652645,
+        "kid_std": 0.0005020629251359512,
+        "precision": 0.747787594795227,
+        "recall": 0.4446902573108673,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.34294319152832,
+        "nn_ratio_median": 0.9794445633888245,
+        "training_images_deduplicated": 16041
+      }
+    },
+    "seed_404": {
+      "sha256": "42d3aca5a637f8961718c97a86c7107263321e214eecd494d9d2c2431facf443",
+      "metrics": {
+        "num_samples": 2000,
+        "reference": "/home/paco/Pattern-Recognition-Project/data/dev/dev.npz",
+        "accuracy": 0.9639999866485596,
+        "per_class_accuracy": {
+          "cat": 0.9610000252723694,
+          "dog": 0.9670000076293945
+        },
+        "fid": 46.788335371193284,
+        "kid": 0.0069994101249473495,
+        "kid_std": 0.0005116054505704234,
+        "precision": 0.7798672318458557,
+        "recall": 0.4247787594795227,
+        "memorization_rate": 0.0,
+        "nn_distance_median": 11.399398803710938,
+        "nn_ratio_median": 0.9799725413322449,
+        "training_images_deduplicated": 16041
+      }
+    },
+    "offline_cpu": "5e7a194f6d4ed959f2b9c1f0c4af0804bf04dae45866a449d948849fa47f4b0f",
+    "offline_cuda": "993f994a821e91bfa8fc61398f597a85996ed4dd44651f0c315777624499b9e5",
+    "report_pages": {
+      "pdf_sha256": "ffb8e4676b1f473e7460a29e27f1af511a2cd214aef1bd5828f0e93f6385d0f4",
+      "main_text_pages": 5,
+      "total_pages": 6,
+      "main_text_limit": 6,
+      "built": "2026-11-22T16:20:59.861980+00:00",
+      "engine": "Tectonic 0.17.0"
+    }
+  },
   "scope": "File/protocol completeness and excellent-tier objective only. Does not certify authentic student judgments, scientific interpretation, presentation ability, qualitative marks, hidden-test results or submission approval."
 }
