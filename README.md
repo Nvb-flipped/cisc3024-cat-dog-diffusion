@@ -6,6 +6,34 @@ This repository implements the pipeline in [PROJECT_PLAN.md](PROJECT_PLAN.md). T
 
 The course pool is restricted to this course. Keep it local; do not push it or redistribute project materials. The supplied handout takes precedence over the starter kit. Labels are cat=0 and dog=1.
 
+## Final model (v014): one command per report number
+
+Current state: the submitted model is **v014, EMA 0.9995, 80,000 updates, sampler g2.75** (`submission/`, `manifests/v014.csv`, 8,029 rows). Decisions and evidence: `results/fullpool_20261119/DECISION_LOG.md` (entries 53-78), `EXPERIMENTS.md` (all 94 experiment folders), `results/final/` (official runs from `submission/`). Commands below run from the repository root on Linux (`python` = `.venvs/training/bin/python`; the older PowerShell sections further down document the first Windows-era setup). GPU jobs ran in restricted containers through `scripts/gpu_job.sh`, but each command also runs directly.
+
+| Report item | Command | Output |
+|---|---|---|
+| Inputs unchanged (starter kit, pool) | `python scripts/setup_inputs.py --verify-only` | `results/setup/source_hashes.json` |
+| 76,250 pool images decode | `python -m src.curation.integrity` | `results/curation/integrity.json` |
+| Candidate registry and geometry rescue (63,115 candidates) | `python -m src.curation.fullpool --out results/fullpool_20261119`, then `python -m src.curation.rescue clip` and `python -m src.curation.rescue dino` | `results/fullpool_20261119/queue_stage4_*.csv` |
+| Qwen3.5-9B screen (6,718 passed) | start the model server with `scripts/vllm_server.sh ~/models/qwen/Qwen3.5-9B qwen3.5-9b`, then `python -m src.curation.vlm_screen --queue QUEUE.csv --ledger LEDGER.jsonl --model qwen3.5-9b --model-revision c2022362` | `results/fullpool_20261119/vlm/*.jsonl` |
+| Review ordering and re-crops | `python -m src.curation.rank_classifier embed`, `... rank`, `python -m src.curation.recrop --reviews LEDGERS --out results/fullpool_20261119/recrop_batchN.csv` | `recovery_ranked.csv`, `recrop_batch1..6.csv` |
+| Agent visual review (17,174 crops) | contact sheets from `python -m src.curation.contact_sheet`, verdicts appended to ledgers by the agent | ledgers under `private_build/fullpool_qa/` (not in the ZIP; their SHA-256 are in `manifests/v014.provenance.json`) |
+| Manifest (8,029 rows, 3,096 cat / 4,933 dog) | `python -m src.curation.freeze_reviewed --out manifests/v014.csv --reviews LEDGERS... --recrops results/fullpool_20261119/recrop_batch{1,2,3,4,5,6}.csv` | `manifests/v014.csv`, `.validation.csv`, `.provenance.json`, `results/fullpool_20261119/v014.candidate_status.csv` |
+| Cache equals the official rebuild | `python -m scripts.run_v014 parity` | `results/curation/v014_cache_parity.json` |
+| Single-batch overfit diagnostic (2,000 updates) | `python -m scripts.run_v010 diagnostic v010_attn16_flip` | `results/diagnostics/` |
+| Training (160k updates, 1k checkpoints; the 80k checkpoint is submitted) | `python -m scripts.run_v014_variants train v014_ema9995_flip` | `checkpoints/v014_ema9995_flip_seed17/` |
+| Export, sampler and official evaluation of the checkpoint | `python -m scripts.run_v014_variants screen v014_ema9995_flip --updates 80000 --sampler g275 --seeds 0 101 202 303 404` | `results/experiments/v014_ema9995_flip/u080000_g275/` |
+| **Table 2 of the report** (official runs from `submission/`) | `python -m src.evaluation.run --submission submission --seed S --out results/final/seed_S.json` for S in 0 101 202 303 404 | `results/final/seed_*.json` |
+| Same numbers with the course tool directly | `python starter_kit/evaluate.py --submission submission --grading --seed 0 --n-per-class 1000 --batch-size 500 --out my_seed0.json` | evaluator summary and JSON |
+| 61-seed statistics, recall figure | `python -m scripts.build_report_assets` | `report/numbers.tex`, `report/fig_*.pdf` |
+| Audit sample and result (160/200) | `python -m src.evaluation.audit prepare --manifest submission/manifest.csv --student-id ID --data-root data --out audit`, then label `audit/audit.csv`, then `... audit summarize ...`; breakdown: `python -m src.evaluation.audit_breakdown` | `audit/audit.csv`, `results/audit/breakdown.json` |
+| Offline CPU and CUDA interface checks | `python -m src.release.check --submission submission --device cpu --out results/release/offline_cpu.json` (and `--device cuda`) | `results/release/offline_*.json` |
+| Tests (207 pass) | `python -m pytest -q tests starter_kit/tests` | terminal |
+| Experiment table | `python -m scripts.build_experiments_index && python -m scripts.build_experiments_md` | `EXPERIMENTS.md` |
+| Report PDF | `tectonic -X compile report/report.tex` | `report/report.pdf` |
+
+The agent visual review is a judgement step, so the AI-found rows cannot be re-derived by rerunning code: they are reproducible from the recorded verdict ledgers and candidate tables. The 1,929 personally reviewed rows come from `annotations/` through `manifests/v010.csv`. Intermediate checkpoints that no result cites were pruned on 21 Nov 2026 (`results/pruning/ledger_*.json`); the final model and every cited checkpoint remain.
+
 ## Environment and original inputs
 
 Commands below run from the repository root in PowerShell. The working environment uses Python 3.11.18, PyTorch 2.9.1+cu128 and an RTX 5060 Ti. FP32/BF16 convolution, attention and backward execution have been measured. Exact package versions are in `requirements-lock.txt`; PyTorch wheels come from the CUDA 12.8 index.

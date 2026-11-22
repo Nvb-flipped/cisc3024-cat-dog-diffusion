@@ -421,3 +421,14 @@ Times UTC, 19 Nov 2026. Each entry: decision, evidence, what would change it.
     7ae2baf5...) with the 100k-160k updates; 241 export folders have consistent weights hashes;
     submission/ equals the final export; none of the 155 cited checkpoint files is missing; git status
     unchanged apart from the ledger; the wide and mid trainings were untouched and keep running.
+78. **12:20 (22 Nov UTC) Wide and mid models do NOT replace the final model (rule of entry 75).**
+    Same 15 seeds (0,101,...,1414), g2.75. Current (5.1M, EMA 0.9995, 80k): 15/15 seeds at 15, recall
+    mean 0.4332 (min 0.4115), precision 0.7875, FID 46.70. Wide 10.7M: 80k 12/15 at 15 (recall mean 0.4164,
+    min 0.3772, precision 0.8289), 100k 9/15 (0.4051, min 0.3805, precision 0.8395), 120k 11/15 (0.4088,
+    min 0.3850, precision 0.8451, memorization max 0.05%). Accuracy 0.979 (+0.007), FID about equal. Rule
+    conditions 1-2 fail (>=14 of 15 at 15 and mean recall >= 0.42), so conditions 3-5 and the student's tile
+    count were not needed. Mid (about 8M): seed 0 only, 15/15/14 at 80k/100k/120k, FID 47.7-48.3 (worse than
+    final), recall 0.423/0.408/0.393: dropped. The higher precision of the wide model is real, but it costs
+    recall, the one metric with little margin. FINAL MODEL UNCHANGED: v014 EMA 0.9995, 80k updates, g2.75
+    (60 of 61 seeds at 15). Whether the wide model's samples are visibly cleaner was not counted by the
+    student; it would not change the decision under the pre-set rule.

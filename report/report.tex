@@ -1,196 +1,178 @@
-\documentclass[10pt,a4paper]{article}
-\usepackage[hmargin=22mm,vmargin=20mm]{geometry}
-\usepackage{amsmath,amssymb,booktabs,graphicx,microtype}
-\usepackage[hidelinks]{hyperref}
-
-\title{Conditional Diffusion for $32\times32$ Cat and Dog Head Generation}
-\author{Student name and ID pending}
-\date{CISC3024 development draft}
-
+% Report for the CISC3024 project. All numbers come from numbers.tex (generated from results/*.json by scripts/build_report_assets.py).
+% Red [STUDENT: ...] marks are things only the student can supply or must confirm; remove them (and set \showmarks to 0) before upload.
+\documentclass[10pt]{article}
+\usepackage[a4paper,margin=1.75cm,top=1.6cm,bottom=1.6cm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,graphicx,xcolor,url,enumitem,microtype,caption}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,citecolor=blue!50!black]{hyperref}
+\setlist{nosep,leftmargin=1.2em}
+\captionsetup{font=small,labelfont=bf,skip=3pt}
+\setlength{\parskip}{2pt}
+\renewcommand{\arraystretch}{1.05}
+\input{numbers.tex}
+\newcommand{\showmarks}{1}
+\newcommand{\student}[1]{\ifnum\showmarks=1\textcolor{red}{[STUDENT: #1]}\fi}
+\newcommand{\zipurl}{https://github.com/Nvb-flipped/REPO-NAME/releases/download/final-submission/project_submission.zip}
+\title{\vspace{-0.9cm}\textbf{Cat and dog head generation from a self-curated pool}\vspace{-0.1cm}}
+\author{Sou Chak Tong \quad Student ID: U-C3-2652-3 \quad CISC3024 Pattern Recognition Project}
+\date{}
 \begin{document}
-\maketitle
+\maketitle\vspace{-0.9cm}
 
-\begin{abstract}
-This project trains a class-conditional pixel-space diffusion model from random initialization using exact crops reviewed by the student from the supplied course pool. The selected development candidate is a 5.10-million-parameter U-Net trained for 34,000 updates on 1,399 crops. It combines deterministic DDIM, class-embedding noise annealing, additional encoder attention and decoder feature reweighting. It scores 12/15 on each of three development seeds. Accuracy ranges from 92.50\% to 93.55\%, FID from 60.67 to 61.16, recall from 31.08\% to 34.51\%, and memorization from 3.85\% to 4.55\%. The final manifest audit, independent checks and evaluation on the reserved seeds are pending.
-\end{abstract}
+\section*{Summary}
+I curated a training set from the 76{,}250-image LAION pool and trained a class-conditional diffusion model from scratch on it.
+The final training set has \textbf{8{,}029 crops} (3{,}096 cat, 4{,}933 dog): 1{,}929 I reviewed myself and 6{,}100 found by AI-assisted screening and approved in an agent visual review.
+The generator is a \params-parameter pixel-space U-Net (\sizeMB\,MB), trained for 80k updates with mirroring, EMA and classifier-free guidance, sampled with 50 deterministic DDIM steps.
+On the unchanged official evaluator, seed 0 gives accuracy 0.972, FID 46.57, KID $7.3{\times}10^{-3}$, precision 0.796, recall 0.419 and 0.00\,\% memorization, i.e.\ \textbf{15/15 marks}.
+Over \nSeeds{} generation seeds, \nFifteen{} score 15/15 ($\pFifteen\,\%$, Wilson 95\,\% interval $\pFifteenLo$--$\pFifteenHi\,\%$); seed \lowSeed{} (one I chose myself) scores 14/15 because its recall is \lowRecall{}, just below 0.40.
+Recall is therefore the one metric with little margin. My personal audit of 200 training crops found \auditGood{} good (\auditPct\,\%, 95\,\% interval \auditCI\,\%); the main error is ears cut by the square.
+Visual quality is weaker than the metrics suggest: by my own count 39 of 128 samples in the seed-0 grid are unrecognizable (Section~3).
+\textbf{Submission ZIP:} \expandafter\url\expandafter{\zipurl}\ \student{replace by the real link; add the OneDrive backup link if used}.
 
-\section{Data and curation}
-The target is a real RGB photograph containing one centered, roughly upright cat or dog head, including the ears. The head occupies approximately 60--80\% of the square crop's side and has a source width of at least 32 pixels. We encode cats as 0 and dogs as 1. A manifest row records the source ID, top-left crop coordinates, square side, rotation and species. The unchanged course crop function rotates about the square center when required, takes the square, and resizes it to $32\times32$ with Lanczos interpolation. All training targets use this reconstruction without padding or image augmentation.
+\section{Data}
+\textbf{Pipeline.} Grounding DINO Tiny~\cite{liu2023groundingdino} proposed head boxes for all 76{,}250 pool images; I turned them into square crops with the official geometry (60--80\,\% head occupancy, no padding, no rotation) and added bounded re-squaring where the box fell outside the image or covered only the face. A CLIP~\cite{radford2021clip} screen and a targeted second detector pass recovered images with no detection, giving \textbf{63{,}115 candidate crops}. Qwen3.5-9B~\cite{qwen35} (served with vLLM~\cite{kwon2023vllm}) screened every candidate (6{,}718 passed). A CLIP linear probe trained on my own verdicts ranked the rest so that review went best-first. About 17{,}000 crops then received an \emph{agent visual review} against the exact handout rules (real photo; exactly one centred, roughly upright head with ears; 60--80\,\% of the side; $\ge$32 px wide); 7{,}083 were judged valid. Same-photo overlaps, near-duplicates of my own crops (pixel distance, dHash, source reposts) and holdout sources were removed (983 crops). Together with my 1{,}929 personally reviewed crops (50 batches) this gives the final \textbf{8{,}029}. The evaluator's classifier, Inception network and all dev images and features were never used for curation. I used AI-assisted cleaning because the course staff allowed it in person \student{confirm this wording; keep any written confirmation}. The agent's verdicts are not my own; the audit below is.
 
-All 76,250 indexed pool images decoded successfully. Grounding DINO Tiny proposed head boxes for the pool \cite{liu2023groundingdino}. CLIP scores helped order candidates for review \cite{radford2021clip}. The reviewer personally checked the original photograph and the exact output crop, corrected species or geometry where appropriate, and rejected unsuitable crops. In the 200 proposed calibration crops, 14 received a good verdict. In the separate 200 rejected sources, 23 had a potentially eligible missed head. The best observed unchanged-proposal calibration setting passed 5 of 26 applicable examples (19.23\%, Wilson 95\% interval 8.51--37.88\%). This result motivated personal acceptance checks for all retained crops.
-
-After duplicate review, 1,260 crops remained. The group-disjoint, class-stratified split assigned 583 cat and 614 dog crops to training and reserved 31 cat and 32 dog crops for pool-only denoising diagnostics. The official evaluator rebuilt all 1,197 training crops. The official 200-crop audit will determine audit precision and its class-specific denominators after the final manifest is frozen and the student labels the official sample.
-
-In the corrected split, the recorded source head-width medians were 96.9 pixels for cats and 91.3 for dogs. The width records comprise 333 measurements made with source-image clicks, 13 manual entries and 851 agent estimates that the student reviewed and confirmed. Recalculating occupancy as recorded width divided by crop side identified one original record at 80.32\%. The student's revision brought its occupancy to 76.81\%. Recomputed occupancy for all 1,260 kept crops in the corrected split was between 60\% and 80\%. Development comparisons use the original split unless they specify the corrected manifest.
-
-The expanded v006 freeze keeps the corrected 1,197 training crops and adds 43 cats and 56 dogs. The unchanged toolkit reproduced the exact cache pixels and labels for all 1,296 training crops and the same 63 holdout rows. The v007 comparison uses 633 cat and 676 dog training crops. The selected v009 fit uses 669 cats and 730 dogs, retaining the same holdout. Each additive manifest preserves the exact parent rows and the official reconstruction matches its training cache.
-
-\section{Generator and sampling}
-The generator is a conditional U-Net operating directly in pixel space, with channel counts 32, 64, 96 and 128 at resolutions 32, 16, 8 and 4, two residual blocks per level, eight-group normalization, SiLU, and four-head spatial attention at the $8\times8$ and $4\times4$ levels and in the bottleneck. Timestep and class embeddings condition the residual blocks through scale and shift. Training uses exact manifest crops scaled to $[-1,1]$. The selected model adds one attention block after the $16\times16$ encoder stage and has 5,098,915 parameters. The v007 comparison has 5,082,147 parameters. The earlier full-width baseline used 48, 96, 144 and 192 channels and 10,664,371 parameters.
-
-The forward process adds standard Gaussian noise $\epsilon$ to a clean crop $x_0$ at a uniformly sampled timestep $t$ \cite{ho2020ddpm,nichol2021improved}. We use 1,000 timesteps with a cosine cumulative schedule and offset 0.008. The network predicts the noise with a mean squared error objective,
-\begin{align}
-    x_t &= \sqrt{\bar\alpha_t}\,x_0 + \sqrt{1-\bar\alpha_t}\,\epsilon, \\
-    \mathcal L &= \mathbb E\bigl[\lVert\epsilon-\epsilon_\theta(x_t,t,\tilde y)\rVert_2^2 / (3\cdot32^2)\bigr].
-\end{align}
-We replace the requested class with a null label on 10\% of training draws. At inference, classifier-free guidance combines the conditional and null-label estimates \cite{ho2022cfg},
-\[
-    \epsilon_s = \epsilon_\theta(x_t,t,\varnothing) + s\bigl[\epsilon_\theta(x_t,t,y)-\epsilon_\theta(x_t,t,\varnothing)\bigr].
-\]
-Thus $s=1$ uses the conditional prediction. In deterministic DDIM sampling, we reconstruct $\hat x_0$, clip it to $[-1,1]$, recompute the corresponding noise, and combine them using the previous timestep's coefficients \cite{song2020ddim}. The final step returns the clipped clean estimate, scaled to $[0,1]$. A private CPU random generator assigns one noise draw to each output position. The fixed physical execution size keeps convolution and attention shapes stable when the logical microbatch size changes.
-
-The selected fit and original baseline use seed 17, AdamW with betas $(0.9,0.999)$, an effective batch of 128, BF16 training, learning rate $2\times10^{-4}$ with a 2,000-update warm-up, weight decay $10^{-4}$, gradient norm clipping at 1.0, residual dropout 0.10 and an exponential moving average with decay 0.9999. Training draws crops uniformly with replacement. The v007 comparison has 32,000 updates. The selected attention model trained from scratch on 1,399 v009 crops for 32,000 updates and continued for 2,000 updates, keeping the original 63-crop holdout.
-
-The selected sampler uses 50 DDIM steps and CFG 3.25. It adds $0.15(\epsilon_{\rm conditional}-\epsilon_{\rm perturbed})$ at timesteps 149--949, with identity-perturbed encoder attention. Gaussian class-embedding noise has maximum fraction 0.10, annealed to zero as the normalized timestep falls from 0.85 to 0.35. The temporal score setting is 1.03 with sigma 0.5. FreeU doubles the original feature adjustments, scaling half the backbone channels by 1.16 and 1.24 at the two coarsest decoder stages and their skip low-frequency components by 0.80 and 0.60.
-
-\section{Development evaluation}
-The unchanged course evaluator generates 1,000 examples per class and evaluates aggregate quality against the supplied development reference. For memorization it reconstructs the manifest crops, adds their horizontal mirrors, removes near-duplicate reference images, and computes distances to the two nearest training references. A generated crop is flagged when $d_1/d_2<0.5$. The submission limit is 5\% flagged examples.
-
-\begin{table}[htbp]
-\centering
-\small
-\begin{tabular}{lrrrrrr}
+\begin{table}[h]
+\centering\small\setlength{\tabcolsep}{5pt}
+\begin{tabular}{lr}
 \toprule
-Candidate, seed & Accuracy & FID & KID & Precision & Recall & Copies \\
+Step & Images \\
 \midrule
-v007 FreeU, 0 & 92.65\% & 62.75 & .02046 & 72.46\% & 31.31\% & 4.25\% \\
-v007 FreeU, 101 & 93.80\% & 62.58 & .02041 & 72.68\% & 32.63\% & 4.65\% \\
-v007 FreeU, 202 & 93.10\% & 62.17 & .02013 & 72.23\% & 33.96\% & 4.95\% \\
-Attention 34k, 0 & 93.55\% & 60.67 & .01915 & 76.11\% & 34.51\% & 4.25\% \\
-Attention 34k, 101 & 93.40\% & 61.10 & .02000 & 74.78\% & 33.96\% & 3.85\% \\
-Attention 34k, 202 & 92.50\% & 61.16 & .01956 & 74.67\% & 31.08\% & 4.55\% \\
+Raw pool (LAION photographs, mixed with other animals, objects and scenes) & 76{,}250 \\
+Candidate head crops (detector squares + bounded geometry rescue + targeted rescue of detector misses) & 63{,}115 \\
+Passed the Qwen3.5-9B screen (a looser second pass only ordered the review) & 6{,}718 \\
+Agent visual review under the handout rules: crops reviewed / judged valid & 17{,}174 / 7{,}083 \\
+After removing same-photo overlaps, near-duplicates of my crops, duplicate families and holdout sources & 6{,}100 \\
+Added: crops I reviewed personally (50 batches) & 1{,}929 \\
+\midrule
+\textbf{Final training manifest} (3{,}096 cat, 4{,}933 dog; 7{,}719 distinct pool images) & \textbf{\manifestRows} \\
+Pool-only holdout, never trained on (31 cat, 32 dog) & 63 \\
 \bottomrule
 \end{tabular}
-\caption{Current development candidates, each scoring 12/15 on every listed seed. Copies is the official memorization rate. Each evaluation uses 2,000 outputs against the same 904-image dev reference.}
-\label{tab:current}
+\caption{Data pipeline with the number of images after each step (the review also covered crops the screen rejected, so the steps are not a strict funnel). The official evaluator rebuilt all \manifestRows{} crops from the manifest exactly.}
 \end{table}
 
-The v007 export occupies 19.52 MiB and generated 1,000 images in 52.98 seconds in the seed-0 evaluation. The attention export occupies 19.59 MiB and took 53.33 seconds on the same RTX 5060 Ti. The attention fit trained for 3,159.54 seconds through 32k, then 222.35 seconds through 34k. Attention improves FID on every seed and recall on two seeds. Its lowest recall is 31.08\%, compared with 31.31\% for v007. An additional worst-recall veto initially retained v007. Method review removed that added veto. The original minimum-tier and normalized-margin rule selects 34k, with a worst normalized margin of $-1.1161$ versus $-1.2751$. Both exact exports and the original decision remain available. Seeds 303 and 404 remain reserved for final confirmation.
+\textbf{Audit.} I labelled the 200 crops drawn by the official \texttt{audit.py} from my student ID without seeing any agent verdict: \textbf{\auditGood{} of 200 good = \auditPct\,\%} (Wilson 95\,\% interval \auditCI\,\%). Cats \auditCat{} (\auditCatPct\,\%), dogs \auditDog{} (\auditDogPct\,\%); my own reviewed rows \auditPersonal{}, AI-found rows \auditAI{}. Of the \auditBad{} bad crops, \auditEars{} have ears cut by the square, 4 a head under 60\,\%, 2 a covered head or ears and 1 a cut-off head; none was a cartoon, a second head or a wrong label. Ear clipping was worst in re-cropped squares (\auditRecrop{} audited re-crops). The cause is that detector boxes often cover only the face and the agent judged ear margins on small thumbnails. A residual rate of about 3\,\% non-photos (painting, figurine, print on a mug) was found in a 96-crop agent sample and removed. A missed-head sample of 200 unflagged sources found about 1\,\% real heads (Wilson 0.3--3.6\,\%). \textbf{Next:} re-review every crop at 300 px or larger with an explicit ear-margin check, widen or drop failures, retrain and redraw an audit; I did not do this because it needs a full re-review, retraining and a new audit and would void the current one.
 
-\begin{table}[htbp]
-\centering
-\small
-\begin{tabular}{lrrrrr}
-\toprule
-Run & Accuracy & FID & Recall & Memorization & Marks \\
-\midrule
-50k, EMA, DDIM100, CFG 1.0 & 90.15\% & 52.90 & 43.03\% & 57.80\% & 0/15 \\
-21k, EMA, DDIM50, CFG 2.5 & 88.75\% & 78.94 & 25.77\% & 4.75\% & 10/15 \\
-30k small, EMA, DDIM50, CFG 2.5 & 89.80\% & 73.57 & 30.75\% & 3.55\% & 11/15 \\
-\bottomrule
-\end{tabular}
-\caption{Seed-0 development results from the original evaluator JSON files. The 50k baseline exceeded the memorization limit. The 21k and 30k rows share a sampler and differ in model width and update budget.}
-\label{tab:development}
-\end{table}
-
-For the three rows in Table~\ref{tab:development}, KID was $0.009499\pm0.000979$, $0.032239\pm0.001660$, and $0.029215\pm0.001592$, respectively, using the evaluator's reported standard deviation. Precision was 77.77\%, 61.62\%, and 65.82\%. The full-width exports used 40.80 MiB each, and the 5,082,147-parameter smaller export used 19.50 MiB. Recorded seed-0 sampling times were 32.73, 83.67, and 33.30 seconds per 1,000 images on the local RTX 5060 Ti. Measured training times were approximately 83.5, 39.0, and 55.4 minutes. These wall-clock measurements reflect the conditions of their individual runs.
-
-The three 50,000-update learning-rate variants all exceeded the limit on seed 0, with memorization ranging from 46.3\% to 61.9\%. A more controlled continuation fixed the 50-step EMA sampler and guidance at 2.5 and compared 21,000 with 22,000 updates from the same training trajectory. On seed 0, FID fell from 78.94 to 72.89, while memorization rose from 4.75\% to 8.05\%, disqualifying the later checkpoint. The full-width 21,000-update candidate passed all five declared generation seeds.
-
-At the 20,000-update full-width checkpoint, the 500-image seed-0 screen evaluated all 24 combinations of raw or EMA weights, DDIM steps 50, 100 or 200, and guidance 1.0, 1.5, 2.0 or 2.5. All 12 raw settings exceeded the memorization limit, with rates of 36.4--57.8\%. The 12 EMA settings ranged from 0.2\% to 2.4\%. Higher guidance improved class accuracy across the EMA settings. This screening result supported evaluating EMA candidates with 2,000 images.
-
-Reducing the channels to $(32,64,96,128)$ while holding the seed, data, optimizer and sampler fixed yielded zero memorization flags among 2,000 generated crops at each of the matched 21k and 22k snapshots. At those budgets the smaller model's FID was 108.41 and 100.83, respectively. It improved with additional updates, reaching FID 73.57 and 3.55\% memorization on seed 0 at 30k (Figure~\ref{fig:checkpoints}). Across all five seeds, its accuracy was 89.65--91.35\%, FID 71.99--74.23, recall 27.43--31.42\%, and memorization 3.45--4.45\%. This was the best-ranked recipe on the original split. The comparison at 30k uses a different update budget from the full-width 21k run.
-
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=\linewidth]{../figures/F4_checkpoint_metrics/figure.pdf}
-    \caption{Checkpoint metrics with EMA weights, 50 DDIM steps, and guidance 2.5. Both models use training seed 17 and the same 1,197 crops. Each point is an official 2,000-image development evaluation on generation seed 0. The gray line marks the official memorization limit.}
-    \label{fig:checkpoints}
+\begin{figure}[h]
+\centering\includegraphics[width=0.94\linewidth]{fig_audit.pdf}
+\caption{Result of my personal audit of 200 crops: share judged good by group (dot, with 95\,\% Wilson interval) and the reasons for the 40 bad crops. The intervals overlap, so my own rows and the AI-found rows cannot be reliably told apart.}
 \end{figure}
 
-The matched data-quantity run used 500 reviewed crops per class drawn from the same parent manifest, the same holdout, and 50,000 updates from random initialization. Its seed-0 FID was 51.75 and recall was 44.47\%. Memorization rose to 73.75\% from 57.80\% in the 1,197-crop parent run. Both failed the memorization limit. The subset also slightly changed the class proportions, from 48.7\% to 50.0\% cats.
+\section{Methods}
+\textbf{Model.} A U-Net~\cite{ronneberger2015unet} on $3{\times}32{\times}32$ images scaled to $[-1,1]$ with four resolutions (32, 16, 8, 4), widths 32/64/96/128, two residual blocks per level, GroupNorm~\cite{wu2018groupnorm} (8 groups), SiLU and dropout 0.1. Self-attention (4 heads) acts at 8$\times$8, 4$\times$4, the bottleneck and, as an addition that helped in my ablations, at 16$\times$16 in the encoder. A conditioning vector, an MLP of the sinusoidal time embedding plus a learned class embedding with three entries (cat, dog, null), gives a scale and shift to every residual block. \params{} parameters, randomly initialized, no pretrained weights.
 
-The smaller model at 32,000 updates with CFG 2.0 increased seed-0 recall to 36.62\%. At seed 101, the evaluator flagged 100 of 2,000 generated crops and rejected the candidate because its stored floating-point rate was just above 5\%. The 30k version with 100 DDIM steps tied the existing 50-step version on minimum selection marks, with worst-seed FID of 74.64 versus 74.07. The selection rule retained the 50-step export.
+\textbf{Diffusion and training.} With the cosine schedule~\cite{nichol2021improved}, $\bar\alpha_t=f(t)/f(0)$, $f(t)=\cos^2\!\big(\tfrac{t/T+s}{1+s}\tfrac{\pi}{2}\big)$, $T{=}1000$, $s{=}0.008$, a crop $x_0$ is noised as $x_t=\sqrt{\bar\alpha_t}\,x_0+\sqrt{1-\bar\alpha_t}\,\epsilon$, $\epsilon\sim\mathcal N(0,I)$ \cite{ho2020ddpm}. The network predicts the noise, trained with
+\begin{equation}
+\mathcal L(\theta)=\mathbb E_{x_0,y,t,\epsilon}\,\big\|\epsilon_\theta(x_t,t,\tilde y)-\epsilon\big\|_2^2,\qquad \tilde y=\varnothing\ \text{with probability }0.1,\ \text{else } y,
+\end{equation}
+$t$ uniform on $\{0,\dots,T{-}1\}$ and each exact manifest crop mirrored left--right with probability 0.5 (the evaluator already counts mirrors as copies). AdamW~\cite{loshchilov2019adamw} with learning rate $2{\times}10^{-4}$ after 2{,}000 warm-up updates, weight decay $10^{-4}$, batch 128, gradient clipping 1.0, bfloat16, and an exponential moving average $\theta_{\text{EMA}}\leftarrow0.9995\,\theta_{\text{EMA}}+0.0005\,\theta$ whose weights are submitted.
 
-On the full-width model, increasing residual dropout from 0.10 to 0.25 at the matched 22,000-update budget reduced seed-0 memorization from 8.05\% to 0.20\%. FID increased from 72.89 to 119.97 and recall fell from 27.32\% to 19.91\%. With higher dropout, training to 26,000 updates recovered some quality. The two promoted guidance settings scored 8 and 9 marks out of 15 on seed 0 and fell below the small model's minimum selection score of 10. The 30,000-update higher-dropout screens flagged more than 10\% of their 500 generated crops. This experiment favored the smaller U-Net with dropout 0.10 for the reviewed pool and settings tested.
+\textbf{Sampling.} DDIM~\cite{song2020ddim} with $S{=}50$ uniformly spaced steps and classifier-free guidance~\cite{ho2022cfg} $\tilde\epsilon=\epsilon_\varnothing+w(\epsilon_y-\epsilon_\varnothing)$, $w{=}2.75$, plus perturbed-attention guidance~\cite{ahn2024pag} $\tilde\epsilon\mathrel{+}=0.15(\epsilon_y-\epsilon_y^{\text{pert}})$ for $149\le t\le949$ (one encoder attention layer replaced by identity), a temporal rescale $\tilde\epsilon\leftarrow s_t\tilde\epsilon$ with $s_t=\frac{\bar\alpha_t\sigma^2+1-\bar\alpha_t}{\bar\alpha_t\sigma^2/1.03+1-\bar\alpha_t}$, $\sigma{=}0.5$, class-embedding noise up to 10\,\% at high noise, and FreeU~\cite{si2024freeu} strength 2.0 in the decoder. Each step forms $\hat x_0=\mathrm{clip}_{[-1,1]}\big((x_t-\sqrt{1-\bar\alpha_t}\,\tilde\epsilon)/\sqrt{\bar\alpha_t}\big)$, $\hat\epsilon=(x_t-\sqrt{\bar\alpha_t}\hat x_0)/\sqrt{1-\bar\alpha_t}$ and $x_{t'}=\sqrt{\bar\alpha_{t'}}\hat x_0+\sqrt{1-\bar\alpha_{t'}}\hat\epsilon$. The starting noise of each output comes from a private CPU generator seeded by the caller's seed (one draw per output position), the caller's random state is preserved, and a fixed physical batch of 32 keeps every output independent of the other labels in a batch.
 
-The same small-model recipe was trained from random initialization with seeds 29 and 43. We compared each with seed 17 on generation seeds 0, 101 and 202. Seed 29 passed all three evaluations at 10/15, with FID 93.07--93.78 versus 71.99--74.07 for seed 17. Seed 43 produced FID 73.65--74.53 and two valid evaluations. Its remaining evaluation flagged 100 of 2,000 samples and triggered the unchanged floating-point memorization check. The selection retained training seed 17. These three training runs show that both sample quality and the margin to the memorization limit can vary under the same recipe.
-
-The student corrected the side length of one crop from 250 to 260 pixels and renewed its duplicate decision. The holdout bytes were unchanged. A fresh seed-17 run on the corrected manifest took 46.9 minutes and used the same 30,000-update recipe. The 5,082,147-parameter export occupied 19.50 MiB and sampled 1,000 images in 32.90 seconds on seed 0. Table~\ref{tab:corrected} reports the three full evaluations. Each scored 11/15. The accuracy, FID and recall excellent-tier thresholds remain unmet.
-
-\begin{table}[htbp]
-\centering
-\begin{tabular}{rrrrrrr}
+\section{Results}
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{4.5pt}
+\begin{tabular}{rrrrrrrr}
 \toprule
-Seed & Accuracy & FID & KID $\pm$ SD & Precision & Recall & Memorization \\
+Seed & Accuracy & FID & KID ($10^{-3}$) & Precision & Recall & Memorization & Marks \\
 \midrule
-0   & 89.40\% & 72.80 & $0.028978\pm0.001514$ & 65.15\% & 30.20\% & 4.40\% \\
-101 & 89.95\% & 72.01 & $0.028275\pm0.001349$ & 65.27\% & 32.30\% & 4.10\% \\
-202 & 89.60\% & 71.59 & $0.028385\pm0.001260$ & 64.60\% & 30.53\% & 4.60\% \\
+\officialRows
+\midrule
+\multicolumn{8}{l}{All \nSeeds{} seeds: accuracy \accMean{} (\accMin--\accMax), FID \fidMean{} (\fidMin--\fidMax), recall \recallMean{} $\pm$ \recallSD{} (\recallMin--\recallMax),}\\
+\multicolumn{8}{l}{precision \precMean{} (\precMin--\precMax), memorization at most \memMax\,\%; \nFifteen{} of \nSeeds{} seeds earn 15 marks.}\\
 \bottomrule
 \end{tabular}
-\caption{Corrected v002 reference against the supplied development set. Each run generated 2,000 crops with EMA, 50 DDIM steps and guidance 2.5. The standard deviation is the official evaluator's KID estimate for that run.}
-\label{tab:corrected}
+\caption{Official evaluator (1{,}000 images per class, batch 500, grading mode) run on \texttt{submission/} itself; seed 0 is the headline. Thresholds for 5 marks each: accuracy $\ge$0.90, FID $\le$50, recall $\ge$0.40; memorization must stay $\le$5\,\%. \params{} parameters, \sizeMB\,MB on disk. Hardware: one NVIDIA RTX 5090 (shared) and an Intel Core Ultra 7 265K. Training: \trainHours\,h for the 80k-update checkpoint (two runs shared the GPU; the full 160k-update run took 2.6\,h). Sampling: about \sampleSpeed\,s per 1{,}000 images on the GPU.}
 \end{table}
 
-Replacing the noise target with $v_t=\sqrt{\bar\alpha_t}\,\epsilon-\sqrt{1-\bar\alpha_t}\,x_0$ gave FID 93.43--95.45 and memorization 37.90--39.00\% in the matched 30k run \cite{salimans2022progressive}. The three seeds exceeded the 5\% limit. On the corrected noise-prediction checkpoint, starting DDIM at timestep 990 scored 10, 11 and 11 marks in the full evaluations. At 100 steps, seed 0 scored 10/15 (FID 73.91, recall 29.20\%, memorization 4.35\%). The 50-step reference retained the higher rank.
+\begin{table}[t]
+\centering\small\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrcrrrrr}
+\toprule
+Model & Images & Marks (seeds 0/101/202) & Acc. & FID & Recall & Prec. & Mem. \\
+\midrule
+\progressRows
+\bottomrule
+\end{tabular}
+\caption{Development path with the same evaluator; metrics are means over the listed seeds. v009 is the 12/15 model I started this phase with; v010 adds all my reviewed batches, then mirroring; v011--v014 add AI-found images (v012 and v013 use stricter agent review, so fewer images). Guidance and sampler settings differ slightly between rows (v009/v010: guidance 3.25, v010 + mirror: 3.0, v011--v014: 2.75).}
+\end{table}
 
-The matched Min-SNR run used $\operatorname{SNR}_t=\bar\alpha_t/(1-\bar\alpha_t)$ and per-example weight $\min(\operatorname{SNR}_t,5)/\operatorname{SNR}_t$ \cite{hang2023minsnr}. FID on seed 0 fell from 207.06 at 20k updates to 90.97 at 30k. Memorization reached 19.65\% at 28k and 30.60\% at 30k. The best valid snapshot scored 7/15 at 24k, below the matched unweighted reference.
-
-Introducing trajectory noise with DDIM $\eta=0.35$ and $0.70$ on the corrected reference raised seed-0 accuracy to 90.80\% and 92.00\%. FID increased to 76.47 and 78.44, and memorization reached 5.15\% and 7.60\%. Both settings exceeded the limit.
-
-An EDM experiment kept the small U-Net, optimizer, EMA, seed and exact v002 crops. It changed the noise distribution, denoiser preconditioning and loss, and used 26 deterministic Heun noise levels \cite{karras2022edm}. At 24k updates it scored 5/15 on seed 0 with FID 147.67, recall 6.86\% and memorization 1.10\%. The 28k and 30k snapshots exceeded the 5\% cap, with rates of 8.55\% and 14.75\%. The 30k snapshot reached 90.85\% accuracy, FID 103.11 and 18.14\% recall. The comparison retained the original v002 DDIM reference.
-
-We also packed each noisy image into either 64 patches of $4\times4$ pixels or 16 patches of $8\times8$ pixels. This rearranged pixels into channels and preserved a full-image noise target. Both variants used the same conditioned pixel-resolution refinement branch and the reference training and sampling settings. At the matched 30k budget, the 4-pixel variant scored 2/15 with FID 220.25 and recall 0.22\%. The 8-pixel variant scored 1/15 with FID 237.26 and recall 0.00\%. Both had zero memorization flags and substantially worse distribution coverage than the v002 reference. The 4-pixel variant had lower mean noise MSE over the four routine pool holdout timesteps, yet at timestep 990 its guided noise MSE was 0.02459 versus 0.00406 for the reference. The high-noise probe and full generation results together show the limits of using routine denoising loss to rank these models.
-
-With 24 additional personally reviewed pool crops and the same holdout, the matched 30k U-Net run scored 11/15 on generation seed 0. Relative to the reference on that seed, recall rose from 30.20\% to 33.52\%, while FID rose from 72.80 to 74.42 and accuracy fell from 89.40\% to 88.10\%. Official memorization was 3.95\% for the larger manifest and 4.40\% for the reference. Each official run uses the nearest-neighbor library reconstructed from its own manifest. With the original manifest and weights, a deterministic 50-step DPM-Solver++ comparison scored 10/15, with FID 79.46, recall 29.20\%, and memorization 4.25\% \cite{lu2022dpmpp}. Both comparisons retained the DDIM50 reference.
-
-The larger v006 manifest added 99 crops, an 8.3\% increase. With the same 30k update budget and sampler, seed 0 scored 10/15. Accuracy was 89.50\%, FID 72.13, recall 25.88\%, and memorization 2.55\%. Both runs drew 3.84 million training examples with replacement, so the expected draws per crop fell from 3,208 to 2,963 as the dataset grew. At 32k updates, v006 reached FID 70.85, recall 28.43\%, and memorization 4.05\%. The grader assigned four accuracy marks for a stored value slightly below 90\%. The score stayed at 10/15 and the v002 reference kept its higher rank.
-
-Using the exact v002 checkpoint, we matched the guided noise prediction's standard deviation to the conditional prediction per image, then mixed 25\% of that rescaled prediction into the original guidance \cite{lin2024rescale}. The three development seeds scored 12, 12 and 11 out of 15, with FID 70.53--72.16, recall 30.75--34.62\%, and memorization 4.30--4.85\%. The 50\% rescale setting exceeded the memorization cap on seed 202. The 25\% setting passed all three runs and improved the worst normalized margin.
-
-A v006 self-conditioning model used its detached clean prediction as an input on about half the training microbatches and passed that prediction between DDIM steps \cite{chen2023analogbits}. It passed the fixed two-crop diagnostic, but official recall was zero at both 28k and 30k. At 30k it scored 1/15 with FID 268.22. On v002, dynamic thresholding at the highest three sampled timesteps scored 12/15 on seed 0 with FID 74.20 and memorization 3.95\%. An equal average of the 28k and 30k EMA weights scored 10/15 with FID 73.94 and memorization 3.55\%. The three-seed rescale setting retained the lead.
-
-Increasing v006 residual dropout from 0.10 to 0.15 lowered seed-0 memorization at 30k from 2.55\% to 1.05\% and raised accuracy from 89.50\% to 90.20\%. Recall fell from 25.88\% to 23.67\%, while FID changed from 72.13 to 72.30. The 28k and 30k checkpoints scored 10/15 and 11/15, respectively. These single-seed results did not meet the gate for additional evaluation.
-
-Restricting CFG on the v002 0.25 rescale candidate scored 11/15 on seed 0 in both trials. Disabling guidance below timestep 149 gave FID 77.85 and recall 30.20\%. Also disabling guidance above timestep 949 gave FID 77.68 and recall 30.53\%. Both remained below the full-interval candidate's seed-0 score of 12/15.
-
-Adding a variance-normalized $4\times4$ block-average loss to the full-resolution epsilon objective on v002 scored 8/15 at 28k and 9/15 at 30k on seed 0. The 30k checkpoint reached FID 87.62, recall 22.12\%, and memorization 4.90\% under the matched 0.25 rescale sampler. The block-average term preserved exact training crops and the pixel-resolution architecture. Neither checkpoint advanced.
-
-Averaging denoiser predictions for original and horizontally reflected inputs at sampling time lowered seed-0 memorization to 0.05\%, but FID increased to 100.63 and recall fell to 17.15\%. The score was 7/15.
-
-Temporal score rescaling with a local scale of 0.5 produced 11/15 on seed 0 with factor 0.93. Factor 1.07 reduced FID to 70.10, 69.22 and 68.60 across the three selection seeds. Memorization reached 5.35\% on seed 202, so the setting failed the hard condition.
-
-Perturbed-attention guidance on the same v002 checkpoint lowered seed-0 FID to 65.18, with recall 32.19\%. Memorization reached 11.15\%, yielding 0/15. In a matched v006-to-v007 training comparison, 13 additional personally approved and deduplicated crops raised seed-0 recall at 30k from 25.88\% to 30.75\% and reduced memorization from 2.55\% to 1.60\%. Accuracy changed from 89.50\% to 88.45\% and FID from 72.13 to 74.92. The v007 result scored 11/15.
-
-On v007, PAG 0.5 improved seed-0 FID from 74.92 to 70.16 and recall from 30.75\% to 32.52\%. Memorization rose to 3.05\% and accuracy reached 88.85\%. The score remained 11/15.
-
-Raising CFG from 2.5 to 3.0 on that same v007 export configuration gave FID 67.67, recall 32.52\%, accuracy 89.75\%, and memorization 3.95\% on seed 0. The score was 11/15. The v002 0.25 rescale candidate remained the strongest configuration evaluated across all three selection seeds.
-
-Raising CFG further to 3.25 on v007 gave FID 66.68, recall 33.74\%, accuracy 89.90\%, memorization 4.40\%, and 11/15 on seed 0. On the v002 data, a separate matched scratch fit with AdamW weight decay 0.03 scored 10/15 at 28k and 11/15 at 30k. Its 30k result gave FID 71.65, recall 31.08\%, and memorization 3.25\%. Neither setting advanced to additional seeds.
-
-Continuing v007 from 30k to 32k with CFG 3.25 and PAG 0.5 reduced seed-0 FID to 64.85. Memorization rose to 5.65\%. On the same 32k weights, PAG 0.30 exceeded the 5\% cap on two of three seeds. PAG 0.15 scored 12/15 on all three development seeds, with accuracy 90.30--91.35\%, FID 64.52--67.08, recall 32.19--33.85\%, and memorization 4.00--4.45\%.
-
-A fresh v007 fit added independent Gaussian input perturbation at strength 0.1 during training and retained the original epsilon target and matched sampler. At 32k its seed-0 evaluation scored 12/15, with FID 70.88, recall 31.97\%, and memorization 3.35\%. It did not advance under the declared selection rule.
-
-Applying temporal score sharpening at 1.03 to the selected v007 weights again scored 12/15 on all three development seeds. FID improved to 63.71--66.28, recall was 31.08--34.85\%, and memorization remained within 4.05--4.65\%. This improved the worst normalized margin. A 1.05 screen on seed 0 scored 12/15 with FID 65.96 and memorization 4.15\%, below the declared margin gain for additional seeds.
-
-The class-annealed reference keeps the same 32k weights and 50 DDIM steps, adds Gaussian noise to the class embedding early in the trajectory, and anneals its noise fraction from a maximum of 0.10 to zero before the final steps. On seeds 0, 101 and 202, it achieved FID 65.05, 64.49 and 64.69, with recall 34.29\%, 30.64\% and 31.75\%. The rubric's top-band targets are FID at most 50 and recall at least 40\%. Each seed passes the 5\% memorization gate.
-
-At 32k updates, expanding the reviewed set to 1,369 crops scored 12/15 on seed 0 (FID 66.82, recall 34.29\%). A 1,399-crop fit scored 11/15 (FID 71.02, recall 28.76\%). Appearance-weighted sampling on the 1,399-crop set scored 11/15, and the Haar and rectified-flow variants scored 7/15 and 0/15 in their respective seed-0 screens. Extending the 1,399-crop pixel-space fit to 36k exceeded the memorization cap at CFG 3.25. Lowering CFG to 3.0 recovered 12/15 (FID 68.12, recall 31.42\%, memorization 4.65\%). These single-seed results support retaining v007 for development.
-
-An adaptation of FreeU \cite{si2024freeu} reweighted the backbone and skip features at the two coarsest decoder resolutions. With the same weights and CFG 3.25, FID fell to 61.47--62.00 over three seeds. The seed-202 memorization rate of 5.10\% triggered the hard gate, yielding scores of 12/15, 12/15 and 0/15. At CFG 3.10, all three seeds passed and scored 12/15. FID improved on every seed relative to the class-annealed reference. Recall improved on two seeds. Peak memorization increased from 4.30\% to 4.95\%, so both exact exports remain available for comparison.
-
-\IfFileExists{../private_build/report_v002_reference_grid/figure.pdf}{
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.90\linewidth]{../private_build/report_v002_reference_grid/figure.pdf}
-  \caption{The first 16 outputs per class from the corrected v002 reference on generation seed 0. Each image is a $32\times32$ output displayed with nearest-neighbor enlargement.}
-  \label{fig:corrected-grid}
+\begin{figure}[t]
+\centering\includegraphics[width=0.80\linewidth]{fig_grid_seed0.png}
+\caption{The evaluator's own sample grid of the submitted model, seed 0: rows 1--4 are cats, rows 5--8 are dogs (16 images per row). The image file is saved by the unchanged official evaluator.}
 \end{figure}
-}{}
 
-On the exact 34k attention weights, three individual reductions in CFG (3.25 to 3.10), PAG (0.15 to 0.10), and FreeU strength (2.0 to 1.8) all scored 12/15 on seed 0 and worsened FID or recall. FreeU 2.2 scored 12/15 with FID 60.52, recall 33.96\% and memorization 4.25\%. A matched continuation from the same 32k checkpoint halved the late learning rate to $10^{-4}$. At 34k it scored 12/15 with FID 60.42, recall 34.29\% and memorization 4.50\%. At 35k, memorization reached 5.05\%, causing 0/15 despite FID 60.09. Transferring FreeU 2.2 to that 35k checkpoint passed the copy gate at 4.85\%, but FID was 60.0037 and its score remained 12/15. These exact scores illustrate the sensitivity near the FID and memorization boundaries.
+\begin{figure}[t]
+\centering\includegraphics[width=0.92\linewidth]{fig_progress.pdf}
+\caption{More valid training images (right) lift recall and lower FID. The strictly reviewed v012 and v013 sets are smaller and have lower recall than v011.}
+\end{figure}
 
-\section{Independent checks and limitations}
-The single-batch diagnostic lowered fixed-probe noise MSE from 1.155416 to 0.017217 in 2,000 updates. A separate EDM preconditioning diagnostic on two reviewed crops reduced its own fixed-probe MSE from 1.19148 to 0.01261 in 2,000 updates \cite{karras2022edm}. Offline CPU and CUDA checks covered output shape and range, repeatability, label isolation and preservation of caller RNG. The student will independently verify data reconstruction, model behavior and evaluation in \texttt{AGENT\_LOG.md}. The personal audit will quantify remaining crop errors. Seed variability describes repeated sampling against the development reference.
+\begin{figure}[t]
+\centering
+\begin{minipage}[c]{0.50\linewidth}\centering
+\includegraphics[width=\linewidth]{fig_seeds.pdf}
+\captionof{figure}{Recall of all \nSeeds{} evaluated seeds, sorted. Only seed \lowSeed{} falls below 0.40.}
+\end{minipage}\hfill
+\begin{minipage}[c]{0.46\linewidth}\centering\small
+\begin{tabular}{@{}lr@{}}
+\toprule
+Hard limit or check & Result \\
+\midrule
+Parameters ($\le$20\,M) & \params \\
+Size on disk ($\le$100\,MB) & \sizeMB\,MB \\
+Memorization ($\le$5\,\%) & 0.00\,\% \\
+Deterministic generation & \chkDet \\
+Different seed, different images & \chkSeed \\
+Accuracy, single-class vs mixed batches & \chkSingle{} vs \chkMixed \\
+Manifest rebuilt by the evaluator & \manifestRows{} of \manifestRows \\
+\bottomrule
+\end{tabular}
+\captionof{table}{Hard limits and interface checks reported by the evaluator (seed 0).}
+\end{minipage}
+\end{figure}
 
-Coding assistance supported curation tools, experiments and verification. Scientific Agent Skills informed experiment design and evidence documentation \cite{kassis2026skills}.
+\textbf{What drove the result.} Mirroring was the largest single change (v010: 13 to 14 marks, memorization 1.65\,\% to 0\,\%), then more valid training images: recall rose from about 0.32 with 1.9k images to 0.42 with 8k, and FID fell below 50 (Fig.~2). On the final data a wider 10.7M-parameter model raised accuracy (\wideAcc{} vs \smallAcc) and precision (\widePrec{} vs \smallPrec) but lowered mean recall (\wideRecall{} vs \smallRecall) and earned 15 marks on only \wideAtFifteen{} of 15 seeds (the final model: \smallAtFifteen{} of 15), so I kept the small model.
 
+\textbf{Sample quality and limits.} I counted unrecognizable samples in the official grids, i.e.\ tiles where I can hardly or not at all tell whether they show a cat, a dog or even an animal because of distortion or misplaced head parts: \textbf{39 of 128} in seed 0 (cats 10/64, dogs 29/64) and \textbf{60 of 128} in seed 31415 (cats 21/64, dogs 39/64). Dogs fail more often than cats, and the official metrics do not show this: accuracy is 0.97 and precision 0.80. The agent had described the grid as having ``about 6--8 distorted dog tiles'', which my count shows was far too optimistic. Other limits: recall margin (seed \lowSeed{}), ear clipping in the data, only 8k training images, and the hidden test set and seed may behave differently from the dev set. The memorization check passed on every seed (0.00\,\%), but the evaluator compares only against training crops and mirrors with a pixel metric.
+
+\section{What did not work}
+Full details for all 94 experiment folders are in \texttt{EXPERIMENTS.md}.
+\begin{itemize}
+\item \textbf{Memorization at about 1.2k images} was the binding limit early on: 13 of 94 experiment folders have 0 marks because memorization exceeded 5\,\% (up to 74\,\%).
+\item \textbf{Alternative objectives and architectures} at matched budget (Min-SNR~\cite{hang2023minsnr}, EDM~\cite{karras2022edm}, velocity prediction, pixel patches, flow matching, Haar wavelets) were all worse than the plain noise-prediction U-Net (FID 87--220 versus 72); self-conditioning~\cite{chen2023analogbits} failed to train usefully; dropout 0.15/0.25 and higher weight decay did not help.
+\item \textbf{Sampler tricks} (FreeU, PAG, temporal rescale, class-noise annealing) each gained a few FID points and are in the final sampler, but alone could not get below FID 60 at 1.4k images. DPM-Solver++~\cite{lu2022dpmpp}, stochastic DDIM, CFG rescale and interval guidance~\cite{kynkaanniemi2024interval} gave no reliable gain.
+\item \textbf{Cleaner but smaller data lowered recall}: my first strict agent review (v012, v013) kept fewer valid heads, and recall fell from 0.40 to 0.35--0.38. I then switched to the exact handout rules.
+\item \textbf{Longer training and a wider network} did not help the final model: the 120k checkpoint lost a mark on 1 of 15 seeds, and the 10.7M-parameter model scored 15 on only 9--12 of 15 seeds because its recall was lower.
+\end{itemize}
+
+\section{Working with coding agents}
+\student{rewrite this section in your own voice; the facts below come from the project records}
+\begin{itemize}
+\item \textbf{Delegated.} A coding agent (Claude Code) wrote and ran the curation pipeline (detectors, CLIP and Qwen screening, ranking, duplicate removal), all training and evaluation drivers, the offline checks and the release tooling, and it reviewed about 17{,}000 crops. I made the policy decisions (which data rule to apply, which checkpoint to submit) and reviewed 1{,}929 crops myself.
+\item \textbf{Where it helped.} Scale (63{,}115 candidates), 207 unit tests, containerized and resumable GPU jobs, a 94-folder experiment log, and fast iteration over many ideas.
+\item \textbf{Check 1, data.} The agent reported that its approved crops had only about 3\,\% problems. I labelled 200 random crops against the handout without seeing its verdicts and found 20\,\% bad, mostly cut ears. \emph{Change:} an AGENTS.md rule to check ear margins at larger size and to test every handout criterion in spot checks.
+\item \textbf{Check 2, results.} The agent reported 15/15 on every one of 60 seeds. I reran the unchanged official evaluator on \texttt{submission/}: seed 0 matched exactly, but my own seed \lowSeed{} scored 14/15 (recall \lowRecall). \emph{Change:} AGENTS.md rules to report ``X of Y seeds'' with spread and threshold risk, and to count unrecognizable tiles in sample grids exactly and separately for cats and dogs.
+\item \textbf{Check 3, interface.} \student{describe your own interface probes (determinism, seed sensitivity, label independence, batch independence, value range) and their outcome}
+\item \textbf{Where it misled me.} The ear-clipping and ``every seed'' claims above, an optimistic ``6--8 distorted dogs'' description of the sample grid (my count is 29 of 64 dogs), and an early review rule stricter than the handout that cost recall. It also changed a file covered by a frozen experiment plan, so chained jobs failed until the original bytes were restored.
+\end{itemize}
+
+\label{mainend}
 \clearpage
-\makeatletter
-\immediate\write\@auxout{\string\newlabel{maintextend}{{}{\number\numexpr\value{page}-1\relax}}}
-\makeatother
 \bibliographystyle{plain}
 \bibliography{references}
+\appendix
+\section*{Appendix A: settings}
+\small
+\begin{tabular}{@{}lp{0.80\linewidth}@{}}
+\toprule
+Item & Value \\
+\midrule
+Manifest & \texttt{submission/manifest.csv} (v014), 8{,}029 rows, holdout of 63 pool crops (31 cat, 32 dog) \\
+Model & channels 32/64/96/128, 2 blocks per level, 4 heads, conditioning 256, dropout 0.1, extra 16$\times$16 encoder attention \\
+Training & seed 17, batch 128 (2 micro-batches of 64), AdamW $2{\times}10^{-4}$, $\beta=(0.9,0.999)$, wd $10^{-4}$, warm-up 2{,}000, EMA 0.9995, mirror 0.5, null label 0.1, bf16 \\
+Sampler & DDIM 50 steps, $w=2.75$, PAG 0.15, temporal rescale 1.03 ($\sigma=0.5$), class noise 0.1, FreeU 2.0, execution batch 32 \\
+Selected checkpoint & 80{,}000 updates of a 160{,}000-update run; chosen among 80k--160k by a rule fixed before the results; see \texttt{DECISION\_LOG.md} \\
+Reproduction & \texttt{README.md} lists one command per number; the numbers above are generated by \texttt{scripts/build\_report\_assets.py} \\
+\bottomrule
+\end{tabular}
 \end{document}
